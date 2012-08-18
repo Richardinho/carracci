@@ -107,7 +107,7 @@ describe("Class builders", function() {
                     .type("String")
                     .build();
             });
-
+                           Glenmorangie.stubData.ClassBuilder
             it("should have a name", function () {
                 expect(builtObject.name).toEqual("foo");
             });
