@@ -64,82 +64,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="classBuilderTest.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/spec/classBuilderTest.js">
+      <file leaf-file-name="connector.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web/js/spikes/connector.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="109" column="61" selection-start="3772" selection-end="3772" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="spike.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/js/spikes/spike.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="0" selection-start="806" selection-end="846" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="threeNodes.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/js/spikes/threeNodes.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="196" column="14" selection-start="5184" selection-end="5184" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="svgUtilities.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/js/utility/svgUtilities.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="16" selection-start="837" selection-end="837" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tempNodeAttach.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/js/spikes/tempNodeAttach.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="79" selection-start="121" selection-end="121" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="constraints.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/web/js/spikes/constraints.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="57" selection-start="711" selection-end="711" vertical-scroll-proportion="0.4233871">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="svgUtilsTestSpecRunner.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/svgUtilsTestSpecRunner.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="65" selection-start="773" selection-end="773" vertical-scroll-proportion="-1.25">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="namespaceTestSpecRunner.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/namespaceTestSpecRunner.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="0" selection-start="639" selection-end="724" vertical-scroll-proportion="-3.75">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="svgUtilsTest.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/spec/svgUtilsTest.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="35" selection-start="212" selection-end="212" vertical-scroll-proportion="0.0">
+            <state line="76" column="22" selection-start="1902" selection-end="1902" vertical-scroll-proportion="-0.21625164">
               <folding />
             </state>
           </provider>
@@ -148,7 +76,16 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="82" selection-start="475" selection-end="475" vertical-scroll-proportion="-7.5">
+            <state line="9" column="61" selection-start="303" selection-end="303" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="threeNodes.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/js/spikes/threeNodes.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="161" column="0" selection-start="4345" selection-end="4730" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -164,7 +101,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/spec/namespaceTest.js" />
         <option value="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/stubJsonDataTestSpecRunner.html" />
         <option value="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/spec/stubJsonDataTest.js" />
         <option value="$PROJECT_DIR$/web/js/stubJsonData.js" />
@@ -175,11 +111,12 @@
         <option value="$PROJECT_DIR$/web/js/twoNodes.js" />
         <option value="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/spec/svgUtilsTest.js" />
         <option value="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/svgUtilsTestSpecRunner.html" />
-        <option value="$PROJECT_DIR$/web/index.html" />
         <option value="$PROJECT_DIR$/web/js/utility/svgUtilities.js" />
         <option value="$PROJECT_DIR$/web/js/spikes/threeNodes.js" />
         <option value="$PROJECT_DIR$/web/js/spikes/tempNodeAttach.js" />
         <option value="$PROJECT_DIR$/web/js/spikes/constraints.js" />
+        <option value="$PROJECT_DIR$/web/index.html" />
+        <option value="$PROJECT_DIR$/web/js/spikes/connector.js" />
       </list>
     </option>
   </component>
@@ -213,8 +150,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Favorites" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -400,6 +335,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Favorites" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -412,9 +349,9 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/web/js/spikes" />
       <recent name="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/spec" />
       <recent name="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0" />
-      <recent name="$PROJECT_DIR$/web/js/spikes" />
     </key>
   </component>
   <component name="RunManager">
@@ -626,11 +563,6 @@
         <state line="22" column="0" selection-start="943" selection-end="943" vertical-scroll-proportion="-8.5" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/spikes/twoNodes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="46" selection-start="878" selection-end="878" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/js/classBuilder.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="48" vertical-scroll-proportion="0.0" />
@@ -641,23 +573,14 @@
         <state line="33" column="0" selection-start="806" selection-end="846" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="82" selection-start="475" selection-end="475" vertical-scroll-proportion="-7.5">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/spec/svgUtilsTest.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="35" selection-start="212" selection-end="212" vertical-scroll-proportion="0.0" />
+        <state line="9" column="35" selection-start="212" selection-end="212" vertical-scroll-proportion="0.17693315" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/namespaceTestSpecRunner.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="0" selection-start="639" selection-end="724" vertical-scroll-proportion="-3.75">
-          <folding />
-        </state>
+        <state line="15" column="0" selection-start="639" selection-end="724" vertical-scroll-proportion="0.14749661" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/spec/classBuilderTest.js">
@@ -667,35 +590,44 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/svgUtilsTestSpecRunner.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="65" selection-start="773" selection-end="773" vertical-scroll-proportion="-1.25">
+        <state line="14" column="65" selection-start="773" selection-end="773" vertical-scroll-proportion="0.066305816" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/utility/svgUtilities.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="16" selection-start="837" selection-end="837" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/spikes/tempNodeAttach.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="79" selection-start="121" selection-end="121" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/spikes/twoNodes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="46" selection-start="878" selection-end="878" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/spikes/constraints.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="66" selection-start="779" selection-end="779" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="61" selection-start="303" selection-end="303" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/js/spikes/threeNodes.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="196" column="14" selection-start="5184" selection-end="5184" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="161" column="0" selection-start="4345" selection-end="4730" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/utility/svgUtilities.js">
+    <entry file="file://$PROJECT_DIR$/web/js/spikes/connector.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="16" selection-start="837" selection-end="837" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/spikes/tempNodeAttach.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="79" selection-start="121" selection-end="121" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/spikes/constraints.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="57" selection-start="711" selection-end="711" vertical-scroll-proportion="0.4233871">
+        <state line="76" column="22" selection-start="1902" selection-end="1902" vertical-scroll-proportion="-0.21625164">
           <folding />
         </state>
       </provider>
