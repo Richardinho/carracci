@@ -67,7 +67,16 @@
       <file leaf-file-name="connector.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/js/spikes/connector.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="199" column="34" selection-start="5174" selection-end="5174" vertical-scroll-proportion="0.6068152">
+            <state line="45" column="12" selection-start="1250" selection-end="1250" vertical-scroll-proportion="0.53079945">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="svgUtilities.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/js/utility/svgUtilities.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="11" column="61" selection-start="305" selection-end="305" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -150,7 +159,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -335,8 +343,9 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Favorites" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -593,11 +602,6 @@
         <state line="14" column="65" selection-start="773" selection-end="773" vertical-scroll-proportion="0.066305816" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/utility/svgUtilities.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="16" selection-start="837" selection-end="837" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/js/spikes/tempNodeAttach.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="79" selection-start="121" selection-end="121" vertical-scroll-proportion="0.0" />
@@ -615,9 +619,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="61" selection-start="303" selection-end="303" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="9" column="61" selection-start="303" selection-end="303" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/js/spikes/threeNodes.js">
@@ -625,9 +627,16 @@
         <state line="161" column="0" selection-start="4345" selection-end="4730" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/utility/svgUtilities.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="61" selection-start="305" selection-end="305" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/web/js/spikes/connector.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="199" column="34" selection-start="5174" selection-end="5174" vertical-scroll-proportion="0.6068152">
+        <state line="45" column="12" selection-start="1250" selection-end="1250" vertical-scroll-proportion="0.53079945">
           <folding />
         </state>
       </provider>
