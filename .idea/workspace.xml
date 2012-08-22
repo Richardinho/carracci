@@ -64,55 +64,46 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="connector.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/js/spikes/connector.js">
+      <file leaf-file-name="umlClass2.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web/js/spikes/umlClass2.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="0" selection-start="2" selection-end="78" vertical-scroll-proportion="0.0">
+            <state line="6" column="0" selection-start="87" selection-end="87" vertical-scroll-proportion="0.11795544">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="twoNodes.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/js/spikes/twoNodes.js">
+      <file leaf-file-name="classFormatters.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/js/classFormatters.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="56" column="0" selection-start="1213" selection-end="1213" vertical-scroll-proportion="0.0">
+            <state line="84" column="32" selection-start="2126" selection-end="2126" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="umlClass.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/web/js/spikes/umlClass.js">
+      <file leaf-file-name="classFormatterTest.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/spec/classFormatterTest.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="112" selection-start="372" selection-end="372" vertical-scroll-proportion="0.17693315">
+            <state line="192" column="54" selection-start="6326" selection-end="6326" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="umlClass.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/umlClass.html">
+      <file leaf-file-name="classBuilder.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/js/classBuilder.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="14" selection-start="429" selection-end="429" vertical-scroll-proportion="-10.0">
+            <state line="0" column="0" selection-start="0" selection-end="48" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="svgUtilities.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/js/utility/svgUtilities.js">
+      <file leaf-file-name="umlClass2.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/umlClass2.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="61" selection-start="305" selection-end="305" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="threeNodes.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/js/spikes/threeNodes.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="161" column="0" selection-start="4345" selection-end="4730" vertical-scroll-proportion="0.0">
+            <state line="16" column="0" selection-start="487" selection-end="487" vertical-scroll-proportion="-10.0">
               <folding />
             </state>
           </provider>
@@ -128,11 +119,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/classBuilderTestSpecRunner.html" />
-        <option value="$PROJECT_DIR$/web/js/classBuilder.js" />
-        <option value="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/spec/classBuilderTest.js" />
-        <option value="$PROJECT_DIR$/web/js/spike.js" />
-        <option value="$PROJECT_DIR$/web/js/twoNodes.js" />
         <option value="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/spec/svgUtilsTest.js" />
         <option value="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/svgUtilsTestSpecRunner.html" />
         <option value="$PROJECT_DIR$/web/js/utility/svgUtilities.js" />
@@ -141,9 +127,14 @@
         <option value="$PROJECT_DIR$/web/js/spikes/constraints.js" />
         <option value="$PROJECT_DIR$/web/index.html" />
         <option value="$PROJECT_DIR$/web/js/spikes/connector.js" />
-        <option value="$PROJECT_DIR$/web/umlClass.html" />
         <option value="$PROJECT_DIR$/web/js/spikes/twoNodes.js" />
+        <option value="$PROJECT_DIR$/web/umlClass.html" />
         <option value="$PROJECT_DIR$/web/js/spikes/umlClass.js" />
+        <option value="$PROJECT_DIR$/web/umlClass2.html" />
+        <option value="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/classFormatterTestSpecRunner.html" />
+        <option value="$PROJECT_DIR$/web/js/classFormatters.js" />
+        <option value="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/spec/classFormatterTest.js" />
+        <option value="$PROJECT_DIR$/web/js/spikes/umlClass2.js" />
       </list>
     </option>
   </component>
@@ -177,6 +168,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -362,8 +355,6 @@
         </subPane>
       </pane>
       <pane id="Favorites" />
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -376,10 +367,10 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/web" />
-      <recent name="$PROJECT_DIR$/web/js/spikes" />
       <recent name="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/spec" />
       <recent name="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0" />
+      <recent name="$PROJECT_DIR$/web" />
+      <recent name="$PROJECT_DIR$/web/js/spikes" />
     </key>
   </component>
   <component name="RunManager">
@@ -516,19 +507,19 @@
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32996207" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32996207" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39935064" sideWeight="0.6700379" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24939074" sideWeight="0.6700379" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24939074" sideWeight="0.6700379" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32996207" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -576,41 +567,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/classBuilderTestSpecRunner.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="0" selection-start="943" selection-end="943" vertical-scroll-proportion="-8.5" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/classBuilder.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="48" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/spikes/spike.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="0" selection-start="806" selection-end="846" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/spec/svgUtilsTest.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="35" selection-start="212" selection-end="212" vertical-scroll-proportion="0.17693315" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/namespaceTestSpecRunner.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="0" selection-start="639" selection-end="724" vertical-scroll-proportion="0.14749661" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/spec/classBuilderTest.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="109" column="61" selection-start="3772" selection-end="3772" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/svgUtilsTestSpecRunner.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="65" selection-start="773" selection-end="773" vertical-scroll-proportion="0.066305816" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/js/spikes/tempNodeAttach.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="79" selection-start="121" selection-end="121" vertical-scroll-proportion="0.0" />
@@ -623,9 +579,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/js/spikes/connector.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="0" selection-start="2" selection-end="78" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="2" column="0" selection-start="2" selection-end="78" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/js/spikes/threeNodes.js">
@@ -635,35 +589,70 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="61" selection-start="303" selection-end="303" vertical-scroll-proportion="0.1826793">
-          <folding />
-        </state>
+        <state line="9" column="61" selection-start="303" selection-end="303" vertical-scroll-proportion="0.1826793" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/js/utility/svgUtilities.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="61" selection-start="305" selection-end="305" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/umlClass.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="14" selection-start="429" selection-end="429" vertical-scroll-proportion="-10.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/spikes/twoNodes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="0" selection-start="1213" selection-end="1213" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="11" column="61" selection-start="305" selection-end="305" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/js/spikes/umlClass.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="112" selection-start="372" selection-end="372" vertical-scroll-proportion="0.17693315">
+        <state line="9" column="34" selection-start="294" selection-end="294" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/spikes/twoNodes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="83" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/umlClass.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="60" selection-start="383" selection-end="383" vertical-scroll-proportion="-6.875" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/spec/classBuilderTest.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="155" column="0" selection-start="5102" selection-end="5269" vertical-scroll-proportion="3.125" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/classFormatterTestSpecRunner.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="66" selection-start="681" selection-end="681" vertical-scroll-proportion="0.066305816">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/classBuilder.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="48" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/classFormatters.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="84" column="32" selection-start="2126" selection-end="2126" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/spec/classFormatterTest.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="192" column="54" selection-start="6326" selection-end="6326" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/umlClass2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="0" selection-start="487" selection-end="487" vertical-scroll-proportion="-10.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/spikes/umlClass2.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="0" selection-start="87" selection-end="87" vertical-scroll-proportion="0.11795544">
           <folding />
         </state>
       </provider>
