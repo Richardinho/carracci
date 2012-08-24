@@ -64,19 +64,46 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="umlClass2.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="umlClass2.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/js/spikes/umlClass2.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="0" selection-start="87" selection-end="87" vertical-scroll-proportion="0.11795544">
+            <state line="52" column="0" selection-start="1129" selection-end="1129" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="classFormatters.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/js/classFormatters.js">
+      <file leaf-file-name="index2.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/index2.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="84" column="32" selection-start="2126" selection-end="2126" vertical-scroll-proportion="0.0">
+            <state line="11" column="41" selection-start="127" selection-end="291" vertical-scroll-proportion="-6.875">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="template.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web/template.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="7" column="21" selection-start="219" selection-end="219" vertical-scroll-proportion="0.14583333">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="namespace.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/js/utility/namespace.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="umlClass2.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/css/umlClass2.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="112" column="21" selection-start="1869" selection-end="1869" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -85,7 +112,7 @@
       <file leaf-file-name="classFormatterTest.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/spec/classFormatterTest.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="192" column="54" selection-start="6326" selection-end="6326" vertical-scroll-proportion="0.0">
+            <state line="43" column="84" selection-start="1174" selection-end="1226" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -103,7 +130,16 @@
       <file leaf-file-name="umlClass2.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/umlClass2.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="0" selection-start="487" selection-end="487" vertical-scroll-proportion="-10.0">
+            <state line="7" column="0" selection-start="164" selection-end="235" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="umlClass.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/css/umlClass.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="35" column="19" selection-start="423" selection-end="423" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -119,22 +155,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/spec/svgUtilsTest.js" />
-        <option value="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/svgUtilsTestSpecRunner.html" />
-        <option value="$PROJECT_DIR$/web/js/utility/svgUtilities.js" />
-        <option value="$PROJECT_DIR$/web/js/spikes/threeNodes.js" />
-        <option value="$PROJECT_DIR$/web/js/spikes/tempNodeAttach.js" />
         <option value="$PROJECT_DIR$/web/js/spikes/constraints.js" />
         <option value="$PROJECT_DIR$/web/index.html" />
         <option value="$PROJECT_DIR$/web/js/spikes/connector.js" />
         <option value="$PROJECT_DIR$/web/js/spikes/twoNodes.js" />
         <option value="$PROJECT_DIR$/web/umlClass.html" />
         <option value="$PROJECT_DIR$/web/js/spikes/umlClass.js" />
-        <option value="$PROJECT_DIR$/web/umlClass2.html" />
         <option value="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/classFormatterTestSpecRunner.html" />
-        <option value="$PROJECT_DIR$/web/js/classFormatters.js" />
         <option value="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/spec/classFormatterTest.js" />
+        <option value="$PROJECT_DIR$/web/umlClass2.html" />
         <option value="$PROJECT_DIR$/web/js/spikes/umlClass2.js" />
+        <option value="$PROJECT_DIR$/web/css/umlClass.css" />
+        <option value="$PROJECT_DIR$/web/js/classFormatters.js" />
+        <option value="$PROJECT_DIR$/web/index2.html" />
+        <option value="$PROJECT_DIR$/web/css/umlClass2.css" />
+        <option value="$PROJECT_DIR$/web/templates/template.html" />
+        <option value="$PROJECT_DIR$/web/template.html" />
       </list>
     </option>
   </component>
@@ -170,6 +206,7 @@
     <panes>
       <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Favorites" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -296,6 +333,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Glenmorangie" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="umlGraphicsProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="test" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -354,7 +409,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Favorites" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -367,6 +421,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/web/css" />
       <recent name="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/spec" />
       <recent name="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0" />
       <recent name="$PROJECT_DIR$/web" />
@@ -513,7 +568,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39935064" sideWeight="0.6700379" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24939074" sideWeight="0.6700379" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24939074" sideWeight="0.0" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -567,36 +622,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/web/js/spikes/tempNodeAttach.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="79" selection-start="121" selection-end="121" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/spikes/constraints.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="66" selection-start="779" selection-end="779" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/spikes/connector.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="0" selection-start="2" selection-end="78" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/spikes/threeNodes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="161" column="0" selection-start="4345" selection-end="4730" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="61" selection-start="303" selection-end="303" vertical-scroll-proportion="0.1826793" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/utility/svgUtilities.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="61" selection-start="305" selection-end="305" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/js/spikes/umlClass.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="34" selection-start="294" selection-end="294" vertical-scroll-proportion="0.0" />
@@ -617,11 +642,19 @@
         <state line="155" column="0" selection-start="5102" selection-end="5269" vertical-scroll-proportion="3.125" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/classFormatters.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="49" column="22" selection-start="1310" selection-end="1310" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/classFormatterTestSpecRunner.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="66" selection-start="681" selection-end="681" vertical-scroll-proportion="0.066305816">
-          <folding />
-        </state>
+        <state line="14" column="0" selection-start="696" selection-end="779" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/spec/classFormatterTest.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="84" selection-start="1174" selection-end="1226" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/js/classBuilder.js">
@@ -629,30 +662,54 @@
         <state line="0" column="0" selection-start="0" selection-end="48" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/classFormatters.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="84" column="32" selection-start="2126" selection-end="2126" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/spec/classFormatterTest.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="192" column="54" selection-start="6326" selection-end="6326" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/umlClass2.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="0" selection-start="487" selection-end="487" vertical-scroll-proportion="-10.0">
+        <state line="7" column="0" selection-start="164" selection-end="235" vertical-scroll-proportion="0.0">
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/css/umlClass.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="19" selection-start="423" selection-end="423" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/js/spikes/umlClass2.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="87" selection-end="87" vertical-scroll-proportion="0.11795544">
+        <state line="52" column="0" selection-start="1129" selection-end="1129" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/css/umlClass2.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="112" column="21" selection-start="1869" selection-end="1869" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="0" selection-start="16" selection-end="241" vertical-scroll-proportion="0.083333336">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/utility/namespace.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/index2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="41" selection-start="127" selection-end="291" vertical-scroll-proportion="-6.875">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/template.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="21" selection-start="219" selection-end="219" vertical-scroll-proportion="0.14583333">
           <folding />
         </state>
       </provider>

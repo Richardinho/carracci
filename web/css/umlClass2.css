@@ -1,0 +1,154 @@
+.canvas-container {
+
+    width : 800px;
+    height : 600px;
+    background-color : grey;
+    padding : 20px;
+    clear : both;
+
+}
+
+.classes-header {
+    padding : 5px;
+    height : 30px;
+}
+.classes {
+    color : white;
+}
+
+input[type=button] {
+    float : right;
+    height : 20px;
+    font-size : 12px;
+    vertical-align : text-top;
+}
+
+.gui-container {
+    position : absolute;
+    width : 400px;
+    height : 600px;
+    right : 10px;
+    top : 10px;
+    background-color : black;
+    overflow:scroll;
+    overflow-x: hidden;
+    border-radius:10px;
+    -moz-border-radius:10px; /* Firefox 3.6 and earlier */
+    border : solid black 2px;
+    font-size : 12px;
+    font-family: arial;
+    color : #222;
+
+
+}
+
+input[type=text] {
+    width : 115px;
+    height : 20px;
+
+}
+
+.header {
+    padding : 5px;
+}
+
+.canvas {
+
+    width : 700px;
+    height : 500px;
+    background-color : white;
+    box-shadow: 10px 10px 10px  #555;
+    border-radius:15px;
+    -moz-border-radius:15px; /* Firefox 3.6 and earlier */
+}
+
+.umlClassGui {
+
+
+    padding : 10px;
+    border-radius:10px;
+    background-color : grey;
+    -moz-border-radius:10px; /* Firefox 3.6 and earlier */
+    margin-top : 5px;
+    margin-right : 2px;
+    margin-left : 2px;
+
+}
+
+.properties-container {
+    border-radius:10px;
+    -moz-border-radius:10px; /* Firefox 3.6 and earlier */
+    padding : 5px;
+    border :solid black 1px;
+
+}
+
+.properties-header {
+    height : 30px;
+}
+
+.property-header {
+    border-top-left-radius:10px;
+    border-top-right-radius:10px;
+    height : 20px;
+    background-image:url('../images/picasso.jpg');
+
+
+}
+
+.property-content {
+    padding : 5px;
+}
+
+.property {
+    -moz-border-radius:10px; /* Firefox 3.6 and earlier */
+    margin : 5px;
+    border :solid black 1px;
+}
+
+.methods-container {
+    border-radius:10px;
+    border :solid black 1px;
+    padding : 10px;
+    margin-top : 5px;
+
+}
+
+.methods-header {
+    height : 30px;
+}
+
+.method-header {
+    border-top-left-radius:10px;
+    border-top-right-radius:10px;
+    height : 20px;
+    background-color: black;
+    padding: 5px;
+}
+
+.method {
+    border-bottom-left-radius:10px;
+    border-bottom-right-radius:10px;
+    border :solid black 1px;
+    padding : 5px;
+}
+
+.args-container {
+    -moz-border-radius:10px; /* Firefox 3.6 and earlier */
+    margin : 5px;
+    padding: 5px;
+    border :solid black 1px;
+
+}
+
+.arg {
+    background-color : white;
+    margin : 2px;
+    padding : 2px;
+}
+
+
+.properties-content {
+    height : 20px;
+    background-color : yellow;
+}
