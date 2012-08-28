@@ -140,9 +140,7 @@ Glenmorangie.stubData.MethodBuilder = function () {
 
             method.returnType = returnType;
 
-            if (args.length > 0) {
-                method.args = args;
-            }
+            method.args = args;
 
             return method;
         }
