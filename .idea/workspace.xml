@@ -64,24 +64,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="template.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/template.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="68" selection-start="964" selection-end="964" vertical-scroll-proportion="-15.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="classFormatters.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/js/classFormatters.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="55" column="0" selection-start="1359" selection-end="1395" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="utility.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/js/utility/utility.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -100,10 +82,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="backboneGuiSpike.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="backboneGuiSpike.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/js/spikes/backboneGuiSpike.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="38" column="0" selection-start="1085" selection-end="1085" vertical-scroll-proportion="0.34274194">
+            <state line="115" column="0" selection-start="3100" selection-end="3100" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="umlClassesView.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web/js/umlClassesView.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="21" column="16" selection-start="411" selection-end="411" vertical-scroll-proportion="0.4233871">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="actual.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/actual.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="14" column="78" selection-start="735" selection-end="735" vertical-scroll-proportion="-8.75">
               <folding />
             </state>
           </provider>
@@ -164,8 +164,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/web/umlClass.html" />
-        <option value="$PROJECT_DIR$/web/js/spikes/umlClass.js" />
         <option value="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/classFormatterTestSpecRunner.html" />
         <option value="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/spec/classFormatterTest.js" />
         <option value="$PROJECT_DIR$/web/umlClass2.html" />
@@ -180,6 +178,8 @@
         <option value="$PROJECT_DIR$/web/template.html" />
         <option value="$PROJECT_DIR$/web/css/template.css" />
         <option value="$PROJECT_DIR$/web/js/spikes/backboneGuiSpike.js" />
+        <option value="$PROJECT_DIR$/web/js/umlClassesView.js" />
+        <option value="$PROJECT_DIR$/web/actual.html" />
       </list>
     </option>
   </component>
@@ -213,7 +213,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -416,6 +415,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Favorites" />
       <pane id="Scope" />
     </panes>
@@ -430,11 +430,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/web" />
       <recent name="$PROJECT_DIR$/web/js" />
       <recent name="$PROJECT_DIR$/web/css" />
       <recent name="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/spec" />
       <recent name="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0" />
-      <recent name="$PROJECT_DIR$/web" />
     </key>
   </component>
   <component name="RunManager">
@@ -631,16 +631,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/spec/classFormatterTest.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="84" selection-start="1174" selection-end="1226" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/umlClass2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="0" selection-start="164" selection-end="235" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/css/umlClass.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="35" column="19" selection-start="423" selection-end="423" vertical-scroll-proportion="0.0" />
@@ -659,6 +649,36 @@
     <entry file="file://$PROJECT_DIR$/web/index2.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="2" column="0" selection-start="18" selection-end="94" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/template.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="68" selection-start="964" selection-end="964" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/classFormatters.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="55" column="0" selection-start="1359" selection-end="1395" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/utility/utility.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="19" selection-start="304" selection-end="325" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/css/template.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="20" selection-start="324" selection-end="324" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/spikes/backboneGuiSpike.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="115" column="0" selection-start="3100" selection-end="3100" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/classBuilder.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="63" column="37" selection-start="1334" selection-end="1334" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/spec/classBuilderTest.js">
@@ -681,42 +701,16 @@
         <state line="14" column="0" selection-start="189" selection-end="220" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/classBuilder.js">
+    <entry file="file://$PROJECT_DIR$/web/actual.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="37" selection-start="1334" selection-end="1334" vertical-scroll-proportion="0.0">
+        <state line="14" column="78" selection-start="735" selection-end="735" vertical-scroll-proportion="-8.75">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/utility/utility.js">
+    <entry file="file://$PROJECT_DIR$/web/js/umlClassesView.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="19" selection-start="304" selection-end="325" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/classFormatters.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="0" selection-start="1359" selection-end="1395" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/template.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="68" selection-start="964" selection-end="964" vertical-scroll-proportion="-15.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/css/template.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="20" selection-start="324" selection-end="324" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/spikes/backboneGuiSpike.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="0" selection-start="1085" selection-end="1085" vertical-scroll-proportion="0.34274194">
+        <state line="21" column="16" selection-start="411" selection-end="411" vertical-scroll-proportion="0.4233871">
           <folding />
         </state>
       </provider>
