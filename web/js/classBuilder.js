@@ -7,6 +7,7 @@ Glenmorangie.stubData.ClassBuilder = function () {
         properties = [],
         methods = [],
         interfaces = [],
+        id,
         parent = "Object";
 
 
@@ -36,6 +37,11 @@ Glenmorangie.stubData.ClassBuilder = function () {
             return this;
         },
 
+        id : function (i) {
+            id = i;
+            return this;
+        },
+
         build : function () {
 
             var classObj = {};
@@ -55,6 +61,8 @@ Glenmorangie.stubData.ClassBuilder = function () {
             if (methods.length > 0) {
                 classObj.methods = methods;
             }
+
+            classObj.id = id;
 
             return classObj;
         }
