@@ -31,36 +31,36 @@ $(document).ready(function () {
         respondToModelUpdate : function () {
 
             this.render();
-            this.updateUmlClassElement(this.getXPosition(), this.getYPosition());
+            this.updateUmlClassElement(this._getXPosition(), this._getYPosition());
             var height = this._getUmlClassElement().css("height");
             this.resizePane(height);
         },
 
-        resizePane : function (height) {
-            this.$transparentPane.css('height', height);
-        },
-
-        getXPosition : function () {
-            return this.model.get("position").x;
-        },
-
-        getYPosition : function () {
-            return this.model.get("position").y;
-        },
 
         updatePositionCoodsInModel : function (x, y) {
             this.model.set("position", {"x" : x, "y" : y });
-        },
-
-        _getUmlClassElement : function () {
-            return $('#uml-class-' + this.model.get("class").id);
         },
 
         positionTransparentPane : function (x, y) {
             this.$transparentPane.css('left', x);
             this.$transparentPane.css('top', y);
             this.updateUmlClassElement(x, y);
+        },
 
+        resizePane : function (height) {
+            this.$transparentPane.css('height', height);
+        },
+
+        _getUmlClassElement : function () {
+            return $('#uml-class-' + this.model.get("class").id);
+        },
+
+        _getXPosition : function () {
+            return this.model.get("position").x;
+        },
+
+        _getYPosition : function () {
+            return this.model.get("position").y;
         },
 
         _createTransparentPane : function () {

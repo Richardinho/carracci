@@ -65,13 +65,21 @@ $(document).ready(function () {
         },
 
         events : {
-            "click .gui-add-property" : "addProperty"
+            "click .gui-add-property" : "addProperty",
+            "click .gui-delete-property" : "deleteProperty",
 
         },
 
         addProperty : function () {
             var umlClass = this._getUmlClassObj();
             umlClass.properties.push(Glenmorangie.stubData.PropertyBuilder().build());
+            this.render();
+            this.model.trigger("change:class");
+        },
+
+        deleteProperty : function (event) {
+            var propertyIndex = $(event.target).attr("data-property-id");
+            this._getUmlClassObj().properties.splice(propertyIndex, 1);
             this.render();
             this.model.trigger("change:class");
         },
