@@ -53,7 +53,7 @@ $(document).ready(function () {
         .y(100)
         .build();
 
-    var classes = [ builtObject1, builtObject2];
+    var classes = [ builtObject1];
     Glenmorangie.umlProject.umlClassViews = {};
     Glenmorangie.umlProject.guiUmlClassViews = {};
 
@@ -73,6 +73,7 @@ $(document).ready(function () {
             var umlClass = this._getUmlClassObj();
             umlClass.properties.push(Glenmorangie.stubData.PropertyBuilder().build());
             this.render();
+            this.model.trigger("change:class");
         },
 
         template : _.template($('#gui-uml-classes-template').html()),

@@ -32,19 +32,25 @@ $(document).ready(function () {
 
     $('body').mousemove(function (event) {
         if (mousedown) {
-
-            var xDiff = event.clientX - clientX;
-            var yDiff = event.clientY - clientY;
-
-            newX = targetPosX + xDiff;
-            newY = targetPosY + yDiff;
-
-            targetView.positionTransparentPane(newX, newY);
+            targetView.positionTransparentPane(calculateNewX(event), calculateNewY(event));
             return false;
         }
     });
 
-    $('body').mouseup(function () {
+    function calculateNewX(event) {
+        var xDiff = event.clientX - clientX;
+        return targetPosX + xDiff;
+    }
+
+    function calculateNewY(event) {
+        var yDiff = event.clientY - clientY;
+        return newY = targetPosY + yDiff;
+    }
+
+    $('body').mouseup(function (event) {
+        if (mousedown) {
+            targetView.updatePositionCoodsInModel(calculateNewX(event), calculateNewY(event));
+        }
         mousedown = false;
         $target = null;
         clientX = null;
