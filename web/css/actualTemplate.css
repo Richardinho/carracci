@@ -1,0 +1,133 @@
+
+
+#gui-uml-classes {
+    width : 400px;
+    float : right;
+    font-family : arial;
+    font-size : 12px;
+    font-style: bold;
+}
+
+input {
+    height : 20px;
+}
+
+input[type=button] {
+    float : right;
+    height : 20px;
+    font-size : 12px;
+    vertical-align : text-top;
+}
+
+.gui-uml-class {
+    padding : 10px;
+    border-radius:10px;
+    background-color : grey;
+    margin-top : 5px;
+    margin-right : 2px;
+    margin-left : 2px;
+}
+
+.gui-uml-class-name input {
+    width : 150px;
+}
+
+.gui-uml-class-parent input {
+    width : 150px;
+}
+
+
+
+.gui-properties-container {
+    border-radius:10px;
+    padding : 5px;
+    border :solid black 1px;
+    margin-top : 10px;
+    background-color : #666;
+
+}
+
+.gui-properties-header {
+
+
+}
+
+.gui-properties {
+
+
+}
+
+.gui-property {
+    border-radius:10px;
+    margin : 5px;
+    border :solid black 1px;
+    padding : 5px;
+}
+
+.gui-property-name input {
+    width : 80px;
+}
+
+.gui-property-type input {
+    width : 80px;
+}
+
+.gui-methods-container {
+    border-radius:10px;
+    padding : 5px;
+    border :solid black 1px;
+    margin-top : 10px;
+    background-color : #666;
+}
+
+.gui-method {
+    border-radius:10px;
+    margin : 5px;
+    border :solid black 1px;
+    padding : 5px;
+}
+
+.gui-method-name input {
+    width : 80px;
+}
+
+.gui-method-return-type input {
+    width : 80px;
+}
+
+.gui-args-container {
+    border-radius:10px;
+    border :solid black 1px;
+    background-color : #bbb;
+    margin-top : 10px;
+}
+
+.gui-args-header {
+    padding : 10px;
+}
+
+.gui-arg {
+    padding : 5px;
+    border-top : solid grey 1px;
+}
+
+.gui-arg input[type=text] {
+    width : 80px;
+}
+
+.transparent-pane {
+
+    width : 100px;
+    height : 70px;
+    background-color : red;
+    position : absolute;
+
+}
+
+#canvas {
+
+    width : 800;
+    height : 800;
+    position : absolute;
+
+}

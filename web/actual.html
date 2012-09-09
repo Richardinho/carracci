@@ -1,0 +1,222 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="./css/actualTemplate.css" />
+    <link rel="stylesheet" type="text/css" href="./css/umlClass.css" />
+    <!-- third party libraries -->
+    <script type="text/javascript" src="./js/lib/jquery-1.8.0.js"></script>
+    <script type="text/javascript" src="./js/lib/raphael.js"></script>
+    <script type="text/javascript" src="./js/lib/underscore.js"></script>
+    <script type="text/javascript" src="./js/lib/backbone.js"></script>
+
+    <!-- src code -->
+    <script type="text/javascript" src="./js/utility/namespace.js"></script>
+    <script type="text/javascript" src="./js/mouseHandlingModule.js"></script>
+    <script type="text/javascript" src="./js/classBuilder.js"></script>
+    <script type="text/javascript" src="./js/umlClassesModel.js"></script>
+    <script type="text/javascript" src="./js/umlClassesView.js"></script>
+    <script type="text/javascript" src="./js/utility/utility.js"></script>
+    <script type="text/javascript" src="./js/classFormatters.js"></script>
+
+
+    <script type="text/javascript" src="./js/main.js"></script>
+</head>
+
+<body>
+    <div id="foo"></div>
+
+
+    <div id="canvas">
+        <div id="uml-classes"></div>
+        <div id="transparent-panes"></div>
+        <div class="transparent-pane movable"></div>
+    </div>
+
+    <div id="gui-uml-classes"></div>
+
+
+    <script type="text/template" id="uml-class-template">
+       <div id="uml-class-<%= class.id %>" class="umlClass">
+           <div class="nameBox">ArrayList extends AbstractList implements List, Collection</div>
+           <div class="properties">
+
+               <% for (var i = 0; i < class.properties.length; i++) { %>
+                   <div class="property">+ foo : String</div>
+               <% } %>
+           </div>
+           <div class="methods">
+               <% for (var i = 0; i < class.methods.length; i++) { %>
+                   <div class="method"># bar (hello:Integer)  : List</div>
+               <% } %>
+           </div>
+       </div>
+
+    </script>
+
+
+   <script type="text/template" id="gui-uml-classes-template">
+
+        <div class="gui-uml-class">
+            <div class="gui-uml-class-header">
+                <input type="button" value="delete"/>
+                <div>
+                    <div class="gui-uml-class-name">
+                        name : <input type="text"
+                                      maxlength="20"
+                                      value=" <%= class.name %>"/>
+                    </div>
+                    <div class="gui-uml-class-parent">
+                        parent : <input type="text"
+                                        maxlength="20"
+                                        value=""/>
+                    </div>
+
+                    <div>
+                        <span class="gui-uml-class-interface">interface : <input type="text"
+                                                                                 maxlength="20"/>
+                        </span>
+
+                        <input type="button" value="add"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gui-properties-container">
+                <div class="gui-properties-header">
+                    <b>Properties</b><input class="gui-add-property" type="button" value="add" data-class-id="<%= class.id %>"/>
+                </div>
+                <div class="gui-properties">
+
+                    <% for (var i = 0; i < class.properties.length; i++) { %>
+                        <% var property = class.properties[i]; %>
+
+                        <div class="gui-property">
+
+                            <span class="gui-property-name">
+                                name : <input type="text"
+                                              maxlength="10"
+                                              value="<%= property.name %>"/>
+                            </span>&nbsp;
+
+                            <span class="gui-property-type">
+                                type : <input type="text"
+                                              maxlength="10"
+                                              value="<%= property.type %>"/>
+                            </span>
+
+                            <input class="gui-delete-property"
+                                   type="button"
+                                   value="delete"
+                                   data-class-id="<%= class.id %>"
+                                   data-property-id="<%= i %>"/>
+
+                            <div>
+                                public : <input type="radio"
+                                                name="propvisibility<%=i%>"
+                                     <%= Glenmorangie.utils.formatVisibility(property.visibility, "public")  %>/>
+
+                                private : <input type="radio"
+                                                 name="propvisibility<%=i%>"
+                                     <%= Glenmorangie.utils.formatVisibility(property.visibility, "private")  %>/>
+
+                                protected : <input type="radio"
+                                                   name="propvisibility<%=i%>"
+                                     <%= Glenmorangie.utils.formatVisibility(property.visibility, "protected")  %>/>
+                            </div>
+
+                        </div>
+                    <% } %>
+                </div>
+
+
+
+            </div>
+
+            <div class="gui-methods-container">
+                <div class="gui-methods-header">
+                    <span><b>Methods</b></span>
+                    <input class="gui-add-method" type="button" value="add" data-class-id="<%= class.id %>" />
+                </div>
+                <div class="gui-methods">
+                    <% for (var i = 0; i < class.methods.length; i++) { %>
+                        <% var method = class.methods[i]; %>
+
+                        <div class="gui-method">
+                            <span class="gui-method-name">
+                                name : <input type="text"
+                                              value="<%= method.name %>" /></span>
+                            <span class="gui-method-return-type">
+                                return&nbsp;type&nbsp;:&nbsp;<input type="text"
+                                                                    value="<%= method.returnType %>" />
+                            </span>
+
+                            <span>
+                                <input class="gui-delete-method"
+                                       type="button"
+                                       value="delete"
+                                       data-class-id="<%= class.id %>"
+                                       data-method-id="<%= i %>"/>
+                            </span>
+
+                            <div class="gui-method-visibility">
+                                public : <input type="radio"
+                                                name="visibility<%=i%>"
+                                                <%= Glenmorangie.utils
+                                                       .formatVisibility(method.visibility, "public")  %>/>
+
+                                private : <input type="radio"
+                                                 name="visibility<%=i%>"
+                                                <%= Glenmorangie.utils
+                                                       .formatVisibility(method.visibility, "private")  %>/>
+
+                                protected : <input type="radio"
+                                                   name="visibility<%=i%>"
+                                                <%= Glenmorangie.utils
+                                                       .formatVisibility(method.visibility, "protected")  %>/>
+                            </div>
+
+                            <div class="gui-args-container">
+                                <div class="gui-args-header">
+                                    <span><b>Arguments</b></span>
+                                    <input class="gui-add-argument"
+                                           type="button"
+                                           value="add"
+                                           data-class-id="<%= class.id %>"
+                                           data-method-id="<%= i %>" />
+                                </div>
+
+                                <div class="gui-args">
+                                    <% for (var j = 0; j < method.args.length; j++) { %>
+                                        <% var arg = method.args[j]; %>
+                                        <div class="gui-arg">
+                                                <span>name : <input type="text" maxlength="20" value="<%= arg.name %>"/></span>
+                                                <span>type : <input type="text" maxlength="20" value="<%= arg.type %>"/></span>
+                                                <input class="gui-delete-arg"
+                                                       type="button"
+                                                       value="delete"
+                                                       data-class-id="<%= class.id %>"
+                                                       data-method-id="<%= i %>"
+                                                       data-arg-id="<%= j %>"/>
+                                        </div>
+                                    <% } %>
+                                </div>
+                            </div>
+                        </div>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
