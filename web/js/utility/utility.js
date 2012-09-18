@@ -24,3 +24,20 @@ Glenmorangie.utils.formatVisibility = function (visibility, label) {
     }
 }
 
+Glenmorangie.utils.formatVisibilitySymbol = function (visibility) {
+
+    switch (visibility) {
+    case "public":
+        return "+";
+        break;
+    case "protected":
+        return "#";
+        break;
+    case "private" :
+        return "-";
+        break;
+    default :
+        return "-"
+    }
+}
+

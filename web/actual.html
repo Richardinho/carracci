@@ -41,7 +41,8 @@
            <div class="properties">
 
                <% for (var i = 0; i < class.properties.length; i++) { %>
-                   <div class="property">+ foo : String</div>
+               <% var property = class.properties[i]; %>
+                   <div class="property"><%= Glenmorangie.utils.formatVisibilitySymbol(property.visibility) %> <%= property.name %> : <%= property.type %></div>
                <% } %>
            </div>
            <div class="methods">
@@ -95,13 +96,15 @@
                             <span class="gui-property-name">
                                 name : <input type="text"
                                               maxlength="10"
-                                              value="<%= property.name %>"/>
+                                              value="<%= property.name %>"
+                                              data-property-index="<%= i %>"/>
                             </span>&nbsp;
 
                             <span class="gui-property-type">
                                 type : <input type="text"
                                               maxlength="10"
-                                              value="<%= property.type %>"/>
+                                              value="<%= property.type %>"
+                                              data-property-index="<%= i %>"/>
                             </span>
 
                             <input class="gui-delete-property"
@@ -110,17 +113,23 @@
                                    data-class-id="<%= class.id %>"
                                    data-property-id="<%= i %>"/>
 
-                            <div>
+                            <div class="gui-visibility-buttons">
                                 public : <input type="radio"
                                                 name="propvisibility<%=i%>"
+                                                data-property-index="<%= i %>"
+                                                data-visibility="public"
                                      <%= Glenmorangie.utils.formatVisibility(property.visibility, "public")  %>/>
 
                                 private : <input type="radio"
                                                  name="propvisibility<%=i%>"
+                                                 data-visibility="private"
+                                                 data-property-index="<%= i %>"
                                      <%= Glenmorangie.utils.formatVisibility(property.visibility, "private")  %>/>
 
                                 protected : <input type="radio"
                                                    name="propvisibility<%=i%>"
+                                                   data-visibility="protected"
+                                                   data-property-index="<%= i %>"
                                      <%= Glenmorangie.utils.formatVisibility(property.visibility, "protected")  %>/>
                             </div>
 

@@ -8,7 +8,7 @@ $(document).ready(function () {
     var fooProp, barMethod, blahMethod, builtObject1, builtObject2;
 
     fooProp = Glenmorangie.stubData.PropertyBuilder()
-        .name("foo")
+        .name("foobar")
         .visibility("public")
         .type("String")
         .build();
@@ -67,6 +67,9 @@ $(document).ready(function () {
         events : {
             "click .gui-add-property" : "addProperty",
             "click .gui-delete-property" : "deleteProperty",
+            "change .gui-property-name input" : "updatePropertyName",
+            "change .gui-property-type input" : "updatePropertyType",
+            "change .gui-visibility-buttons input" : "updateVisibility"
 
         },
 
@@ -75,6 +78,22 @@ $(document).ready(function () {
             umlClass.properties.push(Glenmorangie.stubData.PropertyBuilder().build());
             this.render();
             this.model.trigger("change:class");
+        },
+
+        updatePropertyName : function (event) {
+            this._updatePropertyMember(event, "name");
+            this.model.trigger("change:class");
+        },
+
+        updatePropertyType : function (event) {
+            this._updatePropertyMember(event, "type");
+            this.model.trigger("change:class");
+        },
+
+        updateVisibility : function (event) {
+           var propertyIndex = this._getDataPropertyIndex(event);
+           this._getProperty(propertyIndex)['visibility'] = $(event.target).attr("data-visibility");
+           this.model.trigger("change:class");
         },
 
         deleteProperty : function (event) {
@@ -90,6 +109,19 @@ $(document).ready(function () {
 
             var html = this.template({ "class" : this._getUmlClassObj() });
             this.$el.html(html);
+        },
+
+        _updatePropertyMember : function (event, member) {
+            var propertyIndex = this._getDataPropertyIndex(event);
+            this._getProperty(propertyIndex)[member] = $(event.target).val();
+        },
+
+        _getDataPropertyIndex : function (event) {
+            return $(event.target).attr("data-property-index");;
+        },
+
+        _getProperty : function (index) {
+            return this._getUmlClassObj().properties[index];
         },
 
         _getUmlClassObj : function () {
