@@ -16,7 +16,7 @@ $(document).ready(function () {
     barMethod = Glenmorangie.stubData.MethodBuilder()
         .name("bar")
         .visibility("protected")
-        .returnType("List")
+        .returnType("ListFoo")
         .argument({name : "foo", type : "String" })
         .argument({name : "bar", type : "String" })
         .build();
@@ -24,7 +24,7 @@ $(document).ready(function () {
     blahMethod = Glenmorangie.stubData.MethodBuilder()
         .name("blah")
         .visibility("protected")
-        .returnType("List")
+        .returnType("ArrayList")
         .argument({name : "foo", type : "String" })
         .argument({name : "bar", type : "String" })
         .build();
@@ -72,7 +72,9 @@ $(document).ready(function () {
             "change .gui-property-name input" : "updatePropertyName",
             "change .gui-method-name input" : "updateMethodName",
             "change .gui-property-type input" : "updatePropertyType",
-            "change .gui-visibility-buttons input" : "updateVisibility"
+            "change .gui-method-return-type input" : "updateMethodReturnType",
+            "change .gui-visibility-buttons input" : "updateVisibility",
+            "change .gui-method-visibility-buttons input" : "updateMethodVisibility"
 
         },
 
@@ -105,10 +107,23 @@ $(document).ready(function () {
             this.model.trigger("change:class");
         },
 
+        updateMethodReturnType : function (event) {
+            this._updateMethodMember(event, "returnType");
+            this.model.trigger("change:class");
+        },
+
         updateVisibility : function (event) {
+
            var propertyIndex = this._getDataPropertyIndex(event);
            this._getProperty(propertyIndex)['visibility'] = $(event.target).attr("data-visibility");
            this.model.trigger("change:class");
+        },
+
+        updateMethodVisibility : function (event) {
+           var methodIndex = this._getDataMethodIndex(event);
+           this._getMethod(methodIndex)['visibility'] = $(event.target).attr("data-visibility");
+           this.model.trigger("change:class");
+
         },
 
         deleteProperty : function (event) {

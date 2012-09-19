@@ -48,7 +48,7 @@
            <div class="methods">
                <% for (var i = 0; i < class.methods.length; i++) { %>
                <% var method = class.methods[i] %>
-                   <div class="method"># <%= method.name %> (hello:Integer)  : List</div>
+                   <div class="method"><%= Glenmorangie.utils.formatVisibilitySymbol(method.visibility) %> <%= method.name %> (hello:Integer)  : <%= method.returnType %></div>
                <% } %>
            </div>
        </div>
@@ -160,7 +160,8 @@
 
                             <span class="gui-method-return-type">
                                 return&nbsp;type&nbsp;:&nbsp;<input type="text"
-                                                                    value="<%= method.returnType %>" />
+                                                                    value="<%= method.returnType %>"
+                                                                    data-method-index="<%= i %>"/>
                             </span>
 
                             <span>
@@ -171,19 +172,25 @@
                                        data-method-id="<%= i %>"/>
                             </span>
 
-                            <div class="gui-method-visibility">
+                            <div class="gui-method-visibility-buttons">
                                 public : <input type="radio"
                                                 name="visibility<%=i%>"
+                                                data-method-index="<%= i %>"
+                                                data-visibility="public"
                                                 <%= Glenmorangie.utils
                                                        .formatVisibility(method.visibility, "public")  %>/>
 
                                 private : <input type="radio"
                                                  name="visibility<%=i%>"
+                                                 data-method-index="<%= i %>"
+                                                 data-visibility="private"
                                                 <%= Glenmorangie.utils
                                                        .formatVisibility(method.visibility, "private")  %>/>
 
                                 protected : <input type="radio"
                                                    name="visibility<%=i%>"
+                                                   data-method-index="<%= i %>"
+                                                   data-visibility="protected"
                                                 <%= Glenmorangie.utils
                                                        .formatVisibility(method.visibility, "protected")  %>/>
                             </div>
