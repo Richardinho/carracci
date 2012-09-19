@@ -48,7 +48,15 @@
            <div class="methods">
                <% for (var i = 0; i < class.methods.length; i++) { %>
                <% var method = class.methods[i] %>
-                   <div class="method"><%= Glenmorangie.utils.formatVisibilitySymbol(method.visibility) %> <%= method.name %> (hello:Integer)  : <%= method.returnType %></div>
+                   <div class="method"><%= Glenmorangie.utils.formatVisibilitySymbol(method.visibility) %>
+                                       <%= method.name %>(
+                                       <% for (var j = 0; j < method.args.length; j++) {  %>
+                                       <% var arg = method.args[j]; %>
+                                          <%= arg.name %> : <%= arg.type %>
+                                           <% if(j !== method.args.length - 1) { %> ,  <% }  %>
+                                       <% } %>
+                                       )
+                                       : <%= method.returnType %></div>
                <% } %>
            </div>
        </div>
@@ -201,8 +209,7 @@
                                     <input class="gui-add-argument"
                                            type="button"
                                            value="add"
-                                           data-class-id="<%= class.id %>"
-                                           data-method-id="<%= i %>" />
+                                           data-method-index="<%= i %>" />
                                 </div>
 
                                 <div class="gui-args">
@@ -214,9 +221,8 @@
                                                 <input class="gui-delete-arg"
                                                        type="button"
                                                        value="delete"
-                                                       data-class-id="<%= class.id %>"
-                                                       data-method-id="<%= i %>"
-                                                       data-arg-id="<%= j %>"/>
+                                                       data-method-index="<%= i %>"
+                                                       data-arg-index="<%= j %>"/>
                                         </div>
                                     <% } %>
                                 </div>

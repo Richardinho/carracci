@@ -69,12 +69,14 @@ $(document).ready(function () {
             "click .gui-add-method" : "addMethod",
             "click .gui-delete-property" : "deleteProperty",
             "click .gui-delete-method" : "deleteMethod",
+            "click .gui-delete-arg" : "deleteArgument",
             "change .gui-property-name input" : "updatePropertyName",
             "change .gui-method-name input" : "updateMethodName",
             "change .gui-property-type input" : "updatePropertyType",
             "change .gui-method-return-type input" : "updateMethodReturnType",
             "change .gui-visibility-buttons input" : "updateVisibility",
-            "change .gui-method-visibility-buttons input" : "updateMethodVisibility"
+            "change .gui-method-visibility-buttons input" : "updateMethodVisibility",
+            "click .gui-add-argument" : "addArgument"
 
         },
 
@@ -88,6 +90,13 @@ $(document).ready(function () {
         addMethod : function () {
             var umlClass = this._getUmlClassObj();
             umlClass.methods.push(Glenmorangie.stubData.MethodBuilder().build());
+            this.render();
+            this.model.trigger("change:class");
+        },
+
+        addArgument : function (event) {
+            var methodIndex = this._getDataMethodIndex(event);
+            this._getMethod(methodIndex).args.push(Glenmorangie.stubData.MethodArgBuilder().build());
             this.render();
             this.model.trigger("change:class");
         },
@@ -140,6 +149,14 @@ $(document).ready(function () {
             this.model.trigger("change:class");
         },
 
+        deleteArgument : function (event) {
+            var methodIndex = this._getDataMethodIndex(event);
+            var argIndex = this._getDataArgIndex(event);
+            this._getUmlClassObj().methods[methodIndex].args.splice(argIndex, 1);
+            this.render();
+            this.model.trigger("change:class");
+        },
+
         template : _.template($('#gui-uml-classes-template').html()),
 
         render : function () {
@@ -164,6 +181,10 @@ $(document).ready(function () {
 
         _getDataMethodIndex : function (event) {
             return $(event.target).attr("data-method-index");;
+        },
+
+        _getDataArgIndex : function (event) {
+            return $(event.target).attr("data-arg-index");;
         },
 
         _getProperty : function (index) {

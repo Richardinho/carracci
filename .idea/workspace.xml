@@ -73,10 +73,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="main.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="122" column="34" selection-start="3946" selection-end="3946" vertical-scroll-proportion="0.0">
+            <state line="157" column="11" selection-start="5411" selection-end="5411" vertical-scroll-proportion="0.44354838">
               <folding />
             </state>
           </provider>
@@ -85,7 +85,7 @@
       <file leaf-file-name="classBuilder.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/js/classBuilder.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="90" column="0" selection-start="1753" selection-end="1790" vertical-scroll-proportion="0.0">
+            <state line="176" column="0" selection-start="3288" selection-end="3326" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -100,10 +100,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="actual.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="actual.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/actual.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="50" column="91" selection-start="2188" selection-end="2188" vertical-scroll-proportion="0.5208333">
+            <state line="224" column="69" selection-start="11376" selection-end="11390" vertical-scroll-proportion="-16.875">
               <folding />
             </state>
           </provider>
@@ -171,15 +171,15 @@
         <option value="$PROJECT_DIR$/web/js/spikes/backboneGuiSpike.js" />
         <option value="$PROJECT_DIR$/web/template.html" />
         <option value="$PROJECT_DIR$/web/js/umlClassesModelsvg.js" />
-        <option value="$PROJECT_DIR$/web/js/classBuilder.js" />
         <option value="$PROJECT_DIR$/web/js/umlClassesModel.js" />
         <option value="$PROJECT_DIR$/web/css/umlClass.css" />
         <option value="$PROJECT_DIR$/web/css/actualTemplate.css" />
         <option value="$PROJECT_DIR$/web/js/mouseHandlingModule.js" />
         <option value="$PROJECT_DIR$/web/js/umlClassesView.js" />
         <option value="$PROJECT_DIR$/web/js/utility/utility.js" />
-        <option value="$PROJECT_DIR$/web/js/main.js" />
+        <option value="$PROJECT_DIR$/web/js/classBuilder.js" />
         <option value="$PROJECT_DIR$/web/actual.html" />
+        <option value="$PROJECT_DIR$/web/js/main.js" />
       </list>
     </option>
   </component>
@@ -666,11 +666,6 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/classBuilder.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="90" column="0" selection-start="1753" selection-end="1790" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/js/umlClassesModel.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="4" column="36" selection-start="121" selection-end="121" vertical-scroll-proportion="0.0" />
@@ -701,16 +696,23 @@
         <state line="53" column="8" selection-start="1496" selection-end="1496" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/main.js">
+    <entry file="file://$PROJECT_DIR$/web/js/classBuilder.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="122" column="34" selection-start="3946" selection-end="3946" vertical-scroll-proportion="0.0">
+        <state line="176" column="0" selection-start="3288" selection-end="3326" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/actual.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="91" selection-start="2188" selection-end="2188" vertical-scroll-proportion="0.5208333">
+        <state line="224" column="69" selection-start="11376" selection-end="11390" vertical-scroll-proportion="-16.875">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="157" column="11" selection-start="5411" selection-end="5411" vertical-scroll-proportion="0.44354838">
           <folding />
         </state>
       </provider>

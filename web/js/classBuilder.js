@@ -176,7 +176,7 @@ Glenmorangie.stubData.MethodBuilder = function () {
 
 Glenmorangie.stubData.MethodArgBuilder = function () {
 
-    var name = "",
+    var name = "argfoo",
         type = "Object";
 
     return {
