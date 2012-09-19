@@ -76,6 +76,8 @@ $(document).ready(function () {
             "change .gui-method-return-type input" : "updateMethodReturnType",
             "change .gui-visibility-buttons input" : "updateVisibility",
             "change .gui-method-visibility-buttons input" : "updateMethodVisibility",
+            "change .gui-arg-name" : "updateArgName",
+            "change .gui-arg-type" : "updateArgType",
             "click .gui-add-argument" : "addArgument"
 
         },
@@ -108,6 +110,16 @@ $(document).ready(function () {
 
         updateMethodName : function (event) {
             this._updateMethodMember(event, "name");
+            this.model.trigger("change:class");
+        },
+
+        updateArgName : function (event) {
+            this._updateArgMember(event, "name");
+            this.model.trigger("change:class");
+        },
+
+        updateArgType : function (event) {
+            this._updateArgMember(event, "type");
             this.model.trigger("change:class");
         },
 
@@ -173,6 +185,12 @@ $(document).ready(function () {
         _updateMethodMember : function (event, member) {
             var methodIndex = this._getDataMethodIndex(event);
             this._getMethod(methodIndex)[member] = $(event.target).val();
+        },
+
+        _updateArgMember : function (event, member) {
+            var methodIndex = this._getDataMethodIndex(event),
+                argIndex = this._getDataArgIndex(event);
+            this._getUmlClassObj().methods[methodIndex].args[argIndex][member] = $(event.target).val();
         },
 
         _getDataPropertyIndex : function (event) {

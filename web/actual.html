@@ -216,8 +216,23 @@
                                     <% for (var j = 0; j < method.args.length; j++) { %>
                                         <% var arg = method.args[j]; %>
                                         <div class="gui-arg">
-                                                <span>name : <input type="text" maxlength="20" value="<%= arg.name %>"/></span>
-                                                <span>type : <input type="text" maxlength="20" value="<%= arg.type %>"/></span>
+                                                <span>name :
+                                                    <input class="gui-arg-name"
+                                                           type="text"
+                                                           maxlength="20"
+                                                           value="<%= arg.name %>"
+                                                           data-method-index="<%= i %>"
+                                                           data-arg-index="<%= j %>"/>
+                                                </span>
+                                                <span>type :
+                                                    <input class="gui-arg-type"
+                                                           type="text"
+                                                           maxlength="20"
+                                                           value="<%= arg.type %>"
+                                                           data-method-index="<%= i %>"
+                                                           data-arg-index="<%= j %>"/>
+                                                </span>
+
                                                 <input class="gui-delete-arg"
                                                        type="button"
                                                        value="delete"
