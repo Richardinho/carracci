@@ -66,7 +66,9 @@ $(document).ready(function () {
 
         events : {
             "click .gui-add-property" : "addProperty",
+            "click .gui-add-method" : "addMethod",
             "click .gui-delete-property" : "deleteProperty",
+            "click .gui-delete-method" : "deleteMethod",
             "change .gui-property-name input" : "updatePropertyName",
             "change .gui-property-type input" : "updatePropertyType",
             "change .gui-visibility-buttons input" : "updateVisibility"
@@ -76,6 +78,13 @@ $(document).ready(function () {
         addProperty : function () {
             var umlClass = this._getUmlClassObj();
             umlClass.properties.push(Glenmorangie.stubData.PropertyBuilder().build());
+            this.render();
+            this.model.trigger("change:class");
+        },
+
+        addMethod : function () {
+            var umlClass = this._getUmlClassObj();
+            umlClass.methods.push(Glenmorangie.stubData.MethodBuilder().build());
             this.render();
             this.model.trigger("change:class");
         },
@@ -99,6 +108,13 @@ $(document).ready(function () {
         deleteProperty : function (event) {
             var propertyIndex = $(event.target).attr("data-property-id");
             this._getUmlClassObj().properties.splice(propertyIndex, 1);
+            this.render();
+            this.model.trigger("change:class");
+        },
+
+        deleteMethod : function (event) {
+            var methodIndex = $(event.target).attr("data-property-id");
+            this._getUmlClassObj().methods.splice(methodIndex, 1);
             this.render();
             this.model.trigger("change:class");
         },
