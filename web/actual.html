@@ -47,7 +47,8 @@
            </div>
            <div class="methods">
                <% for (var i = 0; i < class.methods.length; i++) { %>
-                   <div class="method"># bar (hello:Integer)  : List</div>
+               <% var method = class.methods[i] %>
+                   <div class="method"># <%= method.name %> (hello:Integer)  : List</div>
                <% } %>
            </div>
        </div>
@@ -153,7 +154,10 @@
                         <div class="gui-method">
                             <span class="gui-method-name">
                                 name : <input type="text"
-                                              value="<%= method.name %>" /></span>
+                                              value="<%= method.name %>"
+                                              data-method-index="<%= i %>"/>
+                            </span>
+
                             <span class="gui-method-return-type">
                                 return&nbsp;type&nbsp;:&nbsp;<input type="text"
                                                                     value="<%= method.returnType %>" />

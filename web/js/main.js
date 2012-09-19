@@ -70,6 +70,7 @@ $(document).ready(function () {
             "click .gui-delete-property" : "deleteProperty",
             "click .gui-delete-method" : "deleteMethod",
             "change .gui-property-name input" : "updatePropertyName",
+            "change .gui-method-name input" : "updateMethodName",
             "change .gui-property-type input" : "updatePropertyType",
             "change .gui-visibility-buttons input" : "updateVisibility"
 
@@ -91,6 +92,11 @@ $(document).ready(function () {
 
         updatePropertyName : function (event) {
             this._updatePropertyMember(event, "name");
+            this.model.trigger("change:class");
+        },
+
+        updateMethodName : function (event) {
+            this._updateMethodMember(event, "name");
             this.model.trigger("change:class");
         },
 
@@ -132,12 +138,25 @@ $(document).ready(function () {
             this._getProperty(propertyIndex)[member] = $(event.target).val();
         },
 
+        _updateMethodMember : function (event, member) {
+            var methodIndex = this._getDataMethodIndex(event);
+            this._getMethod(methodIndex)[member] = $(event.target).val();
+        },
+
         _getDataPropertyIndex : function (event) {
             return $(event.target).attr("data-property-index");;
         },
 
+        _getDataMethodIndex : function (event) {
+            return $(event.target).attr("data-method-index");;
+        },
+
         _getProperty : function (index) {
             return this._getUmlClassObj().properties[index];
+        },
+
+        _getMethod : function (index) {
+            return this._getUmlClassObj().methods[index];
         },
 
         _getUmlClassObj : function () {
