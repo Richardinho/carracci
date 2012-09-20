@@ -1,6 +1,14 @@
 
 $(document).ready(function () {
+    var view = {
 
+        element : $('#foo'),
+
+        positionElement : function (x, y) {
+            this.element.css('left', x);
+            this.element.css('top', y);
+        },
+    }
 
     var mousedown = false,
         $target,
@@ -11,28 +19,36 @@ $(document).ready(function () {
         targetView;
 
     $('body').mousedown(function (event) {
-        if (!$(event.target).hasClass('movable')) return;
-        mousedown = true;
 
-        $target = $(event.target);
+
+        if ($(event.target).hasClass("movable")) {
+            $target = $(event.target);
+        } else if ($(event.target).parents('.movable')) {
+            $target = $(event.target).parents('.movable');
+        }
+        else {
+            return false;
+        }
+
+        mousedown = true;
         clientX = event.clientX;
         clientY = event.clientY;
         targetPosX = parseInt($target.css('left'));
         targetPosY = parseInt($target.css('top'));
-        targetView = getTargetView($target);
+        targetView = getTargetView();
 
         return false;
     });
 
-    function getTargetView(target) {
+    function getTargetView() {
 
-        return Glenmorangie.umlProject.umlClassViews[target.attr("id")];
+        return view;
     }
 
 
     $('body').mousemove(function (event) {
         if (mousedown) {
-            targetView.positionTransparentPane(calculateNewX(event), calculateNewY(event));
+            targetView.positionElement(calculateNewX(event), calculateNewY(event));
             return false;
         }
     });
@@ -48,9 +64,7 @@ $(document).ready(function () {
     }
 
     $('body').mouseup(function (event) {
-        if (mousedown) {
-            targetView.updatePositionCoodsInModel(calculateNewX(event), calculateNewY(event));
-        }
+
         mousedown = false;
         $target = null;
         clientX = null;
