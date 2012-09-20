@@ -36,7 +36,10 @@ input[type=button] {
     width : 150px;
 }
 
-
+.gui-add-interface-container {
+    padding-top : 15px;
+    height : 20px;
+}
 
 .gui-properties-container {
     border-radius:10px;

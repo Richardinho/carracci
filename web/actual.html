@@ -37,7 +37,12 @@
 
     <script type="text/template" id="uml-class-template">
        <div id="uml-class-<%= class.id %>" class="umlClass">
-           <div class="nameBox">ArrayList extends AbstractList implements List, Collection</div>
+           <div class="nameBox"><%= class.name %> extends <%= class.parent %> implements
+               <% for (k = 0; k < class.interfaces.length; k++ ) { %>
+               <%= interface = class.interfaces[k] %>
+               <% if(k !== class.interfaces.length - 1) { %> ,  <% }  %>
+               <% } %>
+           </div>
            <div class="properties">
 
                <% for (var i = 0; i < class.properties.length; i++) { %>
@@ -78,15 +83,33 @@
                     <div class="gui-uml-class-parent">
                         parent : <input type="text"
                                         maxlength="20"
-                                        value=""/>
+                                        value="<%= class.parent %>"/>
+                    </div>
+
+                    <div class="gui-add-interface-container">
+                        <span>Interfaces:</span>
+                        <input class="gui-add-interface" type="button" value="add"/>
                     </div>
 
                     <div>
-                        <span class="gui-uml-class-interface">interface : <input type="text"
-                                                                                 maxlength="20"/>
-                        </span>
 
-                        <input type="button" value="add"/>
+
+
+
+                        <% for (var i = 0; i < class.interfaces.length; i++) { %>
+                        <% var interface = class.interfaces[i]; %>
+                            <span class="gui-uml-class-interface">
+                                 <input type="text"
+                                        value = "<%= interface %>"
+                                        maxlength="20"
+                                        data-interface-index="<%= i %>" />
+                            </span>
+                            <input class="gui-delete-interface"
+                                   type="button"
+                                   value="delete"
+                                   data-interface-index="<%= i %>"/>
+                        <% } %>
+
                     </div>
                 </div>
             </div>
