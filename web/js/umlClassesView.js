@@ -56,11 +56,15 @@ $(document).ready(function () {
         },
 
         _getXPosition : function () {
-            return this.model.get("position").x;
+            if (this.model.get("position")) {
+                return this.model.get("position").x;
+            }
         },
 
         _getYPosition : function () {
-            return this.model.get("position").y;
+            if (this.model.get("position")) {
+                return this.model.get("position").y;
+            }
         },
 
         _createTransparentPane : function () {
