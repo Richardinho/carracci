@@ -9,7 +9,6 @@ $(document).ready(function () {
             this.model.on("change:class", this.respondToModelUpdate, this);
 
             this.render();
-            this._createTransparentPane();
 
         },
 
@@ -19,6 +18,7 @@ $(document).ready(function () {
 
             var html = this.template({ "class" : this.model.get("class") });
             this.$el.html(html);
+            this.positionElement(this.getX(), this.getY());
         },
 
         updateUmlClassElement : function (x, y) {
@@ -31,9 +31,18 @@ $(document).ready(function () {
         respondToModelUpdate : function () {
 
             this.render();
-            this.updateUmlClassElement(this._getXPosition(), this._getYPosition());
-            var height = this._getUmlClassElement().css("height");
-            this.resizePane(height);
+        },
+
+        getX : function () {
+            if (this.model.get("position")) {
+                return this.model.get("position").x
+            }
+        },
+
+        getY : function () {
+            if (this.model.get("position")) {
+                return this.model.get("position").y
+            }
         },
 
 
@@ -41,51 +50,15 @@ $(document).ready(function () {
             this.model.set("position", {"x" : x, "y" : y });
         },
 
-        positionTransparentPane : function (x, y) {
-            this.$transparentPane.css('left', x);
-            this.$transparentPane.css('top', y);
+        positionElement : function (x, y) {
             this.updateUmlClassElement(x, y);
-        },
-
-        resizePane : function (height) {
-            this.$transparentPane.css('height', height);
         },
 
         _getUmlClassElement : function () {
             return $('#uml-class-' + this.model.get("class").id);
-        },
-
-        _getXPosition : function () {
-            if (this.model.get("position")) {
-                return this.model.get("position").x;
-            }
-        },
-
-        _getYPosition : function () {
-            if (this.model.get("position")) {
-                return this.model.get("position").y;
-            }
-        },
-
-        _createTransparentPane : function () {
-            var $umlClassElement = this._getUmlClassElement();
-            var width = $umlClassElement.width(),
-                height = $umlClassElement.height();
-            this._createPane(width, height);
-            this.positionTransparentPane(200, 150);
-            $('#transparent-panes').append(this.$transparentPane);
-        },
-
-        _createPane : function (width, height) {
-            this.$transparentPane = $('<div>');
-            this.$transparentPane.addClass('movable');
-            this.$transparentPane.css('width', width);
-            this.$transparentPane.css('height', height);
-            this.$transparentPane.css('top', 50);
-            this.$transparentPane.css('left', 50);
-            this.$transparentPane.css('position', 'absolute');
-            this.$transparentPane.attr("id", this.model.get("class").id);
         }
+
+
 
     });
 

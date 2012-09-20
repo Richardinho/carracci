@@ -76,7 +76,7 @@
       <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="265" column="38" selection-start="9190" selection-end="9190" vertical-scroll-proportion="0.0">
+            <state line="270" column="57" selection-start="9329" selection-end="9329" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -103,7 +103,7 @@
       <file leaf-file-name="actual.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/actual.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="21" selection-start="1238" selection-end="1238" vertical-scroll-proportion="-8.75">
+            <state line="24" column="45" selection-start="1124" selection-end="1124" vertical-scroll-proportion="-1.0204082">
               <folding />
             </state>
           </provider>
@@ -121,7 +121,7 @@
       <file leaf-file-name="mouseHandlingModule.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/js/mouseHandlingModule.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="53" column="9" selection-start="1340" selection-end="1340" vertical-scroll-proportion="0.0">
+            <state line="27" column="53" selection-start="731" selection-end="731" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -148,7 +148,7 @@
       <file leaf-file-name="umlClassesView.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/js/umlClassesView.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="61" column="13" selection-start="1771" selection-end="1771" vertical-scroll-proportion="1.048387">
+            <state line="20" column="57" selection-start="557" selection-end="557" vertical-scroll-proportion="0.34274194">
               <folding />
             </state>
           </provider>
@@ -173,13 +173,13 @@
         <option value="$PROJECT_DIR$/web/js/umlClassesModelsvg.js" />
         <option value="$PROJECT_DIR$/web/js/umlClassesModel.js" />
         <option value="$PROJECT_DIR$/web/css/umlClass.css" />
-        <option value="$PROJECT_DIR$/web/js/mouseHandlingModule.js" />
         <option value="$PROJECT_DIR$/web/js/utility/utility.js" />
         <option value="$PROJECT_DIR$/web/js/classBuilder.js" />
         <option value="$PROJECT_DIR$/web/css/actualTemplate.css" />
-        <option value="$PROJECT_DIR$/web/js/umlClassesView.js" />
-        <option value="$PROJECT_DIR$/web/js/main.js" />
         <option value="$PROJECT_DIR$/web/actual.html" />
+        <option value="$PROJECT_DIR$/web/js/main.js" />
+        <option value="$PROJECT_DIR$/web/js/mouseHandlingModule.js" />
+        <option value="$PROJECT_DIR$/web/js/umlClassesView.js" />
       </list>
     </option>
   </component>
@@ -213,7 +213,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -418,6 +417,7 @@
       </pane>
       <pane id="Favorites" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -661,6 +661,18 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/spikes/umlClass2.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/classBuilder.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="176" column="0" selection-start="3288" selection-end="3326" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/web/js/umlClassesModel.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="4" column="36" selection-start="121" selection-end="121" vertical-scroll-proportion="0.0" />
@@ -671,28 +683,6 @@
         <state line="35" column="20" selection-start="876" selection-end="876" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/mouseHandlingModule.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="9" selection-start="1340" selection-end="1340" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/css/umlClass.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="24" selection-start="205" selection-end="205" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/classBuilder.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="176" column="0" selection-start="3288" selection-end="3326" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/spikes/umlClass2.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/css/actualTemplate.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="14" column="25" selection-start="302" selection-end="302" vertical-scroll-proportion="0.0">
@@ -700,23 +690,35 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/web/css/umlClass.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="24" selection-start="205" selection-end="205" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/web/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="265" column="38" selection-start="9190" selection-end="9190" vertical-scroll-proportion="0.0">
+        <state line="270" column="57" selection-start="9329" selection-end="9329" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/actual.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="21" selection-start="1238" selection-end="1238" vertical-scroll-proportion="-8.75">
+        <state line="24" column="45" selection-start="1124" selection-end="1124" vertical-scroll-proportion="-1.0204082">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/mouseHandlingModule.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="53" selection-start="731" selection-end="731" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/js/umlClassesView.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="13" selection-start="1771" selection-end="1771" vertical-scroll-proportion="1.048387">
+        <state line="20" column="57" selection-start="557" selection-end="557" vertical-scroll-proportion="0.34274194">
           <folding />
         </state>
       </provider>

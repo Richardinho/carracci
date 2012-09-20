@@ -268,7 +268,7 @@ $(document).ready(function () {
 
         var $element = $('<div>');
         $('#uml-classes').append($element);
-        Glenmorangie.umlProject.umlClassViews[classes[i].id] = new Glenmorangie.umlProject.UmlClassView({ el : $element, "model" : classModel });
+        Glenmorangie.umlProject.umlClassViews["uml-class-" + classes[i].id] = new Glenmorangie.umlProject.UmlClassView({ el : $element, "model" : classModel });
 
 
         var $guiElement = $('<div>');

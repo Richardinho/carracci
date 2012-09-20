@@ -33,7 +33,7 @@
 
 
     <script type="text/template" id="uml-class-template">
-       <div id="uml-class-<%= class.id %>" class="umlClass">
+       <div id="uml-class-<%= class.id %>" class="umlClass movable">
            <div class="nameBox"><%= class.name %> extends <%= class.parent %> implements
                <% for (k = 0; k < class.interfaces.length; k++ ) { %>
                <%= interface = class.interfaces[k] %>

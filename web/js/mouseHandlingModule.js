@@ -11,10 +11,16 @@ $(document).ready(function () {
         targetView;
 
     $('body').mousedown(function (event) {
-        if (!$(event.target).hasClass('movable')) return;
+        if ($(event.target).hasClass("movable")) {
+            $target = $(event.target);
+        } else if ($(event.target).parents('.movable').length != 0) {
+            $target = $(event.target).parents('.movable');
+        }
+        else {
+            return;
+        }
         mousedown = true;
 
-        $target = $(event.target);
         clientX = event.clientX;
         clientY = event.clientY;
         targetPosX = parseInt($target.css('left'));
@@ -32,7 +38,7 @@ $(document).ready(function () {
 
     $('body').mousemove(function (event) {
         if (mousedown) {
-            targetView.positionTransparentPane(calculateNewX(event), calculateNewY(event));
+            targetView.positionElement(calculateNewX(event), calculateNewY(event));
             return false;
         }
     });
