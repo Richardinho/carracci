@@ -2,10 +2,15 @@
 
 #gui-uml-classes {
     width : 400px;
+    height : 500px;
     float : right;
     font-family : arial;
     font-size : 12px;
     font-style: bold;
+    background-color: #e3b553;
+    padding : 10px;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 input {
