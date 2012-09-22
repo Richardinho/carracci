@@ -3,7 +3,7 @@
 $(document).ready(function () {
 
     var canvas = Raphael(10, 50, 320, 200);
-
+    var nodes = [];
 
     var lines = [];
 
@@ -15,7 +15,7 @@ $(document).ready(function () {
                                                     nodeA.getX(),
                                                     nodeA.getY(),
                                                     nodeB.getX(),
-                                                    nodeB.getY())
+                                                    nodeB.getY());
 
         return {
             render : function() {
@@ -25,12 +25,13 @@ $(document).ready(function () {
                                                 nodeB.getX(),
                                                 nodeB.getY());
             }
-
         }
     }
 
     function createNode(x,y, _id) {
         var thisNode,
+            xCood = x,
+            yCood = y,
             horizontalNodes = [],
             verticalNodes = [],
             startX,
@@ -38,6 +39,9 @@ $(document).ready(function () {
             id = _id,
             xConstraints = [];
 
+
+        var thisArrow = Glenmorangie.svgUtils.createDiamond(canvas, x, y, "white");
+        var thisArrow = Glenmorangie.svgUtils.createDiamond(canvas, x, y, "black");
         thisNode = Glenmorangie.svgUtils.createCircle(canvas, x, y);
 
 
@@ -49,6 +53,9 @@ $(document).ready(function () {
             }
 
             moveY(dy);
+
+            renderAll();
+
 
             for (i=0; i < lines.length; i++) {
                 lines[i].render();
@@ -86,13 +93,24 @@ $(document).ready(function () {
 
         function moveThisX(dx) {
             var newX = startX + dx;
-            thisNode.attr({cx: newX});
+            xCood = newX;
 
         }
 
         function moveThisY(dy) {
             var newY = startY + dy;
-            thisNode.attr({cy : newY});
+            yCood = newY;
+        }
+
+        function render() {
+            thisNode.attr({cx : xCood});
+            thisNode.attr({cy : yCood});
+        }
+
+        function renderDiamond() {
+            thisArrow.remove();
+            thisArrow = Glenmorangie.svgUtils.createDiamond(canvas, xCood, yCood, "black");
+
         }
 
         function onstart() {
@@ -175,6 +193,12 @@ $(document).ready(function () {
                 moveThisY(dy);
             },
 
+            render : function () {
+               render();
+               renderDiamond();
+               thisNode.toFront();
+            },
+
             start : function () {
                 startThis();
             },
@@ -245,6 +269,20 @@ $(document).ready(function () {
     node4.linkNode(node1, "vertical");
     node4.linkNode(node5, "horizontal");
     node5.linkNode(node2, "vertical");
+
+
+    nodes.push(node1);
+    nodes.push(node2);
+    nodes.push(node3);
+    nodes.push(node4);
+    nodes.push(node5);
+
+    function renderAll() {
+
+        for (var i = 0; i < nodes.length; i++) {
+            nodes[i].render();
+        }
+    }
 
 
 
