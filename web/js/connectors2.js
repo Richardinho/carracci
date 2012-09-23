@@ -7,7 +7,7 @@ $(document).ready(function () {
 
         var nodes = [];
         var lines = [];
-        var connectorMode = "normal";
+        var lineMode = "normal";
 
         var node1 = createNode(20,100,false).initialize();
         var node2 = createNode(50,100,true).initialize();
@@ -25,9 +25,9 @@ $(document).ready(function () {
 
         renderAll();
 
-        function updateMode(mode) {
+        function updateLineMode(mode) {
 
-            connectorMode = mode;
+            lineMode = mode;
 
             if(mode === "normal") {
                 setLinesToNormal();
@@ -159,12 +159,12 @@ $(document).ready(function () {
                     return this;
                 },
 
-                setInheritanceMode : function () {
-                    updateMode("inheritance");
+                setImplementsLineMode : function () {
+                    updateLineMode("inheritance");
                 },
 
                 setNormalLineMode : function () {
-                    updateMode("normal");
+                    updateLineMode("normal");
                 },
 
                 orientation : "east", // e.g pointing right.
