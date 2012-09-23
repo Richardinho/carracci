@@ -10,19 +10,41 @@ $(document).ready(function () {
 
         var node1 = createNode(20,100);
         var node2 = createNode(50,100);
+        var node3 = createNode(20,200);
+        var node4 = createNode(50,200);
 
         nodes.push(node1);
         nodes.push(node2);
+        nodes.push(node3);
+        nodes.push(node4);
 
-        node1.linkNode(node2, "horizontal");
-        node2.linkNode(node1, "horizontal");
+        linkNodesHorizontally(node1, node2);
+        linkNodesVertically(node1, node3);
+        linkNodesHorizontally(node3, node4);
+
+        function linkNodesHorizontally(nodeA, nodeB) {
+            nodeA.linkNode(nodeB, "horizontal");
+            nodeB.linkNode(nodeA, "horizontal");
+            lines.push(createLine(nodeA, nodeB, canvas));
+        }
+
+        function linkNodesVertically(nodeA, nodeB) {
+            nodeA.linkNode(nodeB, "vertical");
+            nodeB.linkNode(nodeA, "vertical");
+            lines.push(createLine(nodeA, nodeB, canvas));
+        }
 
 
         function renderAll() {
             var i = 0,
-                nodesLength = nodes.length;
+                nodesLength = nodes.length,
+                linesLength = lines.length;
             for ( i = 0; i < nodesLength; i++ ) {
                 nodes[i].render();
+            }
+
+            for ( i = 0; i < linesLength; i++ ) {
+                lines[i].render();
             }
         }
 
@@ -54,7 +76,7 @@ $(document).ready(function () {
                 }
 
                 for (var i = 0; i < verticalNodes.length; i++) {
-                    verticalNodes[i].updateCoods(dx, 0);
+                    verticalNodes[i].updateXCood(xCood);
                 }
                 renderAll();
             }
@@ -102,8 +124,20 @@ $(document).ready(function () {
                     yCood = y;
                 },
 
+                updateXCood : function (x) {
+                    xCood = x;
+                },
+
                 render : function () {
                     render();
+                },
+
+                getX : function () {
+                    return xCood;
+                },
+
+                getY : function () {
+                    return yCood;
                 },
 
                 linkNode : function (node, geoRelationship) {
