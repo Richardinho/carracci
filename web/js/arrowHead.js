@@ -1,8 +1,8 @@
-function createArrow(xCood, yCood, can) {
+function createArrow(xCood, yCood, can, node) {
     var canvas = can;
     var arrowHead = Glenmorangie.svgUtils.createDiamond(canvas, xCood, yCood, "white");
     var index = 0;
-    var arrowHeads = ["whiteDiamond", "blackDiamond"];
+    var arrowHeads = ["whiteDiamond", "blackDiamond", "inheritance"];
 
     var createArrows = {
 
@@ -11,14 +11,18 @@ function createArrow(xCood, yCood, can) {
         },
 
         whiteDiamond : function (x, y) {
+            node.setNormalLineMode();
             return Glenmorangie.svgUtils.createDiamond(canvas, x, y, "white");
         },
 
         blackDiamond : function (x, y) {
+            node.setNormalLineMode();
             return  Glenmorangie.svgUtils.createDiamond(canvas, x, y, "black");
         },
 
-        inheritance : function () {
+        inheritance : function (x, y) {
+            node.setInheritanceMode();
+            return Glenmorangie.svgUtils.createDiamond(canvas, x, y, "red");
 
         },
 

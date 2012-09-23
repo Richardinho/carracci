@@ -4,7 +4,7 @@ Glenmorangie.namespace("Glenmorangie.svgUtils");
 Glenmorangie.svgUtils.createCircle = function(paper, x, y) {
     var circle = paper.circle(x, y, 10);
     circle.attr("fill" , "red");
-    //circle.attr("opacity", 0);
+    circle.attr("opacity", 0);
     circle.attr("stroke", "#fff");
     return circle;
 }
@@ -16,12 +16,16 @@ Glenmorangie.svgUtils.buildPath = function (x1, y1, x2, y2) {
 
 Glenmorangie.svgUtils.createLine = function (paper, x1, y1, x2, y2) {
     var element = paper.path(Glenmorangie.svgUtils.buildPath(x1, y1, x2, y2));
-    element.attr("stroke-dasharray", "--");
     return element;
 }
 
-Glenmorangie.svgUtils.resetLine = function (line, x1, y1, x2, y2) {
+Glenmorangie.svgUtils.resetLine = function (line, x1, y1, x2, y2, type) {
     line.attr({ "path" : Glenmorangie.svgUtils.buildPath(x1, y1, x2, y2)});
+    if (type === "dashes") {
+        line.attr("stroke-dasharray", "--");
+    } else {
+        line.attr({"stroke-dasharray" : ""});
+    }
 }
 
 Glenmorangie.svgUtils.createRectangle = function (paper, x1, y1, width, height) {

@@ -8,10 +8,10 @@ $(document).ready(function () {
         var nodes = [];
         var lines = [];
 
-        var node1 = createNode(20,100);
-        var node2 = createNode(50,100);
-        var node3 = createNode(20,200);
-        var node4 = createNode(50,200);
+        var node1 = createNode(20,100,false).initialize();
+        var node2 = createNode(50,100,true).initialize();
+        var node3 = createNode(20,200,false).initialize();
+        var node4 = createNode(50,200,true).initialize();
 
         nodes.push(node1);
         nodes.push(node2);
@@ -22,16 +22,36 @@ $(document).ready(function () {
         linkNodesVertically(node1, node3);
         linkNodesHorizontally(node3, node4);
 
+        renderAll();
+
         function linkNodesHorizontally(nodeA, nodeB) {
+            lines.push(createLine(nodeA, nodeB, canvas));
             nodeA.linkNode(nodeB, "horizontal");
             nodeB.linkNode(nodeA, "horizontal");
-            lines.push(createLine(nodeA, nodeB, canvas));
+
         }
 
         function linkNodesVertically(nodeA, nodeB) {
+            lines.push(createLine(nodeA, nodeB, canvas));
             nodeA.linkNode(nodeB, "vertical");
             nodeB.linkNode(nodeA, "vertical");
-            lines.push(createLine(nodeA, nodeB, canvas));
+
+        }
+
+        function setLinesToDashes () {
+            var i = 0,
+                linesLength = lines.length;
+            for ( i = 0; i < linesLength; i++ ) {
+                lines[i].dashes();
+            }
+        }
+
+        function setLinesToNormal () {
+            var i = 0,
+                linesLength = lines.length;
+            for ( i = 0; i < linesLength; i++ ) {
+                lines[i].normal();
+            }
         }
 
 
@@ -48,26 +68,25 @@ $(document).ready(function () {
             }
         }
 
-        function createNode(x, y) {
+        function createNode(x, y, arrowHead) {
             var startX = x,
                 startY = y,
                 xCood = x,
                 yCood = y,
                 draggableElement = Glenmorangie.svgUtils.createCircle(canvas, x, y),
                 horizontalNodes = [],
-                verticalNodes = [];
+                verticalNodes = [],
+                arrow;
 
-            var arrow = createArrow(xCood, yCood, canvas);
 
-            draggableElement.click(function () {
-/*                if (currentKey && currentKey === 113) { //  'q'
-                    arrow.changeArrowHead();
-                    render();
-                }*/
-            });
-
-            draggableElement.toFront();
-
+            if (arrowHead) {
+                draggableElement.click(function () {
+                    if (currentKey && currentKey === 113) { //  'q'
+                        arrow.changeArrowHead();
+                        render();
+                    }
+                });
+            }
 
             function onmove(dx, dy) {
                 updateCoods(dx, dy);
@@ -102,9 +121,9 @@ $(document).ready(function () {
             }
 
             function render() {
-
-                arrow.updateArrowHead(xCood, yCood);
-
+                if (arrowHead) {
+                    arrow.updateArrowHead(xCood, yCood);
+                }
                 updateDraggableElement();
             }
 
@@ -117,6 +136,22 @@ $(document).ready(function () {
             }
 
             return {
+
+                initialize : function () {
+                    if(arrowHead) {
+                        arrow = createArrow(xCood, yCood, canvas, this);
+                    }
+                    draggableElement.toFront();
+                    return this;
+                },
+
+                setInheritanceMode : function () {
+                    setLinesToDashes();
+                },
+
+                setNormalLineMode : function () {
+                    setLinesToNormal();
+                },
 
                 orientation : "east", // e.g pointing right.
 
