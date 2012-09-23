@@ -45,6 +45,12 @@ function createPane(x, y, width, height) {
 
         addListener : function (obj, method) {
             listeners.push({ "listener" : obj, "action" : method });
+
+        },
+
+        resize : function (width, height) {
+            element.attr({ "height": height });
+            element.attr({ "width" : width });
         }
     }
 

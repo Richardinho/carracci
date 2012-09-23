@@ -263,6 +263,7 @@ $(document).ready(function () {
 
         var classModel = new Glenmorangie.umlProject.umlClassModel();
         classModel.set("class", classes[i]);
+        classModel.set("position", { x : 100, y : 150 });
 
 
 

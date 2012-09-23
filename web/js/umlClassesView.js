@@ -8,8 +8,18 @@ $(document).ready(function () {
             _.bindAll(this, "render");
             this.model.on("change:class", this.respondToModelUpdate, this);
 
-            var transparentPane = createPane(100, 100, 200, 150).initialize(Glenmorangie.module.canvas);
-            transparentPane.addListener(this, this.updateUmlClassElement);
+
+            var width = this._getUmlClassElement().css("width");
+            var height = this._getUmlClassElement().css("height");
+
+
+            this.transparentPane = createPane(this.model.get("position").x,
+                                             this.model.get("position").y,
+                                                width,
+                                                height)
+                                                .initialize(Glenmorangie.module.canvas);
+
+            this.transparentPane.addListener(this, this.updateUmlClassElement);
 
             this.render();
 
@@ -21,6 +31,10 @@ $(document).ready(function () {
 
             var html = this.template({ "class" : this.model.get("class") });
             this.$el.html(html);
+
+            var width = this._getUmlClassElement().css("width");
+            var height = this._getUmlClassElement().css("height");
+            this.transparentPane.resize(width, height);
             this.positionElement(this.getX(), this.getY());
         },
 

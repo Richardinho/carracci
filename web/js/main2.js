@@ -1,7 +1,7 @@
 
 $(document).ready(function () {
 
-    Glenmorangie.module.canvas = Raphael(10, 50, 500, 820);
+    Glenmorangie.module.canvas = Raphael(0, 0, 800, 820);
 
     Glenmorangie.module.keyHandler();
 

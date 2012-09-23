@@ -136,9 +136,19 @@ input[type=button] {
 }
 
 #canvas {
-
+    left : 0px;
+    top : 0px;
     width : 800;
     height : 800;
     position : absolute;
 
+}
+
+#foo {
+    left : 0px;
+    top : 0px;
+    width : 100px;
+    height : 70px;
+    background-color : green;
+    position : absolute;
 }

@@ -42,6 +42,7 @@ Glenmorangie.svgUtils.resetLine = function (line, x1, y1, x2, y2, type, lineDire
 Glenmorangie.svgUtils.createRectangle = function (paper, x1, y1, width, height) {
     var rect =  paper.rect(x1, y1, width, height);
     rect.attr({"fill" : "red"});
+    rect.attr("opacity", 0);
     return rect;
 }
 
