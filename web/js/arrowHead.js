@@ -2,16 +2,12 @@ function createArrow(xCood, yCood, can, node) {
     var canvas = can;
     var arrowHead = Glenmorangie.svgUtils.createDiamond(canvas, xCood, yCood, "white");
     var index = 0;
-    var arrowHeads = ["whiteDiamond", "blackDiamond", "inheritance", "implements", "none"];
+    var arrowHeads = ["arrow", "blackDiamond", "inheritance", "implements", "none"];
 
     var createArrows = {
 
-        arrow : function () {
-
-        },
-
-        whiteDiamond : function (x, y) {
-            return Glenmorangie.svgUtils.createDiamond(canvas, x, y, "white");
+        arrow : function (x, y) {
+            return  Glenmorangie.svgUtils.createArrow(canvas, x, y, node.direction());
         },
 
         blackDiamond : function (x, y) {

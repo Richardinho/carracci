@@ -1,9 +1,10 @@
-function createLine(a, b, canvas) {
+function createLine(a, b, canvas, orient) {
 
     var path,
         nodeA = a,
         nodeB = b,
-        lineType = null;
+        lineType = null,
+        orientation = orient;
 
 
 
@@ -11,16 +12,21 @@ function createLine(a, b, canvas) {
                                                 nodeA.getX(),
                                                 nodeA.getY(),
                                                 nodeB.getX(),
-                                                nodeB.getY());
+                                                nodeB.getY(),
+                                                nodeB.direction(),
+                                                orientation);
 
     return {
         render : function() {
+
             Glenmorangie.svgUtils.resetLine(line,
                                             nodeA.getX(),
                                             nodeA.getY(),
                                             nodeB.getX(),
                                             nodeB.getY(),
-                                            lineType);
+                                            lineType,
+                                            nodeB.direction(),
+                                            orientation);
         },
 
         dashes : function () {

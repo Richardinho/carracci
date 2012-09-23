@@ -19,8 +19,17 @@ Glenmorangie.svgUtils.createLine = function (paper, x1, y1, x2, y2) {
     return element;
 }
 
-Glenmorangie.svgUtils.resetLine = function (line, x1, y1, x2, y2, type) {
+Glenmorangie.svgUtils.resetLine = function (line, x1, y1, x2, y2, type, lineDirection, orientation) {
+    if (orientation === "horizontal") {
+        if (lineDirection === "right") {
+            x2 = x2 + 10;
+        } else {
+            x2 = x2 - 10;
+        }
+    }
+
     line.attr({ "path" : Glenmorangie.svgUtils.buildPath(x1, y1, x2, y2)});
+
     if (type === "dashes") {
         line.attr("stroke-dasharray", "-");
     } else {
@@ -36,20 +45,25 @@ Glenmorangie.svgUtils.createRectangle = function (paper, x1, y1, width, height) 
     return rect;
 }
 
+Glenmorangie.svgUtils.createArrow = function (paper, x, y, direction) {
+    var points = [];
+    points.push(createPoint(x, y + 10));
+    points.push(direction === "right" ? createPoint(x + 10, y) : createPoint(x - 10, y ));
+    points.push(createPoint(x, y - 10));
+
+    var path =  buildPath(points, false);
+
+    var element = paper.path(path);
+    return element;
+};
+
 Glenmorangie.svgUtils.createExtendsArrow = function (paper, x, y, color, direction) {
     var points = [];
     points.push(createPoint(x, y + 10));
     points.push(direction === "right" ? createPoint(x + 10, y) : createPoint(x - 10, y ));
     points.push(createPoint(x, y - 10));
 
-    var path =  "M" + points[0].x + " "
-                + points[0].y
-                + "L"
-                + points[1].x + " "
-                + points[1].y + " "
-                + points[2].x + " "
-                + points[2].y + " "
-                + "Z"
+    var path =  buildPath(points, true);
 
     var element = paper.path(path);
     element.attr({fill: color});
@@ -57,19 +71,9 @@ Glenmorangie.svgUtils.createExtendsArrow = function (paper, x, y, color, directi
 };
 
 Glenmorangie.svgUtils.createNullElement = function (paper, x, y, direction) {
-    var points = [];
-    points.push(createPoint(x, y));
-    points.push(direction === "right" ? createPoint(x + 10, y) : createPoint(x - 10, y ));
-
-    var path =  "M" + points[0].x + " "
-                + points[0].y
-                + "L"
-                + points[1].x + " "
-                + points[1].y + " "
-                + "Z"
-
-    var element = paper.path(path);
-    return element;
+    var circle = paper.circle(x, y, 10);
+    circle.attr("opacity", 0);
+    return circle;
 };
 
 Glenmorangie.svgUtils.createDiamond = function (paper, x, y, color) {
@@ -79,17 +83,7 @@ Glenmorangie.svgUtils.createDiamond = function (paper, x, y, color) {
     points.push(createPoint(x, y - 10));
     points.push(createPoint(x + 10, y));
 
-    var path =  "M" + points[0].x + " "
-                    + points[0].y
-                    + "L"
-                    + points[1].x + " "
-                    + points[1].y + " "
-                    + points[2].x + " "
-                    + points[2].y + " "
-                    + points[3].x + " "
-                    + points[3].y + " "
-                    + "Z"
-
+    var path =  buildPath(points, true);
 
     var element = paper.path(path);
     element.attr({fill: color});
@@ -99,5 +93,20 @@ Glenmorangie.svgUtils.createDiamond = function (paper, x, y, color) {
 
 function createPoint(x, y) {
     return { 'x' : x, 'y' : y };
+}
+
+function buildPath(pointsArray, closePath) {
+    var path = "M" + pointsArray[0].x + " " + pointsArray[0].y + "L";
+
+    for (var i = 1; i < pointsArray.length; i++) {
+
+        path += (pointsArray[i].x + " ");
+        path += (pointsArray[i].y + " ");
+    }
+    if (closePath) {
+        path += "Z";
+    }
+    return path;
+
 }
 
