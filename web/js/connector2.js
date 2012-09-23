@@ -1,10 +1,11 @@
 Glenmorangie.namespace("Glenmorangie.module");
 
-Glenmorangie.module.Connector = function (canv, baseX, baseY) {
+Glenmorangie.module.Connector = function (canv, baseX, baseY, or) {
     var canvas = canv;
-    var nodes = [];
-    var lines = [];
-    var lineMode = "normal";
+        nodes = [],
+        lines = [],
+        lineMode = "normal",
+        orientation = or;
 
 
     return {

@@ -53,7 +53,7 @@ $(document).ready(function () {
         .y(100)
         .build();
 
-    var classes = [ builtObject1, builtObject2];
+    var classes = [ builtObject1];
     Glenmorangie.umlProject.umlClassViews = {};
     Glenmorangie.umlProject.guiUmlClassViews = {};
 

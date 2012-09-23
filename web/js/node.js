@@ -13,7 +13,8 @@ function createNode(canvas, connector, x, y, arrowHead, id) {
 
     if (arrowHead) {
         draggableElement.click(function () {
-            if (currentKey && currentKey === 113) { //  'q'
+        var currentKey = Glenmorangie.module.currentKey;
+            if (currentKey!= null && currentKey === 113) { //  'q'
                 arrow.changeArrowHead();
                 render();
             }

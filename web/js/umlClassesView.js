@@ -8,6 +8,9 @@ $(document).ready(function () {
             _.bindAll(this, "render");
             this.model.on("change:class", this.respondToModelUpdate, this);
 
+            var transparentPane = createPane(100, 100, 200, 150).initialize(Glenmorangie.module.canvas);
+            transparentPane.addListener(this, this.updateUmlClassElement);
+
             this.render();
 
         },

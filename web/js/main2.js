@@ -1,12 +1,13 @@
 
 $(document).ready(function () {
 
-    var canvas = Raphael(10, 50, 320, 200);
+    Glenmorangie.module.canvas = Raphael(10, 50, 500, 820);
 
     Glenmorangie.module.keyHandler();
 
 
-    Glenmorangie.module.Connector(canvas, 100, 100, "horizontal").initialize();
-    Glenmorangie.module.Connector(canvas, 100, 100, "vertical").initialize();
+
+
+    Glenmorangie.module.Connector(Glenmorangie.module.canvas, 100, 100, "horizontal").initialize();
 
 });
