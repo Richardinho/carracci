@@ -7,6 +7,7 @@ $(document).ready(function () {
 
         var nodes = [];
         var lines = [];
+        var connectorMode = "normal";
 
         var node1 = createNode(20,100,false).initialize();
         var node2 = createNode(50,100,true).initialize();
@@ -23,6 +24,19 @@ $(document).ready(function () {
         linkNodesHorizontally(node3, node4);
 
         renderAll();
+
+        function updateMode(mode) {
+
+            connectorMode = mode;
+
+            if(mode === "normal") {
+                setLinesToNormal();
+
+            } else {
+                setLinesToDashes();
+            }
+            renderAll();
+        }
 
         function linkNodesHorizontally(nodeA, nodeB) {
             lines.push(createLine(nodeA, nodeB, canvas));
@@ -146,11 +160,11 @@ $(document).ready(function () {
                 },
 
                 setInheritanceMode : function () {
-                    setLinesToDashes();
+                    updateMode("inheritance");
                 },
 
                 setNormalLineMode : function () {
-                    setLinesToNormal();
+                    updateMode("normal");
                 },
 
                 orientation : "east", // e.g pointing right.

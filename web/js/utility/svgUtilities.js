@@ -22,7 +22,7 @@ Glenmorangie.svgUtils.createLine = function (paper, x1, y1, x2, y2) {
 Glenmorangie.svgUtils.resetLine = function (line, x1, y1, x2, y2, type) {
     line.attr({ "path" : Glenmorangie.svgUtils.buildPath(x1, y1, x2, y2)});
     if (type === "dashes") {
-        line.attr("stroke-dasharray", "--");
+        line.attr("stroke-dasharray", "-");
     } else {
         line.attr({"stroke-dasharray" : ""});
     }

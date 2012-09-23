@@ -11,19 +11,15 @@ function createArrow(xCood, yCood, can, node) {
         },
 
         whiteDiamond : function (x, y) {
-            node.setNormalLineMode();
             return Glenmorangie.svgUtils.createDiamond(canvas, x, y, "white");
         },
 
         blackDiamond : function (x, y) {
-            node.setNormalLineMode();
             return  Glenmorangie.svgUtils.createDiamond(canvas, x, y, "black");
         },
 
         inheritance : function (x, y) {
-            node.setInheritanceMode();
             return Glenmorangie.svgUtils.createDiamond(canvas, x, y, "red");
-
         },
 
         implementation : function () {
@@ -42,6 +38,12 @@ function createArrow(xCood, yCood, can, node) {
         changeArrowHead : function () {
             index++;
             index = (index === arrowHeads.length) ? 0 : index;
+
+            if (arrowHeads[index] === "inheritance") {
+                node.setInheritanceMode();
+            } else {
+                node.setNormalLineMode();
+            }
         }
     };
 }

@@ -26,13 +26,11 @@ function createLine(a, b, canvas) {
         dashes : function () {
 
             lineType = "dashes";
-            this.render();
         },
 
         normal : function () {
 
             lineType = "normal";
-            this.render();
         }
     }
 
