@@ -2,7 +2,7 @@ function createArrow(xCood, yCood, can, node) {
     var canvas = can;
     var arrowHead = Glenmorangie.svgUtils.createDiamond(canvas, xCood, yCood, "white");
     var index = 0;
-    var arrowHeads = ["whiteDiamond", "blackDiamond", "inheritance", "implements"];
+    var arrowHeads = ["whiteDiamond", "blackDiamond", "inheritance", "implements", "none"];
 
     var createArrows = {
 
@@ -19,11 +19,15 @@ function createArrow(xCood, yCood, can, node) {
         },
 
         inheritance : function (x, y) {
-            return Glenmorangie.svgUtils.createDiamond(canvas, x, y, "red");
+            return Glenmorangie.svgUtils.createExtendsArrow(canvas, x, y, "black", node.direction());
         },
 
         implements : function (x, y) {
-            return Glenmorangie.svgUtils.createDiamond(canvas, x, y, "green");
+            return Glenmorangie.svgUtils.createExtendsArrow(canvas, x, y, "white", node.direction());
+        },
+
+        none : function (x, y) {
+            return Glenmorangie.svgUtils.createNullElement(canvas, x, y, node.direction() );
         }
     };
 

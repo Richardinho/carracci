@@ -9,10 +9,10 @@ $(document).ready(function () {
         var lines = [];
         var lineMode = "normal";
 
-        var node1 = createNode(20,100,false).initialize();
-        var node2 = createNode(50,100,true).initialize();
-        var node3 = createNode(20,200,false).initialize();
-        var node4 = createNode(50,200,true).initialize();
+        var node1 = createNode(20,100,false, "do").initialize();
+        var node2 = createNode(50,100,true,"rae").initialize();
+        var node3 = createNode(20,200,false, "me").initialize();
+        var node4 = createNode(50,200,true, "fa").initialize();
 
         nodes.push(node1);
         nodes.push(node2);
@@ -40,6 +40,13 @@ $(document).ready(function () {
 
         function linkNodesHorizontally(nodeA, nodeB) {
             lines.push(createLine(nodeA, nodeB, canvas));
+            if (nodeA.getX() > nodeB.getX()) {
+                nodeA.setDirection("right");
+                nodeB.setDirection("left");
+            } else {
+                nodeA.setDirection("left");
+                nodeB.setDirection("right");
+            }
             nodeA.linkNode(nodeB, "horizontal");
             nodeB.linkNode(nodeA, "horizontal");
 
@@ -82,15 +89,17 @@ $(document).ready(function () {
             }
         }
 
-        function createNode(x, y, arrowHead) {
+        function createNode(x, y, arrowHead, id) {
             var startX = x,
                 startY = y,
                 xCood = x,
                 yCood = y,
+                id = id,
                 draggableElement = Glenmorangie.svgUtils.createCircle(canvas, x, y),
-                horizontalNodes = [],
+                horizontalNode,
                 verticalNodes = [],
-                arrow;
+                arrow,
+                direction = "right";
 
 
             if (arrowHead) {
@@ -104,9 +113,8 @@ $(document).ready(function () {
 
             function onmove(dx, dy) {
                 updateCoods(dx, dy);
-                for (var i = 0; i < horizontalNodes.length; i++) {
-                    horizontalNodes[i].updateYCood(yCood);
-                }
+
+                horizontalNode.updateYCood(yCood);
 
                 for (var i = 0; i < verticalNodes.length; i++) {
                     verticalNodes[i].updateXCood(xCood);
@@ -117,6 +125,18 @@ $(document).ready(function () {
             function updateCoods(dx, dy) {
                 xCood = startX + dx;
                 yCood = startY + dy;
+                updateDirection(xCood);
+            }
+
+            function updateDirection(x) {
+
+                if (x >= horizontalNode.getX()) {
+                    direction = "right";
+                    horizontalNode.setDirection("left");
+                } else {
+                    direction = "left";
+                    horizontalNode.setDirection("right");
+                }
             }
 
             function rotatePointer() {
@@ -124,7 +144,6 @@ $(document).ready(function () {
             }
 
             function onstart() {
-
                 startX = parseInt(draggableElement.attr("cx"));
                 startY = parseInt(draggableElement.attr("cy"));
             }
@@ -167,7 +186,14 @@ $(document).ready(function () {
                     updateLineMode("normal");
                 },
 
-                orientation : "east", // e.g pointing right.
+                direction : function () {
+
+                    return direction;
+                },
+
+                setDirection : function (dir) {
+                    direction = dir;
+                },
 
                 updateYCood : function (y) {
                     yCood = y;
@@ -192,7 +218,7 @@ $(document).ready(function () {
                 linkNode : function (node, geoRelationship) {
 
                     if("horizontal" === geoRelationship) {
-                        horizontalNodes.push(node)
+                        horizontalNode = node;
                     } else if("vertical" === geoRelationship) {
                         verticalNodes.push(node)
                     }

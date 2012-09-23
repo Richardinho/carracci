@@ -67,7 +67,7 @@
       <file leaf-file-name="svgUtilities.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/js/utility/svgUtilities.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="25" selection-start="665" selection-end="666" vertical-scroll-proportion="0.0">
+            <state line="71" column="28" selection-start="2147" selection-end="2147" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -118,10 +118,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="connectors2.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="connectors2.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/js/connectors2.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="161" column="33" selection-start="4522" selection-end="4522" vertical-scroll-proportion="-18.6">
+            <state line="136" column="27" selection-start="3879" selection-end="3879" vertical-scroll-proportion="2.774687">
               <folding />
             </state>
           </provider>
@@ -145,10 +145,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="arrowHead.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="arrowHead.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/js/arrowHead.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="35" selection-start="760" selection-end="760" vertical-scroll-proportion="0.48387095">
+            <state line="36" column="49" selection-start="1144" selection-end="1144" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -176,10 +176,10 @@
         <option value="$PROJECT_DIR$/web/js/spikes/connector.js" />
         <option value="$PROJECT_DIR$/web/js/module.keyHandler.js" />
         <option value="$PROJECT_DIR$/web/index.html" />
-        <option value="$PROJECT_DIR$/web/js/utility/svgUtilities.js" />
         <option value="$PROJECT_DIR$/web/js/line.js" />
-        <option value="$PROJECT_DIR$/web/js/connectors2.js" />
+        <option value="$PROJECT_DIR$/web/js/utility/svgUtilities.js" />
         <option value="$PROJECT_DIR$/web/js/arrowHead.js" />
+        <option value="$PROJECT_DIR$/web/js/connectors2.js" />
       </list>
     </option>
   </component>
@@ -697,13 +697,6 @@
         <state line="23" column="35" selection-start="295" selection-end="295" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/utility/svgUtilities.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="25" selection-start="665" selection-end="666" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/js/line.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="33" column="26" selection-start="966" selection-end="966" vertical-scroll-proportion="0.0">
@@ -711,16 +704,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/connectors2.js">
+    <entry file="file://$PROJECT_DIR$/web/js/utility/svgUtilities.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="161" column="33" selection-start="4522" selection-end="4522" vertical-scroll-proportion="-18.6">
+        <state line="71" column="28" selection-start="2147" selection-end="2147" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/js/arrowHead.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="35" selection-start="760" selection-end="760" vertical-scroll-proportion="0.48387095">
+        <state line="36" column="49" selection-start="1144" selection-end="1144" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/connectors2.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="136" column="27" selection-start="3879" selection-end="3879" vertical-scroll-proportion="2.774687">
           <folding />
         </state>
       </provider>
