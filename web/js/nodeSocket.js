@@ -4,11 +4,12 @@ function createNodeSocket(transparentPane, node) {
         pane = transparentPane,
         nodeYOffset = 90,
         lastKnownNodeYPosition = node.getY();
-        //horizontalNode = node.getHorizontalNode();
+
+        horizontalNode = node.getHorizontalNode();
 
     node.restrictX();
-
-   // horizontalNode.setDimensionsOfTransparentPane(pane.getDimensions());
+    horizontalNode.setCurrentlyAttachedPane(pane);
+    node.setCurrentlyAttachedPane(pane);
 
     return {
 
@@ -24,12 +25,9 @@ function createNodeSocket(transparentPane, node) {
             node.setUpperYLimit(pane.getHeight() + y);
             node.setLowerYLimit(y);
             lastKnownNodeYPosition = node.getY();
-            //horizontalNode.setDimensionsOfTransparentPane(pane.getDimensions());
 
 
         },
-
-
 
         _changeInNodeYPosition : function () {
             var currentNodeYPosition = node.getY();

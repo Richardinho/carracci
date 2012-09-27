@@ -11,7 +11,8 @@ function createNode(canvas, connector, x, y, arrowHead, id) {
         direction = "right",
         restrainX = false,
         upperYLimit = 3000,
-        lowerYLimit = 0;
+        lowerYLimit = 0,
+        pane;
 
 
     //  handler for when draggable element is dragged
@@ -20,12 +21,31 @@ function createNode(canvas, connector, x, y, arrowHead, id) {
             dx = 0;
         }
 
-        if((startY + dy) > lowerYLimit && (startY + dy) < upperYLimit) {
+        if(checkYConstraints (dy)) {
             setCoordinates(startX + dx, startY + dy);
             updateDirection(xCood);
         }
 
         updateAssociatedNodesAndRender();
+    }
+
+    function checkYConstraints (dy) {
+        var proposedYCood = startY + dy;
+
+        if (pane) {
+            if (pane.getY() < proposedYCood && ( pane.getY() + pane.getHeight()) > proposedYCood) {
+                return true
+            } else {
+
+                return false;
+            }
+
+        } else {
+
+            return true;
+        }
+
+
     }
 
     function setCoordinates (x, y) {
@@ -149,20 +169,10 @@ function createNode(canvas, connector, x, y, arrowHead, id) {
         },
 
         setUpperYLimit : function (y) {
-            this.setUpperYLimit2(y);
-            horizontalNode.setUpperYLimit2(y);
-        },
-
-        setUpperYLimit2 : function (y) {
             upperYLimit = y;
         },
 
         setLowerYLimit : function (y) {
-            this.setLowerYLimit2(y);
-            horizontalNode.setLowerYLimit2(y);
-        },
-
-        setLowerYLimit2 : function (y) {
             lowerYLimit = y;
         },
 
@@ -173,6 +183,14 @@ function createNode(canvas, connector, x, y, arrowHead, id) {
 
         getY : function () {
             return yCood;
+        },
+
+        setCurrentlyAttachedPane : function (p) {
+            pane = p;
+        },
+
+        getHorizontalNode : function () {
+            return horizontalNode;
         },
 
         linkNode : function (node, geoRelationship) {

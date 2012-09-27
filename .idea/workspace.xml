@@ -112,16 +112,16 @@
       <file leaf-file-name="transparentPane.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/js/transparentPane.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="0" selection-start="516" selection-end="516" vertical-scroll-proportion="0.0">
+            <state line="71" column="25" selection-start="1847" selection-end="1847" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="nodeSocket.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="nodeSocket.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/js/nodeSocket.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="47" selection-start="732" selection-end="732" vertical-scroll-proportion="0.0">
+            <state line="8" column="29" selection-start="267" selection-end="267" vertical-scroll-proportion="0.18897638">
               <folding />
             </state>
           </provider>
@@ -136,10 +136,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="node.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="node.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/js/node.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="84" column="30" selection-start="2034" selection-end="2034" vertical-scroll-proportion="1.984252">
+            <state line="188" column="21" selection-start="4503" selection-end="4503" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -177,9 +177,9 @@
         <option value="$PROJECT_DIR$/web/js/utility/svgUtilities.js" />
         <option value="$PROJECT_DIR$/web/js/module.keyHandler.js" />
         <option value="$PROJECT_DIR$/web/actual.html" />
+        <option value="$PROJECT_DIR$/web/js/node.js" />
         <option value="$PROJECT_DIR$/web/js/transparentPane.js" />
         <option value="$PROJECT_DIR$/web/js/nodeSocket.js" />
-        <option value="$PROJECT_DIR$/web/js/node.js" />
       </list>
     </option>
   </component>
@@ -698,23 +698,23 @@
         <state line="12" column="54" selection-start="380" selection-end="380" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/node.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="188" column="21" selection-start="4503" selection-end="4503" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/web/js/transparentPane.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="0" selection-start="516" selection-end="516" vertical-scroll-proportion="0.0">
+        <state line="71" column="25" selection-start="1847" selection-end="1847" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/js/nodeSocket.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="47" selection-start="732" selection-end="732" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/node.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="84" column="30" selection-start="2034" selection-end="2034" vertical-scroll-proportion="1.984252">
+        <state line="8" column="29" selection-start="267" selection-end="267" vertical-scroll-proportion="0.18897638">
           <folding />
         </state>
       </provider>
