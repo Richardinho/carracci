@@ -20,13 +20,6 @@ Glenmorangie.svgUtils.createLine = function (paper, x1, y1, x2, y2) {
 }
 
 Glenmorangie.svgUtils.resetLine = function (line, x1, y1, x2, y2, type, lineDirection, orientation) {
-    if (orientation === "horizontal") {
-        if (lineDirection === "right") {
-            x2 = x2 + 10;
-        } else {
-            x2 = x2 - 10;
-        }
-    }
 
     line.attr({ "path" : Glenmorangie.svgUtils.buildPath(x1, y1, x2, y2)});
 
@@ -48,9 +41,9 @@ Glenmorangie.svgUtils.createRectangle = function (paper, x1, y1, width, height) 
 
 Glenmorangie.svgUtils.createArrow = function (paper, x, y, direction) {
     var points = [];
-    points.push(createPoint(x, y + 10));
-    points.push(direction === "right" ? createPoint(x + 10, y) : createPoint(x - 10, y ));
-    points.push(createPoint(x, y - 10));
+    points.push(direction === "right" ? createPoint(x -10, y + 10) : createPoint(x +10, y + 10 ));
+    points.push(createPoint(x, y));
+    points.push(direction === "right" ? createPoint(x -10, y - 10) : createPoint(x +10, y - 10 ));
 
     var path =  buildPath(points, false);
 

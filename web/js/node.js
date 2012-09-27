@@ -21,6 +21,8 @@ function createNode(canvas, connector, x, y, arrowHead, id) {
             dx = 0;
         }
 
+
+
         if(checkYConstraints (dy)) {
             setCoordinates(startX + dx, startY + dy);
             updateDirection(xCood);

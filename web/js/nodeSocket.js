@@ -18,15 +18,11 @@ function createNodeSocket(transparentPane, node) {
             if(this._changeInNodeYPosition()) {
                 nodeYOffset = nodeYOffset - this._changeInNodeYPosition();
             }
-            var xCood = x - 10;
+            var xCood = x;
             var yCood = y + nodeYOffset;
             // calculate new x and y coods for node.
             node.setNodePosition( xCood, yCood );
-            node.setUpperYLimit(pane.getHeight() + y);
-            node.setLowerYLimit(y);
             lastKnownNodeYPosition = node.getY();
-
-
         },
 
         _changeInNodeYPosition : function () {
