@@ -8,21 +8,32 @@ function createNode(canvas, connector, x, y, arrowHead, id) {
         horizontalNode,
         verticalNodes = [],
         arrow,
-        direction = "right";
+        direction = "right",
+        restrainX = false,
+        upperYLimit = 3000,
+        lowerYLimit = 0;
 
 
-    if (arrowHead) {
-        draggableElement.click(function () {
-        var currentKey = Glenmorangie.module.currentKey;
-            if (currentKey!= null && currentKey === 113) { //  'q'
-                arrow.changeArrowHead();
-                render();
-            }
-        });
+    //  handler for when draggable element is dragged
+    function draggableNodeOnMove(dx, dy) {
+        if (restrainX) {
+            dx = 0;
+        }
+
+        if((startY + dy) > lowerYLimit && (startY + dy) < upperYLimit) {
+            setCoordinates(startX + dx, startY + dy);
+            updateDirection(xCood);
+        }
+
+        updateAssociatedNodesAndRender();
     }
 
-    function onmove(dx, dy) {
-        updateCoods(dx, dy);
+    function setCoordinates (x, y) {
+        xCood = x;
+        yCood = y;
+    }
+
+    function updateAssociatedNodesAndRender() {
 
         horizontalNode.updateYCood(yCood);
 
@@ -30,12 +41,6 @@ function createNode(canvas, connector, x, y, arrowHead, id) {
             verticalNodes[i].updateXCood(xCood);
         }
         connector.renderAll();
-    }
-
-    function updateCoods(dx, dy) {
-        xCood = startX + dx;
-        yCood = startY + dy;
-        updateDirection(xCood);
     }
 
 
@@ -71,19 +76,32 @@ function createNode(canvas, connector, x, y, arrowHead, id) {
         updateDraggableElement();
     }
 
-    draggableElement.drag(onmove, onstart, onend);
-
     function updateDraggableElement() {
         draggableElement.attr({cx : xCood});
         draggableElement.attr({cy : yCood});
         draggableElement.toFront();
     }
 
+    //  set node to be movable
+    draggableElement.drag(draggableNodeOnMove, onstart, onend);
+
     return {
 
         initialize : function () {
             if(arrowHead) {
                 arrow = createArrow(xCood, yCood, canvas, this);
+                var self = this;
+                draggableElement.click(function () {
+                var currentKey = Glenmorangie.module.currentKey;
+                    if (currentKey!= null && currentKey === 113) { //  'q'
+                        arrow.changeArrowHead();
+                        render();
+                    }
+
+                    if (currentKey != null && currentKey === 114) { // 'r'
+                        Glenmorangie.module.askingToAttachNode = self;
+                    }
+                });
             }
             draggableElement.toFront();
             return this;
@@ -98,7 +116,6 @@ function createNode(canvas, connector, x, y, arrowHead, id) {
         },
 
         direction : function () {
-
             return direction;
         },
 
@@ -106,19 +123,50 @@ function createNode(canvas, connector, x, y, arrowHead, id) {
             direction = dir;
         },
 
+        //  update y cood from outside
         updateYCood : function (y) {
             yCood = y;
         },
 
+        //  update x cood from outside
         updateXCood : function (x) {
             xCood = x;
             updateDirection(xCood);
+        },
+
+        setNodePosition : function (x, y) {
+            setCoordinates(x, y);
+            updateAssociatedNodesAndRender()
         },
 
         render : function () {
             render();
         },
 
+        // set limits
+        restrictX : function () {
+            restrainX = true;
+        },
+
+        setUpperYLimit : function (y) {
+            this.setUpperYLimit2(y);
+            horizontalNode.setUpperYLimit2(y);
+        },
+
+        setUpperYLimit2 : function (y) {
+            upperYLimit = y;
+        },
+
+        setLowerYLimit : function (y) {
+            this.setLowerYLimit2(y);
+            horizontalNode.setLowerYLimit2(y);
+        },
+
+        setLowerYLimit2 : function (y) {
+            lowerYLimit = y;
+        },
+
+        //  get coods
         getX : function () {
             return xCood;
         },

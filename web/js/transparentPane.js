@@ -7,7 +7,8 @@ function createPane(x, y, width, height) {
         element,
         startX,
         startY,
-        listeners = [];
+        listeners = [],
+        attachedNodes = [];
 
     function onmove(dx, dy) {
         xCood = startX + dx;
@@ -15,6 +16,9 @@ function createPane(x, y, width, height) {
 
         for (var i = 0; i < listeners.length; i++) {
             listeners[i].action.call(listeners[i].listener, xCood, yCood);
+        }
+        for (var i = 0; i < attachedNodes.length; i++) {
+            attachedNodes[i].updateNode(xCood, yCood);
         }
         render();
     }
@@ -38,7 +42,12 @@ function createPane(x, y, width, height) {
 
         initialize : function (canvas) {
             element = Glenmorangie.svgUtils.createRectangle(canvas, x, y, width, height);
-
+            var self = this;
+            element.click(function () {
+                if (Glenmorangie.module.askingToAttachNode) {
+                    attachedNodes.push(createNodeSocket(self, Glenmorangie.module.askingToAttachNode));
+                }
+            });
             element.drag(onmove, onstart, onend);
             return this;
         },
@@ -51,6 +60,11 @@ function createPane(x, y, width, height) {
         resize : function (width, height) {
             element.attr({ "height": height });
             element.attr({ "width" : width });
+        },
+
+        getHeight : function () {
+
+            return parseInt(element.attr("height"));
         }
     }
 

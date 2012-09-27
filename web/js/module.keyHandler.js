@@ -10,6 +10,7 @@ Glenmorangie.module.keyHandler = function () {
 
     $(window).keyup(function (event) {
         Glenmorangie.module.currentKey = null;
+        Glenmorangie.module.askingToAttachNode = false
     });
 
 }
