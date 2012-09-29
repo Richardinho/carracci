@@ -1,10 +1,9 @@
-function createLine(a, b, canvas, orient) {
+function createLine(a, b, canvas) {
 
     var path,
         nodeA = a,
         nodeB = b,
-        lineType = null,
-        orientation = orient;
+        lineType = null;
 
 
 
@@ -12,9 +11,8 @@ function createLine(a, b, canvas, orient) {
                                                 nodeA.getX(),
                                                 nodeA.getY(),
                                                 nodeB.getX(),
-                                                nodeB.getY(),
-                                                nodeB.direction(),
-                                                orientation);
+                                                nodeB.getY()
+                                                );
 
     return {
         render : function() {
@@ -24,9 +22,8 @@ function createLine(a, b, canvas, orient) {
                                             nodeA.getY(),
                                             nodeB.getX(),
                                             nodeB.getY(),
-                                            lineType,
-                                            nodeB.direction(),
-                                            orientation);
+                                            lineType
+                                            );
         },
 
         dashes : function () {

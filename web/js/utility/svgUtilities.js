@@ -7,6 +7,7 @@ Glenmorangie.svgUtils.createCircle = function(paper, x, y) {
     //circle.attr("opacity", 0);
     circle.attr("stroke", "#fff");
     return circle;
+
 }
 
 
@@ -19,7 +20,7 @@ Glenmorangie.svgUtils.createLine = function (paper, x1, y1, x2, y2) {
     return element;
 }
 
-Glenmorangie.svgUtils.resetLine = function (line, x1, y1, x2, y2, type, lineDirection, orientation) {
+Glenmorangie.svgUtils.resetLine = function (line, x1, y1, x2, y2, type) {
 
     line.attr({ "path" : Glenmorangie.svgUtils.buildPath(x1, y1, x2, y2)});
 

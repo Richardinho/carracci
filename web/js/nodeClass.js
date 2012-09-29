@@ -1,14 +1,15 @@
 var canvas;
 
 
-function Node(canvas, connector, x, y, hasArrowHead, id) {
-
-    this.xCood = x;
-    this.yCood = y;
-    this.movementManager = createMovementManager(x, y, this, canvas);
-    this.listeners = [];
-    this.connector = connector;
-
+function Node(canvas, connector, x, y, id) {
+    if(canvas) {
+        this.xCood = x;
+        this.yCood = y;
+        this.draggableElement = Glenmorangie.svgUtils.createCircle(canvas, x, y);
+        this.movementManager = createMovementManager(x, y, this);
+        this.listeners = [];
+        this.connector = connector;
+    }
 }
 
 Node.prototype.setConstraintsManager = function(man) {
@@ -40,8 +41,15 @@ Node.prototype.vertical = function (x, y) {
 }
 
 Node.prototype.render = function () {
-
     this.movementManager.render(this.xCood, this.yCood);
+}
+
+Node.prototype.getX = function () {
+    return this.xCood;
+}
+
+Node.prototype.getY = function () {
+    return this.yCood;
 }
 
 var constraintsManager = {
@@ -60,17 +68,16 @@ var constraintsManager = {
 }
 
 
-function createMovementManager(x, y, node, canvas) {
+function createMovementManager(x, y, node) {
 
-    var draggableElement,
+    var node = node,
         startX,
         startY,
-        constraintsManagers = [],
-        canvas = canvas;
+        constraintsManagers = [];
 
     function onstart() {
-        startX = parseInt(draggableElement.attr("cx"));
-        startY = parseInt(draggableElement.attr("cy"));
+        startX = parseInt(node.draggableElement.attr("cx"));
+        startY = parseInt(node.draggableElement.attr("cy"));
     }
 
     function onend() {
@@ -82,9 +89,8 @@ function createMovementManager(x, y, node, canvas) {
         var proposedX = startX + dx,
             proposedY = startY + dy;
 
-        xCood = checkXRestrictions(proposedX) ? proposedX : xCood;
-        yCood = checkYRestrictions(proposedY) ? proposedY : yCood;
-        node.setCoods(xCood, yCood);
+        node.xCood = checkXRestrictions(proposedX) ? proposedX : node.xCood;
+        node.yCood = checkYRestrictions(proposedY) ? proposedY : node.yCood;
         node.notifyListeners();
 
         node.connector.renderAll();
@@ -105,13 +111,12 @@ function createMovementManager(x, y, node, canvas) {
     }
 
     function render (x, y) {
-        draggableElement.attr({cx : x});
-        draggableElement.attr({cy : y});
-        draggableElement.toFront();
+        node.draggableElement.attr({cx : x});
+        node.draggableElement.attr({cy : y});
+        node.draggableElement.toFront();
     }
 
-    draggableElement = Glenmorangie.svgUtils.createCircle(canvas, x, y);
-    draggableElement.drag(onMove, onstart, onend);
+    node.draggableElement.drag(onMove, onstart, onend);
 
     return {
         setConstraintsManager : function (manager) {

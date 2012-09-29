@@ -3,11 +3,12 @@ function createArrow(xCood, yCood, can, node) {
     var arrowHead = Glenmorangie.svgUtils.createDiamond(canvas, xCood, yCood, "white");
     var index = 0;
     var arrowHeads = ["arrow", "blackDiamond", "inheritance", "implements", "none"];
+    var direction = "right";
 
     var createArrows = {
 
         arrow : function (x, y) {
-            return  Glenmorangie.svgUtils.createArrow(canvas, x, y, node.direction());
+            return  Glenmorangie.svgUtils.createArrow(canvas, x, y, direction);
         },
 
         blackDiamond : function (x, y) {
@@ -15,15 +16,15 @@ function createArrow(xCood, yCood, can, node) {
         },
 
         inheritance : function (x, y) {
-            return Glenmorangie.svgUtils.createExtendsArrow(canvas, x, y, "black", node.direction());
+            return Glenmorangie.svgUtils.createExtendsArrow(canvas, x, y, "black", direction);
         },
 
         implements : function (x, y) {
-            return Glenmorangie.svgUtils.createExtendsArrow(canvas, x, y, "white", node.direction());
+            return Glenmorangie.svgUtils.createExtendsArrow(canvas, x, y, "white", direction);
         },
 
         none : function (x, y) {
-            return Glenmorangie.svgUtils.createNullElement(canvas, x, y, node.direction() );
+            return Glenmorangie.svgUtils.createNullElement(canvas, x, y, direction );
         }
     };
 
@@ -32,6 +33,10 @@ function createArrow(xCood, yCood, can, node) {
         updateArrowHead : function (x, y) {
             arrowHead.remove();
             arrowHead = createArrows[arrowHeads[index]](x, y);
+        },
+
+        setArrowDirection : function (dir) {
+            direction = dir;
 
         },
 
@@ -40,9 +45,9 @@ function createArrow(xCood, yCood, can, node) {
             index = (index === arrowHeads.length) ? 0 : index;
 
             if (arrowHeads[index] === "implements") {
-                node.setImplementsLineMode();
+                //node.setImplementsLineMode();
             } else {
-                node.setNormalLineMode();
+                //node.setNormalLineMode();
             }
         }
     };

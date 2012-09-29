@@ -11,14 +11,17 @@ Glenmorangie.module.Connector = function (canv, baseX, baseY, or) {
     return {
         initialize : function () {
 
-            var node1 = this._createNode(20,100,false, "do");
-            var node2 = this._createNode(50,100,true,"rae");
-            var node3 = this._createNode(20,200,false, "me");
-            var node4 = this._createNode(50,200,true, "fa");
+            var node1 = this._createNode(20,100, "do");
+            var node2 = this._createNodeWithArrow(50,100, "rae", node1);
+            var node3 = this._createNode(20,200, "me");
+            var node4 = this._createNodeWithArrow(50,200, "fa", node3);
 
             this._linkNodesHorizontally(node1, node2);
             this._linkNodesVertically(node1, node3);
             this._linkNodesHorizontally(node3, node4);
+
+            node1.addListener(node2, "setArrowDirection");
+            node3.addListener(node2, "setArrowDirection");
 
             this.renderAll();
 
@@ -53,22 +56,22 @@ Glenmorangie.module.Connector = function (canv, baseX, baseY, or) {
             this.renderAll();
         },
 
-        _createNode : function (x, y, hasArrowHead, id) {
-            var node = new Node(canvas, this, x, y, hasArrowHead, id);
+        _createNode : function (x, y, id) {
+            var node = new Node(canvas, this, x, y, id);
+            nodes.push(node);
+            return node;
+        },
+
+        _createNodeWithArrow : function (x, y, id, partnerNode) {
+            var node = new NodeWithArrowClass(canvas, this, x, y, id, partnerNode);
             nodes.push(node);
             return node;
         },
 
         _linkNodesHorizontally : function (nodeA, nodeB) {
 
-            //lines.push(createLine(nodeA, nodeB, canvas, "horizontal"));
-/*            if (nodeA.getX() > nodeB.getX()) {
-                nodeA.setDirection("right");
-                nodeB.setDirection("left");
-            } else {
-                nodeA.setDirection("left");
-                nodeB.setDirection("right");
-            }*/
+            lines.push(createLine(nodeA, nodeB, canvas));
+
             nodeA.addListener(nodeB, "horizontal");
             nodeB.addListener(nodeA, "horizontal");
 
@@ -76,7 +79,7 @@ Glenmorangie.module.Connector = function (canv, baseX, baseY, or) {
 
         _linkNodesVertically : function (nodeA, nodeB) {
 
-            //lines.push(createLine(nodeA, nodeB, canvas, "vertical"));
+            lines.push(createLine(nodeA, nodeB, canvas, "vertical"));
             nodeA.addListener(nodeB, "vertical");
             nodeB.addListener(nodeA, "vertical");
         },
