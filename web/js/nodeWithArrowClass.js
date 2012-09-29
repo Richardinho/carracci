@@ -61,6 +61,8 @@ function createPaneToNodeSocket(node, proximalNode, distalNode) {
         activate : function (pan) {
             pane = pan;
 
+            proximalNode.addListener(this, "updateLocation");
+            distalNode.addListener(this, "updateLocation");
             node.addListener(this, "updateYOffset");
             proximalNode.setConstraintsManager({
                 proposeXCood : function (x) {
@@ -113,7 +115,8 @@ function createPaneToNodeSocket(node, proximalNode, distalNode) {
 
         updateNode : function (x, y) {
             var yCood = y + nodeYOffset;
-            node.updateCoordinates(x, yCood);
+            var xCood = location === "left" ? x : x + pane.getWidth();
+            node.updateCoordinates(xCood, yCood);
         },
 
         calculateInitialLocationOfNode : function () {
@@ -130,6 +133,16 @@ function createPaneToNodeSocket(node, proximalNode, distalNode) {
 
         setLocation : function (loc) {
             location = loc;
+        },
+
+        //  this probably needs to be a bit more sophisticated too.
+        updateLocation : function (x, y) {
+            if (x > (pane.getX() + pane.getWidth())) {
+                location = "right";
+            } else {
+                location = "left";
+            }
+            this.updateNode(pane.getX(), pane.getY());
         }
     }
 }
