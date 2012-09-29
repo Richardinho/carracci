@@ -12,7 +12,8 @@ function createNode(canvas, connector, x, y, arrowHead, id) {
         restrainX = false,
         upperYLimit = 3000,
         lowerYLimit = 0,
-        pane;
+        pane,
+        nodeSocket;
 
 
     //  handler for when draggable element is dragged
@@ -25,10 +26,18 @@ function createNode(canvas, connector, x, y, arrowHead, id) {
 
         if(checkYConstraints (dy)) {
             setCoordinates(startX + dx, startY + dy);
+            if (pane && horizontalNode.direction() === "left" && (getPaneRightEdgeXCood() === xCood) ) {
+                nodeSocket.setLocation("right");
+                horizontalNode.updateXCood(xCood);
+            }
             updateDirection(xCood);
         }
 
         updateAssociatedNodesAndRender();
+    }
+    function getPaneRightEdgeXCood() {
+
+        return parseInt(pane.getX()) + parseInt(pane.getWidth());
     }
 
     function checkYConstraints (dy) {
@@ -72,6 +81,7 @@ function createNode(canvas, connector, x, y, arrowHead, id) {
             direction = "right";
             horizontalNode.setDirection("left");
         } else {
+
             direction = "left";
             horizontalNode.setDirection("right");
         }
@@ -187,8 +197,9 @@ function createNode(canvas, connector, x, y, arrowHead, id) {
             return yCood;
         },
 
-        setCurrentlyAttachedPane : function (p) {
+        setCurrentlyAttachedPane : function (p, socket) {
             pane = p;
+            nodeSocket = socket;
         },
 
         getHorizontalNode : function () {
