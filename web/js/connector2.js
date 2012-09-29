@@ -54,31 +54,31 @@ Glenmorangie.module.Connector = function (canv, baseX, baseY, or) {
         },
 
         _createNode : function (x, y, hasArrowHead, id) {
-            var node = createNode(canvas, this, x, y, hasArrowHead, id).initialize();
+            var node = new Node(canvas, this, x, y, hasArrowHead, id);
             nodes.push(node);
             return node;
         },
 
         _linkNodesHorizontally : function (nodeA, nodeB) {
 
-            lines.push(createLine(nodeA, nodeB, canvas, "horizontal"));
-            if (nodeA.getX() > nodeB.getX()) {
+            //lines.push(createLine(nodeA, nodeB, canvas, "horizontal"));
+/*            if (nodeA.getX() > nodeB.getX()) {
                 nodeA.setDirection("right");
                 nodeB.setDirection("left");
             } else {
                 nodeA.setDirection("left");
                 nodeB.setDirection("right");
-            }
-            nodeA.linkNode(nodeB, "horizontal");
-            nodeB.linkNode(nodeA, "horizontal");
+            }*/
+            nodeA.addListener(nodeB, "horizontal");
+            nodeB.addListener(nodeA, "horizontal");
 
         },
 
         _linkNodesVertically : function (nodeA, nodeB) {
 
-            lines.push(createLine(nodeA, nodeB, canvas, "vertical"));
-            nodeA.linkNode(nodeB, "vertical");
-            nodeB.linkNode(nodeA, "vertical");
+            //lines.push(createLine(nodeA, nodeB, canvas, "vertical"));
+            nodeA.addListener(nodeB, "vertical");
+            nodeB.addListener(nodeA, "vertical");
         },
 
         _setLinesToNormal : function () {

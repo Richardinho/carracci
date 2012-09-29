@@ -1,13 +1,13 @@
 var canvas;
 
 
-
-function Node(x, y) {
+function Node(canvas, connector, x, y, hasArrowHead, id) {
 
     this.xCood = x;
     this.yCood = y;
-    this.movementManager = createMovementManager(x, y, this);
+    this.movementManager = createMovementManager(x, y, this, canvas);
     this.listeners = [];
+    this.connector = connector;
 
 }
 
@@ -23,16 +23,20 @@ Node.prototype.setCoods = function (x, y) {
 Node.prototype.notifyListeners = function () {
     for (var i = 0; i < this.listeners.length; i++) {
         var listener = this.listeners[i];
-        listener.action(this.xCood, yCood);
+        listener.obj[listener.action]( this.xCood, this.yCood );
     }
 }
 
-Node.prototype.addListener = function (object) {
-    this.listeners.push(object);
+Node.prototype.addListener = function (object, method) {
+    this.listeners.push({ obj : object, action : method });
 }
 
-Node.prototype.action = function (x, y) {
+Node.prototype.horizontal = function (x, y) {
     this.setCoods(this.xCood, y);
+}
+
+Node.prototype.vertical = function (x, y) {
+    this.setCoods(x, this.yCood);
 }
 
 Node.prototype.render = function () {
@@ -55,37 +59,14 @@ var constraintsManager = {
     }
 }
 
-var renderAll;
-$(document).ready(function () {
 
-
-
-    canvas = Raphael(0, 0, 800, 820);
-    var node1 =  new Node(100, 100);
-    var node2 = new Node(200, 100);
-    node1.setConstraintsManager(constraintsManager);
-    node1.addListener(node2);
-
-    renderAll = function() {
-        node1.render();
-        node2.render();
-    }
-
-
-
-
-});
-
-
-
-
-
-function createMovementManager(x, y, node) {
+function createMovementManager(x, y, node, canvas) {
 
     var draggableElement,
         startX,
         startY,
-        constraintsManagers = [];
+        constraintsManagers = [],
+        canvas = canvas;
 
     function onstart() {
         startX = parseInt(draggableElement.attr("cx"));
@@ -106,7 +87,7 @@ function createMovementManager(x, y, node) {
         node.setCoods(xCood, yCood);
         node.notifyListeners();
 
-        renderAll();
+        node.connector.renderAll();
     }
 
     function checkXRestrictions(x) {
