@@ -4,7 +4,7 @@ Glenmorangie.namespace("Glenmorangie.svgUtils");
 Glenmorangie.svgUtils.createCircle = function(paper, x, y) {
     var circle = paper.circle(x, y, 10);
     circle.attr("fill" , "red");
-    //circle.attr("opacity", 0);
+    circle.attr("opacity", 0);
     circle.attr("stroke", "#fff");
     return circle;
 

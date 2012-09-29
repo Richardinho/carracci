@@ -52,6 +52,10 @@ Node.prototype.getY = function () {
     return this.yCood;
 }
 
+Node.prototype.updateCoordinates = function (x, y) {
+    this.movementManager.updateCoordinates(x, y);
+}
+
 var constraintsManager = {
 
 
@@ -89,8 +93,15 @@ function createMovementManager(x, y, node) {
         var proposedX = startX + dx,
             proposedY = startY + dy;
 
-        node.xCood = checkXRestrictions(proposedX) ? proposedX : node.xCood;
-        node.yCood = checkYRestrictions(proposedY) ? proposedY : node.yCood;
+        var x = checkXRestrictions(proposedX) ? proposedX : node.xCood;
+        var y = checkYRestrictions(proposedY) ? proposedY : node.yCood;
+        updateCoordinates(x,y);
+
+    }
+
+    function updateCoordinates(x, y) {
+        node.xCood = x;
+        node.yCood = y;
         node.notifyListeners();
 
         node.connector.renderAll();
@@ -123,8 +134,11 @@ function createMovementManager(x, y, node) {
             constraintsManagers.push(manager);
         },
 
-        render : function (x, y) {
+        updateCoordinates : function (x, y)  {
+            updateCoordinates(x, y);
+        },
 
+        render : function (x, y) {
             render(x, y);
         }
 

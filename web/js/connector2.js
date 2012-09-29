@@ -12,9 +12,9 @@ Glenmorangie.module.Connector = function (canv, baseX, baseY, or) {
         initialize : function () {
 
             var node1 = this._createNode(20,100, "do");
-            var node2 = this._createNodeWithArrow(50,100, "rae", node1);
             var node3 = this._createNode(20,200, "me");
-            var node4 = this._createNodeWithArrow(50,200, "fa", node3);
+            var node2 = this._createNodeWithArrow(50,100, "rae", node1, node3);
+            var node4 = this._createNodeWithArrow(50,200, "fa", node3, node1);
 
             this._linkNodesHorizontally(node1, node2);
             this._linkNodesVertically(node1, node3);
@@ -62,8 +62,8 @@ Glenmorangie.module.Connector = function (canv, baseX, baseY, or) {
             return node;
         },
 
-        _createNodeWithArrow : function (x, y, id, partnerNode) {
-            var node = new NodeWithArrowClass(canvas, this, x, y, id, partnerNode);
+        _createNodeWithArrow : function (x, y, id, partnerNode, distalNode) {
+            var node = new NodeWithArrowClass(canvas, this, x, y, id, partnerNode, distalNode);
             nodes.push(node);
             return node;
         },

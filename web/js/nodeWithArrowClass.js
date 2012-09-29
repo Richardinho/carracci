@@ -1,12 +1,13 @@
 var canvas;
 
 
-function NodeWithArrowClass (canvas, connector, x, y, id, node) {
+function NodeWithArrowClass (canvas, connector, x, y, id, node, distalNode) {
 
     Node.call(this,canvas, connector, x, y, id);
 
     this.arrow = createArrow(this.xCood, this.yCood, canvas, this);
     this.partnerNode = node;
+    this.paneToNodeSocket = createPaneToNodeSocket(this, node, distalNode);
     var self = this;
 
     this.draggableElement.click(function () {
@@ -17,7 +18,7 @@ function NodeWithArrowClass (canvas, connector, x, y, id, node) {
         }
 
         if (currentKey != null && currentKey === 114) { // 'r'
-            //Glenmorangie.module.askingToAttachNode = self;
+            Glenmorangie.module.askingToAttachNode = self;
         }
     });
 
@@ -32,6 +33,10 @@ NodeWithArrowClass.prototype.render = function () {
     Node.prototype.render.call(this);
 }
 
+NodeWithArrowClass.prototype.getSocket = function() {
+    return this.paneToNodeSocket;
+}
+
 NodeWithArrowClass.prototype.setArrowDirection = function (x, y) {
 
     if ( this.xCood > x) {
@@ -41,6 +46,99 @@ NodeWithArrowClass.prototype.setArrowDirection = function (x, y) {
     }
 
 }
+
+function createPaneToNodeSocket(node, proximalNode, distalNode) {
+
+    var nodeYOffset = 90,
+        location = "left",
+        pane = null;
+
+
+
+
+    return {
+
+        activate : function (pan) {
+            pane = pan;
+
+            node.addListener(this, "updateYOffset");
+            proximalNode.setConstraintsManager({
+                proposeXCood : function (x) {
+                    return true;
+                },
+
+                proposeYCood : function (y) {
+                    if(y < pane.getY() || y > (pane.getY() + pane.getHeight())) {
+                        return false;
+                    } else {
+                        return true;
+                    }
+                }
+
+            });
+
+            node.setConstraintsManager({
+
+                proposeXCood : function (x) {
+                    return false;
+                },
+
+                proposeYCood : function (y) {
+                    if(y < pane.getY() || y > (pane.getY() + pane.getHeight())) {
+                        return false;
+                    } else {
+                        return true;
+                    }
+                }
+
+            });
+            var coods = this.calculateInitialLocationOfNode();
+            node.updateCoordinates(coods.x, coods.y);
+            return this;
+        },
+
+        updateYOffset : function (x, y) {
+            if (pane !== null) {
+                nodeYOffset = y - pane.getY();
+            }
+        },
+
+        setPane : function (p) {
+            pane = p;
+        },
+
+        isAttachedToPane : function () {
+            return (pane === null);
+        },
+
+        updateNode : function (x, y) {
+            var yCood = y + nodeYOffset;
+            node.updateCoordinates(x, yCood);
+        },
+
+        calculateInitialLocationOfNode : function () {
+
+        //  naive implementation, needs to be a lot more sophisticated.
+            var newNodeX,
+                newNodeY;
+
+            newNodeX = pane.getX();
+            newNodeY = pane.getY() + nodeYOffset;
+
+            return { x : newNodeX, y : newNodeY };
+        },
+
+        setLocation : function (loc) {
+            location = loc;
+        }
+    }
+}
+
+
+
+
+
+
 
 
 

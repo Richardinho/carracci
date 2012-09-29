@@ -45,7 +45,7 @@ function createPane(x, y, width, height) {
             var self = this;
             element.click(function () {
                 if (Glenmorangie.module.askingToAttachNode) {
-                    attachedNodes.push(createNodeSocket(self, Glenmorangie.module.askingToAttachNode).initialize());
+                    attachedNodes.push(Glenmorangie.module.askingToAttachNode.getSocket().activate(self));
                 }
             });
             element.drag(onmove, onstart, onend);

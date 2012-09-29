@@ -1,39 +1,51 @@
 function createNodeSocket(transparentPane, node) {
-    console.log("createnode socket") ;
-    var node = node,
-        pane = transparentPane,
-        nodeYOffset = 90,
-        lastKnownNodeYPosition = node.getY(),
-        location = "left",
-        horizontalNode = node.getHorizontalNode();
 
-    node.restrictX();
+    var node = node,
+        nodeYOffset = 90,
+        location = "left",
+        pane;
 
 
     return {
 
-        initialize : function () {
-            horizontalNode.setCurrentlyAttachedPane(pane, this);
-            node.setCurrentlyAttachedPane(pane, this);
-            return this;
+        initialize : function (pan) {
+            pane = pan;
+            node.setConstraintsManager({
 
+                proposeXCood : function (x) {
+                    return false;
+                },
+
+                proposeYCood : function (y) {
+                    if(y < pane.getY() || y > (pane.getY() + pane.getHeight())) {
+                        return false;
+                    } else {
+                        return true;
+                    }
+                }
+
+            });
+            var coods = this.calculateInitialLocationOfNode();
+            node.updateCoordinates(coods.x, coods.y);
+            return this;
         },
 
         updateNode : function (x, y) {
-
-            if(this._changeInNodeYPosition()) {
-                nodeYOffset = nodeYOffset - this._changeInNodeYPosition();
-            }
-            var xCood = location === "left" ? x : x + pane.getWidth();
             var yCood = y + nodeYOffset;
-            // calculate new x and y coods for node.
-            node.setNodePosition( xCood, yCood );
-            lastKnownNodeYPosition = node.getY();
+            node.updateCoordinates(x, yCood);
         },
 
-        _changeInNodeYPosition : function () {
-            var currentNodeYPosition = node.getY();
-            return lastKnownNodeYPosition - currentNodeYPosition;
+        calculateInitialLocationOfNode : function () {
+
+        //  naive implementation, needs to be a lot more sophisticated.
+            var newNodeX,
+                newNodeY;
+
+            newNodeX = pane.getX();
+            newNodeY = pane.getY() + nodeYOffset;
+
+            return { x : newNodeX, y : newNodeY };
+
         },
 
         setLocation : function (loc) {
