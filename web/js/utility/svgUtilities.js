@@ -54,9 +54,9 @@ Glenmorangie.svgUtils.createArrow = function (paper, x, y, direction) {
 
 Glenmorangie.svgUtils.createExtendsArrow = function (paper, x, y, color, direction) {
     var points = [];
-    points.push(createPoint(x, y + 10));
-    points.push(direction === "right" ? createPoint(x + 10, y) : createPoint(x - 10, y ));
-    points.push(createPoint(x, y - 10));
+    points.push(direction === "right" ? createPoint(x - 10, y + 10) : createPoint(x +10, y + 10 ) );
+    points.push(createPoint(x , y));
+    points.push(direction === "right" ? createPoint(x - 10, y - 10) : createPoint(x +10, y - 10 ) );
 
     var path =  buildPath(points, true);
 
@@ -71,12 +71,14 @@ Glenmorangie.svgUtils.createNullElement = function (paper, x, y, direction) {
     return circle;
 };
 
-Glenmorangie.svgUtils.createDiamond = function (paper, x, y, color) {
+Glenmorangie.svgUtils.createDiamond = function (paper, x, y, color, direction) {
     var points = [];
-    points.push(createPoint(x, y + 10));
-    points.push(createPoint(x - 10, y));
-    points.push(createPoint(x, y - 10));
-    points.push(createPoint(x + 10, y));
+
+
+    points.push(direction === "right" ? createPoint(x - 10, y + 10) : createPoint(x + 10, y + 10) );
+    points.push(direction === "right" ? createPoint(x - 20, y) : createPoint(x, y));
+    points.push(direction === "right" ? createPoint(x - 10, y - 10) : createPoint(x + 10, y - 10));
+    points.push(direction === "right" ? createPoint(x, y) : createPoint(x + 20, y));
 
     var path =  buildPath(points, true);
 

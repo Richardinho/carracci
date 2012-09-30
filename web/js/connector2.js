@@ -4,8 +4,7 @@ Glenmorangie.module.Connector = function (canv, baseX, baseY, or) {
     var canvas = canv;
         nodes = [],
         lines = [],
-        lineMode = "normal",
-        orientation = or;
+        lineType = 'solid';
 
 
     return {

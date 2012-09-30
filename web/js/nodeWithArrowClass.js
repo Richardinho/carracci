@@ -20,6 +20,11 @@ function NodeWithArrowClass (canvas, connector, x, y, id, node, distalNode) {
         if (currentKey != null && currentKey === 114) { // 'r'
             Glenmorangie.module.askingToAttachNode = self;
         }
+
+        if (currentKey != null && currentKey === 115) { // 's'
+            //  change line type
+            console.log("change line type")
+        }
     });
 
 

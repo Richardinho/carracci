@@ -12,7 +12,7 @@ function createArrow(xCood, yCood, can, node) {
         },
 
         blackDiamond : function (x, y) {
-            return  Glenmorangie.svgUtils.createDiamond(canvas, x, y, "black");
+            return  Glenmorangie.svgUtils.createDiamond(canvas, x, y, "black", direction);
         },
 
         inheritance : function (x, y) {
