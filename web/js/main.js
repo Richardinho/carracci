@@ -53,7 +53,7 @@ $(document).ready(function () {
         .y(100)
         .build();
 
-    var classes = [ builtObject1];
+    var classes = [ builtObject1, builtObject2];
     Glenmorangie.umlProject.umlClassViews = {};
     Glenmorangie.umlProject.guiUmlClassViews = {};
 
@@ -266,21 +266,15 @@ $(document).ready(function () {
         classModel.set("position", { x : 100, y : 150 });
 
 
-
         var $element = $('<div>');
         $('#uml-classes').append($element);
-        Glenmorangie.umlProject.umlClassViews["uml-class-" + classes[i].id] = new Glenmorangie.umlProject.UmlClassView({ el : $element, "model" : classModel });
 
+        Glenmorangie.umlProject.umlClassViews["uml-class-" + classes[i].id] = Glenmorangie.UmlViewFactory.createView({ el : $element, "model" : classModel });
 
         var $guiElement = $('<div>');
         $('#gui-uml-classes').append($guiElement);
         Glenmorangie.umlProject.guiUmlClassViews[classes[i].id] = new Glenmorangie.umlProject.GuiView({ el : $guiElement, "model" : classModel });
 
     }
-
-
-
-
-
 
 });

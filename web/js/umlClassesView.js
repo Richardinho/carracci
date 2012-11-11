@@ -1,83 +1,132 @@
 
-$(document).ready(function () {
+Glenmorangie.UmlViewFactory = (function () {
+    // dependency
+    var canvas;
 
+    function createHtmlView(mod, element) {
+        var model = mod;
+            el = element,
+            template = _.template($('#uml-class-template').html()),
 
-    Glenmorangie.umlProject.UmlClassView = Backbone.View.extend({
+        render();
 
-        initialize : function () {
-            _.bindAll(this, "render");
-            this.model.on("change:class", this.respondToModelUpdate, this);
-
-
-            var width = this._getUmlClassElement().css("width");
-            var height = this._getUmlClassElement().css("height");
-
-
-            this.transparentPane = createPane(this.model.get("position").x,
-                                             this.model.get("position").y,
-                                                width,
-                                                height)
-                                                .initialize(Glenmorangie.module.canvas);
-
-            this.transparentPane.addListener(this, this.updateUmlClassElement);
-
-            this.render();
-
-        },
-
-        template : _.template($('#uml-class-template').html()),
-
-        render : function () {
-
-            var html = this.template({ "class" : this.model.get("class") });
-            this.$el.html(html);
-
-            var width = this._getUmlClassElement().css("width");
-            var height = this._getUmlClassElement().css("height");
-            this.transparentPane.resize(width, height);
-            this.positionElement(this.getX(), this.getY());
-        },
-
-        updateUmlClassElement : function (x, y) {
-            var umlClassElement = this._getUmlClassElement();
-            umlClassElement.css('left', x);
-            umlClassElement.css('top', y);
-
-        },
-
-        respondToModelUpdate : function () {
-
-            this.render();
-        },
-
-        getX : function () {
-            if (this.model.get("position")) {
-                return this.model.get("position").x
-            }
-        },
-
-        getY : function () {
-            if (this.model.get("position")) {
-                return this.model.get("position").y
-            }
-        },
-
-
-        updatePositionCoodsInModel : function (x, y) {
-            this.model.set("position", {"x" : x, "y" : y });
-        },
-
-        positionElement : function (x, y) {
-            this.updateUmlClassElement(x, y);
-        },
-
-        _getUmlClassElement : function () {
-            return $('#uml-class-' + this.model.get("class").id);
+        function render() {
+            $(el).html(template({ "class" : model.get("class") }));
         }
 
+        return {
+
+            update : function () {
+                render();
+            },
+
+            getWidth : function () {
+                return $($(el).find(".umlClass")[0]).css("width"); // must be able to do this cleaner!
+            },
+
+            getHeight : function () {
+                return $($(el).find(".umlClass")[0]).css("height"); // must be able to do this cleaner!
+            }
+
+        }
+    }
+
+    function createSVGView(configObj) {
+
+        var model = configObj.model,
+            htmlView = createHtmlView(model, configObj.el),
+            rectangle = null,
+            attachedNodes = [],
+            xCood,
+            yCood,
+            startX,
+            startY,
+            interface; // public object which other objects will interact with
+
+        model.on("change:class", modelChange);
+
+        rectangle = Glenmorangie.svgUtils.createRectangle(canvas, 100, 200, htmlView.getWidth(), htmlView.getHeight());
+        rectangle.drag(onmove, onstart, onend);
+
+        interface =  {
+
+            getX : function () {
+                return xCood;
+            },
+
+            getY : function () {
+                return yCood;
+            },
+
+            getWidth : function () {
+                return htmlView.getWidth();
+            },
+
+            getY2Cood : function () {
+                return (this.getY() + this.getHeight());
+            },
+
+            getHeight : function () {
+                return htmlView.getHeight();
+            }
+        }
+
+        rectangle.click(function () {
+            if (Glenmorangie.module.askingToAttachNode) {
+                attachedNodes.push(Glenmorangie.module.askingToAttachNode.getSocket().activate(interface));
+            }
+        });
+
+        function modelChange() {
+            htmlView.update();
+            render();
+        }
+
+        function onstart () {
+            startX = parseInt(rectangle.attr("x"));
+            startY = parseInt(rectangle.attr("y"));
+        }
+
+        function onmove (dx, dy) {
+
+            xCood = startX + dx;
+            yCood = startY + dy;
+
+    //                for (var i = 0; i < listeners.length; i++) {
+    //                listeners[i].action.call(listeners[i].listener, xCood, yCood);
+    //                }
+            for (var i = 0; i < attachedNodes.length; i++) {
+                attachedNodes[i].updateNode(xCood, yCood);
+            }
+            render();
+        }
+
+        function onend () {
+            startX = null;
+            startY = null;
+        }
+
+        function render () {
+            rectangle.attr({ x : xCood });
+            rectangle.attr({ y : yCood });
+            rectangle.attr({ "width" : htmlView.getWidth() });
+        }
+
+        return interface;
+    }
+
+    return {
+        initialize : function (can) {
+            canvas = can;
+        },
+
+        createView : function (configObj) {
+            return createSVGView(configObj);
+        }
+    }
+
+})();
 
 
-    });
 
-});
 

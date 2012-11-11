@@ -4,7 +4,7 @@ Glenmorangie.module.Connector = function (canv, baseX, baseY, or) {
     var canvas = canv;
         nodes = [],
         lines = [],
-        lineType = 'solid';
+        lineMode = "normal";
 
 
     return {
@@ -43,14 +43,15 @@ Glenmorangie.module.Connector = function (canv, baseX, baseY, or) {
         },
 
         // this sets the line mode to either 'normal' or 'dashed' then re-renders the connector.
-        updateLineMode : function (mode) {
-            lineMode = mode;
+        updateLineMode : function () {
 
-            if(mode === "normal") {
-                this._setLinesToNormal();
+            if(lineMode === "normal") {
+                lineMode = "dashes";
+                this._setLinesToDashes();
 
             } else {
-                this._setLinesToDashes();
+                lineMode = "normal";
+                this._setLinesToNormal();
             }
             this.renderAll();
         },
@@ -102,3 +103,4 @@ Glenmorangie.module.Connector = function (canv, baseX, baseY, or) {
         },
     }
 }
+

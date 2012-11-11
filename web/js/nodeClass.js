@@ -3,13 +3,24 @@ var canvas;
 
 function Node(canvas, connector, x, y, id) {
     if(canvas) {
+        this.id = id;
         this.xCood = x;
         this.yCood = y;
         this.draggableElement = Glenmorangie.svgUtils.createCircle(canvas, x, y);
         this.movementManager = createMovementManager(x, y, this);
         this.listeners = [];
         this.connector = connector;
+        var self = this;
+        this.draggableElement.click(function () {
+            var currentKey = Glenmorangie.module.currentKey;
+            if (currentKey != null && currentKey === 115) { // 's'
+                //  change line type
+                self.connector.updateLineMode();
+            }
+        });
     }
+
+
 }
 
 Node.prototype.setConstraintsManager = function(man) {
@@ -44,8 +55,21 @@ Node.prototype.render = function () {
     this.movementManager.render(this.xCood, this.yCood);
 }
 
+Node.prototype.setCoods = function (x, y) {
+
+    this.xCood = x;
+    this.yCood = y;
+}
+
 Node.prototype.getX = function () {
     return this.xCood;
+}
+
+Node.prototype.foo = function (x,y) {
+
+this.setCoods(x, y)
+
+this.connector.renderAll();
 }
 
 Node.prototype.getY = function () {
@@ -55,6 +79,8 @@ Node.prototype.getY = function () {
 Node.prototype.updateCoordinates = function (x, y) {
     this.movementManager.updateCoordinates(x, y);
 }
+
+
 
 var constraintsManager = {
 
@@ -95,17 +121,20 @@ function createMovementManager(x, y, node) {
 
         var x = checkXRestrictions(proposedX) ? proposedX : node.xCood;
         var y = checkYRestrictions(proposedY) ? proposedY : node.yCood;
+
         updateCoordinates(x,y);
 
     }
 
     function updateCoordinates(x, y) {
-        node.xCood = x;
-        node.yCood = y;
+
+        node.setCoods(x, y)
         node.notifyListeners();
 
         node.connector.renderAll();
     }
+
+
 
     function checkXRestrictions(x) {
         for (var i = 0; i < constraintsManagers.length; i++) {
@@ -136,6 +165,11 @@ function createMovementManager(x, y, node) {
 
         updateCoordinates : function (x, y)  {
             updateCoordinates(x, y);
+        },
+
+        foo : function (x, y) {
+            foobar(x, y);
+
         },
 
         render : function (x, y) {

@@ -71,6 +71,11 @@ function createPane(x, y, width, height) {
             return parseInt(element.attr("width"));
         },
 
+        getY2Cood : function () {
+            var result = this.getY() + this.getHeight();
+            return result;
+        },
+
         getY : function () {
 
             return yCood;

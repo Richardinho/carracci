@@ -1,4 +1,4 @@
-function createNodeSocket(transparentPane, node) {
+function createNodeSocket(node) {
 
     var node = node,
         nodeYOffset = 90,

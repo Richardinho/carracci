@@ -1,6 +1,37 @@
 var canvas;
 
 
+// work in progress- not yet 'live'!
+Glenmorangie.nodeFactory = (function () {
+    var canvas;
+
+
+
+
+
+    return {
+        // pass dependencies in on initialization
+        initialize : function (c) {
+            canvas = c;
+        },
+
+        createNode : function () {
+
+        },
+
+        createNodeWithArrow : function () {
+            return {
+
+                render : function () {},
+
+                setArrowDirection : function () {}
+
+            }
+
+        }
+    }
+})();
+
 function NodeWithArrowClass (canvas, connector, x, y, id, node, distalNode) {
 
     Node.call(this,canvas, connector, x, y, id);
@@ -11,7 +42,9 @@ function NodeWithArrowClass (canvas, connector, x, y, id, node, distalNode) {
     var self = this;
 
     this.draggableElement.click(function () {
+
         var currentKey = Glenmorangie.module.currentKey;
+
         if (currentKey != null && currentKey === 113) { //  'q'
             self.arrow.changeArrowHead();
             self.connector.renderAll();
@@ -21,10 +54,6 @@ function NodeWithArrowClass (canvas, connector, x, y, id, node, distalNode) {
             Glenmorangie.module.askingToAttachNode = self;
         }
 
-        if (currentKey != null && currentKey === 115) { // 's'
-            //  change line type
-            console.log("change line type")
-        }
     });
 
 
@@ -75,10 +104,10 @@ function createPaneToNodeSocket(node, proximalNode, distalNode) {
                 },
 
                 proposeYCood : function (y) {
-                    if(y < pane.getY() || y > (pane.getY() + pane.getHeight())) {
-                        return false;
-                    } else {
+                    if(y > pane.getY() && y < pane.getY2Cood()) {
                         return true;
+                    } else {
+                        return false;
                     }
                 }
 
@@ -91,10 +120,11 @@ function createPaneToNodeSocket(node, proximalNode, distalNode) {
                 },
 
                 proposeYCood : function (y) {
-                    if(y < pane.getY() || y > (pane.getY() + pane.getHeight())) {
-                        return false;
-                    } else {
+
+                    if(y > pane.getY() && y < pane.getY2Cood()) {
                         return true;
+                    } else {
+                        return false;
                     }
                 }
 
@@ -124,6 +154,12 @@ function createPaneToNodeSocket(node, proximalNode, distalNode) {
             node.updateCoordinates(xCood, yCood);
         },
 
+        foo : function (x, y) {
+            var yCood = y + nodeYOffset;
+            var xCood = location === "left" ? x : x + pane.getWidth();
+
+        },
+
         calculateInitialLocationOfNode : function () {
 
         //  naive implementation, needs to be a lot more sophisticated.
@@ -147,7 +183,7 @@ function createPaneToNodeSocket(node, proximalNode, distalNode) {
             } else {
                 location = "left";
             }
-            this.updateNode(pane.getX(), pane.getY());
+            this.foo(pane.getX(), pane.getY());
         }
     }
 }
