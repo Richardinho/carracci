@@ -15,14 +15,14 @@ Glenmorangie.nodeFactory = (function () {
         this.constraintsManagers = [];
         this.startX; // temp x variable for use when moving
         this.startY; // temp y variable for use when moving
-        var that = this;
+
         this.draggableElement.click(function () {
             var currentKey = Glenmorangie.module.currentKey;
             if (currentKey != null && currentKey === 115) { // 's'
                 //  change line type
-                that.connector.updateLineMode();
+                this.connector.updateLineMode();
             }
-        });
+        }, this);
     }
 
     Node.prototype.updateCoordinates = function (x, y) {
@@ -136,27 +136,23 @@ Glenmorangie.nodeFactory = (function () {
         this.arrow = createArrow(this.xCood, this.yCood, canvas, this);
         this.partnerNode = node;
         this.paneToNodeLink = Glenmorangie.nodeToRectangleLinkFactory.createPaneToNodeLink(this, node, distalNode);
-        var self = this;
 
         this.draggableElement.click(function () {
 
             var currentKey = Glenmorangie.module.currentKey;
 
             if (currentKey != null && currentKey === 113) { //  'q'
-                self.arrow.changeArrowHead();
-                self.connector.renderAll();
+                this.arrow.changeArrowHead();
+                this.connector.renderAll();
             }
 
             if (currentKey != null && currentKey === 114) { // 'r'
-                Glenmorangie.module.askingToAttachNode = self;
+                Glenmorangie.module.askingToAttachNode = this;
             }
-        });
+        }, this);
     }
 
-    function F() {}
-    F.prototype = Node.prototype;
-    ArrowNode.prototype = new F();
-
+    Glenmorangie.utils.extend(Node, ArrowNode);
 
     ArrowNode.prototype.render = function () {
         this.setArrowDirection(this.partnerNode.getX());
@@ -177,7 +173,7 @@ Glenmorangie.nodeFactory = (function () {
         }
     };
 
-    function basicNodeAdapter(node) {
+    function NodeAdapter(node) {
 
         return {
 
@@ -277,7 +273,7 @@ Glenmorangie.nodeFactory = (function () {
         },
 
         createNode : function (connector, x, y, id) {
-            return basicNodeAdapter(new Node(connector, x, y, id).initialize());
+            return NodeAdapter(new Node(connector, x, y, id).initialize());
         },
 
         createNodeWithArrow : function (connector, x, y, id, node, distalNode) {
@@ -285,12 +281,3 @@ Glenmorangie.nodeFactory = (function () {
         }
     }
 })();
-
-
-
-
-
-
-
-
-

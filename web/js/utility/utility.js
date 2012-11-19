@@ -24,6 +24,12 @@ Glenmorangie.utils.formatVisibility = function (visibility, label) {
     }
 }
 
+Glenmorangie.utils.extend = function (parent, child){
+    var F = function() {};
+    F.prototype = parent.prototype;
+    child.prototype = new F();
+};
+
 Glenmorangie.utils.formatVisibilitySymbol = function (visibility) {
 
     switch (visibility) {
