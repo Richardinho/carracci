@@ -59,7 +59,7 @@ Glenmorangie.UmlViewFactory = (function () {
             },
 
             getWidth : function () {
-                return htmlView.getWidth();
+                return parseInt(htmlView.getWidth());
             },
 
             getY2Cood : function () {
@@ -67,13 +67,19 @@ Glenmorangie.UmlViewFactory = (function () {
             },
 
             getHeight : function () {
-                return htmlView.getHeight();
+                return parseInt(htmlView.getHeight());
             }
         }
 
         rectangle.click(function () {
+
+            var nodeToRectangleLink;
+
             if (Glenmorangie.module.askingToAttachNode) {
-                attachedNodes.push(Glenmorangie.module.askingToAttachNode.getSocket().activate(interface));
+
+                nodeToRectangleLink = Glenmorangie.module.askingToAttachNode.getLink();
+                nodeToRectangleLink.activate(interface);
+                attachedNodes.push(nodeToRectangleLink);
             }
         });
 

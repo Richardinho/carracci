@@ -2,21 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bd4dd7db-33d3-4455-b213-bb1cec28b9b9" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/connector3.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/guiUmlClassesView.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/jQueryFile.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/node.js" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/js/nodeToRectangleLink.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/nodeClass.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/nodeSocket.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/transparentPane.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/actual.html" afterPath="$PROJECT_DIR$/web/actual.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/connector2.js" afterPath="$PROJECT_DIR$/web/js/connector2.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/main.js" afterPath="$PROJECT_DIR$/web/js/main.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/main2.js" afterPath="$PROJECT_DIR$/web/js/main2.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/nodeClass.js" afterPath="$PROJECT_DIR$/web/js/nodeClass.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/nodeSocket.js" afterPath="$PROJECT_DIR$/web/js/nodeSocket.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/nodeWithArrowClass.js" afterPath="$PROJECT_DIR$/web/js/nodeWithArrowClass.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/transparentPane.js" afterPath="$PROJECT_DIR$/web/js/transparentPane.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/umlClassesView.js" afterPath="$PROJECT_DIR$/web/js/umlClassesView.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/utility/svgUtilities.js" afterPath="$PROJECT_DIR$/web/js/utility/svgUtilities.js" />
     </list>
     <ignored path="Glenmorangie.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -80,73 +75,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="nodeWithArrowClass.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="nodeWithArrowClass.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/js/nodeWithArrowClass.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="168" column="32" selection-start="4045" selection-end="4049" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="nodeClass.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/js/nodeClass.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="153" column="19" selection-start="3370" selection-end="3370" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="umlClassesView.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/web/js/umlClassesView.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="43" selection-start="621" selection-end="621" vertical-scroll-proportion="0.6893382">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/js/main.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="271" column="116" selection-start="9446" selection-end="9446" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main2.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/js/main2.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="17" selection-start="156" selection-end="170" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="nodeSocket.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/js/nodeSocket.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="10" selection-start="481" selection-end="481" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="arrows.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/js/arrows.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="svgUtilities.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/js/utility/svgUtilities.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="38" column="18" selection-start="1044" selection-end="1044" vertical-scroll-proportion="0.0">
+            <state line="135" column="32" selection-start="3826" selection-end="3837" vertical-scroll-proportion="1.9934853">
               <folding />
             </state>
           </provider>
@@ -155,7 +87,52 @@
       <file leaf-file-name="connector2.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/js/connector2.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="46" vertical-scroll-proportion="0.0">
+            <state line="15" column="34" selection-start="285" selection-end="285" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="nodeToRectangleLink.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/js/nodeToRectangleLink.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="51" column="21" selection-start="1732" selection-end="1732" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="jasmine.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/lib/jasmine-1.2.0/jasmine.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="umlClassesView.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/js/umlClassesView.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="83" column="18" selection-start="2252" selection-end="2252" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main2.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/js/main2.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2" column="4" selection-start="33" selection-end="33" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="svgUtilities.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/js/utility/svgUtilities.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="35" column="0" selection-start="862" selection-end="874" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -164,7 +141,16 @@
       <file leaf-file-name="actual.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/actual.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="48" selection-start="1460" selection-end="1460" vertical-scroll-proportion="0.0">
+            <state line="26" column="0" selection-start="1343" selection-end="1343" vertical-scroll-proportion="3.125">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="twoNodes.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/js/spikes/twoNodes.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="15" column="16" selection-start="376" selection-end="376" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -184,22 +170,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/web/js/module.keyHandler.js" />
         <option value="$PROJECT_DIR$/web/js/node.js" />
         <option value="$PROJECT_DIR$/web/nodeExperiment.html" />
         <option value="$PROJECT_DIR$/web/js/line.js" />
         <option value="$PROJECT_DIR$/web/js/arrowHead.js" />
+        <option value="$PROJECT_DIR$/web/js/guiUmlClassesView.js" />
+        <option value="$PROJECT_DIR$/web/js/utility/svgUtilities.js" />
+        <option value="$PROJECT_DIR$/web/js/main.js" />
         <option value="$PROJECT_DIR$/web/js/transparentPane.js" />
         <option value="$PROJECT_DIR$/web/js/connector2.js" />
-        <option value="$PROJECT_DIR$/web/js/guiUmlClassesView.js" />
-        <option value="$PROJECT_DIR$/web/actual.html" />
-        <option value="$PROJECT_DIR$/web/js/utility/svgUtilities.js" />
         <option value="$PROJECT_DIR$/web/js/nodeSocket.js" />
-        <option value="$PROJECT_DIR$/web/js/nodeWithArrowClass.js" />
-        <option value="$PROJECT_DIR$/web/js/nodeClass.js" />
         <option value="$PROJECT_DIR$/web/js/main2.js" />
-        <option value="$PROJECT_DIR$/web/js/main.js" />
         <option value="$PROJECT_DIR$/web/js/umlClassesView.js" />
+        <option value="$PROJECT_DIR$/web/js/nodeToRectangleLink.js" />
+        <option value="$PROJECT_DIR$/web/js/nodeClass.js" />
+        <option value="$PROJECT_DIR$/web/js/nodeWithArrowClass.js" />
+        <option value="$PROJECT_DIR$/web/actual.html" />
       </list>
     </option>
   </component>
@@ -233,6 +219,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -436,7 +423,6 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="Favorites" />
     </panes>
   </component>
@@ -587,19 +573,19 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="24" width="1282" height="912" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2528445" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16434893" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32996207" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39935064" sideWeight="0.6700379" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33956134" sideWeight="0.7471555" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17140536" sideWeight="0.8356511" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -651,11 +637,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/web/nodeExperiment.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="38" selection-start="1146" selection-end="1146" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/js/arrowHead.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="35" column="104" selection-start="1181" selection-end="1181" vertical-scroll-proportion="0.0" />
@@ -666,21 +647,9 @@
         <state line="38" column="4" selection-start="1068" selection-end="1068" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/transparentPane.js">
+    <entry file="file://$PROJECT_DIR$/web/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="8" selection-start="211" selection-end="230" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/module.keyHandler.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="46" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/nodeSocket.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="10" selection-start="481" selection-end="481" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="271" column="116" selection-start="9446" selection-end="9446" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/js/arrows.js">
@@ -688,54 +657,61 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/utility/svgUtilities.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="18" selection-start="1044" selection-end="1044" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/connector2.js">
+    <entry file="file://$PROJECT_DIR$/web/js/module.keyHandler.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="46" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/mouseHandlingModule.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/connector2.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="34" selection-start="285" selection-end="285" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/nodeToRectangleLink.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="51" column="21" selection-start="1732" selection-end="1732" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/lib/jasmine-1.2.0/jasmine.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/umlClassesView.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="83" column="18" selection-start="2252" selection-end="2252" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/main2.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="4" selection-start="33" selection-end="33" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/utility/svgUtilities.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="0" selection-start="862" selection-end="874" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/spikes/twoNodes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="16" selection-start="376" selection-end="376" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/web/actual.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="48" selection-start="1460" selection-end="1460" vertical-scroll-proportion="0.0">
+        <state line="26" column="0" selection-start="1343" selection-end="1343" vertical-scroll-proportion="3.125">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/js/nodeWithArrowClass.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="168" column="32" selection-start="4045" selection-end="4049" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/nodeClass.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="153" column="19" selection-start="3370" selection-end="3370" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/main2.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="17" selection-start="156" selection-end="170" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="271" column="116" selection-start="9446" selection-end="9446" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/umlClassesView.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="43" selection-start="621" selection-end="621" vertical-scroll-proportion="0.6893382">
+        <state line="135" column="32" selection-start="3826" selection-end="3837" vertical-scroll-proportion="1.9934853">
           <folding />
         </state>
       </provider>
