@@ -11,10 +11,10 @@ Glenmorangie.nodeToRectangleLinkFactory = (function () {
             activate : function (pan) {
                 pane = pan;
 
-                proximalNode.addListener(this, "updateLocation");
-                distalNode.addListener(this, "updateLocation");
-                node.addListener(this, "updateYOffset");
                 proximalNode.addListener(this, "updateYOffset");
+                proximalNode.addListener(this, "updateFromProximalNode");
+                distalNode.addListener(this, "updateFromDistalNode");
+                node.addListener(this, "updateYOffset");
 
                 proximalNode.setConstraintsManager({
                     proposeXCood : function (x) {
@@ -22,10 +22,7 @@ Glenmorangie.nodeToRectangleLinkFactory = (function () {
                     },
 
                     proposeYCood : function (y) {
-                    console.log("proposeYCood", y, pane.getY(), pane.getY2Cood())
                         if(y > pane.getY() && y < pane.getY2Cood()) {
-                        console.log("true")
-                        debugger;
                             return true;
                         } else {
                             return false;
@@ -63,19 +60,13 @@ Glenmorangie.nodeToRectangleLinkFactory = (function () {
                 pane = p;
             },
 
+            /*
+            *  this is called from the umlclass view to update the node
+            */
             updateNode : function (x, y) {
                 var yCood = y + nodeYOffset;
                 var xCood = location === "left" ? x : x + pane.getWidth();
                 node.updateCoordinates(xCood, yCood);
-            },
-
-            foo : function (x, y) {
-                var yCood = y + nodeYOffset;
-
-                var xCood = location === "left" ? x : x + pane.getWidth();
-                node.updateCoordinates(xCood, yCood);
-                console.log(xCood, yCood)
-
             },
 
             calculateInitialLocationOfNode : function () {
@@ -94,18 +85,36 @@ Glenmorangie.nodeToRectangleLinkFactory = (function () {
                 location = loc;
             },
 
-            //  this probably needs to be a bit more sophisticated too.
-            updateLocation : function (x, y) {
+            updateFromDistalNode : function(x, y) {
                 if (x > (pane.getX() + pane.getWidth())) {
                     location = "right";
                 } else {
                     location = "left";
                 }
-                this.foo(pane.getX(), pane.getY());
-            }
 
+                var xCood = location === "left" ? pane.getX() : pane.getX() + pane.getWidth();
+
+                node.upDateX(xCood);
+            },
+
+            /*
+            * when we move the proximal node, the attached (arrow) node is updated accordingly.
+            */
+            updateFromProximalNode : function (x, y) {
+                if (x > (pane.getX() + pane.getWidth())) {
+                    location = "right";
+                } else {
+                    location = "left";
+                }
+
+                var xCood = location === "left" ? pane.getX() : pane.getX() + pane.getWidth();
+
+                node.upDateX(xCood);
+                node.upDateY(y);
+            }
         }
     }
+
     return {
         createPaneToNodeLink : function (node, proximalNode, distalNode) {
             return createPaneToNodeLink(node, proximalNode, distalNode);

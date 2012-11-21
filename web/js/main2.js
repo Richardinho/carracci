@@ -10,5 +10,10 @@ $(document).ready(function () {
     Glenmorangie.module.keyHandler();
 
     Glenmorangie.ConnectorFactory.createConnector(100, 100);
+    Glenmorangie.ConnectorFactory.createConnector(200, 200);
+
+
+
+    Glenmorangie.ConnectorFactory.createVerticalConnector(200, 200);
 
 });

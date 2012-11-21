@@ -32,7 +32,6 @@ Glenmorangie.ConnectorFactory = (function () {
 
             // this should draw the elements.
             renderAll : function () {
-
                 var i = 0,
                     nodesLength = nodes.length,
                     linesLength = lines.length;
@@ -117,6 +116,10 @@ Glenmorangie.ConnectorFactory = (function () {
 
         createConnector : function (baseX, baseY) {
             return Connector(baseX, baseY);
+        },
+
+        createVerticalConnector : function () {
+
         }
     }
 

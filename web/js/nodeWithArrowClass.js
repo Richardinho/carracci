@@ -25,33 +25,24 @@ Glenmorangie.nodeFactory = (function () {
         }, this);
     }
 
-    Node.prototype.updateCoordinates = function (x, y) {
-
-        this.xCood = x;
-        this.yCood = y;
-        this.notifyListeners();
-        this.connector.renderAll();
-    };
-
     Node.prototype.render = function() {
-
         this.draggableElement.attr({ "cx" : this.xCood });
         this.draggableElement.attr({ "cy" : this.yCood });
         this.draggableElement.toFront();
     };
 
     Node.prototype.checkXRestrictions = function (x) {
-
         for (var i = 0; i < this.constraintsManagers.length; i++) {
-            return this.constraintsManagers[i].proposeXCood(x);
+            var result = this.constraintsManagers[i].proposeXCood(x);
+            return result;
         }
         return true;
     };
 
     Node.prototype.checkYRestrictions = function (y) {
-
         for (var i = 0; i < this.constraintsManagers.length; i++) {
-            return this.constraintsManagers[i].proposeYCood(y);
+            var result = this.constraintsManagers[i].proposeYCood(y);
+            return result;
         }
         return true;
     };
@@ -66,7 +57,6 @@ Glenmorangie.nodeFactory = (function () {
         var that = this,
 
             onMove = function (dx, dy) {
-
                 var proposedX = that.startX + dx,
                     proposedY = that.startY + dy;
 
@@ -126,8 +116,17 @@ Glenmorangie.nodeFactory = (function () {
         this.xCood = x;
         this.yCood = y;
         this.notifyListeners();
+
         this.connector.renderAll();
     };
+
+    Node.prototype.upDateX = function (x) {
+        this.xCood = x;
+    }
+
+    Node.prototype.upDateY = function (y) {
+        this.yCood = y;
+    }
 
     function ArrowNode (connector, x, y, id, node, distalNode) {
 
@@ -155,12 +154,14 @@ Glenmorangie.nodeFactory = (function () {
     Glenmorangie.utils.extend(Node, ArrowNode);
 
     ArrowNode.prototype.render = function () {
+
         this.setArrowDirection(this.partnerNode.getX());
         this.arrow.updateArrowHead(this.xCood, this.yCood);
         Node.prototype.render.call(this);
     }
 
     ArrowNode.prototype.getLink = function() {
+
         return this.paneToNodeLink;
     };
 
@@ -172,6 +173,14 @@ Glenmorangie.nodeFactory = (function () {
             this.arrow.setArrowDirection("left");
         }
     };
+
+    ArrowNode.prototype.upDateX = function (x) {
+        this.xCood = x;
+    }
+
+    ArrowNode.prototype.upDateY = function (y) {
+        this.yCood = y;
+    }
 
     function NodeAdapter(node) {
 
@@ -201,6 +210,10 @@ Glenmorangie.nodeFactory = (function () {
                 node.render();
             },
 
+            getId : function () {
+                return node.id;
+            },
+
             getX : function () {
                 return node.getX();
             },
@@ -211,7 +224,13 @@ Glenmorangie.nodeFactory = (function () {
 
             updateCoordinates : function (x, y) {
                 node.updateCoordinates(x, y);
+            },
+
+            upCood : function (x, y) {
+
+                node.upCood(x, y);
             }
+
         };
     }
 
@@ -227,13 +246,28 @@ Glenmorangie.nodeFactory = (function () {
                 return node.getLink();
             },
 
+            upDateX : function (x) {
+                node.upDateX(x);
+            },
+
+            upDateY : function (y) {
+                node.upDateY(y);
+            },
+
             setConstraintsManager : function (manager) {
                 node.setConstraintsManager(manager);
+            },
+
+            upCood : function (x, y) {
+
+                node.upCood(x, y);
             },
 
             notifyListeners : function () {
                 node.notifyListeners();
             },
+
+            getId : function() {},
 
             addListener : function (object, method) {
                 node.addListener(object, method);
@@ -279,5 +313,6 @@ Glenmorangie.nodeFactory = (function () {
         createNodeWithArrow : function (connector, x, y, id, node, distalNode) {
             return arrowNodeAdapter(new ArrowNode(connector, x, y, id, node, distalNode).initialize());
         }
+
     }
 })();
