@@ -2,31 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bd4dd7db-33d3-4455-b213-bb1cec28b9b9" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/css/template.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/css/umlClass2.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/index2.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/arrows.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/mouseHandlingModule.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/spikes/backboneGuiSpike.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/spikes/connector.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/spikes/constraints.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/spikes/spike.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/spikes/tempNodeAttach.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/spikes/threeNodes.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/spikes/twoNodes.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/spikes/umlClass.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/spikes/umlClass2.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/movingTest.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/nodeExperiment.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/umlClass.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/umlClass2.html" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/connector2.js" afterPath="$PROJECT_DIR$/web/js/connectorFactory.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/actual.html" afterPath="$PROJECT_DIR$/web/actual.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/connectorFactory.js" afterPath="$PROJECT_DIR$/web/js/connectorFactory.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/line.js" afterPath="$PROJECT_DIR$/web/js/line.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/main2.js" afterPath="$PROJECT_DIR$/web/js/main2.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/nodeToRectangleLink.js" afterPath="$PROJECT_DIR$/web/js/nodeToRectangleLink.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/nodeWithArrowClass.js" afterPath="$PROJECT_DIR$/web/js/nodeWithArrowClass.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/umlClassesView.js" afterPath="$PROJECT_DIR$/web/js/umlClassesView.js" />
     </list>
     <ignored path="Glenmorangie.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -93,16 +73,25 @@
       <file leaf-file-name="nodeWithArrowClass.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/js/nodeWithArrowClass.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="314" column="9" selection-start="8333" selection-end="8333" vertical-scroll-proportion="0.0">
+            <state line="132" column="8" selection-start="3779" selection-end="3816" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="connectorFactory.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="connectorFactory.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/js/connectorFactory.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="121" column="0" selection-start="3763" selection-end="3763" vertical-scroll-proportion="0.0">
+            <state line="14" column="60" selection-start="276" selection-end="276" vertical-scroll-proportion="-1.837274">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="line.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/js/line.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="9" selection-start="9" selection-end="9" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -117,19 +106,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="jasmine.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/lib/jasmine-1.2.0/jasmine.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="umlClassesView.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/js/umlClassesView.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="104" column="33" selection-start="2869" selection-end="2869" vertical-scroll-proportion="0.0">
+            <state line="126" column="24" selection-start="3358" selection-end="3358" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -138,7 +118,16 @@
       <file leaf-file-name="main2.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/js/main2.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="0" selection-start="271" selection-end="272" vertical-scroll-proportion="0.0">
+            <state line="13" column="24" selection-start="460" selection-end="460" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="module.keyHandler.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/js/module.keyHandler.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="46" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -153,10 +142,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="actual.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="actual.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/actual.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="50" selection-start="1032" selection-end="1032" vertical-scroll-proportion="0.41666666">
+            <state line="36" column="34" selection-start="1798" selection-end="1798" vertical-scroll-proportion="-5.625">
               <folding />
             </state>
           </provider>
@@ -185,22 +174,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/web/js/guiUmlClassesView.js" />
-        <option value="$PROJECT_DIR$/web/js/utility/svgUtilities.js" />
         <option value="$PROJECT_DIR$/web/js/main.js" />
         <option value="$PROJECT_DIR$/web/js/transparentPane.js" />
         <option value="$PROJECT_DIR$/web/js/nodeSocket.js" />
-        <option value="$PROJECT_DIR$/web/js/umlClassesView.js" />
         <option value="$PROJECT_DIR$/web/js/nodeClass.js" />
         <option value="$PROJECT_DIR$/web/js/utility/utility.js" />
         <option value="$PROJECT_DIR$/web/js/spikes/connector.js" />
         <option value="$PROJECT_DIR$/web/js/nodeToRectangleLink.js" />
-        <option value="$PROJECT_DIR$/web/js/main2.js" />
-        <option value="$PROJECT_DIR$/web/js/nodeWithArrowClass.js" />
         <option value="$PROJECT_DIR$/web/js/connector2.js" />
         <option value="$PROJECT_DIR$/web/actual.html" />
         <option value="$PROJECT_DIR$/web/js/arrows.js" />
         <option value="$PROJECT_DIR$/web/js/mouseHandlingModule.js" />
+        <option value="$PROJECT_DIR$/web/js/umlClassesView.js" />
+        <option value="$PROJECT_DIR$/web/js/main2.js" />
+        <option value="$PROJECT_DIR$/web/js/line.js" />
+        <option value="$PROJECT_DIR$/web/js/nodeWithArrowClass.js" />
+        <option value="$PROJECT_DIR$/web/js/connectorFactory.js" />
       </list>
     </option>
   </component>
@@ -630,19 +619,9 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/web/js/line.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="4" selection-start="1068" selection-end="1068" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="271" column="116" selection-start="9446" selection-end="9446" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/module.keyHandler.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="46" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/js/arrowHead.js">
@@ -667,28 +646,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/web/actual.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="34" selection-start="1798" selection-end="1798" vertical-scroll-proportion="-5.625">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/web/js/umlClassesView.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="104" column="33" selection-start="2869" selection-end="2869" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/nodeWithArrowClass.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="314" column="9" selection-start="8333" selection-end="8333" vertical-scroll-proportion="0.0">
+        <state line="126" column="24" selection-start="3358" selection-end="3358" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/main2.js">
+    <entry file="file://$PROJECT_DIR$/web/js/line.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="0" selection-start="271" selection-end="272" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/connectorFactory.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="121" column="0" selection-start="3763" selection-end="3763" vertical-scroll-proportion="0.0">
+        <state line="0" column="9" selection-start="9" selection-end="9" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -700,9 +674,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/actual.html">
+    <entry file="file://$PROJECT_DIR$/web/js/main2.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="50" selection-start="1032" selection-end="1032" vertical-scroll-proportion="0.41666666">
+        <state line="13" column="24" selection-start="460" selection-end="460" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/nodeWithArrowClass.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="132" column="8" selection-start="3779" selection-end="3816" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/module.keyHandler.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="46" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/connectorFactory.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="60" selection-start="276" selection-end="276" vertical-scroll-proportion="-1.837274">
           <folding />
         </state>
       </provider>

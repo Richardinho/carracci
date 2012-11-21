@@ -150,7 +150,7 @@ Glenmorangie.nodeFactory = (function () {
             }
         }, this);
     }
-
+    // ToDo: modularize this
     Glenmorangie.utils.extend(Node, ArrowNode);
 
     ArrowNode.prototype.render = function () {
@@ -304,6 +304,7 @@ Glenmorangie.nodeFactory = (function () {
         // pass dependencies in on initialization
         initialize : function (c) {
             canvas = c;
+            return this;
         },
 
         createNode : function (connector, x, y, id) {

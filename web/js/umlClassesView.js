@@ -124,6 +124,7 @@ Glenmorangie.UmlViewFactory = (function () {
     return {
         initialize : function (can) {
             canvas = can;
+            return this;
         },
 
         createView : function (configObj) {

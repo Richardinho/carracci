@@ -1,3 +1,5 @@
+//  todo: refactor this
+
 function createLine(a, b, canvas) {
 
     var path,
