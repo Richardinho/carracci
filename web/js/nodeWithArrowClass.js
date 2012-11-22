@@ -128,6 +128,60 @@ Glenmorangie.nodeFactory = (function () {
         this.yCood = y;
     }
 
+    function VerticalArrowNode (connector, x, y, id, node, distalNode, direction) {
+        Node.call(this, connector, x, y, id);
+
+        this.arrow = createVerticalArrow(this.xCood, this.yCood, canvas, this, direction);
+        this.partnerNode = node;
+        this.paneToNodeLink = Glenmorangie.nodeToRectangleLinkFactory.createPaneToNodeLink(this, node, distalNode);
+
+        this.draggableElement.click(function () {
+
+            var currentKey = Glenmorangie.module.currentKey;
+
+            if (currentKey != null && currentKey === 113) { //  'q'
+                this.arrow.changeArrowHead();
+                this.connector.renderAll();
+            }
+
+            if (currentKey != null && currentKey === 114) { // 'r'
+                Glenmorangie.module.askingToAttachNode = this;
+            }
+        }, this);
+    }
+
+    // ToDo: modularize this
+    Glenmorangie.utils.extend(Node, VerticalArrowNode);
+
+    VerticalArrowNode.prototype.render = function () {
+
+        this.setArrowDirection(this.partnerNode.getY());
+        this.arrow.updateArrowHead(this.xCood, this.yCood);
+        Node.prototype.render.call(this);
+    }
+
+    VerticalArrowNode.prototype.getLink = function() {
+
+        return this.paneToNodeLink;
+    };
+
+    VerticalArrowNode.prototype.setArrowDirection = function (y) {
+
+        if ( this.yCood < y) {
+            this.arrow.setArrowDirection("up");
+        } else {
+            this.arrow.setArrowDirection("down");
+        }
+    };
+
+    VerticalArrowNode.prototype.upDateX = function (x) {
+        this.xCood = x;
+    }
+
+    VerticalArrowNode.prototype.upDateY = function (y) {
+        this.yCood = y;
+    }
+
     function ArrowNode (connector, x, y, id, node, distalNode) {
 
         Node.call(this, connector, x, y, id);
@@ -234,6 +288,7 @@ Glenmorangie.nodeFactory = (function () {
         };
     }
 
+
     function arrowNodeAdapter(node) {
 
         return {
@@ -313,6 +368,11 @@ Glenmorangie.nodeFactory = (function () {
 
         createNodeWithArrow : function (connector, x, y, id, node, distalNode) {
             return arrowNodeAdapter(new ArrowNode(connector, x, y, id, node, distalNode).initialize());
+        },
+
+        createNodeWithVerticalArrow : function (connector, x, y, id, node, distalNode, direction) {
+        console.log("createNodeWithVerticalArrow", direction)
+            return arrowNodeAdapter(new VerticalArrowNode(connector, x, y, id, node, distalNode, direction).initialize());
         }
 
     }

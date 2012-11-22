@@ -125,10 +125,10 @@ Glenmorangie.ConnectorFactory = (function () {
 
     VerticalConnector.prototype.initialize = function () {
 
-        var node1 = this._createNode(20,100, "do");
-        var node2 = this._createNode(20,150, "rae");
-        var node3 = this._createNode(100,150, "me");
-        var node4 = this._createNode(100,200, "fa");
+        var node2 = this._createNode( 20, 150, "rae" );
+        var node3 = this._createNode( 100, 150, "me" );
+        var node1 = this._createVerticalNodeWithArrow( 20, 100, "do", node2, node3, "up" );
+        var node4 = this._createVerticalNodeWithArrow( 100, 200, "fa", node3, node2, "down");
 
         this._linkNodesVertically(node1, node2);
         this._linkNodesHorizontally(node2, node3);
@@ -137,6 +137,13 @@ Glenmorangie.ConnectorFactory = (function () {
         this.renderAll();
 
         return this;
+    };
+
+    VerticalConnector.prototype._createVerticalNodeWithArrow = function (x, y, id, partnerNode, distalNode, direction) {
+
+        var node = nodeFactory.createNodeWithVerticalArrow(this, x, y, id, partnerNode, distalNode, direction);
+        this.nodes.push(node);
+        return node;
     };
 
     return {

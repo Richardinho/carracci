@@ -52,10 +52,37 @@ Glenmorangie.svgUtils.createArrow = function (paper, x, y, direction) {
 };
 
 Glenmorangie.svgUtils.createExtendsArrow = function (paper, x, y, color, direction) {
+
     var points = [];
-    points.push(direction === "right" ? createPoint(x - 10, y + 10) : createPoint(x +10, y + 10 ) );
-    points.push(createPoint(x , y));
-    points.push(direction === "right" ? createPoint(x - 10, y - 10) : createPoint(x +10, y - 10 ) );
+    console.log(direction)
+    switch (direction) {
+    case "right" :
+        points.push(createPoint(x - 10, y + 10));
+        points.push(createPoint(x , y));
+        points.push(createPoint(x - 10, y - 10));
+        break;
+    case "left" :
+        points.push(createPoint(x + 10, y + 10 ));
+        points.push(createPoint(x , y));
+        points.push(createPoint(x + 10, y - 10 ));
+        break;
+    case "up" :
+
+        points.push(createPoint(x - 10, y + 10));
+        points.push(createPoint(x , y));
+        points.push(createPoint(x + 10, y + 10));
+        break;
+    case "down" :
+        points.push(createPoint(x - 10, y - 10 ));
+        points.push(createPoint(x , y));
+        points.push(createPoint(x + 10, y - 10 ));
+        break;
+    default:
+        throw {
+            name : "NoSuchDirectionError",
+            message : "direction must be one of [up,down,left,right], but was: " + direction
+        };
+    }
 
     var path =  buildPath(points, true);
 
