@@ -75,6 +75,21 @@ Glenmorangie.ConnectorFactory = (function () {
         }
     };
 
+    AbstractConnector.prototype._linkNodesHorizontally = function (nodeA, nodeB) {
+
+        this.lines.push(createLine(nodeA, nodeB, canvas));
+
+        nodeA.addListener(nodeB, "horizontal");
+        nodeB.addListener(nodeA, "horizontal");
+    };
+
+    AbstractConnector.prototype._linkNodesVertically = function (nodeA, nodeB) {
+
+        this.lines.push(createLine(nodeA, nodeB, canvas, "vertical"));
+        nodeA.addListener(nodeB, "vertical");
+        nodeB.addListener(nodeA, "vertical");
+    };
+
     function HorizontalConnector () {
         AbstractConnector.call(this);
     }
@@ -101,27 +116,28 @@ Glenmorangie.ConnectorFactory = (function () {
         return this;
     };
 
-    HorizontalConnector.prototype._linkNodesHorizontally = function (nodeA, nodeB) {
-
-        this.lines.push(createLine(nodeA, nodeB, canvas));
-
-        nodeA.addListener(nodeB, "horizontal");
-        nodeB.addListener(nodeA, "horizontal");
-    };
-
-    HorizontalConnector.prototype._linkNodesVertically = function (nodeA, nodeB) {
-
-        this.lines.push(createLine(nodeA, nodeB, canvas, "vertical"));
-        nodeA.addListener(nodeB, "vertical");
-        nodeB.addListener(nodeA, "vertical");
-    };
-
     function VerticalConnector () {
         AbstractConnector.call(this);
     }
 
     // ToDo: modularize this
     Glenmorangie.utils.extend(AbstractConnector, VerticalConnector);
+
+    VerticalConnector.prototype.initialize = function () {
+
+        var node1 = this._createNode(20,100, "do");
+        var node2 = this._createNode(20,150, "rae");
+        var node3 = this._createNode(100,150, "me");
+        var node4 = this._createNode(100,200, "fa");
+
+        this._linkNodesVertically(node1, node2);
+        this._linkNodesHorizontally(node2, node3);
+        this._linkNodesVertically(node3, node4);
+
+        this.renderAll();
+
+        return this;
+    };
 
     return {
         initialize : function (can, nf) {
@@ -137,7 +153,7 @@ Glenmorangie.ConnectorFactory = (function () {
         createVerticalConnector : function () {
             return new VerticalConnector().initialize();
         }
-    }
+    };
 
 })();
 
