@@ -133,7 +133,7 @@ Glenmorangie.nodeFactory = (function () {
 
         this.arrow = createVerticalArrow(this.xCood, this.yCood, canvas, this, direction);
         this.partnerNode = node;
-        this.paneToNodeLink = Glenmorangie.nodeToRectangleLinkFactory.createPaneToNodeLink(this, node, distalNode);
+        this.paneToNodeLink = Glenmorangie.VerticalNodeToRectangleLinkFactory.createPaneToNodeLink(this, node, distalNode);
 
         this.draggableElement.click(function () {
 
@@ -371,7 +371,6 @@ Glenmorangie.nodeFactory = (function () {
         },
 
         createNodeWithVerticalArrow : function (connector, x, y, id, node, distalNode, direction) {
-        console.log("createNodeWithVerticalArrow", direction)
             return arrowNodeAdapter(new VerticalArrowNode(connector, x, y, id, node, distalNode, direction).initialize());
         }
 

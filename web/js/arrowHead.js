@@ -54,7 +54,6 @@ function createArrow(xCood, yCood, can, node) {
 }
 
 function createVerticalArrow(xCood, yCood, can, node, dir) {
-console.log("arrowHead", dir)
    var canvas = can;
     var arrowHead = Glenmorangie.svgUtils.createDiamond(canvas, xCood, yCood, "white");
     var index = 0;

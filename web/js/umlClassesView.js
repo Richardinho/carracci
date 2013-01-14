@@ -66,6 +66,10 @@ Glenmorangie.UmlViewFactory = (function () {
                 return (this.getY() + this.getHeight());
             },
 
+            getX2Cood : function () {
+                return this.getX() + this.getWidth();
+            },
+
             getHeight : function () {
                 return parseInt(htmlView.getHeight());
             }

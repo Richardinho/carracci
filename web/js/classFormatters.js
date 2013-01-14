@@ -20,7 +20,6 @@ Glenmorangie.formatters.formatClassName = function (classObject) {
         }
     }
     return result;
-
 };
 
 Glenmorangie.formatters.getVisibility = function (visibility)  {
