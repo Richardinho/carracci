@@ -1,15 +1,34 @@
-Glenmorangie.namespace("Glenmorangie.svgUtils");
+Glenmorangie.namespace("Glenmorangie");
+
+Glenmorangie.svgUtils = function (svg) {
+
+    return {
+
+        createCircle : function(x, y) {
+            var circle = svg.circle(x, y, 10);
+            circle.attr("fill" , "red");
+            //circle.attr("opacity", 0);
+            circle.attr("stroke", "#fff");
+            return circle;
+        },
+
+        createDiamond : function (x, y, color, direction){
+
+        },
+
+        createExtendsArrow : function ( x, y, color, direction){
+
+        },
+
+        createNullElement: function ( x, y, direction ){
 
 
-Glenmorangie.svgUtils.createCircle = function(paper, x, y) {
-    var circle = paper.circle(x, y, 10);
-    circle.attr("fill" , "red");
-    circle.attr("opacity", 0);
-    circle.attr("stroke", "#fff");
-    return circle;
+        }
+    };
+};
 
-}
 
+/*
 
 Glenmorangie.svgUtils.buildPath = function (x1, y1, x2, y2) {
     return "M" + x1 + " " + y1 + "L" + x2 + " " + y2;
@@ -132,4 +151,5 @@ function buildPath(pointsArray, closePath) {
     return path;
 
 }
+*/
 

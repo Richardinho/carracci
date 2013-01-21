@@ -8,14 +8,15 @@ Glenmorangie.utils.extend = function (template) {
             if(options) {
                 this.initialize(options);
             } else {
-                this.initialize();
+                this.initialize(options);
             }
-
         }
     }
 
     var Proxy = function () {};
+
     Proxy.prototype = this.prototype;
+
     F.prototype = new Proxy();
 
     for(obj in template) {
@@ -27,6 +28,6 @@ Glenmorangie.utils.extend = function (template) {
     F.extend = this.extend;
 
     return F;
-
-
 }
+
+
