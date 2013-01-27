@@ -2,56 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bd4dd7db-33d3-4455-b213-bb1cec28b9b9" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/arrow.Arrow.test.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/runners/connectors/connector.AbstractConnector.test.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/runners/connectors/connector.HorizontalConnector.test.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/runners/lines/lines.line.test.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/spec/arrow.Arrow.test.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/spec/connectors/connector.AbstractConnector.test.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/spec/connectors/connector.HorizontalConnector.test.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/spec/lines/lines.line.test.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/js/arrow/arrow.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/js/connectors/VerticalConnector.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/js/connectors/connector.AbstractConnector.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/js/connectors/connector.HorizontalConnector.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/js/connectors/model/model.HorizontalConnector.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/js/foo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/js/lines/_runners/line.main.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/js/lines/_runners/lineRunner.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/js/lines/model/model.line.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/js/lines/view/view.line.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/js/node/_runners/node.main.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/js/node/_runners/node.main2.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/js/node/_runners/nodeRunner.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/js/node/_runners/nodeRunner2.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/js/node/controller/controller.ArrowNode.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/js/node/controller/controller.ProximalNode.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/js/node/controller/controller.draggableElement.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/js/node/model/model.ArrowNode.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/js/node/model/model.DistalNode.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/js/node/model/model.ProximalNode.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/js/node/model/model.element.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/js/node/node.NodeFactory.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/js/node/view/view.ArrowNode.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/js/node/view/view.DraggableElement.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/js/node/view/view.element.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/js/pointers/model/model.Diamond.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/js/pointers/view/view.Diamond.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/js/svgShapes/WhiteArrow.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/js/svgShapes/WhiteDiamond.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/js/svgShapes/arrowShape.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/js/svgShapes/runners/arrowRunner.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/node/runners/node.main.js" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/node/runners/nodeRunner.html" afterPath="$PROJECT_DIR$/web/js/svgShapes/runners/arrowRunner.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/spec/utils.extend.test.js" afterPath="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/spec/utils.extend.test.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/node/ArrowNode.js" afterPath="$PROJECT_DIR$/web/js/node/ArrowNode.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/node/DraggableElement.js" afterPath="$PROJECT_DIR$/web/js/node/DraggableElement.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/node/Element.js" afterPath="$PROJECT_DIR$/web/js/node/Element.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/node/HorizontalArrowNode.js" afterPath="$PROJECT_DIR$/web/js/node/HorizontalArrowNode.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/node/SvgElement.js" afterPath="$PROJECT_DIR$/web/js/node/SvgElement.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/utility/extend.js" afterPath="$PROJECT_DIR$/web/js/utility/extend.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/utility/svgUtilities.js" afterPath="$PROJECT_DIR$/web/js/utility/svgUtilities.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/connectors/connector.AbstractConnector.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/connectors/connector.HorizontalConnector.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/node/ArrowNode.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/node/DraggableElement.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/node/Element.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/node/HorizontalArrowNode.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/node/SvgElement.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/node/VerticalArrowNode.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/node/node.NodeFactory.js" afterPath="" />
     </list>
     <ignored path="Glenmorangie.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -115,10 +74,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="node.main2.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="node.main2.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/js/node/_runners/node.main2.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="71" column="30" selection-start="3560" selection-end="3560" vertical-scroll-proportion="1.4919355">
+            <state line="22" column="82" selection-start="1328" selection-end="1328" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="arrow.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web/js/arrow/arrow.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -137,15 +105,6 @@
         <entry file="file://$PROJECT_DIR$/web/js/node/model/model.DistalNode.js">
           <provider selected="true" editor-type-id="text-editor">
             <state line="23" column="35" selection-start="670" selection-end="670" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="model.Diamond.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/js/pointers/model/model.Diamond.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="30" selection-start="217" selection-end="217" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -385,28 +344,6 @@
               <option name="myItemId" value="node" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Glenmorangie" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="umlGraphicsProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="node" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="view" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
@@ -459,6 +396,28 @@
               <option name="myItemId" value="node" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Glenmorangie" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="umlGraphicsProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="node" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="_runners" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
@@ -485,6 +444,36 @@
               <option name="myItemId" value="lines" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="view" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Glenmorangie" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="umlGraphicsProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lines" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -509,6 +498,50 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="_runners" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Glenmorangie" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="umlGraphicsProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="connectors" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Glenmorangie" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="umlGraphicsProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="arrow" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -801,7 +834,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39935064" sideWeight="0.6700379" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23476848" sideWeight="0.5271808" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24939074" sideWeight="0.5271808" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -853,13 +886,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/web/js/lines/model/model.line.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="14" selection-start="305" selection-end="305" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/js/connectors/model/model.HorizontalConnector.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="18" column="25" selection-start="445" selection-end="445" vertical-scroll-proportion="0.0">
@@ -953,7 +979,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/js/node/_runners/node.main2.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="30" selection-start="3560" selection-end="3560" vertical-scroll-proportion="1.4919355">
+        <state line="22" column="82" selection-start="1328" selection-end="1328" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/arrow/arrow.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
