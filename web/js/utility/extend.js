@@ -3,7 +3,6 @@ Glenmorangie.namespace("Glenmorangie.utils");
 Glenmorangie.utils.extend = function (template) {
 
     var F = function(options) {
-
         if(this.initialize && typeof this.initialize === "function") {
             if(options) {
                 this.initialize(options);

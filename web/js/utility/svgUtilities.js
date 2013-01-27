@@ -4,35 +4,54 @@ Glenmorangie.svgUtils = function (svg) {
 
     return {
 
+        buildPath : function (pointsArray, closePath) {
+            var path = "M" + pointsArray[0].x + " " + pointsArray[0].y + "L";
+
+            for (var i = 1; i < pointsArray.length; i++) {
+
+                path += (pointsArray[i].x + " ");
+                path += (pointsArray[i].y + " ");
+            }
+            if (closePath) {
+                path += "Z";
+            }
+            return path;
+        },
+
+        createPath : function (path, color) {
+            var element = svg.path(path);
+            element.attr({ fill : color } );
+            element.attr({stroke : "black"})
+            return element;
+        },
+
+        resetPath : function (element, path) {
+            element.attr({"path" : path });
+        },
+
         createCircle : function(x, y) {
             var circle = svg.circle(x, y, 10);
             circle.attr("fill" , "red");
-            //circle.attr("opacity", 0);
+            circle.attr("opacity", 0.2);
             circle.attr("stroke", "#fff");
             return circle;
         },
 
-        createDiamond : function (x, y, color, direction){
-
-        },
-
-        createExtendsArrow : function ( x, y, color, direction){
-
-        },
-
-        createNullElement: function ( x, y, direction ){
-
-
+        createRectangle : function ( x1, y1, width, height) {
+            var rect =  svg.rect(x1, y1, width, height);
+            rect.attr({ "fill" : "red" });
+            return rect;
         }
+
+
+
+
     };
 };
 
 
 /*
 
-Glenmorangie.svgUtils.buildPath = function (x1, y1, x2, y2) {
-    return "M" + x1 + " " + y1 + "L" + x2 + " " + y2;
-}
 
 Glenmorangie.svgUtils.createLine = function (paper, x1, y1, x2, y2) {
     var element = paper.path(Glenmorangie.svgUtils.buildPath(x1, y1, x2, y2));
@@ -52,11 +71,7 @@ Glenmorangie.svgUtils.resetLine = function (line, x1, y1, x2, y2, type) {
 
 
 
-Glenmorangie.svgUtils.createRectangle = function (paper, x1, y1, width, height) {
-    var rect =  paper.rect(x1, y1, width, height);
-    rect.attr({"fill" : "red"});
-    return rect;
-}
+
 
 Glenmorangie.svgUtils.createArrow = function (paper, x, y, direction) {
     var points = [];

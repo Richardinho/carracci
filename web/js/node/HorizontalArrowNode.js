@@ -11,10 +11,18 @@ Glenmorangie.HorizontalArrowNode = Glenmorangie.ArrowNode.extend ({
     setArrowDirection : function (x, y) {
 
         if ( this.getXCood() > x) {
-            this.arrow.setArrowDirection("right");
+            this.direction = "right";
+            this.arrow.setDirection("right");
         } else {
-            this.arrow.setArrowDirection("left");
+            this.direction = "left";
+            this.arrow.setDirection("left");
         }
+        this.arrow.updatePath(this.xCood, this.yCood);
+    },
+
+    updateArrowState : function () {
+        var proximalX = this.proximalNode.xCood;
+        this.setArrowDirection(proximalX, null);
     }
 
 });

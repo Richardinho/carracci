@@ -64,7 +64,6 @@ describe("utils.extends", function() {
         });
 
         it("should have properties unique to instances", function () {
-        console.log(obj1.bar, obj2.bar)
             expect(obj1.bar).not.toBe(obj2.bar);
         });
     });

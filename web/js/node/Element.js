@@ -2,9 +2,9 @@ Glenmorangie.namespace("Glenmorangie");
 
 Glenmorangie.Element = Glenmorangie.utils.extend({
 
-    listeners : [],
 
     initialize : function (options) {
+        this.listeners = [];
         this.id = options.id;
         this.xCood = options.x;
         this.yCood = options.y;
@@ -41,6 +41,7 @@ Glenmorangie.Element = Glenmorangie.utils.extend({
 
     notifyListeners : function () {
         for (var i = 0; i < this.listeners.length; i++) {
+
             var listener = this.listeners[i];
             listener.obj[listener.action]( this.xCood, this.yCood );
         }

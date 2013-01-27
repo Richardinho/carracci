@@ -10,11 +10,19 @@ Glenmorangie.SvgElement = Glenmorangie.Element.extend({
     },
 
     render : function() {
-
         this.element.attr({ "cx" : this.xCood });
         this.element.attr({ "cy" : this.yCood });
         this.element.toFront();
+    },
+
+    moveInYAxis : function (x, y) {
+        this.updateCoordinates(this.getXCood(), y);
+    },
+
+    moveInXAxis : function (x, y) {
+        this.updateCoordinates(x, this.getYCood());
     }
+
 
 });
 

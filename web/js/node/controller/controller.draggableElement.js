@@ -1,25 +1,20 @@
-Glenmorangie.namespace("Glenmorangie");
+Glenmorangie.namespace("Glenmorangie.Controller");
 
-Glenmorangie.DraggableElement = Glenmorangie.SvgElement.extend({
+Glenmorangie.Controller.DraggableElement = Glenmorangie.utils.extend({
 
-
-    startX : null, // temp x variable for use when moving
-
-    startY : null, // temp y variable for use when moving
-
-    constraintsManagers : [],
 
     initialize : function (options) {
 
         _.bindAll(this, "_onMove", "_onStart", "_onEnd" );
 
+        this.startX = null;
+        this.startY = null;
 
+        this.constraintsManagers = [];
+        this.model = options.model;
+        this.view = options.view;
 
-        Glenmorangie.SvgElement.prototype.initialize.call(this, options);
-
-        this.connector = options.connector;
-
-        this.element.drag(this._onMove, this._onStart, this._onEnd);
+        this.view.element.drag(this._onMove, this._onStart, this._onEnd);
     },
 
     _onMove : function (dx, dy) {
@@ -29,15 +24,12 @@ Glenmorangie.DraggableElement = Glenmorangie.SvgElement.extend({
         var x = this._checkXRestrictions(proposedX) ? proposedX : this.startX;
         var y = this._checkYRestrictions(proposedY) ? proposedY : this.startY;
 
-        this.updateCoordinates(x,y);
-        this.notifyListeners();
-
-        this.connector.renderAll();
+        this.model.updateCoordinates(x,y);
     },
 
     _onStart : function () {
-        this.startX = parseInt(this.element.attr("cx"));
-        this.startY = parseInt(this.element.attr("cy"));
+        this.startX = parseInt(this.view.element.attr("cx"));
+        this.startY = parseInt(this.view.element.attr("cy"));
     },
 
     _onEnd : function () {
@@ -63,12 +55,7 @@ Glenmorangie.DraggableElement = Glenmorangie.SvgElement.extend({
             return result;
         }
         return true;
-    },
-
-
-
-
-
+    }
 });
 
 
