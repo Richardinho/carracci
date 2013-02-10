@@ -14,7 +14,11 @@ Glenmorangie.Controller.DraggableElement = Glenmorangie.utils.extend({
         this.model = options.model;
         this.view = options.view;
 
+        this.keyManager = options.keyManager;
+        console.log("keymanager", this.keyManager)
+
         this.view.element.drag(this._onMove, this._onStart, this._onEnd);
+
     },
 
     _onMove : function (dx, dy) {

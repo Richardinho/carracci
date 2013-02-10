@@ -1,16 +1,18 @@
 Glenmorangie.namespace("Glenmorangie.Model");
 
-Glenmorangie.Model.Element = Glenmorangie.utils.extend({
+Glenmorangie.Model.Element = Glenmorangie.Model.extend({
 
 
     initialize : function (options) {
+        Glenmorangie.Model.prototype.initialize.call(this, options);
         this.id = options.id;
-        this.xCood = options.x;
-        this.yCood = options.y;
+        this.set({ xCood : options.x});
+        this.set({ yCood : options.y});
     },
 
     updateCoordinates : function (x, y) {
-        this.xCood = x;
-        this.yCood = y;
-    }
+        this.set({ xCood : x});
+        this.set({ yCood : y});
+    },
+
 });

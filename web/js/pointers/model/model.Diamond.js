@@ -1,74 +1,55 @@
 Glenmorangie.namespace("Glenmorangie.Model");
 
-Glenmorangie.Model.Diamond = Glenmorangie.utils.extend({
+Glenmorangie.Model.Diamond = Glenmorangie.Model.Pointer.extend({
 
 
     initialize : function (options) {
 
-        this.svgUtils = options.svgUtils;
-        this.direction = "left";
-        this.path = this._getPath(options.x, options.y);
-    },
-
-    setDirection : function (direction) {
-        this.direction  = direction;
-        this._calculatePoints();
-    },
-
-    updatePath : function (x, y) {
-        this.path = this._getPath(x, y);
-    },
-
-    _getPath : function (x, y) {
-        this._calculatePoints(x, y);
-        return this.svgUtils.buildPath(this._getPointsArray(), true);
+        Glenmorangie.Model.Pointer.prototype.initialize.call(this, options);
     },
 
     _getPointsArray : function () {
 
-        return [this.tip, this.right, this.bottom, this.left];
+        return [this.get("tip"), this.get("right"), this.get("bottom"), this.get("left") ];
     },
 
-    _calculatePoints : function (x, y) {
+    update : function (x, y) {
+
         var x = parseInt(x, 10);
         var y = parseInt(y, 10);
 
-        this.centre = this._getPoint(x, y);
+        //this.set({ centre : this._getPoint(x, y)});
 
-        switch(this.direction) {
+        switch(this.get('direction')) {
 
         case "up" :
-            this.tip = this._getPoint(x, y - 15);
-            this.right = this._getPoint(x + 10, y);
-            this.left = this._getPoint(x - 10, y);
-            this.bottom = this._getPoint(x, y + 10);
+            this.set({ tip: this._getPoint(x, y - 15),
+                       right : this._getPoint(x + 10, y),
+                       left : this._getPoint(x - 10, y),
+                       bottom : this._getPoint(x, y + 10) });
         break;
 
         case "down" :
-            this.tip = this._getPoint(x, y + 15);
-            this.right = this._getPoint(x + 10, y);
-            this.left = this._getPoint(x - 10, y);
-            this.bottom = this._getPoint(x, y - 10);
+            this.set({ tip: this._getPoint(x, y + 15),
+                       right : this._getPoint(x + 10, y),
+                       left : this._getPoint(x - 10, y),
+                       bottom : this._getPoint(x, y - 10) });
         break;
 
         case "left" :
-            this.tip = this._getPoint(x - 15, y);
-            this.right = this._getPoint(x, y - 10);
-            this.left = this._getPoint(x, y + 10);
-            this.bottom = this._getPoint(x + 10, y);
+            this.set({ tip: this._getPoint(x - 15, y),
+                       right : this._getPoint(x, y - 10),
+                       left : this._getPoint(x, y + 10),
+                       bottom : this._getPoint(x + 10, y)});
         break;
 
         case "right" :
-            this.tip = this._getPoint(x + 15, y);
-            this.right = this._getPoint(x, y + 10);
-            this.left = this._getPoint(x, y - 10);
-            this.bottom = this._getPoint(x - 10, y);
+            this.set({ tip: this._getPoint(x + 15, y),
+                       right : this._getPoint(x, y + 10),
+                       left : this._getPoint(x, y - 10),
+                       bottom : this._getPoint(x - 10, y)});
         break;
         }
-    },
 
-    _getPoint : function (x, y) {
-        return { "x" : x, "y" : y };
     }
-
 });

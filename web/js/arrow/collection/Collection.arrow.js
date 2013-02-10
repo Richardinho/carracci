@@ -1,6 +1,6 @@
-Glenmorangie.namespace("Glenmorangie");
+Glenmorangie.namespace("Glenmorangie.Collection");
 
-Glenmorangie.Arrow = Glenmorangie.utils.extend({
+Glenmorangie.Collection.Arrow = Glenmorangie.Collection.extend({
 
     arrowHeads : [],
 

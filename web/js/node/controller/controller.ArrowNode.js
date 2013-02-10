@@ -6,18 +6,19 @@ Glenmorangie.Controller.ArrowNode = Glenmorangie.Controller.DraggableElement.ext
     initialize : function (options) {
 
         Glenmorangie.Controller.DraggableElement.prototype.initialize.call(this, options);
-        this.model = options.model;
+        this.view.element.click(this._onClick, this)
     },
 
-    _onMove : function (dx, dy) {
-        var proposedX = this.startX + dx,
-            proposedY = this.startY + dy;
-
-        var x = this._checkXRestrictions(proposedX) ? proposedX : this.startX;
-        var y = this._checkYRestrictions(proposedY) ? proposedY : this.startY;
-
-        this.model.updateCoordinates(x,y);
+    _onClick : function () {
+        if(this.keyManager.S_KEY) {
+            console.log("click and  s key");
+            this.model.changePointer();
+        } else if(this.keyManager.T_KEY) {
+            console.log("t key")
+            this.model.changeLine();
+        }
     }
+
 
 });
 

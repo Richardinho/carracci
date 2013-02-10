@@ -10,7 +10,6 @@ Glenmorangie.View.ArrowNode = Glenmorangie.View.Element.extend({
 
     render : function() {
         Glenmorangie.View.Element.prototype.render.call(this);
-        this.arrowView.render();
     }
 
 });

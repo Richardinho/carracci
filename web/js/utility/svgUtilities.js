@@ -18,6 +18,11 @@ Glenmorangie.svgUtils = function (svg) {
             return path;
         },
 
+        setShapeOpacity : function (element, op) {
+            var opacity = op ? 1 : 0;
+            element.attr("opacity", opacity );
+        },
+
         createPath : function (path, color) {
             var element = svg.path(path);
             element.attr({ fill : color } );
@@ -41,7 +46,17 @@ Glenmorangie.svgUtils = function (svg) {
             var rect =  svg.rect(x1, y1, width, height);
             rect.attr({ "fill" : "red" });
             return rect;
+        },
+
+        resetLine : function (line, type) {
+            console.log("reset line")
+            if (type === "dashes") {
+                line.attr("stroke-dasharray", "-");
+            } else {
+                line.attr({"stroke-dasharray" : ""});
+            }
         }
+
 
 
 

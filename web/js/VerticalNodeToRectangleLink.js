@@ -1,6 +1,6 @@
 Glenmorangie.VerticalNodeToRectangleLinkFactory = (function () {
 
-  function createPaneToNodeLink(node, proximalNode, distalNode) {
+  function createPaneToNodeLink(node, proximalNode, Node) {
 
         var nodeXOffset = 40,
             location = "up",
@@ -13,7 +13,7 @@ Glenmorangie.VerticalNodeToRectangleLinkFactory = (function () {
 
                 proximalNode.addListener(this, "updateXOffset");
                 proximalNode.addListener(this, "updateFromProximalNode");
-                distalNode.addListener(this, "updateFromDistalNode");
+                Node.addListener(this, "updateFromNode");
                 node.addListener(this, "updateXOffset");
 
                 proximalNode.setConstraintsManager({

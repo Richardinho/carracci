@@ -8,16 +8,22 @@ Glenmorangie.View.Line = Glenmorangie.utils.extend({
         this.model = options.model;
         this.svgUtils = options.svgUtils;
         this.line = this._createSvgShape("black");
+        this.model.on("change", this.render, this);
+        this.model.on("change:style", this.resetLine, this);
     },
 
     _createSvgShape : function (color) {
-        var path = this.model.path;
+        var path = this.svgUtils.buildPath(this.model.getPointsArray(), false);
         return this.svgUtils.createPath(path, color);
     },
 
-    //  called from connector
     render : function () {
-        this.svgUtils.resetPath(this.line, this.model.path);
+        var path = this.svgUtils.buildPath(this.model.getPointsArray(), false);
+        this.svgUtils.resetPath(this.line, path);
+
+    },
+    resetLine : function () {
+        this.svgUtils.resetLine(this.line, this.model.get("style"));
     }
 
 });

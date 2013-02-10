@@ -5,52 +5,65 @@ Glenmorangie.Model.ArrowNode = Glenmorangie.Model.Element.extend({
 
     initialize : function (options) {
         Glenmorangie.Model.Element.prototype.initialize.call(this, options);
+        this.pointerCollection = options.pointers;
+        this.pointerIndex = 0;
+        this._getArrowModel().show();
         this.connector = options.connector;
-        this.arrowModel = options.arrowModel;
     },
 
-    updateCoordinates : function (x, y, callerId) {
-        this.xCood = x;
-        this.yCood = y;
+    changePointer : function () {
+        this._getArrowModel().hide();
+        this.pointerIndex = ++this.pointerIndex % this.pointerCollection.size();
+        this.updateArrow()
+        this._getArrowModel().show();
+    },
+
+    updateCoordinates : function (x, y) {
+        Glenmorangie.Model.Element.prototype.updateCoordinates.call(this, x, y);
 
         if( this.proximalNodeModel ) {
 
             this.proximalNodeModel.updateFromArrowController(x, y);
 
-            if(this.xCood < this.proximalNodeModel.xCood) {
-                this.arrowModel.setDirection("left");
+            if(this.get('xCood') < this.proximalNodeModel.get('xCood')) {
+                this._getArrowModel().setDirection("left");
             } else {
-                this.arrowModel.setDirection("right");
+                this._getArrowModel().setDirection("right");
             }
         }
 
-        this.updateArrow(x, y);
-        this.connector.updateAll();
+        this.updateArrow();
+    },
+
+    changeLine : function () {
+        this.connector.changeLine();
+    },
+
+    _getArrowModel : function () {
+        return this.pointerCollection.get(this.pointerIndex);
     },
 
     updateFromProximalNode : function (x, y) {
-        if(this.xCood < x) {
-            this.arrowModel.setDirection("left");
+        if(this.get('xCood') < x) {
+            this._getArrowModel().setDirection("left");
         } else {
-            this.arrowModel.setDirection("right");
+            this._getArrowModel().setDirection("right");
         }
-        this.yCood = y;
+        this.set({ yCood :  y });
         this.updateArrow(x, y);
     },
 
     updateFromDistalNode : function (x, y) {
-        if(this.xCood < x) {
-            this.arrowModel.setDirection("left");
+        if(this.get('xCood') < x) {
+            this._getArrowModel().setDirection("left");
         } else {
-            this.arrowModel.setDirection("right");
+            this._getArrowModel().setDirection("right");
         }
         this.updateArrow(x, y);
     },
 
-    updateArrow : function (x, y) {
-        this.arrowModel.updatePath(this.xCood, this.yCood);
-        // check if arrow direction needs to change.
-        //this.arrowModel.updateCoordinates(this.xCood, this.yCood);
+    updateArrow : function () {
+        this._getArrowModel().update(this.get('xCood'), this.get('yCood'));
     },
 
     //  injectors

@@ -4,9 +4,10 @@ Glenmorangie.Controller.ProximalNode = Glenmorangie.Controller.DraggableElement.
 
 
     initialize : function (options) {
-
+        console.log("hello")
         Glenmorangie.Controller.DraggableElement.prototype.initialize.call(this, options);
         this.model = options.model;
+        this.view.element.click(function () { alert("hello")})
     },
 
     _onMove : function (dx, dy) {
@@ -18,7 +19,11 @@ Glenmorangie.Controller.ProximalNode = Glenmorangie.Controller.DraggableElement.
 
         this.model.updateCoordinates(x,y);
 
-    }
+    },
+
+    _onClick : function () {
+        console.log("click")
+    },
 });
 
 

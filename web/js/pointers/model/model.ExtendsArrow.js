@@ -1,43 +1,11 @@
-Glenmorangie.namespace("Glenmorangie");
+Glenmorangie.namespace("Glenmorangie.Model");
 
-Glenmorangie.WhiteArrow = Glenmorangie.utils.extend({
+Glenmorangie.Model.ExtendsArrow = Glenmorangie.Model.Pointer.extend({
 
-    svgShape: null,
-
-    tip : null,
-
-    centre : null,
-
-    right : null,
-
-    left : null,
-
-    direction : null,
 
     initialize : function (options) {
 
-        this.svgUtils = options.svgUtils;
-        this.direction = options.direction;
-
-        this.svgShape = this._createSvgShape(options.x, options.y, "white");
-    },
-
-    _createSvgShape : function (x, y, color) {
-
-        return this.svgUtils.createPath(this._getPath(x, y), color);
-    },
-
-    _changeShapeLocation : function (x, y) {
-        this.svgUtils.resetPath(this.svgShape, this._getPath(x, y));
-    },
-
-    _getPath : function (x, y) {
-        this.update(x, y);
-        return this.svgUtils.buildPath(this._getPointsArray(), true);
-    },
-
-    _transformShape : function (direction) {
-
+        Glenmorangie.Model.Pointer.prototype.initialize.call(this, options);
     },
 
     _getPointsArray : function () {
@@ -46,10 +14,12 @@ Glenmorangie.WhiteArrow = Glenmorangie.utils.extend({
     },
 
     update : function (x, y) {
+        var x = parseInt(x, 10);
+        var y = parseInt(y, 10);
 
         this.centre = this._getPoint(x, y);
 
-        switch(this.direction) {
+        switch(this.get('direction')) {
 
         case "up" :
             this.tip = this._getPoint(x, y - 15);
@@ -75,10 +45,8 @@ Glenmorangie.WhiteArrow = Glenmorangie.utils.extend({
             this.left = this._getPoint(x, y - 10);
         break;
         }
-    },
-
-    _getPoint : function (x, y) {
-        return { "x" : x, "y" : y };
     }
+
+
 
 });

@@ -4,12 +4,14 @@ Glenmorangie.View.Element = Glenmorangie.utils.extend({
 
     initialize : function (options) {
         this.model = options.model;
-        this.element = options.svgUtils.createCircle(this.model.xCood, this.model.yCood);
+        this.element = options.svgUtils.createCircle(this.model.get('xCood'), this.model.get('yCood'));
+        this.model.on("change", this.render, this);
+
     },
 
     render : function() {
-        this.element.attr({ "cx" : this.model.xCood });
-        this.element.attr({ "cy" : this.model.yCood });
+        this.element.attr({ "cx" : this.model.get('xCood') });
+        this.element.attr({ "cy" : this.model.get('yCood') });
         this.element.toFront();
     }
 
