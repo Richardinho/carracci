@@ -7,20 +7,20 @@ Glenmorangie.Model.DistalNode = Glenmorangie.Model.Element.extend({
         Glenmorangie.Model.Element.prototype.initialize.call(this, options);
     },
 
-    update : function (x, y) {
+    update : function (x, y, validate) {
 
-        this.updateCoordinates(x, y);
+        this.updateCoordinates(x, y, validate);
 
         if( this.arrowNodeModel ) {
-            this.arrowNodeModel.updateFromProximalNode(x, y);
+            //this.arrowNodeModel.updateFromProximalNode(x, y);
         }
 
         if( this.distalNodeModel) {
-            this.distalNodeModel.updateFromDistalNode(x, y);
+            //this.distalNodeModel.updateFromDistalNode(x, y);
         }
 
         if(this.lastNodeModel) {
-            this.lastNodeModel.updateFromDistalNode(x, y);
+            //this.lastNodeModel.updateFromDistalNode(x, y);
         }
     },
 

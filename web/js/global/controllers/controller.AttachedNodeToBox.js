@@ -18,6 +18,8 @@ Glenmorangie.Coordinator.AttachedNodeToBox = Glenmorangie.utils.extend ({
     initialize : function (options) {
 
         this.players = options;
+        this.arrowYOffset = 25;
+        this._moveArrowOntoBox();
 
         for(var role in this.players) {
 
@@ -25,9 +27,9 @@ Glenmorangie.Coordinator.AttachedNodeToBox = Glenmorangie.utils.extend ({
 
         }
 
-        this.arrowYOffset = 25;
 
-        this._moveArrowOntoBox();
+
+
 
     },
 
@@ -59,12 +61,16 @@ Glenmorangie.Coordinator.AttachedNodeToBox = Glenmorangie.utils.extend ({
                         if(proximalNode.get('xCood') > rightEdge) {
                             arrowXCood = x + box.getWidth();
                         }
-                        arrowModel.updateX(arrowXCood);
+                        arrowModel.updateX(arrowXCood, false);
                     },
                     setYCoods : function (y) {
                         var arrowModel = this.players["arrow"];
 
-                        arrowModel.updateY( y + this.arrowYOffset );
+                        arrowModel.updateY( y + this.arrowYOffset, true);
+                    },
+
+                    postProcess : function (x, y) {
+
                     }
                 };
             break;
@@ -88,6 +94,10 @@ Glenmorangie.Coordinator.AttachedNodeToBox = Glenmorangie.utils.extend ({
 
                     },
                     setYCoods : function (y) {
+
+                    },
+
+                    postProcess : function (x, y) {
 
                     }
                 };
@@ -116,6 +126,10 @@ Glenmorangie.Coordinator.AttachedNodeToBox = Glenmorangie.utils.extend ({
                     },
                     setYCoods : function (y) {
                         //  do nothing
+                    },
+
+                    postProcess : function (x, y) {
+
                     }
                 };
             break;
@@ -146,6 +160,10 @@ Glenmorangie.Coordinator.AttachedNodeToBox = Glenmorangie.utils.extend ({
                     },
                     setYCoods : function (y) {
                         //  do nothing
+                    },
+
+                    postProcess : function (x, y) {
+
                     }
                 };
             break;
@@ -158,7 +176,8 @@ Glenmorangie.Coordinator.AttachedNodeToBox = Glenmorangie.utils.extend ({
 
         var x = this.players['box'].get('xCood');
         var y = this.players['box'].get('yCood') + this.arrowYOffset;
-        this.players['arrow'].update(x, y, false);
+        console.log("move on to box", x, y)
+        this.players['arrow'].update(x, y, true);
     }
 
 });

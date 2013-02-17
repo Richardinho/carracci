@@ -111,6 +111,12 @@ Glenmorangie.ConnectorFactory = function (options) {
         return line1Model;
     }
 
+    new Glenmorangie.Coordinator.HorizontalConnector({ "leftArrow" : leftArrowNodeModel,
+                                                       "proximalNode" : leftProximalNodeModel,
+                                                       "distalNode" : rightProximalNodeModel,
+                                                       "rightArrow" : rightArrowNodeModel   });
+
+
     leftArrowNodeModel.setProximalNodeModel(leftProximalNodeModel);
     leftArrowNodeModel.setDistalNodeModel(rightProximalNodeModel);
 

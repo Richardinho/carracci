@@ -18,17 +18,9 @@ Glenmorangie.Model.ArrowNode = Glenmorangie.Model.Element.extend({
         this._getArrowModel().show();
     },
 
-    updateX : function (x) {
-        this.update(x, this.get('yCood'));
-    },
-
-    updateY : function (y) {
-        this.update(this.get('xCood'), y);
-    },
-
     update : function (x, y, validate) {
         this.updateCoordinates( x, y, validate);
-        this.updateProximalNode(validate);
+        //this.updateProximalNode(validate);
         this.updateArrow();
     },
 

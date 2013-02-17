@@ -10,7 +10,7 @@ Glenmorangie.Model.Diamond = Glenmorangie.Model.Pointer.extend({
 
     _getPointsArray : function () {
 
-        return [this.get("tip"), this.get("right"), this.get("bottom"), this.get("left") ];
+        return [this.get("tip"), this.get("right"), this.get("left") ];
     },
 
     getOffset : function () {
@@ -29,29 +29,29 @@ Glenmorangie.Model.Diamond = Glenmorangie.Model.Pointer.extend({
         case "up" :
             this.set({ tip: this._getPoint(x, y),
                        right : this._getPoint(x + 10, y + 10),
-                       left : this._getPoint(x - 10, y + 10),
-                       bottom : this._getPoint(x, y + 20) });
+                       left : this._getPoint(x - 10, y + 10)});
+                       //bottom : this._getPoint(x, y + 20) });
         break;
 
         case "down" :
             this.set({ tip: this._getPoint(x, y ),
                        right : this._getPoint(x + 10, y - 10),
-                       left : this._getPoint(x - 10, y - 10),
-                       bottom : this._getPoint(x, y - 20) });
+                       left : this._getPoint(x - 10, y - 10) });
+                       //bottom : this._getPoint(x, y - 20) });
         break;
 
         case "left" :
             this.set({ tip: this._getPoint(x, y),
                        right : this._getPoint(x + 10, y - 10),
-                       left : this._getPoint(x + 10, y + 10),
-                       bottom : this._getPoint(x + 20, y)});
+                       left : this._getPoint(x + 10, y + 10) });
+                       //bottom : this._getPoint(x + 20, y)});
         break;
 
         case "right" :
             this.set({ tip: this._getPoint(x , y),
                        right : this._getPoint(x - 10, y + 10),
-                       left : this._getPoint(x - 10, y - 10),
-                       bottom : this._getPoint(x - 20, y)});
+                       left : this._getPoint(x - 10, y - 10)});
+                       //bottom : this._getPoint(x - 20, y)});
         break;
         }
 

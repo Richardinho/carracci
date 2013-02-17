@@ -21,11 +21,6 @@ Glenmorangie.Controller.ClassBox = Glenmorangie.Controller.DraggableElement.exte
         }
     }
 
-
-
-
-
-
 });
 
 

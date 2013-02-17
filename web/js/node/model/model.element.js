@@ -12,6 +12,14 @@ Glenmorangie.Model.Element = Glenmorangie.Model.extend({
         this.updateCoordinates(options.x, options.y);
     },
 
+    updateX : function (x, validate) {
+        this.update(x, this.get('yCood'), validate);
+    },
+
+    updateY : function (y, validate) {
+        this.update(this.get('xCood'), y, validate);
+    },
+
     updateCoordinates : function (x, y, validate) {
 
     // What I need to do to fix the 'Parents problem' is:
@@ -43,7 +51,6 @@ Glenmorangie.Model.Element = Glenmorangie.Model.extend({
 
             if ( this.fooValidators.all(function(validator) {
                     var result = validator.validateY.call( validator.context, y);
-                    console.log("result", result)
                     return result;
                 })
             ) {
@@ -52,6 +59,10 @@ Glenmorangie.Model.Element = Glenmorangie.Model.extend({
                     validator.setYCoods.call(validator.context, y);
                 });
             }
+            this.fooValidators.each(function(index,validator) {
+                    validator.postProcess.call(validator.context, x, y);
+            });
+
 
         } else {
             this.set({ xCood : x });

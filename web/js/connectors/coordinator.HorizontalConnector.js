@@ -49,7 +49,17 @@ Glenmorangie.Coordinator.HorizontalConnector = Glenmorangie.utils.extend ({
 
                     },
                     setYCoods : function (y) {
+                        this.players["proximalNode"].updateY(y)
+                    },
 
+
+                    postProcess : function (x, y) {
+                        if(this.players["proximalNode"].get('xCood')  > x) {
+                            this.players["leftArrow"]._getArrowModel().setDirection("left");
+                        } else {
+                            this.players["leftArrow"]._getArrowModel().setDirection("right");
+                        }
+                        this.players["leftArrow"].updateArrow();
                     }
                 };
             break;
@@ -67,10 +77,26 @@ Glenmorangie.Coordinator.HorizontalConnector = Glenmorangie.utils.extend ({
                         return true;
                     },
                     setXCoods : function(x) {
-
+                        this.players["distalNode"].updateX(x, false)
                     },
                     setYCoods : function (y) {
+                        this.players["leftArrow"].updateY(y, false)
+                    },
 
+                    postProcess : function (x, y) {
+                        if(this.players["leftArrow"].get('xCood')  < x) {
+                            this.players["leftArrow"]._getArrowModel().setDirection("left");
+                        } else {
+                            this.players["leftArrow"]._getArrowModel().setDirection("right");
+                        }
+                        this.players["leftArrow"].updateArrow();
+
+                        if(this.players["rightArrow"].get('xCood')  < x) {
+                            this.players["rightArrow"]._getArrowModel().setDirection("left");
+                        } else {
+                            this.players["rightArrow"]._getArrowModel().setDirection("right");
+                        }
+                        this.players["rightArrow"].updateArrow();
                     }
                 };
             break;
@@ -86,10 +112,26 @@ Glenmorangie.Coordinator.HorizontalConnector = Glenmorangie.utils.extend ({
                         return true;
                     },
                     setXCoods : function(x) {
-
+                        this.players["proximalNode"].updateX(x, false);
                     },
                     setYCoods : function (y) {
-                        //  do nothing
+                        this.players["rightArrow"].updateY(y, false)
+                    },
+
+                    postProcess : function (x, y) {
+                        if(this.players["leftArrow"].get('xCood')  < x) {
+                            this.players["leftArrow"]._getArrowModel().setDirection("left");
+                        } else {
+                            this.players["leftArrow"]._getArrowModel().setDirection("right");
+                        }
+                        this.players["leftArrow"].updateArrow();
+
+                        if(this.players["rightArrow"].get('xCood')  < x) {
+                            this.players["rightArrow"]._getArrowModel().setDirection("left");
+                        } else {
+                            this.players["rightArrow"]._getArrowModel().setDirection("right");
+                        }
+                        this.players["rightArrow"].updateArrow();
                     }
                 };
             break;
@@ -107,9 +149,19 @@ Glenmorangie.Coordinator.HorizontalConnector = Glenmorangie.utils.extend ({
                     },
                     setXCoods : function(x) {
 
+
                     },
                     setYCoods : function (y) {
-                        //  do nothing
+                        this.players["distalNode"].updateY(y, false)
+                    },
+
+                    postProcess : function (x, y) {
+                        if(this.players["distalNode"].get('xCood')  > x) {
+                            this.players["rightArrow"]._getArrowModel().setDirection("left");
+                        } else {
+                            this.players["rightArrow"]._getArrowModel().setDirection("right");
+                        }
+                        this.players["rightArrow"].updateArrow();
                     }
                 };
             break;
