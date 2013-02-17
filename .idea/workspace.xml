@@ -3,15 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="bd4dd7db-33d3-4455-b213-bb1cec28b9b9" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/classBox/controller/controller.ClassBox.js" afterPath="$PROJECT_DIR$/web/js/classBox/controller/controller.ClassBox.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/connectors/coordinator.HorizontalConnector.js" afterPath="$PROJECT_DIR$/web/js/connectors/coordinator.HorizontalConnector.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/connectors/factory/factory.connector.js" afterPath="$PROJECT_DIR$/web/js/connectors/factory/factory.connector.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/global/controllers/controller.AttachedNodeToBox.js" afterPath="$PROJECT_DIR$/web/js/global/controllers/controller.AttachedNodeToBox.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/node/_runners/nodeRunner2.html" afterPath="$PROJECT_DIR$/web/js/node/_runners/nodeRunner2.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/globalController/controller.Global.js" afterPath="$PROJECT_DIR$/web/js/globalController/controller.Global.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/node/model/model.ArrowNode.js" afterPath="$PROJECT_DIR$/web/js/node/model/model.ArrowNode.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/node/model/model.DistalNode.js" afterPath="$PROJECT_DIR$/web/js/node/model/model.DistalNode.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/node/model/model.element.js" afterPath="$PROJECT_DIR$/web/js/node/model/model.element.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/pointers/model/model.Diamond.js" afterPath="$PROJECT_DIR$/web/js/pointers/model/model.Diamond.js" />
     </list>
     <ignored path="Glenmorangie.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -75,19 +69,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="model.element.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="model.element.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/js/node/model/model.element.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="53" column="34" selection-start="2138" selection-end="2138" vertical-scroll-proportion="0.0">
+            <state line="53" column="34" selection-start="2138" selection-end="2138" vertical-scroll-proportion="0.63709676">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="controller.AttachedNodeToBox.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="controller.AttachedNodeToBox.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/js/global/controllers/controller.AttachedNodeToBox.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="179" column="21" selection-start="6481" selection-end="6481" vertical-scroll-proportion="0.72879">
+            <state line="43" column="68" selection-start="1652" selection-end="1652" vertical-scroll-proportion="-11.4">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="controller.Global.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/js/globalController/controller.Global.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="11" column="21" selection-start="191" selection-end="191" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -102,19 +105,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="model.Diamond.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/js/pointers/model/model.Diamond.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="52" column="63" selection-start="1645" selection-end="1645" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="factory.connector.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/js/connectors/factory/factory.connector.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="116" column="89" selection-start="5375" selection-end="5375" vertical-scroll-proportion="0.0">
+            <state line="122" column="37" selection-start="5557" selection-end="5557" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -138,19 +132,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="nodeRunner2.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/js/node/_runners/nodeRunner2.html">
+      <file leaf-file-name="model.ArrowNode.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/js/node/model/model.ArrowNode.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="46" column="8" selection-start="3154" selection-end="3154" vertical-scroll-proportion="-20.625">
+            <state line="22" column="26" selection-start="745" selection-end="745" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="model.ArrowNode.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/js/node/model/model.ArrowNode.js">
+      <file leaf-file-name="node.main2.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/js/node/_runners/node.main2.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="0" selection-start="980" selection-end="1209" vertical-scroll-proportion="0.0">
+            <state line="17" column="185" selection-start="853" selection-end="853" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -184,16 +178,16 @@
         <option value="$PROJECT_DIR$/web/js/node/_runners/node.main2.js" />
         <option value="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/spec/core/core.Collection.test.js" />
         <option value="$PROJECT_DIR$/web/js/core/Collection.js" />
-        <option value="$PROJECT_DIR$/web/js/globalController/controller.Global.js" />
         <option value="$PROJECT_DIR$/web/js/connectors/model/model.HorizontalConnector.js" />
-        <option value="$PROJECT_DIR$/web/js/node/model/model.ArrowNode.js" />
         <option value="$PROJECT_DIR$/web/js/node/_runners/nodeRunner2.html" />
-        <option value="$PROJECT_DIR$/web/js/connectors/factory/factory.connector.js" />
         <option value="$PROJECT_DIR$/web/js/node/model/model.DistalNode.js" />
         <option value="$PROJECT_DIR$/web/js/pointers/model/model.Diamond.js" />
         <option value="$PROJECT_DIR$/web/js/node/model/model.element.js" />
         <option value="$PROJECT_DIR$/web/js/connectors/coordinator.HorizontalConnector.js" />
         <option value="$PROJECT_DIR$/web/js/classBox/controller/controller.ClassBox.js" />
+        <option value="$PROJECT_DIR$/web/js/connectors/factory/factory.connector.js" />
+        <option value="$PROJECT_DIR$/web/js/node/model/model.ArrowNode.js" />
+        <option value="$PROJECT_DIR$/web/js/globalController/controller.Global.js" />
         <option value="$PROJECT_DIR$/web/js/global/controllers/controller.AttachedNodeToBox.js" />
       </list>
     </option>
@@ -863,11 +857,6 @@
         <state line="18" column="4" selection-start="466" selection-end="474" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/node/_runners/node.main2.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="185" selection-start="853" selection-end="853" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/spec/core/core.Collection.test.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="62" column="72" selection-start="2290" selection-end="2290" vertical-scroll-proportion="0.0" />
@@ -883,13 +872,6 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/globalController/controller.Global.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="65" selection-start="495" selection-end="495" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/js/node/_runners/nodeRunner2.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="46" column="8" selection-start="3154" selection-end="3154" vertical-scroll-proportion="-20.625">
@@ -897,37 +879,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/connectors/model/model.HorizontalConnector.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="3" selection-start="385" selection-end="385" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/node/model/model.ArrowNode.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="0" selection-start="980" selection-end="1209" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/js/pointers/model/model.Diamond.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="52" column="63" selection-start="1645" selection-end="1645" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/node/model/model.element.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="34" selection-start="2138" selection-end="2138" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/connectors/factory/factory.connector.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="116" column="89" selection-start="5375" selection-end="5375" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -946,6 +900,39 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/node/_runners/node.main2.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="185" selection-start="853" selection-end="853" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/connectors/factory/factory.connector.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="122" column="37" selection-start="5557" selection-end="5557" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/node/model/model.ArrowNode.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="26" selection-start="745" selection-end="745" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/connectors/model/model.HorizontalConnector.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="3" selection-start="385" selection-end="385" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/globalController/controller.Global.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="21" selection-start="191" selection-end="191" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/web/js/connectors/coordinator.HorizontalConnector.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="115" column="22" selection-start="4592" selection-end="4592" vertical-scroll-proportion="0.0">
@@ -955,7 +942,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/js/global/controllers/controller.AttachedNodeToBox.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="179" column="21" selection-start="6481" selection-end="6481" vertical-scroll-proportion="0.72879">
+        <state line="43" column="68" selection-start="1652" selection-end="1652" vertical-scroll-proportion="-11.4">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/node/model/model.element.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="53" column="34" selection-start="2138" selection-end="2138" vertical-scroll-proportion="0.63709676">
           <folding />
         </state>
       </provider>

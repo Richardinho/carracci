@@ -9,13 +9,11 @@ Glenmorangie.Controller.Global = Glenmorangie.utils.extend ({
 
     onClick : function (player) {
 
-        console.log(player)
 
 
     },
 
     arrowRequest : function (arrow) {
-    console.log(arrow)
         this.arrow = arrow;
     },
 

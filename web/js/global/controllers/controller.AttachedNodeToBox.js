@@ -38,6 +38,10 @@ Glenmorangie.Coordinator.AttachedNodeToBox = Glenmorangie.utils.extend ({
             that = this;
         //  these constraints are how the objects are allowed to be moved.
         //  No constraints are applied as to how a component can be moved by another component.
+
+        // what we need is to separate out validation and setting of other coods.
+        // we should only validate the component which is being moved.
+        // however, we should always update coods of all components.
         switch(role) {
 
             case "box" :
@@ -61,8 +65,11 @@ Glenmorangie.Coordinator.AttachedNodeToBox = Glenmorangie.utils.extend ({
                         if(proximalNode.get('xCood') > rightEdge) {
                             arrowXCood = x + box.getWidth();
                         }
+                        //  has to be false. If we validate the arrow model's x cood it will fail on
+                        // the rule we have given it
                         arrowModel.updateX(arrowXCood, false);
                     },
+                    //  here we do want the arrow to validate y coods, because we want it to call other components.
                     setYCoods : function (y) {
                         var arrowModel = this.players["arrow"];
 
@@ -80,10 +87,11 @@ Glenmorangie.Coordinator.AttachedNodeToBox = Glenmorangie.utils.extend ({
 
                     context : that,
                     // the arrow is not allowed to be moved in the x axis.
+                    // however: it should move if moved by the box. I need to find a way to express this.
                     validateX : function (x) {
                         return false;
                     },
-                    //  the arrow is limited by in the y axis by the upper and lower y limits of the box.
+                    //  the arrow is limited in the y axis by the upper and lower y limits of the box.
                     validateY : function (y) {
                         var box = this.players["box"],
                             upperYLimit =  box.get('yCood'),
