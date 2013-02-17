@@ -48,6 +48,12 @@ Glenmorangie.svgUtils = function (svg) {
             return rect;
         },
 
+        resetRectangle : function (rect, x, y) {
+            rect.attr({ "x" : x, "y" : y });
+        },
+
+
+
         resetLine : function (line, type) {
             console.log("reset line")
             if (type === "dashes") {

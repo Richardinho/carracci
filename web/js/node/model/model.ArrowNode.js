@@ -18,12 +18,25 @@ Glenmorangie.Model.ArrowNode = Glenmorangie.Model.Element.extend({
         this._getArrowModel().show();
     },
 
-    updateCoordinates : function (x, y) {
-        Glenmorangie.Model.Element.prototype.updateCoordinates.call(this, x, y);
+    updateX : function (x) {
+        this.update(x, this.get('yCood'));
+    },
 
+    updateY : function (y) {
+        this.update(this.get('xCood'), y);
+    },
+
+    update : function (x, y, validate) {
+        this.updateCoordinates( x, y, validate);
+        this.updateProximalNode(validate);
+        this.updateArrow();
+    },
+
+
+    updateProximalNode : function (validate) {
         if( this.proximalNodeModel ) {
 
-            this.proximalNodeModel.updateFromArrowController(x, y);
+            this.proximalNodeModel.updateFromArrowController(this.get('yCood'), validate);
 
             if(this.get('xCood') < this.proximalNodeModel.get('xCood')) {
                 this._getArrowModel().setDirection("left");
@@ -32,7 +45,6 @@ Glenmorangie.Model.ArrowNode = Glenmorangie.Model.Element.extend({
             }
         }
 
-        this.updateArrow();
     },
 
     changeLine : function () {
@@ -44,13 +56,15 @@ Glenmorangie.Model.ArrowNode = Glenmorangie.Model.Element.extend({
     },
 
     updateFromProximalNode : function (x, y) {
-        if(this.get('xCood') < x) {
+
+        this.updateCoordinates( this.get('xCood'), y);
+
+        if(this.get('xCood')  < x) {
             this._getArrowModel().setDirection("left");
         } else {
             this._getArrowModel().setDirection("right");
         }
-        this.set({ yCood :  y });
-        this.updateArrow(x, y);
+        this.updateArrow();
     },
 
     updateFromDistalNode : function (x, y) {
@@ -74,4 +88,6 @@ Glenmorangie.Model.ArrowNode = Glenmorangie.Model.Element.extend({
     setDistalNodeModel : function(nodeModel) {
         this.distalNodeModel = nodeModel;
     }
+
+
 });

@@ -41,6 +41,39 @@ describe("core.Collection", function() {
 
         });
 
+        describe("all()", function () {
+            describe("When iterator will return true for all elements in collection", function () {
+                var result = false;
+                beforeEach(function () {
+                    collection = new Glenmorangie.Collection([1, 2, 3, 4]);
+                    result = collection.all(function (element) {
+                        return element < 5;
+                    });
+                });
+
+                it("should return true", function () {
+                    expect(result).toBe(true);
+
+                });
+            });
+
+            describe("When iterator will return false for at least one element in collection", function () {
+                var result = false;
+                beforeEach(function () {
+                    collection = new Glenmorangie.Collection([5, 2, 3, 4]);
+                    result = collection.all(function (element) {
+                        return element < 5;
+                    });
+                });
+
+                it("should return false", function () {
+                    expect(result).toBe(false);
+
+                });
+            });
+
+        });
+
         describe("each()", function () {
             result = [],
 

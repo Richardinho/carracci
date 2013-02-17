@@ -1,0 +1,24 @@
+Protocol for joining connectors with Class Boxes.
+
+When the user clicks on a node whilst holding down a key (J)
+Then clicks on a class box  whilst still holding down (J)
+Then the node should attach itself to the classbox.
+
+The final position of the node on the class box will depend on the relative positions
+of the node and the box before the user action.
+
+Whilst connected:
+When the user moves the box, the node will move with it.
+the rest of the connector will act in the same way as if the node itself was being moved directly.
+
+The node can still be moved itself, but only up and down, or left and right along the edge of the box.
+Moving the node will not result in the box moving.
+
+the tip of the node will not be permitted to leave the edge of the box. thus, nodes attached to the vertical edge of the box will be constained by the upper and lower vertical limits of the box.
+nodes attached to the horizontal edge will be similarly constrained.
+
+Other nodes attached to the connector will behave as before, but  will be affected by the aforementioned constraints on the attached node. e.g. A proximal node can be moved up or down, but not beyond the upper and lower vertical limits of the box.
+
+a node that is attached to the vertical edge can automatically be repositioned on either vertical edge, upper or lower, depending on circumstance.
+
+Similarly, a node attached to a horizontal edge can be repositioned automatically to the opposite edge under certain conditions.

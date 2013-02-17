@@ -7,8 +7,9 @@ Glenmorangie.Model.DistalNode = Glenmorangie.Model.Element.extend({
         Glenmorangie.Model.Element.prototype.initialize.call(this, options);
     },
 
-    updateCoordinates : function (x, y) {
-        Glenmorangie.Model.Element.prototype.updateCoordinates.call(this, x, y);
+    update : function (x, y) {
+
+        this.updateCoordinates(x, y);
 
         if( this.arrowNodeModel ) {
             this.arrowNodeModel.updateFromProximalNode(x, y);
@@ -23,8 +24,9 @@ Glenmorangie.Model.DistalNode = Glenmorangie.Model.Element.extend({
         }
     },
 
-    updateFromArrowController : function (x, y) {
-        this.set({ yCood : y});
+    updateFromArrowController : function (y, validate) {
+        var x = this.get('xCood');
+        this.updateCoordinates(x, y, validate);
     },
 
     updateFromDistalNode : function (x, y) {

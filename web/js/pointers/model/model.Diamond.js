@@ -13,6 +13,10 @@ Glenmorangie.Model.Diamond = Glenmorangie.Model.Pointer.extend({
         return [this.get("tip"), this.get("right"), this.get("bottom"), this.get("left") ];
     },
 
+    getOffset : function () {
+        return -20;
+    },
+
     update : function (x, y) {
 
         var x = parseInt(x, 10);
@@ -23,31 +27,31 @@ Glenmorangie.Model.Diamond = Glenmorangie.Model.Pointer.extend({
         switch(this.get('direction')) {
 
         case "up" :
-            this.set({ tip: this._getPoint(x, y - 15),
-                       right : this._getPoint(x + 10, y),
-                       left : this._getPoint(x - 10, y),
-                       bottom : this._getPoint(x, y + 10) });
+            this.set({ tip: this._getPoint(x, y),
+                       right : this._getPoint(x + 10, y + 10),
+                       left : this._getPoint(x - 10, y + 10),
+                       bottom : this._getPoint(x, y + 20) });
         break;
 
         case "down" :
-            this.set({ tip: this._getPoint(x, y + 15),
-                       right : this._getPoint(x + 10, y),
-                       left : this._getPoint(x - 10, y),
-                       bottom : this._getPoint(x, y - 10) });
+            this.set({ tip: this._getPoint(x, y ),
+                       right : this._getPoint(x + 10, y - 10),
+                       left : this._getPoint(x - 10, y - 10),
+                       bottom : this._getPoint(x, y - 20) });
         break;
 
         case "left" :
-            this.set({ tip: this._getPoint(x - 15, y),
-                       right : this._getPoint(x, y - 10),
-                       left : this._getPoint(x, y + 10),
-                       bottom : this._getPoint(x + 10, y)});
+            this.set({ tip: this._getPoint(x, y),
+                       right : this._getPoint(x + 10, y - 10),
+                       left : this._getPoint(x + 10, y + 10),
+                       bottom : this._getPoint(x + 20, y)});
         break;
 
         case "right" :
-            this.set({ tip: this._getPoint(x + 15, y),
-                       right : this._getPoint(x, y + 10),
-                       left : this._getPoint(x, y - 10),
-                       bottom : this._getPoint(x - 10, y)});
+            this.set({ tip: this._getPoint(x , y),
+                       right : this._getPoint(x - 10, y + 10),
+                       left : this._getPoint(x - 10, y - 10),
+                       bottom : this._getPoint(x - 20, y)});
         break;
         }
 

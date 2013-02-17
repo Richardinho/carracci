@@ -14,10 +14,4 @@ Glenmorangie.Model.HorizontalConnector = Glenmorangie.utils.extend({
             lineModel.alternateStyle();
         });
     }
-
-
-
-
-
-
 });

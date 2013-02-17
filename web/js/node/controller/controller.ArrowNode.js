@@ -11,12 +11,17 @@ Glenmorangie.Controller.ArrowNode = Glenmorangie.Controller.DraggableElement.ext
 
     _onClick : function () {
         if(this.keyManager.S_KEY) {
-            console.log("click and  s key");
             this.model.changePointer();
         } else if(this.keyManager.T_KEY) {
-            console.log("t key")
             this.model.changeLine();
+        } else if(this.keyManager.U_KEY) {
+            this.globalController.arrowRequest(this.model);
+
         }
+    },
+
+    removeFrom : function (boxModel) {
+
     }
 
 

@@ -23,6 +23,7 @@ Glenmorangie.Collection = Glenmorangie.utils.extend({
         return this._collection.length;
     },
 
+    //  run a function against each element in collection
     each : function (callback, contextObj) {
         var i,
             length = this.size(),
@@ -33,6 +34,7 @@ Glenmorangie.Collection = Glenmorangie.utils.extend({
         }
     },
 
+    //  run a function against each element in collection but return a single combined return value
     reduce : function (iterator, init, context) {
         var memo = init;
 
@@ -51,6 +53,18 @@ Glenmorangie.Collection = Glenmorangie.utils.extend({
         });
 
         return result;
+    },
+
+    //  run a function against each element in collection and return a boolean according to whether the
+    //  return value of all invocations of the function were true or not.
+    all : function (iterator) {
+        return this.reduce(function (memo, element) {
+            if(!iterator.call(this, element)) {
+                memo = false
+            }
+            return memo;
+
+        }, true);
     }
 
 
