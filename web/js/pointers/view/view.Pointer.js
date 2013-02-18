@@ -14,6 +14,7 @@ Glenmorangie.View.Pointer = Glenmorangie.utils.extend({
     },
 
     _createSvgShape : function (path, color) {
+        console.log("create shape", path)
         return this.svgUtils.createPath(path, color);
     },
 

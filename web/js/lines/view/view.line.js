@@ -14,11 +14,13 @@ Glenmorangie.View.Line = Glenmorangie.utils.extend({
 
     _createSvgShape : function (color) {
         var path = this.svgUtils.buildPath(this.model.getPointsArray(), false);
+        console.log("create path", path)
         return this.svgUtils.createPath(path, color);
     },
 
     render : function () {
         var path = this.svgUtils.buildPath(this.model.getPointsArray(), false);
+        console.log("render path: ", path)
         this.svgUtils.resetPath(this.line, path);
 
     },

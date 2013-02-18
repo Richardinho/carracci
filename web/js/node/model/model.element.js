@@ -35,39 +35,55 @@ Glenmorangie.Model.Element = Glenmorangie.Model.extend({
     // is going to break any of this component's validation rules.
 
         var valid = (validate !== undefined) ? validate : true;
+        // flag to show that we wish to validate. Only set when this is the component which is setting itself.
+        if (valid) {
 
-        if(valid) {
-
-            if ( this.fooValidators.all(function(validator) {
-                    // validateX has to be called in the context of the attachedNodeToBox controller type.
-                    return validator.validateX.call( validator.context, x );
-                })
-            ) {
-                this.set({ xCood : x });
-                this.fooValidators.each(function(index,validator) {
-                    validator.setXCoods.call(validator.context, x);
-                });
+            //  determine whether the proposed x value is permitted.
+            //  iterate through all validators
+            var xisValid = this.fooValidators.all(function(validator) {
+                return validator.validateX.call( validator.context, x );
+            });
+            //  if not permitted, reset x to current value
+            if (! xisValid ) {
+                x = this.get('xCood');
             }
-
-            if ( this.fooValidators.all(function(validator) {
-                    var result = validator.validateY.call( validator.context, y);
-                    return result;
-                })
-            ) {
-                this.set({ yCood : y });
-                this.fooValidators.each(function(index,validator) {
-                    validator.setYCoods.call(validator.context, y);
-                });
-            }
-            this.fooValidators.each(function(index,validator) {
-                    validator.postProcess.call(validator.context, x, y);
+            // do same with y coordinate
+            var yisValid = this.fooValidators.all(function(validator) {
+                return validator.validateY.call( validator.context, y);
             });
 
+            if(! yisValid ) {
+                y = this.get('yCood');
+            }
 
-        } else {
-            this.set({ xCood : x });
+            // set new y cood
             this.set({ yCood : y });
+
+            // set y value on all associated components
+            this.fooValidators.each(function(index,validator) {
+                validator.setYCoods.call(validator.context, y);
+            });
+
+            //  do same with x
+            this.set({ xCood : x });
+
+            this.fooValidators.each(function(index,validator) {
+                validator.setXCoods.call(validator.context, x);
+            });
+
+        //  else we are just updating the component. This should only be from other components.
+        } else {
+            this.set({ yCood : y });
+            this.set({ xCood : x });
         }
+
+        //  not sure about this:
+        //  this calls post processing for all components
+        //  might be better to have a single post processing method that is only called by the
+        //  component which is being changed (i.e. once, not for every component)
+        this.fooValidators.each(function(index,validator) {
+            validator.postProcess.call(validator.context, x, y);
+        });
     },
 
     addFooValidator : function (validator) {

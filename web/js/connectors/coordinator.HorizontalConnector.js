@@ -49,7 +49,7 @@ Glenmorangie.Coordinator.HorizontalConnector = Glenmorangie.utils.extend ({
 
                     },
                     setYCoods : function (y) {
-                        this.players["proximalNode"].updateY(y)
+                        this.players["proximalNode"].updateY(y, false)
                     },
 
 
