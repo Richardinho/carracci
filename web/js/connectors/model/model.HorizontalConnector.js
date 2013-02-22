@@ -1,17 +1,18 @@
-Glenmorangie.namespace("Glenmorangie.Model");
+define(['utility/extend'], function (extend) {
 
-Glenmorangie.Model.HorizontalConnector = Glenmorangie.utils.extend({
+    return extend.extend({
 
-    initialize : function () {
-        this.nodes = [];
-        this.lines = null;
-        this.lineModels = [];
-    },
+        initialize : function () {
+            this.nodes = [];
+            this.lines = null;
+            this.lineModels = [];
+        },
 
-    changeLine : function () {
+        changeLine : function () {
 
-        this.lines.each(function (index, lineModel) {
-            lineModel.alternateStyle();
-        });
-    }
+            this.lines.each(function (index, lineModel) {
+                lineModel.alternateStyle();
+            });
+        }
+    });
 });

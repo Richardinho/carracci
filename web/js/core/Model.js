@@ -1,6 +1,6 @@
 define(["utility/extend"],function (extend) {
 
-    return extend({
+    return extend.extend({
 
         // todo: in the model: we should make a distinction between those properties which are going
         // to change (and hence fire change events) and those which wont change.

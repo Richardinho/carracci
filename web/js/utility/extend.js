@@ -1,6 +1,6 @@
 define(function () {
-
-    return (function (template) {
+    var obj = {};
+    obj.extend = function (template) {
 
         var F = function(options) {
             if(this.initialize && typeof this.initialize === "function") {
@@ -27,7 +27,9 @@ define(function () {
         F.extend = this.extend;
 
         return F;
-    });
+    };
+
+    return obj;
 });
 
 

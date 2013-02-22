@@ -1,6 +1,6 @@
 define(["utility/extend"], function (extend) {
 
-    return extend({
+    return extend.extend({
 
         initialize : function () {
 

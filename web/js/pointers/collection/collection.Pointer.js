@@ -1,10 +1,15 @@
-Glenmorangie.namespace("Glenmorangie.Collection");
+define(['Collection'],function (Collection) {
 
-Glenmorangie.Collection.Pointer = Glenmorangie.Collection.extend({
+    return Collection.extend({
 
+        initialize : function (options) {
 
-    initialize : function (options) {
+            Collection.prototype.initialize.call(this, options);
 
-        Glenmorangie.Collection.prototype.initialize.call(this, options);
-    }
+        }
+
+    });
+
 });
+
+
