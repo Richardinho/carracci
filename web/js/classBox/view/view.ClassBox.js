@@ -18,9 +18,28 @@ Glenmorangie.View.ClassBox = Glenmorangie.utils.extend({
         var y = this.model.get('yCood');
         var width = this.model.get('width');
         var height = this.model.get('height');
-        console.log("height is: ", height)
+        var text = this.svgUtils.createText("blah");
         return this.svgUtils.createRectangle(x, y, width, height);
 
+    },
+
+    formatMethod : function (method) {
+        var result = "";
+
+        result += method.visibility;
+        result += method.name;
+        result += "(";
+        for(var arg in method.args) {
+            result += arg + ":" + method.args[arg] + ",";
+        }
+        debugger;
+        if(result.charAt(result.length-1) === ",") {
+            result = result.substring(0, result.length-1);
+        }
+        result +="):";
+        result += method.returnType;
+
+        return result;
     }
 
 

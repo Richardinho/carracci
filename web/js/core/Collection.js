@@ -11,7 +11,6 @@ Glenmorangie.Collection = Glenmorangie.utils.extend({
     },
 
     get : function (index) {
-    debugger;
         return this._collection[index];
     },
 
