@@ -3,6 +3,7 @@ Glenmorangie.namespace("Glenmorangie");
 $(document).ready(function () {
 
     var can = Raphael(0, 0, 800, 820);
+
     var keyManager = new Glenmorangie.Controller.KeyManager();
 
     var globalController = new Glenmorangie.Controller.Global();
