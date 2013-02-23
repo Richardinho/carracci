@@ -7,7 +7,12 @@ define(['keyManager',
         'CollectionPointer',
         'ModelArrowNode',
         'ViewArrowNode',
-        'ControllerArrowNode'], function (keyManager,
+        'ControllerArrowNode',
+        'ControllerDraggableElement',
+        'ViewElement',
+        'ModelDistalNode',
+        'ModelLine',
+        'ViewLine' ], function (keyManager,
                                           globalController,
                                           svgUtils,
                                           HorizontalConnector,
@@ -16,7 +21,12 @@ define(['keyManager',
                                           CollectionPointer,
                                           ModelArrowNode,
                                           ViewArrowNode,
-                                          ControllerArrowNode) {
+                                          ControllerArrowNode,
+                                          ControllerDraggableElement,
+                                          ViewElement,
+                                          ModelDistalNode,
+                                          ModelLine,
+                                          ViewLine) {
 
     return function (options) {
 
@@ -90,44 +100,45 @@ define(['keyManager',
 
         }
 
-        /*
 
-        var leftProximalNodeModel = createProximalNode(x1 + 100, y1, connector, svgUtils, keyManager);
 
-        function createProximalNode(x, y, connector, svgUtils, keyManager) {
+        var leftProximalNodeModel = createProximalNode(x1 + 100, y1, connector );
 
-           var leftProximalNodeModel = new Glenmorangie.Model.DistalNode({ id : "foo",
-                                                                       "x" : x,
-                                                                       "y" : y ,
-                                                                       "connector" : connector });
+        function createProximalNode( x, y, connector ) {
 
-           var leftProximalNodeView = new Glenmorangie.View.Element({ "model" : leftProximalNodeModel,
-                                                                  "svgUtils" : svgUtils });
+           var leftProximalNodeModel = new ModelDistalNode({ id : "foo",
+                                                             "x" : x,
+                                                             "y" : y ,
+                                                             "connector" : connector });
 
-           var leftProximalNodeController = new Glenmorangie.Controller.DraggableElement({ "model" : leftProximalNodeModel,
-                                                                                       "view" : leftProximalNodeView,
-                                                                                       "keyManager" : keyManager});
+           var leftProximalNodeView = new ViewElement({ "model" : leftProximalNodeModel });
+
+           var leftProximalNodeController = new ControllerDraggableElement({ "model" : leftProximalNodeModel,
+                                                                             "view" : leftProximalNodeView });
            return leftProximalNodeModel;
         }
 
-        var rightProximalNodeModel = createProximalNode(x2 - 100, y2, connector, svgUtils, keyManager);
-
-        var pointers2 = createPointers(svgUtils, x2, y2, "right", "yellow");
-
-        var rightArrowNodeModel = createArrowNode(x2, y2, connector, pointers2, svgUtils, keyManager, globalController);
 
 
+        var rightProximalNodeModel = createProximalNode(x2 - 100, y2, connector);
 
-        line1Model = createLine( svgUtils, leftArrowNodeModel, leftProximalNodeModel );
-        line2Model = createLine( svgUtils, leftProximalNodeModel, rightProximalNodeModel );
-        line3Model = createLine( svgUtils, rightProximalNodeModel, rightArrowNodeModel );
+        var pointers2 = createPointers( x2, y2, "right", "yellow" );
 
-        function createLine(svgUtils, nodeA, nodeB) {
-            var line1Model = new Glenmorangie.Model.Line({ "svgUtils" : svgUtils , "nodeA" : nodeA, "nodeB" : nodeB });
-            var line1View = new Glenmorangie.View.Line({ model : line1Model, "svgUtils" : svgUtils });
-            return line1Model;
+        var rightArrowNodeModel = createArrowNode( x2, y2, connector, pointers2 );
+
+
+
+        line1Model = createLine( leftArrowNodeModel, leftProximalNodeModel );
+        line2Model = createLine( leftProximalNodeModel, rightProximalNodeModel );
+        line3Model = createLine( rightProximalNodeModel, rightArrowNodeModel );
+
+        function createLine( nodeA, nodeB ) {
+            var lineModel = new ModelLine({ "nodeA" : nodeA, "nodeB" : nodeB });
+            var lineView = new ViewLine({ model : lineModel });
+            return lineModel;
         }
 
+/*
         new Glenmorangie.Coordinator.HorizontalConnector({ "leftArrow" : leftArrowNodeModel,
                                                            "proximalNode" : leftProximalNodeModel,
                                                            "distalNode" : rightProximalNodeModel,

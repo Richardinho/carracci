@@ -38,7 +38,10 @@ require.config({
         ViewElement : "node/view/view.element",
         ViewArrowNode : "node/view/view.ArrowNode",
         ControllerArrowNode : "node/controller/controller.ArrowNode",
-        ControllerDraggableElement : "node/controller/controller.draggableElement"
+        ControllerDraggableElement : "node/controller/controller.draggableElement",
+        ModelDistalNode : "node/model/model.DistalNode",
+        ModelLine : "lines/model/model.line",
+        ViewLine : "lines/view/view.line"
 
     }
 });
@@ -52,7 +55,6 @@ require([ 'jQuery', 'connectorFactory' ], function ( $, connectorFactory ) {
                                             x2 : 240,
                                             y2 : 350 });
 
-        console.log(connector1)
 
     });
 });
