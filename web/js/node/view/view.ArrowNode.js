@@ -1,15 +1,20 @@
-Glenmorangie.namespace("Glenmorangie.View");
+define(['ViewElement'], function (ViewElement) {
 
-Glenmorangie.View.ArrowNode = Glenmorangie.View.Element.extend({
+    //ToDo: This doesn't seem to do much, maybe just get rid and use superclass instead?
+    return ViewElement.extend({
 
-    initialize : function (options) {
+        initialize : function (options) {
 
-        Glenmorangie.View.Element.prototype.initialize.call(this, options);
-        this.arrowView = options.arrowView;
-    },
+            ViewElement.prototype.initialize.call(this, options);
+            this.arrowView = options.arrowView;
+        },
 
-    render : function() {
-        Glenmorangie.View.Element.prototype.render.call(this);
-    }
+        render : function() {
+            ViewElement.prototype.render.call(this);
+        }
+
+    });
 
 });
+
+

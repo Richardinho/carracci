@@ -1,18 +1,19 @@
-Glenmorangie.namespace("Glenmorangie.View");
+define(['utility/extend', "svgUtilities"], function (extend, svgUtils) {
 
-Glenmorangie.View.Element = Glenmorangie.utils.extend({
+    return extend.extend({
 
-    initialize : function (options) {
-        this.model = options.model;
-        this.element = options.svgUtils.createCircle(this.model.get('xCood'), this.model.get('yCood'));
-        this.model.on("change", this.render, this);
+        initialize : function (options) {
+            this.model = options.model;
+            this.element = svgUtils.createCircle(this.model.get('xCood'), this.model.get('yCood'));
+            this.model.on("change", this.render, this);
+        },
 
-    },
-
-    render : function() {
-        this.element.attr({ "cx" : this.model.get('xCood') });
-        this.element.attr({ "cy" : this.model.get('yCood') });
-        this.element.toFront();
-    }
-
+        render : function() {
+            this.element.attr({ "cx" : this.model.get('xCood') });
+            this.element.attr({ "cy" : this.model.get('yCood') });
+            this.element.toFront();
+        }
+    });
 });
+
+

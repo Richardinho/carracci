@@ -1,31 +1,33 @@
-Glenmorangie.namespace("Glenmorangie.Controller");
+define(['ControllerDraggableElement'], function (ControllerDraggableElement) {
 
-Glenmorangie.Controller.ArrowNode = Glenmorangie.Controller.DraggableElement.extend({
+    return ControllerDraggableElement.extend({
 
 
-    initialize : function (options) {
+        initialize : function (options) {
 
-        Glenmorangie.Controller.DraggableElement.prototype.initialize.call(this, options);
-        this.view.element.click(this._onClick, this)
-    },
+            ControllerDraggableElement.prototype.initialize.call(this, options);
+            this.view.element.click(this._onClick, this)
+        },
 
-    _onClick : function () {
-        if(this.keyManager.S_KEY) {
-            this.model.changePointer();
-        } else if(this.keyManager.T_KEY) {
-            this.model.changeLine();
-        } else if(this.keyManager.U_KEY) {
-            this.globalController.arrowRequest(this.model);
+        _onClick : function () {
+            if(this.keyManager.S_KEY) {
+                this.model.changePointer();
+            } else if(this.keyManager.T_KEY) {
+                this.model.changeLine();
+            } else if(this.keyManager.U_KEY) {
+                this.globalController.arrowRequest(this.model);
+
+            }
+        },
+
+        removeFrom : function (boxModel) {
 
         }
-    },
 
-    removeFrom : function (boxModel) {
-
-    }
-
+    });
 
 });
+
 
 
 

@@ -1,7 +1,22 @@
 define(['keyManager',
         'globalController',
         'svgUtilities',
-        'horizontalConnector', 'ModelDiamond', 'ViewPointer', 'CollectionPointer'], function (keyManager, globalController, svgUtils, HorizontalConnector, ModelDiamond, ViewPointer, CollectionPointer ) {
+        'horizontalConnector',
+        'ModelDiamond',
+        'ViewPointer',
+        'CollectionPointer',
+        'ModelArrowNode',
+        'ViewArrowNode',
+        'ControllerArrowNode'], function (keyManager,
+                                          globalController,
+                                          svgUtils,
+                                          HorizontalConnector,
+                                          ModelDiamond,
+                                          ViewPointer,
+                                          CollectionPointer,
+                                          ModelArrowNode,
+                                          ViewArrowNode,
+                                          ControllerArrowNode) {
 
     return function (options) {
 
@@ -54,27 +69,28 @@ define(['keyManager',
 
             return pointers;
         }
-        /*
-        var leftArrowNodeModel = createArrowNode(x1, y1, connector, pointers, svgUtils, keyManager, globalController);
 
-        function createArrowNode(x, y, connector, pointers, svgUtils, keyManager, globalController) {
-
-            var leftArrowNodeModel = new Glenmorangie.Model.ArrowNode({ "id" : "foo",
-                  return "blah"                                                   "x" : x,
-                                                                    "y" : y ,
-                                                                    "connector" : connector,
-                                                                    "pointers": pointers });
-
-            var leftArrowNodeView = new Glenmorangie.View.ArrowNode({ "model" : leftArrowNodeModel, "svgUtils" : svgUtils });
+        var leftArrowNodeModel = createArrowNode(x1, y1, connector, pointers);
 
 
-            var leftArrowNodeController = new Glenmorangie.Controller.ArrowNode({ "model" : leftArrowNodeModel,
-                                                                              "view" : leftArrowNodeView,
-                                                                              "keyManager" : keyManager,
-                                                                              "globalController" : globalController });
+
+        function createArrowNode(x, y, connector, pointers) {
+
+            var leftArrowNodeModel = new ModelArrowNode({ "id" : "foo",
+                                                                        "x" : x,
+                                                                        "y" : y ,
+                                                                        "connector" : connector,
+                                                                        "pointers": pointers });
+
+            var leftArrowNodeView = new ViewArrowNode({ "model" : leftArrowNodeModel });
+
+            new ControllerArrowNode({ "model" : leftArrowNodeModel, "view" : leftArrowNodeView });
 
             return leftArrowNodeModel;
+
         }
+
+        /*
 
         var leftProximalNodeModel = createProximalNode(x1 + 100, y1, connector, svgUtils, keyManager);
 
