@@ -8,7 +8,7 @@ define(['utility/extend', 'underscore', 'jQuery'], function (BaseType, _, $) {
 
         _.bindAll(this, "changeWidth", "changeXCood", "handleVisibilityClick", "addProperty");
             this.model = options.model;
-            this.el = options.el;
+            this.el = options.view.el;
             $('input[name=xCood]').on('change', this.changeXCood);
 
             $(this.el).find('.visibility').live("click", this.handleVisibilityClick);

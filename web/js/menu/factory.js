@@ -7,7 +7,8 @@ define(['MenuModel',
         'jQuery',
         'HelpController',
         'ToolsModel',
-        'ToolsView'], function ( Model,
+        'ToolsView',
+        'ToolsController'], function ( Model,
                                  View,
                                  HelpModel,
                                  helpData,
@@ -16,7 +17,8 @@ define(['MenuModel',
                                  $ ,
                                  HelpController,
                                  ToolsModel,
-                                 ToolsView ) {
+                                 ToolsView,
+                                 ToolsController ) {
 
     return function() {
 
@@ -25,7 +27,8 @@ define(['MenuModel',
         var helpController = new HelpController({ model : helpModel, view : helpView });
 
         var toolsModel = new ToolsModel();
-        var toolsView = new ToolsView({ model : toolsModel, el : $('#tools') });
+        var toolsView = new ToolsView({ model : toolsModel, el : $('#tool-bar') });
+        var toolsController = new ToolsController({ model : toolsModel, view : toolsView });
 
         var menuModel = new Model({ helpPage : helpModel, tools : toolsModel });
         var menuView = new View({ el : $('#menu') });

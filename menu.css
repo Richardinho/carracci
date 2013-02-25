@@ -71,3 +71,44 @@
     float : right;
 }
 
+/* tools */
+
+#tool-bar .hidden {
+    display : none;
+}
+
+.toolbar {
+    width : 159px;
+    height : 210px;
+    left : 1210px;
+    position : relative;
+    background-color: grey;
+}
+
+.toolbar .close-button {
+    height : 24px;
+}
+
+.toolbar .container .component {
+    height : 45px;
+    display : block;
+}
+
+.toolbar .container .component .image {
+    background-color: white;
+    width : 40px;
+    height : 40px;
+    margin: 2px;
+    float : left;
+    display : inline-block;
+}
+
+.toolbar .container .component .label {
+    width : 100px;
+    float : left;
+    display : inline;
+    padding-left : 12px;
+    padding-top : 13px;
+}
+
+

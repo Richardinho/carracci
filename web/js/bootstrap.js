@@ -63,7 +63,8 @@ require.config({
         TypeSpecificCollection : "core/TypeSpecificCollection",
         ClassBoxFactory : "classBox/factory/factory.ClassBox",
         ToolsModel : "menu/tools/model",
-        ToolsView : "menu/tools/view"
+        ToolsView : "menu/tools/view",
+        ToolsController : "menu/tools/controller"
 
     }
 });
@@ -83,7 +84,7 @@ require([ 'jQuery',
                                             x2 : 240,
                                             y2 : 350 });
 
-
+        //  create a collection to store classes.
         ClassBoxFactory({ x : 240, y : 130, "height" : 70, "width" : 100 });
 
 

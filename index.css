@@ -6,6 +6,17 @@
     border : solid 1px #aaa;
 }
 
+/* class container */
+
+#class-container {
+    width : 300px;
+    height : 600px;
+    background-color: #bbb;
+    position : absolute;
+    right : 3px;
+    top : 20px;
+}
+
 /* title bar */
 
 .classBox .className  {
@@ -81,6 +92,7 @@
 
 .classBox .name {
     font-size : 15px;
+
 }
 
 .classBox input {
@@ -91,6 +103,8 @@
 
 .classBox {
     font-size : 12px;
+    border: solid black 1px;
+    margin-bottom : 2px;
 }
 
 

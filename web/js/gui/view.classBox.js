@@ -5,9 +5,12 @@ define(['utility/extend', 'underscore', 'jQuery', 'Collection'], function (BaseT
 
 
         initialize : function (options) {
-            debugger;
             this.model = options.model;
-            this.el = options.el;
+
+            this.containerEl = options.containerEl;
+            this.el = $('<div class=".gui"></div>')
+            this.containerEl.append(this.el);
+
             this.render();
 
             this.model.on("change", this.render, this);

@@ -11,14 +11,28 @@ define(['utility/extend', 'underscore'], function (BaseType, _) {
         },
 
         render : function () {
+            console.log("render tools")
             var data = {};
             var visible = this.model.get("visible");
-            data.hidden = visible ? "" : "hidden";
-            this.el.html(this.template(data));
+            console.log("visible", visible)
+            var element = $('<div></div>');
+            if(!visible) {
+                element.addClass('hidden');
+            } else {
+                element.removeClass('hidden');
+            }
+            element.append(this.template());
+            this.el.html(element);
         },
 
-        template : _.template($('#tools-template').html()),
+        getCloseButton : function () {
+            return this.el.find('.close-button');
+        },
 
+        getUmlClassButton : function () {
+            return this.el.find('.uml-class-button');
+        },
 
+        template : _.template($('#tools-template').html())
     });
 });
