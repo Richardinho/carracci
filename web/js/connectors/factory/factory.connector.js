@@ -12,7 +12,9 @@ define(['keyManager',
         'ViewElement',
         'ModelDistalNode',
         'ModelLine',
-        'ViewLine' ], function (keyManager,
+        'ViewLine',
+        'CoordinatorHorizontalConnector',
+        'Collection' ], function (keyManager,
                                           globalController,
                                           svgUtils,
                                           HorizontalConnector,
@@ -26,7 +28,9 @@ define(['keyManager',
                                           ViewElement,
                                           ModelDistalNode,
                                           ModelLine,
-                                          ViewLine) {
+                                          ViewLine,
+                                          CoordinatorHorizontalConnector,
+                                          Collection) {
 
     return function (options) {
 
@@ -138,8 +142,8 @@ define(['keyManager',
             return lineModel;
         }
 
-/*
-        new Glenmorangie.Coordinator.HorizontalConnector({ "leftArrow" : leftArrowNodeModel,
+
+        new CoordinatorHorizontalConnector({ "leftArrow" : leftArrowNodeModel,
                                                            "proximalNode" : leftProximalNodeModel,
                                                            "distalNode" : rightProximalNodeModel,
                                                            "rightArrow" : rightArrowNodeModel   });
@@ -160,8 +164,8 @@ define(['keyManager',
         rightArrowNodeModel.setDistalNodeModel(leftProximalNodeModel);
 
 
-        lineCollection = new Glenmorangie.Collection([line1Model, line2Model,line3Model]);
-        connector.lines = lineCollection;*/
+        lineCollection = new Collection([line1Model, line2Model,line3Model]);
+        connector.lines = lineCollection;
 
         return connector;
 

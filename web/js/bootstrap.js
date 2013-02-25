@@ -41,12 +41,40 @@ require.config({
         ControllerDraggableElement : "node/controller/controller.draggableElement",
         ModelDistalNode : "node/model/model.DistalNode",
         ModelLine : "lines/model/model.line",
-        ViewLine : "lines/view/view.line"
+        ViewLine : "lines/view/view.line",
+        CoordinatorHorizontalConnector : "connectors/coordinator.HorizontalConnector",
+        GuiView : "gui/view.classBox",
+        GuiController : "gui/controller/classBox",
+        GuiPropertyView : "gui/views/property",
+        GuiPropertyController : "gui/controller/property",
+        ClassBoxModel : "classBox/model/model.ClassBox",
+        ClassBoxView : "classBox/view/view.ClassBox",
+        ClassBoxController : "classBox/controller/controller.ClassBox",
+        MenuFactory : "menu/factory",
+        MenuModel : "menu/model",
+        MenuView : "menu/view",
+        HelpModel : "menu/help/model",
+        HelpController : "menu/help/controller",
+        helpData : "menu/help/data",
+        HelpView : "menu/help/view",
+        foo : "menu/controller",
+        propertyBuilder : "utility/propertyBuilder",
+        PropertyModel : "classBox/model/property",
+        TypeSpecificCollection : "core/TypeSpecificCollection",
+        ClassBoxFactory : "classBox/factory/factory.ClassBox",
+        ToolsModel : "menu/tools/model",
+        ToolsView : "menu/tools/view"
 
     }
 });
 
-require([ 'jQuery', 'connectorFactory' ], function ( $, connectorFactory ) {
+require([ 'jQuery',
+          'connectorFactory',
+          'MenuFactory',
+          'ClassBoxFactory' ], function ( $,
+                                          connectorFactory,
+                                          MenuFactory,
+                                          ClassBoxFactory ) {
 
     $(document).ready(function () {
 
@@ -54,6 +82,12 @@ require([ 'jQuery', 'connectorFactory' ], function ( $, connectorFactory ) {
                                             y1 : 30,
                                             x2 : 240,
                                             y2 : 350 });
+
+
+        ClassBoxFactory({ x : 240, y : 130, "height" : 70, "width" : 100 });
+
+
+        var menu = MenuFactory();
 
 
     });

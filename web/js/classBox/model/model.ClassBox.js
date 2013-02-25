@@ -1,40 +1,68 @@
-Glenmorangie.namespace("Glenmorangie.Model");
+define(['ModelElement',
+        'Collection',
+        'propertyBuilder' ], function (ModelElement,
+                                       Collection,
+                                       propertyBuilder) {
 
-Glenmorangie.Model.ClassBox = Glenmorangie.Model.Element.extend({
+    return ModelElement.extend({
 
-    initialize : function (options) {
+        initialize : function (options) {
 
-        Glenmorangie.Model.Element.prototype.initialize.call(this, options);
+            ModelElement.prototype.initialize.call(this, options);
+            this.set({ properties : [] })
+        },
 
-        this.set({ className : options.className });
-        this.set({ methods : options.methods });
-        this.set({ height : options.height });
-        this.set({ width : options.width });
-        this.set({ properties : options.properties });
-    },
+        update : function (x, y) {
+            this.updateCoordinates(x, y);
+        },
 
-    update : function (x, y) {
-        this.updateCoordinates(x, y);
-    },
+        getPropertyCollection : function () {
+            return this.propCollection;
+        },
 
-    getWidth : function () {
-        return this.get('width')
-    },
+        getWidth : function () {
+            return this.get('width')
+        },
 
-    addMethod : function(method) {
-        this.get('methods').push(method);
-    },
+        setWidth : function (width) {
+            this.set({ "width" : width });
+        },
 
-    addProperty : function (property) {
-        this.get('properties').push(property);
-    }
+        setXCood : function (xCood) {
+            this.set({ "xCood" : xCood });
+        },
 
+        addProperty : function (property) {
+            if(!property) {
+                property = propertyBuilder('').visibility("-").build();
+            }
+            this.get("properties").push(property);
+            this._fire("add")
+        },
 
+        getProperties : function () {
+        },
 
+        updatePropertyVisibility : function (index) {
+            var properties = this.get('properties'),
+                currentVisibility = properties[index].visibility,
+                symbolIndex = this.symbolMap.toIndex[currentVisibility],
+                newIndex = ++symbolIndex % 3,
+                newSymbol = this.symbolMap.toSymbol[newIndex];
 
+            properties[index].visibility = newSymbol;
+            //  this doesn't result in a change event being fired because we've already changed it by
+            //  reference.
+            // ToDo: Is this an issue also in Backbone?
+            this.set({ "properties" : properties });
+            this._fire("change")
+        },
 
+        symbolMap : {
+            toIndex : { '#' : 0, '-' : 1 , '+' : 2 },
+            toSymbol : ['#', '-', '+']
+        }
 
-
-
-
+    });
 });
+

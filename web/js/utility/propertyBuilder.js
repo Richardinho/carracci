@@ -1,29 +1,31 @@
-Glenmorangie.namespace("Glenmorangie.utils");
+define(function() {
 
-Glenmorangie.utils.propertyBuilder = function( name ) {
+    return function( name ) {
 
-    var property = { "name" : name, visibility : "-", type : "String" };
+        var property = { "name" : name, visibility : "-", type : "String" };
 
-    return {
+        return {
 
-        visibility : function (visibility) {
+            visibility : function (visibility) {
 
-            property.visibility = visibility;
-            return this;
-        },
+                property.visibility = visibility;
+                return this;
+            },
 
-        name : function (name) {
-            property.name = name;
-            return this;
-        },
+            name : function (name) {
+                property.name = name;
+                return this;
+            },
 
-        type : function (type) {
-            property.type = type;
-            return this;
-        },
+            type : function (type) {
+                property.type = type;
+                return this;
+            },
 
-        build : function () {
-            return property;
+            build : function () {
+                return property;
+            }
         }
-    }
-};
+    };
+});
+

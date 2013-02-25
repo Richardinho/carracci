@@ -1,4 +1,5 @@
 define(['raphael'], function(Raphael) {
-    console.log("raphael")
-    return Raphael(0, 0, 800, 820);
+
+    return Raphael(100, 100, 1000,1000);
+    
 });

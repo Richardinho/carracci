@@ -1,0 +1,73 @@
+#menu {
+    background-color : #bbb;
+    height : 30px;
+    padding-left : 20px;
+    padding-top : 20px;
+}
+
+#menu div {
+    float : left;
+    padding-right : 30px;
+}
+
+
+
+#help {
+    float : right;
+    width : 500px;
+    background-color : #bbb;
+}
+
+#help .content {
+    background-color : white;
+    margin : 10px;
+    border : solid 1px black;
+    font-size : 12px;
+    line-height : 15px;
+}
+
+#help .content .menu {
+    padding : 10px;
+    vertical-align : top;
+    width : 131px;
+    display : inline-block;
+
+}
+
+#help .content .main {
+    padding : 10px;
+    padding-bottom : 20px;
+    width : 298px;
+    display : inline-block;
+    border-left : solid black 1px;
+}
+
+#help .content .title {
+    font-weight : bold;
+}
+
+#help .hidden {
+    display : none;
+}
+
+
+#help .content .close-button {
+    height : 20px;
+    text-align : right;
+}
+
+#help-button {
+    width : 200px;
+    background-color : red;
+}
+
+#help .annibale .image1 img {
+    width : 293px;
+    padding-top : 8px;
+}
+
+#help .annibale .image2 img {
+    width : 100px;
+    float : right;
+}
+

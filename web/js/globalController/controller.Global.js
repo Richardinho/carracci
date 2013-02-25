@@ -1,6 +1,7 @@
 define(['utility/extend', "svgUtilities"], function (extend, utils) {
 
-    return extend.extend({
+
+    var blah =  extend.extend({
 
 
         initialize : function () {
@@ -30,5 +31,7 @@ define(['utility/extend', "svgUtilities"], function (extend, utils) {
             }
         }
 
-    })
+    });
+
+    return new blah();
 });

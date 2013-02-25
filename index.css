@@ -1,0 +1,134 @@
+
+#gui {
+    width : 200px;
+    background-color : #bbb;
+    float : right;
+    border : solid 1px #aaa;
+}
+
+/* title bar */
+
+.classBox .className  {
+    height : 20px;
+    background-color : grey;
+    text-align : center;
+    padding-top : 6px;
+    color : white;
+    font-weight : bold;
+    font-family : arial;
+    font-size : 14px;
+
+}
+
+/* properties */
+
+.classBox .properties {
+    padding : 5px;
+}
+.classBox .controls {
+    height : 22px;
+}
+
+.classBox .properties .controls .title {
+    padding-top : 4px;
+    float : left;
+}
+
+.classBox .properties .controls .addProperty {
+    float : right;
+}
+
+.classBox .properties .controls .addProperty input {
+    font-size: 9px;
+    height: 20px;
+    width: 47px;
+}
+
+.classBox .properties .property {
+    height : 21px;
+    margin-top : 2px;
+    background-color : #ddd;
+}
+
+.classBox .properties .property.header {
+    background-color : transparent;
+}
+
+.classBox .properties .property div {
+    float : left;
+}
+
+.classBox .properties .property .visibility {
+    width : 12px;
+    padding-left : 5px;
+    padding-top : 1px;
+}
+
+.classBox .properties .property .name, .classBox .properties .property .name input {
+    width : 67px;
+}
+
+.classBox .properties .property .type, .classBox .properties .type input {
+    width : 67px;
+}
+
+
+/* end of properties */
+
+
+
+
+
+.classBox .name {
+    font-size : 15px;
+}
+
+.classBox input {
+    width : 40px;
+    font-size : 12px;
+    height : 20px;
+}
+
+.classBox {
+    font-size : 12px;
+}
+
+
+.classBox .property .name {
+    font-size : 12px;
+}
+
+/* methods */
+
+.classBox .methods {
+    height : 23px;
+    margin-top : 11px;
+}
+
+.classBox .methods .title {
+    padding-top : 4px;
+    float : left;
+}
+
+.classBox .methods .addMethod {
+    float : right;
+}
+
+.classBox input.button {
+    font-size: 9px;
+    height: 20px;
+}
+
+
+.classBox .delete input {
+    width: 25px;
+    height : 15px;
+}
+
+.classBox .addMethod input {
+    width: 52px;
+}
+
+.classBox .addProperty input {
+    width: 47px;
+}

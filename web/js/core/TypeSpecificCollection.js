@@ -1,16 +1,11 @@
-define(['utility/extend', 'underscore'], function (extend, _) {
+define(['Collection'], function (Collection) {
 
-    return extend.extend({
+    return Collection.extend({
 
         initialize : function (options) {
-            _.bindAll(this, "on");
-            if(options && options instanceof Array ) {
-                this._collection = options;
-            } else {
-                this._collection = [];
-            }
-
             this._listeners = [];
+            this._collection = [];
+            this.Type = options.type;
         },
 
         get : function (index) {
@@ -18,7 +13,8 @@ define(['utility/extend', 'underscore'], function (extend, _) {
         },
 
         add : function (element) {
-            this._collection[this.size()] = element;
+            this._collection[this.size()] = new this.Type(element);
+            this._fire("add");
         },
 
         size : function () {
@@ -67,22 +63,6 @@ define(['utility/extend', 'underscore'], function (extend, _) {
                 return memo;
 
             }, true);
-        },
-
-        on : function (event, callback, cont) {
-            var context = cont ? cont : this;
-            this._listeners.push({ "event" : event, "callback" : callback, "context" : context });
-        },
-
-        _fire : function (eventName, value) {
-
-            for(var i = 0; i < this._listeners.length; i++) {
-                var listener = this._listeners[i];
-                if(listener.event === eventName) {
-                    listener.callback.call(listener.context, value);
-                }
-            }
         }
-
     });
 });

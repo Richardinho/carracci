@@ -1,26 +1,40 @@
-Glenmorangie.namespace("Glenmorangie");
+define(['ClassBoxModel',
+        'propertyBuilder',
+        'ClassBoxView',
+        'ClassBoxController',
+        'GuiView',
+        'GuiController'], function (ClassBoxModel,
+                                    propertyBuilder,
+                                    ClassBoxView,
+                                    ClassBoxController,
+                                    GuiView,
+                                    GuiController) {
 
-Glenmorangie.ClassBoxFactory = function (options) {
+    return function(options) {
 
-    var x  = options.x,
-        y = options.y,
-        svgUtils = options.svgUtils,
-        length = options.length,
-        height = options.height,
-        width = options.width,
-        keyManager = options.keyManager,
-        globalController = options.globalController,
-        model,
-        view;
+        var classBoxModel,
+            property,
+            property2,
+            classBoxView,
+            classBoxController,
+            guiView,
+            gui;
 
-    model = new Glenmorangie.Model.ClassBox({ "x" : x, "y": y, className : "List<String>", "height" : height, "width" : width });
+        classBoxModel = new ClassBoxModel({ x : options.x, y : options.y, width : options.width, height : options.height });
 
-    view = new Glenmorangie.View.ClassBox({ "model" : model, "svgUtils" : svgUtils });
+        property = propertyBuilder('foo').visibility("-").type("String").build();
+        property2 = propertyBuilder('bar').visibility("#").type("float").build();
 
-    controller = new Glenmorangie.Controller.ClassBox({ "model" : model,
-                                                        "view" : view ,
-                                                        "keyManager" : keyManager,
-                                                        "globalController" : globalController });
+        classBoxModel.addProperty(property);
+        classBoxModel.addProperty(property2);
 
-    return model;
-};
+        classBoxView = new ClassBoxView({ model : classBoxModel });
+        classBoxController = new ClassBoxController({ model : classBoxModel, view : classBoxView });
+
+        guiView = new GuiView({ model : classBoxModel , el : $('#gui')});
+
+        gui = new GuiController({ model : classBoxModel , el : $('#gui')});
+    }
+
+});
+

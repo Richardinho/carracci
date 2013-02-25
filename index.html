@@ -1,13 +1,175 @@
 <html>
 <head>
-
+<link rel="stylesheet" href="reset.css" type="text/css"/>
+<link rel="stylesheet" href="index.css" type="text/css"/>
+<link rel="stylesheet" href="menu.css" type="text/css"/>
 
 </head>
 
 <body>
+<div id="foo">foo</div>
 
-<h1>Uml Project</h1>
-<div id="foo">click here</div>
+<div id="menu">
+    <div>file</div>
+    <div>print</div>
+    <div id="tools">tools</div>
+    <div id="help-button">help</div>
+
+</div>
+<div id="blah"></div>
+
+
+<script type="text/template" id="property-template">
+
+
+</script>
+
+
+<script type="text/template" id="gui-template">
+
+    <div class="classBox">
+        <div class="className">List&lt;String&gt;</div>
+        <div class="properties">
+            <div class="controls">
+                <div class="title">
+                    Properties
+                </div>
+                <div class="addProperty">
+                    <input type="button" class="button" value="add Prop"/>
+                </div>
+            </div>
+
+            <div class="property header">
+                <div class="visibility"></div>
+                <div class="name">name</div>
+                <div class="type">type</div>
+            </div>
+            <% for(var i = 0 ; i < properties.length; i++) {  %>
+            <div class="property">
+
+                <div class="visibility" data-index="<%= i %>">
+                    <%= properties[i].visibility %>
+                </div>
+                <input type="hidden" name="visibility" value="+"/>
+
+                <div class="name">
+                    <input type="text" value="<%= properties[i].name %>" />
+                </div>
+
+                <div class="type">
+                    <input type="text" value="<%= properties[i].type %>" />
+                </div>
+
+                <div class="delete">
+                    <input type="button" class="button" value="del"/>
+                </div>
+            </div>
+            <% } %>
+        </div>
+
+        <div class="methods">
+            <div class="title">
+                Methods
+            </div>
+            <div class="addMethod">
+                <input type="button" class="button" value="add Meth"/>
+            </div>
+        </div>
+    </div>
+
+</script>
+
+<script type="text/template" id="tools-template">
+    <div class="<%=hidden%>">
+        tools
+    </div>
+</script>
+
+<script type="text/template" id="help-template-page-menu">
+    <div class="menu">
+        <div data-page="0" class="page-link" >page 1</div>
+        <div data-page="1" class="page-link" >page 2</div>
+        <div data-page="2" class="page-link" >page 3</div>
+        <div data-page="3" class="page-link" >page 4</div>
+        <div data-page="4" class="page-link" >page 5</div>
+        <div data-page="5" class="page-link" >page 6</div>
+        <div data-page="6" class="page-link" >Annibale Carracci</div>
+    </div>
+</script>
+
+<script type="text/template" id="help-template-page-0">
+    <div class="main">
+        <div class="close-button">close</div>
+        <div class="title"><%=title%></div>
+        <div class="image"><img src="<%=image%>"/></div>
+        <div class="text"><%=text%></div>
+    </div>
+</script>
+
+<script type="text/template" id="help-template-page-1">
+    <div class="main">
+        <div class="close-button">close</div>
+        <div class="title"><%=title%></div>
+        <div class="image"><img src="<%=image%>"/></div>
+        <div class="text"><%=text%></div>
+    </div>
+</script>
+
+<script type="text/template" id="help-template-page-2">
+    <div class="main">
+        <div class="close-button">close</div>
+        <div class="title"><%=title%></div>
+        <div class="image"><img src="<%=image%>"/></div>
+        <div class="text"><%=text%></div>
+    </div>
+</script>
+
+<script type="text/template" id="help-template-page-3">
+    <div class="main">
+        <div class="close-button">close</div>
+        <div class="title"><%=title%></div>
+        <div class="image"><img src="<%=image%>"/></div>
+        <div class="text"><%=text%></div>
+    </div>
+</script>
+
+<script type="text/template" id="help-template-page-4">
+    <div class="main">
+        <div class="close-button">close</div>
+        <div class="title"><%=title%></div>
+        <div class="image"><img src="<%=image%>"/></div>
+        <div class="text"><%=text%></div>
+    </div>
+</script>
+
+<script type="text/template" id="help-template-page-5">
+    <div class="main">
+        <div class="close-button">close</div>
+        <div class="title"><%=title%></div>
+        <div class="image"><img src="<%=image%>"/></div>
+        <div class="text"><%=text%></div>
+    </div>
+</script>
+
+
+
+<script type="text/template" id="help-template-page-6">
+    <div class="main annibale">
+
+        <div class="close-button">close</div>
+        <div class="title"><%=title%></div>
+        <div class="image2"><img src="<%=image2%>"/></div>
+        <div class="text"><%=text%></div>
+        <div class="image1"><img src="<%=image1%>"/></div>
+    </div>
+</script>
+
+
+
+<div id="gui"></div>
+<div id="help"></div>
+<div id="tools"></div>
+
 
     <script data-main="web/js/bootstrap" src="lib/require.js"></script>
 

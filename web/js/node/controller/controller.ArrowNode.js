@@ -1,4 +1,4 @@
-define(['ControllerDraggableElement'], function (ControllerDraggableElement) {
+define(['ControllerDraggableElement', 'keyManager', 'globalController'], function (ControllerDraggableElement, KeyManager, globalController) {
 
     return ControllerDraggableElement.extend({
 
@@ -10,12 +10,12 @@ define(['ControllerDraggableElement'], function (ControllerDraggableElement) {
         },
 
         _onClick : function () {
-            if(this.keyManager.S_KEY) {
+            if(KeyManager.S_KEY) {
                 this.model.changePointer();
-            } else if(this.keyManager.T_KEY) {
+            } else if(KeyManager.T_KEY) {
                 this.model.changeLine();
-            } else if(this.keyManager.U_KEY) {
-                this.globalController.arrowRequest(this.model);
+            } else if(KeyManager.U_KEY) {
+                globalController.arrowRequest(this.model);
 
             }
         },

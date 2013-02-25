@@ -1,6 +1,7 @@
-define(["utility/extend"], function (extend) {
+define(['jQuery', 'utility/extend'],function ($, extend) {
 
-    return extend.extend({
+    // This is a singleton, so we create an instance here and return it.
+    var KeyManager =  extend.extend({
 
         initialize : function () {
 
@@ -53,4 +54,6 @@ define(["utility/extend"], function (extend) {
             Z : "Z_KEY"
         }
     });
+
+    return new KeyManager();
 });
