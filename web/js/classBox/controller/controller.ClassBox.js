@@ -11,12 +11,22 @@ define(['ControllerDraggableElement'], function (ControllerDraggableElement) {
         },
 
         _onStart : function () {
-            this.startX = parseInt(this.view.element.attr("x"));
-            this.startY = parseInt(this.view.element.attr("y"));
+
+        },
+
+        _onMove : function (dx, dy) {
+            this.model.translate(dx, dy);
+        },
+
+        _onEnd : function () {
+            this.model.set({ "xCood" : this.model.get("tempX") });
+            this.model.set({ "yCood" : this.model.get("tempY") })
         },
 
         _onClick : function () {
+            console.log("on click on uml class box")
             if((this.keyManager.U_KEY)) {
+                console.log("u key")
                 this.globalController.boxRequest(this.model);
             }
         }

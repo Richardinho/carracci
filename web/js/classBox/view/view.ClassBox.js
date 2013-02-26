@@ -1,4 +1,4 @@
-define(['utility/extend', 'svgUtilities'], function (BaseType, svgUtilities) {
+define(['utility/extend', 'svgUtilities', 'Collection' ], function (BaseType, svgUtilities, Collection) {
 
     return BaseType.extend({
 
@@ -7,10 +7,26 @@ define(['utility/extend', 'svgUtilities'], function (BaseType, svgUtilities) {
             this.svgUtils = svgUtilities;
             this.element = this._createSvgShape();
             this.model.on("change", this.render, this);
+            this.model.on("changeText", this.setProperty, this);
         },
 
         render : function () {
-            this.svgUtils.resetRectangle(this.element, this.model.get("xCood"), this.model.get("yCood"));
+            this.element.transform( "T" + this.model.get("tempX") +
+                                    "," + this.model.get("tempY") );
+
+        },
+
+        setClassName : function () {
+
+        },
+
+        setProperty : function (index) {
+            var prop = this.formatProperty(this.model.get("properties").get(index));
+            this.element[index + 1].attr({"text" : prop });
+        },
+
+        setMethod : function () {
+
         },
 
         _createSvgShape : function () {
@@ -18,9 +34,23 @@ define(['utility/extend', 'svgUtilities'], function (BaseType, svgUtilities) {
             var y = this.model.get('yCood');
             var width = this.model.get('width');
             var height = this.model.get('height');
-           // var text = this.svgUtils.createText("blah");
-            return this.svgUtils.createRectangle(x, y, width, height);
+            var that = this;
+            var properties = this.model.get("properties").map(function (index, element) {
+                return that.formatProperty(element);
+            });
 
+            return this.svgUtils.createUmlBox(x, y, width, height, properties);
+        },
+
+        formatProperty : function (property) {
+            var result = "";
+
+            result += property.visibility;
+            result += property.name;
+            result +=":";
+            result += property.type;
+
+            return result;
         },
 
         formatMethod : function (method) {

@@ -10,13 +10,35 @@ define(['ModelElement',
         initialize : function (options) {
 
             ModelElement.prototype.initialize.call(this, options);
-            this.set({ properties : [] });
+            this.set({ properties : new Collection([]) });
             this.set({ id : options.id });
+            this.set({ width : options.width });
+            this.set({ height : options.height });
+        },
 
+        translate : function (dx, dy) {
+
+            this.set({ "tempX" : dx + this.get("xCood") });
+            this.set({ "tempY" : dy + this.get("yCood") });
+            this._fire("change");
         },
 
         update : function (x, y) {
             this.updateCoordinates(x, y);
+        },
+
+        deleteProperty : function (index) {
+            var properties = this.get('properties');
+            properties.delete(index);
+            this._fire("change")
+        },
+
+        updatePropertyName : function (index, newName) {
+            var properties = this.get('properties');
+            properties.get(index).name = newName;
+            this.set({"properties" : properties});
+
+            this._fire("changeText", index)
         },
 
         getPropertyCollection : function () {
@@ -39,21 +61,18 @@ define(['ModelElement',
             if(!property) {
                 property = propertyBuilder('').visibility("-").build();
             }
-            this.get("properties").push(property);
+            this.get("properties").add(property);
             this._fire("add")
-        },
-
-        getProperties : function () {
         },
 
         updatePropertyVisibility : function (index) {
             var properties = this.get('properties'),
-                currentVisibility = properties[index].visibility,
+                currentVisibility = properties.get(index).visibility,
                 symbolIndex = this.symbolMap.toIndex[currentVisibility],
                 newIndex = ++symbolIndex % 3,
                 newSymbol = this.symbolMap.toSymbol[newIndex];
 
-            properties[index].visibility = newSymbol;
+            properties.get(index).visibility = newSymbol;
             //  this doesn't result in a change event being fired because we've already changed it by
             //  reference.
             // ToDo: Is this an issue also in Backbone?

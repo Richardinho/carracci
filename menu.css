@@ -11,10 +11,10 @@
     padding-right : 30px;
 }
 
-
-
 #help {
-    float : right;
+    position : absolute;
+    right : 310px;
+    top : 60px;
     width : 500px;
     background-color : #bbb;
 }

@@ -47,20 +47,20 @@
                 <div class="name">name</div>
                 <div class="type">type</div>
             </div>
-            <% for(var i = 0 ; i < properties.length; i++) {  %>
-            <div class="property">
+            <% for(var i = 0 ; i < properties.size(); i++) {  %>
+            <div class="property" data-index="<%= i %>">
 
-                <div class="visibility" data-index="<%= i %>">
-                    <%= properties[i].visibility %>
+                <div class="visibility">
+                    <%= properties.get(i).visibility %>
                 </div>
                 <input type="hidden" name="visibility" value="+"/>
 
                 <div class="name">
-                    <input type="text" value="<%= properties[i].name %>" />
+                    <input type="text" value="<%= properties.get(i).name %>" />
                 </div>
 
                 <div class="type">
-                    <input type="text" value="<%= properties[i].type %>" />
+                    <input type="text" value="<%= properties.get(i).type %>" />
                 </div>
 
                 <div class="delete">

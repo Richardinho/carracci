@@ -21,6 +21,10 @@ define(['utility/extend', 'underscore'], function (extend, _) {
             this._collection[this.size()] = element;
         },
 
+        delete : function (index) {
+            this._collection.splice(index, 1);
+        },
+
         size : function () {
             return this._collection.length;
         },
