@@ -1,3 +1,4 @@
+
 define(['ModelElement',
         'Collection',
         'propertyBuilder' ], function (ModelElement,
@@ -9,7 +10,9 @@ define(['ModelElement',
         initialize : function (options) {
 
             ModelElement.prototype.initialize.call(this, options);
-            this.set({ properties : [] })
+            this.set({ properties : [] });
+            this.set({ id : options.id });
+
         },
 
         update : function (x, y) {

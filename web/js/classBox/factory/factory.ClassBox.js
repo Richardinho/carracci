@@ -1,3 +1,4 @@
+
 define(['ClassBoxModel',
         'propertyBuilder',
         'ClassBoxView',
@@ -10,6 +11,8 @@ define(['ClassBoxModel',
                                     GuiView,
                                     GuiController) {
 
+    var classNumber = 0;
+
     return function(options) {
 
         var classBoxModel,
@@ -21,9 +24,11 @@ define(['ClassBoxModel',
             gui,
             containerElement;
 
+        var id = "class" + classNumber++;
+
         containerElement = $('#class-container');
 
-        classBoxModel = new ClassBoxModel({ x : options.x, y : options.y, width : options.width, height : options.height });
+        classBoxModel = new ClassBoxModel({ "id" : id, x : options.x, y : options.y, width : options.width, height : options.height });
 
         property = propertyBuilder('foo').visibility("-").type("String").build();
         property2 = propertyBuilder('bar').visibility("#").type("float").build();

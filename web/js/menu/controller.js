@@ -1,5 +1,6 @@
+
 define(['utility/extend', "underscore" ,"jQuery"], function (BaseType, _, $ ) {
-    console.log("menu controller")
+
     return BaseType.extend({
 
         initialize : function (options) {

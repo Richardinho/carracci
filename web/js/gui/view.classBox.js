@@ -6,9 +6,9 @@ define(['utility/extend', 'underscore', 'jQuery', 'Collection'], function (BaseT
 
         initialize : function (options) {
             this.model = options.model;
-
+            var classId = this.model.id;
             this.containerEl = options.containerEl;
-            this.el = $('<div class=".gui"></div>')
+            this.el = $('<div class=".gui ' + classId + '"></div>');
             this.containerEl.append(this.el);
 
             this.render();
@@ -21,6 +21,10 @@ define(['utility/extend', 'underscore', 'jQuery', 'Collection'], function (BaseT
         render : function () {
 
             $(this.el).html(this.template(this.model.toJSON()));
+        },
+
+        getMyEl : function () {
+            return this.el;
         },
 
         template : _.template($('#gui-template').html())

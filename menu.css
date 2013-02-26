@@ -1,8 +1,9 @@
 #menu {
-    background-color : #bbb;
+    background-color : #352a0f;
     height : 30px;
     padding-left : 20px;
     padding-top : 20px;
+    color : #f3b00e;
 }
 
 #menu div {
@@ -58,7 +59,6 @@
 
 #help-button {
     width : 200px;
-    background-color : red;
 }
 
 #help .annibale .image1 img {

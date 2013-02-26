@@ -8,7 +8,9 @@ define(['MenuModel',
         'HelpController',
         'ToolsModel',
         'ToolsView',
-        'ToolsController'], function ( Model,
+        'ToolsController',
+        'ControllerDraggableElement',
+        'ModelElement' ], function ( Model,
                                  View,
                                  HelpModel,
                                  helpData,
@@ -18,20 +20,39 @@ define(['MenuModel',
                                  HelpController,
                                  ToolsModel,
                                  ToolsView,
-                                 ToolsController ) {
+                                 ToolsController,
+                                 DraggableElementController,
+                                 ModelElement) {
+
+
 
     return function() {
 
-        var helpModel = new HelpModel({ 'data' : helpData });
-        var helpView = new HelpView({ model : helpModel, el : $('#help') });
-        var helpController = new HelpController({ model : helpModel, view : helpView });
+        var helpModel,
+            helpView,
+            helpController,
+            toolsModel,
+            toolsView,
+            toolsController,
+            menuModel,
+            menuView,
+            menuController;
 
-        var toolsModel = new ToolsModel();
-        var toolsView = new ToolsView({ model : toolsModel, el : $('#tool-bar') });
-        var toolsController = new ToolsController({ model : toolsModel, view : toolsView });
+        helpModel = new HelpModel({ 'data' : helpData });
+        helpView = new HelpView({ model : helpModel, el : $('#help') });
+        helpController = new HelpController({ model : helpModel, view : helpView });
 
-        var menuModel = new Model({ helpPage : helpModel, tools : toolsModel });
-        var menuView = new View({ el : $('#menu') });
-        var MenuController = new Foo({ "model" : menuModel, "view" : menuView });
+//        var helpContainerModel = new ModelElement();
+//        var helpContainerView = new HelpContainerView({ model : helpContainerModel });
+//        var helpContainerController = new DraggableElementController({ model : helpContainerModel,
+//                                                                       view : helpContainerView });
+
+        toolsModel = new ToolsModel();
+        toolsView = new ToolsView({ model : toolsModel, el : $('#tool-bar') });
+        toolsController = new ToolsController({ model : toolsModel, view : toolsView });
+
+        menuModel = new Model({ helpPage : helpModel, tools : toolsModel });
+        menuView = new View({ el : $('#menu') });
+        MenuController = new Foo({ "model" : menuModel, "view" : menuView });
     }
 });

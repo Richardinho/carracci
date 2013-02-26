@@ -1,20 +1,13 @@
 
-#gui {
-    width : 200px;
-    background-color : #bbb;
-    float : right;
-    border : solid 1px #aaa;
-}
-
 /* class container */
 
 #class-container {
     width : 300px;
     height : 600px;
-    background-color: #bbb;
+    background-color: #cba13c;
     position : absolute;
-    right : 3px;
-    top : 20px;
+    right : 0;
+    top : 50px;
 }
 
 /* title bar */
@@ -85,8 +78,6 @@
 
 
 /* end of properties */
-
-
 
 
 
