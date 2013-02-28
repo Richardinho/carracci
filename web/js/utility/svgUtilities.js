@@ -1,5 +1,8 @@
 define(['svg'], function(svg) {
 
+    debugger;
+
+
     return {
 
         buildPath : function (pointsArray, closePath) {
@@ -15,6 +18,8 @@ define(['svg'], function(svg) {
             }
             return path;
         },
+
+
 
         setShapeOpacity : function (element, op) {
             var opacity = op ? 1 : 0;
@@ -40,18 +45,8 @@ define(['svg'], function(svg) {
             return circle;
         },
 
-        createUmlBox : function ( x1, y1, width, height, properties) {
-            var offset = 10;
-            svg.setStart();
-            var rect =  svg.rect(0, 0, width, height);
-            rect.attr({ "fill" : "#ffffce" });
-            for(var i=0; i < properties.length; i++) {
-                svg.text(30, (10 * i) + offset, properties[i]).attr({ "fill" : "black" });
-            }
-
-            var st = svg.setFinish();
-            st.translate(x1, y1);
-            return st;
+        createUmlBoxFoo : function (model) {
+            return svg.UmlClassBox(model );
         },
 
         resetRectangle : function (rect, x, y) {

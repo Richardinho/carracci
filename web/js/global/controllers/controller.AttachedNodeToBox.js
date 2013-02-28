@@ -26,11 +26,6 @@ Glenmorangie.Coordinator.AttachedNodeToBox = Glenmorangie.utils.extend ({
             this.players[role].addFooValidator(this._getValidator(role));
 
         }
-
-
-
-
-
     },
 
     _getValidator : function (role) {

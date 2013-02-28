@@ -51,12 +51,11 @@ define(['utility/extend', 'underscore'], function (extend, _) {
             return memo;
         },
 
-        map : function (iterator) {
+        map : function (iterator, context) {
             var result = [];
-
             this.each(function (index, element) {
                 result.push(iterator.call(this, index, element));
-            });
+            }, context);
 
             return result;
         },

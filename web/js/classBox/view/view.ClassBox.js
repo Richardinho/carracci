@@ -7,39 +7,38 @@ define(['utility/extend', 'svgUtilities', 'Collection' ], function (BaseType, sv
             this.svgUtils = svgUtilities;
             this.element = this._createSvgShape();
             this.model.on("change", this.render, this);
-            this.model.on("changeText", this.setProperty, this);
+            this.model.on("changeText", this.renderText, this);
+            this.model.on("changeBlah", this.renderText, this);
+            this.model.on("add", this.addProperty, this);
+            this.model.on("change", this.deleteProperty, this);
+
         },
 
         render : function () {
             this.element.transform( "T" + this.model.get("tempX") +
                                     "," + this.model.get("tempY") );
-
         },
 
-        setClassName : function () {
-
+        addProperty : function () {
+            this.element.addProperty("blahblah");
         },
 
-        setProperty : function (index) {
+        deleteProperty : function (index) {
+            this.element.deleteProperty(index);
+        },
+
+        renderText : function (index) {
             var prop = this.formatProperty(this.model.get("properties").get(index));
-            this.element[index + 1].attr({"text" : prop });
-        },
-
-        setMethod : function () {
-
+            this.element.updateProperty(index, prop);
         },
 
         _createSvgShape : function () {
-            var x = this.model.get('xCood');
-            var y = this.model.get('yCood');
-            var width = this.model.get('width');
-            var height = this.model.get('height');
-            var that = this;
-            var properties = this.model.get("properties").map(function (index, element) {
-                return that.formatProperty(element);
-            });
 
-            return this.svgUtils.createUmlBox(x, y, width, height, properties);
+            var properties = this.model.get("properties").map(function (index, element) {
+                return this.formatProperty(element);
+            }, this);
+
+            return this.svgUtils.createUmlBoxFoo(this.model);
         },
 
         formatProperty : function (property) {

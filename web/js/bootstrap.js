@@ -11,6 +11,8 @@ require.config({
         'underscore' : {
             exports : '_'
         }
+
+
     },
 
     paths : {
@@ -85,7 +87,7 @@ require([ 'jQuery',
                                             y2 : 350 });
 
         //  create a collection to store classes.
-        ClassBoxFactory({ x : 240, y : 130, "height" : 70, "width" : 100 });
+        ClassBoxFactory({ name : 'Foo<Bar<String, Integer>', x : 240, y : 130, "height" : 70, "width" : 100 });
 
 
         var menu = MenuFactory();

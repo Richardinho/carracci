@@ -24,9 +24,7 @@ define(['ControllerDraggableElement'], function (ControllerDraggableElement) {
         },
 
         _onClick : function () {
-            console.log("on click on uml class box")
             if((this.keyManager.U_KEY)) {
-                console.log("u key")
                 this.globalController.boxRequest(this.model);
             }
         }

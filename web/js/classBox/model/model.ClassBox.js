@@ -10,6 +10,7 @@ define(['ModelElement',
         initialize : function (options) {
 
             ModelElement.prototype.initialize.call(this, options);
+            this.set({ name : options.name });
             this.set({ properties : new Collection([]) });
             this.set({ id : options.id });
             this.set({ width : options.width });
@@ -36,6 +37,14 @@ define(['ModelElement',
         updatePropertyName : function (index, newName) {
             var properties = this.get('properties');
             properties.get(index).name = newName;
+            this.set({"properties" : properties});
+
+            this._fire("changeText", index)
+        },
+
+        updatePropertyType : function (index, newType) {
+            var properties = this.get('properties');
+            properties.get(index).type = newType;
             this.set({"properties" : properties});
 
             this._fire("changeText", index)
@@ -77,7 +86,7 @@ define(['ModelElement',
             //  reference.
             // ToDo: Is this an issue also in Backbone?
             this.set({ "properties" : properties });
-            this._fire("change")
+            this._fire("changeBlah", index);
         },
 
         symbolMap : {
