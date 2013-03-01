@@ -4,7 +4,7 @@ body {
 /* class container */
 
 #class-container {
-    width : 300px;
+    width : 237px;
     height : 600px;
     background-color: #cba13c;
     position : absolute;
@@ -15,8 +15,8 @@ body {
 /* title bar */
 
 .classBox .className  {
-    height : 20px;
-    background-color : grey;
+    height : 10px;
+    background-color : #444;
     text-align : center;
     padding-top : 6px;
     color : white;
@@ -29,7 +29,7 @@ body {
 /* properties */
 
 .classBox .properties {
-    padding : 5px;
+    padding : 1px;
 }
 .classBox .controls {
     height : 22px;
@@ -37,6 +37,7 @@ body {
 
 .classBox .properties .controls .title {
     padding-top : 4px;
+    padding-left : 5px;
     float : left;
 }
 
@@ -71,11 +72,11 @@ body {
 }
 
 .classBox .properties .property .name, .classBox .properties .property .name input {
-    width : 67px;
+    width : 89px;
 }
 
 .classBox .properties .property .type, .classBox .properties .type input {
-    width : 67px;
+    width : 89px;
 }
 
 
@@ -92,6 +93,7 @@ body {
     width : 40px;
     font-size : 12px;
     height : 20px;
+    padding-left: 2px;
 }
 
 .classBox {
@@ -103,6 +105,16 @@ body {
 
 .classBox .property .name {
     font-size : 12px;
+}
+
+.classBox .property.header {
+    padding-left: 5px;
+    margin-bottom: 0;
+    height : 13px;
+}
+
+.classBox .property {
+    margin-left: 5px;
 }
 
 /* methods */
@@ -126,6 +138,10 @@ body {
     height: 20px;
 }
 
+.classBox .delete {
+    padding-top: 3px;
+    padding-left: 2px;
+}
 
 .classBox .delete input {
     width: 25px;
@@ -138,4 +154,17 @@ body {
 
 .classBox .addProperty input {
     width: 47px;
+}
+
+/* class name input control */
+.changeClassName {
+    padding-left : 5px;
+    padding-top : 9px;
+    padding-bottom: 10px;
+}
+
+.classBox .changeClassName input {
+    width : 175px;
+    padding-left: 2px;
+    margin-left : 8px;
 }

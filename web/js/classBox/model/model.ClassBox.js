@@ -21,7 +21,7 @@ define(['ModelElement',
 
             this.set({ "XMoved" : dx + this.get("startX") });
             this.set({ "YMoved" : dy + this.get("startY") });
-            this._fire("change");
+            this._fire("change:move");
         },
 
         update : function (x, y) {
@@ -81,7 +81,7 @@ define(['ModelElement',
                 property = propertyBuilder('').visibility("-").build();
             }
             this.get("properties").add(property);
-            this._fire("add")
+            this._fire("change:add")
         },
 
         updatePropertyVisibility : function (index) {
@@ -96,7 +96,7 @@ define(['ModelElement',
             //  reference.
             // ToDo: Is this an issue also in Backbone?
             this.set({ "properties" : properties });
-            this._fire("changeBlah", index);
+            this._fire("change:visibility", index);
         },
 
         symbolMap : {

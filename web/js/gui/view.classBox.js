@@ -2,8 +2,8 @@ define(['utility/extend', 'underscore', 'jQuery', 'Collection'], function (BaseT
 
     return BaseType.extend({
 
-
         initialize : function (options) {
+
             this.model = options.model;
             var classId = this.model.id;
             this.containerEl = options.containerEl;
@@ -12,10 +12,9 @@ define(['utility/extend', 'underscore', 'jQuery', 'Collection'], function (BaseT
 
             this.render();
 
-            this.model.on("change", this.render, this);
             this.model.on("change:delete", this.render, this);
-            this.model.on("changeBlah", this.render, this);
-            this.model.on("add", this.render, this);
+            this.model.on("change:add", this.render, this);
+            this.model.on("change:visibility", this.render, this);
 
         },
 

@@ -19,7 +19,6 @@ define(['utility/extend', 'underscore', 'jQuery'], function (BaseType, _, $) {
         },
 
         handleVisibilityClick : function (event) {
-            console.log("visibility click");
             var index = $(event.target).parent().data("index");
             this.model.updatePropertyVisibility(index);
         },
@@ -54,13 +53,10 @@ define(['utility/extend', 'underscore', 'jQuery'], function (BaseType, _, $) {
         changeWidth : function (event) {
             var width = event.currentTarget.value;
             this.model.setWidth(width);
-
         },
 
         changeXCood : function (event) {
             this.model.setXCood(event.currentTarget.value)
         }
-
-
     });
 });

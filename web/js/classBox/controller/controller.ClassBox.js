@@ -19,7 +19,6 @@ define(['ControllerDraggableElement'], function (ControllerDraggableElement) {
             this.model.translate(dx, dy);
             this.model.set({ "xCood" : this.model.get("XMoved") }, { silent : true });
             this.model.set({ "yCood" : this.model.get("YMoved") }, { silent : true })
-            console.log("onMove", this.model.get("xCood"), this.model.get("yCood"));
         },
 
         _onEnd : function () {

@@ -7,12 +7,12 @@ define(['utility/extend', 'svgUtilities', 'Collection' ], function (BaseType, sv
             this.svgUtils = svgUtilities;
             this.box = this._createSvgShape();
             this.element = this._createPane();
-            this.model.on("change", this.render, this);
+            this.model.on("change:move", this.render, this);
             this.model.on("changeText", this.renderText, this);
-            this.model.on("changeBlah", this.renderText, this);
-            this.model.on("add", this.addProperty, this);
+            this.model.on("change:add", this.addProperty, this);
             this.model.on("change:delete", this.deleteProperty, this);
             this.model.on("change:dimensions", this.changeDimensions, this);
+            this.model.on("change:visibility", this.renderText, this);
 
         },
 
@@ -29,10 +29,6 @@ define(['utility/extend', 'svgUtilities', 'Collection' ], function (BaseType, sv
 
         changeDimensions : function () {
             this.element.setDimensions(this.model);
-        },
-
-        renderBox : function () {
-            //this.box.render();
         },
 
         addProperty : function () {
