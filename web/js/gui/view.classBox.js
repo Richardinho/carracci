@@ -1,5 +1,4 @@
 define(['utility/extend', 'underscore', 'jQuery', 'Collection'], function (BaseType, _, $, Collection) {
-    debugger;
 
     return BaseType.extend({
 
@@ -14,6 +13,7 @@ define(['utility/extend', 'underscore', 'jQuery', 'Collection'], function (BaseT
             this.render();
 
             this.model.on("change", this.render, this);
+            this.model.on("change:delete", this.render, this);
             this.model.on("changeBlah", this.render, this);
             this.model.on("add", this.render, this);
 

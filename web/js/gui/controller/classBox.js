@@ -48,7 +48,6 @@ define(['utility/extend', 'underscore', 'jQuery'], function (BaseType, _, $) {
 
         deleteProperty : function (event) {
             var index = $(event.target).parent().parent().data("index");
-            console.log("delete property", index)
             this.model.deleteProperty(index);
         },
 

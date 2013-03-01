@@ -5,31 +5,50 @@ define(['utility/extend', 'svgUtilities', 'Collection' ], function (BaseType, sv
         initialize : function (options) {
             this.model = options.model;
             this.svgUtils = svgUtilities;
-            this.element = this._createSvgShape();
+            this.box = this._createSvgShape();
+            this.element = this._createPane();
             this.model.on("change", this.render, this);
             this.model.on("changeText", this.renderText, this);
             this.model.on("changeBlah", this.renderText, this);
             this.model.on("add", this.addProperty, this);
             this.model.on("change:delete", this.deleteProperty, this);
+            this.model.on("change:dimensions", this.changeDimensions, this);
 
         },
 
         render : function () {
-            this.element.transform( "T" + this.model.get("tempX") +
-                                    "," + this.model.get("tempY") );
+
+            this.element.transform( "T" + this.model.get("XMoved") +
+                                    "," + this.model.get("YMoved") );
+            var x = this.element.getBBox().x ;
+            var y = this.element.getBBox().y ;
+            this.model.set({ xCood : x }, { silent : true });
+            this.model.set({ yCood : y }, { silent : true });
+            this.box.render();
+        },
+
+        changeDimensions : function () {
+            this.element.setDimensions(this.model);
+        },
+
+        renderBox : function () {
+            //this.box.render();
         },
 
         addProperty : function () {
-            this.element.render();
+            this.box.recreate();
         },
 
         deleteProperty : function (index) {
-            this.element.render();
+            this.box.recreate();
         },
 
         renderText : function (index) {
-            //var prop = this.formatProperty(this.model.get("properties").get(index));
-            //this.element.updateProperty(index, prop);
+            this.box.recreate();
+        },
+
+        _createPane : function () {
+            return this.svgUtils.createUmlBoxPane(this.model);
         },
 
         _createSvgShape : function () {

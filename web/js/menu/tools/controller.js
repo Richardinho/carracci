@@ -23,7 +23,7 @@ define(['utility/extend',
         },
 
         createUmlClass : function () {
-            ClassBoxFactory({ x : 240, y : 130, "height" : 70, "width" : 100 });
+            ClassBoxFactory({ x : 0, y : 0, "height" : 70, "width" : 100 });
         }
     });
 });

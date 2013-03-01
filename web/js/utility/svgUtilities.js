@@ -1,6 +1,5 @@
 define(['svg'], function(svg) {
 
-    debugger;
 
 
     return {
@@ -18,8 +17,6 @@ define(['svg'], function(svg) {
             }
             return path;
         },
-
-
 
         setShapeOpacity : function (element, op) {
             var opacity = op ? 1 : 0;
@@ -47,6 +44,10 @@ define(['svg'], function(svg) {
 
         createUmlBoxFoo : function (model) {
             return svg.UmlClassBox(model );
+        },
+
+        createUmlBoxPane : function (model) {
+            return svg.TransparentPane(model);
         },
 
         resetRectangle : function (rect, x, y) {

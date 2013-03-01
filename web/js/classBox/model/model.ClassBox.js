@@ -19,13 +19,19 @@ define(['ModelElement',
 
         translate : function (dx, dy) {
 
-            this.set({ "tempX" : dx + this.get("xCood") });
-            this.set({ "tempY" : dy + this.get("yCood") });
+            this.set({ "XMoved" : dx + this.get("startX") });
+            this.set({ "YMoved" : dy + this.get("startY") });
             this._fire("change");
         },
 
         update : function (x, y) {
             this.updateCoordinates(x, y);
+        },
+
+        updateDimensions : function (height, width) {
+            this.set({ "width" : width }, { silent : true });
+            this.set({ "height" : height }, { silent : true });
+            this._fire("change:dimensions");
         },
 
         deleteProperty : function (index) {
@@ -59,7 +65,11 @@ define(['ModelElement',
         },
 
         setWidth : function (width) {
-            this.set({ "width" : width });
+            this.set({ "width" : width }, { silent : true});
+        },
+
+        setHeight : function (height) {
+            this.set({ "height" : height }, { silent : true});
         },
 
         setXCood : function (xCood) {

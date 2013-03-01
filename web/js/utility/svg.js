@@ -3,48 +3,54 @@ define(['raphael'], function(Raphael) {
     var paper = Raphael(100, 100, 1000,1000);
     paper.rect(0, 0, 1000, 600).attr({ fill : "white"});
 
+    Raphael.fn.TransparentPane = function(model) {
+        var xCood = 0,
+            yCood = 0,
+            width = model.get("width"),
+            height = model.get("height");
+
+        var pane = this.rect(xCood, yCood, width + 10, height).attr({ fill : "red" , opacity : 0});
+
+        pane.setDimensions = function () {
+            width = model.get("width");
+            height = model.get("height");
+            xCood = model.get("xCood");
+            yCood = model.get("yCood");
+            pane.attr({ "width" : width + 10 , "height" : height });
+        }
+        return pane;
+    }
+
+
     Raphael.fn.UmlClassBox = function(model) {
 
         var offset,
             propertyTextArray = [],
             width = 0,
-            umlBoxElement;
-
-        //this.setStart();
-
-        var set = this.set();
+            umlBoxElement,
+            lineHeight = 15;
 
         // constants:
         var leftOffset = 5,
             titleBoxHeight = 30;
 
-        var that = this;
-
-
-        var setLength = set.length;
-        if(setLength > 0) {
-            set.splice(0, setLength);
-        }
         var x = model.get('xCood');
         var y = model.get('yCood');
         var name = model.get("name");
 
-        var headerRect = that.rect(x, y, 0, 0).attr({ fill : "#ffffce" });
-        set.push(headerRect);
+        var headerRect = this.rect(x, y, 0, 0).attr({ fill : "#ffffce" });
 
-        var nameText = that.text(leftOffset + x, y + 10, name).attr({ 'text-anchor' : 'start'});
+        var nameText = this.text(leftOffset + x, y + 10, name).attr({ 'text-anchor' : 'start'});
+
         width = nameText.getBBox().width;
-        set.push(nameText)
-
 
         var properties = model.get("properties").map(function (index, element) {
             return formatProperty(element);
         });
 
         for(var i=0; i < properties.length;i++) {
-            var textElement = that.text(leftOffset + x, (i * 15 )+ y + titleBoxHeight, properties[i]).attr({ 'text-anchor' : 'start'});
+            var textElement = this.text(leftOffset + x, (i * 15 )+ y + titleBoxHeight, properties[i]).attr({ 'text-anchor' : 'start'});
             propertyTextArray.push({ text : textElement });
-            set.push(textElement)
         }
 
         for(var i=0; i < propertyTextArray.length; i++) {
@@ -56,64 +62,88 @@ define(['raphael'], function(Raphael) {
         var height = (numberOfProperties * 16) + 25;
 
         headerRect.attr({ "height" : height });
-
         headerRect.attr({ width : width + 10 });
 
         var newPath = Raphael.format("M{0},{1} L{2}, {3}", x, y + 20, x + width + 10, y + 20 );
-        var separator1 = that.path(newPath);
+        var separator1 = this.path(newPath);
 
-        set.push(separator1)
-
-        function removeProperties(set) {
-            set.splice(2, set.length);
-            for(var i = 0; i < propertyTextArray.length; i++) {
-                // remove stored properties from dom.
-                propertyTextArray[i].text.remove();
-
-            }
-            propertyTextArray.splice(0, propertyTextArray.length);
-            separator1.remove();
-        }
-
+        model.setWidth(width);
+        model.setHeight(height);
 
         //  public methods
 
-        set.render = function () {
-            var width = nameText.getBBox().width;
-            //debugger;
-            var x = this[0].attr('x');
-            var y = this[0].attr('y');
-            console.log(x, headerRect.getBBox().x)
+       // this should just change position of existing elements.
+       headerRect.render = function () {
 
-            removeProperties(this);
+            var x = model.get('xCood');
+            var y = model.get('yCood');
+            nameText.attr({ "x" : x + leftOffset });
+            nameText.attr({ "y" : y + 10 });
+            headerRect.attr({ "x" : x });
+            headerRect.attr({ "y" : y });
+
+            var newPath = Raphael.format("M{0},{1} L{2}, {3}", x, y + 20, x + width + 10, y + 20 );
+            separator1.attr({ path : newPath });
+
+            for(var i = 0; i < propertyTextArray.length; i++) {
+                propertyTextArray[i].text.attr({ "x" : x + leftOffset });
+                propertyTextArray[i].text.attr({ "y" : y + titleBoxHeight + i * lineHeight })
+            }
+
+        }
+        var that = this;
+
+        headerRect.recreate = function () {
+            nameText.remove();
+
+            removeProperties();
+            var x = model.get('xCood');
+            var y = model.get('yCood');
+
+            console.log("recreate: ", x , y)
+            // change size of rectangle.
+            // delete all contents
+            // recalculate and redraw elements
+            var name = model.get("name");
+            nameText = that.text(leftOffset + x, y + 10, name).attr({ 'text-anchor' : 'start'});
+            var width = nameText.getBBox().width;
 
             var properties = model.get("properties").map(function (index, element) {
                 return formatProperty(element);
             });
 
             for(var i=0; i < properties.length;i++) {
-                var textElement = that.text(leftOffset + x, (i * 15 )+ y + titleBoxHeight, properties[i]).attr({ 'text-anchor' : 'start'});
+                var textElement = that.text(leftOffset + x, (i * lineHeight )+ y + titleBoxHeight, properties[i]).attr({ 'text-anchor' : 'start'});
                 propertyTextArray.push({ text : textElement });
-                this.push(textElement)
             }
 
             for(var i=0; i < propertyTextArray.length; i++) {
                 var tempWidth = propertyTextArray[i].text.getBBox().width;
                 width = tempWidth > width ? tempWidth : width;
             }
+            headerRect.attr({ "width" : width + 10 });
+
+
+            var newPath = Raphael.format("M{0},{1} L{2}, {3}", x, y + 20, x + width + 10, y + 20 );
+            separator1.attr({ path : newPath });
 
             var numberOfProperties = propertyTextArray.length;
-            var height = (numberOfProperties * 16) + 25;
+            var height = (lineHeight * numberOfProperties) + titleBoxHeight;
 
             headerRect.attr({ "height" : height });
 
-            headerRect.attr({ width : width + 10 });
+            var x2 = model.get('xCood');
+            var y2 = model.get('yCood');
 
-            var newPath = Raphael.format("M{0},{1} L{2}, {3}", x, y + 20, x + width + 10, y + 20 );
-            separator1 = that.path(newPath);
+            model.updateDimensions(height, width);
+        }
 
-            this.push(separator1)
-            this.transform("T0,0");
+        function removeProperties() {
+
+            for(var i = 0; i < propertyTextArray.length; i++) {
+                propertyTextArray[i].text.remove();
+            }
+            propertyTextArray.splice(0, propertyTextArray.length);
         }
 
         function formatProperty (property) {
@@ -127,7 +157,7 @@ define(['raphael'], function(Raphael) {
             return result;
         }
 
-        return set;
+        return headerRect;
 
     };
 
