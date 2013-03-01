@@ -31,7 +31,7 @@ define(['ModelElement',
         deleteProperty : function (index) {
             var properties = this.get('properties');
             properties.delete(index);
-            this._fire("change")
+            this._fire("change:delete")
         },
 
         updatePropertyName : function (index, newName) {

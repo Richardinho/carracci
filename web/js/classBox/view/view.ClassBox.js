@@ -10,7 +10,7 @@ define(['utility/extend', 'svgUtilities', 'Collection' ], function (BaseType, sv
             this.model.on("changeText", this.renderText, this);
             this.model.on("changeBlah", this.renderText, this);
             this.model.on("add", this.addProperty, this);
-            this.model.on("change", this.deleteProperty, this);
+            this.model.on("change:delete", this.deleteProperty, this);
 
         },
 
@@ -20,16 +20,16 @@ define(['utility/extend', 'svgUtilities', 'Collection' ], function (BaseType, sv
         },
 
         addProperty : function () {
-            this.element.addProperty("blahblah");
+            this.element.render();
         },
 
         deleteProperty : function (index) {
-            this.element.deleteProperty(index);
+            this.element.render();
         },
 
         renderText : function (index) {
-            var prop = this.formatProperty(this.model.get("properties").get(index));
-            this.element.updateProperty(index, prop);
+            //var prop = this.formatProperty(this.model.get("properties").get(index));
+            //this.element.updateProperty(index, prop);
         },
 
         _createSvgShape : function () {
