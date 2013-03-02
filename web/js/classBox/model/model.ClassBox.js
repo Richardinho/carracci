@@ -19,13 +19,9 @@ define(['ModelElement',
 
         translate : function (dx, dy) {
 
-            this.set({ "XMoved" : dx + this.get("startX") });
-            this.set({ "YMoved" : dy + this.get("startY") });
+            this.set({ "XMoved" : dx + this.get("startX") },{ silent : true });
+            this.set({ "YMoved" : dy + this.get("startY") },{ silent : true });
             this._fire("change:move");
-        },
-
-        update : function (x, y) {
-            this.updateCoordinates(x, y);
         },
 
         updateDimensions : function (height, width) {
@@ -40,10 +36,15 @@ define(['ModelElement',
             this._fire("change:delete")
         },
 
+        changeClassName : function ( newName) {
+            this.set({ name : newName },{ silent : true });
+            this._fire("changeText");
+        },
+
         updatePropertyName : function (index, newName) {
             var properties = this.get('properties');
             properties.get(index).name = newName;
-            this.set({"properties" : properties});
+            this.set({"properties" : properties}, { silent : true });
 
             this._fire("changeText", index)
         },
@@ -51,7 +52,7 @@ define(['ModelElement',
         updatePropertyType : function (index, newType) {
             var properties = this.get('properties');
             properties.get(index).type = newType;
-            this.set({"properties" : properties});
+            this.set({"properties" : properties}, { silent : true });
 
             this._fire("changeText", index)
         },
@@ -95,7 +96,7 @@ define(['ModelElement',
             //  this doesn't result in a change event being fired because we've already changed it by
             //  reference.
             // ToDo: Is this an issue also in Backbone?
-            this.set({ "properties" : properties });
+            this.set({ "properties" : properties }, { silent : true });
             this._fire("change:visibility", index);
         },
 

@@ -66,7 +66,8 @@ require.config({
         ClassBoxFactory : "classBox/factory/factory.ClassBox",
         ToolsModel : "menu/tools/model",
         ToolsView : "menu/tools/view",
-        ToolsController : "menu/tools/controller"
+        ToolsController : "menu/tools/controller",
+        BaseType : "utility/extend"
 
     }
 });

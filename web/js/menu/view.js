@@ -1,4 +1,4 @@
-define(['utility/extend', "underscore"], function (BaseType, _) {
+define(['BaseType', "underscore"], function (BaseType, _) {
 
     return BaseType.extend({
 
@@ -15,10 +15,6 @@ define(['utility/extend', "underscore"], function (BaseType, _) {
         getToolsElement : function () {
             return this.el.find('#tools');
         }
-
-
-
-
 
     });
 });

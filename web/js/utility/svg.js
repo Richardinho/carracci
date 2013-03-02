@@ -77,6 +77,7 @@ define(['raphael'], function(Raphael) {
 
             var x = model.get('xCood');
             var y = model.get('yCood');
+            var width = model.get('width');
             nameText.attr({ "x" : x + leftOffset });
             nameText.attr({ "y" : y + 10 });
             headerRect.attr({ "x" : x });

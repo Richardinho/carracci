@@ -1,4 +1,4 @@
-define([ 'utility/extend', 'svgUtilities' ], function (extend, svgUtils) {
+define([ 'BaseType', 'svgUtilities' ], function (extend, svgUtils) {
 
     return extend.extend({
 

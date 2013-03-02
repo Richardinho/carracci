@@ -1,5 +1,5 @@
 
-define(['utility/extend',
+define(['BaseType',
         'underscore',
         'jQuery',
         'ClassBoxFactory'], function (BaseType, _, $, ClassBoxFactory) {

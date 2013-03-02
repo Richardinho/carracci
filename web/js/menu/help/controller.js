@@ -1,4 +1,4 @@
-define([ 'utility/extend',
+define([ 'BaseType',
          'underscore',
          'jQuery' ], function (BaseType, _, $) {
 

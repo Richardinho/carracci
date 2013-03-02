@@ -1,4 +1,4 @@
-define(['utility/extend', 'underscore'], function (BaseType, _) {
+define(['BaseType', 'underscore'], function (BaseType, _) {
 
     return BaseType.extend({
 

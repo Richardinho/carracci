@@ -1,4 +1,4 @@
-define(["utility/extend"],function (extend) {
+define(["BaseType"],function (extend) {
 
     return extend.extend({
 
@@ -22,9 +22,12 @@ define(["utility/extend"],function (extend) {
         },
 
         set : function () {
+
             var attributes = arguments[0],
                 options = arguments[1],
                 silent = options && options.silent ? options.silent : false;
+
+
 
             for(var attribute in attributes) {
                 this._setAttribute(attribute, attributes[attribute], silent);

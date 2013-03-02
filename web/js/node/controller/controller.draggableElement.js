@@ -1,4 +1,4 @@
-define([ 'utility/extend',
+define([ 'BaseType',
          'keyManager',
          'globalController',
          'underscore' ], function (extend, keyManager, globalController, _ ) {

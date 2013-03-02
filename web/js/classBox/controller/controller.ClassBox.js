@@ -7,7 +7,6 @@ define(['ControllerDraggableElement'], function (ControllerDraggableElement) {
 
             ControllerDraggableElement.prototype.initialize.call(this, options);
             this.view.element.click(this._onClick, this)
-
         },
 
         _onStart : function () {
@@ -17,13 +16,10 @@ define(['ControllerDraggableElement'], function (ControllerDraggableElement) {
 
         _onMove : function (dx, dy) {
             this.model.translate(dx, dy);
-            this.model.set({ "xCood" : this.model.get("XMoved") }, { silent : true });
-            this.model.set({ "yCood" : this.model.get("YMoved") }, { silent : true })
         },
 
         _onEnd : function () {
-            this.model.set({"XMoved" : 0 }, { silent : true });
-            this.model.set({"YMoved" : 0 }, { silent : true });
+
         },
 
         _onClick : function () {

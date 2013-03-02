@@ -1,4 +1,4 @@
-define(['utility/extend'], function (extend) {
+define(['BaseType'], function (extend) {
 
 
     return extend.extend ({

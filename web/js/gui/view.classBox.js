@@ -1,4 +1,4 @@
-define(['utility/extend', 'underscore', 'jQuery', 'Collection'], function (BaseType, _, $, Collection) {
+define(['BaseType', 'underscore', 'jQuery', 'Collection'], function (BaseType, _, $, Collection) {
 
     return BaseType.extend({
 

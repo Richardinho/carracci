@@ -1,4 +1,4 @@
-define(['jQuery', 'utility/extend'],function ($, extend) {
+define(['jQuery', 'BaseType'],function ($, extend) {
 
     // This is a singleton, so we create an instance here and return it.
     var KeyManager =  extend.extend({
