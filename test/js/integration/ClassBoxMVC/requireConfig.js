@@ -1,4 +1,4 @@
-/* Test config file */
+/* config file for mvc classbox test*/
 
 
 require.config({

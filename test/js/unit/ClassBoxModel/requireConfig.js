@@ -19,7 +19,7 @@ require.config({
         underscore : "web/js/lib/underscore",
         jQuery : "web/js/lib/jquery-1.8.0",
 
-        ModelElement :    "web/js/node/model/model.Element",
+        ModelElement :    "web/js/node/model/model.element",
         Collection :      "web/js/core/Collection",
         Model :           "web/js/core/Model",
         propertyBuilder : "web/js/utility/propertyBuilder",
