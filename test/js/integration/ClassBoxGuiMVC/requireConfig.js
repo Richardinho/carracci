@@ -34,6 +34,8 @@ require.config({
         raphaelVML : "lib/raphael.2.1.0.vml",
         eve : "lib/eve.0.3.4",
         BaseType : "utility/extend",
+        ModelClassBox : "classBox/model/model.ClassBox",
+        ViewClassBox : "gui/view.classBox"
     }
 });
 

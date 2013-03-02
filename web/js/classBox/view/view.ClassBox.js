@@ -13,6 +13,7 @@ define(['BaseType', 'svgUtilities', 'Collection' ], function (BaseType, svgUtili
             this.model.on("change:delete", this.deleteProperty, this);
             this.model.on("change:dimensions", this.changeDimensions, this);
             this.model.on("change:visibility", this.renderText, this);
+            this.model.on("change:name", this.renderText, this);
 
         },
 

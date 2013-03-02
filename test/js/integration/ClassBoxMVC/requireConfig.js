@@ -27,7 +27,7 @@ require.config({
         svgUtilities : "utility/svgUtilities",
         svg : "utility/svg",
         ControllerDraggableElement : "node/controller/controller.draggableElement",
-        keyManager : "node/controller/controller.keyManager",
+        keyManager : "node/controller/controller.KeyManager",
         globalController : "globalController/controller.Global",
         raphael : "lib/raphael.2.1.0.amd",
         raphaelCore : "lib/raphael.2.1.0.core",
@@ -36,6 +36,7 @@ require.config({
         raphaelVML : "lib/raphael.2.1.0.vml",
         eve : "lib/eve.0.3.4",
         BaseType : "utility/extend",
+        ModelClassBox : "classBox/model/model.ClassBox",
     }
 });
 

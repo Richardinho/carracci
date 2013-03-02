@@ -37,8 +37,8 @@ define(['ModelElement',
         },
 
         changeClassName : function ( newName) {
-            this.set({ name : newName },{ silent : true });
-            this._fire("changeText");
+            this.set({ name : newName });
+            //this._fire("changeText");
         },
 
         updatePropertyName : function (index, newName) {

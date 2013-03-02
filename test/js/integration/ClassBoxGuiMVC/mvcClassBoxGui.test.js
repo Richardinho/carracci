@@ -1,5 +1,5 @@
-require(['classBox/model/model.ClassBox',
-         'gui/view.ClassBox',
+require(['ModelClassBox',
+         'ViewClassBox',
          'gui/controller/classBox',
          'propertyBuilder'], function (Model, View, Controller, propertyBuilder ) {
 

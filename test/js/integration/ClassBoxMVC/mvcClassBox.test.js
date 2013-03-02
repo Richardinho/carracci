@@ -1,4 +1,4 @@
-require(['classBox/model/model.ClassBox',
+require(['ModelClassBox',
          'classBox/view/view.ClassBox',
          'classBox/controller/controller.ClassBox'], function (Model, View, Controller ) {
 
