@@ -1,20 +1,13 @@
+//  Model
+
 define(["BaseType"],function (extend) {
 
     return extend.extend({
 
-        // todo: in the model: we should make a distinction between those properties which are going
-        // to change (and hence fire change events) and those which wont change.
-        // the former define the state of the model
-        // the latter define it's dependencies. e.g. helper objects necessary for the functionality.
 
         initialize : function (options) {
             this.internalObj = {};
             this._listeners = [];
-
-        },
-
-        foo : function () {
-            alert("halelujah!")
         },
 
         get : function (property) {
@@ -26,8 +19,6 @@ define(["BaseType"],function (extend) {
             var attributes = arguments[0],
                 options = arguments[1],
                 silent = options && options.silent ? options.silent : false;
-
-
 
             for(var attribute in attributes) {
                 this._setAttribute(attribute, attributes[attribute], silent);
