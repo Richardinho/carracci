@@ -1,3 +1,5 @@
+//  ModelElement
+
 define(['Model', 'Collection'], function (Model, Collection) {
 
     return Model.extend({

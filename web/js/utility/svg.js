@@ -57,14 +57,15 @@ define(['raphael'], function(Raphael) {
             var tempWidth = propertyTextArray[i].text.getBBox().width;
             width = tempWidth > width ? tempWidth : width;
         }
+        width = width + 10;
 
         var numberOfProperties = propertyTextArray.length;
         var height = (numberOfProperties * 16) + 25;
 
         headerRect.attr({ "height" : height });
-        headerRect.attr({ width : width + 10 });
+        headerRect.attr({ width : width });
 
-        var newPath = Raphael.format("M{0},{1} L{2}, {3}", x, y + 20, x + width + 10, y + 20 );
+        var newPath = Raphael.format("M{0},{1} L{2}, {3}", x, y + 20, x + width, y + 20 );
         var separator1 = this.path(newPath);
 
         model.setWidth(width);
@@ -83,7 +84,7 @@ define(['raphael'], function(Raphael) {
             headerRect.attr({ "x" : x });
             headerRect.attr({ "y" : y });
 
-            var newPath = Raphael.format("M{0},{1} L{2}, {3}", x, y + 20, x + width + 10, y + 20 );
+            var newPath = Raphael.format("M{0},{1} L{2}, {3}", x, y + 20, x + width, y + 20 );
             separator1.attr({ path : newPath });
 
             for(var i = 0; i < propertyTextArray.length; i++) {
@@ -121,11 +122,13 @@ define(['raphael'], function(Raphael) {
             for(var i=0; i < propertyTextArray.length; i++) {
                 var tempWidth = propertyTextArray[i].text.getBBox().width;
                 width = tempWidth > width ? tempWidth : width;
+
             }
-            headerRect.attr({ "width" : width + 10 });
+            width = width + 10;
+            headerRect.attr({ "width" : width });
 
 
-            var newPath = Raphael.format("M{0},{1} L{2}, {3}", x, y + 20, x + width + 10, y + 20 );
+            var newPath = Raphael.format("M{0},{1} L{2}, {3}", x, y + 20, x + width, y + 20 );
             separator1.attr({ path : newPath });
 
             var numberOfProperties = propertyTextArray.length;

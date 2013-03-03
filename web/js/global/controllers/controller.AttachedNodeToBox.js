@@ -71,7 +71,7 @@ define(['BaseType'],function (BaseType) {
                             return true;
                         },
                         setXCoods : function(x) {
-                            console.log("setXCoods")
+
                             var arrowXCood = x,
                                 arrowModel = this.players["arrow"],
                                 proximalNode = this.players["proximalNode"],
@@ -87,7 +87,7 @@ define(['BaseType'],function (BaseType) {
                         },
                         //  here we do want the arrow to validate y coods, because we want it to call other components.
                         setYCoods : function (y) {
-                            console.log("setYCoods")
+
                             var arrowModel = this.players["arrow"];
 
                             arrowModel.updateY( y + this.arrowYOffset, true);

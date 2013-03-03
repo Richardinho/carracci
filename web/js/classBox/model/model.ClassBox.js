@@ -27,6 +27,7 @@ define(['ModelElement',
         updateDimensions : function (height, width) {
             this.set({ "width" : width }, { silent : true });
             this.set({ "height" : height }, { silent : true });
+            this.updateCoordinates(this.get("xCood"), this.get("yCood"), true);
             this._fire("change:dimensions");
         },
 

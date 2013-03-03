@@ -1,3 +1,5 @@
+//  Model.ArrowNode
+
 define(['ModelElement'], function (ModelElement) {
 
     return ModelElement.extend({
