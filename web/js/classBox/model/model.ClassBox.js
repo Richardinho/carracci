@@ -27,7 +27,10 @@ define(['ModelElement',
         updateDimensions : function (height, width) {
             this.set({ "width" : width }, { silent : true });
             this.set({ "height" : height }, { silent : true });
-            this.updateCoordinates(this.get("xCood"), this.get("yCood"), true);
+            //  hack to get node on right edge to reposition itself
+            //this.updateCoordinates(this.get("xCood"), this.get("yCood"), true);
+            this.updateAssociatedComponents();
+            // this is for the benefit of this models view.
             this._fire("change:dimensions");
         },
 

@@ -22,6 +22,17 @@ define(['Model', 'Collection'], function (Model, Collection) {
             this.update(this.get('xCood'), y, validate);
         },
 
+        updateAssociatedComponents : function () {
+            // set y value on all associated components
+            this.fooValidators.each(function(index,validator) {
+                validator.setYCoods.call(validator.context, this.get('yCood'));
+            }, this);
+
+            this.fooValidators.each(function(index,validator) {
+                validator.setXCoods.call(validator.context, this.get('xCood'));
+            }, this);
+        },
+
         updateCoordinates : function (x, y, validate) {
 
         // What I need to do to fix the 'Parents problem' is:
@@ -35,6 +46,7 @@ define(['Model', 'Collection'], function (Model, Collection) {
         // may also apply to other components.
         // Once we finish validating, we should guarantee that the movement of any other component
         // is going to break any of this component's validation rules.
+
 
             var valid = (validate !== undefined) ? validate : true;
             // flag to show that we wish to validate. Only set when this is the component which is setting itself.
@@ -61,17 +73,13 @@ define(['Model', 'Collection'], function (Model, Collection) {
                 // set new y cood
                 this.set({ yCood : y });
 
-                // set y value on all associated components
-                this.fooValidators.each(function(index,validator) {
-                    validator.setYCoods.call(validator.context, y);
-                });
 
                 //  do same with x
                 this.set({ xCood : x });
 
-                this.fooValidators.each(function(index,validator) {
-                    validator.setXCoods.call(validator.context, x);
-                });
+                this.updateAssociatedComponents();
+
+
 
             //  else we are just updating the component. This should only be from other components.
             } else {
