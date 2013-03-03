@@ -16,7 +16,6 @@ define(['ControllerDraggableElement', 'keyManager', 'globalController'], functio
                 this.model.changeLine();
             } else if(KeyManager.U_KEY) {
                 globalController.arrowRequest(this.model);
-
             }
         },
 

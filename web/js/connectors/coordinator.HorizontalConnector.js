@@ -22,7 +22,7 @@ define(['BaseType'], function (extend) {
 
             for(var role in this.players) {
 
-                this.players[role].addFooValidator(this._getValidator(role));
+                this.players[role].addValidator(this._getValidator(role));
 
             }
 

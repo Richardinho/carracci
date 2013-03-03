@@ -67,7 +67,8 @@ require.config({
         ToolsModel : "menu/tools/model",
         ToolsView : "menu/tools/view",
         ToolsController : "menu/tools/controller",
-        BaseType : "utility/extend"
+        BaseType : "utility/extend",
+        NodeToBoxCoordinator : "global/controllers/controller.AttachedNodeToBox"
 
     }
 });

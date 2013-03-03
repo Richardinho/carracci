@@ -1,16 +1,12 @@
-define(['BaseType', "svgUtilities"], function (extend, utils) {
+define(['BaseType',
+        "svgUtilities",
+        "NodeToBoxCoordinator" ], function (extend, utils, NodeBoxCoordinator ) {
 
 
-    var blah =  extend.extend({
+    var GlobalController =  extend.extend({
 
 
         initialize : function () {
-
-        },
-
-        onClick : function (player) {
-            utils.createRectangle(20, 20, 300, 200);
-            console.log("onClick from global controller")
 
         },
 
@@ -20,12 +16,11 @@ define(['BaseType', "svgUtilities"], function (extend, utils) {
 
         boxRequest : function(box) {
 
-            if(this.arrow !== null) {
-                var arrow = this.arrow;
-               /* var connectionManager = new Glenmorangie.Coordinator.AttachedNodeToBox({ "arrow" : arrow,
-                                                                                        "box" : box,
-                                                                                        "proximalNode": arrow.proximalNodeModel,
-                                                                                        "distalNode" : arrow.distalNodeModel });*/
+            if(this.arrow !== undefined) {
+                var connectionManager = new NodeBoxCoordinator ({ "arrow" : this.arrow,
+                                                                  "box" : box,
+                                                                  "proximalNode": this.arrow.proximalNodeModel,
+                                                                  "distalNode" : this.arrow.distalNodeModel });
 
 
             }
@@ -33,5 +28,5 @@ define(['BaseType', "svgUtilities"], function (extend, utils) {
 
     });
 
-    return new blah();
+    return new GlobalController();
 });

@@ -23,8 +23,9 @@ define(['BaseType', 'svgUtilities', 'Collection' ], function (BaseType, svgUtili
                                     "," + this.model.get("YMoved") );
             var x = this.element.getBBox().x ;
             var y = this.element.getBBox().y ;
-            this.model.set({ xCood : x }, { silent : true });
-            this.model.set({ yCood : y }, { silent : true });
+            //this.model.set({ xCood : x }, { silent : true });
+            //this.model.set({ yCood : y }, { silent : true });
+            this.model.updateCoordinates(x, y, true);
             this.box.render();
         },
 

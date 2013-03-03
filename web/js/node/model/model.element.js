@@ -86,7 +86,7 @@ define(['Model', 'Collection'], function (Model, Collection) {
             });
         },
 
-        addFooValidator : function (validator) {
+        addValidator : function (validator) {
             this.fooValidators.add(validator);
         }
 
