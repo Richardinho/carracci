@@ -93,18 +93,31 @@ require(['WebAPI'], function (WebAPI) {
             });
         });
 
-        describe("move()", function () {
-            var node;
+        describe("When arrow node moved along its x and y axis", function () {
+            var node,
+                proximalNode,
+                startNodeXCood,
+                startNodeYCood,
+                startProximalNodeXCood;
 
             beforeEach(function () {
-                webAPI.getRightArrowNode("foo").move(1, 2);
                 node = webAPI.getRightArrowNode("foo");
+                proximalNode = webAPI.getProximalNode("foo");
+                startNodeXCood = node.xCood();
+                startNodeYCood = node.yCood();
+                startProximalNodeXCood = proximalNode.xCood();
+                node.move(1, 2);
+
             });
 
-            it("should move arrow node by given distances", function () {
-                expect(node.xCood()).toBe(226);
-                 expect(node.yCood()).toBe(112);
+            it("should update arrow node's x and y coods and  proximal node's y cood", function () {
+                expect(node.xCood()).toBe(startNodeXCood + 1);
+                expect(node.yCood()).toBe(startNodeYCood + 2);
+                expect(proximalNode.xCood()).toBe(startProximalNodeXCood);
+                expect(proximalNode.yCood()).toBe(startNodeYCood + 2);
             });
         });
+
+
     });
 });
