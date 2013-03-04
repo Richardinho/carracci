@@ -58,6 +58,7 @@ require(['WebAPI'], function (WebAPI) {
             it("should contain yCood state", function () {
                 expect(arrowNode.yCood()).toBe(110);
             });
+
         });
 
         describe("getProximalNode()", function () {
@@ -96,15 +97,13 @@ require(['WebAPI'], function (WebAPI) {
             var node;
 
             beforeEach(function () {
-                node = webAPI.getRightArrowNode("foo").move(60, 56);
+                webAPI.getRightArrowNode("foo").move(1, 2);
+                node = webAPI.getRightArrowNode("foo");
             });
 
-            it("should contain xCood state", function () {
-                //expect(node.xCood()).toBe(125);
-            });
-
-            it("should contain yCood state", function () {
-                //expect(node.yCood()).toBe(10);
+            it("should move arrow node by given distances", function () {
+                expect(node.xCood()).toBe(226);
+                 expect(node.yCood()).toBe(112);
             });
         });
     });
