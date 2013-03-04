@@ -33,11 +33,22 @@ require(['Model'], function (Model) {
 
                     model.set({ foo : "foo" }, { silent : false });
                 });
+                // Todo: this is wrong: the handler should query the model directly.
                 it("should pass the new value to the handler function", function () {
                     expect(result).toBe("foo");
                 });
             });
         });
+
+        /*
+            var contextObject = {}; // opportunity to pass more data in from somewhere.
+
+            model.on("change:foo", function (model) {
+                result = model.get('anyProperty');
+            }, contextObject);
+
+
+        */
 
         describe("context object", function () {
             describe("When a context object provided", function () {

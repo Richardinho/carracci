@@ -9,7 +9,7 @@ define(["BaseType"],function (extend) {
             this.internalObj = {};
             this._listeners = [];
         },
-
+        // todo: turn get and set into private (or protected) methods.
         get : function (property) {
             return this.internalObj[property];
         },
@@ -26,6 +26,13 @@ define(["BaseType"],function (extend) {
         },
 
         _setAttribute : function(attribute, value, silent) {
+        //  toDo: remove the automatic firing of events.
+        //  it's simply far too clunky
+        // this model should be simple.
+        // it should be the job of sub types to have custom
+        // set methods which express the nature of the mutation occurred
+        // and fire off appropriate events
+        // only the model types should use get and set which should become private.
             var oldValue = this.get(attribute);
             this.internalObj[attribute] = value;
             if(!silent && oldValue !== value) {
@@ -39,7 +46,7 @@ define(["BaseType"],function (extend) {
             var context = cont ? cont : this;
             this._listeners.push({ "event" : event, "callback" : callback, "context" : context });
         },
-
+        // todo : turn into public method
         _fire : function (eventName, value) {
 
             for(var i = 0; i < this._listeners.length; i++) {

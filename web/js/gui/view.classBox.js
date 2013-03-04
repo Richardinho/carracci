@@ -1,9 +1,13 @@
-define(['BaseType', 'underscore', 'jQuery', 'Collection'], function (BaseType, _, $, Collection) {
+define(['BaseType',
+        'underscore',
+        'jQuery',
+        'Collection',
+        'templateLoader'], function (BaseType, _, $, Collection, templateLoader) {
 
     return BaseType.extend({
 
         initialize : function (options) {
-
+            this.template = this._getTemplate();
             this.model = options.model;
             var classId = this.model.id;
             this.containerEl = options.containerEl;
@@ -27,7 +31,12 @@ define(['BaseType', 'underscore', 'jQuery', 'Collection'], function (BaseType, _
             return this.el;
         },
 
-        template : _.template($('#gui-template').html())
+        _getTemplate : function () {
+
+            //return _.template($('#gui-template').html());
+            var template = templateLoader.getTemplate("guiTemplate");
+            return _.template(template);
+        }
 
 
     });

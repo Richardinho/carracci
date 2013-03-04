@@ -1,6 +1,9 @@
+/* config file for node to box link test*/
 
 
 require.config({
+
+    baseUrl : "../../../../web/js",
 
     shim : {
 
@@ -11,11 +14,10 @@ require.config({
         'underscore' : {
             exports : '_'
         }
-
-
     },
 
     paths : {
+
         jQuery : "lib/jquery-1.8.0",
         underscore : "lib/underscore",
         raphael : "lib/raphael.2.1.0.amd",
@@ -72,31 +74,6 @@ require.config({
         templateLoader : "utility/templateLoader"
 
     }
-});
-
-require([ 'jQuery',
-          'connectorFactory',
-          'MenuFactory',
-          'ClassBoxFactory' ], function ( $,
-                                          connectorFactory,
-                                          MenuFactory,
-                                          ClassBoxFactory ) {
-
-    $(document).ready(function () {
-
-        var connector1 = connectorFactory({ x1 : 40,
-                                            y1 : 30,
-                                            x2 : 240,
-                                            y2 : 350 });
-
-        //  create a collection to store classes.
-        ClassBoxFactory({ name : 'Foo<Bar<String, Integer>', x : 0, y : 0, "height" : 70, "width" : 100 });
-
-
-        var menu = MenuFactory();
-
-
-    });
 });
 
 

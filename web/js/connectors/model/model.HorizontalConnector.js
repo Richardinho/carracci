@@ -9,7 +9,6 @@ define(['BaseType'], function (extend) {
         },
 
         changeLine : function () {
-            console.log("change line")
             this.lines.each(function (index, lineModel) {
                 lineModel.alternateStyle();
             });

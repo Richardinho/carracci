@@ -1,9 +1,9 @@
-define(['BaseType', 'underscore'], function (BaseType, _) {
+define(['BaseType', 'underscore', 'templateLoader'], function (BaseType, _, templateLoader ) {
 
     return BaseType.extend({
 
         initialize : function (options) {
-
+            this.template = this._getTemplate();
             this.model = options.model;
             this.el = options.el;
             this.render();
@@ -33,6 +33,9 @@ define(['BaseType', 'underscore'], function (BaseType, _) {
             return this.el.find('.uml-class-button');
         },
 
-        template : _.template($('#tools-template').html())
+        _getTemplate : function () {
+            var template = templateLoader.getTemplate("toolsTemplate");
+            return _.template(template);
+        }
     });
 });
