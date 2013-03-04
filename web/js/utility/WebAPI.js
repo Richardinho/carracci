@@ -105,11 +105,6 @@ define(['BaseType',
         getConnector : function (id) {
             return this.connectors[id];
         }
-
-
-
-
-
     });
 
 
@@ -132,19 +127,35 @@ define(['BaseType',
 
         return {
 
-            xCood : function () {
-                return arrowNodeModel.get('xCood');
+            model : arrowNodeModel,
+
+            xCood : function (newXCood) {
+
+                if(!newXCood) {
+                    return this.model.get('xCood');
+                } else {
+                    this.model.update(newXCood, this.model.get('yCood'));
+                }
             },
 
-            yCood : function () {
-                return arrowNodeModel.get('yCood');
+            yCood : function (newYCood) {
+
+                if(!newYCood) {
+                    return this.model.get('yCood');
+                } else {
+                    this.model.update(this.model.get('xCood'), newYCood);
+                }
             },
 
             move : function (dx, dy) {
-                arrowNodeModel.update(this.xCood() + dx, this.yCood() + dy);
+                this.model.update(this.xCood() + dx, this.yCood() + dy);
             },
 
-            model : arrowNodeModel
+            arrowDirection : function () {
+                return this.model._getArrowModel().get("direction");
+            }
+
+
         };
     }
 
@@ -195,12 +206,27 @@ define(['BaseType',
         var proximalNodeController = new ControllerDraggableElement({ "model" : proximalNodeModel,
                                                                      "view" : proximalNodeView });
         return {
-            xCood : function () {
-                return proximalNodeModel.get('xCood');
+
+            xCood : function (newXCood) {
+
+                if(!newXCood) {
+                    return this.model.get('xCood');
+                } else {
+                    this.model.update(newXCood, this.model.get('yCood'));
+                }
             },
 
-            yCood : function () {
-                return proximalNodeModel.get('yCood');
+            yCood : function (newYCood) {
+
+                if(!newYCood) {
+                    return this.model.get('yCood');
+                } else {
+                    this.model.update(this.model.get('xCood'), newYCood);
+                }
+            },
+
+            move : function (dx, dy) {
+                this.model.update(this.xCood() + dx, this.yCood() + dy);
             },
             model : proximalNodeModel
         };

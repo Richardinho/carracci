@@ -16,6 +16,22 @@ require(['WebAPI'], function (WebAPI) {
 
         webAPI = new WebAPI(configuration);
 
+        function reset() {
+            var rightArrowNode, proximalNode, leftArrowNode;
+
+            rightArrowNode = webAPI.getRightArrowNode("foo");
+            proximalNode = webAPI.getProximalNode("foo");
+            leftArrowNode = webAPI.getLeftArrowNode("foo");
+
+            rightArrowNode.model.update(225, 110);
+            leftArrowNode.model.update(25, 10);
+            proximalNode.xCood(125);
+        }
+
+        afterEach(function () {
+            reset();
+        })
+
         describe("getConnector()", function () {
             var connector;
 
@@ -93,31 +109,110 @@ require(['WebAPI'], function (WebAPI) {
             });
         });
 
-        describe("When arrow node moved along its x and y axis", function () {
+        describe("rightArrowNode.move()", function () {
             var node,
-                proximalNode,
                 startNodeXCood,
-                startNodeYCood,
-                startProximalNodeXCood;
+                startNodeYCood;
 
             beforeEach(function () {
                 node = webAPI.getRightArrowNode("foo");
-                proximalNode = webAPI.getProximalNode("foo");
                 startNodeXCood = node.xCood();
                 startNodeYCood = node.yCood();
-                startProximalNodeXCood = proximalNode.xCood();
                 node.move(1, 2);
-
             });
 
-            it("should update arrow node's x and y coods and  proximal node's y cood", function () {
+            it("should update arrow node's x and y coods", function () {
                 expect(node.xCood()).toBe(startNodeXCood + 1);
                 expect(node.yCood()).toBe(startNodeYCood + 2);
-                expect(proximalNode.xCood()).toBe(startProximalNodeXCood);
-                expect(proximalNode.yCood()).toBe(startNodeYCood + 2);
             });
         });
 
+        describe("rightArrowNode.xCood(value)", function () {
+            var node;
+            beforeEach(function () {
+                node = webAPI.getRightArrowNode("foo");
+                node.xCood(300);
+            });
+            it("should set xCood", function () {
+                expect(node.xCood()).toBe(300);
+            });
+        });
 
+        describe("rightArrowNode.yCood(value)", function () {
+            var node;
+            beforeEach(function () {
+                node = webAPI.getRightArrowNode("foo");
+                node.yCood(458);
+            });
+            it("should set yCood", function () {
+                expect(node.yCood()).toBe(458);
+            });
+        });
+
+        describe("proximalNode.xCood(value)", function () {
+            var node;
+            beforeEach(function () {
+                node = webAPI.getProximalNode("foo");
+                node.xCood(300);
+            });
+            it("should set xCood", function () {
+                expect(node.xCood()).toBe(300);
+            });
+        });
+
+        describe("proximalNode.yCood(value)", function () {
+            var node;
+            beforeEach(function () {
+                node = webAPI.getProximalNode("foo");
+                node.yCood(458);
+            });
+            it("should set yCood", function () {
+                expect(node.yCood()).toBe(458);
+            });
+        });
+
+        describe("rightArrowNode.arrowDirection()", function () {
+            var rightArrowNode,
+                proximalNode;
+            describe("When arrow node is to right of proximal node", function () {
+                beforeEach(function () {
+                    rightArrowNode = webAPI.getRightArrowNode("foo");
+                });
+                it("should return direction 'right' ", function () {
+                    expect(rightArrowNode.arrowDirection()).toBe("right");
+                });
+            });
+            describe("When arrow node is to left of proximal node", function () {
+                beforeEach(function () {
+                    rightArrowNode = webAPI.getRightArrowNode("foo");
+                    rightArrowNode.model.update(40, 110);
+                });
+                it("should return direction 'left' ", function () {
+                    expect(rightArrowNode.arrowDirection()).toBe("left");
+                });
+            });
+        });
+
+        describe("leftArrowNode.arrowDirection()", function () {
+            var leftArrowNode,
+                distalNode;
+            describe("When arrow node is to left of distal node", function () {
+                beforeEach(function () {
+                    leftArrowNode = webAPI.getLeftArrowNode("foo");
+                });
+                it("should return direction 'right' ", function () {
+                    expect(leftArrowNode.arrowDirection()).toBe("left");
+                });
+            });
+            describe("When arrow node is to right of distal node", function () {
+                beforeEach(function () {
+                    leftArrowNode = webAPI.getLeftArrowNode("foo");
+                    leftArrowNode.model.update(240, 110);
+                });
+                it("should return direction 'right' ", function () {
+                    expect(leftArrowNode.arrowDirection()).toBe("right");
+                });
+            });
+        });
     });
 });
