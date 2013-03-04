@@ -46,6 +46,9 @@ require.config({
         NodeToBoxCoordinator : "web/js/global/controllers/controller.AttachedNodeToBox",
         ModelDistalNode : "web/js/node/model/model.DistalNode",
         ViewElement : "web/js/node/view/view.element",
+        ModelLine : "web/js/lines/model/model.line",
+        ViewLine : "web/js/lines/view/view.line",
+        CoordinatorHorizontalConnector : "web/js/connectors/coordinator.HorizontalConnector",
 
     }
 });

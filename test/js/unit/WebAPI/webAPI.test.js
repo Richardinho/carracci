@@ -91,5 +91,21 @@ require(['WebAPI'], function (WebAPI) {
                 expect(node.yCood()).toBe(10);
             });
         });
+
+        describe("move()", function () {
+            var node;
+
+            beforeEach(function () {
+                node = webAPI.getRightArrowNode("foo").move(60, 56);
+            });
+
+            it("should contain xCood state", function () {
+                //expect(node.xCood()).toBe(125);
+            });
+
+            it("should contain yCood state", function () {
+                //expect(node.yCood()).toBe(10);
+            });
+        });
     });
 });

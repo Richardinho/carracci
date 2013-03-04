@@ -8,7 +8,11 @@ define(['BaseType',
         'ControllerArrowNode',
         'ControllerDraggableElement',
         'ModelDistalNode',
-        'ViewElement'], function (BaseType,
+        'ViewElement',
+        'ModelLine',
+        "ViewLine",
+        "CoordinatorHorizontalConnector",
+        "Collection"], function (BaseType,
                                            HorizontalConnector,
                                            ModelArrowNode,
                                            CollectionPointer,
@@ -18,7 +22,11 @@ define(['BaseType',
                                            ControllerArrowNode,
                                            ControllerDraggableElement,
                                            ModelDistalNode,
-                                           ViewElement) {
+                                           ViewElement,
+                                           ModelLine,
+                                           ViewLine,
+                                           CoordinatorHorizontalConnector,
+                                           Collection) {
 
 
     return BaseType.extend({
@@ -38,7 +46,40 @@ define(['BaseType',
                 connectorObj.distal = getDistalNode(config, connector);
                 connectorObj.right = getArrowNode(config.rightNode, connector, "right");
 
+                function createLine( nodeA, nodeB ) {
+                    var lineModel = new ModelLine({ "nodeA" : nodeA, "nodeB" : nodeB });
+                    var lineView = new ViewLine({ model : lineModel });
+                    return lineModel;
+                }
 
+                var line1Model = createLine( connectorObj.left.model, connectorObj.distal.model );
+                var line2Model = createLine( connectorObj.distal.model, connectorObj.proximal.model );
+                var line3Model = createLine( connectorObj.proximal.model, connectorObj.right.model );
+
+
+                new CoordinatorHorizontalConnector({ "leftArrow" : connectorObj.left.model,
+                                                     "proximalNode" : connectorObj.distal.model,
+                                                     "distalNode" : connectorObj.proximal.model,
+                                                     "rightArrow" : connectorObj.right.model   });
+
+
+                connectorObj.left.model.setProximalNodeModel(connectorObj.proximal.model);
+                connectorObj.left.model.setDistalNodeModel(connectorObj.proximal.model);
+
+                connectorObj.distal.model.setArrowNodeModel(connectorObj.left.model);
+                connectorObj.distal.model.setDistalNodeModel(connectorObj.proximal.model);
+                connectorObj.distal.model.setLastNodeModel(connectorObj.right.model);
+
+                connectorObj.proximal.model.setArrowNodeModel(connectorObj.right.model);
+                connectorObj.proximal.model.setDistalNodeModel(connectorObj.distal.model);
+                connectorObj.proximal.model.setLastNodeModel(connectorObj.left.model);
+
+                connectorObj.right.model.setProximalNodeModel(connectorObj.proximal.model);
+                connectorObj.right.model.setDistalNodeModel(connectorObj.distal.model);
+
+
+                lineCollection = new Collection([line1Model, line2Model,line3Model]);
+                connector.lines = lineCollection;
 
                 this.connectors[config.id] = connectorObj;
             }
@@ -97,7 +138,13 @@ define(['BaseType',
 
             yCood : function () {
                 return arrowNodeModel.get('yCood');
-            }
+            },
+
+            move : function (dx, dy) {
+                arrowNodeModel.update(this.xCood() + dx, this.yCood() + dy);
+            },
+
+            model : arrowNodeModel
         };
     }
 
@@ -154,7 +201,8 @@ define(['BaseType',
 
             yCood : function () {
                 return proximalNodeModel.get('yCood');
-            }
+            },
+            model : proximalNodeModel
         };
 
     }
@@ -182,7 +230,9 @@ define(['BaseType',
 
             yCood : function () {
                 return distalNodeModel.get('yCood');
-            }
+            },
+
+            model : distalNodeModel
         };
 
     }
