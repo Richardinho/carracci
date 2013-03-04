@@ -11,7 +11,7 @@ require(['WebAPI'], function (WebAPI) {
                              leftNode : { x  : 25, y : 10 , arrows : ['diamond'] },
                              rightNode : { x  : 225, y : 110 , arrows : ['diamond'] } }
                              ],
-            classBoxes : [ class1 ]
+            classBoxes : [ { name : "List", id : "blahClass", x : 100, y : 100, properties :  [{ name : "foo", visibility : "+", type : "String" }, { name : "bar", visibility : "#", type : "int" }] } ]
         };
 
         webAPI = new WebAPI(configuration);
@@ -30,7 +30,9 @@ require(['WebAPI'], function (WebAPI) {
 
         afterEach(function () {
             reset();
-        })
+        });
+
+
         describe("moving nodes along x and y axis and effect on other nodes", function () {
             describe("When right arrow node moved along its x and y axis", function () {
                 var node,

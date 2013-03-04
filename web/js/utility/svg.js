@@ -1,6 +1,6 @@
 define(['raphael'], function(Raphael) {
 
-    var paper = Raphael(500, 100, 500,600);
+    var paper = Raphael(500, 700, 500,600);
     paper.rect(0, 0, 500, 600).attr({ fill : "white"});
 
     Raphael.fn.TransparentPane = function(model) {

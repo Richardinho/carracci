@@ -49,6 +49,8 @@ require.config({
         ModelLine : "web/js/lines/model/model.line",
         ViewLine : "web/js/lines/view/view.line",
         CoordinatorHorizontalConnector : "web/js/connectors/coordinator.HorizontalConnector",
+        ClassBoxModel : "web/js/classBox/model/model.ClassBox",
+        propertyBuilder : "web/js/utility/propertyBuilder",
 
     }
 });

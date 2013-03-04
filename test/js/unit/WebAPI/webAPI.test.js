@@ -11,7 +11,8 @@ require(['WebAPI'], function (WebAPI) {
                              leftNode : { x  : 25, y : 10 , arrows : ['diamond'] },
                              rightNode : { x  : 225, y : 110 , arrows : ['diamond'] } }
                              ],
-            classBoxes : [ class1 ]
+            classBoxes : [ { name : "List", id : "blahClass", x : 0, y : 0, properties :  [{ name : "foo", visibility : "+", type : "String" }, { name : "bar", visibility : "#", type : "int" }] } ]
+
         };
 
         webAPI = new WebAPI(configuration);
@@ -31,6 +32,34 @@ require(['WebAPI'], function (WebAPI) {
         afterEach(function () {
             reset();
         })
+
+        describe("classboxes", function () {
+            describe("getClassBox", function () {
+                var blahClass;
+                beforeEach(function () {
+                    blahClass = webAPI.getClassBox("blahClass");
+                });
+                it("should return classBox object", function () {
+                    expect(blahClass.id).toBe("blahClass");
+                });
+            });
+
+            describe("move()", function () {
+                var blahClass,
+                    startXCood,
+                    startYCood;
+                beforeEach(function () {
+                    blahClass = webAPI.getClassBox("blahClass");
+                    startXCood = blahClass.xCood();
+                    startYCood = blahClass.yCood();
+                    blahClass.move(100, 200);
+                });
+                it("should set x and y coods", function () {
+                    expect(blahClass.xCood()).toBe(startXCood + 100);
+                    expect(blahClass.yCood()).toBe(startYCood + 200);
+                });
+            });
+        });
 
         describe("getConnector()", function () {
             var connector;

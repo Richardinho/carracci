@@ -12,7 +12,11 @@ define(['BaseType',
         'ModelLine',
         "ViewLine",
         "CoordinatorHorizontalConnector",
-        "Collection"], function (BaseType,
+        "Collection",
+        "ClassBoxModel",
+        "propertyBuilder",
+        "ClassBoxView",
+        "ClassBoxController"], function (BaseType,
                                            HorizontalConnector,
                                            ModelArrowNode,
                                            CollectionPointer,
@@ -26,8 +30,16 @@ define(['BaseType',
                                            ModelLine,
                                            ViewLine,
                                            CoordinatorHorizontalConnector,
-                                           Collection) {
+                                           Collection,
+                                           ClassBoxModel,
+                                           propertyBuilder,
+                                           ClassBoxView,
+                                           ClassBoxController ) {
 
+
+    function getProperty(config) {
+        return propertyBuilder(config.name).visibility(config.visibility).type(config.type).build();
+    }
 
     return BaseType.extend({
 
@@ -36,6 +48,55 @@ define(['BaseType',
 
             var connectors = config.connectors;
             this.connectors = {};
+            this.classes = {};
+
+            var classes = config.classBoxes;
+
+            for(var i =0; i < classes.length; i++) {
+                var classConfig = classes[i];
+
+
+
+                var className = classConfig.name;
+                var classId = classConfig.id;
+
+                var x = classConfig.x;
+                var y = classConfig.y;
+
+                var classBoxModel = new ClassBoxModel({ "name" : className, "id" : classId, "x" : x, "y" : y });
+                var classBoxView = new ClassBoxView({ model : classBoxModel });
+                var classBoxController = new ClassBoxController({ model : classBoxModel, view : classBoxView });
+                var propertiesConfig = classConfig.properties;
+
+                for(var j=0; j < propertiesConfig.length; j++) {
+                    var propertyConfig = propertiesConfig[j];
+                    classBoxModel.addProperty(getProperty(propertyConfig));
+
+                }
+
+                this.classes[classId] = {
+
+                    id : classId ,
+
+                    model : classBoxModel,
+
+                    xCood : function () {
+                        return this.model.get('xCood');
+                    },
+
+                    yCood : function () {
+                        return this.model.get('yCood');
+                    },
+
+                    move : function (dx, dy) {
+                        this.model.set({ 'startX': this.xCood() });
+                        this.model.set({ 'startY': this.yCood() });
+                        this.model.translate(dx, dy);
+                    }
+                };
+
+            }
+
             for(var i = 0; i < connectors.length; i++) {
                 var config = connectors[i];
                 var connectorObj = { id : config.id };
@@ -104,6 +165,10 @@ define(['BaseType',
 
         getConnector : function (id) {
             return this.connectors[id];
+        },
+
+        getClassBox : function (id) {
+            return this.classes[id];
         }
     });
 
