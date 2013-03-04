@@ -11,10 +11,12 @@ require(['WebAPI'], function (WebAPI) {
                              leftNode : { x  : 25, y : 10 , arrows : ['diamond'] },
                              rightNode : { x  : 225, y : 110 , arrows : ['diamond'] } }
                              ],
-            classBoxes : [ { name : "List", id : "blahClass", x : 100, y : 100, properties :  [{ name : "foo", visibility : "+", type : "String" }, { name : "bar", visibility : "#", type : "int" }] } ]
+            classBoxes : [ { name : "List", id : "blahClass", x : 0, y : 0, properties :  [{ name : "foo", visibility : "+", type : "String" }, { name : "bar", visibility : "#", type : "int" }] } ]
         };
 
         webAPI = new WebAPI(configuration);
+        // because of a bug in the classbox we need to move it separately
+        webAPI.getClassBox("blahClass").move(200, 200);
 
         function reset() {
             var rightArrowNode, proximalNode, leftArrowNode;
@@ -28,8 +30,18 @@ require(['WebAPI'], function (WebAPI) {
             proximalNode.xCood(125);
         }
 
+
         afterEach(function () {
             reset();
+        });
+
+        describe("linking arrow to classbox", function () {
+            var rightArrowNode;
+            beforeEach(function () {
+                rightArrowNode = webAPI.getRightArrowNode("foo");
+                rightArrowNode.click();
+
+            });
         });
 
 

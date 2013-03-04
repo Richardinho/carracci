@@ -194,6 +194,8 @@ define(['BaseType',
 
             model : arrowNodeModel,
 
+            view : arrowNodeView,
+
             xCood : function (newXCood) {
 
                 if(!newXCood) {
@@ -218,6 +220,12 @@ define(['BaseType',
 
             arrowDirection : function () {
                 return this.model._getArrowModel().get("direction");
+            },
+
+            click : function () {
+                var evObj = document.createEvent('MouseEvents');
+                evObj.initEvent('click', true, false);
+                this.view.element.node.dispatchEvent(evObj);
             }
 
 

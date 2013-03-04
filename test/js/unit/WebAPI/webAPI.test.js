@@ -353,6 +353,25 @@ require(['WebAPI'], function (WebAPI) {
                     });
                 });
             });
+
+            describe("click()", function () {
+                var node, result;
+
+                var handler = function () {
+                    result = "click"
+                };
+                beforeEach(function () {
+                    node = webAPI.getRightArrowNode("foo");
+                    node.view.element.click(handler);
+                    node.click();
+                });
+                it("should fire click event", function () {
+                    expect(result).toBe("click");
+                });
+                afterEach(function () {
+                    node.view.element.unclick(handler);
+                })
+            })
         });
     });
 });

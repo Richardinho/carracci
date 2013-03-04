@@ -10,6 +10,7 @@ define(['ControllerDraggableElement', 'keyManager', 'globalController'], functio
         },
 
         _onClick : function () {
+            console.log("clicked on element");
             if(KeyManager.S_KEY) {
                 this.model.changePointer();
             } else if(KeyManager.T_KEY) {

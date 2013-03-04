@@ -51,6 +51,8 @@ require.config({
         CoordinatorHorizontalConnector : "web/js/connectors/coordinator.HorizontalConnector",
         ClassBoxModel : "web/js/classBox/model/model.ClassBox",
         propertyBuilder : "web/js/utility/propertyBuilder",
+        ClassBoxView : "web/js/classBox/view/view.ClassBox",
+        ClassBoxController : "web/js/classBox/controller/controller.ClassBox",
 
     }
 });
