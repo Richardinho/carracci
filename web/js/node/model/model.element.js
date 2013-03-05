@@ -8,7 +8,6 @@ define(['Model', 'Collection'], function (Model, Collection) {
         initialize : function (options) {
 
             Model.prototype.initialize.call(this, options);
-            this.validators = [];
             this.fooValidators = new Collection([]);
             this.id = options.id;
             this.updateCoordinates(options.x, options.y);
@@ -98,6 +97,10 @@ define(['Model', 'Collection'], function (Model, Collection) {
 
         addValidator : function (validator) {
             this.fooValidators.add(validator);
+        },
+
+        removeValidator : function () {
+
         }
 
     });

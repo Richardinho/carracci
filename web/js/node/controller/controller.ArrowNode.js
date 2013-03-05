@@ -16,7 +16,14 @@ define(['ControllerDraggableElement', 'keyManager', 'globalController'], functio
             } else if(KeyManager.T_KEY) {
                 this.model.changeLine();
             } else if(KeyManager.U_KEY) {
-                globalController.arrowRequest(this.model);
+                console.log("UKey")
+                if(this.model.get("connectedToBox")) {
+                    console.log("disconnect")
+                    this.model.set({ "connectedToBox" : false });
+                } else {
+                    globalController.arrowRequest(this.model);
+                }
+
             }
         },
 

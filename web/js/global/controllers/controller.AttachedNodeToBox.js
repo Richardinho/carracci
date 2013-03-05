@@ -38,6 +38,14 @@ define(['BaseType'],function (BaseType) {
             }
         },
 
+        destroy : function () {
+            for(var role in this.players) {
+
+                this.players[role].destroy(this._getValidatorId(role));
+
+            }
+        },
+
         _moveArrowOntoBox : function () {
             console.log("move arrow onto box")
             var x = this.players['box'].get('xCood'),
@@ -46,6 +54,10 @@ define(['BaseType'],function (BaseType) {
                 newArrowYPosition = y + (height/ 2);
 
             this.players['arrow'].update(x, newArrowYPosition, true);
+        },
+
+        _getValidatorId : function (role) {
+            return this.roleIds[role];
         },
 
         _getValidator : function (role) {
@@ -60,6 +72,8 @@ define(['BaseType'],function (BaseType) {
             switch(role) {
 
                 case "box" :
+
+
                     validator = {
 
                         context : that,
@@ -194,8 +208,17 @@ define(['BaseType'],function (BaseType) {
                 break;
 
             }
+
+            this.roleIds[role] = this._getUniqueId();
+
             return validator;
+        },
+
+
+        _getUniqueId : function () {
+
         }
+
 
 
 

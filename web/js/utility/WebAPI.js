@@ -102,6 +102,9 @@ define(['BaseType',
                         var evObj = document.createEvent('MouseEvents');
                         evObj.initEvent('click', true, false);
                         this.view.element.node.dispatchEvent(evObj);
+                    },
+                    height : function () {
+                        return this.model.get("height");
                     }
                 };
 

@@ -391,6 +391,16 @@ require(['WebAPI', 'keyManager'], function (WebAPI, KeyManager) {
                 })
             });
 
+            describe("classBox.height", function () {
+                var classBox;
+                beforeEach(function () {
+                    classBox = webAPI.getClassBox("blahClass");
+                });
+                it("should return height of classbox", function () {
+                    expect(classBox.height()).toBe(classBox.model.get("height"));
+                });
+            });
+
             describe("keyDown('U')", function () {
                 beforeEach(function () {
                     webAPI.keyDown('U');

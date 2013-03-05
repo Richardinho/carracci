@@ -1,4 +1,4 @@
-require(['NodeToBoxCoordinator'], function (Coordinator) {
+require(['underscore', 'NodeToBoxCoordinator'], function (_, Coordinator) {
 
     describe("NodeToBoxCoordinator", function () {
         var coordinator;
@@ -8,17 +8,16 @@ require(['NodeToBoxCoordinator'], function (Coordinator) {
         });
 
         describe("When initialized", function () {
+            it("should", function () {});
             describe("without box or arrow component", function () {
                 var errorName,
                     errorMessage;
 
                 beforeEach(function () {
-                    debugger;
                     try {
                         coordinator = new Coordinator({ players : {} });
                     } catch(e) {
                           console.log("error")
-                          debugger;
                         errorName = e.name;
                         errorMessage = e.message;
                     }
@@ -28,6 +27,13 @@ require(['NodeToBoxCoordinator'], function (Coordinator) {
                     expect(errorName).toBe("incorrectOptionsError");
                     expect(errorMessage).toBe("You must supply a box and arrow component on intialization");
                 });
+            });
+        });
+        describe("destroy", function () {
+            it("should", function () {
+
+
+
             });
         });
     });

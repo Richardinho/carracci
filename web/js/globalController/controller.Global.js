@@ -17,6 +17,8 @@ define(['BaseType',
         boxRequest : function(box) {
 
             if(this.arrow !== undefined) {
+
+                this.arrow.set({ "connectedToBox": true });
                 var connectionManager = new NodeBoxCoordinator ({ "arrow" : this.arrow,
                                                                   "box" : box,
                                                                   "proximalNode": this.arrow.proximalNodeModel,

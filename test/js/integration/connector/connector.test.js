@@ -212,8 +212,29 @@ require(['WebAPI'], function (WebAPI) {
                 classBox.click();
 
             });
-            it("should", function () {
-                //todo: write test!
+            it("should move arrow onto classbox ", function () {
+                var classBoxXCood = classBox.xCood(),
+                    classBoxHeight = classBox.height();
+                expect(rightArrowNode.xCood()).toBe(classBoxXCood);
+                expect(rightArrowNode.yCood()).toBe(classBox.yCood() + (classBoxHeight / 2));
+            });
+        });
+
+        describe("disconnecting arrow from classbox", function () {
+            var rightArrowNode,
+                classBox,
+                classBoxXCood;
+
+            beforeEach(function () {
+                rightArrowNode = webAPI.getRightArrowNode("foo");
+                classBox = webAPI.getClassBox("blahClass");
+                classBoxXCood = classBox.xCood();
+                webAPI.keyDown('U');
+                // this should disconnect arrow from classbox.
+                rightArrowNode.move(-100, 20);
+            });
+            it("should remove right arrow node from class box", function () {
+                expect(rightArrowNode.xCood()).toBe(classBoxXCood - 100);
             });
         });
     });
