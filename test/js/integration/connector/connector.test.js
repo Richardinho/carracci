@@ -35,14 +35,7 @@ require(['WebAPI'], function (WebAPI) {
             reset();
         });
 
-        describe("linking arrow to classbox", function () {
-            var rightArrowNode;
-            beforeEach(function () {
-                rightArrowNode = webAPI.getRightArrowNode("foo");
-                rightArrowNode.click();
 
-            });
-        });
 
 
         describe("moving nodes along x and y axis and effect on other nodes", function () {
@@ -204,6 +197,23 @@ require(['WebAPI'], function (WebAPI) {
             });
             it("should reverse direction of the arrow", function () {
                 expect(leftArrowNode.arrowDirection()).toBe("right");
+            });
+        });
+
+        describe("linking arrow to classbox", function () {
+            var rightArrowNode,
+                classBox;
+
+            beforeEach(function () {
+                rightArrowNode = webAPI.getRightArrowNode("foo");
+                classBox = webAPI.getClassBox("blahClass");
+                webAPI.keyDown('U');
+                rightArrowNode.click();
+                classBox.click();
+
+            });
+            it("should", function () {
+                //todo: write test!
             });
         });
     });

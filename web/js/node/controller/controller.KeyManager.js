@@ -46,7 +46,7 @@ define(['jQuery', 'BaseType'],function ($, extend) {
             R : "R_KEY",
             S : "S_KEY",
             T : "T_KEY",
-            U : "U_KEY",
+            U : "U_KEY", //85
             V : "V_KEY",
             W : "W_KEY",
             X : "X_KEY",

@@ -16,7 +16,8 @@ define(['BaseType',
         "ClassBoxModel",
         "propertyBuilder",
         "ClassBoxView",
-        "ClassBoxController"], function (BaseType,
+        "ClassBoxController",
+        "keyManager"], function (BaseType,
                                            HorizontalConnector,
                                            ModelArrowNode,
                                            CollectionPointer,
@@ -34,7 +35,8 @@ define(['BaseType',
                                            ClassBoxModel,
                                            propertyBuilder,
                                            ClassBoxView,
-                                           ClassBoxController ) {
+                                           ClassBoxController,
+                                           KeyManager ) {
 
 
     function getProperty(config) {
@@ -80,6 +82,8 @@ define(['BaseType',
 
                     model : classBoxModel,
 
+                    view : classBoxView,
+
                     xCood : function () {
                         return this.model.get('xCood');
                     },
@@ -92,6 +96,12 @@ define(['BaseType',
                         this.model.set({ 'startX': this.xCood() });
                         this.model.set({ 'startY': this.yCood() });
                         this.model.translate(dx, dy);
+                    },
+
+                    click : function () {
+                        var evObj = document.createEvent('MouseEvents');
+                        evObj.initEvent('click', true, false);
+                        this.view.element.node.dispatchEvent(evObj);
                     }
                 };
 
@@ -169,6 +179,19 @@ define(['BaseType',
 
         getClassBox : function (id) {
             return this.classes[id];
+        },
+
+        keyDown : function (key) {
+
+            var map = { 'U' : 85 },
+                keyCode;
+
+            key = key.toUpperCase();
+
+            keyCode = map[key];
+
+            KeyManager._keyDown({ "keyCode" : keyCode });
+
         }
     });
 

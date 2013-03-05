@@ -53,6 +53,7 @@ require.config({
         propertyBuilder : "web/js/utility/propertyBuilder",
         ClassBoxView : "web/js/classBox/view/view.ClassBox",
         ClassBoxController : "web/js/classBox/controller/controller.ClassBox",
+        keyManager : "web/js/node/controller/controller.KeyManager",
 
     }
 });

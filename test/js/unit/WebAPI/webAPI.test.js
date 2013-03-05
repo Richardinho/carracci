@@ -1,4 +1,4 @@
-require(['WebAPI'], function (WebAPI) {
+require(['WebAPI', 'keyManager'], function (WebAPI, KeyManager) {
 
     describe("WebAPI", function () {
         var webAPI,
@@ -354,7 +354,7 @@ require(['WebAPI'], function (WebAPI) {
                 });
             });
 
-            describe("click()", function () {
+            describe("arrowNode.click()", function () {
                 var node, result;
 
                 var handler = function () {
@@ -372,6 +372,33 @@ require(['WebAPI'], function (WebAPI) {
                     node.view.element.unclick(handler);
                 })
             })
+
+            describe("classBox.click()", function () {
+                var result;
+                var handler = function () {
+                    result = "click";
+                }
+                beforeEach(function () {
+                    classBox = webAPI.getClassBox("blahClass");
+                    classBox.view.element.click(handler);
+                    classBox.click();
+                });
+                it("should fire click event", function () {
+                    expect(result).toBe("click");
+                });
+                afterEach(function () {
+                    classBox.view.element.unclick(handler);
+                })
+            });
+
+            describe("keyDown('U')", function () {
+                beforeEach(function () {
+                    webAPI.keyDown('U');
+                });
+                it("should set 'U_KEY' in KeyManager to TRUE", function () {
+                    expect(KeyManager.U_KEY).toBe(true);
+                });
+            });
         });
     });
 });
