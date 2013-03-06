@@ -21,7 +21,8 @@ require.config({
 
         BaseType : "web/js/utility/extend",
         NodeToBoxCoordinator : "web/js/global/controllers/controller.AttachedNodeToBox",
-        underscore : "web/js/lib/underscore"
+        underscore : "web/js/lib/underscore",
+        IDGenerator : "test/js/stubs/IDGeneratorStub"
 
     }
 });

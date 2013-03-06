@@ -1,4 +1,4 @@
-define(['BaseType'],function (BaseType) {
+define(['BaseType', 'IDGenerator'],function (BaseType, IDGenerator) {
 
     return BaseType.extend ({
 
@@ -16,7 +16,7 @@ define(['BaseType'],function (BaseType) {
         //  When a player wishes to move, the games master determines if they are allowed to move or not.
         //  If they do move, the games master then moves other players in response.
         initialize : function (options) {
-
+            this.roleIds = {};
             this.players = options;
 
             if (!this.players || !this.players.box || !this.players.arrow ) {
@@ -47,7 +47,6 @@ define(['BaseType'],function (BaseType) {
         },
 
         _moveArrowOntoBox : function () {
-            console.log("move arrow onto box")
             var x = this.players['box'].get('xCood'),
                 y = this.players['box'].get('yCood'),
                 height = this.players['box'].get('height'),
@@ -62,7 +61,7 @@ define(['BaseType'],function (BaseType) {
 
         _getValidator : function (role) {
             var validator,
-                that = this;
+                that = this, validatorId;
             //  these constraints are how the objects are allowed to be moved.
             //  No constraints are applied as to how a component can be moved by another component.
 
@@ -73,8 +72,10 @@ define(['BaseType'],function (BaseType) {
 
                 case "box" :
 
-
+                    validatorId = this._getUniqueId();
                     validator = {
+
+                        id : validatorId,
 
                         context : that,
                         // there are no constraints on the box
@@ -114,7 +115,10 @@ define(['BaseType'],function (BaseType) {
                 break;
 
                 case "arrow" :
+                    validatorId = this._getUniqueId();
                     validator = {
+
+                        id : validatorId,
 
                         context : that,
                         // the arrow is not allowed to be moved in the x axis.
@@ -143,9 +147,14 @@ define(['BaseType'],function (BaseType) {
                 break;
 
                 case "distalNode" :
+                    validatorId = this._getUniqueId();
                     // there are no constraints on how the distal node moves.
                     validator = {
+
+                        id : validatorId,
+
                         context : that,
+
                         validateX : function (x) {
                             return true;
                         },
@@ -174,7 +183,11 @@ define(['BaseType'],function (BaseType) {
                 break;
 
                 case "proximalNode" :
+                    validatorId = this._getUniqueId();
                     validator = {
+
+                        id : validatorId,
+
                         context : that,
                         //  there are no constraints on the proximal node in the x axis.
                         validateX : function (x) {
@@ -209,14 +222,14 @@ define(['BaseType'],function (BaseType) {
 
             }
 
-            this.roleIds[role] = this._getUniqueId();
+            this.roleIds[role] = validatorId;
 
             return validator;
         },
 
 
         _getUniqueId : function () {
-
+            return IDGenerator.getNextId();
         }
 
 
