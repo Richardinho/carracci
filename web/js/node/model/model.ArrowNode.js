@@ -44,7 +44,12 @@ define(['ModelElement'], function (ModelElement) {
 
         setDistalNodeModel : function(nodeModel) {
             this.distalNodeModel = nodeModel;
+        },
+
+        detatch : function () {
+            this.attachmentCoordinator.destroy();
         }
+
 
     });
 });

@@ -25,6 +25,31 @@ define(['BaseType', 'underscore'], function (extend, _) {
             this._collection.splice(index, 1);
         },
 
+        deleteModel : function (id) {
+            var i,
+                length = this.size(),
+                element;
+            for(i = 0; i < length; i++) {
+                element = this.get(i);
+                if(element.id === id) {
+                    this.delete(i);
+                }
+            }
+        },
+
+        findFirst : function (property, value ) {
+            var i,
+                length = this.size(),
+                element;
+            for(i = 0; i < length; i++) {
+                element = this.get(i);
+                debugger;
+                if(element.get(property) === value) {
+                    return i;
+                }
+            }
+        },
+
         size : function () {
             return this._collection.length;
         },

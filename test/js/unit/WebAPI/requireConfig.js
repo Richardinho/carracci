@@ -54,6 +54,15 @@ require.config({
         ClassBoxView : "web/js/classBox/view/view.ClassBox",
         ClassBoxController : "web/js/classBox/controller/controller.ClassBox",
         keyManager : "web/js/node/controller/controller.KeyManager",
+        NodeToBoxCoordinator : "web/js/global/controllers/controller.AttachedNodeToBox",
+        templateLoader : "web/js/utility/templateLoader",
+        IDGenerator : "web/js/utility/IDGenerator",
+        BaseCoordinator : "web/js/coordinators/baseCoordinator",
+        ArrowCoordinator: "web/js/coordinators/ArrowCoordinator",
+        BoxCoordinator: "web/js/coordinators/BoxCoordinator",
+        ProximalNodeCoordinator:"web/js/coordinators/ProximalNodeCoordinator",
+        DistalNodeCoordinator: "web/js/coordinators/DistalNodeCoordinator"
+
 
     }
 });

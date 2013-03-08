@@ -1,4 +1,12 @@
-define(['BaseType', 'IDGenerator'],function (BaseType, IDGenerator) {
+define(['BaseType',
+        'ArrowCoordinator',
+        'BoxCoordinator',
+        'ProximalNodeCoordinator',
+        'DistalNodeCoordinator'],function (BaseType,
+                                           ArrowCoordinator,
+                                           BoxCoordinator,
+                                           ProximalNodeCoordinator,
+                                           DistalNodeCoordinator ) {
 
     return BaseType.extend ({
 
@@ -17,9 +25,8 @@ define(['BaseType', 'IDGenerator'],function (BaseType, IDGenerator) {
         //  If they do move, the games master then moves other players in response.
         initialize : function (options) {
             this.roleIds = {};
-            this.players = options;
 
-            if (!this.players || !this.players.box || !this.players.arrow ) {
+            if (!options || !options.box || !options.arrow || !options.proximalNode || !options.distalNode ) {
 
                 throw {
                     name : "incorrectOptionsError",
@@ -27,22 +34,20 @@ define(['BaseType', 'IDGenerator'],function (BaseType, IDGenerator) {
                 };
             }
 
-            this.arrowYOffset = 25;
+            this.players = options;
 
             this._moveArrowOntoBox();
 
             for(var role in this.players) {
 
-                this.players[role].addValidator(this._getValidator(role));
-
+                this.players[role].addValidator(this._getCoordinator(role));
             }
         },
 
         destroy : function () {
             for(var role in this.players) {
 
-                this.players[role].destroy(this._getValidatorId(role));
-
+                this.players[role].removeValidator(this._getCoordinatorId(role));
             }
         },
 
@@ -51,193 +56,40 @@ define(['BaseType', 'IDGenerator'],function (BaseType, IDGenerator) {
                 y = this.players['box'].get('yCood'),
                 height = this.players['box'].get('height'),
                 newArrowYPosition = y + (height/ 2);
-
             this.players['arrow'].update(x, newArrowYPosition, true);
         },
 
-        _getValidatorId : function (role) {
+        _getCoordinatorId : function (role) {
             return this.roleIds[role];
         },
 
-        _getValidator : function (role) {
-            var validator,
-                that = this, validatorId;
-            //  these constraints are how the objects are allowed to be moved.
-            //  No constraints are applied as to how a component can be moved by another component.
+        _getCoordinator : function (role) {
+            var coordinator,
+                that = this; // need to pass this context to the coordinators.
 
-            // what we need is to separate out validation and setting of other coods.
-            // we should only validate the component which is being moved.
-            // however, we should always update coods of all components.
+            debugger;
             switch(role) {
 
                 case "box" :
-
-                    validatorId = this._getUniqueId();
-                    validator = {
-
-                        id : validatorId,
-
-                        context : that,
-                        // there are no constraints on the box
-                        validateX : function (x) {
-                            return true;
-                        },
-                        validateY : function (y) {
-                            return true;
-                        },
-                        setXCoods : function(x) {
-
-                            var arrowXCood = x,
-                                arrowModel = this.players["arrow"],
-                                proximalNode = this.players["proximalNode"],
-                                box = this.players["box"];
-                                rightEdge = x + box.getWidth();
-
-                            if(proximalNode.get('xCood') > rightEdge) {
-                                arrowXCood = x + box.getWidth();
-                            }
-                            //  has to be false. If we validate the arrow model's x cood it will fail on
-                            // the rule we have given it
-                            arrowModel.updateX(arrowXCood, false);
-                        },
-                        //  here we do want the arrow to validate y coods, because we want it to call other components.
-                        setYCoods : function (y) {
-
-                            var arrowModel = this.players["arrow"];
-
-                            arrowModel.updateY( y + this.arrowYOffset, true);
-                        },
-
-                        postProcess : function (x, y) {
-
-                        }
-                    };
+                    coordinator = new BoxCoordinator({ players : this.players, context : this });
                 break;
 
                 case "arrow" :
-                    validatorId = this._getUniqueId();
-                    validator = {
-
-                        id : validatorId,
-
-                        context : that,
-                        // the arrow is not allowed to be moved in the x axis.
-                        // however: it should move if moved by the box. I need to find a way to express this.
-                        validateX : function (x) {
-                            return false;
-                        },
-                        //  the arrow is limited in the y axis by the upper and lower y limits of the box.
-                        validateY : function (y) {
-                            var box = this.players["box"],
-                                upperYLimit =  box.get('yCood'),
-                                lowerYLimit = upperYLimit + box.get('height');
-                            return (y > upperYLimit && y < lowerYLimit);
-                        },
-                        setXCoods : function(x) {
-                            console.log("arrow setxCoods")
-                        },
-                        setYCoods : function (y) {
-                            console.log("arrow setYCoods")
-                        },
-
-                        postProcess : function (x, y) {
-
-                        }
-                    };
+                    coordinator = new ArrowCoordinator({ players : this.players, context : this  });
                 break;
 
                 case "distalNode" :
-                    validatorId = this._getUniqueId();
-                    // there are no constraints on how the distal node moves.
-                    validator = {
-
-                        id : validatorId,
-
-                        context : that,
-
-                        validateX : function (x) {
-                            return true;
-                        },
-                        validateY : function (y) {
-                            return true;
-                        },
-                        setXCoods : function(x) {
-
-                             var rightEdgexCood = this.players["box"].get('width') + this.players["box"].get('xCood');
-
-                             if(x > rightEdgexCood) {
-                                 this.players["arrow"].set({ "xCood" : rightEdgexCood });
-                             } else {
-                                 this.players["arrow"].set({"xCood" : this.players["box"].get('xCood') } );
-                             }
-
-                        },
-                        setYCoods : function (y) {
-                            //  do nothing
-                        },
-
-                        postProcess : function (x, y) {
-
-                        }
-                    };
+                    coordinator = new DistalNodeCoordinator({ players : this.players, context : this  });
                 break;
 
                 case "proximalNode" :
-                    validatorId = this._getUniqueId();
-                    validator = {
-
-                        id : validatorId,
-
-                        context : that,
-                        //  there are no constraints on the proximal node in the x axis.
-                        validateX : function (x) {
-                            return true;
-                        },
-                        // the proximal node has the same y axis constraints as the arrow
-                        validateY : function (y) {
-                            var box = this.players["box"],
-                                upperYLimit =  box.get('yCood'),
-                                lowerYLimit = upperYLimit + box.get('height');
-                            return (y > upperYLimit && y < lowerYLimit);
-                        },
-                        setXCoods : function(x) {
-
-                             var rightEdgexCood = this.players["box"].get('width') + this.players["box"].get('xCood');
-
-                             if(x > rightEdgexCood) {
-                                 this.players["arrow"].set({ "xCood" : rightEdgexCood });
-                             } else {
-                                 this.players["arrow"].set({"xCood" : this.players["box"].get('xCood') } );
-                             }
-                        },
-                        setYCoods : function (y) {
-                            //  do nothing
-                        },
-
-                        postProcess : function (x, y) {
-
-                        }
-                    };
+                    coordinator = new ProximalNodeCoordinator({ players : this.players, context : this  });
                 break;
-
             }
 
-            this.roleIds[role] = validatorId;
+            this.roleIds[role] = coordinator.id;
 
-            return validator;
-        },
-
-
-        _getUniqueId : function () {
-            return IDGenerator.getNextId();
+            return coordinator;
         }
-
-
-
-
     });
-
 });
-
-
-

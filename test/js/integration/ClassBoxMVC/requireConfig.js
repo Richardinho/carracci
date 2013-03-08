@@ -37,6 +37,13 @@ require.config({
         eve : "lib/eve.0.3.4",
         BaseType : "utility/extend",
         ModelClassBox : "classBox/model/model.ClassBox",
+        IDGenerator : "utility/IDGenerator",
+        NodeToBoxCoordinator : "global/controllers/controller.AttachedNodeToBox",
+        BaseCoordinator : "coordinators/baseCoordinator",
+        ArrowCoordinator: "coordinators/ArrowCoordinator",
+        BoxCoordinator: "coordinators/BoxCoordinator",
+        ProximalNodeCoordinator:"coordinators/ProximalNodeCoordinator",
+        DistalNodeCoordinator: "coordinators/DistalNodeCoordinator"
     }
 });
 

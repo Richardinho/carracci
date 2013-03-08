@@ -230,6 +230,7 @@ require(['WebAPI'], function (WebAPI) {
                 classBox = webAPI.getClassBox("blahClass");
                 classBoxXCood = classBox.xCood();
                 webAPI.keyDown('U');
+                rightArrowNode.click();
                 // this should disconnect arrow from classbox.
                 rightArrowNode.move(-100, 20);
             });

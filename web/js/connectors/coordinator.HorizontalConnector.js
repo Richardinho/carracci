@@ -22,13 +22,13 @@ define(['BaseType'], function (extend) {
 
             for(var role in this.players) {
 
-                this.players[role].addValidator(this._getValidator(role));
+                this.players[role].addValidator(this._getCoordinator(role));
 
             }
 
         },
 
-        _getValidator : function (role) {
+        _getCoordinator : function (role) {
             var validator,
                 that = this;
             //  these constraints are how the objects are allowed to be moved.

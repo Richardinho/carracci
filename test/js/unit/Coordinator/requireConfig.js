@@ -19,10 +19,9 @@ require.config({
         underscore : "web/js/lib/underscore",
         jQuery : "web/js/lib/jquery-1.8.0",
         BaseType : "web/js/utility/extend",
-        templateLoader : "web/js/utility/templateLoader",
-        Model : "web/js/core/Model",
-        ModelElement : "web/js/node/model/model.element",
-        Collection : "web/js/core/Collection"
+        Coordinator : "web/js/coordinators/baseCoordinator",
+        IDGenerator : "test/js/stubs/IDGeneratorStub"
+
 
     }
 });

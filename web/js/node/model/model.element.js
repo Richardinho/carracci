@@ -99,8 +99,8 @@ define(['Model', 'Collection'], function (Model, Collection) {
             this.fooValidators.add(validator);
         },
 
-        removeValidator : function () {
-
+        removeValidator : function (id) {
+            this.fooValidators.deleteModel(id);
         }
 
     });

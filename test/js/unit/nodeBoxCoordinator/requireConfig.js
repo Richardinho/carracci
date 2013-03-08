@@ -22,8 +22,11 @@ require.config({
         BaseType : "web/js/utility/extend",
         NodeToBoxCoordinator : "web/js/global/controllers/controller.AttachedNodeToBox",
         underscore : "web/js/lib/underscore",
-        IDGenerator : "test/js/stubs/IDGeneratorStub"
-
+        IDGenerator : "test/js/stubs/IDGeneratorStub",
+        ArrowCoordinator:"test/js/stubs/ArrowCoordinator",
+        ProximalNodeCoordinator:"test/js/stubs/ProximalNodeCoordinator",
+        DistalNodeCoordinator:"test/js/stubs/DistalNodeCoordinator",
+        BoxCoordinator : "test/js/stubs/BoxCoordinator"
     }
 });
 

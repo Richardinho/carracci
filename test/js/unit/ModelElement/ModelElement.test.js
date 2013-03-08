@@ -87,4 +87,24 @@ require(['underscore',  'ModelElement'], function ( _,  ModelElement) {
             });
         });
     });
+
+    describe("When removeValidator(id) is called", function () {
+
+        var coordinator1,
+            coordinator2,
+            model;
+
+        beforeEach(function () {
+            model = new ModelElement({ x : 23, y : 45 });
+            coordinator1 = { id : 1 };
+            coordinator2 = { id : 2 };
+            model.addValidator(coordinator1);
+            model.addValidator(coordinator2);
+            model.removeValidator(2);
+        });
+        it("should remove coordinator", function () {
+            expect(model.fooValidators.size()).toBe(1);
+        });
+
+    });
 });

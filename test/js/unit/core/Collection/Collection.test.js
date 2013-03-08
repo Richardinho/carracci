@@ -1,189 +1,135 @@
-require(['Model'], function (Model) {
+require(['Collection', 'Model'], function (Collection, Model) {
 
-    describe("Model", function () {
-        var model,
-            spyOnFire;
+    describe("core.Collection", function() {
+
+        var collection,
+            myArray = ["alpha", "beta", "gamma", "delta" ];
+
 
         beforeEach(function () {
-            spyOnFire = spyOn(Model.prototype, "_fire").andCallThrough();
+            collection = new Collection(myArray);
+        });
+        it("should set array into collection", function () {
+            expect(collection._collection).toBe(myArray);
         });
 
-        describe("When properties are set on the Model", function () {
+        describe("get()", function () {
+            it("should retrieve elements by index", function () {
+                expect(collection.get(0)).toBe("alpha");
+            });
+        });
+
+        describe("deleteModel(id)", function () {
+            var model1, model2, collection, index;
             beforeEach(function () {
-                model = new Model();
-                model.set({ foo : "foo", bar : "bar"});
+                model1 = new Model();
+                model2 = new Model();
+                model1.id = 1;
+                model2.id = 2;
+
+                collection = new Collection([model1, model2]);
+
+                collection.deleteModel(2);
             });
-            it("should retrieve with get(), properties set on model with set()", function () {
-                expect(model.get("foo")).toBe("foo");
-                expect(model.get("bar")).toBe("bar");
-            });
-        });
-
-        describe("When a handler is registered against a specific property e.g. 'change:foo' ", function () {
-            describe("When the property is changed on the model", function () {
-                var result;
-
-                beforeEach(function () {
-
-                    model = new Model();
-
-                    model.on("change:foo", function (fooVal) {
-                        result = fooVal;
-                    }, null);
-
-                    model.set({ foo : "foo" }, { silent : false });
-                });
-                // Todo: this is wrong: the handler should query the model directly.
-                it("should pass the new value to the handler function", function () {
-                    expect(result).toBe("foo");
-                });
+            it("should delete model from collection", function () {
+                expect(collection.size()).toBe(1);
             });
         });
 
-        /*
-            var contextObject = {}; // opportunity to pass more data in from somewhere.
+        describe("findFirst()", function () {
+            var model1, model2, collection, index;
+            beforeEach(function () {
+                model1 = new Model();
+                model2 = new Model();
+                model1.set({ "id": "1", "foo" : "bar" });
+                model2.set({ "id": "2", "foo" : "foo" });
 
-            model.on("change:foo", function (model) {
-                result = model.get('anyProperty');
-            }, contextObject);
+                collection = new Collection([model1, model2]);
 
+                index = collection.findFirst("id", "2");
+            });
+            it("should return index of model in collection with given property and value", function () {
+                expect(index).toBe(1);
+            });
+        });
 
-        */
+        describe("each()", function () {
+            var result = [];
 
-        describe("context object", function () {
-            describe("When a context object provided", function () {
-                var contextObject,
-                    result;
-
-                beforeEach(function () {
-
-                    contextObject = { bar : "bar" };
-                    model = new Model();
-
-                    model.on("change:foo", function (fooVal) {
-                        result = this.bar;
-                    }, contextObject);
-
-                    model.set({ foo : "foo" }, { silent : false });
-                });
-                it("should set 'this' to context object within handler function", function () {
-                    expect(result).toBe("bar");
+            beforeEach(function () {
+                collection.each(function (index, element) {
+                    result.push(element + " " + index);
                 });
             });
 
-            describe("When no context object is provided", function () {
-                var result;
+            it("should call callback against each element of collection", function () {
+                expect(result[0]).toBe("alpha 0");
+                expect(result[1]).toBe("beta 1");
+                expect(result[2]).toBe("gamma 2");
+                expect(result[3]).toBe("delta 3");
+            });
 
+            describe("When 'this' keyword is used within body of callback", function () {
+                var result = [];
                 beforeEach(function () {
-
-                    model = new Model();
-
-                    model.blah = "blah"
-
-                    model.on("change:foo", function (fooVal) {
-                        result = this.blah;
+                    collection.each(function (index, element) {
+                        result.push(this.get(index));
                     });
-
-                    model.set({ foo : "foo" }, { silent : false });
                 });
-                it("should set 'this' to be the Model object within handler function", function () {
-                    expect(result).toBe("blah");
+                it("should bind 'this' to collection instance", function () {
+                    expect(result[0]).toBe("alpha");
+                    expect(result[1]).toBe("beta");
+                    expect(result[2]).toBe("gamma");
+                    expect(result[3]).toBe("delta");
+                });
+            });
+            describe("When context object passed in", function () {
+                var contextObject = { foo : "foo" },
+                    result = [];
+                beforeEach(function () {
+                    collection.each(function (index, element) {
+                        result.push(this.foo);
+                    }, contextObject);
+                });
+                it("should bind 'this' to context object", function () {
+                    expect(result[0]).toBe("foo");
+                    expect(result[1]).toBe("foo");
+                    expect(result[2]).toBe("foo");
+                    expect(result[3]).toBe("foo");
                 });
             });
         });
 
-        describe("When handler is registered only for general 'change' event", function () {
-            var result = null;
+        describe("map()", function () {
+            var result;
 
             beforeEach(function () {
-                model.on("change", function (fooValue) {
-                    result = fooValue;
-                }, null);
+                result = collection.map(function(index, element) {
+                    return index + " " + element;
+                });
+            });
+            it("should return array of mapped values", function() {
+                expect(result[0]).toBe("0 alpha");
+                expect(result[1]).toBe("1 beta");
+                expect(result[2]).toBe("2 gamma");
+                expect(result[3]).toBe("3 delta");
             });
 
-            describe("When 'bar' property is set", function () {
+            describe("When context object passed in", function () {
+                var result = [];
                 beforeEach(function () {
-                    model.set({ bar : "changeBarEvent"});
+
+                    var contextObject = { foo : "foo" };
+                    result = collection.map(function (index, element) {
+                        return index + "|" + element + "|" + this.foo ;
+                    }, contextObject);
                 });
-
-                it("should call handler registered on general 'change' event", function () {
-                    expect(result).toBe("changeBarEvent");
+                it("should bind 'this' to context object", function () {
+                    expect(result[0]).toBe("0|alpha|foo");
+                    expect(result[1]).toBe("1|beta|foo");
+                    expect(result[2]).toBe("2|gamma|foo");
+                    expect(result[3]).toBe("3|delta|foo");
                 });
-            });
-
-            describe("When 'foo' property is set", function () {
-                beforeEach(function () {
-                    model.set({ foo : "changeFooEvent"});
-                });
-
-                it("should call handler registered on general 'change' event", function () {
-                    expect(result).toBe("changeFooEvent");
-                });
-            });
-        });
-
-        describe("Options", function () {
-
-            var result = null;
-
-            beforeEach(function () {
-
-                model = new Model();
-
-                model.on("change:foo", function (fooValue) {
-                    result = fooValue;
-                }, null);
-
-            });
-
-            afterEach(function () {
-                result = null;
-            });
-
-            describe("When no options are passed", function () {
-                beforeEach(function () {
-                    model.set({ foo : "blah"});
-                });
-                it("should call registered handlers", function () {
-                    expect(result).toBe("blah");
-                });
-            });
-
-            describe("When { silent : false } is passed as an option", function () {
-                beforeEach(function () {
-                    model.set({ foo : "bar"});
-                });
-                it("should call registered handlers", function () {
-                    expect(result).toBe("bar");
-                });
-            });
-
-            describe("When { silent : true } is passed as an option", function () {
-
-                beforeEach(function () {
-                    model.set({ foo : "blah"}, { silent : true });
-                });
-                it("should not call handler", function () {
-                    expect(result).not.toBe("blah");
-                });
-            });
-
-            afterEach(function () {
-                result = null;
-            });
-
-        });
-
-        describe("toJson", function () {
-            var json, result;
-            beforeEach(function () {
-                json = { "foo" : "foo", "bar" : "bar"};
-                model = new Model();
-                model.set(json);
-                result = model.toJSON();
-            });
-            it("should return a json representation of model", function () {
-                expect(result).toEqual(json);
             });
         });
     });

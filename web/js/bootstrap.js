@@ -69,10 +69,17 @@ require.config({
         ToolsController : "menu/tools/controller",
         BaseType : "utility/extend",
         NodeToBoxCoordinator : "global/controllers/controller.AttachedNodeToBox",
-        templateLoader : "utility/templateLoader"
+        templateLoader : "utility/templateLoader",
+        IDGenerator : "utility/IDGenerator",
+        BaseCoordinator : "coordinators/baseCoordinator",
+        ArrowCoordinator: "coordinators/ArrowCoordinator",
+        BoxCoordinator: "coordinators/BoxCoordinator",
+        ProximalNodeCoordinator:"coordinators/ProximalNodeCoordinator",
+        DistalNodeCoordinator: "coordinators/DistalNodeCoordinator"
 
     }
 });
+
 
 require([ 'jQuery',
           'connectorFactory',

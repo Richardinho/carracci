@@ -22,7 +22,8 @@ require.config({
         templateLoader : "web/js/utility/templateLoader",
         Model : "web/js/core/Model",
         ModelElement : "web/js/node/model/model.element",
-        Collection : "web/js/core/Collection"
+        Collection : "web/js/core/Collection",
+        IDGenerator : "test/js/stubs/IDGeneratorStub"
 
     }
 });

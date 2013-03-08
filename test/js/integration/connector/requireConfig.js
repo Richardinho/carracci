@@ -53,6 +53,13 @@ require.config({
         propertyBuilder : "web/js/utility/propertyBuilder",
         ClassBoxView : "web/js/classBox/view/view.ClassBox",
         ClassBoxController : "web/js/classBox/controller/controller.ClassBox",
+        IDGenerator: "web/js/utility/IDGenerator",
+        ArrowCoordinator: "web/js/coordinators/ArrowCoordinator",
+        BaseCoordinator: "web/js/coordinators/baseCoordinator",
+        ProximalNodeCoordinator: "web/js/coordinators/ProximalNodeCoordinator",
+        DistalNodeCoordinator: "web/js/coordinators/DistalNodeCoordinator",
+        BoxCoordinator: "web/js/coordinators/BoxCoordinator",
+
 
     }
 });
