@@ -11,7 +11,8 @@ define(['ModelElement',
 
             ModelElement.prototype.initialize.call(this, options);
             this.set({ name : options.name });
-            this.set({ properties : new Collection([]) });
+            this.set({ properties : new Collection([])});
+            this.set({ methods : new Collection([])});
             this.set({ id : options.id });
             this.set({ width : options.width });
             this.set({ height : options.height });
@@ -87,6 +88,10 @@ define(['ModelElement',
             }
             this.get("properties").add(property);
             this._fire("change:add")
+        },
+
+        addMethod : function (method) {
+            this.get("methods").add(method);
         },
 
         updatePropertyVisibility : function (index) {

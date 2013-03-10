@@ -51,6 +51,7 @@ require.config({
         CoordinatorHorizontalConnector : "web/js/connectors/coordinator.HorizontalConnector",
         ClassBoxModel : "web/js/classBox/model/model.ClassBox",
         propertyBuilder : "web/js/utility/propertyBuilder",
+        methodBuilder : "web/js/utility/methodBuilder",
         ClassBoxView : "web/js/classBox/view/view.ClassBox",
         ClassBoxController : "web/js/classBox/controller/controller.ClassBox",
         keyManager : "web/js/node/controller/controller.KeyManager",
@@ -61,7 +62,9 @@ require.config({
         ArrowCoordinator: "web/js/coordinators/ArrowCoordinator",
         BoxCoordinator: "web/js/coordinators/BoxCoordinator",
         ProximalNodeCoordinator:"web/js/coordinators/ProximalNodeCoordinator",
-        DistalNodeCoordinator: "web/js/coordinators/DistalNodeCoordinator"
+        DistalNodeCoordinator: "web/js/coordinators/DistalNodeCoordinator",
+        GuiView : "web/js/gui/view.classBox",
+        GuiController : "web/js/gui/controller/classBox"
 
 
     }

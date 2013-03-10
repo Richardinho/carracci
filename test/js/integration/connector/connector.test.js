@@ -11,7 +11,11 @@ require(['WebAPI'], function (WebAPI) {
                              leftNode : { x  : 25, y : 10 , arrows : ['diamond'] },
                              rightNode : { x  : 225, y : 110 , arrows : ['diamond'] } }
                              ],
-            classBoxes : [ { name : "List", id : "blahClass", x : 0, y : 0, properties :  [{ name : "foo", visibility : "+", type : "String" }, { name : "bar", visibility : "#", type : "int" }] } ]
+            classBoxes : [ { name : "List", id : "blahClass", x : 0, y : 0,
+                    properties :  [{ name : "foo", visibility : "+", type : "String" },
+                                   { name : "bar", visibility : "#", type : "int" }] } ]
+
+
         };
 
         webAPI = new WebAPI(configuration);

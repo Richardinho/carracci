@@ -67,7 +67,6 @@ define(['BaseType',
             var coordinator,
                 that = this; // need to pass this context to the coordinators.
 
-            debugger;
             switch(role) {
 
                 case "box" :

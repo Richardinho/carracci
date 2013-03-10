@@ -1,22 +1,20 @@
-require(['templateLoader', 'underscore', 'jQuery'], function (templateLoader, _, $) {
+require(['underscore',  'ModelElement', 'templateLoader', 'jQuery'], function ( _,  ModelElement, templateLoader, $) {
 
-    describe("TemplateLoader", function () {
+    describe("templateLoader ", function() {
 
-        describe("When getTemplate() is called with argument 'template'", function () {
+        beforeEach(function () {
 
-            var template;
+            templateLoader.initialize(['tools', 'umlClassBoxGUI'], "../../../../web/templates/");
+        });
+        it("should load text into page", function() {
 
-            beforeEach(function () {
-
-                //templateLoader.pushTemplate("template", "<div>hello <%= name %></div>");
-
-                //template = templateLoader.getTemplate('template');
-
-            });
-
-            it("should get template", function () {
-                //expect(template).toBe("<div>hello <%= name %></div>");
-            });
+            expect(_.template($('#tools-template').html())).not.toBe(undefined);
+            expect(_.template($('#gui-class-template').html())).not.toBe(undefined);
         });
     });
 });
+
+
+
+
+

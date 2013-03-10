@@ -1,13 +1,12 @@
-describe("methodBuilder()", function() {
+require(['methodBuilder'], function (methodBuilder) {
+    describe("methodBuilder()", function() {
 
-  describe("when", function () {
-
-     var method;
+        var method;
 
         describe("when method is created with just a name", function () {
 
             beforeEach(function() {
-                method = Glenmorangie.utils.methodBuilder("foo").build();
+                method = methodBuilder("foo").build();
             });
 
             it("should create json method with default values", function() {
@@ -19,7 +18,7 @@ describe("methodBuilder()", function() {
         describe("when method is created with visibility, name, args and return type", function () {
 
             beforeEach(function() {
-                method = Glenmorangie.utils.methodBuilder()
+                method = methodBuilder()
                     .name("bar")
                     .visibility("+")
                     .arg("blah", "String")
@@ -37,10 +36,6 @@ describe("methodBuilder()", function() {
                                                  "widget" : "Thing" },
                                          returnType : "Integer" });
             });
-
         });
-
-  });
-
-
+    });
 });

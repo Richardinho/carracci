@@ -1,4 +1,4 @@
-require(['web/js/classBox/model/model.ClassBox'], function (Model) {
+require(['web/js/classBox/model/model.ClassBox', "methodBuilder"], function (Model, methodBuilder) {
 
     describe("Model ClassBox", function () {
         var model;
@@ -35,8 +35,17 @@ require(['web/js/classBox/model/model.ClassBox'], function (Model) {
 
         });
 
-        it("should..", function () {
-
+        describe("addMethod()", function () {
+            var method;
+            beforeEach(function () {
+                method = methodBuilder("foo").build();
+                model.addMethod(method)
+            });
+            it("should add method to model", function () {
+                expect(model.get("methods").get(0).name).toBe("foo");
+            });
         });
+
+
     });
 });

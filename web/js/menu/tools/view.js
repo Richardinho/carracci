@@ -34,8 +34,7 @@ define(['BaseType', 'underscore', 'templateLoader'], function (BaseType, _, temp
         },
 
         _getTemplate : function () {
-            var template = templateLoader.getTemplate("toolsTemplate");
-            return _.template(template);
+            return _.template($('#tools-template').html());
         }
     });
 });

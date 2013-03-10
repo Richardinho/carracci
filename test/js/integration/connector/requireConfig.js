@@ -59,6 +59,9 @@ require.config({
         ProximalNodeCoordinator: "web/js/coordinators/ProximalNodeCoordinator",
         DistalNodeCoordinator: "web/js/coordinators/DistalNodeCoordinator",
         BoxCoordinator: "web/js/coordinators/BoxCoordinator",
+        GuiView : "web/js/gui/view.classBox",
+        GuiController : "web/js/gui/controller/classBox",
+        methodBuilder : "web/js/utility/methodBuilder"
 
 
     }

@@ -17,7 +17,11 @@ define(['BaseType',
         "propertyBuilder",
         "ClassBoxView",
         "ClassBoxController",
-        "keyManager"], function (BaseType,
+        "keyManager",
+        "GuiView",
+        "GuiController",
+        "methodBuilder",
+        "templateLoader"], function (BaseType,
                                            HorizontalConnector,
                                            ModelArrowNode,
                                            CollectionPointer,
@@ -36,11 +40,19 @@ define(['BaseType',
                                            propertyBuilder,
                                            ClassBoxView,
                                            ClassBoxController,
-                                           KeyManager ) {
+                                           KeyManager,
+                                           GuiView,
+                                           GuiController,
+                                           methodBuilder,
+                                           templateLoader) {
 
 
     function getProperty(config) {
         return propertyBuilder(config.name).visibility(config.visibility).type(config.type).build();
+    }
+
+    function getMethod(config) {
+        return methodBuilder(config.name).visibility(config.visibility).returnType(config.returnType).build();
     }
 
     return BaseType.extend({
@@ -51,6 +63,9 @@ define(['BaseType',
             var connectors = config.connectors;
             this.connectors = {};
             this.classes = {};
+            this.classGuis = {};
+
+            templateLoader.initialize(['umlClassBoxGUI', 'tools', 'help'], '/web/templates/');
 
             var classes = config.classBoxes;
 
@@ -69,11 +84,101 @@ define(['BaseType',
                 var classBoxView = new ClassBoxView({ model : classBoxModel });
                 var classBoxController = new ClassBoxController({ model : classBoxModel, view : classBoxView });
                 var propertiesConfig = classConfig.properties;
+                var methodsConfig = classConfig.methods;
 
                 for(var j=0; j < propertiesConfig.length; j++) {
                     var propertyConfig = propertiesConfig[j];
                     classBoxModel.addProperty(getProperty(propertyConfig));
+                }
+                if(methodsConfig) {
+                    for(var j=0; j < methodsConfig.length; j++) {
+                        var methodConfig = methodsConfig[j];
+                        classBoxModel.addMethod(getMethod(methodConfig));
+                    }
+                }
 
+
+                var guiView = new GuiView({ model : classBoxModel , containerEl : $('#class-container') });
+                var guiController = new GuiController({ model : classBoxModel , view : guiView });
+
+                this.classGuis[classId] = {
+
+                    id : classId,
+
+                    view : guiView,
+
+                    controller : guiController,
+
+                    setClassName : function (name) {
+                        //this.controller.changeClassName({ currentTarget : { value : name }});
+                        var inputEl = this.view.getMyEl().find('.changeClassName input');
+                        inputEl.val(name);
+                        inputEl.trigger("change");
+
+                    },
+
+                    properties : function() {
+                        return getProperties(this.view.getMyEl());
+                    },
+
+                    methods : function () {
+                        return getMethods(this.view.getMyEl());
+                    }
+                };
+
+                function getMethods(element) {
+                    return {
+
+
+                        method : function (index) {
+                            var method = $(element.find('.methods .method').get(index));
+
+                            return {
+                                name : function () {
+                                    return method.find('.name input').val();
+                                }
+                            }
+                        }
+                    };
+                }
+
+                function getProperties(element) {
+                    return {
+
+                        property : function (index) {
+                            var property = $(element.find('.properties .property').get(index + 1));
+
+                            return {
+
+                                name : function (name) {
+                                    if(name){
+                                        property.find('.name input').val(name);
+                                    } else {
+                                        return property.find('.name input').val();
+                                    }
+
+                                },
+
+                                visibility : function () {
+                                    return property.find('.visibility').text().trim();
+                                },
+
+                                changeVisibility : function () {
+                                    property.find('.visibility').click();
+                                },
+
+                                type : function (type) {
+                                    if(type) {
+                                        property.find('.type input').val(type);
+                                    } else {
+                                        return property.find('.type input').val();
+                                    }
+
+                                }
+                            }
+                        },
+
+                    };
                 }
 
                 this.classes[classId] = {
@@ -184,6 +289,10 @@ define(['BaseType',
             return this.classes[id];
         },
 
+        getClassBoxGui : function (id) {
+            return this.classGuis[id];
+        },
+
         keyDown : function (key) {
 
             var map = { 'U' : 85 },
@@ -197,7 +306,7 @@ define(['BaseType',
 
         }
     });
-
+                                                           type
 
     function getArrowNode (config, connector, direction) {
         var x = config.x;

@@ -11,8 +11,29 @@ require(['WebAPI', 'keyManager'], function (WebAPI, KeyManager) {
                              leftNode : { x  : 25, y : 10 , arrows : ['diamond'] },
                              rightNode : { x  : 225, y : 110 , arrows : ['diamond'] } }
                              ],
-            classBoxes : [ { name : "List", id : "blahClass", x : 0, y : 0, properties :  [{ name : "foo", visibility : "+", type : "String" }, { name : "bar", visibility : "#", type : "int" }] } ]
+            classBoxes : [ {
 
+                name : "List", id : "blahClass", x : 0, y : 0,
+
+                properties : [{
+                    name : "foo",
+                    visibility : "+",
+                    type : "String"
+
+                    },{
+
+                    name : "bar",
+                    visibility : "#",
+                    type : "int"
+                }],
+
+                methods : [ {
+                    name : "doThat",
+                    visibility : "+",
+                    returnType : "String"
+
+                }]
+            }]
         };
 
         webAPI = new WebAPI(configuration);
@@ -59,6 +80,96 @@ require(['WebAPI', 'keyManager'], function (WebAPI, KeyManager) {
                     expect(blahClass.yCood()).toBe(startYCood + 200);
                 });
             });
+        });
+
+        describe("classBox gui", function () {
+            describe("getClassGui(blahClass)", function () {
+
+                var blahClassGui;
+
+                beforeEach(function () {
+                    blahClassGui = webAPI.getClassBoxGui("blahClass");
+
+                });
+
+                it("should return reference to blahClass gui menu", function () {
+                    expect(blahClassGui.id).toBe("blahClass");
+                });
+                describe("properties(0)", function () {
+                    describe("when name is set to 'bar' ", function () {
+                        var name;
+                        beforeEach(function () {
+                            blahClassGui.properties().property(0).name("bar");
+                            name = blahClassGui.properties().property(0).name();
+                        });
+                        it("should return first property name", function () {
+                            expect(blahClassGui.properties().property(0).name()).toBe("bar");
+                        });
+                    });
+
+                    describe("when type is set to 'Collection' ", function () {
+                        var type;
+                        beforeEach(function () {
+                            blahClassGui.properties().property(0).type("Collection");
+                            type = blahClassGui.properties().property(0).type();
+                        });
+                        it("should return first property name", function () {
+                            expect(type).toBe("Collection");
+                        });
+                    });
+
+                    describe("when visibility is changed ", function () {
+                        var visibility;
+                        beforeEach(function () {
+                            blahClassGui.properties().property(0).changeVisibility();
+                            visibility = blahClassGui.properties().property(0).visibility();
+                        });
+                        it("should return visibility", function () {
+                            expect(visibility).toBe("#");
+                        });
+                    });
+                });
+
+                describe("methods(0)", function () {
+                    describe("When name is set to doThat", function () {
+                        var name;
+                        beforeEach(function () {
+                            name = blahClassGui.methods().method(0).name();
+                        });
+                        it("should return name of method", function () {
+                            expect(name).toBe("doThat")
+                        });
+                    });
+                });
+                describe("setting properties", function () {
+
+                    var blahClassGui;
+
+                    beforeEach(function () {
+                        blahClassGui = webAPI.getClassBoxGui("blahClass");
+                    });
+                    it("should set first property name", function () {
+
+                    });
+                });
+            });
+
+            describe("When classname field is updated", function () {
+
+                var blahClassGui,
+                    spyOnController;
+
+                beforeEach(function () {
+                    blahClassGui = webAPI.getClassBoxGui("blahClass");
+                    spyOnController = spyOn(blahClassGui.controller, "changeClassName");
+                    blahClassGui.setClassName("blah");
+                });
+
+                it("should updateClass", function () {
+                    expect(webAPI.getClassBox("blahClass").model.get('name')).toBe("blah");
+                });
+            });
+
         });
 
         describe("getConnector()", function () {

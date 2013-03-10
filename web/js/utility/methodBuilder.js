@@ -1,34 +1,34 @@
-Glenmorangie.namespace("Glenmorangie.utils");
+define(function() {
 
-Glenmorangie.utils.methodBuilder = function( name ) {
+    return function (name) {
 
-    var method = { "name" : name, visibility : "-", args : {} , returnType : "void" };
+        var method = { "name" : name, visibility : "-", args : {} , returnType : "void" };
 
-    return {
+        return {
+            visibility : function (visibility) {
 
-        visibility : function (visibility) {
+                method.visibility = visibility;
+                return this;
+            },
 
-            method.visibility = visibility;
-            return this;
-        },
+            name : function (name) {
+                method.name = name;
+                return this;
+            },
 
-        name : function (name) {
-            method.name = name;
-            return this;
-        },
+            arg : function (name, type) {
+                method.args[name] = type;
+                return this;
+            },
 
-        arg : function (name, type) {
-            method.args[name] = type;
-            return this;
-        },
+            returnType : function (returnType) {
+                method.returnType = returnType;
+                return this;
+            },
 
-        returnType : function (returnType) {
-            method.returnType = returnType;
-            return this;
-        },
-
-        build : function () {
-            return method;
+            build : function () {
+                return method;
+            }
         }
-    }
-};
+    };
+});
