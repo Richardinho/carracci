@@ -12,6 +12,49 @@ body {
     top : 50px;
 }
 
+.classBox {
+    font-size : 12px;
+    border: solid black 1px;
+    margin-bottom : 2px;
+}
+
+
+.classBox input {
+    width : 40px;
+    font-size : 12px;
+    height : 20px;
+    padding-left: 2px;
+}
+
+/* class name input control */
+.changeClassName {
+    padding-left : 5px;
+    padding-top : 9px;
+    padding-bottom: 10px;
+}
+
+.classBox .changeClassName input {
+    width : 175px;
+    padding-left: 2px;
+    margin-left : 8px;
+}
+
+.classBox input.button {
+    font-size: 9px;
+    height: 20px;
+}
+
+.classBox .delete {
+    padding-top: 3px;
+    padding-left: 2px;
+}
+
+.classBox .delete input {
+    width: 25px;
+    height : 15px;
+}
+
+
 /* title bar */
 
 .classBox .className  {
@@ -31,6 +74,19 @@ body {
 .classBox .properties {
     padding : 1px;
 }
+
+.classBox .addProperty input {
+    width: 47px;
+}
+
+.classBox .property {
+    margin-left: 5px;
+}
+
+.classBox .property .name {
+    font-size : 12px;
+}
+
 .classBox .controls {
     height : 22px;
 }
@@ -57,8 +113,12 @@ body {
     background-color : #ddd;
 }
 
-.classBox .properties .property.header {
+
+.classBox .property.header {
     background-color : transparent;
+    padding-left: 5px;
+    margin-bottom: 0;
+    height : 13px;
 }
 
 .classBox .properties .property div {
@@ -82,89 +142,71 @@ body {
 
 /* end of properties */
 
-
-
-.classBox .name {
-    font-size : 15px;
-
-}
-
-.classBox input {
-    width : 40px;
-    font-size : 12px;
-    height : 20px;
-    padding-left: 2px;
-}
-
-.classBox {
-    font-size : 12px;
-    border: solid black 1px;
-    margin-bottom : 2px;
-}
-
-
-.classBox .property .name {
-    font-size : 12px;
-}
-
-.classBox .property.header {
-    padding-left: 5px;
-    margin-bottom: 0;
-    height : 13px;
-}
-
-.classBox .property {
-    margin-left: 5px;
-}
-
 /* methods */
 
 .classBox .methods {
-    height : 23px;
-    margin-top : 11px;
+    margin-top : 10px;
 }
 
-.classBox .methods .title {
-    padding-top : 4px;
-    float : left;
-}
-
-.classBox .methods .addMethod {
+.classBox .methods .addMethod input {
+    width: 52px;
     float : right;
 }
 
-.classBox input.button {
-    font-size: 9px;
-    height: 20px;
-}
-
-.classBox .delete {
-    padding-top: 3px;
-    padding-left: 2px;
-}
-
-.classBox .delete input {
-    width: 25px;
-    height : 15px;
-}
-
-.classBox .addMethod input {
-    width: 52px;
-}
-
-.classBox .addProperty input {
-    width: 47px;
-}
-
-/* class name input control */
-.changeClassName {
+.classBox .methods .addMethod {
+    height : 20px;
     padding-left : 5px;
-    padding-top : 9px;
-    padding-bottom: 10px;
 }
 
-.classBox .changeClassName input {
-    width : 175px;
-    padding-left: 2px;
-    margin-left : 8px;
+.classBox .methods .header {
+    height : 23px;
 }
+
+.classBox .methods .header .visibility ,
+.classBox .methods .header .name,
+.classBox .methods .header .returnType {
+    float : left;
+}
+
+.classBox .methods .header .name{
+    padding-left : 28px;
+    font-size : 12px;
+    padding-top : 4px;
+}
+
+.classBox .methods .header .returnType {
+    padding-left : 56px;
+    font-size : 12px;
+    padding-top : 4px;
+}
+
+.classBox .methods .method {
+    height : 21px;
+    margin-top : 2px;
+    background-color : #ddd;
+    margin-left: 5px;
+}
+
+.classBox .methods .method div {
+    float : left;
+}
+
+.classBox .methods .method .visibility {
+    width : 12px;
+    padding-left : 5px;
+    padding-top : 1px;
+}
+
+.classBox .methods .method .name, .classBox .methods .method .name input {
+    width : 89px;
+}
+
+.classBox .methods .method .returnType, .classBox .methods .method .returnType input {
+    width : 89px;
+}
+
+
+
+
+
+
