@@ -61,6 +61,7 @@ require.config({
         HelpView : "menu/help/view",
         foo : "menu/controller",
         propertyBuilder : "utility/propertyBuilder",
+        methodBuilder : "utility/methodBuilder",
         PropertyModel : "classBox/model/property",
         TypeSpecificCollection : "core/TypeSpecificCollection",
         ClassBoxFactory : "classBox/factory/factory.ClassBox",

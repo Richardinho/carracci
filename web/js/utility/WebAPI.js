@@ -105,6 +105,10 @@ define(['BaseType',
 
                     id : classId,
 
+                    model : classBoxModel,
+
+                    ControllerClass : GuiController,
+
                     view : guiView,
 
                     controller : guiController,
@@ -117,13 +121,19 @@ define(['BaseType',
 
                     },
 
+                    clickAddMethod : function () {
+                        this.view.getMyEl().find('.methods .addMethod input').click();
+                    },
+
                     properties : function() {
                         return getProperties(this.view.getMyEl());
                     },
 
                     methods : function () {
                         return getMethods(this.view.getMyEl());
-                    }
+                    },
+
+
                 };
 
                 function getMethods(element) {
@@ -138,6 +148,10 @@ define(['BaseType',
                                     return method.find('.name input').val();
                                 }
                             }
+                        },
+
+                        size : function () {
+                            return element.find('.methods .method').size();
                         }
                     };
                 }

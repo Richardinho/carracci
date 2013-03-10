@@ -6,12 +6,13 @@ define(['BaseType', 'underscore', 'jQuery'], function (BaseType, _, $) {
 
         initialize : function (options) {
 
-        _.bindAll(this, "changeWidth", "changeXCood", "handleVisibilityClick", "addProperty", "changeClassName", "deleteProperty", "changePropertyName", "changePropertyType");
+        _.bindAll(this, "changeWidth", "changeXCood", "handleVisibilityClick", "addProperty", "changeClassName", "deleteProperty", "changePropertyName", "changePropertyType", "addMethod");
             this.model = options.model;
             this.view = options.view;
             $('input[name=xCood]').on('change', this.changeXCood);
             var classId = this.model.id;
             $('.' + classId).find('.addProperty input').live("click", this.addProperty);
+            $('.' + classId).find('.addMethod input').live("click", this.addMethod);
             $('.' + classId).find('.changeClassName  input').live("change", this.changeClassName);
             $('.' + classId).find('.visibility').live("click", this.handleVisibilityClick);
             $('.' + classId).find('.delete input').live("click", this.deleteProperty);
@@ -26,6 +27,10 @@ define(['BaseType', 'underscore', 'jQuery'], function (BaseType, _, $) {
 
         addProperty : function () {
             this.model.addProperty();
+        },
+
+        addMethod : function () {
+            this.model.addMethod();
         },
 
         changeClassName : function (event) {

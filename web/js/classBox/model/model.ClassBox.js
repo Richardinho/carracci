@@ -1,9 +1,11 @@
 
 define(['ModelElement',
         'Collection',
-        'propertyBuilder' ], function (ModelElement,
+        'propertyBuilder',
+        'methodBuilder'], function (ModelElement,
                                        Collection,
-                                       propertyBuilder) {
+                                       propertyBuilder,
+                                       methodBuilder ) {
 
     return ModelElement.extend({
 
@@ -91,7 +93,11 @@ define(['ModelElement',
         },
 
         addMethod : function (method) {
+            if(!method) {
+                method = methodBuilder('').visibility('+').returnType('void').build();
+            }
             this.get("methods").add(method);
+            this._fire("change:add")
         },
 
         updatePropertyVisibility : function (index) {

@@ -44,7 +44,27 @@ require.config({
         BoxCoordinator: "coordinators/BoxCoordinator",
         ProximalNodeCoordinator:"coordinators/ProximalNodeCoordinator",
         DistalNodeCoordinator: "coordinators/DistalNodeCoordinator",
-        methodBuilder : "utility/methodBuilder"
+        WebAPI : "utility/WebAPI",
+        horizontalConnector : "connectors/model/model.HorizontalConnector",
+        ModelArrowNode : "node/model/model.ArrowNode",
+        CollectionPointer : "pointers/collection/collection.Pointer",
+        ModelDiamond : "pointers/model/model.Diamond",
+        ViewPointer : "pointers/view/view.Pointer",
+        ViewArrowNode : "node/view/view.ArrowNode",
+        ControllerArrowNode : "node/controller/controller.ArrowNode",
+        ModelDistalNode : "node/model/model.DistalNode",
+        ViewElement : "node/view/view.element",
+        ModelLine : "lines/model/model.line",
+        ViewLine : "lines/view/view.line",
+        CoordinatorHorizontalConnector : "connectors/coordinator.HorizontalConnector",
+        ClassBoxModel : "classBox/model/model.ClassBox",
+        ClassBoxView : "classBox/view/view.ClassBox",
+        ClassBoxController : "classBox/controller/controller.ClassBox",
+        GuiView : "gui/view.classBox",
+        GuiController : "gui/controller/classBox",
+        methodBuilder : "utility/methodBuilder",
+        templateLoader : "utility/templateLoader",
+        ModelPointer : "pointers/model/model.Pointer",
     }
 });
 
