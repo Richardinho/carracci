@@ -160,6 +160,10 @@ define(['BaseType',
 
                                 visibility : function () {
                                     return method.find('.visibility').text().trim();
+                                },
+
+                                deleteMethod : function () {
+                                    method.find('.delete input').click();
                                 }
                             }
                         },

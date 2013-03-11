@@ -90,5 +90,17 @@ require(['WebAPI', 'keyManager'], function (WebAPI, KeyManager) {
                 expect(classBoxGui.methods().size()).toBe(2);
             });
         });
+
+        describe("When user clicks on delete method", function () {
+            var classBoxGui;
+            beforeEach(function () {
+                classBoxGui = webAPI.getClassBoxGui("blahClass");
+                classBoxGui.method(1).deleteMethod();
+            });
+            it("should delete method from model and from gui", function () {
+                expect(classBoxGui.model.get("methods").size()).toBe(1);
+                expect(classBoxGui.methods().size()).toBe(1);
+            });
+        })
     });
 });

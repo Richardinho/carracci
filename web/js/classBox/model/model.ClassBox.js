@@ -37,7 +37,23 @@ define(['ModelElement',
             this._fire("change:dimensions");
         },
 
-        deleteProperty : function (index) {
+        deleteMember : function (index) {
+            var data = this._extractData(index);
+
+            if(data.text === "method") {
+                this._deleteMethod(data.index);
+            } else {
+                this._deleteProperty(data.index);
+            }
+        },
+
+        _deleteMethod : function (index) {
+            var methods = this.get('methods');
+            methods.delete(index);
+            this._fire("change:delete")
+        },
+
+        _deleteProperty : function (index) {
             var properties = this.get('properties');
             properties.delete(index);
             this._fire("change:delete")

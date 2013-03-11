@@ -6,7 +6,7 @@ define(['BaseType', 'underscore', 'jQuery'], function (BaseType, _, $) {
 
         initialize : function (options) {
 
-        _.bindAll(this, "changeWidth", "changeXCood", "handleVisibilityClick", "addProperty", "changeClassName", "deleteProperty", "changePropertyName", "changePropertyType", "addMethod");
+        _.bindAll(this, "changeWidth", "changeXCood", "handleVisibilityClick", "addProperty", "changeClassName", "deleteMember", "changePropertyName", "changePropertyType", "addMethod");
             this.model = options.model;
             this.view = options.view;
             $('input[name=xCood]').on('change', this.changeXCood);
@@ -16,7 +16,7 @@ define(['BaseType', 'underscore', 'jQuery'], function (BaseType, _, $) {
             $('.' + classId).find('.changeClassName  input').live("change", this.changeClassName);
             $('.' + classId).find('.visibility').live("click", this.handleVisibilityClick);
             $('.' + classId).find('.visibility').live("click", this.handleVisibilityClick);
-            $('.' + classId).find('.delete input').live("click", this.deleteProperty);
+            $('.' + classId).find('.delete input').live("click", this.deleteMember);
             $('.' + classId).find('.name input').live("change", this.changePropertyName);
             $('.' + classId).find('.type input').live("change", this.changePropertyType);
         },
@@ -57,9 +57,9 @@ define(['BaseType', 'underscore', 'jQuery'], function (BaseType, _, $) {
             this.model.updatePropertyType(index, newType);
         },
 
-        deleteProperty : function (event) {
+        deleteMember : function (event) {
             var index = $(event.target).parent().parent().data("index");
-            this.model.deleteProperty(index);
+            this.model.deleteMember(index);
         },
 
         changeWidth : function (event) {
