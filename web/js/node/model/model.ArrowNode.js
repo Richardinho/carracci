@@ -48,6 +48,11 @@ define(['ModelElement'], function (ModelElement) {
 
         detatch : function () {
             this.attachmentCoordinator.destroy();
+        },
+
+        removeValidator : function (id) {
+            this.fooValidators.deleteModel(id);
+            this.set({ "connectedToBox": false });
         }
 
 

@@ -16,7 +16,7 @@ define(['BaseType',
 
         boxRequest : function(box) {
 
-            if(this.arrow !== undefined) {
+            if(this.arrow !== undefined && !this.arrow.get("connectedToBox")) {
                 console.log("connect to box")
                 this.arrow.set({ "connectedToBox": true });
                 var connectionManager = new NodeBoxCoordinator ({ "arrow" : this.arrow,

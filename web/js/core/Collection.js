@@ -31,6 +31,9 @@ define(['BaseType', 'underscore'], function (extend, _) {
                 element;
             for(i = 0; i < length; i++) {
                 element = this.get(i);
+                if(element === undefined) {
+                    debugger;
+                }
                 if(element.id === id) {
                     this.delete(i);
                 }
