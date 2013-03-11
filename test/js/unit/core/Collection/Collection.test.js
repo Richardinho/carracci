@@ -19,20 +19,81 @@ require(['Collection', 'Model'], function (Collection, Model) {
             });
         });
 
-        describe("deleteModel(id)", function () {
+        describe("getBy(id)", function () {
+
+            var model1, model2, model3, collection;
+            beforeEach(function () {
+                model1 = new Model();
+                model2 = new Model();
+                model3 = new Model();
+                model1.id = 1;
+                model2.id = 2;
+                model3.id = 3;
+
+                collection = new Collection([model1, model2, model3 ]);
+            });
+            it("should return model with given id", function () {
+                expect(collection.getById(2)).toBe(model2);
+            });
+        });
+
+        describe("reduce()", function () {
+
+            var collection, result, model1, model2, model3, initialValue, context;
+
+            beforeEach(function () {
+                model1 = new Model();
+                model2 = new Model();
+                model3 = new Model();
+                model1.id = 1;
+                model2.id = 2;
+                model3.id = 3;
+                collection = new Collection([model1, model2, model3 ]);
+            });
+
+            describe("When referencing element, memo, and index within iterator", function () {
+
+                beforeEach(function () {
+                    initialValue = "";
+                    result = collection.reduce(function (memo, element, index) {
+                        return memo + element.id + index;
+                    }, initialValue, context);
+                });
+                it("should return accumulated value", function () {
+                    expect(result).toBe("102132");
+                })
+            });
+            describe("When referencing context object within iterator", function () {
+                beforeEach(function () {
+                    initialValue = "";
+                    context = { foo : "foo" }
+                    result = collection.reduce(function (memo, element, index) {
+                        return memo + this.foo;
+                    }, initialValue, context);
+                });
+                it("should use 'this' to reference context object", function () {
+                    expect(result).toBe("foofoofoo");
+                })
+            });
+        });
+
+
+        xdescribe("deleteModel(id)", function () {
             var model1, model2, collection, index;
             beforeEach(function () {
                 model1 = new Model();
                 model2 = new Model();
+                model3 = new Model();
                 model1.id = 1;
                 model2.id = 2;
+                model3.id = 3;
 
-                collection = new Collection([model1, model2]);
+                collection = new Collection([model1, model2, model3 ]);
 
                 collection.deleteModel(2);
             });
             it("should delete model from collection", function () {
-                expect(collection.size()).toBe(1);
+                expect(collection.size()).toBe(2);
             });
         });
 
@@ -96,6 +157,48 @@ require(['Collection', 'Model'], function (Collection, Model) {
                     expect(result[1]).toBe("foo");
                     expect(result[2]).toBe("foo");
                     expect(result[3]).toBe("foo");
+                });
+            });
+        });
+
+        describe("every()", function () {
+            var collection, result, model1, model2, model3, context;
+
+            beforeEach(function () {
+                model1 = new Model();
+                model2 = new Model();
+                model3 = new Model();
+                model1.id = 1;
+                model2.id = 2;
+                model3.id = 3;
+                collection = new Collection([model1, model2, model3 ]);
+            });
+            describe("When iterator returns true against every element", function () {
+                beforeEach(function () {
+                    result = collection.every(function (element) {
+                        return element.id < 4;
+                    });
+                });
+                it("should return true", function () {
+                    expect(result).toBe(true);
+                });
+            });
+            describe("When iterator returns false against any element", function () {
+                var context = { result : "" };
+                beforeEach(function () {
+                    result = collection.every(function (element) {
+                        this.result += element.id;
+                        return element.id !== 2;
+                    }, context);
+                });
+                afterEach(function () {
+                    context.result = "";
+                });
+                it("should return false", function () {
+                    expect(result).toBe(false);
+                });
+                it("should bind 'this' to context object", function () {
+                    expect(context.result).toBe("123");
                 });
             });
         });

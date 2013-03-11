@@ -3,6 +3,7 @@ define(['BaseType', 'underscore'], function (extend, _) {
     return extend.extend({
 
         initialize : function (options) {
+
             _.bindAll(this, "on");
             if(options && options instanceof Array ) {
                 this._collection = options;
@@ -17,8 +18,51 @@ define(['BaseType', 'underscore'], function (extend, _) {
             return this._collection[index];
         },
 
+        getById : function (id) {
+            return this.reduce(function (memo, element, index) {
+                if(element.id === id) {
+                    return element;
+                } else {
+                    return memo;
+                }
+            }, false, this);
+        },
+
+        getIndexById : function (id) {
+            return this.reduce(function (memo, element, index) {
+                if(element.id === id) {
+                    return index;
+                } else {
+                    return memo;
+                }
+            }, -1, this);
+        },
+
         add : function (element) {
             this._collection[this.size()] = element;
+        },
+
+                //  run a function against each element in collection but return a single combined return value
+        reduce : function (iterator, init, context) {
+            var memo = init;
+
+            this.each(function(index, element){
+                memo = iterator.call(this, memo, element, index);
+            }, context)
+
+            return memo;
+        },
+
+        //  run a function against each element in collection and return a boolean according to whether the
+        //  return value of all invocations of the function were true or not.
+        every : function (iterator, context) {
+            return this.reduce(function (memo, element) {
+                if(!iterator.call(this, element)) {
+                    memo = false
+                }
+                return memo;
+
+            }, true, context);
         },
 
         delete : function (index) {
@@ -38,6 +82,11 @@ define(['BaseType', 'underscore'], function (extend, _) {
                     this.delete(i);
                 }
             }
+            this.each(function(index, element) {
+                if(element.id === id) {
+                    toDelete.push(index)
+                }
+            });
         },
 
         findFirst : function (property, value ) {
@@ -68,16 +117,7 @@ define(['BaseType', 'underscore'], function (extend, _) {
             }
         },
 
-        //  run a function against each element in collection but return a single combined return value
-        reduce : function (iterator, init, context) {
-            var memo = init;
 
-            this.each(function(index, element){
-                memo = iterator.call(this, memo, element, index);
-            }, context)
-
-            return memo;
-        },
 
         map : function (iterator, context) {
             var result = [];
@@ -86,18 +126,6 @@ define(['BaseType', 'underscore'], function (extend, _) {
             }, context);
 
             return result;
-        },
-
-        //  run a function against each element in collection and return a boolean according to whether the
-        //  return value of all invocations of the function were true or not.
-        all : function (iterator) {
-            return this.reduce(function (memo, element) {
-                if(!iterator.call(this, element)) {
-                    memo = false
-                }
-                return memo;
-
-            }, true);
         },
 
         on : function (event, callback, cont) {
@@ -113,7 +141,21 @@ define(['BaseType', 'underscore'], function (extend, _) {
                     listener.callback.call(listener.context, value);
                 }
             }
-        }
+        },
+
+        find : function () {
+
+        },
+
+        filter : function () {},
+
+        contains : function () {},
+
+        pluck : function () {},
+
+        sortBy : function () {},
+
+
 
     });
 });
