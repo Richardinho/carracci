@@ -125,6 +125,10 @@ define(['BaseType',
                         this.view.getMyEl().find('.methods .addMethod input').click();
                     },
 
+                    clickAddProperty : function () {
+                        this.view.getMyEl().find('.properties .addProperty input').click();
+                    },
+
                     properties : function() {
                         return getProperties(this.view.getMyEl());
                     },
@@ -145,13 +149,26 @@ define(['BaseType',
                 function getMethods(element) {
                     return {
 
-
                         method : function (index) {
                             var method = $(element.find('.methods .method').get(index));
 
                             return {
-                                name : function () {
-                                    return method.find('.name input').val();
+                                name : function (newName) {
+                                    if(newName) {
+                                        method.find('.name input').val(newName);
+                                        method.find('.name input').trigger('change');
+                                    } else {
+                                        return method.find('.name input').val();
+                                    }
+                                },
+
+                                returnType : function(newReturnType) {
+                                    if(newReturnType) {
+                                        method.find('.returnType input').val(newReturnType);
+                                        method.find('.returnType input').trigger('change');
+                                    } else {
+                                        return method.find('.returnType input').val();
+                                    }
                                 },
 
                                 clickOnVisibility : function () {
@@ -178,17 +195,21 @@ define(['BaseType',
                     return {
 
                         property : function (index) {
-                            var property = $(element.find('.properties .property').get(index + 1));
+                            var property = $(element.find('.properties .property').get(index));
 
                             return {
 
                                 name : function (name) {
                                     if(name){
                                         property.find('.name input').val(name);
+                                        property.find('.name input').trigger('change');
                                     } else {
                                         return property.find('.name input').val();
                                     }
+                                },
 
+                                deleteProperty : function () {
+                                    property.find('.delete input').click();
                                 },
 
                                 visibility : function () {
@@ -202,6 +223,7 @@ define(['BaseType',
                                 type : function (type) {
                                     if(type) {
                                         property.find('.type input').val(type);
+                                        property.find('.type input').trigger('change');
                                     } else {
                                         return property.find('.type input').val();
                                     }
@@ -209,6 +231,10 @@ define(['BaseType',
                                 }
                             }
                         },
+
+                        size : function () {
+                            return element.find('.properties .property').size();
+                        }
 
                     };
                 }

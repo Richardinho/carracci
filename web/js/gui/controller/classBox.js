@@ -6,7 +6,7 @@ define(['BaseType', 'underscore', 'jQuery'], function (BaseType, _, $) {
 
         initialize : function (options) {
 
-        _.bindAll(this, "changeWidth", "changeXCood", "handleVisibilityClick", "addProperty", "changeClassName", "deleteMember", "changePropertyName", "changePropertyType", "addMethod");
+        _.bindAll(this, "changeWidth", "changeXCood", "handleVisibilityClick", "addProperty", "changeMethodReturnType", "changeClassName", "deleteMember", "changePropertyName", "changePropertyType", "addMethod", "changeMethodName");
             this.model = options.model;
             this.view = options.view;
             $('input[name=xCood]').on('change', this.changeXCood);
@@ -17,8 +17,10 @@ define(['BaseType', 'underscore', 'jQuery'], function (BaseType, _, $) {
             $('.' + classId).find('.visibility').live("click", this.handleVisibilityClick);
             $('.' + classId).find('.visibility').live("click", this.handleVisibilityClick);
             $('.' + classId).find('.delete input').live("click", this.deleteMember);
-            $('.' + classId).find('.name input').live("change", this.changePropertyName);
-            $('.' + classId).find('.type input').live("change", this.changePropertyType);
+            $('.' + classId).find('.property .name input').live("change", this.changePropertyName);
+            $('.' + classId).find('.method .name input').live("change", this.changeMethodName);
+            $('.' + classId).find('.method .returnType input').live("change", this.changeMethodReturnType);
+            $('.' + classId).find('.property .type input').live("change", this.changePropertyType);
         },
 
         handleVisibilityClick : function (event) {
@@ -28,6 +30,18 @@ define(['BaseType', 'underscore', 'jQuery'], function (BaseType, _, $) {
 
         addProperty : function () {
             this.model.addProperty();
+        },
+
+        changeMethodName : function (event) {
+            var domData = $(event.target).parent().parent().data("index");
+            var newName = $(event.target).attr('value');
+            this.model.updateMethodName(domData, newName);
+        },
+
+        changeMethodReturnType : function (event) {
+            var domData = $(event.target).parent().parent().data("index");
+            var newReturnType = $(event.target).attr('value');
+            this.model.updateMethodReturnType(domData, newReturnType);
         },
 
         addMethod : function () {
@@ -44,6 +58,7 @@ define(['BaseType', 'underscore', 'jQuery'], function (BaseType, _, $) {
             var index,
                 newName;
             index = $(event.target).parent().parent().data("index");
+
             newName = $(event.target).attr('value');
             this.model.updatePropertyName(index, newName);
         },

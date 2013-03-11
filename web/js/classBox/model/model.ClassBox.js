@@ -64,20 +64,40 @@ define(['ModelElement',
             //this._fire("changeText");
         },
 
+        updateMethodName : function (data, newName) {
+            var methods = this.get('methods');
+            var data = this._extractData(data);
+            methods.get(data.index).name = newName;
+            this.set({"methods" : methods}, { silent : true });
+
+            this._fire("changeText", data.index)
+        },
+
+        updateMethodReturnType : function (data, newReturnType) {
+            var methods = this.get('methods');
+            var data = this._extractData(data);
+            methods.get(data.index).returnType = newReturnType;
+            this.set({"methods" : methods}, { silent : true });
+
+            this._fire("changeText", data.index)
+        },
+
         updatePropertyName : function (index, newName) {
             var properties = this.get('properties');
-            properties.get(index).name = newName;
+            var data = this._extractData(index);
+            properties.get(data.index).name = newName;
             this.set({"properties" : properties}, { silent : true });
 
-            this._fire("changeText", index)
+            this._fire("changeText", data.index)
         },
 
         updatePropertyType : function (index, newType) {
             var properties = this.get('properties');
-            properties.get(index).type = newType;
+            var data = this._extractData(index);
+            properties.get(data.index).type = newType;
             this.set({"properties" : properties}, { silent : true });
 
-            this._fire("changeText", index)
+            this._fire("changeText", data.index)
         },
 
         getPropertyCollection : function () {
