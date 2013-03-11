@@ -38,13 +38,6 @@ require(['WebAPI', 'keyManager'], function (WebAPI, KeyManager) {
 
         webAPI = new WebAPI(configuration);
 
-        function reset() {
-
-        }
-
-        afterEach(function () {
-            reset();
-        })
 
         describe("classBox gui", function () {
 
@@ -59,30 +52,42 @@ require(['WebAPI', 'keyManager'], function (WebAPI, KeyManager) {
             });
         });
 
+        describe("When user clicks on visibility link on a method", function () {
+            var blahClassGui;
+            beforeEach(function () {
+                blahClassGui = webAPI.getClassBoxGui("blahClass");
+                blahClassGui.method(0).clickOnVisibility();
+            });
+            it("should update visibility on model and in gui", function () {
+                expect(blahClassGui.model.get("methods").get(0).visibility).toBe("-");
+                expect(blahClassGui.method(0).visibility()).toBe("-");
+            });
+        });
+
+        describe("When user clicks on visibility link on a property", function () {
+            var blahClassGui;
+            beforeEach(function () {
+                blahClassGui = webAPI.getClassBoxGui("blahClass");
+                blahClassGui.property(0).clickOnVisibility();
+            });
+            it("should update visibility on model and in gui", function () {
+                expect(blahClassGui.model.get("properties").get(0).visibility).toBe("-");
+                expect(blahClassGui.property(0).visibility()).toBe("-");
+            });
+        });
+
         describe("When user clicks on addMethod button", function () {
 
             var classBoxGui;
 
             beforeEach(function () {
-
                 classBoxGui = webAPI.getClassBoxGui("blahClass");
                 classBoxGui.clickAddMethod();
             });
-            afterEach(function () {
 
-                // delete method.
-            });
             it("should add method to class model", function () {
                 expect(classBoxGui.model.get("methods").size()).toBe(2);
-            });
-
-            it("should add method to svg class box", function () {
-
-            });
-
-            it("should add method input box to gui", function () {
-            //todo change this when we delete some methods.
-                expect(classBoxGui.methods().size()).toBe(4);
+                expect(classBoxGui.methods().size()).toBe(2);
             });
         });
     });

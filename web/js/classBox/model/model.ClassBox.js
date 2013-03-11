@@ -100,17 +100,46 @@ define(['ModelElement',
             this._fire("change:add")
         },
 
-        updatePropertyVisibility : function (index) {
-            var properties = this.get('properties'),
+        updateVisibility : function (index) {
+
+            var data = this._extractData(index);
+
+            if(data.text === "method") {
+                this._updateMethodVisibility(data.index);
+            } else {
+                this._updatePropertyVisibility(data.index);
+            }
+
+        },
+
+        _extractData : function (data) {
+
+            return {
+                text : data.slice(0, -1),
+                index : data.slice(-1)
+            }
+        },
+
+        _updateMethodVisibility : function (index) {
+            var methods = this.get("methods"),
+                currentVisibility = methods.get(index).visibility,
+                symbolIndex = this.symbolMap.toIndex[currentVisibility],
+                newIndex = ++symbolIndex % 3,
+                newSymbol = this.symbolMap.toSymbol[newIndex];
+            methods.get(index).visibility = newSymbol;
+
+            this.set({ "methods" : methods }, { silent : true });
+            this._fire("change:visibility", index);
+        },
+
+        _updatePropertyVisibility : function (index) {
+            var properties = this.get("properties"),
                 currentVisibility = properties.get(index).visibility,
                 symbolIndex = this.symbolMap.toIndex[currentVisibility],
                 newIndex = ++symbolIndex % 3,
                 newSymbol = this.symbolMap.toSymbol[newIndex];
-
             properties.get(index).visibility = newSymbol;
-            //  this doesn't result in a change event being fired because we've already changed it by
-            //  reference.
-            // ToDo: Is this an issue also in Backbone?
+
             this.set({ "properties" : properties }, { silent : true });
             this._fire("change:visibility", index);
         },

@@ -121,11 +121,11 @@ require(['WebAPI', 'keyManager'], function (WebAPI, KeyManager) {
                     describe("when visibility is changed ", function () {
                         var visibility;
                         beforeEach(function () {
-                            blahClassGui.properties().property(0).changeVisibility();
-                            visibility = blahClassGui.properties().property(0).visibility();
+                            blahClassGui.property(0).clickOnVisibility();
+                            visibility = blahClassGui.property(0).visibility();
                         });
                         it("should return visibility", function () {
-                            expect(visibility).toBe("#");
+                            expect(visibility).toBe("-");
                         });
                     });
                 });

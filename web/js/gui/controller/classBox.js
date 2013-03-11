@@ -15,6 +15,7 @@ define(['BaseType', 'underscore', 'jQuery'], function (BaseType, _, $) {
             $('.' + classId).find('.addMethod input').live("click", this.addMethod);
             $('.' + classId).find('.changeClassName  input').live("change", this.changeClassName);
             $('.' + classId).find('.visibility').live("click", this.handleVisibilityClick);
+            $('.' + classId).find('.visibility').live("click", this.handleVisibilityClick);
             $('.' + classId).find('.delete input').live("click", this.deleteProperty);
             $('.' + classId).find('.name input').live("change", this.changePropertyName);
             $('.' + classId).find('.type input').live("change", this.changePropertyType);
@@ -22,7 +23,7 @@ define(['BaseType', 'underscore', 'jQuery'], function (BaseType, _, $) {
 
         handleVisibilityClick : function (event) {
             var index = $(event.target).parent().data("index");
-            this.model.updatePropertyVisibility(index);
+            this.model.updateVisibility(index);
         },
 
         addProperty : function () {

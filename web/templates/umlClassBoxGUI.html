@@ -20,7 +20,7 @@
                 <div class="type">type</div>
             </div>
             <% for(var i = 0 ; i < properties.size(); i++) {  %>
-            <div class="property" data-index="<%= i %>">
+            <div class="property" data-index="<%= 'property' + i %>">
 
                 <div class="visibility">
                     <%= properties.get(i).visibility %>
@@ -55,7 +55,7 @@
                 <div class="returnType">returnType</div>
             </div>
             <% for(var i = 0 ; i < methods.size(); i++) {  %>
-            <div class="method" data-index="<%= i %>">
+            <div class="method" data-index="<%= 'method' + i %>">
 
                 <div class="visibility">
                     <%= methods.get(i).visibility %>

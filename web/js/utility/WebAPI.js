@@ -129,11 +129,17 @@ define(['BaseType',
                         return getProperties(this.view.getMyEl());
                     },
 
+                    property : function (index) {
+                        return getProperties(this.view.getMyEl()).property(index);
+                    },
+
                     methods : function () {
                         return getMethods(this.view.getMyEl());
                     },
 
-
+                    method : function(index) {
+                        return getMethods(this.view.getMyEl()).method(index);
+                    }
                 };
 
                 function getMethods(element) {
@@ -146,6 +152,14 @@ define(['BaseType',
                             return {
                                 name : function () {
                                     return method.find('.name input').val();
+                                },
+
+                                clickOnVisibility : function () {
+                                    method.find('.visibility').click();
+                                },
+
+                                visibility : function () {
+                                    return method.find('.visibility').text().trim();
                                 }
                             }
                         },
@@ -177,7 +191,7 @@ define(['BaseType',
                                     return property.find('.visibility').text().trim();
                                 },
 
-                                changeVisibility : function () {
+                                clickOnVisibility : function () {
                                     property.find('.visibility').click();
                                 },
 
