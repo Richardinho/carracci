@@ -61,7 +61,21 @@ require.config({
         BoxCoordinator: "web/js/coordinators/BoxCoordinator",
         GuiView : "web/js/gui/view.classBox",
         GuiController : "web/js/gui/controller/classBox",
-        methodBuilder : "web/js/utility/methodBuilder"
+        methodBuilder : "web/js/utility/methodBuilder",
+        MenuFactory : "web/js/menu/factory",
+        MenuModel : "web/js/menu/model",
+        MenuView : "web/js/menu/view",
+        HelpModel : "web/js/menu/help/model",
+        HelpController : "web/js/menu/help/controller",
+        helpData : "web/js/menu/help/data",
+        HelpView : "web/js/menu/help/view",
+        foo : "web/js/menu/controller",
+        ToolsModel : "web/js/menu/tools/model",
+        ToolsView : "web/js/menu/tools/view",
+        ToolsController : "web/js/menu/tools/controller",
+        ClassBoxFactory : "web/js/classBox/factory/factory.ClassBox",
+        MenuBarAPI : "test/webAPI/menuBar",
+        ToolsDropDownAPI : "test/webAPI/toolsDropDown"
 
 
     }

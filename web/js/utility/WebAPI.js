@@ -21,7 +21,8 @@ define(['BaseType',
         "GuiView",
         "GuiController",
         "methodBuilder",
-        "templateLoader"], function (BaseType,
+        "templateLoader",
+        "MenuFactory", "MenuBarAPI"], function (BaseType,
                                            HorizontalConnector,
                                            ModelArrowNode,
                                            CollectionPointer,
@@ -44,8 +45,12 @@ define(['BaseType',
                                            GuiView,
                                            GuiController,
                                            methodBuilder,
-                                           templateLoader) {
+                                           templateLoader,
+                                           MenuFactory,
+                                           MenuBarAPI ) {
 
+
+    var menuBarAPI = MenuBarAPI.initialize();
 
     function getProperty(config) {
         return propertyBuilder(config.name).visibility(config.visibility).type(config.type).build();
@@ -60,14 +65,19 @@ define(['BaseType',
 
         initialize : function (config) {
 
-            var connectors = config.connectors;
+
             this.connectors = {};
             this.classes = {};
             this.classGuis = {};
 
             templateLoader.initialize(['umlClassBoxGUI', 'tools', 'help'], '/web/templates/');
 
+            var menu = MenuFactory();
+
+            if(!config.classBoxes) { config.classBoxes = {}};
+            if(!config.connectors) { config.connectors = []};
             var classes = config.classBoxes;
+            var connectors = config.connectors;
 
             for(var i =0; i < classes.length; i++) {
                 var classConfig = classes[i];
@@ -337,6 +347,10 @@ define(['BaseType',
 
         getDistalNode : function (connectorId) {
             return this.connectors[connectorId]['distal'];
+        },
+
+        getMenuBar : function () {
+            return menuBarAPI;
         },
 
         getConnector : function (id) {
