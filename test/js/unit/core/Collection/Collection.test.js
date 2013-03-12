@@ -77,8 +77,39 @@ require(['Collection', 'Model'], function (Collection, Model) {
             });
         });
 
+        describe("contains()", function () {
+            beforeEach(function () {
+                model1 = new Model();
+                model2 = new Model();
+                model3 = new Model();
+                model1.id = 1;
+                model2.id = 2;
+                model3.id = 3;
 
-        xdescribe("deleteModel(id)", function () {
+                collection = new Collection([model1, model2, model3 ]);
+            });
+            describe("When collection contains element", function () {
+                var result;
+                beforeEach(function () {
+                    result = collection.contains(model2);
+                });
+                it("should return true", function () {
+                    expect(result).toBe(true);
+                });
+            });
+            describe("When collection does not contain element", function () {
+                var result;
+                beforeEach(function () {
+                    result = collection.contains({ id : 4 });
+                });
+                it("should return false", function () {
+                    expect(result).toBe(false);
+                });
+            });
+        })
+
+
+        describe("deleteModel(id)", function () {
             var model1, model2, collection, index;
             beforeEach(function () {
                 model1 = new Model();
@@ -161,7 +192,7 @@ require(['Collection', 'Model'], function (Collection, Model) {
             });
         });
 
-        describe("every()", function () {
+        describe("all()", function () {
             var collection, result, model1, model2, model3, context;
 
             beforeEach(function () {
@@ -175,7 +206,7 @@ require(['Collection', 'Model'], function (Collection, Model) {
             });
             describe("When iterator returns true against every element", function () {
                 beforeEach(function () {
-                    result = collection.every(function (element) {
+                    result = collection.all(function (element) {
                         return element.id < 4;
                     });
                 });
@@ -186,7 +217,7 @@ require(['Collection', 'Model'], function (Collection, Model) {
             describe("When iterator returns false against any element", function () {
                 var context = { result : "" };
                 beforeEach(function () {
-                    result = collection.every(function (element) {
+                    result = collection.all(function (element) {
                         this.result += element.id;
                         return element.id !== 2;
                     }, context);

@@ -38,6 +38,19 @@ define(['BaseType', 'underscore'], function (extend, _) {
             }, -1, this);
         },
 
+        /*
+         return true if element is within collection. match by 'id'
+         */
+        contains : function (element) {
+
+            return this.reduce(function (memo, el, index) {
+                if(element.id === el.id) {
+                    memo = true;
+                }
+                return memo;
+            }, false);
+        },
+
         add : function (element) {
             this._collection[this.size()] = element;
         },
@@ -55,7 +68,8 @@ define(['BaseType', 'underscore'], function (extend, _) {
 
         //  run a function against each element in collection and return a boolean according to whether the
         //  return value of all invocations of the function were true or not.
-        every : function (iterator, context) {
+        all : function (iterator, context) {
+
             return this.reduce(function (memo, element) {
                 if(!iterator.call(this, element)) {
                     memo = false
@@ -64,6 +78,7 @@ define(['BaseType', 'underscore'], function (extend, _) {
 
             }, true, context);
         },
+
 
         delete : function (index) {
             this._collection.splice(index, 1);
@@ -75,18 +90,12 @@ define(['BaseType', 'underscore'], function (extend, _) {
                 element;
             for(i = 0; i < length; i++) {
                 element = this.get(i);
-                if(element === undefined) {
-                    debugger;
-                }
+
                 if(element.id === id) {
                     this.delete(i);
+                    break;
                 }
             }
-            this.each(function(index, element) {
-                if(element.id === id) {
-                    toDelete.push(index)
-                }
-            });
         },
 
         findFirst : function (property, value ) {
@@ -95,7 +104,6 @@ define(['BaseType', 'underscore'], function (extend, _) {
                 element;
             for(i = 0; i < length; i++) {
                 element = this.get(i);
-                debugger;
                 if(element.get(property) === value) {
                     return i;
                 }
@@ -116,8 +124,6 @@ define(['BaseType', 'underscore'], function (extend, _) {
                 callback.call(context, i, this.get(i));
             }
         },
-
-
 
         map : function (iterator, context) {
             var result = [];
@@ -149,11 +155,10 @@ define(['BaseType', 'underscore'], function (extend, _) {
 
         filter : function () {},
 
-        contains : function () {},
 
         pluck : function () {},
 
-        sortBy : function () {},
+        sortBy : function () {}
 
 
 
