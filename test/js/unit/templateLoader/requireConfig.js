@@ -24,6 +24,7 @@ require.config({
         ModelElement : "web/js/node/model/model.element",
         Collection : "web/js/core/Collection",
         IDGenerator : "test/js/stubs/IDGeneratorStub",
+        ComponentContainer : "web/js/componentContainer"
 
     }
 });

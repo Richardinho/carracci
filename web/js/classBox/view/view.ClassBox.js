@@ -85,6 +85,10 @@ define(['BaseType', 'svgUtilities', 'Collection' ], function (BaseType, svgUtili
             result += method.returnType;
 
             return result;
+        },
+
+        getType : function () {
+            return "ClassBoxView";
         }
     });
 });

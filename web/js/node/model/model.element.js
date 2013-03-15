@@ -101,6 +101,10 @@ define(['Model', 'Collection'], function (Model, Collection) {
 
         removeValidator : function (id) {
             this.fooValidators.deleteModel(id);
+        },
+
+        getTypePrefix : function () {
+            return ModelElement;
         }
 
     });

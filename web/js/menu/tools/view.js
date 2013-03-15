@@ -11,10 +11,8 @@ define(['BaseType', 'underscore', 'templateLoader'], function (BaseType, _, temp
         },
 
         render : function () {
-            console.log("render tools")
             var data = {};
             var visible = this.model.get("visible");
-            console.log("visible", visible)
             var element = $('<div></div>');
             if(!visible) {
                 element.addClass('hidden');

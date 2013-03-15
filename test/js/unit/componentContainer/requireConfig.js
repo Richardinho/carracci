@@ -18,9 +18,7 @@ require.config({
 
         underscore : "web/js/lib/underscore",
         jQuery : "web/js/lib/jquery-1.8.0",
-        BaseType : "web/js/utility/extend",
-        IDGenerator : "test/js/stubs/IDGeneratorStub",
-        componentContainer : "web/js/componentContainer"
+        ComponentContainer : "web/js/componentContainer"
     }
 });
 

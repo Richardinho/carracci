@@ -23,11 +23,12 @@ require(['WebAPI'], function (WebAPI) {
         webAPI.getClassBox("blahClass").move(200, 200);
 
         function reset() {
-            var rightArrowNode, proximalNode, leftArrowNode;
+            var rightArrowNode, proximalNode, leftArrowNode, connector;
 
-            rightArrowNode = webAPI.getRightArrowNode("foo");
-            proximalNode = webAPI.getProximalNode("foo");
-            leftArrowNode = webAPI.getLeftArrowNode("foo");
+            connector = webAPI.getConnector("foo");
+            rightArrowNode = connector.getRightArrowNode();
+            proximalNode = connector.getProximalNode();
+            leftArrowNode = connector.getLeftArrowNode();
 
             rightArrowNode.model.update(225, 110);
             leftArrowNode.model.update(25, 10);
@@ -51,8 +52,8 @@ require(['WebAPI'], function (WebAPI) {
                     startProximalNodeXCood;
 
                 beforeEach(function () {
-                    node = webAPI.getRightArrowNode("foo");
-                    proximalNode = webAPI.getProximalNode("foo");
+                    node = webAPI.getConnector("foo").getRightArrowNode();
+                    proximalNode = webAPI.getConnector("foo").getProximalNode();
                     startNodeXCood = node.xCood();
                     startNodeYCood = node.yCood();
                     startProximalNodeXCood = proximalNode.xCood();
@@ -76,12 +77,14 @@ require(['WebAPI'], function (WebAPI) {
                     proximalNode,
                     distalNode,
                     startProximalXCood,
-                    startProximalYCood;
+                    startProximalYCood,
+                    connector;
 
                 beforeEach(function () {
-                    rightArrowNode = webAPI.getRightArrowNode("foo");
-                    proximalNode = webAPI.getProximalNode("foo");
-                    distalNode = webAPI.getDistalNode("foo");
+                    connector = webAPI.getConnector("foo");
+                    rightArrowNode = connector.getRightArrowNode("foo");
+                    proximalNode = connector.getProximalNode("foo");
+                    distalNode = connector.getDistalNode("foo");
 
                     startProximalXCood = proximalNode.xCood();
                     startProximalYCood = proximalNode.yCood();
@@ -110,13 +113,15 @@ require(['WebAPI'], function (WebAPI) {
                     proximalNode,
                     distalNode,
                     startDistalXCood,
-                    startDistalYCood;
+                    startDistalYCood,
+                    connector;
 
                 beforeEach(function () {
-                    leftArrowNode = webAPI.getLeftArrowNode("foo");
+                    connector = webAPI.getConnector("foo");
+                    leftArrowNode = connector.getLeftArrowNode();
                     leftArrowNodeStartX = leftArrowNode.xCood();
-                    proximalNode = webAPI.getProximalNode("foo");
-                    distalNode = webAPI.getDistalNode("foo");
+                    proximalNode = connector.getProximalNode();
+                    distalNode = connector.getDistalNode();
 
                     startDistalXCood = distalNode.xCood();
                     startDistalYCood = distalNode.yCood();
@@ -144,11 +149,13 @@ require(['WebAPI'], function (WebAPI) {
                     distalNode,
                     startNodeXCood,
                     startNodeYCood,
-                    startDistalNodeXCood;
+                    startDistalNodeXCood,
+                    connector;
 
                 beforeEach(function () {
-                    node = webAPI.getLeftArrowNode("foo");
-                    distalNode = webAPI.getDistalNode("foo");
+                    connector = webAPI.getConnector("foo");
+                    node = connector.getLeftArrowNode();
+                    distalNode = connector.getDistalNode();
                     startNodeXCood = node.xCood();
                     startNodeYCood = node.yCood();
                     startDistalNodeXCood = distalNode.xCood();
@@ -170,11 +177,13 @@ require(['WebAPI'], function (WebAPI) {
 
         describe("when right arrow node passes over the proximal node", function () {
             var rightArrowNode,
-                proximalNode;
+                proximalNode,
+                connector;
 
             beforeEach(function () {
-                rightArrowNode = webAPI.getRightArrowNode("foo");
-                proximalNode = webAPI.getProximalNode("foo");
+                connector = webAPI.getConnector("foo")
+                rightArrowNode = connector.getRightArrowNode();
+                proximalNode = connector.getProximalNode();
 
 
                 var diff = rightArrowNode.xCood() - proximalNode.xCood();
@@ -188,11 +197,13 @@ require(['WebAPI'], function (WebAPI) {
 
         describe("when left arrow node passes over the distal node", function () {
             var leftArrowNode,
-                distalNode;
+                distalNode,
+                connector;
 
             beforeEach(function () {
-                leftArrowNode = webAPI.getLeftArrowNode("foo");
-                distalNode = webAPI.getDistalNode("foo");
+                connector = webAPI.getConnector("foo")
+                leftArrowNode = connector.getLeftArrowNode();
+                distalNode = connector.getDistalNode();
 
 
                 var diff = leftArrowNode.xCood() - distalNode.xCood();
@@ -206,10 +217,12 @@ require(['WebAPI'], function (WebAPI) {
 
         describe("linking arrow to classbox", function () {
             var rightArrowNode,
-                classBox;
+                classBox,
+                connector;
 
             beforeEach(function () {
-                rightArrowNode = webAPI.getRightArrowNode("foo");
+                connector = webAPI.getConnector("foo")
+                rightArrowNode = connector.getRightArrowNode();
                 classBox = webAPI.getClassBox("blahClass");
                 webAPI.keyDown('U');
                 rightArrowNode.click();
@@ -227,10 +240,12 @@ require(['WebAPI'], function (WebAPI) {
         describe("disconnecting arrow from classbox", function () {
             var rightArrowNode,
                 classBox,
-                classBoxXCood;
+                classBoxXCood,
+                connector;
 
             beforeEach(function () {
-                rightArrowNode = webAPI.getRightArrowNode("foo");
+                connector = webAPI.getConnector("foo")
+                rightArrowNode = connector.getRightArrowNode();
                 classBox = webAPI.getClassBox("blahClass");
                 classBoxXCood = classBox.xCood();
                 webAPI.keyDown('U');

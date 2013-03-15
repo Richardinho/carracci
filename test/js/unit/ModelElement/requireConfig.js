@@ -23,7 +23,8 @@ require.config({
         Model : "web/js/core/Model",
         ModelElement : "web/js/node/model/model.element",
         Collection : "web/js/core/Collection",
-        IDGenerator : "test/js/stubs/IDGeneratorStub"
+        IDGenerator : "test/js/stubs/IDGeneratorStub",
+        ComponentContainer : "web/js/componentContainer"
 
     }
 });

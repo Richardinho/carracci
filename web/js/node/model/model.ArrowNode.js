@@ -53,6 +53,10 @@ define(['ModelElement'], function (ModelElement) {
         removeValidator : function (id) {
             this.fooValidators.deleteModel(id);
             this.set({ "connectedToBox": false });
+        },
+
+        getType : function () {
+            return "ArrowNode";
         }
 
 

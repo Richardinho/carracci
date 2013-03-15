@@ -87,7 +87,7 @@ require(['WebAPI', 'keyManager'], function (WebAPI, KeyManager) {
 
                 it("should add property to class model and to gui", function () {
                     expect(classBoxGui.model.get("properties").size()).toBe(3);
-                    expect(classBoxGui.properties().size()).toBe(3);
+                    expect(classBoxGui.propertiesSize()).toBe(3);
                 });
             });
 
@@ -99,7 +99,7 @@ require(['WebAPI', 'keyManager'], function (WebAPI, KeyManager) {
                 });
                 it("should delete property from model and from gui", function () {
                     expect(classBoxGui.model.get("properties").size()).toBe(2);
-                    expect(classBoxGui.properties().size()).toBe(2);
+                    expect(classBoxGui.propertiesSize()).toBe(2);
                 });
             });
 
@@ -153,7 +153,7 @@ require(['WebAPI', 'keyManager'], function (WebAPI, KeyManager) {
 
                 it("should add method to class model", function () {
                     expect(classBoxGui.model.get("methods").size()).toBe(2);
-                    expect(classBoxGui.methods().size()).toBe(2);
+                    expect(classBoxGui.methodsSize()).toBe(2);
                 });
             });
 
@@ -165,7 +165,7 @@ require(['WebAPI', 'keyManager'], function (WebAPI, KeyManager) {
                 });
                 it("should delete method from model and from gui", function () {
                     expect(classBoxGui.model.get("methods").size()).toBe(1);
-                    expect(classBoxGui.methods().size()).toBe(1);
+                    expect(classBoxGui.methodsSize()).toBe(1);
                 });
             });
 

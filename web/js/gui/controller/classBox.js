@@ -84,6 +84,10 @@ define(['BaseType', 'underscore', 'jQuery'], function (BaseType, _, $) {
 
         changeXCood : function (event) {
             this.model.setXCood(event.currentTarget.value)
+        },
+
+        getType : function () {
+            return "ClassGuiController";
         }
     });
 });

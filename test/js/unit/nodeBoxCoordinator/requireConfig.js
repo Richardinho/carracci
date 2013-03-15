@@ -26,7 +26,8 @@ require.config({
         ArrowCoordinator:"test/js/stubs/ArrowCoordinator",
         ProximalNodeCoordinator:"test/js/stubs/ProximalNodeCoordinator",
         DistalNodeCoordinator:"test/js/stubs/DistalNodeCoordinator",
-        BoxCoordinator : "test/js/stubs/BoxCoordinator"
+        BoxCoordinator : "test/js/stubs/BoxCoordinator",
+        ComponentContainer : "web/js/componentContainer"
     }
 });
 

@@ -64,7 +64,8 @@ require.config({
         ProximalNodeCoordinator:"web/js/coordinators/ProximalNodeCoordinator",
         DistalNodeCoordinator: "web/js/coordinators/DistalNodeCoordinator",
         GuiView : "web/js/gui/view.classBox",
-        GuiController : "web/js/gui/controller/classBox"
+        GuiController : "web/js/gui/controller/classBox",
+        ComponentContainer : "web/js/componentContainer"
 
 
     }

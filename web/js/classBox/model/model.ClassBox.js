@@ -183,6 +183,10 @@ define(['ModelElement',
         symbolMap : {
             toIndex : { '#' : 0, '-' : 1 , '+' : 2 },
             toSymbol : ['#', '-', '+']
+        },
+
+        getType : function () {
+            return "ClassBoxModel";
         }
 
     });

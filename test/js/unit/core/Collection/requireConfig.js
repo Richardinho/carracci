@@ -22,7 +22,8 @@ require.config({
         Collection : "web/js/core/Collection",
         Model : "web/js/core/Model",
         BaseType : "web/js/utility/extend",
-        IDGenerator : "test/js/stubs/IDGeneratorStub"
+        IDGenerator : "test/js/stubs/IDGeneratorStub",
+        ComponentContainer : "web/js/componentContainer"
     }
 });
 

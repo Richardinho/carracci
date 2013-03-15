@@ -34,6 +34,10 @@ define(['BaseType',
         _getTemplate : function () {
 
             return _.template($('#gui-class-template').html());
+        },
+
+        getType : function () {
+            return "ClassGuiView";
         }
 
 

@@ -75,9 +75,15 @@ require.config({
         ToolsController : "web/js/menu/tools/controller",
         ClassBoxFactory : "web/js/classBox/factory/factory.ClassBox",
         MenuBarAPI : "test/webAPI/menuBar",
-        ToolsDropDownAPI : "test/webAPI/toolsDropDown"
-
-
+        ToolsDropDownAPI : "test/webAPI/toolsDropDown",
+        PropertiesGuiAPI : "test/webAPI/propertiesGuiAPI",
+        MethodsGuiAPI: "test/webAPI/methodsGuiAPI",
+        ClassGuiAPI : "test/webAPI/classGuiAPI",
+        ClassAPI : "test/webAPI/classAPI",
+        ArrowNodeAPI : "test/webAPI/arrowNodeAPI",
+        NodeAPI : "test/webAPI/nodeAPI",
+        ConnectorAPI : "test/webAPI/connectorAPI",
+        DiagramContainer : "web/js/diagramContainer"
     }
 });
 

@@ -26,7 +26,8 @@ require.config({
         BaseType :        "web/js/utility/extend",
         StubTest :        "test/js/stubs/stubs",
         IDGenerator:      "test/js/stubs/IDGeneratorStub",
-        methodBuilder :   "web/js/utility/methodBuilder"
+        methodBuilder :   "web/js/utility/methodBuilder",
+        componentContainer : "web/js/componentContainer"
     }
 });
 

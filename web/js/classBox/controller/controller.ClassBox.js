@@ -26,6 +26,10 @@ define(['ControllerDraggableElement'], function (ControllerDraggableElement) {
             if((this.keyManager.U_KEY)) {
                 this.globalController.boxRequest(this.model);
             }
+        },
+
+        getType : function () {
+            return "ClassBoxController";
         }
 
     });

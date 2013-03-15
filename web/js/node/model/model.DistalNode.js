@@ -48,6 +48,10 @@ define(['ModelElement'], function (ModelElement) {
 
         setLastNodeModel : function (nodeModel) {
             this.lastNodeModel = nodeModel;
+        },
+
+        getType : function () {
+            return "Node";
         }
 
     });

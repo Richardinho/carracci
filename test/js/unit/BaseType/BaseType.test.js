@@ -8,11 +8,17 @@ require(['BaseType'], function ( BaseType) {
         describe("When instances of extended type are created", function () {
             beforeEach(function () {
 
-                var NewType = BaseType.extend({});
+                var NewType = BaseType.extend({
+                    getTypePrefix : function () { return "Connector"}
+                });
                 newInstance1 = new NewType();
                 newInstance2 = new NewType();
                 newInstance3 = new NewType();
                 newInstance4 = new NewType();
+            });
+
+            it("should have id of form [prefix][idNumber]", function () {
+                expect(newInstance1.id).toBe("Connector_1")
             });
 
             it("should have a unique Id", function (){

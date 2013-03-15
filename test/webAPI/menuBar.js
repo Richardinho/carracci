@@ -4,7 +4,6 @@ define(['ToolsDropDownAPI', 'jQuery'], function (ToolsDropDownAPI, $) {
     return {
 
 
-
         initialize: function () {
             this.el = $('#menu');
             toolsDropDownAPI = ToolsDropDownAPI.initialize($('#tool-bar'));

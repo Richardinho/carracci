@@ -18,6 +18,9 @@ define(['raphael', 'jQuery'], function(Raphael, $) {
             yCood = model.get("yCood");
             pane.attr({ "width" : width + 10 , "height" : height });
         }
+
+        pane.data("typeId", model.id);
+
         return pane;
     }
 
