@@ -32,152 +32,182 @@ define(['keyManager',
                                           ViewLine,
                                           CoordinatorHorizontalConnector,
                                           Collection,
-                                          componentContainer) {
+                                          ComponentContainer) {
 
-    return function (options) {
+    return function (config) {
 
-
-    //  construct connector here.
-        var x1 = options.x1,
-            y1 = options.y1,
-            x2 = options.x2,
-            y2 = options.y2,
-            connector,
-            blackDiamondModel,
-            blackDiamondView,
-            blackDiamondModel2,
-            blackDiamondView2,
-            pointers,
-            pointers2,
-            leftArrowNodeModel,
-            leftArrowNodeView,
-            leftArrowNodeController,
-            rightArrowNodeModel,
-            rightArrowNodeView,
-            rightArrowNodeController,
-            leftProximalNodeModel,
-            leftProximalNodeView,
-            leftProximalNodeController,
-            rightProximalNodeModel,
-            rightProximalNodeView,
-            rightProximalNodeController,
-            line1Model,
-            line1View,
-            line2Model,
-            line2View,
-            line3Model,
-            line3View,
-            lineCollection;
-
-        var id = componentContainer.createComponentSlot('Connector');
+        componentId = ComponentContainer.createComponentSlot('Connector');
 
         connector = new HorizontalConnector();
-        var pointers = createPointers(x1, y1, "left", "pink");
 
-        function createPointers(x, y, direction, color) {
+        left = createArrowNode({
+            config : config.leftNode,
+            connector : connector,
+            direction : "left",
+            componentId : componentId
+        });
 
-            var blackDiamondModel = new ModelDiamond({ "direction" : direction,
-                                                       "x" : x,
-                                                       "y" : y,
-                                                       "color" : color });
+        proximal = createNode({
+            config : config,
+            connector : connector,
+            direction : "proximal",
+            componentId : componentId
+        });
 
-            var blackDiamondView = new ViewPointer({ "model" : blackDiamondModel });
+        distal = createNode({
+            config : config,
+            connector : connector,
+            direction : "distal",
+            componentId : componentId
+        });
 
-            var pointers = new CollectionPointer([ blackDiamondModel ]);
-
-            return pointers;
-        }
-
-        var leftArrowNodeModel = createArrowNode(x1, y1, connector, pointers);
-
-
-
-        function createArrowNode(x, y, connector, pointers, name) {
-
-            var leftArrowNodeModel = new ModelArrowNode({ "name" : name,
-                                                          "x" : x,
-                                                          "y" : y ,
-                                                          "connector" : connector,
-                                                          "pointers": pointers });
-
-            var leftArrowNodeView = new ViewArrowNode({ "model" : leftArrowNodeModel });
-
-            new ControllerArrowNode({ "model" : leftArrowNodeModel, "view" : leftArrowNodeView });
-
-            return leftArrowNodeModel;
-
-        }
-
-
-
-        var leftProximalNodeModel = createProximalNode(x1 + 100, y1, connector, "distal" );
-
-        function createProximalNode( x, y, connector, name ) {
-
-           var leftProximalNodeModel = new ModelDistalNode({ name : name,
-                                                             "x" : x,
-                                                             "y" : y ,
-                                                             "connector" : connector });
-
-           var leftProximalNodeView = new ViewElement({ "model" : leftProximalNodeModel });
-
-           var leftProximalNodeController = new ControllerDraggableElement({ "model" : leftProximalNodeModel,
-                                                                             "view" : leftProximalNodeView });
-           return leftProximalNodeModel;
-        }
-
-
-
-        var rightProximalNodeModel = createProximalNode(x2 - 100, y2, connector, "proximal");
-
-        var pointers2 = createPointers( x2, y2, "right", "yellow" );
-        var rightArrowNodeModel = createArrowNode( x2, y2, connector, pointers2 , "right");
-
-
-
-        line1Model = createLine( leftArrowNodeModel, leftProximalNodeModel );
-        line2Model = createLine( leftProximalNodeModel, rightProximalNodeModel );
-        line3Model = createLine( rightProximalNodeModel, rightArrowNodeModel );
+        right = createArrowNode({
+            config : config.rightNode,
+            connector : connector,
+            direction : "right",
+            componentId : componentId
+        });
 
         function createLine( nodeA, nodeB ) {
+
             var lineModel = new ModelLine({ "nodeA" : nodeA, "nodeB" : nodeB });
             var lineView = new ViewLine({ model : lineModel });
             return lineModel;
         }
 
+        line1Model = createLine( left, distal );
+        line2Model = createLine( distal, proximal );
+        line3Model = createLine( proximal, right );
 
-        new CoordinatorHorizontalConnector({ "leftArrow" : leftArrowNodeModel,
-                                                           "proximalNode" : leftProximalNodeModel,
-                                                           "distalNode" : rightProximalNodeModel,
-                                                           "rightArrow" : rightArrowNodeModel   });
+        new CoordinatorHorizontalConnector({
+            "leftArrow" : left,
+            "proximalNode" : distal,
+            "distalNode" : proximal,
+            "rightArrow" : right
+        });
+
+        left.setProximalNodeModel(proximal);
+        left.setDistalNodeModel(proximal);
+
+        distal.setArrowNodeModel(left);
+        distal.setDistalNodeModel(proximal);
+        distal.setLastNodeModel(right);
+
+        proximal.setArrowNodeModel(right);
+        proximal.setDistalNodeModel(right);
+        proximal.setLastNodeModel(left);
+
+        right.setProximalNodeModel(proximal);
+        right.setDistalNodeModel(distal);
+
+        connector.lines = new Collection([line1Model, line2Model,line3Model]);
 
 
-        leftArrowNodeModel.setProximalNodeModel(leftProximalNodeModel);
-        leftArrowNodeModel.setDistalNodeModel(rightProximalNodeModel);
+        function createNode (options) {
 
-        leftProximalNodeModel.setArrowNodeModel(leftArrowNodeModel);
-        leftProximalNodeModel.setDistalNodeModel(rightProximalNodeModel);
-        leftProximalNodeModel.setLastNodeModel(rightArrowNodeModel);
+            var config, connector, x, y, model, view, controller, componentId;
 
-        rightProximalNodeModel.setArrowNodeModel(rightArrowNodeModel);
-        rightProximalNodeModel.setDistalNodeModel(leftProximalNodeModel);
-        rightProximalNodeModel.setLastNodeModel(leftArrowNodeModel);
+            config = options.config;
+            connector = options.connector;
+            componentId = options.componentId;
 
-        rightArrowNodeModel.setProximalNodeModel(rightProximalNodeModel);
-        rightArrowNodeModel.setDistalNodeModel(leftProximalNodeModel);
+            x = (config.leftNode.x + config.rightNode.x) /2;
 
+            if(options.direction === "proximal") {
+                y = config.rightNode.y;
+            } else {
+                y = config.leftNode.y;
+            }
 
-        lineCollection = new Collection([line1Model, line2Model,line3Model]);
-        connector.lines = lineCollection;
+            model = new ModelDistalNode({
+                "x" : x,
+                "y" : y ,
+                "connector" : connector,
+                "name" : options.direction
+            });
 
-        componentContainer.store(id, [  leftArrowNodeModel,
-                                        leftProximalNodeModel,
-                                        rightProximalNodeModel,
-                                        rightArrowNodeModel
-        ]);
+            view = new ViewElement({ "model" : model, "name" : options.direction });
 
-        return connector;
+            controller = new ControllerDraggableElement({
+                "model" : model,
+                "view" : view,
+                "name" : options.direction
+            });
+            ComponentContainer.store( componentId, [model, view, controller]);
+            return model;
+        }
 
+        function createArrowNode (options) {
+
+            var config, direction, connector, x, y, pointers, model, view, controller, componentId;
+
+            config = options.config;
+            direction = options.direction;
+            connector = options.connector;
+            componentId = options.componentId;
+
+            x = config.x;
+            y = config.y;
+
+            pointers = _getPointers(config, direction);
+
+            model = new ModelArrowNode({
+                "x" : x,
+                "y" : y,
+                "connector" : connector,
+                "pointers": pointers,
+                "name" : direction
+            });
+
+            view = new ViewArrowNode({ "model" : model, "name" : direction });
+
+            controller = new ControllerArrowNode({
+
+                "model" : model,
+                "view" : view,
+                "name" : direction
+            });
+            ComponentContainer.store( componentId, [model, view, controller]);
+            return model;
+        }
+
+        function _getPointers (config, direction) {
+
+            var pointers, pointerType, constructors, model, view;
+            pointers = [];
+
+            for(var i=0; i < config.arrows.length; i++) {
+
+                pointerType = config.arrows[i];
+                constructors = _getPointerConstructors(pointerType);
+
+                model = new constructors.model({
+                    "direction" : direction,
+                    "x" : config.x,
+                    "y" : config.y,
+                    "color" : "green"
+                });
+
+                view = new constructors.view({
+                    "model" : model
+                });
+
+                pointers.push(model);
+            }
+
+            return new CollectionPointer(pointers);
+        }
+
+        function _getPointerConstructors (pointer) {
+
+            switch(pointer) {
+                case "diamond" :
+                    return {
+                        model : ModelDiamond,
+                        view : ViewPointer
+                    }
+                    break;
+            }
+        }
     };
-
 });

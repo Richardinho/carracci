@@ -29,17 +29,17 @@ define(['BaseType',
         },
 
         createUmlClass : function () {
-            ClassBoxFactory({ x : 0, y : 0, "height" : 70, "width" : 100 });
+            ClassBoxFactory({ name : "List", id : "blahClass", x : 0, y : 0,
+                properties :  [{ name : "foo", visibility : "+", type : "String" },
+                    { name : "bar", visibility : "#", type : "int" }] });
         },
 
         createConnectorClass : function () {
 
             connectorFactory({
-                x1 : 40,
-                y1 : 30,
-                x2 : 240,
-                y2 : 350
-            });
+                leftNode : { x  : 25, y : 10 , arrows : ['diamond'] },
+                rightNode : { x  : 225, y : 110 , arrows : ['diamond'] }
+                });
         }
     });
 });

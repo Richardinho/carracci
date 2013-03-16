@@ -77,7 +77,8 @@ require.config({
         BoxCoordinator: "coordinators/BoxCoordinator",
         ProximalNodeCoordinator:"coordinators/ProximalNodeCoordinator",
         DistalNodeCoordinator: "coordinators/DistalNodeCoordinator",
-        DiagramContainer : "diagramContainer"
+        Fixture : "utility/fixture",
+        componentContainer : "componentContainer",
 
     }
 });
@@ -88,25 +89,31 @@ require([ 'jQuery',
           'MenuFactory',
           'ClassBoxFactory',
           'templateLoader',
-          'componentContainer'], function ( $,
+          'Fixture'], function ( $,
                                           connectorFactory,
                                           MenuFactory,
                                           ClassBoxFactory,
                                           templateLoader,
-                                          DiagramContainer) {
+                                          Fixture) {
 
     $(document).ready(function () {
 
         templateLoader.initialize(['umlClassBoxGUI', 'tools', 'help'], './web/templates/');
 
+        configuration = {
 
-        connectorFactory({ x1 : 40,
-                           y1 : 30,
-                           x2 : 240,
-                           y2 : 350 });
+            connectors : [ { id : "foo",
+                leftNode : { x  : 25, y : 10 , arrows : ['diamond'] },
+                rightNode : { x  : 225, y : 110 , arrows : ['diamond'] } }
+            ],
+            classBoxes : [ { name : "List", id : "blahClass", x : 0, y : 0,
+                properties :  [{ name : "foo", visibility : "+", type : "String" },
+                    { name : "bar", visibility : "#", type : "int" }] } ]
 
-        //  create a collection to store classes.
-        ClassBoxFactory({ name : 'Foo<Bar<String, Integer>', x : 0, y : 0, "height" : 70, "width" : 100 });
+
+        };
+
+        new Fixture().setUp(configuration);
 
         var menu = MenuFactory();
     });

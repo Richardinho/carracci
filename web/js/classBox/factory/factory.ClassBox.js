@@ -13,52 +13,65 @@ define(['ClassBoxModel',
                                     GuiView,
                                     GuiController,
                                     methodBuilder,
-                                    componentContainer ) {
+                                    ComponentContainer ) {
 
 
-    return function(options) {
+    return function(classConfig) {
 
-        var classBoxModel,
-            property,
-            property2,
-            classBoxView,
-            classBoxController,
-            guiView,
-            gui,
-            containerElement;
+        className = classConfig.name;
 
-        var id = componentContainer.createComponentSlot('UmlClass');
+        x = classConfig.x;
+        y = classConfig.y;
 
-        containerElement = $('#class-container');
-
-        classBoxModel = new ClassBoxModel({ "name" : options.name,
-                                            "x" : options.x,
-                                            "y" : options.y,
-                                            "width" : options.width,
-                                            "height" : options.height });
-
-        property = propertyBuilder('foo').visibility("-").type("String").build();
-        property2 = propertyBuilder('bar').visibility("#").type("float").build();
-
-        method = methodBuilder('doThatdoThatdoThatdoThatdoThatdoThat').visibility("+").returnType('String').build();
-        method2 = methodBuilder('doBlah').visibility("+").returnType('Integer').build();
-
-        classBoxModel.addProperty(property);
-        classBoxModel.addProperty(property2);
-
-        classBoxModel.addMethod(method);
-        classBoxModel.addMethod(method2);
+        classBoxModel = new ClassBoxModel({ "name" : className, "x" : x, "y" : y });
 
         classBoxView = new ClassBoxView({ model : classBoxModel });
+
         classBoxController = new ClassBoxController({ model : classBoxModel, view : classBoxView });
 
-        guiView = new GuiView({ model : classBoxModel , containerEl : containerElement });
+        if(classConfig.properties) {
 
-        gui = new GuiController({ model : classBoxModel , view : guiView });
+            propertiesConfigs = classConfig.properties;
 
-        componentContainer.store(id, [ classBoxModel, classBoxView, classBoxController, guiView, gui ]);
+            for(var j=0; j < propertiesConfigs.length; j++) {
 
-        return classBoxModel;
+                classBoxModel.addProperty(getProperty(propertiesConfigs[j]));
+            }
+        }
+
+        if (classConfig.methods) {
+
+            methodsConfigs = classConfig.methods;
+
+            for(var j=0; j < methodsConfigs.length; j++) {
+
+                classBoxModel.addMethod(getMethod(methodsConfigs[j]));
+            }
+        }
+
+        guiView = new GuiView({ model : classBoxModel , containerEl : $('#class-container') });
+
+        guiController = new GuiController({ model : classBoxModel , view : guiView });
+
+        componentId = ComponentContainer.createComponentSlot('UmlClass');
+
+        ComponentContainer.store(
+            componentId,
+            [ classBoxModel,
+              classBoxView,
+              classBoxController,
+              guiView,
+              guiController
+            ]);
+
+    }
+
+    function getProperty(config) {
+        return propertyBuilder(config.name).visibility(config.visibility).type(config.type).build();
+    }
+
+    function getMethod(config) {
+        return methodBuilder(config.name).visibility(config.visibility).returnType(config.returnType).build();
     }
 
 });
