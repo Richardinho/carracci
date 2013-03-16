@@ -11,6 +11,10 @@ define(['ViewElement'], function (ViewElement) {
 
         render : function() {
             ViewElement.prototype.render.call(this);
+        },
+
+        getType : function () {
+            return this.model.name + "ArrowNodeView";
         }
 
     });

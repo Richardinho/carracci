@@ -12,21 +12,13 @@ define(['jQuery',
 
         initialize : function (options) {
 
-            var config = options.config,
-                connector = options.connector,
-                x = (config.leftNode.x + config.rightNode.x) /2,
-                y = config.rightNode.y;
+            this.model = options.model;
 
-            this.model = new ModelDistalNode({ id : "foo",
-                                               "x" : x,
-                                               "y" : y ,
-                                               "connector" : connector });
+        },
 
-            this.view = new ViewElement({ "model" : this.model });
-
-            this.controller = new ControllerDraggableElement({ "model" :this.model,
-                                                               "view" : this.view });
-
+        coods : function (x, y) {
+            this.xCood(x);
+            this.yCood(y);
         },
 
         xCood : function (newXCood) {

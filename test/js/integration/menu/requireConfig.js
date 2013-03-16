@@ -84,7 +84,8 @@ require.config({
         NodeAPI : "test/webAPI/nodeAPI",
         ConnectorAPI : "test/webAPI/connectorAPI",
         componentContainer : "web/js/componentContainer",
-        Fixture : "web/js/utility/fixture"
+        Fixture : "web/js/utility/fixture",
+        connectorFactory : "web/js/connectors/factory/factory.connector"
     }
 });
 

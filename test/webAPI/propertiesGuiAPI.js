@@ -1,16 +1,14 @@
-define(['jQuery'], function ($) {
+define(['jQuery', 'BaseType'], function ($, BaseType) {
 
-    var element;
 
-    return {
+    return BaseType.extend({
 
         initialize : function (el) {
-            element = el;
-            return this;
+            this.element = el;
         },
 
         property : function (index) {
-            var property = $(element.find('.properties .property').get(index));
+            var property = $(this.element.find('.properties .property').get(index));
 
             return {
 
@@ -51,5 +49,5 @@ define(['jQuery'], function ($) {
             return element.find('.properties .property').size();
         }
 
-    };
+    });
 });

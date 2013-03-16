@@ -21,7 +21,8 @@ define(['BaseType',
         'ModelLine',
         'ViewLine',
         'CoordinatorHorizontalConnector',
-        'Collection'], function (BaseType,
+        'Collection',
+        'MenuFactory' ], function (BaseType,
                                  ComponentContainer,
                                  ClassBoxModel,
                                  ClassBoxView,
@@ -44,14 +45,16 @@ define(['BaseType',
                                  ModelLine,
                                  ViewLine,
                                  CoordinatorHorizontalConnector,
-                                 Collection ) {
+                                 Collection,
+                                 MenuFactory) {
 
     return BaseType.extend({
 
         initialize : function () {
             templateLoader.initialize(['umlClassBoxGUI', 'tools', 'help'], '/web/templates/');
 
-            ComponentContainer.createComponentSlot('UmlClass');
+
+            var menu = MenuFactory();
         },
 
         setUp : function (config) {
@@ -74,30 +77,36 @@ define(['BaseType',
 
                 config = connectorsConfig[i];
 
+                componentId = ComponentContainer.createComponentSlot('Connector');
+
                 connector = new HorizontalConnector();
 
                 left = this.createArrowNode({
                     config : config.leftNode,
                     connector : connector,
-                    direction : "left"
+                    direction : "left",
+                    componentId : componentId
                 });
 
                 proximal = this.createNode({
                     config : config,
                     connector : connector,
-                    direction : "proximal"
+                    direction : "proximal",
+                    componentId : componentId
                 });
 
                 distal = this.createNode({
                     config : config,
                     connector : connector,
-                    direction : "distal"
+                    direction : "distal",
+                    componentId : componentId
                 });
 
                 right = this.createArrowNode({
                     config : config.rightNode,
                     connector : connector,
-                    direction : "right"
+                    direction : "right",
+                    componentId : componentId
                 });
 
                 function createLine( nodeA, nodeB ) {
@@ -134,18 +143,16 @@ define(['BaseType',
 
                 connector.lines = new Collection([line1Model, line2Model,line3Model]);
 
-                componentId = ComponentContainer.createComponentSlot('Connector');
-
-                ComponentContainer.store( componentId, [left, proximal, distal, right]);
             }
         },
 
         createNode : function (options) {
 
-            var config, connector, x, y, model, view, controller;
+            var config, connector, x, y, model, view, controller, componentId;
 
             config = options.config;
             connector = options.connector;
+            componentId = options.componentId;
 
             x = (config.leftNode.x + config.rightNode.x) /2;
 
@@ -158,25 +165,29 @@ define(['BaseType',
             model = new ModelDistalNode({
                 "x" : x,
                 "y" : y ,
-                "connector" : connector
+                "connector" : connector,
+                "name" : options.direction
             });
 
-            view = new ViewElement({ "model" : model });
+            view = new ViewElement({ "model" : model, "name" : options.direction });
 
             controller = new ControllerDraggableElement({
                 "model" : model,
-                "view" : view
+                "view" : view,
+                "name" : options.direction
             });
+            ComponentContainer.store( componentId, [model, view, controller]);
             return model;
         },
 
         createArrowNode : function (options) {
 
-            var config, direction, connector, x, y, pointers, model, view, controller;
+            var config, direction, connector, x, y, pointers, model, view, controller, componentId;
 
             config = options.config;
             direction = options.direction;
             connector = options.connector;
+            componentId = options.componentId;
 
             x = config.x;
             y = config.y;
@@ -187,17 +198,19 @@ define(['BaseType',
                 "x" : x,
                 "y" : y,
                 "connector" : connector,
-                "pointers": pointers
+                "pointers": pointers,
+                "name" : direction
             });
 
-            view = new ViewArrowNode({ "model" : model });
+            view = new ViewArrowNode({ "model" : model, "name" : direction });
 
             controller = new ControllerArrowNode({
 
                 "model" : model,
-                "view" : view
+                "view" : view,
+                "name" : direction
             });
-
+            ComponentContainer.store( componentId, [model, view, controller]);
             return model;
         },
 
@@ -277,9 +290,9 @@ define(['BaseType',
 
                     methodsConfigs = classConfig.methods;
 
-                    for(var j=0; j < methodsConfig.length; j++) {
+                    for(var j=0; j < methodsConfigs.length; j++) {
 
-                        classBoxModel.addMethod(getMethod(methodsConfig[j]));
+                        classBoxModel.addMethod(getMethod(methodsConfigs[j]));
                     }
                 }
 

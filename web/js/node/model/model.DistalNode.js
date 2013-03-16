@@ -51,7 +51,7 @@ define(['ModelElement'], function (ModelElement) {
         },
 
         getType : function () {
-            return "Node";
+            return this.name + "Node";
         }
 
     });

@@ -83,7 +83,10 @@ require.config({
         ArrowNodeAPI : "test/webAPI/arrowNodeAPI",
         NodeAPI : "test/webAPI/nodeAPI",
         ConnectorAPI : "test/webAPI/connectorAPI",
-        DiagramContainer : "web/js/diagramContainer"
+        componentContainer : "web/js/componentContainer",
+        Fixture : "web/js/utility/fixture",
+        connectorFactory : "web/js/connectors/factory/factory.connector",
+        ClassGuiAPI : "test/webAPI/classGuiAPI"
     }
 });
 

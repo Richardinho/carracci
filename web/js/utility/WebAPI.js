@@ -26,7 +26,6 @@ define(['BaseType',
         "MenuBarAPI",
         "PropertiesGuiAPI",
         "MethodsGuiAPI",
-        "ClassGuiAPI",
         "ClassAPI",
         "ArrowNodeAPI",
         "NodeAPI",
@@ -59,7 +58,6 @@ define(['BaseType',
                                MenuBarAPI,
                                PropertiesGuiAPI,
                                MethodsGuiAPI,
-                               ClassGuiAPI,
                                ClassAPI,
                                ArrowNodeAPI,
                                NodeAPI,
@@ -75,39 +73,30 @@ define(['BaseType',
 
         initialize : function (config) {
 
+            this.menuBarAPI = new MenuBarAPI({ el : $('#menu') });
 
         },
 
         numberOfConnectors : function () {
-            if(componentContainer['Connector']){
-                return componentContainer['Connector'].length;
-            } else {
-                return 0;
-            }
+
+            return componentContainer.numberOfType("Connector");
         },
 
         numberOfUmlClasses : function () {
-            if(componentContainer['UmlClass']){
-                return componentContainer['UmlClass'].length;
-            } else {
-                return 0;
-            }
+
+            return componentContainer.numberOfType("UmlClass");
         },
 
         getMenuBar : function () {
-            return menuBarAPI;
+            return this.menuBarAPI;
         },
 
-        getConnector : function (id) {
-            return this.connectors[id];
+        getConnector : function (index) {
+            return new ConnectorAPI(componentContainer.getComponent("Connector_" + index));
         },
 
         getClassBox : function (id) {
-            return this.classesAPI[id];
-        },
-
-        getClassBoxGui : function (id) {
-            return this.classGuisAPI[id];
+            return new ClassAPI(componentContainer.getComponent(id));
         },
 
         keyDown : function (key) {

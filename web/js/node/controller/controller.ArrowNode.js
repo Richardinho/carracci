@@ -1,7 +1,10 @@
-define(['ControllerDraggableElement', 'keyManager', 'globalController'], function (ControllerDraggableElement, KeyManager, globalController) {
+define(['ControllerDraggableElement',
+        'keyManager',
+        'globalController'], function ( ControllerDraggableElement,
+                                        KeyManager,
+                                        globalController) {
 
     return ControllerDraggableElement.extend({
-
 
         initialize : function (options) {
 
@@ -25,6 +28,10 @@ define(['ControllerDraggableElement', 'keyManager', 'globalController'], functio
 
         removeFrom : function (boxModel) {
             this.model.detatch();
+        },
+
+        getType : function () {
+            return this.model.name + "ArrowNodeController";
         }
     });
 });

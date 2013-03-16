@@ -1,4 +1,4 @@
-define(['componentContainer', 'IDGenerator'],function (componentContainer, IDGenerator) {
+define(['IDGenerator'],function ( IDGenerator) {
     var obj = {};
     obj.extend = function (template) {
 

@@ -1,76 +1,17 @@
 define(['jQuery',
-        'BaseType',
-        'ModelDiamond',
-        'ViewPointer',
-        'ModelArrowNode',
-        'ViewArrowNode',
-        'ControllerArrowNode',
-        'CollectionPointer'], function ($,
-                                          BaseType,
-                                          ModelDiamond,
-                                          ViewPointer,
-                                          ModelArrowNode,
-                                          ViewArrowNode,
-                                          ControllerArrowNode,
-                                          CollectionPointer) {
-
-    function getPointers(config, direction) {
-        var pointers = [];
-        for(var i=0; i < config.arrows.length; i++) {
-            var pointerType = config.arrows[i];
-            var constructors = getPointerConstructors(pointerType);
-
-            var model = new constructors.model({ "direction" : direction,
-                "x" : config.x,
-                "y" : config.y,
-                "color" : "green" });
-            var view = new constructors.view({ "model" : model });
-
-            pointers.push(model);
-
-        }
-
-        return new CollectionPointer(pointers);
-    }
-
-    function getPointerConstructors (pointer) {
-        switch(pointer) {
-            case "diamond" :
-                return {
-                    model : ModelDiamond,
-                    view : ViewPointer
-                }
-                break;
-        }
-    }
+        'BaseType' ], function ($,
+                                BaseType ) {
 
     return BaseType.extend({
 
         initialize : function (options) {
 
-/*            var config = options.config;
-            var direction = options.direction;
-            var connector = options.connector;
-
-            var x = config.x;
-            var y = config.y;
-
-            var pointers = getPointers(config, direction);
-
-            this.model = new ModelArrowNode({ "x" : x,
-                                              "y" : y,
-                                              "connector" : connector,
-                                              "pointers": pointers });
-
-            this.view = new ViewArrowNode({ "model" : this.model });
-
-
-            this.controller = new ControllerArrowNode({ "model" : this.model,
-                                                        "view" : this.view });*/
-
             this.model = options.model;
             this.view = options.view;
-            this.controller = options.controller;
+        },
+
+        coods : function (x, y) {
+            this.model.update(x, y);
         },
 
         xCood : function (newXCood) {

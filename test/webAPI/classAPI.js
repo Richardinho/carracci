@@ -1,14 +1,26 @@
 define(['jQuery',
-        'BaseType'], function ($,
-                               BaseType ) {
+        'BaseType',
+        'ClassGuiAPI'], function ($,
+                                  BaseType ,
+                                  ClassGuiAPI) {
 
     return BaseType.extend({
 
-        initialize : function (options) {
+        initialize : function (component) {
 
-            this.id = options.classId;
-            this.model = options.classBoxModel;
-            this.view = options.classBoxView;
+            this.model = component.ClassBoxModel;
+            this.view = component.ClassBoxView;
+            this.controller = component.ClassBoxController;
+
+            this.gui = new ClassGuiAPI({
+                model : this.model,
+                view : component.ClassGuiView,
+                controller : component.ClassGuiController
+            });
+        },
+
+        getGui : function () {
+            return this.gui;
         },
 
         xCood : function () {

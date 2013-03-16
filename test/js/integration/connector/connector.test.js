@@ -1,9 +1,13 @@
-require(['WebAPI'], function (WebAPI) {
+require(['WebAPI', 'Fixture'], function (WebAPI, Fixture) {
 
     describe("Connector", function () {
         var webAPI,
             class1 = {},
-            configuration;
+            configuration,
+            rightNode,
+            leftNode,
+            proximalNode,
+            distalNode;
 
         configuration = {
 
@@ -18,21 +22,26 @@ require(['WebAPI'], function (WebAPI) {
 
         };
 
-        webAPI = new WebAPI(configuration);
-        // because of a bug in the classbox we need to move it separately
-        webAPI.getClassBox("blahClass").move(200, 200);
+        new Fixture().setUp(configuration);
+
+        webAPI = new WebAPI();
+
+        var componentId = "UmlClass_0";
+
+        var classBoxAPI = webAPI.getClassBox(componentId);
+        var connector = webAPI.getConnector(0);
+
+        rightNode = connector.getRightArrowNode();
+        leftNode = connector.getLeftArrowNode();
+        proximalNode = connector.getProximalNode();
+        distalNode = connector.getDistalNode();
+
+        classBoxAPI.move(200, 200);
 
         function reset() {
-            var rightArrowNode, proximalNode, leftArrowNode, connector;
-
-            connector = webAPI.getConnector("foo");
-            rightArrowNode = connector.getRightArrowNode();
-            proximalNode = connector.getProximalNode();
-            leftArrowNode = connector.getLeftArrowNode();
-
-            rightArrowNode.model.update(225, 110);
-            leftArrowNode.model.update(25, 10);
-            proximalNode.xCood(125);
+            connector.getLeftArrowNode().coods(25, 10);
+            connector.getProximalNode().coods(125, 60);
+            connector.getRightArrowNode().coods(225, 110);
         }
 
 
@@ -40,30 +49,24 @@ require(['WebAPI'], function (WebAPI) {
             reset();
         });
 
-
-
-
         describe("moving nodes along x and y axis and effect on other nodes", function () {
             describe("When right arrow node moved along its x and y axis", function () {
-                var node,
-                    proximalNode,
-                    startNodeXCood,
+                var startNodeXCood,
                     startNodeYCood,
                     startProximalNodeXCood;
 
                 beforeEach(function () {
-                    node = webAPI.getConnector("foo").getRightArrowNode();
-                    proximalNode = webAPI.getConnector("foo").getProximalNode();
-                    startNodeXCood = node.xCood();
-                    startNodeYCood = node.yCood();
+
+                    startNodeXCood = rightNode.xCood();
+                    startNodeYCood = rightNode.yCood();
                     startProximalNodeXCood = proximalNode.xCood();
-                    node.move(1, 2);
+                    rightNode.move(1, 2);
 
                 });
 
                 it("should update arrow node's x and y coods", function () {
-                    expect(node.xCood()).toBe(startNodeXCood + 1);
-                    expect(node.yCood()).toBe(startNodeYCood + 2);
+                    expect(rightNode.xCood()).toBe(startNodeXCood + 1);
+                    expect(rightNode.yCood()).toBe(startNodeYCood + 2);
                 });
 
                 it("should update proximal nodes y Cood", function () {
@@ -73,18 +76,11 @@ require(['WebAPI'], function (WebAPI) {
             });
             describe("When proximal node is moved along its x and y axis", function () {
 
-                var rightArrowNode,
-                    proximalNode,
-                    distalNode,
-                    startProximalXCood,
+                var startProximalXCood,
                     startProximalYCood,
                     connector;
 
                 beforeEach(function () {
-                    connector = webAPI.getConnector("foo");
-                    rightArrowNode = connector.getRightArrowNode("foo");
-                    proximalNode = connector.getProximalNode("foo");
-                    distalNode = connector.getDistalNode("foo");
 
                     startProximalXCood = proximalNode.xCood();
                     startProximalYCood = proximalNode.yCood();
@@ -99,7 +95,7 @@ require(['WebAPI'], function (WebAPI) {
                 });
 
                 it("should update right arrow node y cood", function () {
-                    expect(rightArrowNode.yCood()).toBe(proximalNode.yCood());
+                    expect(rightNode.yCood()).toBe(proximalNode.yCood());
                 });
                 it("should update distal node x cood", function () {
                     expect(distalNode.xCood()).toBe(proximalNode.xCood());
@@ -108,20 +104,12 @@ require(['WebAPI'], function (WebAPI) {
 
             describe("When distal node is moved along its x and y axis", function () {
 
-                var leftArrowNode,
-                    leftArrowNodeStartX,
-                    proximalNode,
-                    distalNode,
-                    startDistalXCood,
+                var startDistalXCood,
                     startDistalYCood,
-                    connector;
+                    leftArrowNodeStartX;
 
                 beforeEach(function () {
-                    connector = webAPI.getConnector("foo");
-                    leftArrowNode = connector.getLeftArrowNode();
-                    leftArrowNodeStartX = leftArrowNode.xCood();
-                    proximalNode = connector.getProximalNode();
-                    distalNode = connector.getDistalNode();
+                    leftArrowNodeStartX = leftNode.xCood();
 
                     startDistalXCood = distalNode.xCood();
                     startDistalYCood = distalNode.yCood();
@@ -136,8 +124,8 @@ require(['WebAPI'], function (WebAPI) {
                 });
 
                 it("should update left arrow node y cood", function () {
-                    expect(leftArrowNode.yCood()).toBe(distalNode.yCood());
-                    expect(leftArrowNode.xCood()).toBe(leftArrowNodeStartX);
+                    expect(leftNode.yCood()).toBe(distalNode.yCood());
+                    expect(leftNode.xCood()).toBe(leftArrowNodeStartX);
                 });
                 it("should update proximal node x cood", function () {
                     expect(proximalNode.xCood()).toBe(distalNode.xCood());
@@ -145,27 +133,23 @@ require(['WebAPI'], function (WebAPI) {
             });
 
             describe("When left arrow node moved along its x and y axis", function () {
-                var node,
-                    distalNode,
-                    startNodeXCood,
+                var startNodeXCood,
                     startNodeYCood,
                     startDistalNodeXCood,
-                    connector;
+                    startDistalNodeYCood;
 
                 beforeEach(function () {
-                    connector = webAPI.getConnector("foo");
-                    node = connector.getLeftArrowNode();
-                    distalNode = connector.getDistalNode();
-                    startNodeXCood = node.xCood();
-                    startNodeYCood = node.yCood();
+                    startNodeXCood = leftNode.xCood();
+                    startNodeYCood = leftNode.yCood();
                     startDistalNodeXCood = distalNode.xCood();
-                    node.move(1, 2);
+                    startDistalNodeYCood = distalNode.yCood();
+                    leftNode.move(1, 2);
 
                 });
 
                 it("should update arrow node's x and y coods", function () {
-                    expect(node.xCood()).toBe(startNodeXCood + 1);
-                    expect(node.yCood()).toBe(startNodeYCood + 2);
+                    expect(leftNode.xCood()).toBe(startNodeXCood + 1);
+                    expect(leftNode.yCood()).toBe(startNodeYCood + 2);
                 });
 
                 it("should update distal nodes y Cood", function () {
@@ -176,85 +160,56 @@ require(['WebAPI'], function (WebAPI) {
         });
 
         describe("when right arrow node passes over the proximal node", function () {
-            var rightArrowNode,
-                proximalNode,
-                connector;
 
             beforeEach(function () {
-                connector = webAPI.getConnector("foo")
-                rightArrowNode = connector.getRightArrowNode();
-                proximalNode = connector.getProximalNode();
 
-
-                var diff = rightArrowNode.xCood() - proximalNode.xCood();
-                rightArrowNode.move(-(diff+ 100), 0);
+                var diff = rightNode.xCood() - proximalNode.xCood();
+                rightNode.move(-(diff+ 100), 0);
 
             });
             it("should reverse direction of the arrow", function () {
-                expect(rightArrowNode.arrowDirection()).toBe("left");
+                expect(rightNode.arrowDirection()).toBe("left");
             });
         });
 
         describe("when left arrow node passes over the distal node", function () {
-            var leftArrowNode,
-                distalNode,
-                connector;
 
             beforeEach(function () {
-                connector = webAPI.getConnector("foo")
-                leftArrowNode = connector.getLeftArrowNode();
-                distalNode = connector.getDistalNode();
 
-
-                var diff = leftArrowNode.xCood() - distalNode.xCood();
-                leftArrowNode.move(-(diff- 100), 0);
-
+                var diff = leftNode.xCood() - distalNode.xCood();
+                leftNode.move(-(diff- 100), 0);
             });
             it("should reverse direction of the arrow", function () {
-                expect(leftArrowNode.arrowDirection()).toBe("right");
+                expect(leftNode.arrowDirection()).toBe("right");
             });
         });
 
         describe("linking arrow to classbox", function () {
-            var rightArrowNode,
-                classBox,
-                connector;
 
             beforeEach(function () {
-                connector = webAPI.getConnector("foo")
-                rightArrowNode = connector.getRightArrowNode();
-                classBox = webAPI.getClassBox("blahClass");
                 webAPI.keyDown('U');
-                rightArrowNode.click();
-                classBox.click();
-
+                rightNode.click();
+                classBoxAPI.click();
             });
             it("should move arrow onto classbox ", function () {
-                var classBoxXCood = classBox.xCood(),
-                    classBoxHeight = classBox.height();
-                expect(rightArrowNode.xCood()).toBe(classBoxXCood);
-                expect(rightArrowNode.yCood()).toBe(classBox.yCood() + (classBoxHeight / 2));
+
+                expect(rightNode.xCood()).toBe(classBoxAPI.xCood());
+                expect(rightNode.yCood()).toBe(classBoxAPI.yCood() + (classBoxAPI.height() / 2));
             });
         });
 
         describe("disconnecting arrow from classbox", function () {
-            var rightArrowNode,
-                classBox,
-                classBoxXCood,
-                connector;
+            var classBoxXCood;
 
             beforeEach(function () {
-                connector = webAPI.getConnector("foo")
-                rightArrowNode = connector.getRightArrowNode();
-                classBox = webAPI.getClassBox("blahClass");
-                classBoxXCood = classBox.xCood();
+                classBoxXCood = classBoxAPI.xCood();
                 webAPI.keyDown('U');
-                rightArrowNode.click();
+                rightNode.click();
                 // this should disconnect arrow from classbox.
-                rightArrowNode.move(-100, 20);
+                rightNode.move(-100, 20);
             });
             it("should remove right arrow node from class box", function () {
-                expect(rightArrowNode.xCood()).toBe(classBoxXCood - 100);
+                expect(rightNode.xCood()).toBe(classBoxXCood - 100);
             });
         });
     });

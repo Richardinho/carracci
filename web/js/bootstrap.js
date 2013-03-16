@@ -99,12 +99,11 @@ require([ 'jQuery',
 
         templateLoader.initialize(['umlClassBoxGUI', 'tools', 'help'], './web/templates/');
 
-        var diagramContainer = new DiagramContainer();
 
-        diagramContainer.addConnector(connectorFactory({ x1 : 40,
-                                                         y1 : 30,
-                                                         x2 : 240,
-                                                         y2 : 350 }));
+        connectorFactory({ x1 : 40,
+                           y1 : 30,
+                           x2 : 240,
+                           y2 : 350 });
 
         //  create a collection to store classes.
         ClassBoxFactory({ name : 'Foo<Bar<String, Integer>', x : 0, y : 0, "height" : 70, "width" : 100 });

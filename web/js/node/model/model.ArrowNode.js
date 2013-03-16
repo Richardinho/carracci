@@ -7,6 +7,7 @@ define(['ModelElement'], function (ModelElement) {
 
         initialize : function (options) {
             ModelElement.prototype.initialize.call(this, options);
+            this.name = options.name;
             this.pointerCollection = options.pointers;
             this.pointerIndex = 0;
             this._getArrowModel().show();
@@ -56,7 +57,7 @@ define(['ModelElement'], function (ModelElement) {
         },
 
         getType : function () {
-            return "ArrowNode";
+            return this.name + "ArrowNode";
         }
 
 

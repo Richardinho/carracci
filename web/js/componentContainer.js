@@ -36,6 +36,17 @@ define([], function () {
             return root[type][index][typeName];
         },
 
+        getComponent : function (id) {
+            var type = this._getTypeFromId(id),
+                index = this._getIndexFromId(id);
+            return root[type][index];
+        },
+
+        numberOfType : function (type) {
+
+            return root[type].length;
+        },
+
         _getTypeFromId : function (id) {
             return id.substring(0, id.indexOf("_"));
         },

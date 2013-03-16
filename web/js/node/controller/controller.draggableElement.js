@@ -1,7 +1,9 @@
 define([ 'BaseType',
          'keyManager',
          'globalController',
-         'underscore' ], function (extend, keyManager, globalController, _ ) {
+         'underscore' ], function (extend,
+                                   keyManager,
+                                   globalController, _ ) {
 
     return extend.extend({
 
@@ -38,6 +40,10 @@ define([ 'BaseType',
         _onEnd : function () {
             this.startX = null;
             this.startY = null;
+        },
+
+        getType : function () {
+            return this.model.name + "nodeController";
         }
     });
 });

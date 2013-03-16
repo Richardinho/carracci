@@ -10,46 +10,33 @@ define(['jQuery',
 
         initialize : function (options) {
 
-
-
-            this.id = options.id;
-            this.model = options.classBoxModel;
-            this.view = options.guiView;
-            this.controller = options.guiController;
-
-            this.properties = PropertiesGuiAPI.initialize(this.view.getMyEl());
-            this.methods = MethodsGuiAPI.initialize(this.view.getMyEl());
+            this.model = options.model;
+            this.view = options.view;
+            this.controller = options.controller;
+            this.properties = new PropertiesGuiAPI(this.view.el);
+            this.methods = new MethodsGuiAPI(this.view.el);
         },
 
-        setClassName : function (name) {
+        setClassName : function (value) {
 
-            var inputEl = this.view.getMyEl().find('.changeClassName input');
-            inputEl.val(name);
-            inputEl.trigger("change");
-        },
-
-        clickAddMethod : function () {
-            this.view.getMyEl().find('.methods .addMethod input').click();
-        },
-
-        clickAddProperty : function () {
-            this.view.getMyEl().find('.properties .addProperty input').click();
+            this.view.el.find('.changeClassName input').val(value);
+            this.view.el.find('.changeClassName input').trigger("change");
         },
 
         property : function (index) {
             return this.properties.property(index);
         },
 
-        method : function(index) {
+        method : function (index) {
             return this.methods.method(index);
         },
 
-        propertiesSize : function () {
-            return this.properties.size();
+        clickAddProperty : function () {
+            this.view.el.find('.addProperty input').click();
         },
 
-        methodsSize : function () {
-            return this.methods.size();
+        clickAddMethod : function () {
+            this.view.el.find('.addMethod input').click();
         }
     });
 });

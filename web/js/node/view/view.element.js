@@ -13,6 +13,10 @@ define(['BaseType', "svgUtilities"], function (extend, svgUtils) {
             this.element.attr({ "cx" : this.model.get('xCood') });
             this.element.attr({ "cy" : this.model.get('yCood') });
             this.element.toFront();
+        },
+
+        getType : function () {
+            return  this.model.name + "NodeView";
         }
     });
 });

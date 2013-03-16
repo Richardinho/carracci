@@ -14,7 +14,8 @@ define(['keyManager',
         'ModelLine',
         'ViewLine',
         'CoordinatorHorizontalConnector',
-        'Collection' ], function (keyManager,
+        'Collection',
+        'componentContainer' ], function (keyManager,
                                           globalController,
                                           svgUtils,
                                           HorizontalConnector,
@@ -30,7 +31,8 @@ define(['keyManager',
                                           ModelLine,
                                           ViewLine,
                                           CoordinatorHorizontalConnector,
-                                          Collection) {
+                                          Collection,
+                                          componentContainer) {
 
     return function (options) {
 
@@ -67,6 +69,8 @@ define(['keyManager',
             line3View,
             lineCollection;
 
+        var id = componentContainer.createComponentSlot('Connector');
+
         connector = new HorizontalConnector();
         var pointers = createPointers(x1, y1, "left", "pink");
 
@@ -88,13 +92,13 @@ define(['keyManager',
 
 
 
-        function createArrowNode(x, y, connector, pointers) {
+        function createArrowNode(x, y, connector, pointers, name) {
 
-            var leftArrowNodeModel = new ModelArrowNode({ "id" : "foo",
-                                                                        "x" : x,
-                                                                        "y" : y ,
-                                                                        "connector" : connector,
-                                                                        "pointers": pointers });
+            var leftArrowNodeModel = new ModelArrowNode({ "name" : name,
+                                                          "x" : x,
+                                                          "y" : y ,
+                                                          "connector" : connector,
+                                                          "pointers": pointers });
 
             var leftArrowNodeView = new ViewArrowNode({ "model" : leftArrowNodeModel });
 
@@ -106,11 +110,11 @@ define(['keyManager',
 
 
 
-        var leftProximalNodeModel = createProximalNode(x1 + 100, y1, connector );
+        var leftProximalNodeModel = createProximalNode(x1 + 100, y1, connector, "distal" );
 
-        function createProximalNode( x, y, connector ) {
+        function createProximalNode( x, y, connector, name ) {
 
-           var leftProximalNodeModel = new ModelDistalNode({ id : "foo",
+           var leftProximalNodeModel = new ModelDistalNode({ name : name,
                                                              "x" : x,
                                                              "y" : y ,
                                                              "connector" : connector });
@@ -124,11 +128,10 @@ define(['keyManager',
 
 
 
-        var rightProximalNodeModel = createProximalNode(x2 - 100, y2, connector);
+        var rightProximalNodeModel = createProximalNode(x2 - 100, y2, connector, "proximal");
 
         var pointers2 = createPointers( x2, y2, "right", "yellow" );
-
-        var rightArrowNodeModel = createArrowNode( x2, y2, connector, pointers2 );
+        var rightArrowNodeModel = createArrowNode( x2, y2, connector, pointers2 , "right");
 
 
 
@@ -166,6 +169,12 @@ define(['keyManager',
 
         lineCollection = new Collection([line1Model, line2Model,line3Model]);
         connector.lines = lineCollection;
+
+        componentContainer.store(id, [  leftArrowNodeModel,
+                                        leftProximalNodeModel,
+                                        rightProximalNodeModel,
+                                        rightArrowNodeModel
+        ]);
 
         return connector;
 

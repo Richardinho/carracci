@@ -1,13 +1,11 @@
-define(['ToolsDropDownAPI', 'jQuery'], function (ToolsDropDownAPI, $) {
+define(['ToolsDropDownAPI', 'jQuery', 'BaseType'], function (ToolsDropDownAPI, $, BaseType) {
 
-    var toolsDropDownAPI;
-    return {
+    return BaseType.extend({
 
+        initialize: function (options) {
 
-        initialize: function () {
-            this.el = $('#menu');
-            toolsDropDownAPI = ToolsDropDownAPI.initialize($('#tool-bar'));
-            return this;
+            this.el = options.el;
+            this.toolsDropDownAPI = new ToolsDropDownAPI({ el : $('#tool-bar') });
         },
 
         clickOnToolsButton : function () {
@@ -15,7 +13,7 @@ define(['ToolsDropDownAPI', 'jQuery'], function (ToolsDropDownAPI, $) {
         },
 
         toolsDropDown : function () {
-            return toolsDropDownAPI;
+            return this.toolsDropDownAPI;
         }
-    }
+    });
 });

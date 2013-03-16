@@ -1,11 +1,10 @@
-define([], function () {
+define(['BaseType'], function (BaseType) {
 
-    return {
+    return BaseType.extend ({
 
-        initialize : function (el) {
+        initialize : function (options) {
 
-            this.el = el;
-            return this;
+            this.el = options.el;
         },
 
         isVisible : function () {
@@ -31,5 +30,5 @@ define([], function () {
         }
 
 
-    }
+    });
 })

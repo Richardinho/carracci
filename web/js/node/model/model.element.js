@@ -9,7 +9,7 @@ define(['Model', 'Collection'], function (Model, Collection) {
 
             Model.prototype.initialize.call(this, options);
             this.fooValidators = new Collection([]);
-            this.id = options.id;
+            this.name = options.name;
             this.updateCoordinates(options.x, options.y);
         },
 

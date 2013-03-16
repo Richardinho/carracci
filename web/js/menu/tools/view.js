@@ -31,6 +31,10 @@ define(['BaseType', 'underscore', 'templateLoader'], function (BaseType, _, temp
             return this.el.find('.uml-class-button');
         },
 
+        getConnectorButton : function () {
+            return this.el.find('.connector-button');
+        },
+
         _getTemplate : function () {
             return _.template($('#tools-template').html());
         }

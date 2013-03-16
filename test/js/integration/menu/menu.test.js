@@ -19,29 +19,29 @@ require(['WebAPI', 'Fixture'], function (WebAPI, Fixture) {
 
         new Fixture().setUp(configuration);
 
-        //webAPI = new WebAPI();
+        webAPI = new WebAPI();
 
         describe("when user clicks on tools menu bar button", function () {
             beforeEach(function () {
-                //webAPI.getMenuBar().clickOnToolsButton();
+                webAPI.getMenuBar().clickOnToolsButton();
             });
 
             it("should display tools drop down", function () {
-                //expect(webAPI.getMenuBar().toolsDropDown().isVisible()).toBe(true);
+                expect(webAPI.getMenuBar().toolsDropDown().isVisible()).toBe(true);
             });
 
             describe("when user clicks on close tools drop down", function () {
                 beforeEach(function () {
-                    //webAPI.getMenuBar().toolsDropDown().close();
+                    webAPI.getMenuBar().toolsDropDown().close();
                 });
 
                 it("should hide tools drop down", function () {
-                    //expect(webAPI.getMenuBar().toolsDropDown().isVisible()).toBe(false);
+                    expect(webAPI.getMenuBar().toolsDropDown().isVisible()).toBe(false);
                 });
             });
         });
 
-        xdescribe("tools drop down", function () {
+        describe("tools drop down", function () {
             beforeEach(function () {
                 webAPI.getMenuBar().clickOnToolsButton();
             });
@@ -52,6 +52,15 @@ require(['WebAPI', 'Fixture'], function (WebAPI, Fixture) {
                 });
                 it("should create new class in svg paper", function () {
                     expect(webAPI.numberOfUmlClasses()).toBe(2);
+                });
+            })
+
+            describe("When user clicks on create connector button", function () {
+                beforeEach(function () {
+                    webAPI.getMenuBar().toolsDropDown().clickOnCreateConnector();
+                });
+                it("should create new connector in svg paper", function () {
+                    expect(webAPI.numberOfConnectors()).toBe(2);
                 });
             })
         });

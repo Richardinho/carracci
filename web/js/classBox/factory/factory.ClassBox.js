@@ -5,15 +5,16 @@ define(['ClassBoxModel',
         'ClassBoxController',
         'GuiView',
         'GuiController',
-        'methodBuilder'], function (ClassBoxModel,
+        'methodBuilder',
+        'componentContainer'], function (ClassBoxModel,
                                     propertyBuilder,
                                     ClassBoxView,
                                     ClassBoxController,
                                     GuiView,
                                     GuiController,
-                                    methodBuilder ) {
+                                    methodBuilder,
+                                    componentContainer ) {
 
-    var classNumber = 0;
 
     return function(options) {
 
@@ -26,12 +27,11 @@ define(['ClassBoxModel',
             gui,
             containerElement;
 
-        var id = "class" + classNumber++;
+        var id = componentContainer.createComponentSlot('UmlClass');
 
         containerElement = $('#class-container');
 
         classBoxModel = new ClassBoxModel({ "name" : options.name,
-                                            "id" : id,
                                             "x" : options.x,
                                             "y" : options.y,
                                             "width" : options.width,
@@ -55,6 +55,8 @@ define(['ClassBoxModel',
         guiView = new GuiView({ model : classBoxModel , containerEl : containerElement });
 
         gui = new GuiController({ model : classBoxModel , view : guiView });
+
+        componentContainer.store(id, [ classBoxModel, classBoxView, classBoxController, guiView, gui ]);
 
         return classBoxModel;
     }
