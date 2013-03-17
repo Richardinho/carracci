@@ -11,11 +11,12 @@
     padding-right : 30px;
 }
 
+/* help */
 #help {
     position : absolute;
-    right : 310px;
-    top : 60px;
-    width : 500px;
+    left : 0px;
+    top : 50px;
+    width : 394px;
     background-color : #bbb;
 }
 
@@ -30,7 +31,7 @@
 #help .content .menu {
     padding : 10px;
     vertical-align : top;
-    width : 131px;
+    width : 72px;
     display : inline-block;
 
 }
@@ -38,7 +39,7 @@
 #help .content .main {
     padding : 10px;
     padding-bottom : 20px;
-    width : 298px;
+    width : 254px;
     display : inline-block;
     border-left : solid black 1px;
 }
@@ -62,7 +63,7 @@
 }
 
 #help .annibale .image1 img {
-    width : 293px;
+    width : 255px;
     padding-top : 8px;
 }
 
@@ -70,6 +71,8 @@
     width : 100px;
     float : right;
 }
+
+/* end of help */
 
 /* tools */
 
