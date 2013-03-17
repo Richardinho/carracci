@@ -85,7 +85,7 @@
     height : 210px;
     left : 800px;
     position : relative;
-    background-color: grey;
+    background-color: #bbb;
 }
 
 .toolbar .close-button {
