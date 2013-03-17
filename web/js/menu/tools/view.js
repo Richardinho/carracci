@@ -35,6 +35,10 @@ define(['BaseType', 'underscore', 'templateLoader'], function (BaseType, _, temp
             return this.el.find('.connector-button');
         },
 
+        getVerticalConnectorButton : function () {
+            return this.el.find('.vertical-connector-button');
+        },
+
         _getTemplate : function () {
             return _.template($('#tools-template').html());
         }

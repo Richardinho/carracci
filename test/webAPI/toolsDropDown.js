@@ -18,7 +18,11 @@ define(['BaseType'], function (BaseType) {
         },
 
         clickOnCreateConnector : function () {
-            this.el.find('.connector').click();
+            this.el.find('.connector-button').click();
+        },
+
+        clickOnCreateVerticalConnector : function () {
+            this.el.find('.vertical-connector-button').click();
         },
 
         clickOnCreateUmlClass : function () {

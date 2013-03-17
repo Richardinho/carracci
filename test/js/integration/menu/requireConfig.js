@@ -85,7 +85,12 @@ require.config({
         ConnectorAPI : "test/webAPI/connectorAPI",
         componentContainer : "web/js/componentContainer",
         Fixture : "web/js/utility/fixture",
-        connectorFactory : "web/js/connectors/factory/factory.connector"
+        connectorFactory : "web/js/connectors/factory/factory.connector",
+        verticalConnectorFactory : "web/js/connectors/factory/verticalConnector",
+        connectorFactory : "web/js/connectors/factory/factory.connector",
+        VerticalConnectorAPI : "test/webAPI/verticalConnectorAPI",
+        CoordinatorVerticalConnector : "web/js/connectors/coordinator.VerticalConnector",
+        verticalConnectorFactory : "web/js/connectors/factory/verticalConnector",
     }
 });
 

@@ -49,6 +49,7 @@ require.config({
         ModelLine : "web/js/lines/model/model.line",
         ViewLine : "web/js/lines/view/view.line",
         CoordinatorHorizontalConnector : "web/js/connectors/coordinator.HorizontalConnector",
+        CoordinatorVerticalConnector : "web/js/connectors/coordinator.VerticalConnector",
         ClassBoxModel : "web/js/classBox/model/model.ClassBox",
         propertyBuilder : "web/js/utility/propertyBuilder",
         ClassBoxView : "web/js/classBox/view/view.ClassBox",
@@ -85,9 +86,11 @@ require.config({
         ArrowNodeAPI : "test/webAPI/arrowNodeAPI",
         NodeAPI : "test/webAPI/nodeAPI",
         ConnectorAPI : "test/webAPI/connectorAPI",
+        VerticalConnectorAPI : "test/webAPI/verticalConnectorAPI",
         componentContainer : "web/js/componentContainer",
         Fixture : "web/js/utility/fixture",
-        connectorFactory : "web/js/connectors/factory/factory.connector"
+        connectorFactory : "web/js/connectors/factory/factory.connector",
+        verticalConnectorFactory : "web/js/connectors/factory/verticalConnector",
     }
 });
 

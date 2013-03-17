@@ -62,7 +62,19 @@ require(['WebAPI', 'Fixture'], function (WebAPI, Fixture) {
                 it("should create new connector in svg paper", function () {
                     expect(webAPI.numberOfConnectors()).toBe(2);
                 });
-            })
+                it("should create connector gui", function () {
+
+                });
+            });
+
+            describe("When user clicks on create vertical connector button", function () {
+                beforeEach(function () {
+                    webAPI.getMenuBar().toolsDropDown().clickOnCreateVerticalConnector();
+                });
+                it("should create new connector in svg paper", function () {
+                    expect(webAPI.numberOfVerticalConnectors()).toBe(1);
+                });
+            });
         });
 
 

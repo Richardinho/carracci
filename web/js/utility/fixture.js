@@ -25,7 +25,8 @@ define(['BaseType',
         'MenuFactory',
         'ClassBoxFactory',
         'componentContainer',
-        'connectorFactory'], function (BaseType,
+        'connectorFactory',
+        'verticalConnectorFactory'], function (BaseType,
                                  ComponentContainer,
                                  ClassBoxModel,
                                  ClassBoxView,
@@ -52,7 +53,8 @@ define(['BaseType',
                                  MenuFactory,
                                  ClassBoxFactory,
                                  ComponentContainer,
-                                 connectorFactory) {
+                                 connectorFactory,
+                                 verticalConnectorFactory) {
 
     return BaseType.extend({
 
@@ -72,6 +74,10 @@ define(['BaseType',
             if(config.connectors) {
                 this.setUpConnectors(config.connectors);
             }
+
+            if(config.verticalConnectors) {
+                this.setUpVerticalConnectors(config.verticalConnectors);
+            }
         },
 
         setUpConnectors : function (connectorsConfig) {
@@ -87,6 +93,14 @@ define(['BaseType',
             for(var i =0; i < classesConfig.length; i++) {
 
                 ClassBoxFactory(classesConfig[i]);
+            }
+        },
+
+        setUpVerticalConnectors : function (connectorsConfig) {
+
+            for(var i =0; i < connectorsConfig.length; i++) {
+
+                verticalConnectorFactory(connectorsConfig[i]);
             }
         }
     });

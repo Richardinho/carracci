@@ -79,6 +79,8 @@ require.config({
         DistalNodeCoordinator: "coordinators/DistalNodeCoordinator",
         Fixture : "utility/fixture",
         componentContainer : "componentContainer",
+        verticalConnectorFactory : "connectors/factory/verticalConnector",
+        CoordinatorVerticalConnector : "connectors/coordinator.VerticalConnector",
 
     }
 });

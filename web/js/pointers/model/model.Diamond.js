@@ -26,14 +26,14 @@ define(['ModelPointer'], function (ModelPointer) {
 
             switch(this.get('direction')) {
 
-            case "up" :
+            case "top" :
                 this.set({ tip: this._getPoint(x, y),
                            right : this._getPoint(x + 10, y + 10),
                            left : this._getPoint(x - 10, y + 10)});
                            //bottom : this._getPoint(x, y + 20) });
             break;
 
-            case "down" :
+            case "bottom" :
                 this.set({ tip: this._getPoint(x, y ),
                            right : this._getPoint(x + 10, y - 10),
                            left : this._getPoint(x - 10, y - 10) });

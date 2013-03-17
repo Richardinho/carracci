@@ -43,8 +43,11 @@ define([], function () {
         },
 
         numberOfType : function (type) {
-
-            return root[type].length;
+            if(root[type]) {
+                return root[type].length;
+            } else {
+                return 0;
+            }
         },
 
         _getTypeFromId : function (id) {

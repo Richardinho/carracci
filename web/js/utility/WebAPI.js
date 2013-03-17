@@ -30,7 +30,8 @@ define(['BaseType',
         "ArrowNodeAPI",
         "NodeAPI",
         "ConnectorAPI",
-        "componentContainer" ], function (BaseType,
+        "componentContainer",
+        "VerticalConnectorAPI" ], function (BaseType,
                                HorizontalConnector,
                                ModelArrowNode,
                                CollectionPointer,
@@ -62,7 +63,8 @@ define(['BaseType',
                                ArrowNodeAPI,
                                NodeAPI,
                                ConnectorAPI,
-                               componentContainer) {
+                               componentContainer,
+                               VerticalConnectorAPI) {
 
 
     // I need to separate out the setting up of initial state of diagram with setting up the web interface.
@@ -82,6 +84,10 @@ define(['BaseType',
             return componentContainer.numberOfType("Connector");
         },
 
+        numberOfVerticalConnectors : function () {
+            return componentContainer.numberOfType("VerticalConnector");
+        },
+
         numberOfUmlClasses : function () {
 
             return componentContainer.numberOfType("UmlClass");
@@ -93,6 +99,10 @@ define(['BaseType',
 
         getConnector : function (index) {
             return new ConnectorAPI(componentContainer.getComponent("Connector_" + index));
+        },
+
+        getVerticalConnector : function (index) {
+            return new VerticalConnectorAPI(componentContainer.getComponent("VerticalConnector_" + index));
         },
 
         getClassBox : function (id) {
