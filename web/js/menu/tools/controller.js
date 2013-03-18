@@ -32,6 +32,7 @@ define(['BaseType',
         },
 
         createUmlClass : function () {
+
             ClassBoxFactory({ name : "List", id : "blahClass", x : 0, y : 0,
                 properties :  [{ name : "foo", visibility : "+", type : "String" },
                     { name : "bar", visibility : "#", type : "int" }] });

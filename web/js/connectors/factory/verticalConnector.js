@@ -88,21 +88,21 @@ define(['keyManager',
             "distalNode" : proximal,
             "bottomArrow" : bottom
         });
-        /*
-        left.setProximalNodeModel(proximal);
-        left.setDistalNodeModel(proximal);
 
-        distal.setArrowNodeModel(left);
+        top.setProximalNodeModel(proximal);
+        top.setDistalNodeModel(distal);
+
+        distal.setArrowNodeModel(bottom);
         distal.setDistalNodeModel(proximal);
-        distal.setLastNodeModel(right);
+        distal.setLastNodeModel(top);
 
-        proximal.setArrowNodeModel(right);
-        proximal.setDistalNodeModel(right);
-        proximal.setLastNodeModel(left);
+        proximal.setArrowNodeModel(top);
+        proximal.setDistalNodeModel(distal);
+        proximal.setLastNodeModel(bottom);
 
-        right.setProximalNodeModel(proximal);
-        right.setDistalNodeModel(distal);
-        */
+        bottom.setProximalNodeModel(distal);
+        bottom.setDistalNodeModel(proximal);
+
         //connector.lines = new Collection([line1Model, line2Model,line3Model]);
 
 

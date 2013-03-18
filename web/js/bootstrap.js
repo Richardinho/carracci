@@ -70,6 +70,7 @@ require.config({
         ToolsController : "menu/tools/controller",
         BaseType : "utility/extend",
         NodeToBoxCoordinator : "global/controllers/controller.AttachedNodeToBox",
+        VerticalNodeBoxCoordinator : "global/controllers/verticalNodeToBox",
         templateLoader : "utility/templateLoader",
         IDGenerator : "utility/IDGenerator",
         BaseCoordinator : "coordinators/baseCoordinator",
