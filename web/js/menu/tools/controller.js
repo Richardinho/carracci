@@ -47,7 +47,6 @@ define(['BaseType',
         },
 
         createVerticalConnectorClass : function () {
-
             verticalConnectorFactory({
                 topNode : { x  : 25, y : 10 , arrows : ['diamond'] },
                 bottomNode : { x  : 225, y : 110 , arrows : ['diamond']}

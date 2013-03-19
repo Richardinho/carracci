@@ -44,8 +44,12 @@ require.config({
         BoxCoordinator: "coordinators/BoxCoordinator",
         ProximalNodeCoordinator:"coordinators/ProximalNodeCoordinator",
         DistalNodeCoordinator: "coordinators/DistalNodeCoordinator",
-        methodBuilder : "utility/methodBuilder"
-    }
+        methodBuilder : "utility/methodBuilder",
+        VerticalNodeBoxCoordinator : "global/controllers/verticalNodeToBox",
+        ArrowVCoordinator : "coordinators/verticalConnectorsToBox/ArrowCoordinator",
+        BoxVCoordinator : "coordinators/verticalConnectorsToBox/boxCoordinator",
+        ProximalNodeVCoordinator : "coordinators/verticalConnectorsToBox/proximalNodeCoordinator",
+        DistalNodeVCoordinator : "coordinators/verticalConnectorsToBox/distalNodeCoordinator"}
 });
 
 

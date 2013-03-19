@@ -7,8 +7,6 @@ define(['BaseCoordinator'], function (BaseCoordinator) {
             this.players = options.players;
         },
 
-
-
         setXCoods : function(x) {
 
             var arrowXCood = x,

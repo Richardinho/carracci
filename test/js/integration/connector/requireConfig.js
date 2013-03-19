@@ -91,6 +91,11 @@ require.config({
         Fixture : "web/js/utility/fixture",
         connectorFactory : "web/js/connectors/factory/factory.connector",
         verticalConnectorFactory : "web/js/connectors/factory/verticalConnector",
+        VerticalNodeBoxCoordinator : "web/js/global/controllers/verticalNodeToBox",
+        ArrowVCoordinator : "web/js/coordinators/verticalConnectorsToBox/ArrowCoordinator",
+        BoxVCoordinator : "web/js/coordinators/verticalConnectorsToBox/boxCoordinator",
+        ProximalNodeVCoordinator : "web/js/coordinators/verticalConnectorsToBox/proximalNodeCoordinator",
+        DistalNodeVCoordinator : "web/js/coordinators/verticalConnectorsToBox/distalNodeCoordinator"
     }
 });
 

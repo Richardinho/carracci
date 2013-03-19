@@ -35,7 +35,6 @@ define(['BaseType',
                         });
 
                 } else {
-
                     connectionManager = new NodeBoxCoordinator ({ "arrow" : this.arrow,
                                                                   "box" : box,
                                                                   "proximalNode": this.arrow.proximalNodeModel,

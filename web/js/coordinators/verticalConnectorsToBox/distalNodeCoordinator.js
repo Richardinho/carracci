@@ -10,15 +10,23 @@ define(['BaseCoordinator'], function (BaseCoordinator) {
         //  the arrow attached to the box should not move outside of the left and right
         //  boundaries of the box.
         validateX : function (x) {
-            var box = this.players["box"],
-                lowerXLimit =  box.get('xCood'),
-                upperXLimit = lowerXLimit + box.get('width');
-            return (x >= lowerXLimit && x < upperXLimit);
+            return true;
         },
 
         //  the arrow should not move along the y axis whilst attached.
         validateY : function (y) {
-            return false;
+            return true;
+        },
+
+        setYCoods : function (y) {
+
+            var bottomEdge = this.players["box"].getHeight() + this.players["box"].get('yCood');
+
+            if(y > bottomEdge) {
+                this.players["arrow"].set({ "yCood" : bottomEdge });
+            } else {
+                this.players["arrow"].set({"yCood" : this.players["box"].get('yCood') } );
+            }
         }
     });
 });

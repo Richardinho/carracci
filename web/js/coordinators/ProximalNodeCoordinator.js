@@ -9,10 +9,11 @@ define(['BaseCoordinator'], function (BaseCoordinator) {
 
         // the proximal node has the same y axis constraints as the arrow
         validateY : function (y) {
+
             var box = this.players["box"],
-                upperYLimit =  box.get('yCood'),
-                lowerYLimit = upperYLimit + box.get('height');
-            return (y > upperYLimit && y < lowerYLimit);
+                lowerYLimit =  box.get('yCood'),
+                upperYLimit = lowerYLimit + box.get('height');
+            return (y < upperYLimit && y > lowerYLimit);
         },
         setXCoods : function(x) {
 

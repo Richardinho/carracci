@@ -86,7 +86,7 @@ define(['keyManager',
             "rightArrow" : right
         });
 
-        left.setProximalNodeModel(proximal);
+        left.setProximalNodeModel(distal);
         left.setDistalNodeModel(proximal);
 
         distal.setArrowNodeModel(left);

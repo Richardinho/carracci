@@ -6,7 +6,6 @@ define(['jQuery', 'underscore'], function ($, _) {
         initialize : function (config, templatesFolder) {
 
             $.each(config, function (index, fileName ) {
-                console.log(templatesFolder + fileName + ".html");
                 $.ajax({
                     url : templatesFolder + fileName + ".html",
 

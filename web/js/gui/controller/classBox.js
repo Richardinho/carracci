@@ -49,7 +49,6 @@ define(['BaseType', 'underscore', 'jQuery'], function (BaseType, _, $) {
         },
 
         changeClassName : function (event) {
-            console.log("in controller")
             var newName = event.currentTarget.value;
             this.model.changeClassName(newName);
         },

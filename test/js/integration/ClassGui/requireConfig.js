@@ -89,7 +89,12 @@ require.config({
         ClassGuiAPI : "test/webAPI/classGuiAPI",
         verticalConnectorFactory : "web/js/connectors/factory/verticalConnector",
         VerticalConnectorAPI : "test/webAPI/verticalConnectorAPI",
-        CoordinatorVerticalConnector : "web/js/connectors/coordinator.VerticalConnector"
+        CoordinatorVerticalConnector : "web/js/connectors/coordinator.VerticalConnector",
+        VerticalNodeBoxCoordinator : "web/js/global/controllers/verticalNodeToBox",
+        ArrowVCoordinator : "web/js/coordinators/verticalConnectorsToBox/ArrowCoordinator",
+        BoxVCoordinator : "web/js/coordinators/verticalConnectorsToBox/boxCoordinator",
+        ProximalNodeVCoordinator : "web/js/coordinators/verticalConnectorsToBox/proximalNodeCoordinator",
+        DistalNodeVCoordinator : "web/js/coordinators/verticalConnectorsToBox/distalNodeCoordinator"
     }
 });
 

@@ -1,12 +1,12 @@
 define(['BaseType',
-        'ArrowCoordinator',
-        'BoxCoordinator',
-        'ProximalNodeCoordinator',
-        'DistalNodeCoordinator'],function (BaseType,
-                                           ArrowCoordinator,
-                                           BoxCoordinator,
-                                           ProximalNodeCoordinator,
-                                           DistalNodeCoordinator ) {
+        'ArrowVCoordinator',
+        'BoxVCoordinator',
+        'ProximalNodeVCoordinator',
+        'DistalNodeVCoordinator'],function (BaseType,
+                                           ArrowVCoordinator,
+                                           BoxVCoordinator,
+                                           ProximalNodeVCoordinator,
+                                           DistalNodeVCoordinator ) {
 
     return BaseType.extend ({
 
@@ -43,14 +43,13 @@ define(['BaseType',
 
                 this.players[role].addValidator(this._getCoordinator(role));
             }
-            console.log("finished initialising verticalnode to box coordinator")
         },
 
         destroy : function () {
-           /* for(var role in this.players) {
+            for(var role in this.players) {
 
                 this.players[role].removeValidator(this._getCoordinatorId(role));
-            }*/
+            }
         },
 
         _moveArrowOntoBox : function () {
@@ -61,7 +60,7 @@ define(['BaseType',
         },
 
         _getCoordinatorId : function (role) {
-            //return this.roleIds[role];
+            return this.roleIds[role];
         },
 
         _getCoordinator : function (role) {

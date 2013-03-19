@@ -82,6 +82,10 @@ require.config({
         componentContainer : "componentContainer",
         verticalConnectorFactory : "connectors/factory/verticalConnector",
         CoordinatorVerticalConnector : "connectors/coordinator.VerticalConnector",
+        ArrowVCoordinator : "coordinators/verticalConnectorsToBox/ArrowCoordinator",
+        BoxVCoordinator : "coordinators/verticalConnectorsToBox/boxCoordinator",
+        ProximalNodeVCoordinator : "coordinators/verticalConnectorsToBox/proximalNodeCoordinator",
+        DistalNodeVCoordinator : "coordinators/verticalConnectorsToBox/distalNodeCoordinator"
 
     }
 });
@@ -101,8 +105,6 @@ require([ 'jQuery',
 
     $(document).ready(function () {
 
-        templateLoader.initialize(['umlClassBoxGUI', 'tools', 'help'], './web/templates/');
-
         configuration = {
 
             connectors : [ { id : "foo",
@@ -118,7 +120,6 @@ require([ 'jQuery',
 
         new Fixture().setUp(configuration);
 
-        var menu = MenuFactory();
     });
 });
 

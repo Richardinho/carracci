@@ -55,6 +55,27 @@ require(['WebAPI', 'Fixture'], function (WebAPI, Fixture) {
             connector.getLeftArrowNode().coods(25, 10);
             connector.getProximalNode().coods(125, 60);
             connector.getRightArrowNode().coods(225, 110);
+
+            resetVerticalConnector(configuration.verticalConnectors);
+        }
+
+        function resetVerticalConnector(configuration) {
+            var config, topNode, topNodeX, topNodeY, bottomNode, bottomNodeX, bottomNodeY;
+
+            config = configuration[0];
+
+            topNode = config.topNode;
+
+            topNodeX = topNode.x;
+            topNodeY = topNode.y;
+
+            bottomNode = config.bottomNode;
+            bottomNodeX = bottomNode.x;
+            bottomNodeY = bottomNode.y;
+
+            topArrowNode.coods(topNodeX, topNodeY);
+            bottomArrowNode.coods(bottomNodeX, bottomNodeY);
+            verticalProximalNode.yCood((bottomNodeY - topNodeY) /2)
         }
 
 
@@ -207,6 +228,70 @@ require(['WebAPI', 'Fixture'], function (WebAPI, Fixture) {
                 });
                 it("bottom arrow node should point upwards", function () {
                     expect(bottomArrowNode.arrowDirection()).toBe("top");
+                });
+            });
+
+
+            describe("linking arrow to classbox", function () {
+
+                beforeEach(function () {
+                    webAPI.keyDown('U');
+                    bottomArrowNode.click();
+                    classBoxAPI.click();
+                });
+                afterEach(function () {
+                    webAPI.keyDown('U');
+                    bottomArrowNode.click();
+                });
+                it("should move arrow onto classbox ", function () {
+                    expect(bottomArrowNode.yCood()).toBe(classBoxAPI.yCood());
+                });
+            });
+
+            describe("disconnecting vertical arrow from classbox", function () {
+                var classBoxYCood;
+
+                beforeEach(function () {
+                    webAPI.keyDown('U');
+                    bottomArrowNode.click();
+                    classBoxAPI.click();
+
+                    classBoxYCood = classBoxAPI.yCood();
+                    webAPI.keyDown('U');
+                    bottomArrowNode.click();
+                    // this should disconnect arrow from classbox.
+                    bottomArrowNode.move(100, -20);
+                });
+                it("should remove vertical arrow node from class box", function () {
+                    expect(bottomArrowNode.yCood()).toBe(classBoxYCood - 20);
+                });
+            });
+
+            describe("When vertical arrow is attached to class box", function () {
+                var arrowX, arrowY;
+                beforeEach(function () {
+                    webAPI.keyDown('U');
+                    bottomArrowNode.click();
+                    classBoxAPI.click();
+
+                    arrowX = bottomArrowNode.xCood();
+                    arrowY = bottomArrowNode.yCood();
+                })
+                describe("When class box is moved", function () {
+                    beforeEach(function () {
+                        classBoxAPI.move(10, 20);
+                    });
+                    it("should move attached arrownode with it", function () {
+                        expect(bottomArrowNode.xCood()).toBe(arrowX + 10);
+                        expect(bottomArrowNode.yCood()).toBe(arrowY + 20);
+                    });
+                    it("should move distal node in x axis with it", function () {
+                        expect(verticalDistalNode.xCood()).toBe(bottomArrowNode.xCood());
+                    });
+                });
+                afterEach(function () {
+                    webAPI.keyDown('U');
+                    bottomArrowNode.click();
                 });
             });
         })

@@ -21,7 +21,6 @@ define(['BaseType', 'underscore'], function (BaseType, _) {
             content.append(menu({}));
 
             var template = this._getTemplate(this.model.getPageNumber());
-            console.log(data)
             content.append(template(data))
             this.el.html(content);
         },

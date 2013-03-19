@@ -50,7 +50,6 @@ define(['Model', 'Collection'], function (Model, Collection) {
             var valid = (validate !== undefined) ? validate : true;
             // flag to show that we wish to validate. Only set when this is the component which is setting itself.
             if (valid) {
-
                 //  determine whether the proposed x value is permitted.
                 //  iterate through all validators
                 var xisValid = this.fooValidators.all(function(validator) {

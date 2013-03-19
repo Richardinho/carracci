@@ -108,6 +108,10 @@ define(['ModelElement',
             return this.get('width')
         },
 
+        getHeight : function () {
+            return this.get('height');
+        },
+
         setWidth : function (width) {
             this.set({ "width" : width }, { silent : true});
         },
