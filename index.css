@@ -181,13 +181,15 @@ body {
 }
 
 .classBox .methods .method {
-    height : 21px;
     margin-top : 2px;
-    background-color : #ddd;
+    margin-bottom : 5px;
+    background-color : #9acd32;
     margin-left: 5px;
+    padding: 2px;
+    border: solid 2px yellow;
 }
 
-.classBox .methods .method div {
+.classBox .methods .method .section-a div{
     float : left;
 }
 
@@ -205,7 +207,21 @@ body {
     width : 89px;
 }
 
+/* method arguments */
 
+.classBox .methods .method .arguments .arg-header .name {
+    margin-right : 66px;
+}
+
+.classBox .methods .method .arguments .arg-header {
+    background-color : green;
+}
+
+.classBox .methods .method .arguments input[type=text] {
+    width : 90px;
+}
+
+/* end of method arguments */
 
 
 
