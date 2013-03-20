@@ -19,6 +19,10 @@ define(['BaseCoordinator'], function (BaseCoordinator) {
         //  the arrow should not move along the y axis whilst attached.
         validateY : function (y) {
             return false;
+        },
+
+        setXCoods : function () {
+            this.main.setXOffset();
         }
     });
 });

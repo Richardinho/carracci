@@ -30,6 +30,10 @@ define(['BaseCoordinator'], function (BaseCoordinator) {
             } else {
                 this.players["arrow"].set({"yCood" : this.players["box"].get('yCood') } );
             }
+        },
+
+        setXCoods : function () {
+            this.main.setXOffset();
         }
 
 

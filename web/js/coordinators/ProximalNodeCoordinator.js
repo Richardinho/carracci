@@ -24,6 +24,9 @@ define(['BaseCoordinator'], function (BaseCoordinator) {
             } else {
                 this.players["arrow"].set({"xCood" : this.players["box"].get('xCood') } );
             }
+        },
+        setYCoods : function () {
+            this.main.setYOffset();
         }
     });
 });

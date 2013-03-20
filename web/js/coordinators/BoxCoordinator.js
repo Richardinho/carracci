@@ -25,8 +25,7 @@ define(['BaseCoordinator'], function (BaseCoordinator) {
 
         //  here we do want the arrow to validate y coods, because we want it to call other components.
         setYCoods : function (y) {
-            var arrowModel = this.players["arrow"];
-            arrowModel.updateY( y + 20, true);
+            this.players["arrow"].updateY( y + this.main.getYOffset(), true);
         }
     });
 });

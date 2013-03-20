@@ -8,7 +8,7 @@ define(['BaseCoordinator'], function (BaseCoordinator) {
         },
 
         setXCoods : function(x) {
-            this.players["arrow"].updateX(x, true);
+            this.players["arrow"].updateX(x + this.main.getXOffset(), true);
 
         },
 

@@ -289,6 +289,22 @@ require(['WebAPI', 'Fixture'], function (WebAPI, Fixture) {
                         expect(verticalDistalNode.xCood()).toBe(bottomArrowNode.xCood());
                     });
                 });
+                describe("When arrow node is moved", function () {
+                    var arrowXCood;
+                    beforeEach(function () {
+
+                        bottomArrowNode.move(10, 0);
+                        arrowXCood = bottomArrowNode.xCood();
+                    });
+                    describe("When class box is moved", function () {
+                        beforeEach(function () {
+                            classBoxAPI.move(20, 0);
+                        });
+                        it("should keep arrow in position on box it was moved to", function () {
+                            expect(bottomArrowNode.xCood()).toBe(arrowXCood + 20);
+                        });
+                    });
+                });
                 afterEach(function () {
                     webAPI.keyDown('U');
                     bottomArrowNode.click();
@@ -439,10 +455,30 @@ require(['WebAPI', 'Fixture'], function (WebAPI, Fixture) {
                 rightNode.click();
                 classBoxAPI.click();
             });
+            afterEach(function () {
+                webAPI.keyDown('U');
+                rightNode.click();
+            });
             it("should move arrow onto classbox ", function () {
 
                 expect(rightNode.xCood()).toBe(classBoxAPI.xCood());
                 expect(rightNode.yCood()).toBe(classBoxAPI.yCood() + (classBoxAPI.height() / 2));
+            });
+
+            describe("When arrow node is moved", function () {
+                var arrowYCood;
+                beforeEach(function () {
+                    rightNode.move(0, 10);
+                    arrowYCood = rightNode.yCood();
+                });
+                describe("When class box is moved", function () {
+                    beforeEach(function () {
+                        classBoxAPI.move(0, 20);
+                    });
+                    it("should keep arrow in position on box it was moved to", function () {
+                        expect(rightNode.yCood()).toBe(arrowYCood + 20);
+                    });
+                });
             });
         });
 
@@ -450,6 +486,10 @@ require(['WebAPI', 'Fixture'], function (WebAPI, Fixture) {
             var classBoxXCood;
 
             beforeEach(function () {
+                webAPI.keyDown('U');
+                rightNode.click();
+                classBoxAPI.click();
+
                 classBoxXCood = classBoxAPI.xCood();
                 webAPI.keyDown('U');
                 rightNode.click();

@@ -17,6 +17,9 @@ define(['BaseCoordinator'], function (BaseCoordinator) {
                 upperYLimit =  box.get('yCood'),
                 lowerYLimit = upperYLimit + box.get('height');
             return (y > upperYLimit && y < lowerYLimit);
+        },
+        setYCoods : function () {
+            this.main.setYOffset();
         }
     });
 });

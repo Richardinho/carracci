@@ -33,6 +33,9 @@ define(['BaseType',
                     message : "You must supply a box and arrow component on intialization"
                 };
             }
+            this.yOffset = 31;
+
+
 
             this.players = options;
 
@@ -49,6 +52,14 @@ define(['BaseType',
 
                 this.players[role].removeValidator(this._getCoordinatorId(role));
             }
+        },
+
+        setYOffset : function () {
+            this.yOffset = this.players['arrow'].get('yCood') - this.players['box'].get('yCood')  ;
+        },
+
+        getYOffset : function () {
+            return this.yOffset;
         },
 
         _moveArrowOntoBox : function () {
@@ -70,19 +81,19 @@ define(['BaseType',
             switch(role) {
 
                 case "box" :
-                    coordinator = new BoxCoordinator({ players : this.players });
+                    coordinator = new BoxCoordinator({ players : this.players, mainCoordinator : this });
                 break;
 
                 case "arrow" :
-                    coordinator = new ArrowCoordinator({ players : this.players  });
+                    coordinator = new ArrowCoordinator({ players : this.players, mainCoordinator : this  });
                 break;
 
                 case "distalNode" :
-                    coordinator = new DistalNodeCoordinator({ players : this.players });
+                    coordinator = new DistalNodeCoordinator({ players : this.players, mainCoordinator : this });
                 break;
 
                 case "proximalNode" :
-                    coordinator = new ProximalNodeCoordinator({ players : this.players });
+                    coordinator = new ProximalNodeCoordinator({ players : this.players, mainCoordinator : this });
                 break;
             }
 

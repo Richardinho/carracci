@@ -35,6 +35,8 @@ define(['BaseType',
                 };
             }
 
+            this.xOffset = 0;
+
             this.players = options;
 
             this._moveArrowOntoBox();
@@ -63,6 +65,14 @@ define(['BaseType',
             return this.roleIds[role];
         },
 
+        setXOffset : function () {
+            this.xOffset = this.players['arrow'].get('xCood') - this.players['box'].get('xCood');
+        },
+
+        getXOffset : function () {
+            return this.xOffset;
+        },
+
         _getCoordinator : function (role) {
             var coordinator,
                 that = this; // need to pass this context to the coordinators.
@@ -70,19 +80,19 @@ define(['BaseType',
             switch(role) {
 
                 case "box" :
-                    coordinator = new BoxVCoordinator({ players : this.players });
+                    coordinator = new BoxVCoordinator({ players : this.players, mainCoordinator : this });
                 break;
 
                 case "arrow" :
-                    coordinator = new ArrowVCoordinator({ players : this.players  });
+                    coordinator = new ArrowVCoordinator({ players : this.players, mainCoordinator : this  });
                 break;
 
                 case "distalNode" :
-                    coordinator = new DistalNodeVCoordinator({ players : this.players  });
+                    coordinator = new DistalNodeVCoordinator({ players : this.players, mainCoordinator : this  });
                 break;
 
                 case "proximalNode" :
-                    coordinator = new ProximalNodeVCoordinator({ players : this.players  });
+                    coordinator = new ProximalNodeVCoordinator({ players : this.players, mainCoordinator : this  });
                 break;
             }
 

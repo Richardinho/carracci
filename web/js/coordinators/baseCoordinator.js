@@ -3,7 +3,7 @@ define(['BaseType'], function (BaseType) {
     return BaseType.extend({
 
         initialize : function (options) {
-            this.context = options.context;
+            this.main = options.mainCoordinator;
         },
 
         validateX : function (x) {
