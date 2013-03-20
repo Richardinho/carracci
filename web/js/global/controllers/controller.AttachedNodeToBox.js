@@ -70,19 +70,19 @@ define(['BaseType',
             switch(role) {
 
                 case "box" :
-                    coordinator = new BoxCoordinator({ players : this.players, context : this });
+                    coordinator = new BoxCoordinator({ players : this.players });
                 break;
 
                 case "arrow" :
-                    coordinator = new ArrowCoordinator({ players : this.players, context : this  });
+                    coordinator = new ArrowCoordinator({ players : this.players  });
                 break;
 
                 case "distalNode" :
-                    coordinator = new DistalNodeCoordinator({ players : this.players, context : this  });
+                    coordinator = new DistalNodeCoordinator({ players : this.players });
                 break;
 
                 case "proximalNode" :
-                    coordinator = new ProximalNodeCoordinator({ players : this.players, context : this  });
+                    coordinator = new ProximalNodeCoordinator({ players : this.players });
                 break;
             }
 

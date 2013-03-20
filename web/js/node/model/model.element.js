@@ -24,11 +24,11 @@ define(['Model', 'Collection'], function (Model, Collection) {
         updateAssociatedComponents : function () {
             // set y value on all associated components
             this.fooValidators.each(function(index,validator) {
-                validator.setYCoods.call(validator.context, this.get('yCood'));
+                validator.setYCoods.call(validator, this.get('yCood'));
             }, this);
 
             this.fooValidators.each(function(index,validator) {
-                validator.setXCoods.call(validator.context, this.get('xCood'));
+                validator.setXCoods.call(validator, this.get('xCood'));
             }, this);
         },
 
@@ -53,7 +53,7 @@ define(['Model', 'Collection'], function (Model, Collection) {
                 //  determine whether the proposed x value is permitted.
                 //  iterate through all validators
                 var xisValid = this.fooValidators.all(function(validator) {
-                    return validator.validateX.call( validator.context, x );
+                    return validator.validateX.call( validator, x );
                 });
                 //  if not permitted, reset x to current value
                 if (! xisValid ) {
@@ -61,7 +61,7 @@ define(['Model', 'Collection'], function (Model, Collection) {
                 }
                 // do same with y coordinate
                 var yisValid = this.fooValidators.all(function(validator) {
-                    return validator.validateY.call( validator.context, y);
+                    return validator.validateY.call( validator, y);
                 });
 
                 if(! yisValid ) {
@@ -90,7 +90,7 @@ define(['Model', 'Collection'], function (Model, Collection) {
             //  might be better to have a single post processing method that is only called by the
             //  component which is being changed (i.e. once, not for every component)
             this.fooValidators.each(function(index,validator) {
-                validator.postProcess.call(validator.context, x, y);
+                validator.postProcess.call(validator, x, y);
             });
         },
 

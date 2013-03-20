@@ -12,8 +12,8 @@ define(['BaseCoordinator'], function (BaseCoordinator) {
             var arrowXCood = x,
                 arrowModel = this.players["arrow"],
                 proximalNode = this.players["proximalNode"],
-                box = this.players["box"];
-            rightEdge = x + box.getWidth();
+                box = this.players["box"],
+                rightEdge = x + box.getWidth();
 
             if(proximalNode.get('xCood') > rightEdge) {
                 arrowXCood = x + box.getWidth();

@@ -38,7 +38,8 @@ define(['BaseType'], function (extend) {
                 case "leftArrow" :
                     validator = {
 
-                        context : that,
+
+                        players : that.players,
 
                         validateX : function (x) {
                             return true;
@@ -68,7 +69,8 @@ define(['BaseType'], function (extend) {
                 case "proximalNode" :
                     validator = {
 
-                        context : that,
+
+                        players : that.players,
                         // the arrow is not allowed to be moved in the x axis.
                         validateX : function (x) {
                             return true
@@ -105,7 +107,8 @@ define(['BaseType'], function (extend) {
                 case "distalNode" :
                     // there are no constraints on how the distal node moves.
                     validator = {
-                        context : that,
+
+                        players : that.players,
                         validateX : function (x) {
                             return true;
                         },
@@ -139,7 +142,8 @@ define(['BaseType'], function (extend) {
 
                 case "rightArrow" :
                     validator = {
-                        context : that,
+
+                        players : that.players,
                         //  there are no constraints on the proximal node in the x axis.
                         validateX : function (x) {
                             return true;
