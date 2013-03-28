@@ -6,7 +6,7 @@ define(['BaseType', 'underscore', 'jQuery'], function (BaseType, _, $) {
 
         initialize : function (options) {
 
-        _.bindAll(this, "changeWidth", "changeXCood", "handleVisibilityClick", "addProperty", "changeMethodReturnType", "changeClassName", "deleteMember", "changePropertyName", "changePropertyType", "addMethod", "changeMethodName");
+        _.bindAll(this, "changeWidth", "changeXCood", "handleVisibilityClick", "addProperty", "changeMethodReturnType", "changeClassName", "deleteMember", "changePropertyName", "changePropertyType", "addMethod", "changeMethodName", "handleMethodVisibilityClick", "deleteMethod");
             this.model = options.model;
             this.view = options.view;
             $('input[name=xCood]').on('change', this.changeXCood);
@@ -15,8 +15,9 @@ define(['BaseType', 'underscore', 'jQuery'], function (BaseType, _, $) {
             $('.' + classId).find('.addMethod input').live("click", this.addMethod);
             $('.' + classId).find('.changeClassName  input').live("change", this.changeClassName);
             $('.' + classId).find('.visibility').live("click", this.handleVisibilityClick);
-            $('.' + classId).find('.visibility').live("click", this.handleVisibilityClick);
+            $('.' + classId).find('.methodVisibility').live("click", this.handleMethodVisibilityClick);
             $('.' + classId).find('.delete input').live("click", this.deleteMember);
+            $('.' + classId).find('.deleteMethod input').live("click", this.deleteMethod);
             $('.' + classId).find('.property .name input').live("change", this.changePropertyName);
             $('.' + classId).find('.method .name input').live("change", this.changeMethodName);
             $('.' + classId).find('.method .returnType input').live("change", this.changeMethodReturnType);
@@ -28,18 +29,24 @@ define(['BaseType', 'underscore', 'jQuery'], function (BaseType, _, $) {
             this.model.updateVisibility(index);
         },
 
+        handleMethodVisibilityClick : function (event) {
+            var index = $(event.target).parent().parent().data("index");
+            this.model.updateVisibility(index);
+        },
+
         addProperty : function () {
             this.model.addProperty();
         },
 
         changeMethodName : function (event) {
-            var domData = $(event.target).parent().parent().data("index");
+            var domData = $(event.target).parent().parent().parent().data("index");
+            debugger;
             var newName = $(event.target).attr('value');
             this.model.updateMethodName(domData, newName);
         },
 
         changeMethodReturnType : function (event) {
-            var domData = $(event.target).parent().parent().data("index");
+            var domData = $(event.target).parent().parent().parent().data("index");
             var newReturnType = $(event.target).attr('value');
             this.model.updateMethodReturnType(domData, newReturnType);
         },
@@ -73,6 +80,11 @@ define(['BaseType', 'underscore', 'jQuery'], function (BaseType, _, $) {
 
         deleteMember : function (event) {
             var index = $(event.target).parent().parent().data("index");
+            this.model.deleteMember(index);
+        },
+
+        deleteMethod : function (event) {
+            var index = $(event.target).parent().parent().parent().data("index");
             this.model.deleteMember(index);
         },
 

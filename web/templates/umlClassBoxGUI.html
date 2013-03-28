@@ -50,14 +50,14 @@
             </div>
 
             <div class="header">
-                <div class="visibility"></div>
+                <div class="methodVisibility"></div>
                 <div class="name">name</div>
                 <div class="returnType">returnType</div>
             </div>
             <% for(var i = 0 ; i < methods.size(); i++) {  %>
             <div class="method" data-index="<%= 'method' + i %>">
                 <div class="section-a">
-                    <div class="visibility">
+                    <div class="methodVisibility">
                         <%= methods.get(i).visibility %>
                     </div>
                     <input type="hidden" name="visibility" value="+"/>
@@ -70,7 +70,7 @@
                         <input type="text" value="<%= methods.get(i).returnType %>" />
                     </div>
 
-                    <div class="delete">
+                    <div class="deleteMethod">
                         <input type="button" class="button" value="del"/>
                     </div>
                 </div>

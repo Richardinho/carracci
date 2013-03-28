@@ -10,19 +10,8 @@ define(['BaseType',
 
     return BaseType.extend ({
 
-        // role playing game pattern.
-        // components register to participate as 'players' in a game
-        // they take turns to 'play' in a game.
-        // the 'rules' regulate their behaviour according to what role they are playing
-        // some central figure (games master) governs the whole process.
-        // the game is of a temporary nature and must have a clearly delineated beginning and an end
 
-
-        //  this controller should define constraints for the components as to how they move.
-        //  it should also define how components move in response to the movements of other components.
-
-        //  When a player wishes to move, the games master determines if they are allowed to move or not.
-        //  If they do move, the games master then moves other players in response.
+        // this is actually the mediator pattern.
         initialize : function (options) {
             this.roleIds = {};
 

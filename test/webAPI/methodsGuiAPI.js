@@ -29,15 +29,15 @@ define(['jQuery', 'BaseType'], function ($, BaseType) {
                 },
 
                 clickOnVisibility : function () {
-                    method.find('.visibility').click();
+                    method.find('.methodVisibility').click();
                 },
 
                 visibility : function () {
-                    return method.find('.visibility').text().trim();
+                    return method.find('.methodVisibility').text().trim();
                 },
 
                 deleteMethod : function () {
-                    method.find('.delete input').click();
+                    method.find('.deleteMethod input').click();
                 }
             }
         },

@@ -56,7 +56,7 @@ require(['WebAPI', 'keyManager', 'Fixture'], function (WebAPI, KeyManager, Fixtu
                     classAPIGui.property(0).clickOnVisibility();
                 });
                 it("should update visibility on model", function () {
-                    expect(classAPI.model.get("properties").get(0).visibility).toBe("-");
+                    expect(classAPI.model.get("properties").get(0).visibility).toBe("#");
                 });
             });
 
@@ -108,7 +108,7 @@ require(['WebAPI', 'keyManager', 'Fixture'], function (WebAPI, KeyManager, Fixtu
                     classAPIGui.method(0).clickOnVisibility();
                 });
                 it("should update visibility on model and in gui", function () {
-                    expect(classAPI.model.get("methods").get(0).visibility).toBe("-");
+                    expect(classAPI.model.get("methods").get(0).visibility).toBe("#");
                 });
             });
 
