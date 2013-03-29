@@ -266,13 +266,27 @@ define(['raphael', 'jQuery'], function(Raphael, $) {
         }
 
         function formatMethod (method) {
-            var result = "";
+            var result = "", args;
+            if(method.args) {
+                args = formatArgs(method.args)
+            } else {
+                args = "blah";
+            }
+
 
             result += method.visibility;
             result += method.name;
-            result +="():";
+            result +="(" + args + "):";
             result += method.returnType;
 
+            return result;
+        }
+
+        function formatArgs(args) {
+            var result = ""
+            $.each(args, function(index, arg) {
+                result += arg.name + ":" + arg.type + ",";
+            });
             return result;
         }
 

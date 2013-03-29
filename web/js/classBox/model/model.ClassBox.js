@@ -129,7 +129,19 @@ define(['ModelElement',
                 property = propertyBuilder('').visibility("-").build();
             }
             this.get("properties").add(property);
-            this._fire("change:add")
+            this._fire("updateClass")
+        },
+
+        addArgument : function (data) {
+            var methods = this.get('methods');
+            var data = this._extractData(data);
+            if(!methods.get(data.index).args) {
+                methods.get(data.index).args = [];
+            }
+            methods.get(data.index).args.push({ name : "foo", type:"Object" })
+            this.set({"methods" : methods}, { silent : true });
+            this._fire("render");
+
         },
 
         addMethod : function (method) {
@@ -137,7 +149,7 @@ define(['ModelElement',
                 method = methodBuilder('').visibility('+').returnType('void').build();
             }
             this.get("methods").add(method);
-            this._fire("change:add")
+            this._fire("updateClass")
         },
 
         updateVisibility : function (index) {

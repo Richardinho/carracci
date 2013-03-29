@@ -115,6 +115,16 @@ require(['WebAPI', 'keyManager', 'Fixture'], function (WebAPI, KeyManager, Fixtu
                 });
             });
 
+            describe("When user clicks on 'add argument' ", function () {
+                beforeEach(function() {
+                    classAPIGui.method(0).clickOnAddArgButton();
+                });
+                it("Should add argument input section to method section", function () {
+                    expect(classAPIGui.method(0).arg(3).type()).toBe("Object");
+
+                });
+            });
+
             describe("When user clicks on visibility link on a method", function () {
                 beforeEach(function () {
                     classAPIGui.method(0).clickOnVisibility();

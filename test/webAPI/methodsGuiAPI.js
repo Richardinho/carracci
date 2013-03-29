@@ -33,7 +33,11 @@ define(['jQuery',
                 },
 
                 arg : function (index) {
-                    return new ArgAPI({ el : method.find('.arguments .arg-body').get(index)});
+                    return new ArgAPI({ el : method.find('.arguments .arg-body div').get(index)});
+                },
+
+                clickOnAddArgButton : function () {
+                    method.find('.addArgButton input').click();
                 },
 
                 clickOnVisibility : function () {

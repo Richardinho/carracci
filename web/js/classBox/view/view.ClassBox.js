@@ -9,11 +9,14 @@ define(['BaseType', 'svgUtilities', 'Collection' ], function (BaseType, svgUtili
             this.element = this._createPane();
             this.model.on("change:move", this.render, this);
             this.model.on("changeText", this.renderText, this);
-            this.model.on("change:add", this.addProperty, this);
+            this.model.on("render", this.renderText, this);
+
             this.model.on("change:delete", this.deleteProperty, this);
             this.model.on("change:dimensions", this.changeDimensions, this);
             this.model.on("change:visibility", this.renderText, this);
             this.model.on("change:name", this.renderText, this);
+
+            this.model.on("updateClass", this.changeBox, this);
 
         },
 
@@ -21,10 +24,10 @@ define(['BaseType', 'svgUtilities', 'Collection' ], function (BaseType, svgUtili
 
             this.element.transform( "T" + this.model.get("XMoved") +
                                     "," + this.model.get("YMoved") );
+
             var x = this.element.getBBox().x ;
             var y = this.element.getBBox().y ;
-            //this.model.set({ xCood : x }, { silent : true });
-            //this.model.set({ yCood : y }, { silent : true });
+
             this.model.updateCoordinates(x, y, true);
             this.box.render();
         },
@@ -33,7 +36,7 @@ define(['BaseType', 'svgUtilities', 'Collection' ], function (BaseType, svgUtili
             this.element.setDimensions(this.model);
         },
 
-        addProperty : function () {
+        changeBox : function () {
             this.box.recreate();
         },
 
