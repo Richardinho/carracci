@@ -17,7 +17,7 @@ define(['BaseType',
             this.render();
 
             this.model.on("updateClass", this.render, this);
-            this.model.on("change:visibility", this.render, this);
+            this.model.on("updateClass", this.render, this);
             this.model.on("render", this.render, this);
 
         },

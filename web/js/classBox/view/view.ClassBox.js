@@ -3,21 +3,16 @@ define(['BaseType', 'svgUtilities', 'Collection' ], function (BaseType, svgUtili
     return BaseType.extend({
 
         initialize : function (options) {
+
             this.model = options.model;
             this.svgUtils = svgUtilities;
+
             this.box = this._createSvgShape();
             this.element = this._createPane();
-            this.model.on("change:move", this.render, this);
-            this.model.on("changeText", this.renderText, this);
-            this.model.on("render", this.renderText, this);
 
-
-            this.model.on("change:dimensions", this.changeDimensions, this);
-            this.model.on("change:visibility", this.renderText, this);
-            this.model.on("change:name", this.renderText, this);
-
+            this.model.on("moveClass", this.render, this);
+            this.model.on("updateDimensions", this.changeDimensions, this);
             this.model.on("updateClass", this.changeBox, this);
-
         },
 
         render : function () {
@@ -32,16 +27,12 @@ define(['BaseType', 'svgUtilities', 'Collection' ], function (BaseType, svgUtili
             this.box.render();
         },
 
-        changeDimensions : function () {
-            this.element.setDimensions(this.model);
-        },
-
         changeBox : function () {
             this.box.recreate();
         },
 
-        renderText : function (index) {
-            this.box.recreate();
+        changeDimensions : function () {
+            this.element.setDimensions(this.model);
         },
 
         _createPane : function () {
@@ -49,41 +40,7 @@ define(['BaseType', 'svgUtilities', 'Collection' ], function (BaseType, svgUtili
         },
 
         _createSvgShape : function () {
-
-            var properties = this.model.get("properties").map(function (index, element) {
-                return this.formatProperty(element);
-            }, this);
-
             return this.svgUtils.createUmlBoxFoo(this.model);
-        },
-
-        formatProperty : function (property) {
-            var result = "";
-
-            result += property.visibility;
-            result += property.name;
-            result +=":";
-            result += property.type;
-
-            return result;
-        },
-
-        formatMethod : function (method) {
-            var result = "";
-
-            result += method.visibility;
-            result += method.name;
-            result += "(";
-            for(var arg in method.args) {
-                result += arg + ":" + method.args[arg] + ",";
-            }
-            if(result.charAt(result.length-1) === ",") {
-                result = result.substring(0, result.length-1);
-            }
-            result +="):";
-            result += method.returnType;
-
-            return result;
         },
 
         getType : function () {

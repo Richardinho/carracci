@@ -24,17 +24,14 @@ define(['ModelElement',
 
             this.set({ "XMoved" : dx + this.get("startX") },{ silent : true });
             this.set({ "YMoved" : dy + this.get("startY") },{ silent : true });
-            this._fire("change:move");
+            this._fire("moveClass");
         },
 
         updateDimensions : function (height, width) {
             this.set({ "width" : width }, { silent : true });
             this.set({ "height" : height }, { silent : true });
-            //  hack to get node on right edge to reposition itself
-            //this.updateCoordinates(this.get("xCood"), this.get("yCood"), true);
             this.updateAssociatedComponents();
-            // this is for the benefit of this models view.
-            this._fire("change:dimensions");
+            this._fire("updateDimensions");
         },
 
         deleteMember : function (index) {
@@ -61,43 +58,34 @@ define(['ModelElement',
 
         changeClassName : function ( newName) {
             this.set({ name : newName });
-            //this._fire("changeText");
         },
 
         updateMethodName : function (data, newName) {
             var methods = this.get('methods');
             var data = this._extractData(data);
             methods.get(data.index).name = newName;
-            this.set({"methods" : methods}, { silent : true });
-
-            this._fire("changeText", data.index)
+            this._fire("updateClass", data.index)
         },
 
         updateMethodReturnType : function (data, newReturnType) {
             var methods = this.get('methods');
             var data = this._extractData(data);
             methods.get(data.index).returnType = newReturnType;
-            this.set({"methods" : methods}, { silent : true });
-
-            this._fire("changeText", data.index)
+            this._fire("updateClass", data.index)
         },
 
         updatePropertyName : function (index, newName) {
             var properties = this.get('properties');
             var data = this._extractData(index);
             properties.get(data.index).name = newName;
-            this.set({"properties" : properties}, { silent : true });
-
-            this._fire("changeText", data.index)
+            this._fire("updateClass", data.index)
         },
 
         updatePropertyType : function (index, newType) {
             var properties = this.get('properties');
             var data = this._extractData(index);
             properties.get(data.index).type = newType;
-            this.set({"properties" : properties}, { silent : true });
-
-            this._fire("changeText", data.index)
+            this._fire("updateClass", data.index)
         },
 
         getPropertyCollection : function () {
@@ -139,8 +127,7 @@ define(['ModelElement',
                 methods.get(data.index).args = [];
             }
             methods.get(data.index).args.push({ name : "foo", type:"Object" })
-            this.set({"methods" : methods}, { silent : true });
-            this._fire("render");
+            this._fire("updateClass");
 
         },
 
@@ -180,8 +167,7 @@ define(['ModelElement',
                 newSymbol = this.symbolMap.toSymbol[newIndex];
             methods.get(index).visibility = newSymbol;
 
-            this.set({ "methods" : methods }, { silent : true });
-            this._fire("change:visibility", index);
+            this._fire("updateClass", index);
         },
 
         _updatePropertyVisibility : function (index) {
@@ -192,8 +178,7 @@ define(['ModelElement',
                 newSymbol = this.symbolMap.toSymbol[newIndex];
             properties.get(index).visibility = newSymbol;
 
-            this.set({ "properties" : properties }, { silent : true });
-            this._fire("change:visibility", index);
+            this._fire("updateClass", index);
         },
 
         symbolMap : {
