@@ -71,7 +71,11 @@ define(['ClassBoxModel',
     }
 
     function getMethod(config) {
-        return methodBuilder(config.name).visibility(config.visibility).returnType(config.returnType).build();
+        return methodBuilder(config.name)
+            .visibility(config.visibility)
+            .args(config.args)
+            .returnType(config.returnType)
+            .build();
     }
 
 });

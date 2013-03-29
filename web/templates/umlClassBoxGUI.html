@@ -82,9 +82,17 @@
                         <span class="name">name</span>
                         <span class="type">type</span>
                     </div>
-                    <% for(var j = 0; j < 2; j++) { %>
-                        <div><input type="text" /><input type="text"/><input type="button" value="del"/></div>
-                    <%}%>
+                    <div class="arg-body">
+                        <%  var args = methods.get(i).args;
+                            for(var j = 0; j < args.length; j++) {
+                            var arg= args[j] %>
+                            <div>
+                                <input class="name" type="text" value="<%= arg.name %>" />
+                                <input class="type" type="text" value="<%= arg.type %>" />
+                                <input type="button" value="del"/></div>
+                        <% } %>
+                    </div>
+
                 </div>
             </div>
             <% } %>

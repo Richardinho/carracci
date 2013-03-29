@@ -2,7 +2,7 @@ define(function() {
 
     return function (name) {
 
-        var method = { "name" : name, visibility : "-", args : {} , returnType : "void" };
+        var method = { "name" : name, visibility : "-", args : [] , returnType : "void" };
 
         return {
             visibility : function (visibility) {
@@ -17,7 +17,12 @@ define(function() {
             },
 
             arg : function (name, type) {
-                method.args[name] = type;
+                method.args.push({ "name" : name, "type" : type });
+                return this;
+            },
+
+            args : function (args) {
+                method.args = args
                 return this;
             },
 

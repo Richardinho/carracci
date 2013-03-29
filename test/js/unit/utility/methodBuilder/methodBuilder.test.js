@@ -21,9 +21,7 @@ require(['methodBuilder'], function (methodBuilder) {
                 method = methodBuilder()
                     .name("bar")
                     .visibility("+")
-                    .arg("blah", "String")
-                    .arg("index", "int")
-                    .arg("widget", "Thing")
+                    .args([{ name : "blah", type : "String"}, { name : "bar", type : "int"}])
                     .returnType("Integer")
                     .build();
             });
@@ -31,9 +29,7 @@ require(['methodBuilder'], function (methodBuilder) {
             it("should create json method with given values", function() {
                 expect(method).toEqual({ visibility : "+",
                                          name : "bar",
-                                         args : { "blah" : "String",
-                                                 "index" : "int",
-                                                 "widget" : "Thing" },
+                                         args : [{ name : "blah", type : "String"}, { name : "bar", type : "int"}],
                                          returnType : "Integer" });
             });
         });

@@ -95,7 +95,8 @@ require.config({
         ArrowVCoordinator : "web/js/coordinators/verticalConnectorsToBox/ArrowCoordinator",
         BoxVCoordinator : "web/js/coordinators/verticalConnectorsToBox/boxCoordinator",
         ProximalNodeVCoordinator : "web/js/coordinators/verticalConnectorsToBox/proximalNodeCoordinator",
-        DistalNodeVCoordinator : "web/js/coordinators/verticalConnectorsToBox/distalNodeCoordinator"
+        DistalNodeVCoordinator : "web/js/coordinators/verticalConnectorsToBox/distalNodeCoordinator",
+        ArgAPI : "test/webAPI/argAPI"
     }
 });
 

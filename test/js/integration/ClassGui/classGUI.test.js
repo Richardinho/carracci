@@ -26,11 +26,15 @@ require(['WebAPI', 'keyManager', 'Fixture'], function (WebAPI, KeyManager, Fixtu
                     type : "int"
                 }],
 
-                methods : [ {
+                methods : [{
                     name : "doThat",
                     visibility : "+",
-                    returnType : "String"
-
+                    returnType : "String",
+                    args : [
+                        { name : "arg1", type : "String" },
+                        { name : "arg2", type : "int" },
+                        { name : "arg2", type : "int" }
+                    ]
                 }]
             }]
         };
@@ -103,6 +107,14 @@ require(['WebAPI', 'keyManager', 'Fixture'], function (WebAPI, KeyManager, Fixtu
         });
 
         describe("methods", function () {
+
+            describe("When method is configured with arguments", function () {
+                it("Should have argument section in gui", function () {
+                    expect(classAPIGui.method(0).arg(0).name()).toBe("arg1");
+                    expect(classAPIGui.method(0).arg(0).type()).toBe("String");
+                });
+            });
+
             describe("When user clicks on visibility link on a method", function () {
                 beforeEach(function () {
                     classAPIGui.method(0).clickOnVisibility();

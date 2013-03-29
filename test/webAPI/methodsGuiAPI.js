@@ -1,4 +1,8 @@
-define(['jQuery', 'BaseType'], function ($, BaseType) {
+define(['jQuery',
+        'BaseType',
+        'ArgAPI'], function ( $,
+                              BaseType,
+                              ArgAPI ) {
 
     return BaseType.extend({
 
@@ -26,6 +30,10 @@ define(['jQuery', 'BaseType'], function ($, BaseType) {
                     } else {
                         return method.find('.returnType input').val();
                     }
+                },
+
+                arg : function (index) {
+                    return new ArgAPI({ el : method.find('.arguments .arg-body').get(index)});
                 },
 
                 clickOnVisibility : function () {
