@@ -200,11 +200,20 @@ body {
 }
 
 .classBox .methods .method .name, .classBox .methods .method .name input {
-    width : 89px;
+    width : 86px;
 }
 
 .classBox .methods .method .returnType, .classBox .methods .method .returnType input {
-    width : 89px;
+    width : 86px;
+}
+
+.classBox .methods .method .addArgButton {
+    height : 51px;
+}
+
+.classBox .methods .method .addArgButton input {
+    width : 50px;
+    margin-top:6px;
 }
 
 /* method arguments */
@@ -218,7 +227,7 @@ body {
 }
 
 .classBox .methods .method .arguments input[type=text] {
-    width : 90px;
+    width : 87px;
 }
 
 /* end of method arguments */
