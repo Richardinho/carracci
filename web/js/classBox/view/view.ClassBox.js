@@ -11,7 +11,7 @@ define(['BaseType', 'svgUtilities', 'Collection' ], function (BaseType, svgUtili
             this.model.on("changeText", this.renderText, this);
             this.model.on("render", this.renderText, this);
 
-            this.model.on("change:delete", this.deleteProperty, this);
+
             this.model.on("change:dimensions", this.changeDimensions, this);
             this.model.on("change:visibility", this.renderText, this);
             this.model.on("change:name", this.renderText, this);
@@ -37,10 +37,6 @@ define(['BaseType', 'svgUtilities', 'Collection' ], function (BaseType, svgUtili
         },
 
         changeBox : function () {
-            this.box.recreate();
-        },
-
-        deleteProperty : function (index) {
             this.box.recreate();
         },
 

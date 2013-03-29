@@ -50,13 +50,13 @@ define(['ModelElement',
         _deleteMethod : function (index) {
             var methods = this.get('methods');
             methods.delete(index);
-            this._fire("change:delete")
+            this._fire("updateClass")
         },
 
         _deleteProperty : function (index) {
             var properties = this.get('properties');
             properties.delete(index);
-            this._fire("change:delete")
+            this._fire("updateClass")
         },
 
         changeClassName : function ( newName) {
