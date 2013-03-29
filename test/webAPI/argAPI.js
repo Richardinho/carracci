@@ -14,6 +14,10 @@ define(['jQuery',
 
         type : function () {
             return $(this.el).find('.type').val();
+        },
+
+        deleteArg : function () {
+            $(this.el).find('.del').click();
         }
     });
 });

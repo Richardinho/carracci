@@ -125,6 +125,16 @@ require(['WebAPI', 'keyManager', 'Fixture'], function (WebAPI, KeyManager, Fixtu
                 });
             });
 
+            describe("When user clicks on 'delete argument' ", function () {
+
+                beforeEach(function () {
+                    classAPIGui.method(0).arg(3).deleteArg();
+                });
+                it("Should remove argument input section from method section", function () {
+                    expect(classAPIGui.method(0).numberOfArgs()).toBe(3);
+                });
+            });
+
             describe("When user clicks on visibility link on a method", function () {
                 beforeEach(function () {
                     classAPIGui.method(0).clickOnVisibility();

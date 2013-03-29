@@ -6,7 +6,11 @@ define(['BaseType', 'underscore', 'jQuery'], function (BaseType, _, $) {
 
         initialize : function (options) {
 
-        _.bindAll(this, "changeWidth", "changeXCood", "handleVisibilityClick", "addProperty", "changeMethodReturnType", "changeClassName", "deleteMember", "changePropertyName", "changePropertyType", "addMethod", "changeMethodName", "handleMethodVisibilityClick", "deleteMethod", "addArgument");
+        _.bindAll(this, "changeWidth", "changeXCood", "handleVisibilityClick",
+        "addProperty", "changeMethodReturnType", "changeClassName", "deleteMember",
+        "changePropertyName", "changePropertyType", "addMethod", "changeMethodName",
+        "handleMethodVisibilityClick", "deleteMethod", "addArgument", "deleteArgument");
+
             this.model = options.model;
             this.view = options.view;
             $('input[name=xCood]').on('change', this.changeXCood);
@@ -22,6 +26,7 @@ define(['BaseType', 'underscore', 'jQuery'], function (BaseType, _, $) {
             $('.' + classId).find('.property .name input').live("change", this.changePropertyName);
             $('.' + classId).find('.method .name input').live("change", this.changeMethodName);
             $('.' + classId).find('.method .returnType input').live("change", this.changeMethodReturnType);
+            $('.' + classId).find('.method .arguments .arg-body .del').live("click", this.deleteArgument);
             $('.' + classId).find('.property .type input').live("change", this.changePropertyType);
         },
 
@@ -38,6 +43,11 @@ define(['BaseType', 'underscore', 'jQuery'], function (BaseType, _, $) {
         addArgument : function (event) {
             var data = $(event.target).parent().parent().parent().data('index');
             this.model.addArgument(data);
+        },
+
+        deleteArgument : function (event) {
+            var data = $(event.target).parent().data('index');
+            this.model.deleteArgument(data);
         },
 
         addProperty : function () {

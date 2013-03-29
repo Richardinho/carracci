@@ -31,6 +31,9 @@ define(['jQuery',
                         return method.find('.returnType input').val();
                     }
                 },
+                numberOfArgs : function () {
+                    return method.find('.arguments .arg-body div').length;
+                },
 
                 arg : function (index) {
                     return new ArgAPI({ el : method.find('.arguments .arg-body div').get(index)});

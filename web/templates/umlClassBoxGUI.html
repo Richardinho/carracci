@@ -87,10 +87,10 @@
                             if(args) {
                                 for(var j = 0; j < args.length; j++) {
                                     var arg= args[j] %>
-                                    <div>
+                                    <div data-index="<%= 'method' + i + ':arg' + j %>">
                                         <input class="name" type="text" value="<%= arg.name %>" />
                                         <input class="type" type="text" value="<%= arg.type %>" />
-                                        <input type="button" value="del"/>
+                                        <input class="del"  type="button" value="del"/>
                                     </div>
                         <%      }
                             }         %>

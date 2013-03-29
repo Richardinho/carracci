@@ -34,6 +34,14 @@ define(['ModelElement',
             this._fire("updateDimensions");
         },
 
+        deleteArgument : function (data) {
+            var data = this._getArgAndMethodDataAsObj(data);
+            var methods = this.get('methods');
+            var method = methods.get(data.methodIndex);
+            method.args.splice(parseInt(data.argIndex, 10), 1);
+            this._fire("updateClass");
+        },
+
         deleteMember : function (index) {
             var data = this._extractData(index);
 
@@ -156,6 +164,14 @@ define(['ModelElement',
             return {
                 text : data.slice(0, -1),
                 index : data.slice(-1)
+            }
+        },
+
+        _getArgAndMethodDataAsObj : function (data) {
+            var a = data.split(':');
+            return {
+                methodIndex : a[0].slice(-1),
+                argIndex : a[1].slice(-1)
             }
         },
 
