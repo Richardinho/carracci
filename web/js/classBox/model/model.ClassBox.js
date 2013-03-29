@@ -42,6 +42,24 @@ define(['ModelElement',
             this._fire("updateClass");
         },
 
+        updateArgumentName : function (data, name) {
+            this._updateArgument(data, "name", name);
+        },
+
+        updateArgumentType : function (data, type) {
+            this._updateArgument(data, "type", type);
+        },
+
+        _updateArgument : function (data, prop, propVal) {
+
+            var data = this._getArgAndMethodDataAsObj(data),
+                methods = this.get('methods'),
+                method = methods.get(data.methodIndex);
+
+            method.args[data.argIndex][prop] = propVal;
+            this._fire("updateClass");
+        },
+
         deleteMember : function (index) {
             var data = this._extractData(index);
 

@@ -273,7 +273,6 @@ define(['raphael', 'jQuery'], function(Raphael, $) {
                 args = "blah";
             }
 
-
             result += method.visibility;
             result += method.name;
             result +="(" + args + "):";

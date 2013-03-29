@@ -31,6 +31,7 @@ define(['jQuery',
                         return method.find('.returnType input').val();
                     }
                 },
+
                 numberOfArgs : function () {
                     return method.find('.arguments .arg-body div').length;
                 },

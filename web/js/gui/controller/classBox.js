@@ -9,7 +9,8 @@ define(['BaseType', 'underscore', 'jQuery'], function (BaseType, _, $) {
         _.bindAll(this, "changeWidth", "changeXCood", "handleVisibilityClick",
         "addProperty", "changeMethodReturnType", "changeClassName", "deleteMember",
         "changePropertyName", "changePropertyType", "addMethod", "changeMethodName",
-        "handleMethodVisibilityClick", "deleteMethod", "addArgument", "deleteArgument");
+        "handleMethodVisibilityClick", "deleteMethod", "addArgument", "deleteArgument",
+        "updateArgumentName", "updateArgumentType");
 
             this.model = options.model;
             this.view = options.view;
@@ -21,12 +22,23 @@ define(['BaseType', 'underscore', 'jQuery'], function (BaseType, _, $) {
             $('.' + classId).find('.visibility').live("click", this.handleVisibilityClick);
             $('.' + classId).find('.methodVisibility').live("click", this.handleMethodVisibilityClick);
             $('.' + classId).find('.addArgButton input').live("click", this.addArgument);
+
+
+
             $('.' + classId).find('.delete input').live("click", this.deleteMember);
             $('.' + classId).find('.deleteMethod input').live("click", this.deleteMethod);
             $('.' + classId).find('.property .name input').live("change", this.changePropertyName);
             $('.' + classId).find('.method .name input').live("change", this.changeMethodName);
             $('.' + classId).find('.method .returnType input').live("change", this.changeMethodReturnType);
+
             $('.' + classId).find('.method .arguments .arg-body .del').live("click", this.deleteArgument);
+
+            $('.' + classId).find('.method .arguments .arg-body .name').live("change", this.updateArgumentName);
+            $('.' + classId).find('.method .arguments .arg-body .type').live("change", this.updateArgumentType);
+
+
+
+
             $('.' + classId).find('.property .type input').live("change", this.changePropertyType);
         },
 
@@ -48,6 +60,18 @@ define(['BaseType', 'underscore', 'jQuery'], function (BaseType, _, $) {
         deleteArgument : function (event) {
             var data = $(event.target).parent().data('index');
             this.model.deleteArgument(data);
+        },
+
+        updateArgumentName : function (event) {
+            var data = $(event.target).parent().data('index');
+            var name = $(event.target).val();
+            this.model.updateArgumentName(data, name);
+        },
+
+        updateArgumentType : function (event) {
+            var data = $(event.target).parent().data('index');
+            var type = $(event.target).val();
+            this.model.updateArgumentType(data, type);
         },
 
         addProperty : function () {

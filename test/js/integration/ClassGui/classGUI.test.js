@@ -125,6 +125,16 @@ require(['WebAPI', 'keyManager', 'Fixture'], function (WebAPI, KeyManager, Fixtu
                 });
             });
 
+            describe("When user changes argument name", function () {
+
+            //  how to test this?
+            });
+
+            describe("When user changes argument type", function () {
+
+            //  how to test this?
+            });
+
             describe("When user clicks on 'delete argument' ", function () {
 
                 beforeEach(function () {
