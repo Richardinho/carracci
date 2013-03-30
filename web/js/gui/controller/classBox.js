@@ -43,7 +43,7 @@ define(['BaseType', 'underscore', 'jQuery'], function (BaseType, _, $) {
         },
 
         handleVisibilityClick : function (event) {
-            var index = $(event.target).parent().data("index");
+            var index = $(event.target).parent().parent().data("index");
             this.model.updateVisibility(index);
         },
 
@@ -53,7 +53,7 @@ define(['BaseType', 'underscore', 'jQuery'], function (BaseType, _, $) {
         },
 
         addArgument : function (event) {
-            var data = $(event.target).parent().parent().parent().data('index');
+            var data = $(event.target).parent().parent().parent().parent().data('index');
             this.model.addArgument(data);
         },
 
@@ -102,7 +102,7 @@ define(['BaseType', 'underscore', 'jQuery'], function (BaseType, _, $) {
         changePropertyName : function (event) {
             var index,
                 newName;
-            index = $(event.target).parent().parent().data("index");
+            index = $(event.target).parent().parent().parent().data("index");
 
             newName = $(event.target).attr('value');
             this.model.updatePropertyName(index, newName);
@@ -112,13 +112,13 @@ define(['BaseType', 'underscore', 'jQuery'], function (BaseType, _, $) {
             var index,
                 newType;
 
-            index = $(event.target).parent().parent().data("index");
+            index = $(event.target).parent().parent().parent().data("index");
             newType = $(event.target).attr('value');
             this.model.updatePropertyType(index, newType);
         },
 
         deleteMember : function (event) {
-            var index = $(event.target).parent().parent().data("index");
+            var index = $(event.target).parent().parent().parent().data("index");
             this.model.deleteMember(index);
         },
 

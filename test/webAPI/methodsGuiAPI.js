@@ -45,11 +45,11 @@ define(['jQuery',
                 },
 
                 clickOnVisibility : function () {
-                    method.find('.methodVisibility').click();
+                    method.find('.visibility').click();
                 },
 
                 visibility : function () {
-                    return method.find('.methodVisibility').text().trim();
+                    return method.find('.visibility').text().trim();
                 },
 
                 deleteMethod : function () {
