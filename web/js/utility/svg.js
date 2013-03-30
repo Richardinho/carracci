@@ -286,7 +286,7 @@ define(['raphael', 'jQuery'], function(Raphael, $) {
             $.each(args, function(index, arg) {
                 result += arg.name + ":" + arg.type + ",";
             });
-            return result;
+            return result.substring(0, result.length-1);
         }
 
         return headerRect;
