@@ -10,13 +10,17 @@ require.config({
 
         'underscore' : {
             exports : '_'
+        },
+
+        'jsTween' : {
+            deps : ['jQuery']
         }
 
 
     },
-
     paths : {
         jQuery : "lib/jquery-1.8.0",
+        jsTween : "lib/jstween-1.1",
         underscore : "lib/underscore",
         raphael : "lib/raphael.2.1.0.amd",
         raphaelCore : "lib/raphael.2.1.0.core",
@@ -65,9 +69,6 @@ require.config({
         PropertyModel : "classBox/model/property",
         TypeSpecificCollection : "core/TypeSpecificCollection",
         ClassBoxFactory : "classBox/factory/factory.ClassBox",
-        ToolsModel : "menu/tools/model",
-        ToolsView : "menu/tools/view",
-        ToolsController : "menu/tools/controller",
         BaseType : "utility/extend",
         NodeToBoxCoordinator : "global/controllers/controller.AttachedNodeToBox",
         VerticalNodeBoxCoordinator : "global/controllers/verticalNodeToBox",
@@ -85,7 +86,12 @@ require.config({
         ArrowVCoordinator : "coordinators/verticalConnectorsToBox/ArrowCoordinator",
         BoxVCoordinator : "coordinators/verticalConnectorsToBox/boxCoordinator",
         ProximalNodeVCoordinator : "coordinators/verticalConnectorsToBox/proximalNodeCoordinator",
-        DistalNodeVCoordinator : "coordinators/verticalConnectorsToBox/distalNodeCoordinator"
+        DistalNodeVCoordinator : "coordinators/verticalConnectorsToBox/distalNodeCoordinator",
+        MenuElementModel : "menu/models/menuElementModel",
+        MenuElementView : "menu/views/menuElementView",
+        MenuElementController : "menu/controller/menuElementController",
+        toolsMenuItems : "menu/controller/toolsMenuItems"
+
 
     }
 });

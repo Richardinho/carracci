@@ -11,12 +11,17 @@ require.config({
 
         'underscore' : {
             exports : '_'
+        },
+
+        'jsTween' : {
+            deps : ['jQuery']
         }
     },
 
     paths : {
 
         underscore : "web/js/lib/underscore",
+        jsTween : "lib/jstween-1.1",
         jQuery : "web/js/lib/jquery-1.8.0",
         BaseType : "web/js/utility/extend",
         templateLoader : "web/js/utility/templateLoader",
@@ -71,9 +76,6 @@ require.config({
         helpData : "web/js/menu/help/data",
         HelpView : "web/js/menu/help/view",
         foo : "web/js/menu/controller",
-        ToolsModel : "web/js/menu/tools/model",
-        ToolsView : "web/js/menu/tools/view",
-        ToolsController : "web/js/menu/tools/controller",
         ClassBoxFactory : "web/js/classBox/factory/factory.ClassBox",
         MenuBarAPI : "test/webAPI/menuBar",
         ToolsDropDownAPI : "test/webAPI/toolsDropDown",
@@ -96,7 +98,11 @@ require.config({
         BoxVCoordinator : "web/js/coordinators/verticalConnectorsToBox/boxCoordinator",
         ProximalNodeVCoordinator : "web/js/coordinators/verticalConnectorsToBox/proximalNodeCoordinator",
         DistalNodeVCoordinator : "web/js/coordinators/verticalConnectorsToBox/distalNodeCoordinator",
-        ArgAPI : "test/webAPI/argAPI"
+        ArgAPI : "test/webAPI/argAPI",
+        MenuElementModel : "web/js/menu/models/menuElementModel",
+        MenuElementView : "web/js/menu/views/menuElementView",
+        MenuElementController : "web/js/menu/controller/menuElementController",
+        toolsMenuItems : "web/js/menu/controller/toolsMenuItems"
     }
 });
 

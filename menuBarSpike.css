@@ -1,0 +1,31 @@
+#menu {
+    height : 50px;
+    background-color: red;
+    position : absolute;
+    z-index : 100;
+}
+
+#menu div {
+    float : left;
+    padding-right : 30px;
+
+}
+
+.dropdown {
+    position : absolute;
+    left : 50px;
+    top : -500px;
+    font-family : arial;
+}
+
+.dropdown .item {
+    font-size : 12px;
+    color : white;
+    font-weight : bold;
+    padding-left : 14px;
+    padding-top : 8px;
+    background-color : blue;
+    width : 121px;
+    height : 25px;
+    border-bottom : solid 1px white;
+}

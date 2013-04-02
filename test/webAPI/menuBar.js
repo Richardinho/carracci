@@ -1,4 +1,8 @@
-define(['ToolsDropDownAPI', 'jQuery', 'BaseType'], function (ToolsDropDownAPI, $, BaseType) {
+define(['ToolsDropDownAPI',
+        'jQuery',
+        'BaseType'], function ( ToolsDropDownAPI,
+                                $,
+                                BaseType ) {
 
     return BaseType.extend({
 
@@ -9,7 +13,7 @@ define(['ToolsDropDownAPI', 'jQuery', 'BaseType'], function (ToolsDropDownAPI, $
         },
 
         clickOnToolsButton : function () {
-            this.el.find('#tools').click();
+            this.el.find('.tools').focus();
         },
 
         toolsDropDown : function () {

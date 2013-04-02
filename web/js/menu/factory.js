@@ -6,11 +6,12 @@ define(['MenuModel',
         'foo',
         'jQuery',
         'HelpController',
-        'ToolsModel',
-        'ToolsView',
-        'ToolsController',
         'ControllerDraggableElement',
-        'ModelElement' ], function ( Model,
+        'ModelElement',
+        'jsTween' ,
+        'MenuElementModel',
+        'MenuElementView',
+        'MenuElementController' ], function ( Model,
                                  View,
                                  HelpModel,
                                  helpData,
@@ -18,41 +19,44 @@ define(['MenuModel',
                                  Foo,
                                  $ ,
                                  HelpController,
-                                 ToolsModel,
-                                 ToolsView,
-                                 ToolsController,
                                  DraggableElementController,
-                                 ModelElement) {
+                                 ModelElement,
+                                 jsTween,
+                                 MenuElementModel,
+                                 MenuElementView,
+                                 MenuElementController) {
 
 
 
-    return function() {
+    return function(config) {
 
-        var helpModel,
-            helpView,
-            helpController,
-            toolsModel,
-            toolsView,
-            toolsController,
-            menuModel,
-            menuView,
-            menuController;
+        var items = config.items;
 
-        helpModel = new HelpModel({ 'data' : helpData });
-        helpView = new HelpView({ model : helpModel, el : $('#help') });
-        helpController = new HelpController({ model : helpModel, view : helpView });
+        var itemWidth = config.itemWidth;
 
-//        var helpContainerModel = new ModelElement();
-//        var helpContainerView = new HelpContainerView({ model : helpContainerModel });
-//        var helpContainerController = new DraggableElementController({ model : helpContainerModel,
-//                                                                       view : helpContainerView });
+        var dropDownContainer = config.dropDownEl;
 
-        toolsModel = new ToolsModel();
-        toolsView = new ToolsView({ model : toolsModel, el : $('#tool-bar') });
-        toolsController = new ToolsController({ model : toolsModel, view : toolsView });
+        var el = config.el;
 
-        menuModel = new Model({ helpPage : helpModel, tools : toolsModel });
-        menuView = new View({ el : $('#menu') });
-        MenuController = new Foo({ "model" : menuModel, "view" : menuView });
+        $.each(items, function (index, item) {
+
+            var menuModel = new MenuElementModel({
+                name : item.name,
+                items : item.subItems,
+                "index" : index
+            });
+
+            var menuView = new MenuElementView({
+                model : menuModel,
+                menuEl : el,
+                width : itemWidth,
+                dropDownEl : dropDownContainer
+            });
+
+            var menuController = new MenuElementController({
+                model : menuModel,
+                view : menuView
+            });
+        });
     }
 });

@@ -26,7 +26,8 @@ define(['BaseType',
         'ClassBoxFactory',
         'componentContainer',
         'connectorFactory',
-        'verticalConnectorFactory'], function (BaseType,
+        'verticalConnectorFactory',
+        'toolsMenuItems' ], function (BaseType,
                                  ComponentContainer,
                                  ClassBoxModel,
                                  ClassBoxView,
@@ -54,15 +55,112 @@ define(['BaseType',
                                  ClassBoxFactory,
                                  ComponentContainer,
                                  connectorFactory,
-                                 verticalConnectorFactory) {
+                                 verticalConnectorFactory,
+                                 toolsMenuItems) {
 
     return BaseType.extend({
 
         initialize : function () {
 
+            var genericCallback = function () {
+                console.log("Happy Easter.");
+            }
+
+
             templateLoader.initialize(['umlClassBoxGUI', 'tools', 'help'], '/web/templates/');
 
-            var menu = MenuFactory();
+            var menu = MenuFactory({
+                items : [
+                    {
+                        name : "file",
+
+                        subItems : [
+                            {
+                                name : "exportJpeg",
+
+                                text : "export as JPEG",
+
+                                callback : genericCallback
+                            },
+                            {
+                                name : "exportPng",
+
+                                text : "export as PNG",
+
+                                callback : genericCallback
+                            }
+                        ]
+
+                    },
+
+                    {
+                        name : "help",
+
+                        subItems : [
+                            {
+                                name : "createClasses",
+
+                                text : "create Uml Class",
+
+                                callback : genericCallback
+                            },
+                            {
+                                name : "createConnect",
+
+                                text : "create a connector",
+
+                                callback : genericCallback
+                            },
+
+                            {
+                                name : "createConnect",
+
+                                text : "create a connector",
+
+                                callback : genericCallback
+                            }
+                        ],
+
+                        callback : function () {
+                            console.log("help!")
+                        }
+                    },
+
+                    {
+                        name : "tools",
+
+                        subItems : [
+                            {
+                                name : "createClasses",
+
+                                text : "uml class",
+
+                                callback :  toolsMenuItems.createUmlClass
+                            },
+                            {
+                                name : "horizontalConnect",
+
+                                text : "horizontal connector",
+
+                                callback : toolsMenuItems.createHorizontalConnector
+                            },
+                            {
+                                name : "verticalConnect",
+
+                                text : "vertical connector",
+
+                                callback : toolsMenuItems.createVerticalConnector
+                            }
+                        ]
+                    },
+                ],
+
+                itemWidth : 150,
+
+                el : $('#menu'),
+
+                dropDownEl : $("#drop-down-container")
+            });
         },
 
         setUp : function (config) {

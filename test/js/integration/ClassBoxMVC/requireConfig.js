@@ -13,12 +13,17 @@ require.config({
 
         'underscore' : {
             exports : '_'
+        },
+
+        'jsTween' : {
+            deps : ['jQuery']
         }
     },
 
     paths : {
 
         underscore : "lib/underscore",
+        jsTween : "lib/jstween-1.1",
         jQuery : "lib/jquery-1.8.0",
         ModelElement : "node/model/model.element",
         Collection : "core/Collection",
@@ -49,7 +54,17 @@ require.config({
         ArrowVCoordinator : "coordinators/verticalConnectorsToBox/ArrowCoordinator",
         BoxVCoordinator : "coordinators/verticalConnectorsToBox/boxCoordinator",
         ProximalNodeVCoordinator : "coordinators/verticalConnectorsToBox/proximalNodeCoordinator",
-        DistalNodeVCoordinator : "coordinators/verticalConnectorsToBox/distalNodeCoordinator"}
+        DistalNodeVCoordinator : "coordinators/verticalConnectorsToBox/distalNodeCoordinator",
+        MenuElementModel : "menu/models/menuElementModel",
+        MenuElementView : "menu/views/menuElementView",
+        MenuElementController : "menu/controller/menuElementController",
+        toolsMenuItems : "menu/controller/toolsMenuItems"
+
+
+
+
+
+    }
 });
 
 
