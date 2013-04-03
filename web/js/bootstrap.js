@@ -71,7 +71,7 @@ require.config({
         BoxCoordinator: "coordinators/BoxCoordinator",
         ProximalNodeCoordinator:"coordinators/ProximalNodeCoordinator",
         DistalNodeCoordinator: "coordinators/DistalNodeCoordinator",
-        Fixture : "utility/fixture",
+        ApplicationFactory : "utility/applicationFactory",
         componentContainer : "componentContainer",
         verticalConnectorFactory : "connectors/factory/verticalConnector",
         CoordinatorVerticalConnector : "connectors/coordinator.VerticalConnector",
@@ -91,7 +91,7 @@ require.config({
 });
 
 
-require(['Fixture'], function (Fixture) {
+require(['ApplicationFactory'], function (ApplicationFactory) {
 
     $(document).ready(function () {
 
@@ -122,7 +122,7 @@ require(['Fixture'], function (Fixture) {
             }]
         };
 
-        new Fixture().setUp(configuration);
+        new ApplicationFactory().setUp(configuration);
 
     });
 });

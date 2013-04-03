@@ -1,4 +1,4 @@
-require(['WebAPI', 'Fixture'], function (WebAPI, Fixture) {
+require(['WebAPI', 'ApplicationFactory'], function (WebAPI, ApplicationFactory) {
 
     describe("Connector", function () {
         var webAPI,
@@ -28,7 +28,7 @@ require(['WebAPI', 'Fixture'], function (WebAPI, Fixture) {
 
         };
 
-        new Fixture().setUp(configuration);
+        new ApplicationFactory().setUp(configuration);
 
         webAPI = new WebAPI();
 

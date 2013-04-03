@@ -1,4 +1,4 @@
-require(['WebAPI', 'keyManager', 'Fixture'], function (WebAPI, KeyManager, Fixture) {
+require(['WebAPI', 'keyManager', 'ApplicationFactory'], function (WebAPI, KeyManager, ApplicationFactory) {
 
     describe("WebAPI", function () {
         var webAPI,
@@ -38,7 +38,7 @@ require(['WebAPI', 'keyManager', 'Fixture'], function (WebAPI, KeyManager, Fixtu
                 }]
             }]
         };
-        new Fixture().setUp(configuration);
+        new ApplicationFactory().setUp(configuration);
         webAPI = new WebAPI();
         var componentId = "UmlClass_0";
         var classAPI = webAPI.getClassBox(componentId);

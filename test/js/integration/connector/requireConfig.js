@@ -90,7 +90,7 @@ require.config({
         ConnectorAPI : "test/webAPI/connectorAPI",
         VerticalConnectorAPI : "test/webAPI/verticalConnectorAPI",
         componentContainer : "web/js/componentContainer",
-        Fixture : "web/js/utility/fixture",
+        ApplicationFactory : "web/js/utility/applicationFactory",
         connectorFactory : "web/js/connectors/factory/factory.connector",
         verticalConnectorFactory : "web/js/connectors/factory/verticalConnector",
         VerticalNodeBoxCoordinator : "web/js/global/controllers/verticalNodeToBox",
