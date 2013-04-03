@@ -91,17 +91,7 @@ require.config({
 });
 
 
-require([ 'jQuery',
-          'connectorFactory',
-          'MenuFactory',
-          'ClassBoxFactory',
-          'templateLoader',
-          'Fixture'], function ( $,
-                                          connectorFactory,
-                                          MenuFactory,
-                                          ClassBoxFactory,
-                                          templateLoader,
-                                          Fixture) {
+require(['Fixture'], function (Fixture) {
 
     $(document).ready(function () {
 
@@ -112,6 +102,7 @@ require([ 'jQuery',
                 rightNode : { x  : 225, y : 110 , arrows : ['diamond', 'implements', 'none'] } }
             ],
             classBoxes : [{
+
                 name : "List",
 
                 id : "blahClass",
@@ -128,10 +119,7 @@ require([ 'jQuery',
                 methods : [
                     {  name : "doThat",  visibility : "+", returnType : "String" }
                     ]
-
             }]
-
-
         };
 
         new Fixture().setUp(configuration);

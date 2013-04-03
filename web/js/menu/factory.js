@@ -1,9 +1,10 @@
 define(['MenuElementModel',
         'MenuElementView',
-        'MenuElementController' ], function (
-                                 MenuElementModel,
+        'MenuElementController',
+        'jQuery' ], function (   MenuElementModel,
                                  MenuElementView,
-                                 MenuElementController) {
+                                 MenuElementController,
+                                 $ ) {
 
 
 
