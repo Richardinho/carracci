@@ -41,7 +41,7 @@ define(['keyManager',
         componentId = ComponentContainer.createComponentSlot('VerticalConnector');
         ComponentContainer.store( componentId, []);
 
-        //connector = new HorizontalConnector();
+        connector = new HorizontalConnector();
 
         top = createArrowNode({
             config : config.topNode,
@@ -103,7 +103,7 @@ define(['keyManager',
         bottom.setProximalNodeModel(distal);
         bottom.setDistalNodeModel(proximal);
 
-        //connector.lines = new Collection([line1Model, line2Model,line3Model]);
+        connector.lines = new Collection([line1Model, line2Model,line3Model]);
 
 
         function createNode (options) {
