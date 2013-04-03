@@ -1,123 +1,99 @@
-define(['keyManager',
-        'globalController',
-        'svgUtilities',
+define([
         'lineContainer',
-        'ModelPointer',
-        'ModelDiamond',
-        'ModelImplements',
-        'ViewPointer',
-        'CollectionPointer',
-        'ModelArrowNode',
-        'ViewArrowNode',
-        'ControllerArrowNode',
         'ControllerDraggableElement',
         'ViewElement',
         'ModelDistalNode',
-        'ModelLine',
-        'ViewLine',
         'CoordinatorHorizontalConnector',
         'Collection',
-        'componentContainer' ], function (keyManager,
-                                          globalController,
-                                          svgUtils,
-                                          LineContainer,
-                                          ModelPointer,
-                                          ModelDiamond,
-                                          ModelImplements,
-                                          ViewPointer,
-                                          CollectionPointer,
-                                          ModelArrowNode,
-                                          ViewArrowNode,
-                                          ControllerArrowNode,
-                                          ControllerDraggableElement,
-                                          ViewElement,
-                                          ModelDistalNode,
-                                          ModelLine,
-                                          ViewLine,
-                                          CoordinatorHorizontalConnector,
-                                          Collection,
-                                          ComponentContainer) {
+        'componentContainer',
+        'ConnectorFactory' ], function (
 
-    return function (config) {
+                                        LineContainer,
+                                        ControllerDraggableElement,
+                                        ViewElement,
+                                        ModelDistalNode,
+                                        CoordinatorHorizontalConnector,
+                                        Collection,
+                                        ComponentContainer,
+                                        ConnectorFactory) {
 
-        var left,
-            proximal,
-            distal,
-            right;
-
-        componentId = ComponentContainer.createComponentSlot('Connector');
-
-        lineContainer = new LineContainer();
-
-        left = createArrowNode({
-            config : config.leftNode,
-            connector : lineContainer,
-            direction : "left",
-            componentId : componentId
-        });
-
-        proximal = createNode({
-            config : config,
-            connector : lineContainer,
-            direction : "proximal",
-            componentId : componentId
-        });
-
-        distal = createNode({
-            config : config,
-            connector : lineContainer,
-            direction : "distal",
-            componentId : componentId
-        });
-
-        right = createArrowNode({
-            config : config.rightNode,
-            connector : lineContainer,
-            direction : "right",
-            componentId : componentId
-        });
-
-        function createLine( nodeA, nodeB ) {
-
-            var lineModel = new ModelLine({ "nodeA" : nodeA, "nodeB" : nodeB });
-            var lineView = new ViewLine({ model : lineModel });
-            return lineModel;
-        }
-
-        line1Model = createLine( left, distal );
-        line2Model = createLine( distal, proximal );
-        line3Model = createLine( proximal, right );
-
-        new CoordinatorHorizontalConnector({
-            "leftArrow" : left,
-            "proximalNode" : distal,
-            "distalNode" : proximal,
-            "rightArrow" : right
-        });
-
-        left.setProximalNodeModel(distal);
-        left.setDistalNodeModel(proximal);
-
-        distal.setArrowNodeModel(left);
-        distal.setDistalNodeModel(proximal);
-        distal.setLastNodeModel(right);
-
-        proximal.setArrowNodeModel(right);
-        proximal.setDistalNodeModel(right);
-        proximal.setLastNodeModel(left);
-
-        right.setProximalNodeModel(proximal);
-        right.setDistalNodeModel(distal);
-
-        lineContainer.lines = new Collection([line1Model, line2Model,line3Model]);
+    return ConnectorFactory.extend({
 
 
-        function createNode (options) {
+        createConnector : function (config) {
 
-            var config, connector, x, y, model, view, controller, componentId;
+            var left,
+                proximal,
+                distal,
+                right;
+
+            componentId = ComponentContainer.createComponentSlot('Connector');
+
+            lineContainer = new LineContainer();
+
+            left = this._createArrowNode({
+                config : config.leftNode,
+                lineContainer : lineContainer,
+                direction : "left",
+                componentId : componentId
+            });
+
+            proximal = this._createNode({
+                config : config,
+                lineContainer : lineContainer,
+                direction : "proximal",
+                componentId : componentId
+            });
+
+            distal = this._createNode({
+                config : config,
+                lineContainer : lineContainer,
+                direction : "distal",
+                componentId : componentId
+            });
+
+            right = this._createArrowNode({
+                config : config.rightNode,
+                lineContainer : lineContainer,
+                direction : "right",
+                componentId : componentId
+            });
+
+            line1Model = this._createLine( left, distal );
+            line2Model = this._createLine( distal, proximal );
+            line3Model = this._createLine( proximal, right );
+
+            new CoordinatorHorizontalConnector({
+                "leftArrow" : left,
+                "proximalNode" : distal,
+                "distalNode" : proximal,
+                "rightArrow" : right
+            });
+
+            left.setProximalNodeModel(distal);
+            left.setDistalNodeModel(proximal);
+
+            distal.setArrowNodeModel(left);
+            distal.setDistalNodeModel(proximal);
+            distal.setLastNodeModel(right);
+
+            proximal.setArrowNodeModel(right);
+            proximal.setDistalNodeModel(right);
+            proximal.setLastNodeModel(left);
+
+            right.setProximalNodeModel(proximal);
+            right.setDistalNodeModel(distal);
+
+            lineContainer.lines = new Collection([line1Model, line2Model,line3Model]);
+
+        },
+
+        _createNode : function (options) {
+
+            var config, lineContainer, x, y, model, view, controller, componentId;
 
             config = options.config;
-            connector = options.connector;
+            lineContainer = options.lineContainer;
             componentId = options.componentId;
 
             x = (config.leftNode.x + config.rightNode.x) /2;
@@ -131,7 +107,7 @@ define(['keyManager',
             model = new ModelDistalNode({
                 "x" : x,
                 "y" : y ,
-                "connector" : connector,
+                "lineContainer" : lineContainer,
                 "name" : options.direction
             });
 
@@ -142,92 +118,10 @@ define(['keyManager',
                 "view" : view,
                 "name" : options.direction
             });
+
             ComponentContainer.store( componentId, [model, view, controller]);
+
             return model;
         }
-
-        function createArrowNode (options) {
-
-            var config, direction, connector, x, y, pointers, model, view, controller, componentId;
-
-            config = options.config;
-            direction = options.direction;
-            connector = options.connector;
-            componentId = options.componentId;
-
-            x = config.x;
-            y = config.y;
-
-            pointers = _getPointers(config, direction);
-
-            model = new ModelArrowNode({
-                "x" : x,
-                "y" : y,
-                "connector" : connector,
-                "pointers": pointers,
-                "name" : direction
-            });
-
-            view = new ViewArrowNode({ "model" : model, "name" : direction });
-
-            controller = new ControllerArrowNode({
-
-                "model" : model,
-                "view" : view,
-                "name" : direction
-            });
-            ComponentContainer.store( componentId, [model, view, controller]);
-            return model;
-        }
-
-        function _getPointers (config, direction) {
-
-            var pointers, pointerType, constructors, model, view;
-            pointers = [];
-
-            for(var i=0; i < config.arrows.length; i++) {
-
-                pointerType = config.arrows[i];
-                constructors = _getPointerConstructors(pointerType);
-
-                model = new constructors.model({
-                    "direction" : direction,
-                    "x" : config.x,
-                    "y" : config.y
-                });
-
-                view = new constructors.view({
-                    "model" : model
-                });
-
-                pointers.push(model);
-            }
-
-            return new CollectionPointer(pointers);
-        }
-
-        function _getPointerConstructors (pointer) {
-
-            switch(pointer) {
-                case "diamond" :
-                    return {
-                        model : ModelDiamond,
-                        view : ViewPointer
-                    }
-                    break;
-                case "implements" :
-                    return {
-                        model : ModelImplements,
-                        view : ViewPointer
-                    }
-                    break;
-                case "none" :
-                    return {
-                        model : ModelPointer,
-                        view : function () {}
-                    }
-                    break;
-            }
-        }
-    };
+    });
 });

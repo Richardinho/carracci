@@ -26,7 +26,7 @@ require.config({
         BaseType : "web/js/utility/extend",
         templateLoader : "web/js/utility/templateLoader",
         WebAPI : "web/js/utility/WebAPI",
-        lineContainer : "web/js/connectors/model/lineContainer",
+        lineContainer : "web/js/connectors/lineContainer",
         ModelArrowNode : "web/js/node/model/model.ArrowNode",
         Model : "web/js/core/Model",
         ModelElement : "web/js/node/model/model.element",

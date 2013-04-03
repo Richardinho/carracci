@@ -100,9 +100,11 @@ define(['BaseType',
 
         setUpHorizontalConnectors : function (connectorsConfig) {
 
+            var factory = new horizontalConnectorFactory();
+
             for(var i = 0; i < connectorsConfig.length; i++) {
 
-                horizontalConnectorFactory(connectorsConfig[i]);
+                factory.createConnector(connectorsConfig[i]);
             }
         },
 
@@ -116,9 +118,11 @@ define(['BaseType',
 
         setUpVerticalConnectors : function (connectorsConfig) {
 
+            var factory = new verticalConnectorFactory();
+
             for(var i =0; i < connectorsConfig.length; i++) {
 
-                verticalConnectorFactory(connectorsConfig[i]);
+                factory.createConnector(connectorsConfig[i]);
             }
         }
     });

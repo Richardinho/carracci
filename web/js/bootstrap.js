@@ -31,9 +31,10 @@ require.config({
         keyManager : "node/controller/controller.KeyManager",
         globalController : "globalController/controller.Global",
         svgUtilities : "utility/svgUtilities",
+        ConnectorFactory : "connectors/factory/ConnectorFactory",
         horizontalConnectorFactory : "connectors/factory/horizontalConnector",
         verticalConnectorFactory : "connectors/factory/verticalConnector",
-        lineContainer : "connectors/model/lineContainer",
+        lineContainer : "connectors/lineContainer",
         Model : "core/Model",
         ModelElement : "node/model/model.element",
         Collection : "core/Collection",
@@ -85,6 +86,7 @@ require.config({
         toolsMenuItems : "menu/toolsMenuItems",
         MenuFactory : "menu/factory",
         ModelImplements : "pointers/model/model.Implements"
+
 
 
     }

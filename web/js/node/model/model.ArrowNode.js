@@ -11,7 +11,7 @@ define(['ModelElement'], function (ModelElement) {
             this.pointerCollection = options.pointers;
             this.pointerIndex = 0;
             this._getArrowModel().show();
-            this.connector = options.connector;
+            this.lineContainer = options.lineContainer;
         },
 
         changePointer : function () {
@@ -27,7 +27,7 @@ define(['ModelElement'], function (ModelElement) {
         },
 
         changeLine : function () {
-            this.connector.changeLine();
+            this.lineContainer.changeLine();
         },
 
         _getArrowModel : function () {

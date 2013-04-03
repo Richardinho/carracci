@@ -5,11 +5,14 @@ define(['ClassBoxFactory',
                                         verticalConnectorFactory,
                                         horizontalConnectorFactory ) {
 
+    var vertConnectorFactory = new verticalConnectorFactory();
+    var horConnectorFactory = new horizontalConnectorFactory();
+
     return {
 
         createVerticalConnector : function () {
 
-            verticalConnectorFactory({
+            vertConnectorFactory.createConnector({
                 topNode : { x  : 25, y : 10 , arrows : ['diamond', 'implements', 'none'] },
                 bottomNode : { x  : 225, y : 110 , arrows : ['diamond', 'implements', 'none']}
             });
@@ -17,7 +20,7 @@ define(['ClassBoxFactory',
 
         createHorizontalConnector : function () {
 
-            horizontalConnectorFactory({
+            horConnectorFactory.createConnector({
                 leftNode : { x  : 25, y : 10 , arrows : ['diamond', 'implements', 'none'] },
                 rightNode : { x  : 225, y : 110 , arrows : ['diamond', 'implements', 'none'] }
             });
