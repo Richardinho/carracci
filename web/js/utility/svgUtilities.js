@@ -37,7 +37,7 @@ define(['svg'], function(svg) {
         createCircle : function(x, y) {
             var circle = svg.circle(x, y, 10);
             circle.attr("fill" , "green");
-            circle.attr("opacity", 0.2);
+            circle.attr("opacity", 0);
             circle.attr("stroke", "#fff");
             return circle;
         },

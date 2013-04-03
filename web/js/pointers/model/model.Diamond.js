@@ -13,6 +13,10 @@ define(['ModelPointer'], function (ModelPointer) {
             return [this.get("tip"), this.get("right"), this.get("left") ];
         },
 
+        getColor : function () {
+            return "black"
+        },
+
         getOffset : function () {
             return -20;
         },

@@ -8,7 +8,7 @@ define([ 'BaseType', 'svgUtilities' ], function (extend, svgUtils) {
             this.model = options.model;
             var path = this._buildPath(this.model._getPointsArray());
             this.svgShape = this._createSvgShape(path, this.model.get("color"));
-
+            this.svgUtils.setShapeOpacity(this.svgShape, false);
             this.model.on("change", this.render, this);
         },
 
@@ -19,6 +19,7 @@ define([ 'BaseType', 'svgUtilities' ], function (extend, svgUtils) {
         render : function () {
             this.svgUtils.resetPath(this.svgShape, this._buildPath(this.model._getPointsArray()));
             this.svgUtils.setShapeOpacity(this.svgShape, this.model.get("opacity"));
+            this.svgShape.toFront();
         },
 
         _buildPath : function (pointsArray) {

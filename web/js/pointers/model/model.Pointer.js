@@ -4,15 +4,18 @@ define(['Model'], function (Model) {
 
         initialize : function (options) {
             Model.prototype.initialize.call(this, options);
-
-            this.set({ direction : options.direction, color : options.color }, { silent : true });
-
+            var color = this.getColor();
+            this.set({ direction : options.direction, "color" : color }, { silent : true });
             this.update(options.x, options.y);
 
         },
 
         //  override
         update : function (x, y) {},
+
+        getColor : function () {},
+
+        _getPointsArray : function () { return []},
 
         show : function () {
             this.set({ opacity : true });

@@ -83,7 +83,8 @@ require.config({
         MenuElementView : "menu/views/menuElementView",
         MenuElementController : "menu/controller/menuElementController",
         toolsMenuItems : "menu/controller/toolsMenuItems",
-        MenuFactory : "menu/factory"
+        MenuFactory : "menu/factory",
+        ModelImplements : "pointers/model/model.Implements"
 
 
     }
@@ -107,8 +108,8 @@ require([ 'jQuery',
         configuration = {
 
             connectors : [ { id : "foo",
-                leftNode : { x  : 25, y : 10 , arrows : ['diamond'] },
-                rightNode : { x  : 225, y : 110 , arrows : ['diamond'] } }
+                leftNode : { x  : 25, y : 10 , arrows : ['diamond', 'implements', 'none'] },
+                rightNode : { x  : 225, y : 110 , arrows : ['diamond', 'implements', 'none'] } }
             ],
             classBoxes : [{
                 name : "List",
