@@ -10,16 +10,16 @@ define(['ClassBoxFactory',
         createVerticalConnector : function () {
 
             verticalConnectorFactory({
-                topNode : { x  : 25, y : 10 , arrows : ['diamond'] },
-                bottomNode : { x  : 225, y : 110 , arrows : ['diamond']}
+                topNode : { x  : 25, y : 10 , arrows : ['diamond', 'implements', 'none'] },
+                bottomNode : { x  : 225, y : 110 , arrows : ['diamond', 'implements', 'none']}
             });
         },
 
         createHorizontalConnector : function () {
 
             horizontalConnectorFactory({
-                leftNode : { x  : 25, y : 10 , arrows : ['diamond'] },
-                rightNode : { x  : 225, y : 110 , arrows : ['diamond'] }
+                leftNode : { x  : 25, y : 10 , arrows : ['diamond', 'implements', 'none'] },
+                rightNode : { x  : 225, y : 110 , arrows : ['diamond', 'implements', 'none'] }
             });
         },
 

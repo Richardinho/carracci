@@ -2,7 +2,9 @@ define(['keyManager',
         'globalController',
         'svgUtilities',
         'horizontalConnector',
+        'ModelPointer',
         'ModelDiamond',
+        'ModelImplements',
         'ViewPointer',
         'CollectionPointer',
         'ModelArrowNode',
@@ -20,7 +22,9 @@ define(['keyManager',
                                           globalController,
                                           svgUtils,
                                           HorizontalConnector,
+                                          ModelPointer,
                                           ModelDiamond,
+                                          ModelImplements,
                                           ViewPointer,
                                           CollectionPointer,
                                           ModelArrowNode,
@@ -187,8 +191,7 @@ define(['keyManager',
                 model = new constructors.model({
                     "direction" : direction,
                     "x" : config.x,
-                    "y" : config.y,
-                    "color" : "green"
+                    "y" : config.y
                 });
 
                 view = new constructors.view({
@@ -208,6 +211,18 @@ define(['keyManager',
                     return {
                         model : ModelDiamond,
                         view : ViewPointer
+                    }
+                    break;
+                case "implements" :
+                    return {
+                        model : ModelImplements,
+                        view : ViewPointer
+                    }
+                    break;
+                case "none" :
+                    return {
+                        model : ModelPointer,
+                        view : function () {}
                     }
                     break;
             }
