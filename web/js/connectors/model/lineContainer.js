@@ -1,11 +1,9 @@
-define(['BaseType'], function (extend) {
+define(['BaseType'], function (BaseType) {
 
-    return extend.extend({
+    return BaseType.extend({
 
         initialize : function () {
-            this.nodes = [];
             this.lines = null;
-            this.lineModels = [];
         },
 
         changeLine : function () {

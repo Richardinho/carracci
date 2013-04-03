@@ -1,5 +1,5 @@
 define(['BaseType',
-        'horizontalConnector',
+        'lineContainer',
         'ModelArrowNode',
         'CollectionPointer',
         'ModelDiamond',

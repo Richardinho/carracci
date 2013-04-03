@@ -10,7 +10,7 @@ $(document).ready(function () {
 
     var svgUtils = Glenmorangie.svgUtils(can);
 
-    var connector2 = Glenmorangie.ConnectorFactory({ x1 : 40, y1 : 30, x2 : 240, y2 : 350, "svgUtils" : svgUtils, "keyManager" : keyManager, "globalController" : globalController });
+    var connector2 = Glenmorangie.horizontalConnectorFactory({ x1 : 40, y1 : 30, x2 : 240, y2 : 350, "svgUtils" : svgUtils, "keyManager" : keyManager, "globalController" : globalController });
 
 
     var classBox = Glenmorangie.ClassBoxFactory({ x : 240, y : 130, "svgUtils" : svgUtils, "keyManager" : keyManager, "globalController" : globalController, "height" : 70, "width" : 100 });

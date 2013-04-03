@@ -58,7 +58,7 @@ require.config({
         MenuElementModel : "menu/models/menuElementModel",
         MenuElementView : "menu/views/menuElementView",
         MenuElementController : "menu/controller/menuElementController",
-        toolsMenuItems : "menu/controller/toolsMenuItems"
+        toolsMenuItems : "menu/toolsMenuItems"
 
 
 

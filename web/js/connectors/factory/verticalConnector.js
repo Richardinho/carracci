@@ -1,7 +1,7 @@
 define(['keyManager',
         'globalController',
         'svgUtilities',
-        'horizontalConnector',
+        'lineContainer',
         'ModelPointer',
         'ModelDiamond',
         'ModelImplements',
@@ -41,7 +41,12 @@ define(['keyManager',
                                           CoordinatorVerticalConnector) {
 
     return function (config) {
-        var top, proximal, distal, bottom;
+
+        var top,
+            proximal,
+            distal,
+            bottom;
+
         componentId = ComponentContainer.createComponentSlot('VerticalConnector');
         ComponentContainer.store( componentId, []);
 

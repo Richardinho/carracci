@@ -2,13 +2,13 @@ define(['BaseType',
         'templateLoader',
         'MenuFactory',
         'toolsMenuItems',
-        'connectorFactory',
+        'horizontalConnectorFactory',
         'verticalConnectorFactory',
         'ClassBoxFactory' ], function ( BaseType,
                                         templateLoader,
                                         MenuFactory,
                                         toolsMenuItems,
-                                        connectorFactory,
+                                        horizontalConnectorFactory,
                                         verticalConnectorFactory,
                                         ClassBoxFactory ) {
 
@@ -89,8 +89,8 @@ define(['BaseType',
                 this.setUpClasses(config.classBoxes);
             }
 
-            if(config.connectors) {
-                this.setUpConnectors(config.connectors);
+            if(config.horizontalConnectors) {
+                this.setUpHorizontalConnectors(config.horizontalConnectors);
             }
 
             if(config.verticalConnectors) {
@@ -98,11 +98,11 @@ define(['BaseType',
             }
         },
 
-        setUpConnectors : function (connectorsConfig) {
+        setUpHorizontalConnectors : function (connectorsConfig) {
 
             for(var i = 0; i < connectorsConfig.length; i++) {
 
-                connectorFactory(connectorsConfig[i]);
+                horizontalConnectorFactory(connectorsConfig[i]);
             }
         },
 

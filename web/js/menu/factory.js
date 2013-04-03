@@ -1,11 +1,10 @@
 define(['MenuElementModel',
         'MenuElementView',
         'MenuElementController',
-        'jQuery' ], function (   MenuElementModel,
-                                 MenuElementView,
-                                 MenuElementController,
-                                 $ ) {
-
+        'jQuery' ], function ( MenuElementModel,
+                               MenuElementView,
+                               MenuElementController,
+                               $ ) {
 
 
     return function(config) {
@@ -23,7 +22,7 @@ define(['MenuElementModel',
             var menuModel = new MenuElementModel({
                 name : item.name,
                 items : item.subItems,
-                "index" : index
+                index : index
             });
 
             var menuView = new MenuElementView({

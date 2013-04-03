@@ -26,7 +26,7 @@ require.config({
         BaseType : "web/js/utility/extend",
         templateLoader : "web/js/utility/templateLoader",
         WebAPI : "web/js/utility/WebAPI",
-        horizontalConnector : "web/js/connectors/model/model.HorizontalConnector",
+        lineContainer : "web/js/connectors/model/lineContainer",
         ModelArrowNode : "web/js/node/model/model.ArrowNode",
         Model : "web/js/core/Model",
         ModelElement : "web/js/node/model/model.element",
@@ -90,7 +90,7 @@ require.config({
         ConnectorAPI : "test/webAPI/connectorAPI",
         componentContainer : "web/js/componentContainer",
         ApplicationFactory : "web/js/utility/applicationFactory",
-        connectorFactory : "web/js/connectors/factory/factory.connector",
+        horizontalConnectorFactory : "web/js/connectors/factory/horizontalConnector",
         ClassGuiAPI : "test/webAPI/classGuiAPI",
         verticalConnectorFactory : "web/js/connectors/factory/verticalConnector",
         VerticalConnectorAPI : "test/webAPI/verticalConnectorAPI",
@@ -104,7 +104,7 @@ require.config({
         MenuElementModel : "web/js/menu/models/menuElementModel",
         MenuElementView : "web/js/menu/views/menuElementView",
         MenuElementController : "web/js/menu/controller/menuElementController",
-        toolsMenuItems : "web/js/menu/controller/toolsMenuItems"
+        toolsMenuItems : "web/js/menu/toolsMenuItems"
     }
 });
 

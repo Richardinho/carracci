@@ -31,8 +31,9 @@ require.config({
         keyManager : "node/controller/controller.KeyManager",
         globalController : "globalController/controller.Global",
         svgUtilities : "utility/svgUtilities",
-        connectorFactory : "connectors/factory/factory.connector",
-        horizontalConnector : "connectors/model/model.HorizontalConnector",
+        horizontalConnectorFactory : "connectors/factory/horizontalConnector",
+        verticalConnectorFactory : "connectors/factory/verticalConnector",
+        lineContainer : "connectors/model/lineContainer",
         Model : "core/Model",
         ModelElement : "node/model/model.element",
         Collection : "core/Collection",
@@ -73,7 +74,6 @@ require.config({
         DistalNodeCoordinator: "coordinators/DistalNodeCoordinator",
         ApplicationFactory : "utility/applicationFactory",
         componentContainer : "componentContainer",
-        verticalConnectorFactory : "connectors/factory/verticalConnector",
         CoordinatorVerticalConnector : "connectors/coordinator.VerticalConnector",
         ArrowVCoordinator : "coordinators/verticalConnectorsToBox/ArrowCoordinator",
         BoxVCoordinator : "coordinators/verticalConnectorsToBox/boxCoordinator",
@@ -82,7 +82,7 @@ require.config({
         MenuElementModel : "menu/models/menuElementModel",
         MenuElementView : "menu/views/menuElementView",
         MenuElementController : "menu/controller/menuElementController",
-        toolsMenuItems : "menu/controller/toolsMenuItems",
+        toolsMenuItems : "menu/toolsMenuItems",
         MenuFactory : "menu/factory",
         ModelImplements : "pointers/model/model.Implements"
 
@@ -97,7 +97,7 @@ require(['ApplicationFactory'], function (ApplicationFactory) {
 
         configuration = {
 
-            connectors : [ { id : "foo",
+            horizontalConnectors : [ { id : "foo",
                 leftNode : { x  : 25, y : 10 , arrows : ['diamond', 'implements', 'none'] },
                 rightNode : { x  : 225, y : 110 , arrows : ['diamond', 'implements', 'none'] } }
             ],

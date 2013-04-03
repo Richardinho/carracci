@@ -1,7 +1,7 @@
 define(['keyManager',
         'globalController',
         'svgUtilities',
-        'horizontalConnector',
+        'lineContainer',
         'ModelPointer',
         'ModelDiamond',
         'ModelImplements',
@@ -20,7 +20,7 @@ define(['keyManager',
         'componentContainer' ], function (keyManager,
                                           globalController,
                                           svgUtils,
-                                          HorizontalConnector,
+                                          LineContainer,
                                           ModelPointer,
                                           ModelDiamond,
                                           ModelImplements,
@@ -40,34 +40,39 @@ define(['keyManager',
 
     return function (config) {
 
+        var left,
+            proximal,
+            distal,
+            right;
+
         componentId = ComponentContainer.createComponentSlot('Connector');
 
-        connector = new HorizontalConnector();
+        lineContainer = new LineContainer();
 
         left = createArrowNode({
             config : config.leftNode,
-            connector : connector,
+            connector : lineContainer,
             direction : "left",
             componentId : componentId
         });
 
         proximal = createNode({
             config : config,
-            connector : connector,
+            connector : lineContainer,
             direction : "proximal",
             componentId : componentId
         });
 
         distal = createNode({
             config : config,
-            connector : connector,
+            connector : lineContainer,
             direction : "distal",
             componentId : componentId
         });
 
         right = createArrowNode({
             config : config.rightNode,
-            connector : connector,
+            connector : lineContainer,
             direction : "right",
             componentId : componentId
         });
@@ -104,7 +109,7 @@ define(['keyManager',
         right.setProximalNodeModel(proximal);
         right.setDistalNodeModel(distal);
 
-        connector.lines = new Collection([line1Model, line2Model,line3Model]);
+        lineContainer.lines = new Collection([line1Model, line2Model,line3Model]);
 
 
         function createNode (options) {

@@ -1,7 +1,7 @@
 
 define(['ClassBoxFactory',
         'verticalConnectorFactory',
-        'connectorFactory',],function ( ClassBoxFactory,
+        'horizontalConnectorFactory',],function ( ClassBoxFactory,
                                         verticalConnectorFactory,
                                         horizontalConnectorFactory ) {
 
