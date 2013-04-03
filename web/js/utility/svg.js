@@ -1,7 +1,7 @@
 define(['raphael', 'jQuery'], function(Raphael, $) {
 
-    var paper = Raphael(100, 300, 500,600);
-    paper.rect(0, 0, 500, 600).attr({ fill : "white"});
+    var paper = Raphael(300, 50, 550, 800);
+             paper.rect(0, 0,  550, 800).attr({ fill : "white"});
 
     Raphael.fn.TransparentPane = function(model) {
         var xCood = 0,

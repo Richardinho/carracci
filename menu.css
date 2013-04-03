@@ -84,6 +84,7 @@
 #help .content .close-button {
     height : 20px;
     text-align : right;
+    display : block;
 }
 
 #help-button {

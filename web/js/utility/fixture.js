@@ -27,7 +27,7 @@ define(['BaseType',
         'componentContainer',
         'connectorFactory',
         'verticalConnectorFactory',
-        'toolsMenuItems' ], function (BaseType,
+        'toolsMenuItems' ], function ( BaseType,
                                  ComponentContainer,
                                  ClassBoxModel,
                                  ClassBoxView,
@@ -66,8 +66,7 @@ define(['BaseType',
                 console.log("Happy Easter.");
             }
 
-
-            templateLoader.initialize(['umlClassBoxGUI', 'tools', 'help'], '/web/templates/');
+            templateLoader.initialize([ 'umlClassBoxGUI', 'tools' ], '/web/templates/' );
 
             var menu = MenuFactory({
                 items : [
@@ -91,39 +90,6 @@ define(['BaseType',
                             }
                         ]
 
-                    },
-
-                    {
-                        name : "help",
-
-                        subItems : [
-                            {
-                                name : "createClasses",
-
-                                text : "create Uml Class",
-
-                                callback : genericCallback
-                            },
-                            {
-                                name : "createConnect",
-
-                                text : "create a connector",
-
-                                callback : genericCallback
-                            },
-
-                            {
-                                name : "createConnect",
-
-                                text : "create a connector",
-
-                                callback : genericCallback
-                            }
-                        ],
-
-                        callback : function () {
-                            console.log("help!")
-                        }
                     },
 
                     {

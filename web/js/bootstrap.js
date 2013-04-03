@@ -56,14 +56,6 @@ require.config({
         ClassBoxModel : "classBox/model/model.ClassBox",
         ClassBoxView : "classBox/view/view.ClassBox",
         ClassBoxController : "classBox/controller/controller.ClassBox",
-        MenuFactory : "menu/factory",
-        MenuModel : "menu/model",
-        MenuView : "menu/view",
-        HelpModel : "menu/help/model",
-        HelpController : "menu/help/controller",
-        helpData : "menu/help/data",
-        HelpView : "menu/help/view",
-        foo : "menu/controller",
         propertyBuilder : "utility/propertyBuilder",
         methodBuilder : "utility/methodBuilder",
         PropertyModel : "classBox/model/property",
@@ -90,7 +82,8 @@ require.config({
         MenuElementModel : "menu/models/menuElementModel",
         MenuElementView : "menu/views/menuElementView",
         MenuElementController : "menu/controller/menuElementController",
-        toolsMenuItems : "menu/controller/toolsMenuItems"
+        toolsMenuItems : "menu/controller/toolsMenuItems",
+        MenuFactory : "menu/factory"
 
 
     }
