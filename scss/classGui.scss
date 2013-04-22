@@ -1,0 +1,154 @@
+#class-container {
+    width : 369px;
+    position : absolute;
+    left : 868px;
+    top : 60px;
+
+    .umlClass {
+        background-color : grey;
+        position : relative;
+        width : 317px;
+        right : 10px;
+        font-size : 12px;
+        padding : 0;
+        border : solid 1px black;
+
+        .changeClassName {
+            margin-left : 20px;
+        }
+
+        .members {
+            width : 317px;
+            background-color : yellow;
+            .title-section {
+                padding : 3px;
+                font-size : 15px;
+                div {
+                    display : inline;
+                }
+                .addProperty{
+                    margin-left : 140px;
+                }
+                .addMethod{
+                    margin-left : 135px;
+                }
+            }
+
+            .header {
+                padding : 5px;
+
+                div {
+                    display : inline;
+                }
+
+                .name {
+                    margin-left : 28px;
+                }
+
+                .returnType {
+                    margin-left : 90px;
+                }
+
+                .type {
+                    margin-left : 90px;
+                }
+            }
+
+            @mixin member {
+                background-color : #ecb641;
+
+                .main {
+                    padding-bottom : 3px;
+
+                    div {
+                        display : inline;
+                    }
+
+                    .visibility {
+                        margin-left : 9px;
+                    }
+
+                    input[type=text] {
+                        width : 120px;
+                    }
+                }
+            }
+            .property {
+                @include member;
+            }
+
+            .method {
+
+                @include member;
+
+                border: {
+                    top : solid 1px black;
+                    bottom : solid 1px black;
+                }
+                margin-bottom : 3px;
+
+                .arguments {
+                    padding-bottom : 6px;
+                    margin: 5px;
+                    border : solid black 1px;
+                    .title-section {
+                        padding : 5px;
+                        padding-bottom: 7px;
+                        font-size : 15px;
+                            div {
+                                display : inline;
+                        }
+                        .addArgButton {
+                            margin-left : 138px;
+                            right : 20px;
+                        }
+                    }
+                    .arg-header {
+                        > div {
+                            display : inline;
+                        }
+                        .name {
+                            margin-left : 36px;
+                        }
+                        .type {
+                            margin-left : 83px;
+                        }
+                    }
+                    .arg-body {
+                        margin : 5px;
+                        div {
+                            padding : 2px;
+                        }
+                        input[type=text] {
+                            width : 112px;
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /* end of arguments section */
+
+/* end of method section */

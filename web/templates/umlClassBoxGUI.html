@@ -21,7 +21,7 @@
             <div class="type">type</div>
         </div>
         <% for(var i = 0 ; i < properties.size(); i++) {  %>
-            <div class="member property" data-index="<%= 'property' + i %>">
+            <div class="property" data-index="<%= 'property' + i %>">
                 <div class="main">
                     <div class="visibility">
                         <%= properties.get(i).visibility %>
@@ -55,7 +55,7 @@
             </div>
         </div>
         <% for(var i = 0 ; i < methods.size(); i++) {  %>
-            <div data-index="<%= 'method' + i %>" class="member method">
+            <div data-index="<%= 'method' + i %>" class="method">
                 <div class="header">
                     <div class="name">name</div>
                     <div class="returnType">returnType</div>
