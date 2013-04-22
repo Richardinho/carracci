@@ -22,7 +22,7 @@ define(['ModelElement'], function (ModelElement) {
         },
 
         update : function (x, y, validate) {
-            this.updateCoordinates( x, y, validate);
+            ModelElement.prototype.update.call(this, x, y, validate);
             this.updateArrow();
         },
 

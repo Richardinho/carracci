@@ -9,19 +9,9 @@ define(['ModelElement'], function (ModelElement) {
 
         update : function (x, y, validate) {
 
-            this.updateCoordinates(x, y, validate);
+            ModelElement.prototype.update.call(this, x, y, validate);
 
-            if( this.arrowNodeModel ) {
-                //this.arrowNodeModel.updateFromProximalNode(x, y);
-            }
 
-            if( this.distalNodeModel) {
-                //this.distalNodeModel.updateFromDistalNode(x, y);
-            }
-
-            if(this.lastNodeModel) {
-                //this.lastNodeModel.updateFromDistalNode(x, y);
-            }
         },
 
         updateFromArrowController : function (y, validate) {

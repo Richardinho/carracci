@@ -21,31 +21,11 @@ define(['Model', 'Collection'], function (Model, Collection) {
             this.update(this.get('xCood'), y, validate);
         },
 
-        updateAssociatedComponents : function () {
-            // set y value on all associated components
-            this.fooValidators.each(function(index,validator) {
-                validator.setYCoods.call(validator, this.get('yCood'));
-            }, this);
-
-            this.fooValidators.each(function(index,validator) {
-                validator.setXCoods.call(validator, this.get('xCood'));
-            }, this);
+        update : function (x, y, validate) {
+            this.updateCoordinates(x, y, validate);
         },
 
         updateCoordinates : function (x, y, validate) {
-
-        // What I need to do to fix the 'Parents problem' is:
-        // Each component should be validated first- that is; can it move?
-        // if it can then we proceed to call all 'listeners' and move them accordingly.
-        // if not, then we don't, because our component wont be moving.
-        // However: what if x validates, but y doesn't? We may need to do this on
-        // a per coordinate basis.
-        // What about validating other components?
-        // Validators should involve all constraints on this components. These constraints
-        // may also apply to other components.
-        // Once we finish validating, we should guarantee that the movement of any other component
-        // is going to break any of this component's validation rules.
-
 
             var valid = (validate !== undefined) ? validate : true;
             // flag to show that we wish to validate. Only set when this is the component which is setting itself.
@@ -92,6 +72,17 @@ define(['Model', 'Collection'], function (Model, Collection) {
             this.fooValidators.each(function(index,validator) {
                 validator.postProcess.call(validator, x, y);
             });
+        },
+
+        updateAssociatedComponents : function () {
+            // set y value on all associated components
+            this.fooValidators.each(function(index,validator) {
+                validator.setYCoods.call(validator, this.get('yCood'));
+            }, this);
+
+            this.fooValidators.each(function(index,validator) {
+                validator.setXCoods.call(validator, this.get('xCood'));
+            }, this);
         },
 
         addValidator : function (validator) {
