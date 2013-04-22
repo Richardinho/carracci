@@ -52,6 +52,8 @@
     left : 10;
     position : relative;
     border : solid 1px black;
+    overflow-y:scroll;
+    height : 500px;
 
     > header {
         @include container-header;
@@ -71,6 +73,16 @@
             }
             font: {
                 size : 1em;
+                weight : bold;
+            }
+        }
+        h2 {
+            margin: {
+                top : 3px;
+                bottom : 3px;
+            }
+            font: {
+                size : 0.9em;
                 weight : bold;
             }
         }

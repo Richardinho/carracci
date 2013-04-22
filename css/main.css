@@ -35,7 +35,9 @@
   top: 70px;
   left: 10;
   position: relative;
-  border: solid 1px black; }
+  border: solid 1px black;
+  overflow-y: scroll;
+  height: 500px; }
   #helpbox > header {
     position: relative;
     background-color: black;
@@ -56,4 +58,9 @@
       margin-top: 5px;
       margin-bottom: 5px;
       font-size: 1em;
+      font-weight: bold; }
+    #helpbox .content h2 {
+      margin-top: 3px;
+      margin-bottom: 3px;
+      font-size: 0.9em;
       font-weight: bold; }
