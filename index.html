@@ -1,6 +1,7 @@
 <html>
 <head>
 <link rel="stylesheet" href="reset.css" type="text/css"/>
+<link rel="stylesheet" href="css/main.css" type="text/css"/>
 <link rel="stylesheet" href="menu.css" type="text/css"/>
 <link rel="stylesheet" href="classGui.css" type="text/css"/>
 
@@ -8,9 +9,50 @@
 
 <body>
 
-<div id="menu"></div>
+<div id="menu">Carraci</div>
 
-<div id="drop-down-container"></div>
+<div id="toolbox">
+    <header>
+        <span>Toolbox</span>
+    </header>
+
+    <section class="icons">
+
+    </section>
+</div>
+
+<div id="helpbox">
+    <header>
+        <span>Help</span>
+    </header>
+    <section class="content">
+        <div class="help-item">
+            <h1>About Carracci</h1>
+            <p>
+                Carracci is an editing tool for UML class diagrams. Currently a work in progress, when complete you will be able to create classes, specify class properties and methods, show relationships  such as inheritance and composition with connecting arrows, add notes, and save the diagram to either PNG or JPEG file formats.
+            </p>
+        </div>
+        <div class="help-item">
+            <h1>Edit a diagram</h1>
+
+            <p>
+                Create a class by clicking on an icon in the toolbox, or by clicking on the add button within the gui on the right hand side. A new class box will appear within the diagram canvas. Use the gui to edit class properties and methods. class boxes can be moved around the canvas simply by dragging.
+            </p>
+            <p>
+                Connecting arrows can be created by clicking on the icon in the toolbox. The new connecting arrow will appear in the canvas. Manipulate arrows around the canvas by clicking on the ends or the 'corner joints' of the arrow and dragging.
+            </p>
+        </div>
+        <div class="help-item">
+            <h1>Export a diagram</h1>
+            <p>
+                Not yet implemented. However, it will be possible to convert the diagram into jpeg and png formats in the near future.
+            </p>
+        </div>
+
+        </ul>
+    </section>
+</div>
+
 
 <div id="class-container"></div>
 

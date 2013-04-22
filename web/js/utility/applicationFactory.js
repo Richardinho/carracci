@@ -1,85 +1,46 @@
 define(['BaseType',
         'templateLoader',
-        'MenuFactory',
+        'ToolBoxFactory',
         'toolsMenuItems',
         'horizontalConnectorFactory',
         'verticalConnectorFactory',
-        'ClassBoxFactory' ], function ( BaseType,
+        'ClassBoxFactory',
+        'jQuery' ], function ( BaseType,
                                         templateLoader,
-                                        MenuFactory,
+                                        ToolBoxFactory,
                                         toolsMenuItems,
                                         horizontalConnectorFactory,
                                         verticalConnectorFactory,
-                                        ClassBoxFactory ) {
+                                        ClassBoxFactory,
+                                        $ ) {
 
     return BaseType.extend({
 
         initialize : function () {
 
-            var genericCallback = function () {
-                console.log("Happy Easter.");
-            }
-
             templateLoader.initialize([ 'umlClassBoxGUI', 'tools' ], '/web/templates/' );
 
-            var menu = MenuFactory({
-                items : [
+            var toolbox = ToolBoxFactory({
+
+                buttons : [
                     {
-                        name : "file",
-
-                        subItems : [
-                            {
-                                name : "exportJpeg",
-
-                                text : "export as JPEG",
-
-                                callback : genericCallback
-                            },
-                            {
-                                name : "exportPng",
-
-                                text : "export as PNG",
-
-                                callback : genericCallback
-                            }
-                        ]
-
+                        name : "umlClass",
+                        action : toolsMenuItems.createUmlClass,
+                        image : "umlClassIcon.gif"
                     },
-
                     {
-                        name : "tools",
-
-                        subItems : [
-                            {
-                                name : "createClasses",
-
-                                text : "uml class",
-
-                                callback :  toolsMenuItems.createUmlClass
-                            },
-                            {
-                                name : "horizontalConnect",
-
-                                text : "horizontal connector",
-
-                                callback : toolsMenuItems.createHorizontalConnector
-                            },
-                            {
-                                name : "verticalConnect",
-
-                                text : "vertical connector",
-
-                                callback : toolsMenuItems.createVerticalConnector
-                            }
-                        ]
+                        name : "horizontalConnector",
+                        action : toolsMenuItems.createHorizontalConnector,
+                        image : "horizontalConnector.png"
                     },
+                    {
+                        name : "verticalConnector",
+                        action : toolsMenuItems.createVerticalConnector,
+                        image : "verticalConnector.png"
+                    }
                 ],
 
-                itemWidth : 150,
-
-                el : $('#menu'),
-
-                dropDownEl : $("#drop-down-container")
+                el : $('#toolbox .icons')
             });
         },
 

@@ -8,6 +8,10 @@ define(["BaseType"],function (extend) {
         initialize : function (options) {
             this.internalObj = {};
             this._listeners = [];
+
+            for (var prop in options) {
+                this.internalObj[prop] = options[prop];
+            }
         },
         // todo: turn get and set into private (or protected) methods.
         get : function (property) {

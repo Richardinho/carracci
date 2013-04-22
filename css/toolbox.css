@@ -1,0 +1,59 @@
+#toolbox {
+  width: 280px;
+  height: 92px;
+  background-color: white;
+  display: block;
+  top: 60px;
+  left: 10;
+  position: relative;
+  border: solid 1px black; }
+  #toolbox > header {
+    position: relative;
+    background-color: black;
+    color: white;
+    height: 30px; }
+    #toolbox > header > span {
+      left: 14px;
+      top: 7px;
+      font-family: arial;
+      font-weight: bold;
+      position: absolute; }
+  #toolbox .icons > div {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    float: left;
+    margin: 3px;
+    border: solid 1px black; }
+    #toolbox .icons > div img {
+      width: 100%; }
+
+#helpbox {
+  width: 280px;
+  background-color: white;
+  display: block;
+  top: 70px;
+  left: 10;
+  position: relative;
+  border: solid 1px black; }
+  #helpbox > header {
+    position: relative;
+    background-color: black;
+    color: white;
+    height: 30px; }
+    #helpbox > header > span {
+      left: 14px;
+      top: 7px;
+      font-family: arial;
+      font-weight: bold;
+      position: absolute; }
+  #helpbox .content {
+    padding: 10px;
+    line-height: 21px; }
+    #helpbox .content p {
+      margin-bottom: 4px; }
+    #helpbox .content h1 {
+      margin-top: 5px;
+      margin-bottom: 5px;
+      font-size: 1em;
+      font-weight: bold; }

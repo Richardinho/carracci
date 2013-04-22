@@ -85,7 +85,11 @@ require.config({
         MenuElementController : "menu/controller/menuElementController",
         toolsMenuItems : "menu/toolsMenuItems",
         MenuFactory : "menu/factory",
-        ModelImplements : "pointers/model/model.Implements"
+        ModelImplements : "pointers/model/model.Implements",
+        ToolBoxFactory : "toolbox/toolboxFactory",
+        ToolBoxModel : "toolbox/toolboxModel",
+        ToolBoxView : "toolbox/toolboxView",
+        ToolBoxController : "toolbox/toolboxController",
 
 
 
