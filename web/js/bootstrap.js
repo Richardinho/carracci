@@ -61,7 +61,6 @@ require.config({
         propertyBuilder : "utility/propertyBuilder",
         methodBuilder : "utility/methodBuilder",
         PropertyModel : "classBox/model/property",
-        TypeSpecificCollection : "core/TypeSpecificCollection",
         ClassBoxFactory : "classBox/factory/factory.ClassBox",
         BaseType : "utility/extend",
         NodeToBoxCoordinator : "global/controllers/controller.AttachedNodeToBox",
