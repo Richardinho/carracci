@@ -23,7 +23,7 @@ define(['BaseType', 'svgUtilities', 'Collection' ], function (BaseType, svgUtili
             var x = this.element.getBBox().x ;
             var y = this.element.getBBox().y ;
 
-            this.model.updateCoordinates(x, y, true);
+            this.model.update(x, y, true);
             this.box.render();
         },
 

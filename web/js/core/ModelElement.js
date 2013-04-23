@@ -10,8 +10,9 @@ define(['Model', 'Collection'], function (Model, Collection) {
             Model.prototype.initialize.call(this, options);
             this.fooValidators = new Collection([]);
             this.name = options.name;
-            // this updates coods without calling into subclass, which would throw errors.
-            this.updateCoordinates(options.x, options.y);
+
+            this.set({ yCood : options.y });
+            this.set({ xCood : options.x });
         },
 
         updateX : function (x, validate) {
@@ -24,11 +25,8 @@ define(['Model', 'Collection'], function (Model, Collection) {
 
         // this is overriden in subclasses to give them a chance to handle the update call.
         // subclasses should first call this parent method before doing anything else.
-        update : function (x, y, validate) {
-            this.updateCoordinates(x, y, validate);
-        },
 
-        updateCoordinates : function (x, y, validate) {
+        update : function (x, y, validate) {
 
             var valid = (validate !== undefined) ? validate : true;
             // flag to show that we wish to validate. Only set when this is the component which is setting itself.
