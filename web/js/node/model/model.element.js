@@ -10,6 +10,7 @@ define(['Model', 'Collection'], function (Model, Collection) {
             Model.prototype.initialize.call(this, options);
             this.fooValidators = new Collection([]);
             this.name = options.name;
+            // this updates coods without calling into subclass, which would throw errors.
             this.updateCoordinates(options.x, options.y);
         },
 
@@ -21,6 +22,8 @@ define(['Model', 'Collection'], function (Model, Collection) {
             this.update(this.get('xCood'), y, validate);
         },
 
+        // this is overriden in subclasses to give them a chance to handle the update call.
+        // subclasses should first call this parent method before doing anything else.
         update : function (x, y, validate) {
             this.updateCoordinates(x, y, validate);
         },
