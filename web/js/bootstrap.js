@@ -52,7 +52,7 @@ require.config({
         ViewLine : "lines/view/view.line",
         HorizontalConnectorMediator : "connectors/horizontalConnectorMediator",
         GuiView : "gui/view.classBox",
-        GuiController : "gui/controller/classBox",
+        GuiController : "gui/classBoxController",
         GuiPropertyView : "gui/views/property",
         GuiPropertyController : "gui/controller/property",
         ClassBoxModel : "classBox/model/model.ClassBox",

@@ -22,7 +22,7 @@ define(['BaseType',
                     message : "You must supply a box and arrow component on intialization"
                 };
             }
-            this.yOffset = 31;
+            this.yOffset = 0;
 
 
 

@@ -6,11 +6,23 @@ define(['BaseType', 'underscore', 'jQuery'], function (BaseType, _, $) {
 
         initialize : function (options) {
 
-        _.bindAll(this, "changeWidth", "changeXCood", "handleVisibilityClick",
-        "addProperty", "changeMethodReturnType", "changeClassName", "deleteMember",
-        "changePropertyName", "changePropertyType", "addMethod", "changeMethodName",
-        "handleMethodVisibilityClick", "deleteMethod", "addArgument", "deleteArgument",
-        "updateArgumentName", "updateArgumentType");
+        _.bindAll(this, "changeWidth",
+                        "changeXCood",
+                        "handleVisibilityClick",
+                        "addProperty",
+                        "changeMethodReturnType",
+                        "changeClassName",
+                        "deleteMember",
+                        "changePropertyName",
+                        "changePropertyType",
+                        "addMethod",
+                        "changeMethodName",
+                        "handleMethodVisibilityClick",
+                        "deleteMethod",
+                        "addArgument",
+                        "deleteArgument",
+                        "updateArgumentName",
+                        "updateArgumentType");
 
             this.model = options.model;
             this.view = options.view;

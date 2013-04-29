@@ -84,6 +84,7 @@ define(['ModelElement',
 
         changeClassName : function ( newName) {
             this.set({ name : newName });
+            this._fire("updateClass");
         },
 
         updateMethodName : function (data, newName) {
