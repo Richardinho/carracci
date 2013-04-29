@@ -51,8 +51,8 @@ define(['ModelElement'], function (ModelElement) {
             this.attachmentCoordinator.destroy();
         },
 
-        removeValidator : function (id) {
-            this.fooValidators.deleteModel(id);
+        removeCoordinator : function (id) {
+            this.coordinators.deleteModel(id);
             this.set({ "connectedToBox": false });
         },
 

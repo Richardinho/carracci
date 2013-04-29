@@ -5,7 +5,7 @@ define([
         'ModelDistalNode',
         'Collection',
         'componentContainer',
-        'CoordinatorVerticalConnector',
+        'VerticalConnectorMediator',
         'ConnectorFactory' ], function (
                                 HorizontalConnector,
                                 ControllerDraggableElement,
@@ -13,7 +13,7 @@ define([
                                 ModelDistalNode,
                                 Collection,
                                 ComponentContainer,
-                                CoordinatorVerticalConnector,
+                                VerticalConnectorMediator,
                                 ConnectorFactory) {
 
     return ConnectorFactory.extend({
@@ -61,7 +61,7 @@ define([
             line2Model = this._createLine( proximal, distal );
             line3Model = this._createLine( distal, bottom );
 
-            new CoordinatorVerticalConnector({
+            new VerticalConnectorMediator({
                 "topArrow" : top,
                 "proximalNode" : distal,
                 "distalNode" : proximal,

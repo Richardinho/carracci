@@ -8,7 +8,7 @@ define(['Model', 'Collection'], function (Model, Collection) {
         initialize : function (options) {
 
             Model.prototype.initialize.call(this, options);
-            this.fooValidators = new Collection([]);
+            this.coordinators = new Collection([]);
             this.name = options.name;
 
             this.set({ yCood : options.y });
@@ -33,16 +33,16 @@ define(['Model', 'Collection'], function (Model, Collection) {
             if (valid) {
                 //  determine whether the proposed x value is permitted.
                 //  iterate through all validators
-                var xisValid = this.fooValidators.all(function(validator) {
-                    return validator.validateX.call( validator, x );
+                var xisValid = this.coordinators.all(function(coordinator) {
+                    return coordinator.validateX.call( coordinator, x );
                 });
                 //  if not permitted, reset x to current value
                 if (! xisValid ) {
                     x = this.get('xCood');
                 }
                 // do same with y coordinate
-                var yisValid = this.fooValidators.all(function(validator) {
-                    return validator.validateY.call( validator, y);
+                var yisValid = this.coordinators.all(function(coordinator) {
+                    return coordinator.validateY.call( coordinator, y);
                 });
 
                 if(! yisValid ) {
@@ -58,8 +58,6 @@ define(['Model', 'Collection'], function (Model, Collection) {
 
                 this.updateAssociatedComponents();
 
-
-
             //  else we are just updating the component. This should only be from other components.
             } else {
                 this.set({ yCood : y });
@@ -70,28 +68,28 @@ define(['Model', 'Collection'], function (Model, Collection) {
             //  this calls post processing for all components
             //  might be better to have a single post processing method that is only called by the
             //  component which is being changed (i.e. once, not for every component)
-            this.fooValidators.each(function(index,validator) {
-                validator.postProcess.call(validator, x, y);
+            this.coordinators.each(function(index,coordinator) {
+                coordinator.postProcess.call(coordinator, x, y);
             });
         },
 
         updateAssociatedComponents : function () {
             // set y value on all associated components
-            this.fooValidators.each(function(index,validator) {
-                validator.setYCoods.call(validator, this.get('yCood'));
+            this.coordinators.each(function(index,coordinator) {
+                coordinator.setYCoods.call(coordinator, this.get('yCood'));
             }, this);
 
-            this.fooValidators.each(function(index,validator) {
-                validator.setXCoods.call(validator, this.get('xCood'));
+            this.coordinators.each(function(index,coordinator) {
+                coordinator.setXCoods.call(coordinator, this.get('xCood'));
             }, this);
         },
 
-        addValidator : function (validator) {
-            this.fooValidators.add(validator);
+        addCoordinator : function (coordinator) {
+            this.coordinators.add(coordinator);
         },
 
-        removeValidator : function (id) {
-            this.fooValidators.deleteModel(id);
+        removeCoordinator: function (id) {
+            this.coordinators.deleteModel(id);
         },
 
         getTypePrefix : function () {

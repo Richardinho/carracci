@@ -3,7 +3,7 @@ define([
         'ControllerDraggableElement',
         'ViewElement',
         'ModelDistalNode',
-        'CoordinatorHorizontalConnector',
+        'HorizontalConnectorMediator',
         'Collection',
         'componentContainer',
         'ConnectorFactory' ], function (
@@ -12,7 +12,7 @@ define([
                                         ControllerDraggableElement,
                                         ViewElement,
                                         ModelDistalNode,
-                                        CoordinatorHorizontalConnector,
+                                        HorizontalConnectorMediator,
                                         Collection,
                                         ComponentContainer,
                                         ConnectorFactory) {
@@ -63,7 +63,7 @@ define([
             line2Model = this._createLine( distal, proximal );
             line3Model = this._createLine( proximal, right );
 
-            new CoordinatorHorizontalConnector({
+            new HorizontalConnectorMediator({
                 "leftArrow" : left,
                 "proximalNode" : distal,
                 "distalNode" : proximal,

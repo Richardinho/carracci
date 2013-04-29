@@ -32,14 +32,14 @@ define(['BaseType',
 
             for(var role in this.players) {
 
-                this.players[role].addValidator(this._getCoordinator(role));
+                this.players[role].addCoordinator(this._getCoordinator(role));
             }
         },
 
         destroy : function () {
             for(var role in this.players) {
 
-                this.players[role].removeValidator(this._getCoordinatorId(role));
+                this.players[role].removeCoordinator(this._getCoordinatorId(role));
             }
         },
 
