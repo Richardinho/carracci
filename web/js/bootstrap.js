@@ -14,6 +14,13 @@ require.config({
 
         'jsTween' : {
             deps : ['jQuery']
+        },
+
+        'canvg' : {
+
+            deps : ['rgbColor'],
+
+            exports : 'canvg'
         }
 
 
@@ -89,7 +96,8 @@ require.config({
         ToolBoxModel : "toolbox/toolboxModel",
         ToolBoxView : "toolbox/toolboxView",
         ToolBoxController : "toolbox/toolboxController",
-
+        canvg : "lib/canvg-1.2/canvg",
+        rgbColor : "lib/canvg-1.2/rgbcolor",
 
 
     }

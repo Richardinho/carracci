@@ -1,9 +1,11 @@
 
 define(['ClassBoxFactory',
         'verticalConnectorFactory',
-        'horizontalConnectorFactory',],function ( ClassBoxFactory,
-                                        verticalConnectorFactory,
-                                        horizontalConnectorFactory ) {
+        'horizontalConnectorFactory',
+        'canvg','jQuery'],function ( ClassBoxFactory,
+                            verticalConnectorFactory,
+                            horizontalConnectorFactory,
+                            canvg, $) {
 
     var vertConnectorFactory = new verticalConnectorFactory();
     var horConnectorFactory = new horizontalConnectorFactory();
@@ -43,6 +45,20 @@ define(['ClassBoxFactory',
                     { name : "bar", visibility : "#", type : "int" }
                 ]
             });
+        },
+
+        exportToPNG : function () {
+
+            var canvas = document.createElement('canvas');
+            canvas.width = 1000;
+            canvas.height = 800;
+            var svg = $('<div>').append($('svg').clone()).html();
+
+            canvg(canvas,svg );
+
+            var dataURL = canvas.toDataURL()
+
+            window.open(dataURL,'mywindow')
         }
     }
 });

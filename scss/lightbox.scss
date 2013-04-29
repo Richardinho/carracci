@@ -1,0 +1,24 @@
+.lightbox-shadow {
+
+    z-index : 20000;
+    background-color : red;
+    position : fixed;
+    width : 100%;
+    height : 100%;
+    filter: alpha(opacity=75);
+	-moz-opacity: 0.75;
+	-khtml-opacity: 0.75;
+	opacity: 0.75;
+	top : 0px;
+	left : 0px;
+}
+
+.lightbox {
+
+    width : 300px;
+    height : 200px;
+    background-color : white;
+    margin : auto;
+    position : relative;
+    top : 200px;
+}

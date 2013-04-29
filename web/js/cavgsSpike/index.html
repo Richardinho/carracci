@@ -1,0 +1,59 @@
+<html>
+<head>
+
+    <style>
+
+        #container {
+            background-color : red;
+            position : fixed;
+            left : 200px;
+            top : 100px;
+
+
+        }
+
+        #canvas {
+            display : hidden;
+            position : absolute;
+            left : 200;
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+    <div id="container" style="border: 1px solid gray; width: 400px; height: 200px;">
+        <canvas id="canvas" height="600" width="1000" style="width: 1000px; height: 600px;"></canvas>
+    </div>
+
+
+    <script type="text/javascript" src="../lib/jquery-1.8.0.js"></script>
+    <script type="text/javascript" src="../lib/canvg-1.2/rgbcolor.js"></script>
+    <script type="text/javascript" src="../lib/canvg-1.2/canvg.js"></script>
+
+    <script type="text/javascript">
+
+
+    var svg = ['<svg xmlns="http://www.w3.org/2000/svg" version="1.1">',
+    '<polygon points="200,10 250,190 160,210" style="fill:lime;stroke:purple;stroke-width:1"/>',
+    '</svg>'].join("");
+
+         var canvas = document.createElement('canvas');
+         canvas.width = 1000;
+         canvas.height = 800;
+
+         canvg(canvas, svg)
+
+         var dataURL = canvas.toDataURL()
+
+         window.open(dataURL,'mywindow')
+
+
+
+    </script>
+
+</body>
+
+</html>

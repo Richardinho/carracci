@@ -37,6 +37,12 @@ define(['BaseType',
                         name : "verticalConnector",
                         action : toolsMenuItems.createVerticalConnector,
                         image : "verticalConnector.png"
+                    },
+
+                    {
+                        name : "exportToPNG",
+                        action : toolsMenuItems.exportToPNG,
+                        image : "ping.png"
                     }
                 ],
 

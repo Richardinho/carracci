@@ -66,6 +66,7 @@ define(['svg'], function(svg) {
                 line.attr({"stroke-dasharray" : ""});
             }
         }
+
     };
 });
 
