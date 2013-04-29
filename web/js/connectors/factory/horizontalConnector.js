@@ -29,7 +29,7 @@ define([
 
             componentId = ComponentContainer.createComponentSlot('Connector');
 
-            lineContainer = new LineContainer();
+            var lineContainer = new LineContainer();
 
             left = this._createArrowNode({
                 config : config.leftNode,

@@ -7,7 +7,7 @@ define([
         'componentContainer',
         'VerticalConnectorMediator',
         'ConnectorFactory' ], function (
-                                HorizontalConnector,
+                                LineContainer,
                                 ControllerDraggableElement,
                                 ViewElement,
                                 ModelDistalNode,
@@ -27,7 +27,7 @@ define([
             componentId = ComponentContainer.createComponentSlot('VerticalConnector');
             ComponentContainer.store( componentId, []);
 
-            connector = new HorizontalConnector();
+            var lineContainer = new LineContainer();
 
             top = this._createArrowNode({
                 config : config.topNode,
