@@ -4,9 +4,9 @@ define(['ViewElement'], function (ViewElement) {
     return ViewElement.extend({
 
         initialize : function (options) {
-
+            _.bindAll(this, "destroy");
             ViewElement.prototype.initialize.call(this, options);
-            this.arrowView = options.arrowView;
+            //this.arrowView = options.arrowView;
         },
 
         render : function() {
@@ -15,6 +15,10 @@ define(['ViewElement'], function (ViewElement) {
 
         getType : function () {
             return this.model.name + "ArrowNodeView";
+        },
+
+        destroy : function () {
+            ViewElement.prototype.destroy.call(this);
         }
 
     });

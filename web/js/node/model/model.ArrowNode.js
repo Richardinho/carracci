@@ -6,12 +6,15 @@ define(['ModelElement'], function (ModelElement) {
 
 
         initialize : function (options) {
+
+            _.bindAll(this, "destroy");
             ModelElement.prototype.initialize.call(this, options);
             this.name = options.name;
             this.pointerCollection = options.pointers;
             this.pointerIndex = 0;
             this._getArrowModel().show();
             this.lineContainer = options.lineContainer;
+            this.componentId = options.componentId
         },
 
         changePointer : function () {
@@ -19,6 +22,13 @@ define(['ModelElement'], function (ModelElement) {
             this.pointerIndex = ++this.pointerIndex % this.pointerCollection.size();
             this.updateArrow()
             this._getArrowModel().show();
+        },
+
+        destroy : function () {
+            this.pointerCollection.each(function (i) {
+                this.get(i).destroy();
+            });
+            this._fire("destroy");
         },
 
         update : function (x, y, validate) {

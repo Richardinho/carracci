@@ -1,6 +1,13 @@
 define(['jQuery' ], function ( $ ) {
 
 
+
+    // these load too late for some views to get their templates.
+
+    //  does require have some mechanism for loading templates?
+
+    // find out.
+
     return {
 
         initialize : function (config, templatesFolder) {

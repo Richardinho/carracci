@@ -3,6 +3,7 @@ define(['Model'], function (Model) {
     return Model.extend({
 
         initialize : function (options) {
+
             Model.prototype.initialize.call(this, options);
             var color = this.getColor();
             this.set({ direction : options.direction, "color" : color }, { silent : true });
@@ -31,6 +32,11 @@ define(['Model'], function (Model) {
 
         _getPoint : function (x, y) {
             return { "x" : x, "y" : y };
+        },
+
+        destroy : function () {
+            this._fire("destroy");
+
         }
 
     });

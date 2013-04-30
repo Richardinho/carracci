@@ -15,6 +15,13 @@ define(['Model'], function (Model) {
 
             this.nodeA.on('change', this.update, this);
             this.nodeB.on('change', this.update, this);
+
+            this.nodeA.on('destroy', this.destroy, this)
+            this.nodeB.on('destroy', this.destroy, this)
+        },
+
+        destroy : function () {
+            this._fire("destroy");
         },
 
         update : function () {

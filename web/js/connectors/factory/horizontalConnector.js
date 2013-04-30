@@ -108,7 +108,8 @@ define([
                 "x" : x,
                 "y" : y ,
                 "lineContainer" : lineContainer,
-                "name" : options.direction
+                "name" : options.direction,
+                "componentId" : componentId
             });
 
             view = new ViewElement({ "model" : model, "name" : options.direction });

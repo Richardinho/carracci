@@ -1,0 +1,15 @@
+.delete-pop-up {
+  font-family: arial;
+  position: absolute;
+  left: 100px;
+  top: 100px;
+  background-color: #ddd;
+  border: solid 1px #aaa;
+  width: 150px;
+  height: 80px;
+  z-index: 100;
+  padding-top: 15px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 10px;
+  text-align: center; }

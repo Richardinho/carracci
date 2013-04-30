@@ -9,6 +9,7 @@ define(['BaseType', 'svgUtilities'], function (extend, svgUtils) {
             this.line = this._createSvgShape("black");
             this.model.on("change", this.render, this);
             this.model.on("change:style", this.resetLine, this);
+            this.model.on("destroy", this.destroy, this);
         },
 
         _createSvgShape : function (color) {
@@ -23,6 +24,10 @@ define(['BaseType', 'svgUtilities'], function (extend, svgUtils) {
         },
         resetLine : function () {
             this.svgUtils.resetLine(this.line, this.model.get("style"));
+        },
+
+        destroy : function () {
+            this.line.remove();
         }
     });
 });

@@ -4,14 +4,14 @@ define(['ModelElement'], function (ModelElement) {
 
 
         initialize : function (options) {
+
+            _.bindAll(this, "destroy")
             ModelElement.prototype.initialize.call(this, options);
         },
 
         update : function (x, y, validate) {
 
             ModelElement.prototype.update.call(this, x, y, validate);
-
-
         },
 
         updateFromArrowController : function (y, validate) {
@@ -21,6 +21,10 @@ define(['ModelElement'], function (ModelElement) {
 
         updateFromDistalNode : function (x, y) {
              this.set({ xCood : x});
+        },
+
+        destroy : function () {
+            this._fire("destroy");
         },
 
         updateFromLastNode : function (x, y) {

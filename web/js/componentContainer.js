@@ -2,7 +2,7 @@
     container for all diagram components.
  */
 
-define([], function () {
+define(['IDGenerator'], function (IDGenerator) {
 
     var root = {};
 
@@ -12,22 +12,32 @@ define([], function () {
 
         createComponentSlot : function (componentName) {
             if(!root[componentName]) {
-                root[componentName] = [];
+                root[componentName] = {}
             }
-            root[componentName].push({});
-            return componentName + this.separator + (root[componentName].length -1);
+
+            var id = IDGenerator.getNextId();
+
+            root[componentName][id] = {};
+
+            return componentName + this.separator + id;
         },
 
         store : function (componentId, components) {
 
             var type = this._getTypeFromId(componentId),
-                index = this._getIndexFromId(componentId);
+                id = this._getIndexFromId(componentId);
 
             for(var i=0; i < components.length; i++) {
                var element = components[i];
 
-               root[type][index][element.getType()] = element;
+               root[type][id][element.getType()] = element;
             }
+        },
+
+        removeComponent : function (id) {
+            var type = this._getTypeFromId(id),
+                index = this._getIndexFromId(id);
+            delete root[type][id];
         },
 
         retrieve : function (id, typeName) {
@@ -37,6 +47,7 @@ define([], function () {
         },
 
         getComponent : function (id) {
+
             var type = this._getTypeFromId(id),
                 index = this._getIndexFromId(id);
             return root[type][index];

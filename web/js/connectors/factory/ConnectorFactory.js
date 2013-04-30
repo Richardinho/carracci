@@ -56,7 +56,8 @@ define([
                 "y" : y,
                 "lineContainer" : lineContainer,
                 "pointers": pointers,
-                "name" : direction
+                "name" : direction,
+                "componentId" : componentId
             });
 
             view = new ViewArrowNode({ "model" : model, "name" : direction });
@@ -67,7 +68,9 @@ define([
                 "view" : view,
                 "name" : direction
             });
+
             ComponentContainer.store( componentId, [model, view, controller]);
+
             return model;
         },
 

@@ -3,7 +3,7 @@ define(['BaseType', "svgUtilities"], function (extend, svgUtils) {
     return extend.extend({
 
         initialize : function (options) {
-
+            _.bindAll(this, "destroy");
             this.model = options.model;
             this.element = svgUtils.createCircle(this.model.get('xCood'), this.model.get('yCood'));
             this.model.on("change", this.render, this);
@@ -17,6 +17,10 @@ define(['BaseType', "svgUtilities"], function (extend, svgUtils) {
 
         getType : function () {
             return  this.model.name + "NodeView";
+        },
+
+        destroy : function () {
+            this.element.remove();
         }
     });
 });

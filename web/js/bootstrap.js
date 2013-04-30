@@ -26,6 +26,9 @@ require.config({
 
     },
     paths : {
+        deletePopUp : "connectors/deletePopUp",
+        DeletePopUpController : "connectors/DeletePopUpController",
+        DeletePopUpView : "connectors/DeletePopUpView",
         jQuery : "lib/jquery-1.8.0",
         jsTween : "lib/jstween-1.1",
         underscore : "lib/underscore",

@@ -42,6 +42,9 @@
             <p>
                 Connecting lines can be created by clicking on the icon in the toolbox. The new connector will appear in the canvas. The default has black arrows on both ends, but it is possible to change this (see below).Manipulate arrows around the canvas by clicking on the ends or the 'corner joints' of the arrow and dragging.
             </p>
+            <p>
+                Delete a connector by holding down the D button and clicking on either end of the connector. A pop up will appear asking for confirmation that you want to delete the connector. Press delete to delete and cancel to cancel.
+            </p>
             <h2>Toggle line style</h2>
             <p>
             Clicking and holding down the key T on top of a connector arrow toggles the connecting line from solid to dashed. This is useful when creating connecting lines signifying 'implements' relationship between classes.
@@ -58,7 +61,7 @@
         <div class="help-item">
             <h1>Export a diagram</h1>
             <p>
-                Not yet implemented. However, it will be possible to convert the diagram into jpeg and png formats in the near future.
+Click on the PNG icon in the toolbox to export the diagram to png format. A new window will open containing the exported image.
             </p>
         </div>
 
@@ -66,8 +69,16 @@
     </section>
 </div>
 
+<script type="text/template" id="delete-pop-up-template">
+    <div class="delete-pop-up">
+        <h2>Are you sure you want to delete connector?</h2>
+        <button class="delete">delete</button>
+        <button class="cancel">cancel</button>
+    </div>
+</script>
 
 <div id="class-container"></div>
+<div id="delete-pop-up-container"></div>
 
 
     <script data-main="web/js/bootstrap" src="lib/require.js"></script>
