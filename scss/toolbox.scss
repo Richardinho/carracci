@@ -77,6 +77,8 @@
     width : 100%;
     z-index : 20000;
     @include textBeta();
+    padding-left : 50px;
+    line-height : 40px;
 
 }
 
@@ -105,13 +107,29 @@
 
     }
 
+
     .content {
+
+        background-image: -webkit-gradient(
+            linear,
+            left top, left bottom,
+            color-stop(1%, rgba(0, 0, 0, 0)),
+            color-stop(10%, rgba(0,0, 0, 1))
+        );
+
+        .help-item {
+
+            margin-top : 20px;
+        }
+
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+
         h1 {
             margin: {
                 top : 5px;
                 bottom : 5px;
             }
-
         }
         overflow-y:scroll;
 
