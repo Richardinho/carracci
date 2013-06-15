@@ -1,4 +1,4 @@
-define(['ControllerDraggableElement'], function (ControllerDraggableElement) {
+define(['ControllerDraggableElement', 'popUp'], function (ControllerDraggableElement, popUp) {
 
     return ControllerDraggableElement.extend({
 
@@ -22,9 +22,11 @@ define(['ControllerDraggableElement'], function (ControllerDraggableElement) {
 
         },
 
-        _onClick : function () {
+        _onClick : function (event) {
             if((this.keyManager.U_KEY)) {
                 this.globalController.boxRequest(this.model);
+            } else if(this.keyManager.C_KEY) {
+                popUp.show(this.model, event);
             }
         },
 

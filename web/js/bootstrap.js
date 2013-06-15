@@ -101,6 +101,9 @@ require.config({
         ToolBoxController : "toolbox/toolboxController",
         canvg : "lib/canvg-1.2/canvg",
         rgbColor : "lib/canvg-1.2/rgbcolor",
+        popUp : "popUp/singleton",
+        ClassPopUpView : "popUp/ClassPopUpView",
+        ClassPopUpController : "popUp/ClassPopUpController"
 
 
     }

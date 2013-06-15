@@ -44,47 +44,91 @@
         }
     }
 }
-#helpbox {
-    width : 280px;
-    background-color : white;
-    display : block;
-    top : 70px;
-    left : 10;
-    position : relative;
-    border : solid 1px black;
-    overflow-y:scroll;
-    height : 500px;
 
-    > header {
-        @include container-header;
+::-webkit-scrollbar {
+
+    width: 5px;
+
+}
+
+
+::-webkit-scrollbar-button:start:decrement,
+::-webkit-scrollbar-button:end:increment  {
+
+    display: block;
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-track-piece  {
+
+
+}
+
+::-webkit-scrollbar-thumb:vertical {
+    height: 10px;
+    background-color: #666;
+}
+
+#menu-bar {
+
+    position : fixed;
+    height : 40px;
+    background-color : rgba(200, 200, 200, 0.6);
+    width : 100%;
+    z-index : 20000;
+    @include textBeta();
+
+}
+
+
+#helpbox {
+
+    width : 280px;
+    background-color : rgba(255, 255, 255, 0.6);
+    border : solid 1px rgb(200, 200, 200);
+    display : block;
+    top : 100px;
+    left : 100px;
+    position : fixed;
+
+    border-radius : 10px;
+
+    z-index : 20000;
+
+    margin : 20px;
+
+    padding : 15px;
+
+    header {
+
+        margin-bottom : 30px;
+
     }
+
     .content {
-        padding : 10px;
+        h1 {
+            margin: {
+                top : 5px;
+                bottom : 5px;
+            }
+
+        }
+        overflow-y:scroll;
+
+        height : 300px;
         line-height : 21px;
         p {
             margin : {
                 bottom : 4px;
             }
         }
-        h1 {
-            margin: {
-                top : 5px;
-                bottom : 5px;
-            }
-            font: {
-                size : 1em;
-                weight : bold;
-            }
-        }
+
         h2 {
             margin: {
                 top : 3px;
                 bottom : 3px;
             }
-            font: {
-                size : 0.9em;
-                weight : bold;
-            }
+
         }
     }
 

@@ -1,0 +1,117 @@
+
+$defaultSize : 10px;
+$defaultColor : #666;
+
+$alpha : 20px;
+$beta : 18px;
+$gamma : 16px;
+$delta : 12px;
+
+$defaultSize : $delta;
+
+body {
+
+    font-family : arial;
+    font-size : $defaultSize;
+    color : $defaultColor;
+
+}
+
+
+@mixin text( $weight : normal, $color : $defaultColor, $size : $defaultSize ) {
+
+    font: {
+
+        size : $size;
+        weight : $weight;
+    }
+    color : $color;
+
+}
+
+@mixin textAlpha( $weight : normal, $color : $defaultColor ) {
+
+    @include text( $weight : $weight, $color : $color, $size : $alpha );
+
+}
+
+@mixin textBeta( $weight : normal, $color : $defaultColor ) {
+
+    @include text( $weight : $weight, $color : $color, $size : $beta );
+
+}
+
+@mixin textGamma( $weight : normal, $color : $defaultColor ) {
+
+    @include text( $weight : $weight, $color : $color, $size : $gamma );
+
+}
+
+@mixin textDelta( $weight : normal, $color : $defaultColor ) {
+
+    @include text( $weight : $weight, $color : $color, $size : $delta );
+
+}
+
+/* test sheet */
+
+.test-alpha {
+
+    @include textAlpha();
+}
+
+.test-alpha-bold {
+
+    @include textAlpha( $weight : bold );
+}
+
+.test-alpha-bold-blue {
+
+    @include textAlpha( $weight : bold, $color : blue);
+
+}
+
+.test-beta {
+
+    @include textBeta();
+}
+
+.test-beta-bold {
+
+    @include textBeta( $weight : bold );
+}
+
+.test-beta-bold-red {
+
+    @include textBeta( $weight : bold, $color : red );
+}
+
+.test-gamma {
+
+    @include textGamma();
+}
+
+.test-gamma-bold {
+
+    @include textGamma($weight : bold);
+}
+
+.test-gamma-bold-orange {
+
+    @include textGamma($color : orange, $weight : bold);
+}
+
+.test-delta {
+
+    @include textDelta();
+}
+
+.test-delta-bold {
+
+    @include textDelta($weight : bold);
+}
+
+.test-delta-bold-purple {
+
+    @include textDelta($weight : bold, $color : purple );
+}
