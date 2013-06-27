@@ -6,16 +6,16 @@ define(['BaseType', 'underscore'],function (BaseType, _) {
 
         initialize : function (options) {
 
-            _.bindAll(this, "handleClick");
+            //_.bindAll(this, "handleClick");
 
-            this.view = options.view;
+            //this.view = options.view;
 
-            this.view.el.click(this.handleClick)
+            //this.view.el.click(this.handleClick)
         },
 
         show : function (model, x, y) {
             this.model = model;
-            this.view.show(x, y);
+            //this.view.show(x, y);
             this.x = x;
             this.y = y;
         },

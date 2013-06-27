@@ -11,13 +11,25 @@ define(['ModelElement',
 
         initialize : function (options) {
 
+
             ModelElement.prototype.initialize.call(this, options);
+
+            this.dataModel = options.dataModel;
+
+            this.on("change", function () {
+
+                console.log("on model classbox change: ", this.dataModel);
+
+
+            })
+
             this.set({ name : options.name });
             this.set({ properties : new Collection([])});
             this.set({ methods : new Collection([])});
             this.set({ id : options.id });
             this.set({ width : options.width });
             this.set({ height : options.height });
+
         },
 
         translate : function (dx, dy) {

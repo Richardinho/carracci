@@ -7,7 +7,16 @@ define(['BaseType', 'underscore'], function (extend, _) {
             _.bindAll(this, "on");
             if(options && options instanceof Array ) {
                 this._collection = options;
-            } else {
+            } else if(options) {
+                //  assume that options is an object
+                //  create collection and populate it with object properties
+                this._collection = [];
+                for(var el in options) {
+                    this._collection.push(el);
+                }
+            }
+
+            else {
                 this._collection = [];
             }
 
@@ -27,6 +36,7 @@ define(['BaseType', 'underscore'], function (extend, _) {
                 }
             }, false, this);
         },
+
 
         getIndexById : function (id) {
             return this.reduce(function (memo, element, index) {

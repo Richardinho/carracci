@@ -3,125 +3,63 @@
     <link rel="stylesheet" href="css/main.css" type="text/css"/>
     <link rel="stylesheet" href="menu.css" type="text/css"/>
 
+    <style>
+
+        #command-editor {
+            width : 700px;
+            border-radius : 4px;
+            height : 400px;
+            font-family : courier;
+            color : black;
+            padding : 20px;
+            position : absolute;
+            left : 100px;
+            top : 100px;
+            border : 0;
+            word-wrap:break-word;
+            overflow-y : scroll;
+            background-color : rgba(100,100,100, 0.2);
+
+
+        }
+
+        #project-json {
+            width : 300px;
+            height : 300px;
+            background-color : red;
+            position : absolute;
+            right : 100px;
+            top : 100px;
+        }
+
+        .hide {
+            display : none;
+        }
+
+        .old-commands {
+
+
+
+        }
+
+    </style>
+
 </head>
 
 <body>
 
-    <div id="menu-bar">
-        <ul>
-            <li>help</li>
-        </ul>
-    </div>
+    <div id="command-line-editor-placeholder"></div>
 
+    <div id="project-json"></div>
 
-<script type="text/template" id="menuPopUp">
-    <section class="classMenuPopUp">
-        <section class="properties">
-            <h1>Properties</h1>
-            <button>add Prop</button>
-            <section class="property">
-                <button>vis</button>
-                <input type="text"/>
-                <input type="text"/>
-                <button>del</button>
-            </section>
-            <section class="property">
-                <button>vis</button>
-                <input type="text"/>
-                <input type="text"/>
-                <button>del</button>
-            </section>
-        </section>
-        <section class="methods">
-
-            <h1>Methods</h1>
-            <button>add Method</button>
-            <section class="method">
-                <button>vis</button>
-                <button>args</button>
-                <input type="text"/>
-                <input type="text"/>
-                <button>del</button>
-            </section>
-
-            <section class="method">
-                <button>vis</button>
-                <button>args</button>
-                <input type="text"/>
-                <input type="text"/>
-                <button>del</button>
-            </section>
-            <section class="method"></section>
-            <section class="method"></section>
-        </section>
-    </section>
-</script>
-
-
-
-<div id="helpbox">
-
-    <header>
-        <h1>Help</h1>
-    </header>
-
-    <section class="content">
-
-
-
-        <div class="help-item">
-            <h1>About Carracci</h1>
-            <p>
-                Carracci is an editing tool for UML class diagrams. Currently a work in progress, when complete you will be able to create classes, specify class properties and methods, show relationships  such as inheritance and composition with connecting arrows, add notes, and save the diagram to either PNG or JPEG file formats.
-            </p>
+    <script type="text/template" id="command-line-editor-template">
+        <div id="command-editor">
+            <div class="old-commands"></div>
+            <div>
+                <span class="thing">&gt;</span><span class="current-commands"></span><span class="cursor">_</span>
+            </div>
         </div>
-
-        <div class="help-item">
-            <h1>Edit a diagram</h1>
-            <h2>Create and edit a uml class box</h2>
-            <p>
-                Create a class by clicking on an icon in the toolbox, or by clicking on the add button within the gui on the right hand side. A new class box will appear within the diagram canvas. Use the gui to edit class properties and methods. class boxes can be moved around the canvas simply by dragging.
-            </p>
-            <h2>Create and edit connectors</h2>
-            <p>
-                Connecting lines can be created by clicking on the icon in the toolbox. The new connector will appear in the canvas. The default has black arrows on both ends, but it is possible to change this (see below).Manipulate arrows around the canvas by clicking on the ends or the 'corner joints' of the arrow and dragging.
-            </p>
-            <p>
-                Delete a connector by holding down the D button and clicking on either end of the connector. A pop up will appear asking for confirmation that you want to delete the connector. Press delete to delete and cancel to cancel.
-            </p>
-            <h2>Toggle line style</h2>
-            <p>
-            Clicking and holding down the key T on top of a connector arrow toggles the connecting line from solid to dashed. This is useful when creating connecting lines signifying 'implements' relationship between classes.
-            </p>
-            <h2>Change arrow type</h2>
-            <p>
-             Clicking on a connector arrow whilst holding down the S key changes the arrow type. e.g. from black to white.
-            </p>
-            <h2>Attach lines to boxes</h2>
-            <p>
-                To connect an arrow to a box, hold down the U key, click on an arrow, then click on the box you want to connect to. The arrow will automatically reposition itself onto the box. When you now move the box, the arrow will stay attached to it. To detach an arrow from a box, hold down the U key again whilst clicking on the attached arrow.
-            </p>
-        </div>
-        <div class="help-item">
-            <h1>Export a diagram</h1>
-            <p>
-Click on the PNG icon in the toolbox to export the diagram to png format. A new window will open containing the exported image.
-            </p>
-        </div>
-
-        </ul>
-    </section>
-</div>
-
-<script type="text/template" id="delete-pop-up-template">
-    <div class="delete-pop-up">
-        <h2>Are you sure you want to delete connector?</h2>
-        <button class="delete">delete</button>
-        <button class="cancel">cancel</button>
-    </div>
-</script>
-
-
+    </script>
 
 
     <script data-main="web/js/bootstrap" src="lib/require.js"></script>

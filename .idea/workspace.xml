@@ -2,18 +2,77 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bd4dd7db-33d3-4455-b213-bb1cec28b9b9" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Carracci.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Gruntfile.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/karma.conf.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/js/unit/command_line_editor/requireConfig.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test2/baseTypeSpec.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test2/diagramControllerSpec.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test2/diagramModelSpec.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test2/modelSpec.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test2/test-main.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test2/typeBoxSpec.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/version2.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/version2/bootstrap.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/version2/core/BaseType.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/version2/core/Model.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/version2/diagram/diagramController.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/version2/diagram/diagramModel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/version2/diagram/types/typeController.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/version2/diagram/types/typeView.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/version2/editor/editorController.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/version2/editor/editorModel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/version2/editor/editorView.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/version2/lib/canvg-1.2/MIT-LICENSE.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/version2/lib/canvg-1.2/canvg.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/version2/lib/canvg-1.2/rgbcolor.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/version2/lib/eve.0.3.4.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/version2/lib/jquery-1.8.0.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/version2/lib/jscanvas.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/version2/lib/jscanvastest.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/version2/lib/raphael.2.1.0.amd.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/version2/lib/raphael.2.1.0.core.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/version2/lib/raphael.2.1.0.svg.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/version2/lib/raphael.2.1.0.vml.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/version2/lib/underscore.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/version2/utility/idGenerator.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/version2/utility/keymap.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/version2/utility/svg.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/version2/utility/typeBox.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/foo.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/js/commandLineEditor/commandLineController.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/js/commandLineEditor/commandLineEditorView.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/js/commandLineEditor/commands.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/js/commandLineEditor/keymap.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/js/commandLineEditor/projectJSON.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/js/utility/typeFactory.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/MenuBarspike.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/menuBarSpike.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/menuBarSpike.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/menuSpike.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/integration.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/unit.html" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.name" afterPath="$PROJECT_DIR$/.idea/.name" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/js/integration/connector/connector.test.js" afterPath="$PROJECT_DIR$/test/js/integration/connector/connector.test.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/coordinators/ArrowCoordinator.js" afterPath="$PROJECT_DIR$/web/js/coordinators/ArrowCoordinator.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/coordinators/BoxCoordinator.js" afterPath="$PROJECT_DIR$/web/js/coordinators/BoxCoordinator.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/coordinators/ProximalNodeCoordinator.js" afterPath="$PROJECT_DIR$/web/js/coordinators/ProximalNodeCoordinator.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/coordinators/baseCoordinator.js" afterPath="$PROJECT_DIR$/web/js/coordinators/baseCoordinator.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/coordinators/verticalConnectorsToBox/ArrowCoordinator.js" afterPath="$PROJECT_DIR$/web/js/coordinators/verticalConnectorsToBox/ArrowCoordinator.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/coordinators/verticalConnectorsToBox/boxCoordinator.js" afterPath="$PROJECT_DIR$/web/js/coordinators/verticalConnectorsToBox/boxCoordinator.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/coordinators/verticalConnectorsToBox/proximalNodeCoordinator.js" afterPath="$PROJECT_DIR$/web/js/coordinators/verticalConnectorsToBox/proximalNodeCoordinator.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/global/controllers/controller.AttachedNodeToBox.js" afterPath="$PROJECT_DIR$/web/js/global/controllers/controller.AttachedNodeToBox.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/global/controllers/verticalNodeToBox.js" afterPath="$PROJECT_DIR$/web/js/global/controllers/verticalNodeToBox.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/js/unit/command_line_editor/command_line.test.html" afterPath="$PROJECT_DIR$/test/js/unit/command_line_editor/command_line.test.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/js/unit/command_line_editor/command_line_editor.js" afterPath="$PROJECT_DIR$/test/js/unit/command_line_editor/command_line_editor.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/bootstrap.js" afterPath="$PROJECT_DIR$/web/js/bootstrap.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/classBox/factory/factory.ClassBox.js" afterPath="$PROJECT_DIR$/web/js/classBox/factory/factory.ClassBox.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/classBox/model/model.ClassBox.js" afterPath="$PROJECT_DIR$/web/js/classBox/model/model.ClassBox.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/commandLineEditor/editor.js" afterPath="$PROJECT_DIR$/web/js/commandLineEditor/editor.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/commandLineEditor/foo.html" afterPath="$PROJECT_DIR$/web/js/commandLineEditor/foo.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/commandLineEditor/keyManager.js" afterPath="$PROJECT_DIR$/web/js/commandLineEditor/keyManager.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/connectors/DeletePopUpController.js" afterPath="$PROJECT_DIR$/web/js/connectors/DeletePopUpController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/connectors/DeletePopUpView.js" afterPath="$PROJECT_DIR$/web/js/connectors/DeletePopUpView.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/core/Collection.js" afterPath="$PROJECT_DIR$/web/js/core/Collection.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/popUp/ClassPopUpController.js" afterPath="$PROJECT_DIR$/web/js/popUp/ClassPopUpController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/popUp/ClassPopUpView.js" afterPath="$PROJECT_DIR$/web/js/popUp/ClassPopUpView.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/utility/applicationFactory.js" afterPath="$PROJECT_DIR$/web/js/utility/applicationFactory.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/utility/extend.js" afterPath="$PROJECT_DIR$/web/js/utility/extend.js" />
     </list>
     <ignored path="Glenmorangie.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,6 +90,7 @@
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
+    <option name="REVERSE_PATCH" value="false" />
   </component>
   <component name="DaemonCodeAnalyzer">
     <disable_hints />
@@ -75,205 +135,98 @@
     <favorites_list name="Glenmorangie" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="vertical" split-proportion="0.50805587">
-      <split-first>
-        <leaf>
-          <file leaf-file-name="model.element.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/web/js/node/model/model.element.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="6" column="0" selection-start="109" selection-end="109" vertical-scroll-proportion="0.0">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="coordinator.HorizontalConnector.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/web/js/connectors/coordinator.HorizontalConnector.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="41" column="47" selection-start="1535" selection-end="1535" vertical-scroll-proportion="0.0">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="coordinator.VerticalConnector.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/web/js/connectors/coordinator.VerticalConnector.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="149" column="67" selection-start="6432" selection-end="6432" vertical-scroll-proportion="0.0">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="ArrowCoordinator.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/web/js/coordinators/verticalConnectorsToBox/ArrowCoordinator.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="23" column="0" selection-start="790" selection-end="869" vertical-scroll-proportion="0.0">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="distalNodeCoordinator.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/web/js/coordinators/verticalConnectorsToBox/distalNodeCoordinator.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="proximalNodeCoordinator.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/web/js/coordinators/verticalConnectorsToBox/proximalNodeCoordinator.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="14" column="61" selection-start="573" selection-end="573" vertical-scroll-proportion="0.0">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="ArrowCoordinator.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/web/js/coordinators/ArrowCoordinator.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="20" column="0" selection-start="685" selection-end="764" vertical-scroll-proportion="0.0">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="ProximalNodeCoordinator.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/web/js/coordinators/ProximalNodeCoordinator.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="28" column="25" selection-start="1040" selection-end="1040" vertical-scroll-proportion="0.0">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="baseCoordinator.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/web/js/coordinators/baseCoordinator.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="12" column="24" selection-start="307" selection-end="307" vertical-scroll-proportion="0.0">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="BoxCoordinator.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/web/js/coordinators/BoxCoordinator.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="27" column="20" selection-start="1006" selection-end="1006" vertical-scroll-proportion="0.0">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="DistalNodeCoordinator.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/web/js/coordinators/DistalNodeCoordinator.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="18" column="9" selection-start="646" selection-end="646" vertical-scroll-proportion="0.0">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="view.ClassBox.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/web/js/classBox/view/view.ClassBox.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="21" column="68" selection-start="936" selection-end="936" vertical-scroll-proportion="0.0">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="verticalNodeToBox.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/web/js/global/controllers/verticalNodeToBox.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="67" column="0" selection-start="2409" selection-end="2632" vertical-scroll-proportion="0.0">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="connector.test.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/test/js/integration/connector/connector.test.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="484" column="8" selection-start="18598" selection-end="18598" vertical-scroll-proportion="0.0">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="svg.js" pinned="false" current="true" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/web/js/utility/svg.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="19" column="9" selection-start="719" selection-end="719" vertical-scroll-proportion="0.7972028">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Collection.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/web/js/core/Collection.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="2" column="0" selection-start="41" selection-end="64" vertical-scroll-proportion="0.0">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="utils.propertyBuilder.test.html" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/runners/utils/utils.propertyBuilder.test.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="12" column="62" selection-start="615" selection-end="615" vertical-scroll-proportion="0.0">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="propertyBuilder.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/web/js/utility/propertyBuilder.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="25" column="27" selection-start="594" selection-end="594" vertical-scroll-proportion="0.0">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file leaf-file-name="view.ClassBox.test.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/spec/class/view.ClassBox.test.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="60" column="0" selection-start="1831" selection-end="1831" vertical-scroll-proportion="0.0">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="controller.AttachedNodeToBox.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/web/js/global/controllers/controller.AttachedNodeToBox.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="61" column="26" selection-start="2296" selection-end="2296" vertical-scroll-proportion="0.0">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="boxCoordinator.js" pinned="false" current="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/web/js/coordinators/verticalConnectorsToBox/boxCoordinator.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="10" column="46" selection-start="343" selection-end="365" vertical-scroll-proportion="0.44289044">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf>
+      <file leaf-file-name="typeBox.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/version2/utility/typeBox.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="258" column="37" selection-start="7381" selection-end="7381" vertical-scroll-proportion="4.74359">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="svg.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/js/utility/svg.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="243" column="0" selection-start="8027" selection-end="8450" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="editorController.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/version2/editor/editorController.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="17" column="18" selection-start="431" selection-end="431" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="editorModel.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/version2/editor/editorModel.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="38" column="13" selection-start="1277" selection-end="1277" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="editor.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/js/commandLineEditor/editor.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="commandLineController.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/js/commandLineEditor/commandLineController.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="52" column="0" selection-start="1434" selection-end="1668" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="diagramModel.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/version2/diagram/diagramModel.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="41" column="21" selection-start="1117" selection-end="1117" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="diagramController.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/version2/diagram/diagramController.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="180" column="34" selection-start="6240" selection-end="6240" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="typeController.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/version2/diagram/types/typeController.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="23" column="0" selection-start="444" selection-end="444" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="typeView.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/version2/diagram/types/typeView.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="43" column="34" selection-start="977" selection-end="977" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -281,27 +234,28 @@
     </FindUsagesManager>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="CHECKOUT_INCLUDE_TAGS" value="false" />
+    <option name="UPDATE_CHANGES_POLICY" value="STASH" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/web/js/classBox/view/view.ClassBox.js" />
-        <option value="$PROJECT_DIR$/web/js/node/model/model.element.js" />
-        <option value="$PROJECT_DIR$/web/js/connectors/coordinator.HorizontalConnector.js" />
-        <option value="$PROJECT_DIR$/web/js/connectors/coordinator.VerticalConnector.js" />
-        <option value="$PROJECT_DIR$/web/js/global/controllers/verticalNodeToBox.js" />
-        <option value="$PROJECT_DIR$/web/js/coordinators/verticalConnectorsToBox/boxCoordinator.js" />
-        <option value="$PROJECT_DIR$/web/js/coordinators/verticalConnectorsToBox/ArrowCoordinator.js" />
-        <option value="$PROJECT_DIR$/web/js/coordinators/verticalConnectorsToBox/proximalNodeCoordinator.js" />
-        <option value="$PROJECT_DIR$/web/js/coordinators/DistalNodeCoordinator.js" />
-        <option value="$PROJECT_DIR$/web/js/coordinators/baseCoordinator.js" />
-        <option value="$PROJECT_DIR$/web/js/coordinators/ArrowCoordinator.js" />
-        <option value="$PROJECT_DIR$/web/js/coordinators/ProximalNodeCoordinator.js" />
-        <option value="$PROJECT_DIR$/web/js/global/controllers/controller.AttachedNodeToBox.js" />
-        <option value="$PROJECT_DIR$/web/js/coordinators/BoxCoordinator.js" />
-        <option value="$PROJECT_DIR$/test/js/integration/connector/connector.test.js" />
-        <option value="$PROJECT_DIR$/web/js/utility/svg.js" />
+        <option value="$PROJECT_DIR$/version2/diagram/commandHandler.js" />
+        <option value="$PROJECT_DIR$/version2/utility/svg.js" />
+        <option value="$PROJECT_DIR$/version2/utility/svgUtils.js" />
+        <option value="$PROJECT_DIR$/version2/bootstrap.js" />
+        <option value="$PROJECT_DIR$/version2/utility/idGenerator.js" />
+        <option value="$PROJECT_DIR$/test2/test-main.js" />
+        <option value="$PROJECT_DIR$/test2/diagramModelSpec.js" />
+        <option value="$PROJECT_DIR$/test2/diagramControllerSpec.js" />
+        <option value="$PROJECT_DIR$/version2/diagram/diagramModel.js" />
+        <option value="$PROJECT_DIR$/test2/typeBoxSpec.js" />
+        <option value="$PROJECT_DIR$/version2/editor/editorModel.js" />
+        <option value="$PROJECT_DIR$/version2/editor/editorController.js" />
+        <option value="$PROJECT_DIR$/version2/diagram/types/typeController.js" />
+        <option value="$PROJECT_DIR$/version2/diagram/diagramController.js" />
+        <option value="$PROJECT_DIR$/version2/diagram/types/typeView.js" />
+        <option value="$PROJECT_DIR$/version2/utility/typeBox.js" />
       </list>
     </option>
   </component>
@@ -341,6 +295,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="PackagesPane">
         <subPane />
       </pane>
@@ -348,13 +303,13 @@
         <subPane>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Glenmorangie" />
+              <option name="myItemId" value="carracci" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Glenmorangie" />
+              <option name="myItemId" value="carracci" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -364,7 +319,7 @@
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Glenmorangie" />
+              <option name="myItemId" value="carracci" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -378,7 +333,7 @@
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Glenmorangie" />
+              <option name="myItemId" value="carracci" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -396,7 +351,7 @@
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Glenmorangie" />
+              <option name="myItemId" value="carracci" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -418,7 +373,7 @@
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Glenmorangie" />
+              <option name="myItemId" value="carracci" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -434,13 +389,13 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="node" />
+              <option name="myItemId" value="commandLineEditor" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Glenmorangie" />
+              <option name="myItemId" value="carracci" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -448,25 +403,13 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="node" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="model" />
+              <option name="myItemId" value="version2" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Glenmorangie" />
+              <option name="myItemId" value="carracci" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -474,21 +417,17 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
+              <option name="myItemId" value="version2" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="globalController" />
+              <option name="myItemId" value="utility" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Glenmorangie" />
+              <option name="myItemId" value="carracci" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -496,25 +435,17 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
+              <option name="myItemId" value="version2" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="global" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
+              <option name="myItemId" value="editor" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Glenmorangie" />
+              <option name="myItemId" value="carracci" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -522,21 +453,17 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
+              <option name="myItemId" value="version2" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="coordinators" />
+              <option name="myItemId" value="diagram" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Glenmorangie" />
+              <option name="myItemId" value="carracci" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -544,25 +471,21 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
+              <option name="myItemId" value="version2" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
+              <option name="myItemId" value="diagram" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="coordinators" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="verticalConnectorsToBox" />
+              <option name="myItemId" value="types" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Glenmorangie" />
+              <option name="myItemId" value="carracci" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -570,35 +493,13 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="connectors" />
+              <option name="myItemId" value="test2" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Glenmorangie" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="carracci" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tests" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Glenmorangie" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -612,7 +513,7 @@
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Glenmorangie" />
+              <option name="myItemId" value="carracci" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -625,138 +526,11 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Glenmorangie" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carracci" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jasmine-standalone-1.2.0" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Glenmorangie" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carracci" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jasmine-standalone-1.2.0" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spec" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Glenmorangie" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carracci" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jasmine-standalone-1.2.0" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spec" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="class" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Glenmorangie" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carracci" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="integration" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Glenmorangie" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carracci" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="integration" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="connector" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Favorites" />
     </panes>
   </component>
@@ -770,11 +544,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/version2/utility" />
       <recent name="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/spec/class" />
       <recent name="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/runners/class" />
       <recent name="$PROJECT_DIR$/web/js/utility" />
       <recent name="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/spec/utility" />
-      <recent name="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/runners/utils" />
     </key>
   </component>
   <component name="RunManager">
@@ -908,31 +682,31 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="24" width="1855" height="1056" extended-state="6" />
+    <frame x="64" y="-4" width="1217" height="965" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32996207" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39935064" sideWeight="0.6700379" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23161969" sideWeight="0.9595449" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29759863" sideWeight="0.9595449" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="JsTestDriver Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.04045512" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -964,16 +738,7 @@
     <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="true" />
     <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="true" />
     <option name="DEFAULT_PATCH_EXTENSION" value="patch" />
-    <option name="SHORT_DIFF_HORISONTALLY" value="true" />
-    <option name="SHORT_DIFF_EXTRA_LINES" value="2" />
-    <option name="SOFT_WRAPS_IN_SHORT_DIFF" value="true" />
-    <option name="INCLUDE_TEXT_INTO_PATCH" value="false" />
-    <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
-    <option name="CREATE_PATCH_EXPAND_DETAILS_DEFAULT" value="true" />
-    <option name="SHOW_FILE_HISTORY_DETAILS" value="true" />
-    <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
     <option name="LAST_COMMIT_MESSAGE" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
@@ -989,124 +754,113 @@
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/web/js/global/controllers/controller.AttachedNodeToBox.js</url>
-          <line>66</line>
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/spec/class/view.ClassBox.test.js">
+    <entry file="file://$PROJECT_DIR$/version2/utility/svg.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="0" selection-start="1831" selection-end="1831" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test2/diagramControllerSpec.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="94" column="53" selection-start="3754" selection-end="3754" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/connectors/coordinator.VerticalConnector.js">
+    <entry file="file://$PROJECT_DIR$/version2.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="149" column="67" selection-start="6432" selection-end="6432" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test2/diagramModelSpec.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="198" column="42" selection-start="7783" selection-end="7783" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/connectors/coordinator.HorizontalConnector.js">
+    <entry file="file://$PROJECT_DIR$/test2/test-main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="47" selection-start="1535" selection-end="1535" vertical-scroll-proportion="0.0">
+        <state line="13" column="16" selection-start="285" selection-end="285" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/node/model/model.element.js">
+    <entry file="file://$PROJECT_DIR$/test2/typeBoxSpec.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="109" selection-end="109" vertical-scroll-proportion="0.0">
+        <state line="6" column="24" selection-start="173" selection-end="173" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/coordinators/baseCoordinator.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="24" selection-start="307" selection-end="307" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/global/controllers/verticalNodeToBox.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="67" column="0" selection-start="2409" selection-end="2632" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/coordinators/verticalConnectorsToBox/distalNodeCoordinator.js">
+    <entry file="file://$PROJECT_DIR$/web/js/commandLineEditor/editor.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/coordinators/verticalConnectorsToBox/proximalNodeCoordinator.js">
+    <entry file="file://$PROJECT_DIR$/web/js/commandLineEditor/commandLineController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="61" selection-start="573" selection-end="573" vertical-scroll-proportion="0.0">
+        <state line="52" column="0" selection-start="1434" selection-end="1668" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/coordinators/verticalConnectorsToBox/ArrowCoordinator.js">
+    <entry file="file://$PROJECT_DIR$/version2/editor/editorModel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="0" selection-start="790" selection-end="869" vertical-scroll-proportion="0.0">
+        <state line="38" column="13" selection-start="1277" selection-end="1277" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/coordinators/ArrowCoordinator.js">
+    <entry file="file://$PROJECT_DIR$/version2/editor/editorController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="0" selection-start="685" selection-end="764" vertical-scroll-proportion="0.0">
+        <state line="17" column="18" selection-start="431" selection-end="431" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/coordinators/ProximalNodeCoordinator.js">
+    <entry file="file://$PROJECT_DIR$/version2/diagram/diagramController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="25" selection-start="1040" selection-end="1040" vertical-scroll-proportion="0.0">
+        <state line="180" column="34" selection-start="6240" selection-end="6240" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/global/controllers/controller.AttachedNodeToBox.js">
+    <entry file="file://$PROJECT_DIR$/version2/diagram/types/typeController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="26" selection-start="2296" selection-end="2296" vertical-scroll-proportion="0.0">
+        <state line="23" column="0" selection-start="444" selection-end="444" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/coordinators/verticalConnectorsToBox/boxCoordinator.js">
+    <entry file="file://$PROJECT_DIR$/version2/diagram/diagramModel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="46" selection-start="343" selection-end="365" vertical-scroll-proportion="0.44289044">
+        <state line="41" column="21" selection-start="1117" selection-end="1117" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/coordinators/BoxCoordinator.js">
+    <entry file="file://$PROJECT_DIR$/version2/diagram/types/typeView.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="20" selection-start="1006" selection-end="1006" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/js/integration/connector/connector.test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="484" column="8" selection-start="18598" selection-end="18598" vertical-scroll-proportion="0.0">
+        <state line="43" column="34" selection-start="977" selection-end="977" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/js/utility/svg.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="9" selection-start="719" selection-end="719" vertical-scroll-proportion="0.7972028">
+        <state line="243" column="0" selection-start="8027" selection-end="8450" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/version2/utility/typeBox.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="258" column="37" selection-start="7381" selection-end="7381" vertical-scroll-proportion="4.74359">
           <folding />
         </state>
       </provider>

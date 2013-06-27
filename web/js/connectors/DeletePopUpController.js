@@ -4,13 +4,13 @@ define(['BaseType', 'componentContainer'], function ( BaseType, componentContain
     return BaseType.extend({
 
         initialize : function (options) {
-            _.bindAll(this, "cancel", "deleteConnector");
-            this.view = options.view;
-            this.componentContainer = componentContainer;
+           // _.bindAll(this, "cancel", "deleteConnector");
+           // this.view = options.view;
+           // this.componentContainer = componentContainer;
 
-            this.currentConnectorController = null;
-            this.view.getDeleteButton().on("click", this.deleteConnector);
-            this.view.getCancelButton().on("click", this.cancel);
+           // this.currentConnectorController = null;
+           // this.view.getDeleteButton().on("click", this.deleteConnector);
+           // this.view.getCancelButton().on("click", this.cancel);
         },
 
         show : function (controller, event) {

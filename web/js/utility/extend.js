@@ -1,10 +1,10 @@
-define(['IDGenerator'],function ( IDGenerator) {
+define([],function () {
     var obj = {};
     obj.extend = function (template) {
 
         var F = function(options) {
 
-            this.id = IDGenerator.getNextId();
+           // this.id = IDGenerator.getNextId();
 
             if(this.initialize && typeof this.initialize === "function") {
                 if(options) {

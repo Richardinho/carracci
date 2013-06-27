@@ -103,7 +103,14 @@ require.config({
         rgbColor : "lib/canvg-1.2/rgbcolor",
         popUp : "popUp/singleton",
         ClassPopUpView : "popUp/ClassPopUpView",
-        ClassPopUpController : "popUp/ClassPopUpController"
+        ClassPopUpController : "popUp/ClassPopUpController",
+        CommandLineEditorView : "commandLineEditor/commandLineEditorView",
+        CommandLineController : "commandLineEditor/commandLineController",
+        keymap : "commandLineEditor/keymap",
+        commandEditor : "commandLineEditor/editor",
+        commands : "commandLineEditor/commands",
+        projectJSON : "commandLineEditor/projectJSON",
+        typeFactory : "utility/typeFactory"
 
 
     }
@@ -120,6 +127,7 @@ require(['ApplicationFactory'], function (ApplicationFactory) {
                 leftNode : { x  : 25, y : 10 , arrows : ['diamond', 'implements', 'none'] },
                 rightNode : { x  : 225, y : 110 , arrows : ['diamond', 'implements', 'none'] } }
             ],
+
             classBoxes : [{
 
                 name : "List",
@@ -141,7 +149,7 @@ require(['ApplicationFactory'], function (ApplicationFactory) {
             }]
         };
 
-        new ApplicationFactory().setUp(configuration);
+        new ApplicationFactory();
 
     });
 });

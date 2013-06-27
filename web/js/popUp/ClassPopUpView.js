@@ -6,12 +6,12 @@ define(['BaseType','underscore'],function (BaseType, _) {
 
         initialize : function () {
 
-            $('body').append(this.template());
+            /*$('body').append(this.template());
             $('body').append(this.menuTemplate());
             this.el = $('.classPopUp');
             this.menu = $('.classMenuPopUp');
             this.el.hide();
-            this.menu.hide();
+            this.menu.hide();*/
 
         },
 
@@ -30,7 +30,7 @@ define(['BaseType','underscore'],function (BaseType, _) {
             '</div>'
             ].join("")),
 
-        menuTemplate : _.template($('#menuPopUp').html()),
+        //menuTemplate : _.template($('#menuPopUp').html()),
 
         makeMenuVisible : function (x, y) {
 

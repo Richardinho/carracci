@@ -10,17 +10,36 @@
 
         #command-editor {
             width : 700px;
-
+            border-radius : 4px;
             height : 400px;
             font-family : courier;
             color : black;
-            background-color : rgba(20, 20, 20, 0.1);
+            background-color : grey;
+            padding : 20px;
             position : absolute;
             left : 100px;
             top : 100px;
             border : 0;
-
             word-wrap:break-word;
+            overflow-y : scroll;
+
+
+        }
+
+        .hide {
+            display : none;
+        }
+
+        .old-commands {
+         background-image: -webkit-gradient(
+            linear,
+            left top, left bottom,
+            from(rgba(0, 0, 0, 0)),
+            to(rgba(0, 0, 0, 1))
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+
         }
 
     </style>
@@ -28,11 +47,15 @@
 
 <body>
 <h1>Foo.html</h1>
+<span>hello</span>
+<span>world</span>
 
 
 <div id="command-editor">
     <div class="old-commands"></div>
-    <div class="current-commands"></div>
+    <div>
+        <span class="thing">&gt;</span><span class="current-commands"></span><span class="cursor">_</span>
+    </div>
 </div>
 
 

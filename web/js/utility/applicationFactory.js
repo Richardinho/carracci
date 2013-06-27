@@ -5,48 +5,45 @@ define(['BaseType',
         'horizontalConnectorFactory',
         'verticalConnectorFactory',
         'ClassBoxFactory',
-        'jQuery' ], function ( BaseType,
-                                        templateLoader,
-                                        ToolBoxFactory,
-                                        toolsMenuItems,
-                                        horizontalConnectorFactory,
-                                        verticalConnectorFactory,
-                                        ClassBoxFactory,
-                                        $ ) {
+        'jQuery',
+        'CommandLineEditorView',
+        'CommandLineController',
+        'keymap',
+        'projectJSON',
+        'commands',
+        'typeFactory' ], function ( BaseType,
+                                    templateLoader,
+                                    ToolBoxFactory,
+                                    toolsMenuItems,
+                                    horizontalConnectorFactory,
+                                    verticalConnectorFactory,
+                                    ClassBoxFactory,
+                                    $,
+                                    CommandLineEditorView,
+                                    CommandLineController,
+                                    keymap,
+                                    projectJSONView,
+                                    Commands,
+                                    typeFactory) {
 
     return BaseType.extend({
 
         initialize : function () {
 
-            templateLoader.initialize([ 'umlClassBoxGUI', 'tools' ], '/web/templates/' );
+            var editor = new CommandLineEditorView({
+                el : $('#command-line-editor-placeholder')
+            });
 
-            var toolbox = ToolBoxFactory({
+            //  should pass the model into commands here.
+            var commands = new Commands({
 
-                buttons : [
-                    {
-                        name : "umlClass",
-                        action : toolsMenuItems.createUmlClass,
-                        image : "umlClassIcon.gif"
-                    },
-                    {
-                        name : "horizontalConnector",
-                        action : toolsMenuItems.createHorizontalConnector,
-                        image : "horizontalConnector.png"
-                    },
-                    {
-                        name : "verticalConnector",
-                        action : toolsMenuItems.createVerticalConnector,
-                        image : "verticalConnector.png"
-                    },
+                "typeFactory" : typeFactory
 
-                    {
-                        name : "exportToPNG",
-                        action : toolsMenuItems.exportToPNG,
-                        image : "ping.png"
-                    }
-                ],
+            });
 
-                el : $('#toolbox .icons')
+            new CommandLineController({
+                keymap : keymap,
+                commands : commands
             });
         },
 

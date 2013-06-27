@@ -3,15 +3,11 @@ define(['ClassBoxModel',
         'propertyBuilder',
         'ClassBoxView',
         'ClassBoxController',
-        'GuiView',
-        'GuiController',
         'methodBuilder',
         'componentContainer'], function (ClassBoxModel,
                                     propertyBuilder,
                                     ClassBoxView,
                                     ClassBoxController,
-                                    GuiView,
-                                    GuiController,
                                     methodBuilder,
                                     ComponentContainer ) {
 
@@ -49,10 +45,6 @@ define(['ClassBoxModel',
             }
         }
 
-        guiView = new GuiView({ model : classBoxModel , containerEl : $('#class-container') });
-
-        guiController = new GuiController({ model : classBoxModel , view : guiView });
-
         componentId = ComponentContainer.createComponentSlot('UmlClass');
 
         ComponentContainer.store(
@@ -60,8 +52,6 @@ define(['ClassBoxModel',
             [ classBoxModel,
               classBoxView,
               classBoxController,
-              guiView,
-              guiController
             ]);
 
     }

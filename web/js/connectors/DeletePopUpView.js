@@ -6,17 +6,17 @@ define(['BaseType', 'underscore', 'jQuery'], function ( BaseType, _, $ ) {
 
         initialize : function (options) {
 
-            this.template = this.getTemplate();
-            var container = $('#delete-pop-up-container');
-            container.html(this.template());
-            this.el = container.find('.delete-pop-up');
-            this.el.hide();
+            //this.template = this.getTemplate();
+            //var container = $('#delete-pop-up-container');
+            //container.html(this.template());
+            //this.el = container.find('.delete-pop-up');
+            //this.el.hide();
 
         },
 
         show : function (x, y) {
-            this.el.css({  left : x, top : y })
-            this.el.show();
+            //this.el.css({  left : x, top : y })
+            //this.el.show();
 
         },
 
@@ -26,16 +26,16 @@ define(['BaseType', 'underscore', 'jQuery'], function ( BaseType, _, $ ) {
 
         getTemplate : function () {
 
-            return _.template($('#delete-pop-up-template').html())
+            //return _.template($('#delete-pop-up-template').html())
 
         },
 
         getDeleteButton : function () {
-            return this.el.find('.delete');
+           // return this.el.find('.delete');
         },
 
         getCancelButton : function () {
-            return this.el.find('.cancel');
+           // return this.el.find('.cancel');
         }
     });
 });
