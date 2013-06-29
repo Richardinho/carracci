@@ -2,12 +2,11 @@ define(['utility/typeBox'], function(TypeBox) {
 
     describe('typeBox', function() {
 
-        var typeBox = new TypeBox({
-                model : {
-                    properties : {},
-                    methods : {}
-                }
-            });
+
+        // mock out initialize method to stop it running and requiring lots of dependencies.
+        spyOn(TypeBox.prototype, "initialize");
+
+        var typeBox = new TypeBox();
 
         describe("property formatting", function () {
 

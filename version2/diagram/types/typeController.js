@@ -7,20 +7,20 @@ define(["core/BaseType",
             TypeBox,
              _
         ) {
+    /* this type gets the box from the view and attaches handlers to it to watch its' movement.
+    in response to use input, it updates the model accordingly. The model fires out events
+    which our view will listen to*/
 
     return BaseType.extend({
 
         initialize : function (options) {
 
-            _.bindAll(this, "_onMove", "_onStart", "_onEnd" );
+            _.bindAll( this, "_onMove", "_onStart", "_onEnd" );
 
             this.startX = null;
             this.startY = null;
 
             this.model = options.model;
-
-            this.id = options.id;
-
 
             this.view = options.view;
             this.box = this.view.box.rect;
@@ -29,10 +29,11 @@ define(["core/BaseType",
         },
 
         _onMove : function (dx, dy) {
+
             var x = this.startX + dx,
                 y = this.startY + dy;
 
-            this.model.moveType(this.id, x, y);
+            this.model.setCoods(x, y);
         },
 
         _onStart : function () {

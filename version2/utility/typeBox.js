@@ -1,5 +1,6 @@
 define(['utility/svg', 'core/BaseType', 'underscore'], function(svg, BaseType, _ ) {
 
+    /* this should simply read the model and render the typebox accordingly */
     return BaseType.extend({
 
         /* constants */
@@ -27,16 +28,18 @@ define(['utility/svg', 'core/BaseType', 'underscore'], function(svg, BaseType, _
 
         methodsYOffset : null,
 
-        svgMethodTextArray : [],
+        svgMethodTextArray : null,
 
-        svgPropertyTextArray : [],
+        svgPropertyTextArray : null,
 
         initialize : function (options) {
 
             this.model = options.model;
-            var xCood = this.model.xCood;
-            var yCood = this.model.yCood;
-            var name = this.model.name;
+            var xCood = this.model.getXCood();
+            var yCood = this.model.getYCood();
+            var name = this.model.getName();
+            debugger;
+
 
             this._calculateGeometry();
 
@@ -48,11 +51,12 @@ define(['utility/svg', 'core/BaseType', 'underscore'], function(svg, BaseType, _
             );
 
 
-
+            this.svgMethodTextArray = [];
+            this.svgPropertyTextArray = [];
             this.typeBox.attr("fill" , this.backgroundColor);
             this.typeBox.attr("stroke", this.outlineColor);
 
-            if(this.model.flavor === 'interface') {
+            if(this.model.getFlavor() === 'interface') {
                 this.flavorText = this.createFlavorText('interface');
             }
             this.nameText = this.createNameText(name );
@@ -75,30 +79,13 @@ define(['utility/svg', 'core/BaseType', 'underscore'], function(svg, BaseType, _
             this.rect.attr({ "width" : width, "height" : height });
             this.typeBox.attr({ "width" : width, "height" : height });
 
+        },
 
+        destroy : function () {
 
-
-/*             properties = model.get("properties").map(function (index, element) {
-            return formatProperty(element);
-        });
-
-        methods = model.get("methods").map(function (index, element) {
-            return formatMethod(element);
-        });
-
-        height = TITLE_BOX_HEIGHT;
-
-        $.each(properties, function (index, property) {
-            propertyTextArray.push({ text : that.text(LEFT_OFFSET + x,
-                                     setPropertyY(index, y),
-                                     property).attr({ 'text-anchor' : 'start'}) });
-        });
-
-        $.each(propertyTextArray, function (index, propertyText) {
-            var tempWidth = propertyText.text.getBBox().width;
-            width = tempWidth > width ? tempWidth : width;
-        });*/
-
+            this.removeContents();
+            this.typeBox.remove();
+            this.rect.remove();
         },
 
         _calculateWidth : function () {
@@ -117,14 +104,14 @@ define(['utility/svg', 'core/BaseType', 'underscore'], function(svg, BaseType, _
 
         _calculateHeight : function () {
 
-            return ( _.size(this.model.methods) * this.lineHeight ) + this.methodsYOffset + this.paddingBottom;
+            return ( _.size(this.model.getMethods()) * this.lineHeight ) + this.methodsYOffset + this.paddingBottom;
         },
 
         _calculateGeometry : function () {
 
             var yOffset = 0;
 
-            if( this.model.flavor === 'interface' ) {
+            if( this.model.getFlavor() === 'interface' ) {
                 yOffset = this.lineHeight;
             }
 
@@ -134,7 +121,7 @@ define(['utility/svg', 'core/BaseType', 'underscore'], function(svg, BaseType, _
                 + this.lineHeight
                 + this.separatorYOffset;
 
-            var propertiesSize = _.size(this.model.properties);
+            var propertiesSize = _.size(this.model.getProperties());
 
             this.methodsYOffset = this.propertiesYOffset
                 + this.separatorYOffset
@@ -145,8 +132,8 @@ define(['utility/svg', 'core/BaseType', 'underscore'], function(svg, BaseType, _
         /* takes type name and x,y coods and creates svg text,
            returns the svg element */
         createNameText : function ( name) {
-            var x = this.model.xCood;
-            var y = this.model.yCood;
+            var x = this.model.getXCood();
+            var y = this.model.getYCood();
             var text = svg.text(
                 this.paddingLeft + x,
                 y + this.nameTextYOffset,
@@ -159,10 +146,10 @@ define(['utility/svg', 'core/BaseType', 'underscore'], function(svg, BaseType, _
 
         createProperties : function () {
 
-            var properties = this.formatProperties(this.model.properties),
+            var properties = this.formatProperties(this.model.getProperties()),
                 yOffset,
-                xCood = this.model.xCood,
-                yCood = this.model.yCood;
+                xCood = this.model.getXCood(),
+                yCood = this.model.getYCood();
 
 
             _.each(properties, function ( property, index ) {
@@ -185,10 +172,11 @@ define(['utility/svg', 'core/BaseType', 'underscore'], function(svg, BaseType, _
 
         createMethods : function () {
 
-            var methods = this.formatMethods(this.model.methods),
+            var methods = this.formatMethods(this.model.getMethods()),
                 yOffset,
-                xCood = this.model.xCood,
-                yCood = this.model.yCood;
+                xCood = this.model.getXCood(),
+                yCood = this.model.getYCood();
+
 
             _.each(methods, function ( method, index ) {
 
@@ -235,7 +223,9 @@ define(['utility/svg', 'core/BaseType', 'underscore'], function(svg, BaseType, _
 
         },
 
-        moveProperties : function (x, y) {
+        moveProperties : function () {
+            var x = this.model.getXCood();
+            var y = this.model.getYCood();
             var yOffset;
             _.each(this.svgPropertyTextArray, function(svgPropertyText, index) {
                 yOffset = index * this.lineHeight;
@@ -245,8 +235,8 @@ define(['utility/svg', 'core/BaseType', 'underscore'], function(svg, BaseType, _
         },
 
         moveNameText : function () {
-            var x = this.model.xCood;
-            var y = this.model.yCood;
+            var x = this.model.getXCood();
+            var y = this.model.getYCood();
             this.nameText.attr({
                 x : this.paddingLeft + x,
                 y : y + this.nameTextYOffset
@@ -255,8 +245,8 @@ define(['utility/svg', 'core/BaseType', 'underscore'], function(svg, BaseType, _
         },
 
         createFlavorText : function (flavor) {
-            var x = this.model.xCood;
-            var y = this.model.yCood;
+            var x = this.model.getXCood();
+            var y = this.model.getYCood();
             flavor = "<<" + flavor + ">>";
 
             var text = svg.text(
@@ -277,8 +267,9 @@ define(['utility/svg', 'core/BaseType', 'underscore'], function(svg, BaseType, _
         },
 
         move : function () {
-            var x = this.model.xCood;
-            var y = this.model.yCood;
+            var x = this.model.getXCood();
+            var y = this.model.getYCood();
+
             this.rect.attr({ "x" : x });
             this.rect.attr({ "y" : y });
 
@@ -287,7 +278,7 @@ define(['utility/svg', 'core/BaseType', 'underscore'], function(svg, BaseType, _
 
             this.moveNameText(x, y);
 
-            if(this.model.flavor === 'interface') {
+            if(this.model.getFlavor() === 'interface') {
                 this.moveFlavorText(x, y);
             }
             this.moveMethods(x, y);
@@ -302,10 +293,11 @@ define(['utility/svg', 'core/BaseType', 'underscore'], function(svg, BaseType, _
             this.createProperties();
             this.createMethods();
 
-            if(this.model.flavor === 'interface') {
+            if(this.model.getFlavor() === 'interface') {
                 this.flavorText = this.createFlavorText('interface');
             }
-            this.nameText = this.createNameText( this.model.name );
+
+            this.nameText = this.createNameText( this.model.getName() );
 
             var width = this._calculateWidth();
             var height = this._calculateHeight();
@@ -320,9 +312,6 @@ define(['utility/svg', 'core/BaseType', 'underscore'], function(svg, BaseType, _
         */
         formatProperties : function (props) {
 
-            function convertVisibility (vis) {
-
-            }
             return  _.map(props, function (property) {
 
                 var result = "";

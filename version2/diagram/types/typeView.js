@@ -1,49 +1,42 @@
 define(["core/BaseType", 'utility/typeBox'],function (BaseType, TypeBox) {
 
     return BaseType.extend({
+    /* this should watch the model. on specific events it should call methods which delegate to the
+    typeBox object for rendering*/
 
         initialize : function (options) {
 
-            console.log("initialize type view", options.model)
+            this.model = options.model
 
-            this.model = options.model;
-            this.id = options.id;
-            this.model.on("movetype", this.move, this);
-            this.model.on("updatetype", this.update, this);
+            this.model.on("move", this.move, this);
+            this.model.on("update", this.update, this);
+            this.model.on("delete", this.destroy, this);
 
             this.box = new TypeBox({
 
-                model : this.model.getType(this.id),
+                model : this.model,
                 x : 100,
                 y : 200,
                 width : 100,
                 height : 50
 
             });
+        },
 
+        destroy : function () {
+            this.box.destroy();
         },
 
         getElement : function () {
             return this.box;
         },
 
-
-        render : function () {
-
+        move : function () {
+            this.box.move();
         },
 
-        move : function (id) {
-
-            if(id === this.id) {
-                this.box.move();
-            }
-        },
-
-        update : function (id) {
-            if(id === this.id) {
-                this.box.update();
-
-            }
+        update : function () {
+            this.box.update();
         }
     });
 });
