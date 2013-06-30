@@ -9,6 +9,7 @@ define(['core/BaseType'],function (BaseType) {
             this.diagramModel = options.diagramModel;
             this.TypeView = options.TypeView;
             this.TypeController = options.TypeController;
+            this.horizontalConnectorFactory = options.horizontalConnectorFactory;
 
             this.contextPath = [];
 
@@ -209,8 +210,18 @@ define(['core/BaseType'],function (BaseType) {
             switch (artifact) {
 
             case "connector" :
+                if(arguments[1] === "horizontal") {
 
-                console.log("create connector");
+                    var horizontalConnectorModel = this.diagramModel.createHorizontalConnector(this.contextPath[1]);
+
+                    //  this factory creates all the necessary node and line controllers and views
+                    this.horizontalConnectorFactory.create(horizontalConnectorModel);
+
+
+                } else {
+                    console.log("create vertical connector")
+                }
+
 
                 break;
 

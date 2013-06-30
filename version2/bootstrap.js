@@ -38,7 +38,8 @@ require(['jquery',
          'diagram/diagramModel2',
          'diagram/types/typeView',
          'diagram/types/typeController',
-         'utility/idGenerator'],
+         'utility/idGenerator',
+         'diagram/connectors/horizontalConnectorFactory'],
 
          function ( $,
                     EditorView,
@@ -49,7 +50,8 @@ require(['jquery',
                     DiagramModel,
                     TypeView,
                     TypeController,
-                    idGenerator) {
+                    idGenerator,
+                    horizontalConnectorFactory) {
 
     $(document).ready(function () {
 
@@ -60,7 +62,8 @@ require(['jquery',
                 idGenerator : idGenerator
             }),
             TypeView : TypeView,
-            TypeController : TypeController
+            TypeController : TypeController,
+            horizontalConnectorFactory : horizontalConnectorFactory
         });
 
         var editorModel = new EditorModel({

@@ -1,4 +1,11 @@
-define(["core/BaseType", "utility/eventNode", "diagram/types/typeModel"],function (BaseType, Node, TypeModel) {
+define(["core/BaseType",
+        "utility/eventNode",
+        "diagram/types/typeModel",
+        "diagram/connectors/horizontalConnectorModel"],
+        function (  BaseType,
+                    Node,
+                    TypeModel,
+                    HorizontalConnectorModel) {
 
     return BaseType.extend({
 
@@ -21,6 +28,38 @@ define(["core/BaseType", "utility/eventNode", "diagram/types/typeModel"],functio
                     connectors : {}
                 });
             }
+        },
+
+        createHorizontalConnector : function (diagram) {
+            /*
+                question: how should this connector be labelled?
+                Once created, should the user
+                be able to interact with it via the editor?
+            */
+
+            var connectorModel = this.model.children['diagrams']
+                .children[diagram]
+                .children['connectors']
+                .createChild("blah",{
+                    orientation : "horizontal",
+                    nodes : {
+
+                        left : { xCood : 100, yCood : 100},
+                        proximal : { xCood : 200, yCood : 100},
+                        distal : { xCood : 200, yCood : 300},
+                        right : { xCood : 400, yCood : 300}
+
+                    }
+                    /* might also include which types the connector is
+                    connected to, type of line, type of relationship
+                    Need to decide whether to express semantics or
+                    or simply mechanics
+                    */
+                });
+            return new HorizontalConnectorModel({
+                model : connectorModel
+            });
+
         },
 
         createType : function (diagram, typeName) {

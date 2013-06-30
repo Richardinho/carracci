@@ -1,0 +1,45 @@
+define(["core/BaseType", "underscore" ], function ( BaseType, _ ) {
+
+    return BaseType.extend({
+
+        initialize : function (options) {
+
+            _.bindAll(this, "_onMove", "_onStart", "_onEnd");
+
+            this.view = options.view;
+            this.mediator = options.mediator;
+            this.orientation = options.orientation;
+
+            this.svgNode = this.view.getSvgNode();
+
+            this.startX = null;
+            this.startY = null;
+
+            this.svgNode.drag(this._onMove, this._onStart, this._onEnd);
+        },
+
+        _onMove : function (dx, dy) {
+
+            var x = this.startX + dx,
+                y = this.startY + dy;
+
+            this.mediator.update(this.orientation, x, y);
+        },
+
+        _onStart : function () {
+            this.startX = parseInt(this.svgNode.attr("cx"));
+            this.startY = parseInt(this.svgNode.attr("cy"));
+        },
+
+        _onEnd : function () {
+            this.startX = null;
+            this.startY = null;
+        },
+
+
+
+
+
+    });
+
+});

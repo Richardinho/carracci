@@ -2,24 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bd4dd7db-33d3-4455-b213-bb1cec28b9b9" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test2/diagramModel2Spec.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test2/nodeEventSpec.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/version2/diagram/diagramModel2.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/version2/diagram/types/typeModel.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/version2/eventNodeRunner.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/version2/testbootstrap.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/version2/utility/eventNode.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test2/diagramModelSpec.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/version2/diagram/diagramModel.js" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/version2/diagram/connectors/horizontalConnectorFactory.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/version2/diagram/connectors/horizontalConnectorModel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/version2/diagram/connectors/lines/lineView.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/version2/diagram/connectors/nodes/arrowController.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/version2/diagram/connectors/nodes/arrowView.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/version2/diagram/connectors/nodes/horizontalNodesMediator.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/version2/utility/svgUtilities.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/karma.conf.js" afterPath="$PROJECT_DIR$/karma.conf.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test2/diagramControllerSpec.js" afterPath="$PROJECT_DIR$/test2/diagramControllerSpec.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test2/typeBoxSpec.js" afterPath="$PROJECT_DIR$/test2/typeBoxSpec.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/version2/bootstrap.js" afterPath="$PROJECT_DIR$/version2/bootstrap.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/version2/diagram/diagramController.js" afterPath="$PROJECT_DIR$/version2/diagram/diagramController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/version2/diagram/types/typeController.js" afterPath="$PROJECT_DIR$/version2/diagram/types/typeController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/version2/diagram/types/typeView.js" afterPath="$PROJECT_DIR$/version2/diagram/types/typeView.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/version2/utility/typeBox.js" afterPath="$PROJECT_DIR$/version2/utility/typeBox.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/version2/diagram/diagramModel2.js" afterPath="$PROJECT_DIR$/version2/diagram/diagramModel2.js" />
     </list>
     <ignored path="Glenmorangie.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -86,41 +79,32 @@
       <file leaf-file-name="nodeEventSpec.js" pinned="true" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test2/nodeEventSpec.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="110" column="113" selection-start="2840" selection-end="2840" vertical-scroll-proportion="0.0">
+            <state line="110" column="0" selection-start="2840" selection-end="2840" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="eventNode.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/version2/utility/eventNode.js">
+      <file leaf-file-name="lineView.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/version2/diagram/connectors/lines/lineView.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="50" column="26" selection-start="1208" selection-end="1208" vertical-scroll-proportion="0.0">
+            <state line="22" column="86" selection-start="537" selection-end="537" vertical-scroll-proportion="0.4029304">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="typeModel.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/version2/diagram/types/typeModel.js">
+      <file leaf-file-name="svgUtilities.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/version2/utility/svgUtilities.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="25" selection-start="873" selection-end="873" vertical-scroll-proportion="0.0">
+            <state line="0" column="16" selection-start="16" selection-end="16" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="typeView.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/version2/diagram/types/typeView.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="85" selection-start="283" selection-end="283" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="baseTypeSpec.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test2/baseTypeSpec.js">
+      <file leaf-file-name="svg.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/version2/utility/svg.js">
           <provider selected="true" editor-type-id="text-editor">
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
@@ -128,19 +112,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="diagramControllerSpec.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test2/diagramControllerSpec.js">
+      <file leaf-file-name="version2.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/version2.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="0" selection-start="1448" selection-end="1448" vertical-scroll-proportion="0.0">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="diagramModel2Spec.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/test2/diagramModel2Spec.js">
+      <file leaf-file-name="horizontalConnectorFactory.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/version2/diagram/connectors/horizontalConnectorFactory.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="114" selection-start="481" selection-end="481" vertical-scroll-proportion="0.39011705">
+            <state line="33" column="38" selection-start="910" selection-end="910" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="typeController.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/version2/diagram/types/typeController.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="19" column="0" selection-start="527" selection-end="1225" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -149,25 +142,16 @@
       <file leaf-file-name="diagramModel2.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/version2/diagram/diagramModel2.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="89" column="48" selection-start="2726" selection-end="2726" vertical-scroll-proportion="0.0">
+            <state line="46" column="35" selection-start="1374" selection-end="1374" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="modelSpec.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test2/modelSpec.js">
+      <file leaf-file-name="horizontalConnectorModel.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/version2/diagram/connectors/horizontalConnectorModel.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="typeBoxSpec.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test2/typeBoxSpec.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="105" selection-start="87" selection-end="87" vertical-scroll-proportion="0.0">
+            <state line="22" column="66" selection-start="430" selection-end="430" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -187,22 +171,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/test2/diagramModelSpec2.js" />
-        <option value="$PROJECT_DIR$/version2/diagram/diagramController.js" />
-        <option value="$PROJECT_DIR$/test2/diagramControllerSpec.js" />
-        <option value="$PROJECT_DIR$/version2/bootstrap.js" />
-        <option value="$PROJECT_DIR$/test2/test-main.js" />
-        <option value="$PROJECT_DIR$/karma.conf.js" />
-        <option value="$PROJECT_DIR$/version2/testbootstrap.js" />
-        <option value="$PROJECT_DIR$/version2/diagram/types/typeController.js" />
-        <option value="$PROJECT_DIR$/version2/utility/eventNode.js" />
         <option value="$PROJECT_DIR$/version2/utility/typeBox.js" />
-        <option value="$PROJECT_DIR$/version2/diagram/diagramModel2.js" />
         <option value="$PROJECT_DIR$/version2/diagram/types/typeModel.js" />
         <option value="$PROJECT_DIR$/version2/diagram/types/typeView.js" />
         <option value="$PROJECT_DIR$/test2/typeBoxSpec.js" />
         <option value="$PROJECT_DIR$/test2/nodeEventSpec.js" />
         <option value="$PROJECT_DIR$/test2/diagramModel2Spec.js" />
+        <option value="$PROJECT_DIR$/version2/bootstrap.js" />
+        <option value="$PROJECT_DIR$/version2/diagram/diagramController.js" />
+        <option value="$PROJECT_DIR$/version2/diagram/diagramModel2.js" />
+        <option value="$PROJECT_DIR$/version2/diagram/connectors/nodes/arrowView.js" />
+        <option value="$PROJECT_DIR$/version2/diagram/connectors/horizontalConnectorModel.js" />
+        <option value="$PROJECT_DIR$/version2/diagram/connectors/nodes/arrowController.js" />
+        <option value="$PROJECT_DIR$/version2/diagram/connectors/nodes/horizontalNodesMediator.js" />
+        <option value="$PROJECT_DIR$/version2/diagram/connectors/horizontalConnectorFactory.js" />
+        <option value="$PROJECT_DIR$/version2/utility/svgUtilities.js" />
+        <option value="$PROJECT_DIR$/version2/diagram/connectors/lines/lineView.js" />
       </list>
     </option>
   </component>
@@ -243,10 +227,10 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="Favorites" />
       <pane id="PackagesPane">
         <subPane />
       </pane>
-      <pane id="Favorites" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -262,6 +246,108 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="carracci" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="carracci" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="carracci" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="carracci" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="carracci" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="carracci" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="carracci" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="utility" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="carracci" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="carracci" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lines" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="view" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="carracci" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="carracci" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lines" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -369,6 +455,80 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="diagram" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="connectors" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="carracci" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="carracci" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="version2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="diagram" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="connectors" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nodes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="carracci" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="carracci" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="version2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="diagram" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="connectors" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lines" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="carracci" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="carracci" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="version2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="core" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -427,13 +587,13 @@
     <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="MemberChooser.sorted" value="false" />
     <property name="options.lastSelected" value="preferences.externalResources" />
+    <property name="MemberChooser.sorted" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="MemberChooser.copyJavadoc" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="MemberChooser.copyJavadoc" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -575,7 +735,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="64" y="-4" width="1217" height="965" extended-state="6" />
+    <frame x="65" y="24" width="1215" height="936" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -587,7 +747,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39935064" sideWeight="0.6700379" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17152658" sideWeight="0.9595449" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3207547" sideWeight="0.9595449" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="JsTestDriver Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -595,9 +755,9 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.04045512" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -650,18 +810,44 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/version2/eventNodeRunner.html">
+    <entry file="file://$PROJECT_DIR$/version2/utility/eventNode.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="100" column="15" selection-start="2562" selection-end="2562" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/version2/testbootstrap.js">
+    <entry file="file://$PROJECT_DIR$/test2/nodeEventSpec.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="31" selection-start="386" selection-end="386" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="110" column="0" selection-start="2840" selection-end="2840" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/version2/core/BaseType.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/version2/diagram/connectors/nodes/horizontalNodesMediator.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="18" selection-start="1050" selection-end="1050" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/version2/diagram/connectors/nodes/arrowController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="51" selection-start="340" selection-end="340" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/version2/diagram/connectors/nodes/arrowView.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="26" selection-start="0" selection-end="980" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/version2/diagram/types/typeController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="0" selection-start="527" selection-end="1225" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/version2/diagram/diagramModel2.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="35" selection-start="1374" selection-end="1374" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/version2.html">
@@ -671,93 +857,47 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/version2/diagram/types/typeController.js">
+    <entry file="file://$PROJECT_DIR$/web/js/lines/view/view.line.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="21" selection-start="933" selection-end="933" vertical-scroll-proportion="0.0">
+        <state line="8" column="41" selection-start="258" selection-end="258" vertical-scroll-proportion="0.14652015">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/version2/diagram/diagramController.js">
+    <entry file="file://$PROJECT_DIR$/web/js/utility/svgUtilities.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="8" selection-start="57" selection-end="66" vertical-scroll-proportion="0.10989011">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/version2/diagram/connectors/horizontalConnectorFactory.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="38" selection-start="910" selection-end="910" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/version2/utility/svg.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/version2/utility/typeBox.js">
+    <entry file="file://$PROJECT_DIR$/version2/utility/svgUtilities.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="194" column="34" selection-start="5398" selection-end="5398" vertical-scroll-proportion="14.08">
+        <state line="0" column="16" selection-start="16" selection-end="16" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/version2/diagram/types/typeView.js">
+    <entry file="file://$PROJECT_DIR$/version2/diagram/connectors/horizontalConnectorModel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="85" selection-start="283" selection-end="283" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="22" column="66" selection-start="430" selection-end="430" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test2/baseTypeSpec.js">
+    <entry file="file://$PROJECT_DIR$/version2/diagram/connectors/lines/lineView.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test2/diagramControllerSpec.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="0" selection-start="1448" selection-end="1448" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test2/modelSpec.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test2/typeBoxSpec.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="105" selection-start="87" selection-end="87" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test2/nodeEventSpec.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="110" column="113" selection-start="2840" selection-end="2840" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/version2/diagram/diagramModel2.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="89" column="48" selection-start="2726" selection-end="2726" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/version2/utility/eventNode.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="26" selection-start="1208" selection-end="1208" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/version2/diagram/types/typeModel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="25" selection-start="873" selection-end="873" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test2/diagramModel2Spec.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="114" selection-start="481" selection-end="481" vertical-scroll-proportion="0.39011705">
+        <state line="22" column="86" selection-start="537" selection-end="537" vertical-scroll-proportion="0.4029304">
           <folding />
         </state>
       </provider>
