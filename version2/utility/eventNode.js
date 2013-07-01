@@ -91,15 +91,18 @@ define([],function () {
     }
 
     //  set value of node. fire event
-    Node.prototype.set = function (newValue) {
+    Node.prototype.set = function (newValue, silent) {
 
-        if (this.value) {
+        if (this.value || this.value === 0) {
             var oldValue = this.value;
             this.value = newValue;
-            this.fire( "change", newValue, oldValue );
+            if(!silent) {
+                this.fire( "change", newValue, oldValue );
+            }
         } else {
             throw {
-                name: "NonPrimitiveNodeException"
+                name: "NonPrimitiveNodeException",
+                message : newValue + " " + oldValue
             }
         }
     }

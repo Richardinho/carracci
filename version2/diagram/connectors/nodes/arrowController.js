@@ -16,6 +16,14 @@ define(["core/BaseType", "underscore" ], function ( BaseType, _ ) {
             this.startY = null;
 
             this.svgNode.drag(this._onMove, this._onStart, this._onEnd);
+
+            var that = this;
+
+            this.svgNode.click(function (event) {
+                if(event.shiftKey) {
+                    that.mediator.fireAttachRequest(that.orientation);
+                }
+            });
         },
 
         _onMove : function (dx, dy) {
@@ -34,7 +42,8 @@ define(["core/BaseType", "underscore" ], function ( BaseType, _ ) {
         _onEnd : function () {
             this.startX = null;
             this.startY = null;
-        },
+        }
+
 
 
 

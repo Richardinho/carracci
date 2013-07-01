@@ -1,11 +1,13 @@
 define(["core/BaseType",
         "utility/eventNode",
         "diagram/types/typeModel",
-        "diagram/connectors/horizontalConnectorModel"],
+        "diagram/connectors/horizontalConnectorModel",
+        "diagram/boxNodeMediator"],
         function (  BaseType,
                     Node,
                     TypeModel,
-                    HorizontalConnectorModel) {
+                    HorizontalConnectorModel,
+                    BoxNodeMediator) {
 
     return BaseType.extend({
 
@@ -14,6 +16,29 @@ define(["core/BaseType",
 
             this.model = new Node({
                 diagrams : {}
+            });
+            // nodeOrientation is simply a string 'left', 'right' etc.
+            this.model.on("attachRequest", function (nodeMediator, nodeOrientation) {
+
+                this.requestedNode = {
+                    nodeMediator : nodeMediator,
+                    nodeOrientation : nodeOrientation
+                }
+            });
+
+            this.model.on("receiveRequest", function (typeController) {
+                if(this.requestedNode) {
+                    //  create mediator
+
+                    new BoxNodeMediator({
+
+                        nodeMediator : this.requestedNode.nodeMediator,
+                        nodeOrientation : this.requestedNode.nodeOrientation,
+                        typeController : typeController
+                    });
+                    // null out requested node.
+                    this.requestedNode = null;
+                }
             });
         },
 
@@ -99,12 +124,14 @@ define(["core/BaseType",
 
                 },
                 xCood : 700,
-                yCood : 400
+                yCood : 400,
+                width : 10,
+                height : 10
 
             });
 
             return new TypeModel({
-
+                diagramModel : this.model,
                 model : typeModel
             });
 

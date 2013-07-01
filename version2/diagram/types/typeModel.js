@@ -10,6 +10,7 @@ define(["core/BaseType"],
     return BaseType.extend({
 
         initialize : function (options) {
+            this.diagramModel = options.diagramModel;
             this.model = options.model;
             this.listeners = {};
 
@@ -43,14 +44,48 @@ define(["core/BaseType"],
         },
 
         getName : function () {
-            debugger;
             return this.model.name;
+        },
+
+        fireReceiveClickEvent : function (controller) {
+
+            console.log("click receive click on type box");
+            this.model.fire("receiveRequest", controller)
         },
 
         setCoods : function (x, y) {
             this.model.children['xCood'].set(x);
             this.model.children['yCood'].set(y);
             this.fire("move");
+        },
+
+        /*
+            setting width and height are special cases where the view rendering results in the
+            model being changed. This is because we can't know the width of the type box
+            until we've rendered it.
+
+            Trying to fire event on root model which mediators will be able to listen to
+            and update accordingly
+        */
+        setWidth : function (width) {
+            this.model.children['width'].set(width, true);
+            this.diagramModel.fire("changeTypeWidth")
+        },
+
+        setHeight : function (height) {
+
+            this.model.children['height'].set(height, true);
+            this.diagramModel.fire("changeTypeHeight")
+        },
+
+        getHeight : function () {
+
+            return this.model.children['height'].value;
+        },
+
+        getWidth : function () {
+
+            return this.model.children['width'].value;
         },
 
         getFlavor : function () {

@@ -38,7 +38,6 @@ define(['utility/svg', 'core/BaseType', 'underscore'], function(svg, BaseType, _
             var xCood = this.model.getXCood();
             var yCood = this.model.getYCood();
             var name = this.model.getName();
-            debugger;
 
 
             this._calculateGeometry();
@@ -66,6 +65,8 @@ define(['utility/svg', 'core/BaseType', 'underscore'], function(svg, BaseType, _
 
 
             var width = this._calculateWidth();
+
+
             var height = this._calculateHeight();
 
             this.rect = svg.rect(
@@ -99,12 +100,16 @@ define(['utility/svg', 'core/BaseType', 'underscore'], function(svg, BaseType, _
                 width = tempWidth > width ? tempWidth : width;
             });
 
-            return width + this.paddingLeft + this.paddingRight;
+            width = width + this.paddingLeft + this.paddingRight;
+            this.model.setWidth(width);
+            return width;
         },
 
         _calculateHeight : function () {
 
-            return ( _.size(this.model.getMethods()) * this.lineHeight ) + this.methodsYOffset + this.paddingBottom;
+            var height =  ( _.size(this.model.getMethods()) * this.lineHeight ) + this.methodsYOffset + this.paddingBottom;
+            this.model.setHeight(height);
+            return height;
         },
 
         _calculateGeometry : function () {
@@ -269,7 +274,7 @@ define(['utility/svg', 'core/BaseType', 'underscore'], function(svg, BaseType, _
         move : function () {
             var x = this.model.getXCood();
             var y = this.model.getYCood();
-
+            console.log("move box", x)
             this.rect.attr({ "x" : x });
             this.rect.attr({ "y" : y });
 

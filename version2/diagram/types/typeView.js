@@ -36,7 +36,9 @@ define(["core/BaseType", 'utility/typeBox'],function (BaseType, TypeBox) {
         },
 
         update : function () {
-            this.box.update();
+            if(this.box) {
+                this.box.update();
+            }
         }
     });
 });

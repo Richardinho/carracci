@@ -19,6 +19,28 @@ define(['core/BaseType',
 
             var model = horizontalConnectorModel;
 
+
+            // create lines first so they appear below nodes. (crude, I know!)
+            new LineView({
+                modelA : model.getLeftArrow(),
+                modelB : model.getProximalNode(),
+                connectorModel : model
+            });
+
+            new LineView({
+                modelA : model.getProximalNode(),
+                modelB : model.getDistalNode(),
+                connectorModel : model
+            });
+
+
+            new LineView({
+                modelA : model.getDistalNode(),
+                modelB : model.getRightArrow(),
+                connectorModel : model
+            });
+
+
             // create node views.
             var leftArrowView = new ArrowView({
                 model : model.getLeftArrow()
@@ -26,17 +48,21 @@ define(['core/BaseType',
 
             var proximalArrowView = new ArrowView({
                 model : model.getProximalNode()
-            })
-
-            new LineView({
-                modelA : model.getLeftArrow(),
-                modelB : model.getProximalNode(),
-                connectorModel : model
             });
+
+            var distalArrowView = new ArrowView({
+                model : model.getDistalNode()
+            });
+
+            var rightArrowView = new ArrowView({
+                model : model.getRightArrow()
+            })
 
             var horizontalArrowMediator = new HorizontalNodesMediator({
                 leftArrowModel : model.getLeftArrow(),
-                proximalNodeModel : model.getProximalNode()
+                proximalNodeModel : model.getProximalNode(),
+                distalNodeModel : model.getDistalNode(),
+                rightArrowModel : model.getRightArrow()
             });
 
             new ArrowController({
@@ -49,6 +75,18 @@ define(['core/BaseType',
                 orientation : "proximal",
                 mediator : horizontalArrowMediator,
                 view : proximalArrowView
+            });
+
+            new ArrowController({
+                orientation : "distal",
+                mediator : horizontalArrowMediator,
+                view : distalArrowView
+            });
+
+            new ArrowController({
+                orientation : "right",
+                mediator : horizontalArrowMediator,
+                view : rightArrowView
             });
 
 

@@ -21,6 +21,16 @@ define(["core/BaseType"],
         getProximalNode : function () {
 
             return this.model.children['nodes'].children['proximal'];
+        },
+
+        getDistalNode : function () {
+
+            return this.model.children['nodes'].children['distal'];
+        },
+
+        getRightArrow : function () {
+
+            return this.model.children['nodes'].children['right'];
         }
 
 

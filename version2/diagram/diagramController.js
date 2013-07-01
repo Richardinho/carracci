@@ -39,6 +39,7 @@ define(['core/BaseType'],function (BaseType) {
             this.create('diagram','foo');
             this.use('diagram','foo');
             this.create('type','Bar');
+            this.create('connector', 'horizontal');
 
         },
 
