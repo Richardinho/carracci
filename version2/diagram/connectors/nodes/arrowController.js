@@ -9,6 +9,8 @@ define(["core/BaseType", "underscore" ], function ( BaseType, _ ) {
             this.view = options.view;
             this.mediator = options.mediator;
             this.orientation = options.orientation;
+            this.model = options.model;
+            var f4 = false;
 
             this.svgNode = this.view.getSvgNode();
 
@@ -19,11 +21,42 @@ define(["core/BaseType", "underscore" ], function ( BaseType, _ ) {
 
             var that = this;
 
+
+            this.model.on("f4Event", handleF4, this);
+
             this.svgNode.click(function (event) {
                 if(event.shiftKey) {
-                    that.mediator.fireAttachRequest(that.orientation);
+                    if(!that._isAttached()) {
+                        that.mediator.fireAttachRequest(that.orientation);
+                    } else {
+                        that.mediator.removeBoxNodeMediator(that.orientation);
+                    }
                 }
             });
+
+
+            var flag = false;
+            function handleF4 (value) {
+
+                function changeLineStyle() {
+                    that.mediator.changeLineStyle();
+                }
+
+                if(value && !flag) {
+                    flag = true;
+                    that.svgNode.mousedown(changeLineStyle);
+                } else if(value = false) {
+                    flag = false;
+                    that.svgNode.unmousedown(changeLineStyle);
+                }
+            }
+        },
+
+
+
+        _isAttached : function () {
+
+            return this.model.children['attached'].value;
         },
 
         _onMove : function (dx, dy) {

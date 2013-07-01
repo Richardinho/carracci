@@ -52,7 +52,7 @@ define(['utility/svg'], function(svg) {
         },
 
         resetLine : function (line, type) {
-            if (type === "dashes") {
+            if (type === "dashed") {
                 line.attr("stroke-dasharray", "-");
             } else {
                 line.attr({"stroke-dasharray" : ""});

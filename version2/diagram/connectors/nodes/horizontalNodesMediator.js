@@ -12,10 +12,12 @@ define(["core/BaseType",
             this.proximalNodeModel = options.proximalNodeModel;
             this.distalNodeModel = options.distalNodeModel;
             this.rightArrowModel = options.rightArrowModel;
+            this.connectorModel = options.connectorModel;
 
         },
 
         addBoxNodeMediator : function (boxNodeMediator, orientation) {
+
             if(orientation === "left") {
                 this._attachTypeBoxToLeftNode(boxNodeMediator);
             } else if(orientation === "right") {
@@ -27,16 +29,38 @@ define(["core/BaseType",
             }
         },
 
-        _attachTypeBoxToRightNode : function (boxNodeMediator) {
+        changeLineStyle : function () {
+            console.log("horizontal mediator changeLIneStyle")
+            this.connectorModel.alternateLineStyle();
+        },
+        // called from node controller
+        removeBoxNodeMediator : function (orientation) {
 
-            this.rightNodeAttached = true;
+            if(orientation === "left") {
+
+                this.leftArrowModel.children['attached'].set(false);
+                this.leftNodeTypeBoxMediator.destroy();
+                this.leftNodeTypeBoxMediator = null;
+
+            } else {
+
+                this.rightArrowModel.children['attached'].set(false);
+                this.rightNodeTypeBoxMediator.destroy();
+                this.rightNodeTypeBoxMediator = null;
+            }
+
+        },
+
+        _attachTypeBoxToRightNode : function (boxNodeMediator) {
+            this.rightArrowModel.children['attached'].set(true);
+
             this.rightNodeTypeBoxMediator = boxNodeMediator;
 
         },
 
         _attachTypeBoxToLeftNode : function (boxNodeMediator) {
 
-            this.leftNodeAttached = true;
+            this.leftArrowModel.children['attached'].set(true);
             this.leftNodeTypeBoxMediator = boxNodeMediator;
         },
 
@@ -165,7 +189,7 @@ define(["core/BaseType",
 
         updateProximalNode : function (x, y) {
 
-            if(this.rightNodeAttached) {
+            if(this._rightArrowAttached()) {
 
                 /*
                     move right arrow node onto right or left edge of box
@@ -185,7 +209,7 @@ define(["core/BaseType",
                 }
             }
 
-            if(this.leftNodeAttached) {
+            if(this._leftArrowAttached() ) {
 
                 var currentX = this.proximalNodeModel.children['xCood'].value;
                 var currentY = this.proximalNodeModel.children['yCood'].value;
@@ -223,7 +247,7 @@ define(["core/BaseType",
 
         updateDistalNode : function (x, y) {
 
-            if(this.rightNodeAttached) {
+            if(this._rightArrowAttached()) {
                 var currentX = this.distalNodeModel.children['xCood'].value;
                 var currentY = this.distalNodeModel.children['yCood'].value;
 
@@ -253,7 +277,7 @@ define(["core/BaseType",
 
             }
 
-            if(this.leftNodeAttached) {
+            if(this._leftArrowAttached() ) {
 
                 /*
                     move right arrow node onto right or left edge of box
@@ -282,7 +306,7 @@ define(["core/BaseType",
 
         updateRightArrow : function (x, y) {
 
-            if(this.rightNodeAttached) {
+            if(this._rightArrowAttached()) {
                 /*
                     if we're currently attached to a type box,  check against
                     the mediator if the proposed coods are acceptable
@@ -299,6 +323,16 @@ define(["core/BaseType",
             this.rightArrowModel.children['yCood'].set(y);
             this.distalNodeModel.children['yCood'].set(y);
 
+        },
+
+        _rightArrowAttached : function () {
+
+            return this.rightArrowModel.children['attached'].value;
+        },
+
+        _leftArrowAttached : function () {
+
+            return this.leftArrowModel.children['attached'].value;
         }
 
 

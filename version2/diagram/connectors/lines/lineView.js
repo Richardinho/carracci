@@ -27,6 +27,7 @@ define(["core/BaseType",
         updateLine : function () {
 
             svgUtils.resetPath(this.line, this.buildPath());
+            svgUtils.resetLine(this.line, this.connectorModel.getLineStyle());
         },
 
         buildPath : function () {

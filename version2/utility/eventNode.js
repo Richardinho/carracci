@@ -66,13 +66,29 @@ define([],function () {
     },
 
     // broadcast event to all child nodes.
-    Node.prototype.broadcast = function () {
+    Node.prototype.broadcast = function (event) {
+        // call all listeners on this node
 
+        if(this.listeners) {
+            var listeners = this.listeners[event];
+        }
+        if(listeners) {
+            var args =  Array.prototype.slice.call(arguments, 1);
+            for (var i = 0; i < listeners.length; i++) {
+                // call handler using context as 'this'
+                listeners[i][0].apply(listeners[i][1], args);
+            }
+        }
+        // fire broadcast on children
+        for(var child in this.children) {
 
+            this.children[child].broadcast.apply(this.children[child], arguments);
+        }
     },
 
     // fire method. calls fire method of parent node
-    Node.prototype.fire = function (event, newValue, oldValue) {
+    Node.prototype.fire = function (event) {
+
 
         if(this.listeners) {
             var listeners = this.listeners[event];
@@ -93,7 +109,7 @@ define([],function () {
     //  set value of node. fire event
     Node.prototype.set = function (newValue, silent) {
 
-        if (this.value || this.value === 0) {
+        if (this.value !== undefined) {
             var oldValue = this.value;
             this.value = newValue;
             if(!silent) {

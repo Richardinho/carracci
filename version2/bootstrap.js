@@ -56,11 +56,10 @@ require(['jquery',
     $(document).ready(function () {
 
 
+        var diagramModel = new DiagramModel();
 
         var diagramController = new DiagramController({
-            diagramModel : new DiagramModel({
-                idGenerator : idGenerator
-            }),
+            diagramModel : diagramModel,
             TypeView : TypeView,
             TypeController : TypeController,
             horizontalConnectorFactory : horizontalConnectorFactory
@@ -83,7 +82,8 @@ require(['jquery',
 
         new EditorController({
             keymap : keymap,
-            model : editorModel
+            model : editorModel,
+            diagramModel: diagramModel
         });
 
 

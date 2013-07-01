@@ -17,6 +17,7 @@ define(["core/BaseType",
             this.model = new Node({
                 diagrams : {}
             });
+
             // nodeOrientation is simply a string 'left', 'right' etc.
             this.model.on("attachRequest", function (nodeMediator, nodeOrientation) {
 
@@ -25,6 +26,8 @@ define(["core/BaseType",
                     nodeOrientation : nodeOrientation
                 }
             });
+
+
 
             this.model.on("receiveRequest", function (typeController) {
                 if(this.requestedNode) {
@@ -40,6 +43,10 @@ define(["core/BaseType",
                     this.requestedNode = null;
                 }
             });
+        },
+
+        setF4 : function (f4) {
+            this.model.broadcast("f4Event", f4);
         },
 
         createDiagram : function (diagramName, node) {
@@ -69,14 +76,15 @@ define(["core/BaseType",
                     orientation : "horizontal",
                     nodes : {
 
-                        left : { xCood : 100, yCood : 100},
-                        proximal : { xCood : 200, yCood : 100},
-                        distal : { xCood : 200, yCood : 300},
-                        right : { xCood : 400, yCood : 300}
+                        left : { xCood : 100, yCood : 100, attached : false },
+                        proximal : { xCood : 200, yCood : 100, attached : false },
+                        distal : { xCood : 200, yCood : 300, attached : false },
+                        right : { xCood : 400, yCood : 300, attached : false }
 
-                    }
+                    },
+                    lineStyle : "solid"
                     /* might also include which types the connector is
-                    connected to, type of line, type of relationship
+                    connected to, type of relationship
                     Need to decide whether to express semantics or
                     or simply mechanics
                     */

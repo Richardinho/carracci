@@ -49,7 +49,17 @@ require(['jquery', 'utility/eventNode'],
             }
         });
 
-        console.log(foo.unwrap());
+        var childNode = foo.children['bar']
+                    .children['eco']
+                    .children['goat']
+                    .children['hat1'];
+
+        childNode.on("anEvent", function (arg) {
+            debugger;
+            eventArg = arg;
+        });
+
+        foo.broadcast("anEvent", "foo");
 
 
 

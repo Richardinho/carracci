@@ -62,29 +62,34 @@ define(['core/BaseType',
                 leftArrowModel : model.getLeftArrow(),
                 proximalNodeModel : model.getProximalNode(),
                 distalNodeModel : model.getDistalNode(),
-                rightArrowModel : model.getRightArrow()
+                rightArrowModel : model.getRightArrow(),
+                connectorModel : model
             });
 
             new ArrowController({
                 orientation : "left",
+                model : model.getLeftArrow(),
                 mediator : horizontalArrowMediator,
                 view : leftArrowView
             });
 
             new ArrowController({
                 orientation : "proximal",
+                model : model.getProximalNode(),
                 mediator : horizontalArrowMediator,
                 view : proximalArrowView
             });
 
             new ArrowController({
                 orientation : "distal",
+                model : model.getDistalNode(),
                 mediator : horizontalArrowMediator,
                 view : distalArrowView
             });
 
             new ArrowController({
                 orientation : "right",
+                model : model.getRightArrow(),
                 mediator : horizontalArrowMediator,
                 view : rightArrowView
             });

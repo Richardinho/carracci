@@ -29,6 +29,25 @@ define(['utility/eventNode', 'underscore'], function(EventNode, _) {
            expect(foo.children['bar'].children['dan1'].value).toBe("dan1");
         });
 
+        describe("broadcasting", function () {
+            var eventArg;
+            beforeEach(function () {
+                var childNode = foo.children['bar']
+                                    .children['eco']
+                                    .children['goat']
+                                    .children['hat1'];
+
+                childNode.on("anEvent", function () {
+                    eventArg = arguments[0];
+                });
+
+                foo.broadcast("anEvent", "foo");
+            });
+            it("should fire event on child node", function () {
+                expect(eventArg).toBe("foo");
+            });
+        });
+
         describe("unwrapping a node", function () {
 
             var unwrapped;

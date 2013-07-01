@@ -70,6 +70,7 @@ define(["core/BaseType",
                 diffY = y - oldY;
 
             this.model.setCoods(x, y);
+
             _.each(this.attachedNodesMediators, function (mediator) {
 
                 mediator.moveNode(diffX, diffY);
@@ -91,6 +92,16 @@ define(["core/BaseType",
         addAttachedNodeMediator : function (mediator) {
 
             this.attachedNodesMediators.push(mediator);
+        },
+
+        unAttachNodeMediator : function (mediator) {
+
+            _.each(this.attachedNodesMediators, function (item, index) {
+
+                if(item === mediator) {
+                    this.attachedNodesMediators.splice(index, 1);
+                }
+            }, this);
         }
     });
 });

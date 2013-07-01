@@ -23,6 +23,11 @@ define([
 
         },
 
+        destroy : function () {
+            this.typeController.unAttachNodeMediator(this);
+
+        },
+
         /*
             move node in response to type box moving. call from type box controller.
         */
