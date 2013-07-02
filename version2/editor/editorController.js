@@ -26,10 +26,6 @@ define(["core/BaseType", "jquery"],function (BaseType, $) {
                 else if(that.excludeKey(event.keyCode)) {
                     return true; // don't swallow event
                 }
-                // f4
-                else if( event.keyCode === 115) {
-                    that.diagramModel.setF4(true);
-                }
 
                 else {
                     var char = that.getChar(event);
@@ -40,16 +36,11 @@ define(["core/BaseType", "jquery"],function (BaseType, $) {
 
             });
 
-            $(document).keyup(function () {
-               console.log("keyup")
-               that.diagramModel.setF4(false);
-
-            });
         },
         // these keys should do their default behaviour.
         excludeKey : function (keyCode) {
             if(
-                keyCode === 18 || // alt
+
                 keyCode === 116 || // f5
                 keyCode == 16 // shift
             ) {

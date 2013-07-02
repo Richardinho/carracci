@@ -45,10 +45,6 @@ define(["core/BaseType",
             });
         },
 
-        setF4 : function (f4) {
-            this.model.broadcast("f4Event", f4);
-        },
-
         createDiagram : function (diagramName, node) {
 
             if(node) {

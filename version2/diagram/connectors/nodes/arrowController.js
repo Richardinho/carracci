@@ -10,7 +10,6 @@ define(["core/BaseType", "underscore" ], function ( BaseType, _ ) {
             this.mediator = options.mediator;
             this.orientation = options.orientation;
             this.model = options.model;
-            var f4 = false;
 
             this.svgNode = this.view.getSvgNode();
 
@@ -21,9 +20,6 @@ define(["core/BaseType", "underscore" ], function ( BaseType, _ ) {
 
             var that = this;
 
-
-            this.model.on("f4Event", handleF4, this);
-
             this.svgNode.click(function (event) {
                 if(event.shiftKey) {
                     if(!that._isAttached()) {
@@ -32,27 +28,13 @@ define(["core/BaseType", "underscore" ], function ( BaseType, _ ) {
                         that.mediator.removeBoxNodeMediator(that.orientation);
                     }
                 }
-            });
+                if(event.ctrlKey) {
 
-
-            var flag = false;
-            function handleF4 (value) {
-
-                function changeLineStyle() {
                     that.mediator.changeLineStyle();
                 }
+            });
 
-                if(value && !flag) {
-                    flag = true;
-                    that.svgNode.mousedown(changeLineStyle);
-                } else if(value = false) {
-                    flag = false;
-                    that.svgNode.unmousedown(changeLineStyle);
-                }
-            }
         },
-
-
 
         _isAttached : function () {
 
