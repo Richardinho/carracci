@@ -25,6 +25,7 @@ define(["core/BaseType",
 
             this.model.onXCood("change", this.updateX, this);
             this.model.onYCood("change", this.updateY, this);
+            this.model.on("switchArrowHead", this.switchArrowHead, this);
 
 
 
@@ -35,6 +36,12 @@ define(["core/BaseType",
                     model : this.model
                 })
             }
+        },
+
+        switchArrowHead : function () {
+
+            console.log(" switch arrow head update arrow view")
+            this.arrow.changeArrowHead();
         },
 
         getSvgNode : function () {

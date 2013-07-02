@@ -26,7 +26,8 @@ define(['utility/svg'], function(svg) {
         nullObject : function () {
 
             return {
-                attr : function () {}
+                attr : function () {},
+                remove : function () {}
 
             }
         },

@@ -40,6 +40,12 @@ define(["core/BaseType",
 
         },
 
+        changeArrowHead : function () {
+
+            this.element.remove();
+            this._createElement();
+        },
+
         _createElement : function () {
 
             var style = this._getStyle();

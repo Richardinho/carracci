@@ -17,9 +17,7 @@ define(["core/BaseType",
             this.mediator = options.mediator;
             this.orientation = options.orientation;
 
-            this.model = new NodeModel({
-                model : options.model
-            });
+            this.model =  options.model;
 
             this.svgNode = this.view.getSvgNode();
 
@@ -30,24 +28,31 @@ define(["core/BaseType",
 
             var that = this;
 
-            this.svgNode.click(function (event) {
-                if(!event.ctrlKey && event.shiftKey) {
-                    if(!that._isAttached()) {
-                        that.mediator.fireAttachRequest(that.orientation);
-                    } else {
-                        that.mediator.removeBoxNodeMediator(that.orientation);
+            if(this.orientation === "left" || this.orientation === "right") {
+
+                this.svgNode.click(function (event) {
+                    if(!event.ctrlKey && event.shiftKey) {
+                    debugger;
+                        if(!that._isAttached()) {
+                            that.mediator.fireAttachRequest(that.orientation);
+                        } else {
+                            that.mediator.removeBoxNodeMediator(that.orientation);
+                        }
                     }
-                }
+
+                    else if(event.ctrlKey && event.shiftKey) {
+
+                        that.model.switchArrowHead();
+                    }
+                });
+            }
+
+            this.svgNode.click(function (event) {
                 if(event.ctrlKey && !event.shiftKey) {
 
                     that.mediator.changeLineStyle();
                 }
-                if(event.ctrlKey && event.shiftKey) {
-
-                   // this.model.children[]
-                }
             });
-
         },
 
         _isAttached : function () {

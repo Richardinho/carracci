@@ -13,6 +13,13 @@ define([
 
             this.model = options.model;
 
+            this.arrowHeadStyles = [
+                "whiteArrow",
+                "blackDiamond",
+                "blackConnectArrow",
+                "none"
+            ];
+            this.currentArrowHeadIndex = 0;
 
         },
 
@@ -23,10 +30,12 @@ define([
         },
 
         setXCood : function (x) {
+
             this.model.children['xCood'].set(x);
         },
 
         setYCood : function (y) {
+
             this.model.children['yCood'].set(y);
         },
 
@@ -50,9 +59,25 @@ define([
             this.model.children['yCood'].on(event, handler, context);
         },
 
+        on : function (event, handler, context) {
+            this.model.on(event, handler, context);
+
+        },
+
         getStyle : function () {
 
             return this.model.children['arrow'].children['style'].value;
+        },
+
+        switchArrowHead : function () {
+
+            var arrowHead = this.arrowHeadStyles[this.currentArrowHeadIndex];
+
+            this.model.children['arrow'].children['style'].set(arrowHead, true);
+            this.model.fire("switchArrowHead");
+
+            this.currentArrowHeadIndex = (this.currentArrowHeadIndex + 1) % this.arrowHeadStyles.length;
+
         },
 
         getDirection : function () {
@@ -73,6 +98,7 @@ define([
         },
 
         isArrowNode : function () {
+
             if(this.model.children['arrow']) {
 
                 return true;
