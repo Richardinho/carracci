@@ -115,7 +115,7 @@ define([
             var bottomY = this.typeController.getBottomYLimit();
 
             var y = (topY + bottomY) /2;
-
+            debugger;
             this.nodeMediator.update(this.nodeOrientation, x, y);
         }
 

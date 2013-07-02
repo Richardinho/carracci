@@ -72,10 +72,37 @@ define(["core/BaseType",
                     orientation : "horizontal",
                     nodes : {
 
-                        left : { xCood : 100, yCood : 100, attached : false },
-                        proximal : { xCood : 200, yCood : 100, attached : false },
-                        distal : { xCood : 200, yCood : 300, attached : false },
-                        right : { xCood : 400, yCood : 300, attached : false }
+                        left : {
+                            xCood : 100,
+                            yCood : 100,
+                            attached : false,
+                            arrow : {
+                                style : "blackConnectArrow",
+                                direction : "left"
+                            }
+                        },
+
+                        proximal : {
+                            xCood : 200,
+                            yCood : 100,
+                            attached : false
+                        },
+
+                        distal : {
+                            xCood : 200,
+                            yCood : 300,
+                            attached : false
+                        },
+
+                        right : {
+                            xCood : 400,
+                            yCood : 300,
+                            attached : false,
+                            arrow : {
+                                style : "whiteArrow",
+                                direction : "right"
+                            }
+                        }
 
                     },
                     lineStyle : "solid"

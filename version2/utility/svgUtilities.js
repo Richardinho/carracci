@@ -23,10 +23,20 @@ define(['utility/svg'], function(svg) {
             element.attr("opacity", opacity );
         },
 
+        nullObject : function () {
+
+            return {
+                attr : function () {}
+
+            }
+        },
+
         createPath : function (path, color) {
             var element = svg.path(path);
-            element.attr({ fill : color } );
-            element.attr({stroke : color})
+            if(color) {
+                element.attr({ fill : color } );
+            }
+            element.attr({stroke : "black" })
             return element;
         },
 
@@ -36,14 +46,10 @@ define(['utility/svg'], function(svg) {
 
         createCircle : function(x, y) {
             var circle = svg.circle(x, y, 10);
-            circle.attr("fill" , "green");
-            circle.attr("opacity", 0);
-            circle.attr("stroke", "#fff");
             return circle;
         },
 
         resetRectangle : function (rect, x, y) {
-            //rect.translate(x, y);
             rect.attr({ "x" : x, "y" : y });
         },
 

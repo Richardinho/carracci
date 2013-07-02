@@ -39,13 +39,8 @@ define(['core/BaseType'],function (BaseType) {
             this.create('diagram','foo');
             this.use('diagram','foo');
             this.create('type','Bar');
-            /*ToDo: this was creating a weird bug. I couldn't change the line style
-             on this connector after creating new connectors. Seems to be because the
-             order of events (mouseclick and keydown ) was different for this connector
-             I have no idea why! Problem doesn't seem to happen with manually
-             created connectors- although these are created in exactly the same way!
-            */
-            //this.create('connector', 'horizontal');
+
+            this.create('connector', 'horizontal');
 
         },
 

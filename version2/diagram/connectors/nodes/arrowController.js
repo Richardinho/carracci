@@ -1,4 +1,11 @@
-define(["core/BaseType", "underscore" ], function ( BaseType, _ ) {
+define(["core/BaseType",
+        "underscore",
+        "diagram/connectors/nodes/nodeModel"],
+
+        function (
+             BaseType,
+             _,
+             NodeModel) {
 
     return BaseType.extend({
 
@@ -9,7 +16,10 @@ define(["core/BaseType", "underscore" ], function ( BaseType, _ ) {
             this.view = options.view;
             this.mediator = options.mediator;
             this.orientation = options.orientation;
-            this.model = options.model;
+
+            this.model = new NodeModel({
+                model : options.model
+            });
 
             this.svgNode = this.view.getSvgNode();
 
@@ -21,16 +31,20 @@ define(["core/BaseType", "underscore" ], function ( BaseType, _ ) {
             var that = this;
 
             this.svgNode.click(function (event) {
-                if(event.shiftKey) {
+                if(!event.ctrlKey && event.shiftKey) {
                     if(!that._isAttached()) {
                         that.mediator.fireAttachRequest(that.orientation);
                     } else {
                         that.mediator.removeBoxNodeMediator(that.orientation);
                     }
                 }
-                if(event.ctrlKey) {
+                if(event.ctrlKey && !event.shiftKey) {
 
                     that.mediator.changeLineStyle();
+                }
+                if(event.ctrlKey && event.shiftKey) {
+
+                   // this.model.children[]
                 }
             });
 
@@ -38,7 +52,7 @@ define(["core/BaseType", "underscore" ], function ( BaseType, _ ) {
 
         _isAttached : function () {
 
-            return this.model.children['attached'].value;
+            return this.model.isAttached();
         },
 
         _onMove : function (dx, dy) {

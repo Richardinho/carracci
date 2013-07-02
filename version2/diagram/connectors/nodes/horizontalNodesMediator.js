@@ -1,6 +1,8 @@
 define(["core/BaseType",
+        "diagram/connectors/nodes/nodeModel"
          ],function (
-            BaseType
+            BaseType,
+            NodeModel
         ) {
 
 
@@ -8,10 +10,10 @@ define(["core/BaseType",
 
         initialize : function (options) {
 
-            this.leftArrowModel = options.leftArrowModel;
-            this.proximalNodeModel = options.proximalNodeModel;
-            this.distalNodeModel = options.distalNodeModel;
-            this.rightArrowModel = options.rightArrowModel;
+            this.leftArrowModel = new NodeModel({ model :  options.leftArrowModel });
+            this.proximalNodeModel = new NodeModel({ model : options.proximalNodeModel});
+            this.distalNodeModel =  new NodeModel({ model : options.distalNodeModel });
+            this.rightArrowModel = new NodeModel({ model : options.rightArrowModel });
             this.connectorModel = options.connectorModel;
 
         },
@@ -38,13 +40,14 @@ define(["core/BaseType",
 
             if(orientation === "left") {
 
-                this.leftArrowModel.children['attached'].set(false);
+
+                this.leftArrowModel.setAttached(false);
                 this.leftNodeTypeBoxMediator.destroy();
                 this.leftNodeTypeBoxMediator = null;
 
             } else {
 
-                this.rightArrowModel.children['attached'].set(false);
+                this.rightArrowModel.setAttached(false);
                 this.rightNodeTypeBoxMediator.destroy();
                 this.rightNodeTypeBoxMediator = null;
             }
@@ -52,7 +55,7 @@ define(["core/BaseType",
         },
 
         _attachTypeBoxToRightNode : function (boxNodeMediator) {
-            this.rightArrowModel.children['attached'].set(true);
+            this.rightArrowModel.setAttached(true);
 
             this.rightNodeTypeBoxMediator = boxNodeMediator;
 
@@ -60,7 +63,7 @@ define(["core/BaseType",
 
         _attachTypeBoxToLeftNode : function (boxNodeMediator) {
 
-            this.leftArrowModel.children['attached'].set(true);
+            this.leftArrowModel.setAttached(true);
             this.leftNodeTypeBoxMediator = boxNodeMediator;
         },
 
@@ -90,57 +93,62 @@ define(["core/BaseType",
             switch(orientation) {
 
             case "left" :
-                x = this.leftArrowModel.children['xCood'].value + dx;
-                y = this.leftArrowModel.children['yCood'].value + dy;
+                x = this.leftArrowModel.getXCood() + dx;
+                y = this.leftArrowModel.getYCood() + dy;
 
 
                 //this.leftArrowModel.children['xCood'].set(x);
-                var proximalNodeXCood = this.proximalNodeModel.children['xCood'].value;
+                var proximalNodeXCood = this.proximalNodeModel.getXCood().value;
 
                 if( proximalNodeXCood > this.leftNodeTypeBoxMediator.getBoxRightLimit()) {
 
-                    this.leftArrowModel.children['xCood'].set(
+                    this.leftArrowModel.setXCood(
                         this.leftNodeTypeBoxMediator.getBoxRightLimit()
                     );
                 }
                 else if( proximalNodeXCood < this.leftNodeTypeBoxMediator.getBoxLeftLimit()) {
 
-                    this.leftArrowModel.children['xCood'].set(
+                    this.leftArrowModel.setXCood(
                         this.leftNodeTypeBoxMediator.getBoxLeftLimit()
                     );
                 } else {
 
-                    this.leftArrowModel.children['xCood'].set(x);
-                }
+                    this.leftArrowModel.setXCood(x);
 
-                this.leftArrowModel.children['yCood'].set(y);
-                this.proximalNodeModel.children['yCood'].set(y);
+                }
+                this._setLeftArrowDirection();
+                this.leftArrowModel.setYCood(y);
+                this.proximalNodeModel.setYCood(y);
                 break;
 
             case "right" :
 
-                x = this.rightArrowModel.children['xCood'].value + dx;
-                y = this.rightArrowModel.children['yCood'].value + dy;
+                x = this.rightArrowModel.getXCood() + dx;
+                y = this.rightArrowModel.getYCood() + dy;
 
-                var distalNodeXCood = this.distalNodeModel.children['xCood'].value;
+                var distalNodeXCood = this.distalNodeModel.getXCood();
 
                 if( distalNodeXCood > this.rightNodeTypeBoxMediator.getBoxRightLimit()) {
 
-                    this.rightArrowModel.children['xCood'].set(
+                    this.rightArrowModel.setXCood(
                         this.rightNodeTypeBoxMediator.getBoxRightLimit()
                     );
                 }
                 else if( distalNodeXCood < this.rightNodeTypeBoxMediator.getBoxLeftLimit()) {
 
-                    this.rightArrowModel.children['xCood'].set(
+                    this.rightArrowModel.setXCood(
                         this.rightNodeTypeBoxMediator.getBoxLeftLimit()
                     );
                 } else {
 
-                    this.rightArrowModel.children['xCood'].set(x);
+                    this.rightArrowModel.setXCood(x);
                 }
-                this.rightArrowModel.children['yCood'].set(y);
-                this.distalNodeModel.children['yCood'].set(y);
+                this.setRightArrowDirection();
+
+                this.rightArrowModel.setYCood(y);
+                this.distalNodeModel.setYCood(y);
+
+
 
                 break;
             }
@@ -172,8 +180,8 @@ define(["core/BaseType",
         updateLeftArrow : function (x, y) {
 
             if(this.leftNodeAttached) {
-                var currentX = this.leftArrowModel.children['xCood'].value;
-                var currentY = this.leftArrowModel.children['yCood'].value;
+                var currentX = this.leftArrowModel.getXCood();
+                var currentY = this.leftArrowModel.getYCood();
 
                 var coods = this.leftNodeTypeBoxMediator.getLeftNodeCoods(x, y, currentX, currentY);
 
@@ -181,9 +189,10 @@ define(["core/BaseType",
                 y = coods.y;
 
             }
-            this.leftArrowModel.children['xCood'].set(x);
-            this.leftArrowModel.children['yCood'].set(y);
-            this.proximalNodeModel.children['yCood'].set(y);
+            this.leftArrowModel.setXCood(x);
+            this.leftArrowModel.setYCood(y);
+            this.proximalNodeModel.setYCood(y);
+            this._setLeftArrowDirection();
 
         },
 
@@ -197,13 +206,13 @@ define(["core/BaseType",
                 */
                 if( x > this.rightNodeTypeBoxMediator.getBoxRightLimit()) {
 
-                    this.rightArrowModel.children['xCood'].set(
+                    this.rightArrowModel.setXCood(
                         this.rightNodeTypeBoxMediator.getBoxRightLimit()
                     );
                 }
                 if( x < this.rightNodeTypeBoxMediator.getBoxLeftLimit()) {
 
-                    this.rightArrowModel.children['xCood'].set(
+                    this.rightArrowModel.setXCood(
                         this.rightNodeTypeBoxMediator.getBoxLeftLimit()
                     );
                 }
@@ -211,8 +220,8 @@ define(["core/BaseType",
 
             if(this._leftArrowAttached() ) {
 
-                var currentX = this.proximalNodeModel.children['xCood'].value;
-                var currentY = this.proximalNodeModel.children['yCood'].value;
+                var currentX = this.proximalNodeModel.getXCood();
+                var currentY = this.proximalNodeModel.getYCood();
 
                 // ask mediator if we can move this node
                 var coods = this.leftNodeTypeBoxMediator.getProximalNodeCoods(x, y, currentX, currentY);
@@ -226,30 +235,36 @@ define(["core/BaseType",
                 */
                 if( x > this.leftNodeTypeBoxMediator.getBoxRightLimit()) {
 
-                    this.leftArrowModel.children['xCood'].set(
+                    this.leftArrowModel.setXCood(
                         this.leftNodeTypeBoxMediator.getBoxRightLimit()
                     );
                 }
                 if( x < this.leftNodeTypeBoxMediator.getBoxLeftLimit()) {
 
-                    this.leftArrowModel.children['xCood'].set(
+                    this.leftArrowModel.setXCood(
                         this.leftNodeTypeBoxMediator.getBoxLeftLimit()
                     );
                 }
 
             }
-            this.proximalNodeModel.children['xCood'].set(x);
-            this.proximalNodeModel.children['yCood'].set(y);
-            this.leftArrowModel.children['yCood'].set(y);
-            this.distalNodeModel.children['xCood'].set(x);
+
+            this.setRightArrowDirection();
+            this._setLeftArrowDirection();
+            this.proximalNodeModel.setXCood(x);
+            this.proximalNodeModel.setYCood(y);
+            this.leftArrowModel.setYCood(y);
+
+            this.distalNodeModel.setXCood(x);
+
+
 
         },
 
         updateDistalNode : function (x, y) {
 
             if(this._rightArrowAttached()) {
-                var currentX = this.distalNodeModel.children['xCood'].value;
-                var currentY = this.distalNodeModel.children['yCood'].value;
+                var currentX = this.distalNodeModel.getXCood();
+                var currentY = this.distalNodeModel.getYCood();
 
                 // ask mediator if we can move this node
                 var coods = this.rightNodeTypeBoxMediator.getDistalNodeCoods(x, y, currentX, currentY);
@@ -264,13 +279,13 @@ define(["core/BaseType",
                 */
                 if( x > this.rightNodeTypeBoxMediator.getBoxRightLimit()) {
 
-                    this.rightArrowModel.children['xCood'].set(
+                    this.rightArrowModel.setXCood(
                         this.rightNodeTypeBoxMediator.getBoxRightLimit()
                     );
                 }
                 if( x < this.rightNodeTypeBoxMediator.getBoxLeftLimit()) {
 
-                    this.rightArrowModel.children['xCood'].set(
+                    this.rightArrowModel.setXCood(
                         this.rightNodeTypeBoxMediator.getBoxLeftLimit()
                     );
                 }
@@ -285,22 +300,29 @@ define(["core/BaseType",
                 */
                 if( x > this.leftNodeTypeBoxMediator.getBoxRightLimit()) {
 
-                    this.leftArrowModel.children['xCood'].set(
+                    this.leftArrowModel.setXCood(
                         this.leftNodeTypeBoxMediator.getBoxRightLimit()
                     );
                 }
                 if( x < this.leftNodeTypeBoxMediator.getBoxLeftLimit()) {
 
-                    this.leftArrowModel.children['xCood'].set(
+                    this.leftArrowModel.setXCood(
                         this.leftNodeTypeBoxMediator.getBoxLeftLimit()
                     );
                 }
 
             }
-            this.distalNodeModel.children['xCood'].set(x);
-            this.distalNodeModel.children['yCood'].set(y);
-            this.proximalNodeModel.children['xCood'].set(x);
-            this.rightArrowModel.children['yCood'].set(y);
+
+            this.setRightArrowDirection();
+            this._setLeftArrowDirection();
+
+            this.distalNodeModel.setXCood(x);
+            this.distalNodeModel.setYCood(y);
+            this.proximalNodeModel.setXCood(x);
+
+            this.rightArrowModel.setYCood(y);
+
+
 
         },
 
@@ -311,28 +333,60 @@ define(["core/BaseType",
                     if we're currently attached to a type box,  check against
                     the mediator if the proposed coods are acceptable
                 */
-                var currentX = this.rightArrowModel.children['xCood'].value;
-                var currentY = this.rightArrowModel.children['yCood'].value;
+                var currentX = this.rightArrowModel.getXCood();
+                var currentY = this.rightArrowModel.getYCood();
 
                 var coods = this.rightNodeTypeBoxMediator.getRightNodeCoods(x, y, currentX, currentY);
 
                 x = coods.x;
                 y = coods.y;
             }
-            this.rightArrowModel.children['xCood'].set(x);
-            this.rightArrowModel.children['yCood'].set(y);
-            this.distalNodeModel.children['yCood'].set(y);
+
+
+            this.rightArrowModel.setXCood(x);
+            this.rightArrowModel.setYCood(y);
+            this.distalNodeModel.setYCood(y);
+
+            this.setRightArrowDirection();
+
+        },
+
+        setRightArrowDirection : function () {
+
+            if(this.rightArrowModel.getXCood() <
+                this.proximalNodeModel.getXCood()) {
+
+                this.rightArrowModel.setArrowDirection("left");
+
+            } else {
+                this.rightArrowModel.setArrowDirection("right");
+            }
+            this.rightArrowModel.broadcast("change")
+
+        },
+
+        _setLeftArrowDirection : function () {
+
+            if(this.leftArrowModel.getXCood() <
+                this.proximalNodeModel.getXCood()) {
+
+                this.leftArrowModel.setArrowDirection("left");
+
+            } else {
+                this.leftArrowModel.setArrowDirection("right");
+            }
+            this.leftArrowModel.broadcast("change")
 
         },
 
         _rightArrowAttached : function () {
 
-            return this.rightArrowModel.children['attached'].value;
+            return this.rightArrowModel.isAttached();
         },
 
         _leftArrowAttached : function () {
 
-            return this.leftArrowModel.children['attached'].value;
+            return this.leftArrowModel.isAttached();
         }
 
 

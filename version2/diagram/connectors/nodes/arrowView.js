@@ -1,7 +1,11 @@
 define(["core/BaseType",
-        "utility/svg" ],function (
+        "utility/svg",
+         "diagram/connectors/nodes/arrow",
+         "diagram/connectors/nodes/nodeModel"],function (
             BaseType,
-            svg
+            svg,
+            Arrow,
+            NodeModel
         ) {
 
 
@@ -9,19 +13,31 @@ define(["core/BaseType",
 
         initialize : function (options) {
 
-            this.model = options.model;
+            this.model = new NodeModel({
 
-            var cx = this.model.children['xCood'].value;
-            var cy = this.model.children['yCood'].value;
+                model : options.model
+            });
+
+            var cx = this.model.getXCood();
+            var cy = this.model.getYCood();
 
             this.node = svg.circle(cx,cy, 10);
 
-            this.node.attr({ fill : "green" });
-
-            this.model.children['xCood'].on("change", this.updateX, this);
-            this.model.children['yCood'].on("change", this.updateY, this);
+            this.node.attr({ fill : "green", opacity : 0, stroke : 0 });
 
 
+            this.model.onXCood("change", this.updateX, this);
+            this.model.onYCood("change", this.updateY, this);
+
+
+
+            // if this is a left or right node.
+            if(this.model.isArrowNode() ) {
+
+                this.arrow = new Arrow({
+                    model : this.model
+                })
+            }
         },
 
         getSvgNode : function () {
@@ -29,14 +45,23 @@ define(["core/BaseType",
         },
 
         updateX : function () {
-            var cx = this.model.children['xCood'].value;
+            var cx = this.model.getXCood();
             this.node.attr({ cx : cx });
+
+            if(this.arrow) {
+
+                this.arrow.move();
+            }
 
         },
 
         updateY : function () {
-            var cy = this.model.children['yCood'].value;
+            var cy = this.model.getYCood();
             this.node.attr({ cy : cy });
+
+            if(this.arrow) {
+                this.arrow.move();
+            }
 
         }
 

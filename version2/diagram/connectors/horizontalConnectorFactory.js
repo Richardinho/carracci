@@ -2,13 +2,15 @@ define(['core/BaseType',
         'diagram/connectors/nodes/arrowView',
         'diagram/connectors/nodes/arrowController',
         'diagram/connectors/nodes/horizontalNodesMediator',
-        'diagram/connectors/lines/lineView'],
+        'diagram/connectors/lines/lineView',
+        'diagram/connectors/nodes/nodeModel'],
         function (
         BaseType,
         ArrowView,
         ArrowController,
         HorizontalNodesMediator,
-        LineView) {
+        LineView,
+        NodeModel) {
 
 
 
@@ -22,24 +24,34 @@ define(['core/BaseType',
 
             // create lines first so they appear below nodes. (crude, I know!)
             new LineView({
-                modelA : model.getLeftArrow(),
-                modelB : model.getProximalNode(),
+                modelA : new NodeModel({
+                    model : model.getLeftArrow()
+                }),
+                modelB : new NodeModel({
+                    model : model.getProximalNode()
+                }),
                 connectorModel : model
             });
 
             new LineView({
-                modelA : model.getProximalNode(),
-                modelB : model.getDistalNode(),
+                modelA : new NodeModel({
+                    model : model.getProximalNode()
+                }),
+                modelB : new NodeModel({
+                    model : model.getDistalNode()
+                }),
                 connectorModel : model
             });
-
 
             new LineView({
-                modelA : model.getDistalNode(),
-                modelB : model.getRightArrow(),
+                modelA : new NodeModel({
+                    model : model.getDistalNode()
+                }),
+                modelB : new NodeModel({
+                    model : model.getRightArrow()
+                }),
                 connectorModel : model
             });
-
 
             // create node views.
             var leftArrowView = new ArrowView({

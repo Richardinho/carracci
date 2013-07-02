@@ -32,11 +32,11 @@ define(["core/BaseType",
 
         buildPath : function () {
 
-            var aXCood = this.modelA.children['xCood'].value;
-            var aYCood = this.modelA.children['yCood'].value;
+            var aXCood = this.modelA.getXCood();
+            var aYCood = this.modelA.getYCood();
 
-            var bXCood = this.modelB.children['xCood'].value;
-            var bYCood = this.modelB.children['yCood'].value;
+            var bXCood = this.modelB.getXCood();
+            var bYCood = this.modelB.getYCood();
 
             // create line here.
             return svgUtils.buildPath([
