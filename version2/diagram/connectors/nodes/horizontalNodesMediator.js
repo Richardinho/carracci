@@ -10,10 +10,10 @@ define(["core/BaseType",
 
         initialize : function (options) {
 
-            this.leftArrowModel = new NodeModel({ model :  options.leftArrowModel });
-            this.proximalNodeModel = new NodeModel({ model : options.proximalNodeModel});
-            this.distalNodeModel =  new NodeModel({ model : options.distalNodeModel });
-            this.rightArrowModel = new NodeModel({ model : options.rightArrowModel });
+            this.leftArrowModel = options.leftArrowModel;
+            this.proximalNodeModel = options.proximalNodeModel;
+            this.distalNodeModel =  options.distalNodeModel;
+            this.rightArrowModel = options.rightArrowModel;
             this.connectorModel = options.connectorModel;
 
         },

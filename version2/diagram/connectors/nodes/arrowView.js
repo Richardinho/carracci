@@ -13,10 +13,7 @@ define(["core/BaseType",
 
         initialize : function (options) {
 
-            this.model = new NodeModel({
-
-                model : options.model
-            });
+            this.model = options.model;
 
             var cx = this.model.getXCood();
             var cy = this.model.getYCood();
