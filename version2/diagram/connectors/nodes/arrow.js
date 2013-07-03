@@ -18,7 +18,6 @@ define(["core/BaseType",
         },
 
         move : function () {
-
             var style = this._getStyle();
 
             if(style === "whiteArrow") {
@@ -51,7 +50,7 @@ define(["core/BaseType",
             var style = this._getStyle();
 
             if(style === "whiteArrow") {
-                var path = this._buildPath("diamond", true);
+                var path = this._buildPath("arrow", true);
                 this.element = svgUtils.createPath(path, "white");
             }
             else if(style === "blackDiamond") {
@@ -66,7 +65,6 @@ define(["core/BaseType",
                 this.element = svgUtils.nullObject();
 
             }
-
         },
 
         _buildPath : function (subStyle, closePath) {
@@ -79,9 +77,7 @@ define(["core/BaseType",
 
         _getStyle : function () {
 
-
             return this.model.getStyle();
-
         },
 
         _getDirection : function () {
@@ -90,7 +86,6 @@ define(["core/BaseType",
         },
 
         _createPointsArray : function (subStyle, direction) {
-
             var x = this.model.getXCood();
             var y = this.model.getYCood();
 
@@ -234,12 +229,8 @@ define(["core/BaseType",
 
         _getPoint : function (x, y) {
             return { "x" : x, "y" : y };
-        },
-
-
-
+        }
     });
-
 });
 
 

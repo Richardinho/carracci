@@ -49,7 +49,6 @@ define(["core/BaseType"],
 
         fireReceiveClickEvent : function (controller) {
 
-            console.log("click receive click on type box");
             this.model.fire("receiveRequest", controller)
         },
 

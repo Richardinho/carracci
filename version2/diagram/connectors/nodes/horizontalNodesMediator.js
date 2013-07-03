@@ -32,7 +32,6 @@ define(["core/BaseType",
         },
 
         changeLineStyle : function () {
-            console.log("horizontal mediator changeLIneStyle")
             this.connectorModel.alternateLineStyle();
         },
         // called from node controller
@@ -55,8 +54,8 @@ define(["core/BaseType",
         },
 
         _attachTypeBoxToRightNode : function (boxNodeMediator) {
-            this.rightArrowModel.setAttached(true);
 
+            this.rightArrowModel.setAttached(true);
             this.rightNodeTypeBoxMediator = boxNodeMediator;
 
         },
@@ -158,22 +157,7 @@ define(["core/BaseType",
 
         // make request to join a node to a type box
         fireAttachRequest : function (orientation) {
-
-            switch( orientation ) {
-            // all do same thing. this is more of a semantic thing.
-            case "left" :
-                this.leftArrowModel.fire("attachRequest", this, orientation)
-                break;
-            case "proximal" :
-                this.proximalNodeModel.fire("attachRequest", this, orientation);
-                break;
-            case "distal" :
-                this.distalNodeModel.fire("attachRequest", this, orientation);
-                break;
-            case "right" :
-                this.rightArrowModel.fire("attachRequest", this, orientation);
-                break;
-            }
+            this.connectorModel.fire("attachRequest", this, orientation)
         },
 
         // update from node controller

@@ -274,7 +274,6 @@ define(['utility/svg', 'core/BaseType', 'underscore'], function(svg, BaseType, _
         move : function () {
             var x = this.model.getXCood();
             var y = this.model.getYCood();
-            console.log("move box", x)
             this.rect.attr({ "x" : x });
             this.rect.attr({ "y" : y });
 

@@ -10,6 +10,7 @@ define(['core/BaseType'],function (BaseType) {
             this.TypeView = options.TypeView;
             this.TypeController = options.TypeController;
             this.horizontalConnectorFactory = options.horizontalConnectorFactory;
+            this.verticalConnectorFactory = options.verticalConnectorFactory;
 
             this.contextPath = [];
 
@@ -40,7 +41,7 @@ define(['core/BaseType'],function (BaseType) {
             this.use('diagram','foo');
             this.create('type','Bar');
 
-            this.create('connector', 'horizontal');
+            this.create('connector', 'vertical');
 
         },
 
@@ -219,9 +220,12 @@ define(['core/BaseType'],function (BaseType) {
                     //  this factory creates all the necessary node and line controllers and views
                     this.horizontalConnectorFactory.create(horizontalConnectorModel);
 
+                } else if (arguments[1] === "vertical") {
 
-                } else {
-                    console.log("create vertical connector")
+                    var verticalConnectorModel = this.diagramModel.createVerticalConnector(this.contextPath[1]);
+                    this.verticalConnectorFactory.create(verticalConnectorModel)
+
+
                 }
 
 

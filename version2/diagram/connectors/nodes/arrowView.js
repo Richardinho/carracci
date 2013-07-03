@@ -20,7 +20,7 @@ define(["core/BaseType",
 
             this.node = svg.circle(cx,cy, 10);
 
-            this.node.attr({ fill : "green", opacity : 0, stroke : 0 });
+            this.node.attr({ fill : "green", opacity : 1, stroke : 0 });
 
 
             this.model.onXCood("change", this.updateX, this);
@@ -29,7 +29,7 @@ define(["core/BaseType",
 
 
 
-            // if this is a left or right node.
+            // if this an arrow node?
             if(this.model.isArrowNode() ) {
 
                 this.arrow = new Arrow({
@@ -40,7 +40,6 @@ define(["core/BaseType",
 
         switchArrowHead : function () {
 
-            console.log(" switch arrow head update arrow view")
             this.arrow.changeArrowHead();
         },
 
@@ -53,7 +52,6 @@ define(["core/BaseType",
             this.node.attr({ cx : cx });
 
             if(this.arrow) {
-
                 this.arrow.move();
             }
 

@@ -19,30 +19,30 @@ define(["core/BaseType"],
 
         },
 
-
         fire : function (event, handler, context) {
 
             this.model.fire(event, handler, context);
+
         },
 
-        getLeftArrow : function () {
+        getTopArrow : function () {
 
-            return this.model.children['nodes'].children['left'];
+            return this.model.children['nodes'].children['top'];
         },
 
-        getProximalNode : function () {
+        getSecondTopNode : function () {
 
-            return this.model.children['nodes'].children['proximal'];
+            return this.model.children['nodes'].children['secondTop'];
         },
 
-        getDistalNode : function () {
+        getSecondBottomNode : function () {
 
-            return this.model.children['nodes'].children['distal'];
+            return this.model.children['nodes'].children['secondBottom'];
         },
 
-        getRightArrow : function () {
+        getBottomArrow : function () {
 
-            return this.model.children['nodes'].children['right'];
+            return this.model.children['nodes'].children['bottom'];
         },
 
         alternateLineStyle : function () {

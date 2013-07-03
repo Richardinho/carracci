@@ -27,12 +27,13 @@ define(["core/BaseType",
             this.svgNode.drag(this._onMove, this._onStart, this._onEnd);
 
             var that = this;
-
-            if(this.orientation === "left" || this.orientation === "right") {
+            if(this.orientation === "left"
+                || this.orientation === "right"
+                || this.orientation === "top"
+                || this.orientation === "bottom") {
 
                 this.svgNode.click(function (event) {
                     if(!event.ctrlKey && event.shiftKey) {
-                    debugger;
                         if(!that._isAttached()) {
                             that.mediator.fireAttachRequest(that.orientation);
                         } else {
@@ -61,7 +62,6 @@ define(["core/BaseType",
         },
 
         _onMove : function (dx, dy) {
-
             var x = this.startX + dx,
                 y = this.startY + dy;
 

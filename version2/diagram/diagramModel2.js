@@ -2,17 +2,20 @@ define(["core/BaseType",
         "utility/eventNode",
         "diagram/types/typeModel",
         "diagram/connectors/horizontalConnectorModel",
-        "diagram/boxNodeMediator"],
+        "diagram/boxHorizontalNodeMediator",
+        "diagram/boxVerticalNodeMediator",
+        "diagram/connectors/verticalConnectorModel"],
         function (  BaseType,
                     Node,
                     TypeModel,
                     HorizontalConnectorModel,
-                    BoxNodeMediator) {
+                    BoxHorizontalNodeMediator,
+                    BoxVerticalNodeMediator,
+                    VerticalConnectorModel) {
 
     return BaseType.extend({
 
         initialize : function () {
-
 
             this.model = new Node({
                 diagrams : {}
@@ -27,18 +30,29 @@ define(["core/BaseType",
                 }
             });
 
-
-
             this.model.on("receiveRequest", function (typeController) {
+                console.log("receive request")
                 if(this.requestedNode) {
                     //  create mediator
 
-                    new BoxNodeMediator({
+                    var orientation = this.requestedNode.nodeOrientation;
 
-                        nodeMediator : this.requestedNode.nodeMediator,
-                        nodeOrientation : this.requestedNode.nodeOrientation,
-                        typeController : typeController
-                    });
+                    if(orientation === "left" || orientation === "right") {
+
+                        new BoxHorizontalNodeMediator({
+                            nodeMediator : this.requestedNode.nodeMediator,
+                            nodeOrientation : this.requestedNode.nodeOrientation,
+                            typeController : typeController
+                        });
+
+                    } else {
+                        console.log("box vertical mediator creation")
+                        new BoxVerticalNodeMediator({
+                            nodeMediator : this.requestedNode.nodeMediator,
+                            nodeOrientation : this.requestedNode.nodeOrientation,
+                            typeController : typeController
+                        });
+                    }
                     // null out requested node.
                     this.requestedNode = null;
                 }
@@ -56,6 +70,56 @@ define(["core/BaseType",
                     connectors : {}
                 });
             }
+        },
+
+        createVerticalConnector : function (diagram) {
+            var connectorModel = this.model.children['diagrams']
+                .children[diagram]
+                .children['connectors']
+                .createChild("blah",{
+                    orientation : "vertical",
+                    nodes : {
+
+                        top : {
+                            xCood : 300,
+                            yCood : 100,
+                            attached : false,
+                            arrow : {
+                                style : "blackConnectArrow",
+                                direction : "top"
+                            }
+                        },
+
+                        secondTop : {
+                            xCood : 300,
+                            yCood : 200,
+                            attached : false
+                        },
+
+                        secondBottom : {
+                            xCood : 400,
+                            yCood : 200,
+                            attached : false
+                        },
+
+                        bottom : {
+                            xCood : 400,
+                            yCood : 300,
+                            attached : false,
+                            arrow : {
+                                style : "whiteArrow",
+                                direction : "bottom"
+                            }
+                        }
+
+                    },
+                    lineStyle : "solid"
+
+                });
+            return new VerticalConnectorModel({
+                model : connectorModel
+            });
+
         },
 
         createHorizontalConnector : function (diagram) {
@@ -106,11 +170,7 @@ define(["core/BaseType",
 
                     },
                     lineStyle : "solid"
-                    /* might also include which types the connector is
-                    connected to, type of relationship
-                    Need to decide whether to express semantics or
-                    or simply mechanics
-                    */
+
                 });
             return new HorizontalConnectorModel({
                 model : connectorModel

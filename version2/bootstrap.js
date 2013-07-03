@@ -39,7 +39,8 @@ require(['jquery',
          'diagram/types/typeView',
          'diagram/types/typeController',
          'utility/idGenerator',
-         'diagram/connectors/horizontalConnectorFactory'],
+         'diagram/connectors/horizontalConnectorFactory',
+         'diagram/connectors/verticalConnectorFactory'],
 
          function ( $,
                     EditorView,
@@ -51,7 +52,8 @@ require(['jquery',
                     TypeView,
                     TypeController,
                     idGenerator,
-                    horizontalConnectorFactory) {
+                    horizontalConnectorFactory,
+                    verticalConnectorFactory) {
 
     $(document).ready(function () {
 
@@ -62,7 +64,8 @@ require(['jquery',
             diagramModel : diagramModel,
             TypeView : TypeView,
             TypeController : TypeController,
-            horizontalConnectorFactory : horizontalConnectorFactory
+            horizontalConnectorFactory : horizontalConnectorFactory,
+            verticalConnectorFactory : verticalConnectorFactory
         });
 
         var editorModel = new EditorModel({
