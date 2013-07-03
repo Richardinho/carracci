@@ -15,6 +15,7 @@ define([
 
             this.arrowHeadStyles = [
                 "whiteArrow",
+                "whiteDiamond",
                 "blackDiamond",
                 "blackConnectArrow",
                 "none"

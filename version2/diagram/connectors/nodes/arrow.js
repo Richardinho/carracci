@@ -21,7 +21,7 @@ define(["core/BaseType",
             var style = this._getStyle();
 
             if(style === "whiteArrow") {
-                var path = this._buildPath("diamond", true);
+                var path = this._buildPath("arrow", true);
                 svgUtils.resetPath(this.element, path);
             }
             else if(style === "blackDiamond") {
@@ -31,6 +31,10 @@ define(["core/BaseType",
 
             else if(style === "blackConnectArrow") {
                 var path = this._buildPath("connectArrow", false);
+                svgUtils.resetPath(this.element, path);
+            }
+            else if(style === "whiteDiamond") {
+                var path = this._buildPath("diamond", false);
                 svgUtils.resetPath(this.element, path);
             }
             else {
