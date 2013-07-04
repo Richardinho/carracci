@@ -1,23 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+    <link rel="stylesheet" href="/version2/lib/custom-scrollbar-plugin/jquery.mCustomScrollbar.css"/>
     <style>
 
-        #command-editor {
+        #container {
 
             background-color : rgba(12, 12, 12, 0.1);
             width : 500px;
             height : 300px;
             left : 50px;
             top : 50px;
-            position : absolute;
+            position : fixed;
             padding : 10px;
-            overflow-y : scroll;
+            z-index : 100;
+
+            font-family : courier;
+            border-radius : 4px;
+            color : black;
+            overflow: auto;
+
+
         }
 
         .current-command {
-            color : green;
+            color : #666;
+            padding-top : 10px;
+        }
+
+
+        .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+
+            width : 5px;
+            background-color : #666;
+            border-radius : 2px;
+
+        }
+
+        .mCSB_scrollTools .mCSB_draggerRail {
+            background-color : rgba(12, 12, 43,0.3);
         }
 
     </style>
@@ -38,6 +59,7 @@
             <div class="current-command"><%= currentCommand %></div>
         </div>
     </script>
+
 
     <script data-main="version2/bootstrap" src="lib/require.js"></script>
 

@@ -16,9 +16,7 @@ define(['core/BaseType'],function (BaseType) {
 
         },
 
-        process : function (command) {
-
-            var commandArray = this.parseCommand(command);
+        process : function (commandArray) {
 
             var verb = commandArray.shift();
 
@@ -64,10 +62,6 @@ define(['core/BaseType'],function (BaseType) {
             var deferred = $.Deferred();
             deferred.resolve(response);
             return deferred;
-        },
-
-        parseCommand : function (command) {
-            return command.split(/[\s]+/);
         },
 
         _delete : function () {

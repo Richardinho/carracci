@@ -10,7 +10,11 @@ require.config({
 
         'underscore' : {
             exports : '_'
-        }
+        },
+
+        'jqueryMCustomScrollbar': ['jquery'],
+
+        'jqueryUICustom' : ['jquery']
 
     },
 
@@ -24,7 +28,8 @@ require.config({
         raphaelSVG : "lib/raphael.2.1.0.svg",
         raphaelVML : "lib/raphael.2.1.0.vml",
         eve : "lib/eve.0.3.4",
-
+        jqueryMCustomScrollbar : "lib/custom-scrollbar-plugin/js/minified/jquery.mCustomScrollbar.min",
+        jqueryUICustom : "lib/jquery-ui-1.10.3.custom/js/jquery-ui-1.10.3.custom.min"
     }
 });
 
@@ -74,8 +79,8 @@ require(['jquery',
 
         editorModel.setAttributes({
 
-            oldCommands : ["first", "second", "third"],
-            currentCommand : "hello world"
+            oldCommands : ["Type 'help' to display help page"],
+            currentCommand : ""
         });
 
         new EditorView({
