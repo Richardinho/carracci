@@ -1,4 +1,4 @@
-define(["core/Model"],function (Model) {
+define(["core/Model", "jquery"],function (Model, $) {
 
     return Model.extend({
 
@@ -9,20 +9,41 @@ define(["core/Model"],function (Model) {
         },
 
         update : function () {
+
             var response;
             var command = this.get("currentCommand");
-            try {
+            var that = this;
 
-                response = this.diagramController.process(command)
-                this.get("oldCommands").push(command);
-                this.handleResponse(response);
+            $.when(
+                /*  all commands must return a deferred object with resolved data of the form
 
-            } catch(e) {
-                var errorMessage = this.formatError(e);
-                this.get("oldCommands").push(errorMessage);
-            }
-            this.set("currentCommand", "");
-            this.fire("change");
+                    {
+                        error : true|undefined,
+                        message : ""|undefined,
+                        name : "" | undefined  // for errors
+
+                    }
+
+                */
+                this.diagramController.process(command)
+
+                ).then( function(response, textStatus, jqXHR){
+
+                    if(response.error) {
+
+                        var errorMessage = that.formatError(response);
+                        that.get("oldCommands").push(errorMessage);
+
+                    } else {
+
+                        that.handleResponse(response);
+
+                    }
+                    that.get("oldCommands").push(command);
+
+                    that.set("currentCommand", "");
+                    that.fire("change");
+                });
         },
 
         appendChar : function (char) {
@@ -38,11 +59,12 @@ define(["core/Model"],function (Model) {
             this.fire("change");
         },
 
-        /* i handle responses differently because I might want to apply some formatting
-        to them which is different from commands */
+        /* This is for displaying in the editor when the command returns a message
+            e.g. for help menus
+         */
         handleResponse : function (response) {
-            if(response) {
-                this.get("oldCommands").push(response);
+            if(response.message) {
+                this.get("oldCommands").push(response.message);
             }
         },
 
@@ -54,12 +76,6 @@ define(["core/Model"],function (Model) {
             }
             if(error.message) {
                 result.push(error.message);
-            }
-            if(error.fileName) {
-                result.push(error.fileName);
-            }
-            if(error.lineNumber) {
-                result.push(error.fileName);
             }
             return result.join(":")
 

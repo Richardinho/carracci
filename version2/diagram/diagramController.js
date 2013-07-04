@@ -27,25 +27,44 @@ define(['core/BaseType'],function (BaseType) {
             }
 
             if(this[verb]) {
+
                 return this[verb].apply(this, commandArray);
+
             } else {
-                throw {
+
+                var deferred = $.Deferred();
+
+                deferred.resolve({
+                    error : true,
                     name : "UnknownCommandError",
                     message : verb + " does not exist"
-                }
+                });
+
+                return deferred;
+
             }
         },
 
         foo : function () {
+
             this.create('diagram','foo');
             this.use('diagram','foo');
             this.create('type','Bar');
 
             this.create('connector', 'vertical');
 
+            return this._deferred();
+
         },
 
-
+        _deferred : function (response) {
+            if(!response) {
+                response = {};
+            }
+            var deferred = $.Deferred();
+            deferred.resolve(response);
+            return deferred;
+        },
 
         parseCommand : function (command) {
             return command.split(/[\s]+/);
@@ -123,6 +142,7 @@ define(['core/BaseType'],function (BaseType) {
 
 
             }
+            return this._deferred();
         },
 
         use : function () {
@@ -199,6 +219,8 @@ define(['core/BaseType'],function (BaseType) {
                     message : artifact + " not known"
                 }
             }
+
+            return this._deferred();
         },
 
         typecache : function () {
@@ -297,6 +319,7 @@ define(['core/BaseType'],function (BaseType) {
                     message : artifact + " not known"
                 }
             }
+            return this._deferred();
         },
 
         set : function (name, value) {
@@ -315,11 +338,35 @@ define(['core/BaseType'],function (BaseType) {
 
         con : function () {
 
-            return this.contextPath;
+            return this._deferred({
+
+                message : this.contextPath
+
+            });
         },
 
         show : function () {
 
+        },
+
+        help : function () {
+
+            var deferred = $.Deferred();
+
+            $.when($.ajax({
+
+                url: "/version2/help/testHelp.html",
+                dataType: "html"
+
+            })).then(function (data) {
+
+                deferred.resolve({
+
+                    message : data
+                });
+            });
+
+            return deferred;
         }
 
 
