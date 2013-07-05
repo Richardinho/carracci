@@ -45,7 +45,8 @@ require(['jquery',
          'diagram/types/typeController',
          'utility/idGenerator',
          'diagram/connectors/horizontalConnectorFactory',
-         'diagram/connectors/verticalConnectorFactory'],
+         'diagram/connectors/verticalConnectorFactory',
+         'diagram/diagramCommands'],
 
          function ( $,
                     EditorView,
@@ -58,7 +59,8 @@ require(['jquery',
                     TypeController,
                     idGenerator,
                     horizontalConnectorFactory,
-                    verticalConnectorFactory) {
+                    verticalConnectorFactory,
+                    DiagramCommands) {
 
     $(document).ready(function () {
 
@@ -83,15 +85,23 @@ require(['jquery',
             currentCommand : ""
         });
 
-        new EditorView({
+        var editorView = new EditorView({
             el : $('#editor-placeholder'),
             model : editorModel
         });
 
+        var diagramCommands = new DiagramCommands();
+
+        diagramCommands.addCommands(diagramController, [
+            'help', 'create', 'use', 'con', 'set', 'remove'
+        ]);
+
         new EditorController({
             keymap : keymap,
             model : editorModel,
-            diagramModel: diagramModel
+            diagramModel: diagramModel,
+            view : editorView,
+            commands : diagramCommands
         });
 
 

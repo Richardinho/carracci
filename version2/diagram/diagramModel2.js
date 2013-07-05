@@ -71,6 +71,25 @@ define(["core/BaseType",
                 });
             }
         },
+        set : function (contextPath, name, value) {
+
+            var map = {
+
+                "diagram" : "diagrams",
+                "type" : "types",
+                "property" : "properties",
+                "method" : "methods"
+            };
+
+            var context = this.model;
+            debugger;
+            for(var i = 1; i <= contextPath.length; i += 2) {
+                var artifact = map[contextPath[i - 1]];
+                context = context.children[artifact].children[contextPath[i]];
+            }
+            context.children[name].set(value);
+
+        },
 
         createVerticalConnector : function (diagram) {
             var connectorModel = this.model.children['diagrams']

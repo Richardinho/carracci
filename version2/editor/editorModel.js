@@ -12,60 +12,27 @@ define(["core/Model", "jquery"],function (Model, $) {
             this.diagramController= options.diagramController;
         },
 
-        parseCommand : function (command) {
-            return command.split(/[\s]+/);
+        update : function (oldCommand, message) {
+
+            this.get("oldCommands").push(oldCommand);
+            if(message) {
+                this.get("oldCommands").push(message);
+            }
+            this.set("currentCommand","");
+            this.fire("change");
         },
 
+        setMaxHeight : function () {
 
-        update : function () {
+            this.set("height", this.maxHeight)
+            this.fire("reformat")
 
-            var response;
-
-            var commandArray = this.parseCommand(this.get("currentCommand"));
-
-            var that = this;
-
-            if(!this.handleEditorCommand(commandArray)) {
-
-                $.when(
-                    /*  all commands must return a deferred object with resolved data of the form
-
-                        {
-                            error : true|undefined,
-                            message : ""|undefined,
-                            name : "" | undefined  // for errors
-
-                        }
-
-                    */
-                    this.diagramController.process(commandArray)
-
-                    ).then( function(response, textStatus, jqXHR){
-                        that.handleResponse(response, commandArray);
-
-                    });
-
-            }
         },
 
-        handleEditorCommand : function (commandArray) {
-            var command = commandArray[0];
+        setMinHeight : function () {
 
-            switch(command) {
-
-            case "min" :
-                this.minimize();
-                this.handleResponse({}, commandArray);
-                return true;
-            case "max" :
-                this.maximize();
-                this.handleResponse({}, commandArray);
-                return true;
-            default :
-                return false;
-
-            }
-
+            this.set("height", this.minHeight)
+             this.fire("reformat")
         },
 
         appendChar : function (char) {
@@ -81,28 +48,6 @@ define(["core/Model", "jquery"],function (Model, $) {
             this.fire("appendChar");
         },
 
-        /* This is for displaying in the editor when the command returns a message
-            e.g. for help menus
-         */
-        handleResponse : function (response, commandArray) {
-
-            if(response.error) {
-
-                var errorMessage = this.formatError(response);
-                this.get("oldCommands").push(errorMessage);
-
-            } else if(response.message) {
-
-                this.get("oldCommands").push(response.message);
-            }
-            this.get("oldCommands").push(commandArray.join(" "));
-
-            this.set("currentCommand", "");
-            this.fire("change");
-
-
-
-        },
 
         minimize : function () {
 
@@ -112,21 +57,9 @@ define(["core/Model", "jquery"],function (Model, $) {
         maximize : function () {
 
             this.set("height", this.maxHeight)
-        },
-
-        formatError : function (error) {
-            var result = []
-
-            if(error.name) {
-                result.push(error.name);
-            }
-            if(error.message) {
-                result.push(error.message);
-            }
-            return result.join(":")
-
-
         }
+
+
 
     });
 });

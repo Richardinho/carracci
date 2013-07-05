@@ -16,32 +16,6 @@ define(['core/BaseType'],function (BaseType) {
 
         },
 
-        process : function (commandArray) {
-
-            var verb = commandArray.shift();
-
-            if(verb === "delete") {
-                verb = "_delete";
-            }
-
-            if(this[verb]) {
-
-                return this[verb].apply(this, commandArray);
-
-            } else {
-
-                var deferred = $.Deferred();
-
-                deferred.resolve({
-                    error : true,
-                    name : "UnknownCommandError",
-                    message : verb + " does not exist"
-                });
-
-                return deferred;
-
-            }
-        },
 
         foo : function () {
 
@@ -51,20 +25,10 @@ define(['core/BaseType'],function (BaseType) {
 
             this.create('connector', 'vertical');
 
-            return this._deferred();
 
         },
 
-        _deferred : function (response) {
-            if(!response) {
-                response = {};
-            }
-            var deferred = $.Deferred();
-            deferred.resolve(response);
-            return deferred;
-        },
-
-        _delete : function () {
+        remove : function () {
 
             var artifact = arguments[0];
 
@@ -136,7 +100,6 @@ define(['core/BaseType'],function (BaseType) {
 
 
             }
-            return this._deferred();
         },
 
         use : function () {
@@ -214,13 +177,8 @@ define(['core/BaseType'],function (BaseType) {
                 }
             }
 
-            return this._deferred();
         },
 
-        typecache : function () {
-
-            console.log(this.diagramModel.typeCache);
-        },
 
         create : function () {
 
@@ -313,21 +271,13 @@ define(['core/BaseType'],function (BaseType) {
                     message : artifact + " not known"
                 }
             }
-            return this._deferred();
+
+            return "you have created " + artifact + " " + arguments[1];
         },
 
-        set : function (name, value) {
-           /* if(!this.context[name]) {
-                throw {
-                    name : "UnknownArtifactError",
-                    message : name + " not known : context path is: " + this.contextPath
-                }
-            } else {
-                this.context[name] = value;
-                var id = this.diagramModel.diagrams[this.contextPath[1]].types[this.contextPath[3]].id;
-                console.log("set id : ", id);
-                this.diagramModel.fire("updatetype", id);
-            }*/
+        set : function () {
+
+            this.diagramModel.set(this.contextPath, arguments[0], arguments[1])
         },
 
         con : function () {

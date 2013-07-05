@@ -18,12 +18,13 @@ define([
 
             this.placeholder = options.el;
             this.$el = $('<div id="container">');
-            this.$el.draggable()
+          //  this.$el.draggable()
 
             this.placeholder.append(this.$el);
             this.model = options.model;
             this.model.on("change", this.render, this);
             this.model.on("appendChar", this.appendCharacter, this);
+            this.model.on("reformat", this.reformat, this);
 
             this.render();
 
@@ -33,6 +34,13 @@ define([
         appendCharacter : function () {
 
             this.$el.find(".current-command").html(">" + this.model.get("currentCommand"));
+        },
+
+        reformat : function () {
+
+            this.$el.css("height", this.model.get("height"));
+            var objDiv = document.getElementById('container');
+            objDiv.scrollTop = objDiv.scrollHeight;
         },
 
         render : function () {
@@ -49,8 +57,13 @@ define([
             var objDiv = document.getElementById('container');
             objDiv.scrollTop = objDiv.scrollHeight;
 
-            this.$el.mCustomScrollbar();
-            this.$el.mCustomScrollbar("scrollTo", "bottom");
+           // this.$el.mCustomScrollbar();
+           // this.$el.mCustomScrollbar("scrollTo", "bottom");
+
+        },
+
+        getCurrentCommand : function () {
+            return this.$el.find(".current-command").html().substring(4);
 
         },
 
