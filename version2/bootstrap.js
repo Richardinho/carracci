@@ -93,13 +93,12 @@ require(['jquery',
         var diagramCommands = new DiagramCommands();
 
         diagramCommands.addCommands(diagramController, [
-            'help', 'create', 'use', 'con', 'set', 'remove'
+            'help', 'create', 'use', 'con', 'set', 'remove', 'show'
         ]);
 
         new EditorController({
             keymap : keymap,
             model : editorModel,
-            diagramModel: diagramModel,
             view : editorView,
             commands : diagramCommands
         });

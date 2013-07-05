@@ -18,7 +18,6 @@ define([
 
             this.placeholder = options.el;
             this.$el = $('<div id="container">');
-          //  this.$el.draggable()
 
             this.placeholder.append(this.$el);
             this.model = options.model;
@@ -39,6 +38,7 @@ define([
         reformat : function () {
 
             this.$el.css("height", this.model.get("height"));
+            this.$el.css("width", this.model.get("width"));
             var objDiv = document.getElementById('container');
             objDiv.scrollTop = objDiv.scrollHeight;
         },

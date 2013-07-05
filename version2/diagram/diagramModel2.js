@@ -59,6 +59,11 @@ define(["core/BaseType",
             });
         },
 
+        toJSON : function () {
+
+            return JSON.stringify(this.model.unwrap(),null, 2);
+        },
+
         createDiagram : function (diagramName, node) {
 
             if(node) {

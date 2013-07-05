@@ -6,7 +6,6 @@ define(["core/BaseType", "jquery"],function (BaseType, $) {
 
             this.keymap = options.keymap;
             this.model = options.model;
-            this.diagramModel = options.diagramModel;
             this.view = options.view;
             this.commands = options.commands;
 
@@ -121,31 +120,56 @@ define(["core/BaseType", "jquery"],function (BaseType, $) {
         },
 
         handleEditorCommand : function (commandArray) {
+
             var command = commandArray[0];
+            var response = {};
 
             switch(command) {
 
             case "min" :
-                this.minimize();
-                return true;
-                //this.handleResponse({}, commandArray);
+                this.model.setMin();
+                break;
             case "max" :
-                this.maximize();
-                return true;
-               // this.handleResponse({}, commandArray);
+                this.model.setMax();
+                break;
+            case "height" :
+                if(!commandArray[1]) {
+
+                    response.error = true;
+                    response.name = "ArgumentNotSuppliedError";
+                    response.message = "paramer required";
+
+                } else if( isNaN(parseInt(commandArray[1], 10) )) {
+
+                    response.error = true;
+                    response.name = "InvalidArgumentError";
+                    response.message = "height command requires numeric value";
+                }
+
+                else {
+                    this.model.setHeight(commandArray[1]);
+                }
+                break;
+            case "width" :
+                if(!commandArray[1]) {
+                    response.error = true;
+                    response.name = "ArgumentNotSuppliedError";
+                    response.message = "parammeter required";
+                } else if( isNaN(parseInt(commandArray[1], 10))) {
+
+                    response.error = true;
+                    response.name = "InvalidArgumentError";
+                    response.message = "width command requires numeric value";
+                } else {
+                    this.model.setWidth(commandArray[1]);
+                }
+                break;
             default :
                 return false;
             }
-        },
 
-        minimize : function () {
-
-            this.model.setMinHeight();
-        },
-
-        maximize : function () {
-
-            this.model.setMaxHeight();
+            this.handleResponse(response, commandArray);
+            return true;
         },
 
         parseCommand : function (command) {

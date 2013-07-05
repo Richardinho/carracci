@@ -2,9 +2,13 @@ define(["core/Model", "jquery"],function (Model, $) {
 
     return Model.extend({
 
-        minHeight : "20px",
+        minHeight : 20,
 
-        maxHeight : "300px",
+        maxHeight : 500,
+
+        minWidth : 300,
+
+        maxWidth : 800,
 
         initialize : function (options) {
 
@@ -22,17 +26,29 @@ define(["core/Model", "jquery"],function (Model, $) {
             this.fire("change");
         },
 
-        setMaxHeight : function () {
+        setMax : function () {
 
-            this.set("height", this.maxHeight)
+            this.set("height", this.maxHeight);
+            this.set("width", this.maxWidth);
             this.fire("reformat")
 
         },
 
-        setMinHeight : function () {
+        setHeight : function (height) {
+            this.set("height", height);
+            this.fire("reformat");
+        },
 
-            this.set("height", this.minHeight)
-             this.fire("reformat")
+        setWidth : function (width) {
+            this.set("width", width);
+            this.fire("reformat");
+        },
+
+        setMin : function () {
+
+            this.set("height", this.minHeight);
+            this.set("width", this.minWidth);
+            this.fire("reformat")
         },
 
         appendChar : function (char) {

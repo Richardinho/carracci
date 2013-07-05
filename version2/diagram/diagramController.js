@@ -290,7 +290,9 @@ define(['core/BaseType'],function (BaseType) {
         },
 
         show : function () {
-
+            console.log("show current diagram in json form")
+            var json =  this.diagramModel.toJSON();
+            return "<pre>" + json + "</pre>"
         },
 
         help : function () {

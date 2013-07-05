@@ -2,16 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bd4dd7db-33d3-4455-b213-bb1cec28b9b9" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/version2/diagram/diagramCommands.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/json.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/version2.html" afterPath="$PROJECT_DIR$/version2.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/version2/bootstrap.js" afterPath="$PROJECT_DIR$/version2/bootstrap.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/version2/diagram/diagramController.js" afterPath="$PROJECT_DIR$/version2/diagram/diagramController.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/version2/diagram/diagramModel2.js" afterPath="$PROJECT_DIR$/version2/diagram/diagramModel2.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/version2/editor/editorController.js" afterPath="$PROJECT_DIR$/version2/editor/editorController.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/version2/editor/editorModel.js" afterPath="$PROJECT_DIR$/version2/editor/editorModel.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/version2/editor/editorView.js" afterPath="$PROJECT_DIR$/version2/editor/editorView.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/version2/help/testHelp.html" afterPath="$PROJECT_DIR$/version2/help/testHelp.html" />
     </list>
     <ignored path="Glenmorangie.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -78,7 +76,7 @@
       <file leaf-file-name="diagramController.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/version2/diagram/diagramController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="274" column="71" selection-start="9392" selection-end="9392" vertical-scroll-proportion="0.0">
+            <state line="294" column="43" selection-start="9849" selection-end="9849" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -87,7 +85,7 @@
       <file leaf-file-name="bootstrap.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/version2/bootstrap.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="95" column="58" selection-start="2726" selection-end="2726" vertical-scroll-proportion="0.0">
+            <state line="95" column="66" selection-start="2734" selection-end="2734" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -102,10 +100,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="editorModel.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="editorModel.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/version2/editor/editorModel.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="25" selection-start="475" selection-end="475" vertical-scroll-proportion="0.32967034">
+            <state line="6" column="21" selection-start="128" selection-end="128" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -114,16 +112,25 @@
       <file leaf-file-name="diagramModel2.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/version2/diagram/diagramModel2.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="87" column="62" selection-start="3128" selection-end="3128" vertical-scroll-proportion="0.0">
+            <state line="63" column="61" selection-start="2353" selection-end="2353" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="editorController.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="json.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/json.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="28" column="7" selection-start="206" selection-end="206" vertical-scroll-proportion="-17.5">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="editorController.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/version2/editor/editorController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="0" selection-start="134" selection-end="134" vertical-scroll-proportion="0.0">
+            <state line="126" column="45" selection-start="3347" selection-end="3347" vertical-scroll-proportion="0.8488665">
               <folding />
             </state>
           </provider>
@@ -132,16 +139,7 @@
       <file leaf-file-name="editorView.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/version2/editor/editorView.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="12" selection-start="960" selection-end="960" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="jquery-ui-1.10.3.custom.min.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/js/jquery-ui-1.10.3.custom.min.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="40" column="55" selection-start="968" selection-end="968" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -179,7 +177,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/version2/diagram/connectors/nodes/arrowView.js" />
         <option value="$PROJECT_DIR$/version2/diagram/connectors/nodes/nodeModel.js" />
         <option value="$PROJECT_DIR$/version2/diagram/connectors/nodes/arrow.js" />
         <option value="$PROJECT_DIR$/version2/help/deferredTest.html" />
@@ -187,14 +184,15 @@
         <option value="$PROJECT_DIR$/version2/dfd" />
         <option value="$PROJECT_DIR$/scrollbar.html" />
         <option value="$PROJECT_DIR$/version2/help/testHelp.html" />
-        <option value="$PROJECT_DIR$/version2/editor/editorModel.js" />
         <option value="$PROJECT_DIR$/version2.html" />
-        <option value="$PROJECT_DIR$/version2/diagram/diagramModel2.js" />
-        <option value="$PROJECT_DIR$/version2/editor/editorController.js" />
-        <option value="$PROJECT_DIR$/version2/bootstrap.js" />
-        <option value="$PROJECT_DIR$/version2/diagram/diagramController.js" />
         <option value="$PROJECT_DIR$/version2/diagram/diagramCommands.js" />
+        <option value="$PROJECT_DIR$/version2/bootstrap.js" />
+        <option value="$PROJECT_DIR$/web/json.html" />
+        <option value="$PROJECT_DIR$/version2/diagram/diagramController.js" />
+        <option value="$PROJECT_DIR$/version2/diagram/diagramModel2.js" />
         <option value="$PROJECT_DIR$/version2/editor/editorView.js" />
+        <option value="$PROJECT_DIR$/version2/editor/editorModel.js" />
+        <option value="$PROJECT_DIR$/version2/editor/editorController.js" />
       </list>
     </option>
   </component>
@@ -266,7 +264,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="version2" />
+              <option name="myItemId" value="web" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -281,58 +279,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="version2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carracci" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carracci" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="version2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jquery-ui-1.10.3.custom" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carracci" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carracci" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="version2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jquery-ui-1.10.3.custom" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -618,13 +564,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/version2/dfd">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="23" selection-start="162" selection-end="162" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/version2/help/deferredTest.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="14" column="0" selection-start="244" selection-end="244" vertical-scroll-proportion="0.0">
@@ -681,23 +620,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/version2/diagram/diagramModel2.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="87" column="62" selection-start="3128" selection-end="3128" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/version2/bootstrap.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="95" column="58" selection-start="2726" selection-end="2726" vertical-scroll-proportion="0.0">
+        <state line="95" column="66" selection-start="2734" selection-end="2734" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/version2/diagram/diagramController.js">
+    <entry file="file://$PROJECT_DIR$/web/json.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="274" column="71" selection-start="9392" selection-end="9392" vertical-scroll-proportion="0.0">
+        <state line="28" column="7" selection-start="206" selection-end="206" vertical-scroll-proportion="-17.5">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/version2/diagram/diagramModel2.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="63" column="61" selection-start="2353" selection-end="2353" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -711,21 +650,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/version2/editor/editorView.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="12" selection-start="960" selection-end="960" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/version2/editor/editorController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="134" selection-end="134" vertical-scroll-proportion="0.0">
+        <state line="40" column="55" selection-start="968" selection-end="968" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/version2/editor/editorModel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="25" selection-start="475" selection-end="475" vertical-scroll-proportion="0.32967034">
+        <state line="6" column="21" selection-start="128" selection-end="128" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/version2/diagram/diagramController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="294" column="43" selection-start="9849" selection-end="9849" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/version2/editor/editorController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="126" column="45" selection-start="3347" selection-end="3347" vertical-scroll-proportion="0.8488665">
           <folding />
         </state>
       </provider>
