@@ -18,7 +18,6 @@ define(['core/BaseType',
 
         create : function (horizontalConnectorModel) {
 
-
             var model = horizontalConnectorModel;
 
             var leftArrowModel = new NodeModel({
@@ -109,6 +108,8 @@ define(['core/BaseType',
                 mediator : horizontalArrowMediator,
                 view : rightArrowView
             });
+
+            return  horizontalArrowMediator;
 
         }
     }

@@ -46,7 +46,8 @@ require(['jquery',
          'utility/idGenerator',
          'diagram/connectors/horizontalConnectorFactory',
          'diagram/connectors/verticalConnectorFactory',
-         'diagram/diagramCommands'],
+         'diagram/diagramCommands',
+         'diagram/componentFactory'],
 
          function ( $,
                     EditorView,
@@ -60,19 +61,23 @@ require(['jquery',
                     idGenerator,
                     horizontalConnectorFactory,
                     verticalConnectorFactory,
-                    DiagramCommands) {
+                    DiagramCommands,
+                    ComponentFactory) {
 
     $(document).ready(function () {
 
 
         var diagramModel = new DiagramModel();
 
-        var diagramController = new DiagramController({
+        var componentFactory = new ComponentFactory({
             diagramModel : diagramModel,
-            TypeView : TypeView,
-            TypeController : TypeController,
             horizontalConnectorFactory : horizontalConnectorFactory,
             verticalConnectorFactory : verticalConnectorFactory
+        })
+
+        var diagramController = new DiagramController({
+            diagramModel : diagramModel,
+            componentFactory : componentFactory
         });
 
         var editorModel = new EditorModel({
@@ -81,7 +86,7 @@ require(['jquery',
 
         editorModel.setAttributes({
 
-            oldCommands : ["Type 'help' to display help page"],
+            oldCommands : [ "Type 'help' to display help page" ],
             currentCommand : ""
         });
 
@@ -93,7 +98,7 @@ require(['jquery',
         var diagramCommands = new DiagramCommands();
 
         diagramCommands.addCommands(diagramController, [
-            'help', 'create', 'use', 'con', 'set', 'remove', 'show'
+            'help', 'create', 'use', 'con', 'set', 'remove', 'show', 'load'
         ]);
 
         new EditorController({

@@ -1,0 +1,103 @@
+{
+    "types" : {
+
+        "bar" : {
+            "properties" : {
+                "testProp" : {
+                    "name" : "testProp",
+                    "visibility" : "private",
+                    "type" : "String"
+                }
+
+            },
+            "flavor" : "interface",
+            "methods" : {
+                "fooMethod" : {
+                    "name" : "fooMethod",
+                    "visibility" : "public",
+                    "returnType" : "String",
+                    "args" : [
+                        {"name" : "arg1", "type" : "int" },
+                        {"name" : "arg2", "type" : "char" }
+                    ]
+                }
+
+            },
+            "xCood" : 700,
+            "yCood" : 400,
+            "width" : 10,
+            "height" : 10
+        },
+
+        "dan" : {
+            "properties" : {
+                "testProp" : {
+                    "name" : "testProp",
+                    "visibility" : "private",
+                    "type" : "String"
+                }
+
+            },
+            "flavor" : "interface",
+            "methods" : {
+                "fooMethod" : {
+                    "name" : "fooMethod",
+                    "visibility" : "public",
+                    "returnType" : "String",
+                    "args" : [
+                        {"name" : "arg1", "type" : "int" },
+                        {"name" : "arg2", "type" : "char" }
+                    ]
+                }
+
+            },
+            "xCood" : 200,
+            "yCood" : 200,
+            "width" : 102,
+            "height" : 10
+        }
+    },
+    "connectors" : {
+
+        "blah": {
+            "orientation" : "horizontal",
+            "nodes" : {
+
+                "left" : {
+                    "xCood" : 302,
+                    "yCood" : 220,
+                    "attached" : true,
+                    "attachedBox" : "dan",
+                    "arrow" : {
+                        "style" : "blackConnectArrow",
+                        "direction" : "left"
+                    }
+                },
+
+                "proximal" : {
+                    "xCood" : 500,
+                    "yCood" : 220,
+                    "attached" : false
+                },
+
+                "distal" : {
+                    "xCood" : 500,
+                    "yCood" : 450,
+                    "attached" : false
+                },
+
+                "right" : {
+                    "xCood" : 700,
+                    "yCood" : 450,
+                    "attached" : true,
+                    "attachedBox" : "bar",
+                    "arrow" : {
+                        "style" : "whiteArrow",
+                        "direction" : "right"
+                    }
+                }
+            },
+            "lineStyle" : "solid"
+        }
+    }
+}

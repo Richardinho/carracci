@@ -49,7 +49,6 @@ define([],function () {
 
     //  this should return a reference to the child.
     Node.prototype.createChild = function (name, node) {
-
         this.children[name] = new Node(node, name, this);
         this.fire("create", this.children[name]);
         return this.children[name];

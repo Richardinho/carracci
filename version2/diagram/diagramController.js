@@ -1,19 +1,20 @@
 define(['core/BaseType'],function (BaseType) {
 
-    /* show handle processing commands including parsing and delegation, and keeping track of the context */
+    /*
+        this type has the role of supplying commands which are called by the editor.
+        It delegates to the diagram model for creating the model, and to the component factory
+        for creating wrapper objects. It also keeps track through the context path of the users
+        current place within the model.
+     */
 
     return BaseType.extend({
 
         initialize : function (options) {
 
             this.diagramModel = options.diagramModel;
-            this.TypeView = options.TypeView;
-            this.TypeController = options.TypeController;
-            this.horizontalConnectorFactory = options.horizontalConnectorFactory;
-            this.verticalConnectorFactory = options.verticalConnectorFactory;
 
             this.contextPath = [];
-
+            this.componentFactory = options.componentFactory;
         },
 
 
@@ -102,6 +103,7 @@ define(['core/BaseType'],function (BaseType) {
             }
         },
 
+        /* manages the contextPath, extending it or reducing it as needed */
         use : function () {
             //todo: test that each artifact actually exists.
             var artifact = arguments[0];
@@ -179,7 +181,6 @@ define(['core/BaseType'],function (BaseType) {
 
         },
 
-
         create : function () {
 
             var artifact = arguments[0];
@@ -189,17 +190,11 @@ define(['core/BaseType'],function (BaseType) {
             case "connector" :
                 if(arguments[1] === "horizontal") {
 
-                    var horizontalConnectorModel = this.diagramModel.createHorizontalConnector(this.contextPath[1]);
-
-                    //  this factory creates all the necessary node and line controllers and views
-                    this.horizontalConnectorFactory.create(horizontalConnectorModel);
+                    this.componentFactory.createHorizontalConnector(this.contextPath[1]);
 
                 } else if (arguments[1] === "vertical") {
 
-                    var verticalConnectorModel = this.diagramModel.createVerticalConnector(this.contextPath[1]);
-                    this.verticalConnectorFactory.create(verticalConnectorModel)
-
-
+                    this.componentFactory.createVerticalConnector(this.contextPath[1]);
                 }
 
 
@@ -213,7 +208,8 @@ define(['core/BaseType'],function (BaseType) {
                         message : "context path is: " + this.contextPath
                     }
                 }
-                this.diagramModel.createDiagram( arguments[1] );
+
+                this.componentFactory.createDiagram(arguments[1]);
 
                 break;
 
@@ -225,17 +221,8 @@ define(['core/BaseType'],function (BaseType) {
                         message : "context path is: " + this.contextPath
                     }
                 }
-                // create type should return the type itself.
-                var typeModel = this.diagramModel.createType( this.contextPath[1], arguments[1] );
 
-                var typeView = new this.TypeView({
-                    model : typeModel,
-                });
-
-                new this.TypeController({
-                    model : typeModel,
-                    view : typeView
-                });
+                this.componentFactory.createType(this.contextPath[1], arguments[1]);
 
                 break;
             case "property":
@@ -247,9 +234,7 @@ define(['core/BaseType'],function (BaseType) {
                     }
                 }
 
-                this.diagramModel.createProperty(this.contextPath[1],
-                                                 this.contextPath[3],
-                                                 arguments[1]);
+                this.componentFactory.createProperty(this.contextPath[1],this.contextPath[3], arguments[1]);
 
                 break;
             case "method" :
@@ -260,9 +245,9 @@ define(['core/BaseType'],function (BaseType) {
                         message : "context path is: " + this.contextPath
                     }
                 }
-                this.diagramModel.createMethod(  this.contextPath[1],
-                                                 this.contextPath[3],
-                                                 arguments[1]);
+
+                this.componentFactory.createMethod(this.contextPath[1], this.contextPath[3], arguments[1]);
+
                 break;
 
             default :
@@ -279,7 +264,9 @@ define(['core/BaseType'],function (BaseType) {
 
             this.diagramModel.set(this.contextPath, arguments[0], arguments[1])
         },
-
+        // don't like the name of this, but so we don't have clash with contextPath.
+        // todo: have a mapping  to translate between functions in this type and functions called by editor.
+        // perhaps an adapter type?
         con : function () {
 
             return this._deferred({
@@ -290,9 +277,34 @@ define(['core/BaseType'],function (BaseType) {
         },
 
         show : function () {
-            console.log("show current diagram in json form")
+
             var json =  this.diagramModel.toJSON();
+            // todo would be better to return an object here including the message and configuratoin paramers
+            // and let the editor format it as it likes.
             return "<pre>" + json + "</pre>"
+        },
+
+        load : function (diagram) {
+            // check if a diagram is currently loaded.
+
+            if(!this.diagramModel.currentDiagram) {
+                //  get json from server
+                var that = this;
+                $.getJSON('/version2/diagrams/test2.json', function(data) {
+
+                    that.componentFactory.createDiagram(diagram, data);
+
+                });
+
+            } else {
+
+                throw {
+                    name : "AttemptToCreateNewDiagramError",
+                    message : "You already have an existing diagram. Delete this " +
+                                "first before creating a new diagram"
+                }
+            }
+
         },
 
         help : function () {

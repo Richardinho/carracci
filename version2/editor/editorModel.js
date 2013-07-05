@@ -34,6 +34,13 @@ define(["core/Model", "jquery"],function (Model, $) {
 
         },
 
+        clear : function () {
+
+            this.set("oldCommands", []);
+            this.set("currentCommand","");
+            this.fire("change");
+        },
+
         setHeight : function (height) {
             this.set("height", height);
             this.fire("reformat");

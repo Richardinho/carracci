@@ -14,9 +14,11 @@ define([
             this.nodeMediator = options.nodeMediator;
             this.typeController = options.typeController;
             this.nodeOrientation = options.nodeOrientation;
-
+            debugger;
             // it's very important that this method goes before the following ones.
-            this._moveNodeOnToBox();
+            if(!options.dontMove) {
+               this._moveNodeOnToBox();
+            }
 
             this.typeController.addAttachedNodeMediator(this)
             this.nodeMediator.addBoxNodeMediator(this, this.nodeOrientation);

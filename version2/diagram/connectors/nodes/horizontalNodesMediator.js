@@ -97,7 +97,7 @@ define(["core/BaseType",
 
 
                 //this.leftArrowModel.children['xCood'].set(x);
-                var proximalNodeXCood = this.proximalNodeModel.getXCood().value;
+                var proximalNodeXCood = this.proximalNodeModel.getXCood();
 
                 if( proximalNodeXCood > this.leftNodeTypeBoxMediator.getBoxRightLimit()) {
 
@@ -163,7 +163,7 @@ define(["core/BaseType",
         // update from node controller
         updateLeftArrow : function (x, y) {
 
-            if(this.leftNodeAttached) {
+            if(this._leftArrowAttached()) {
                 var currentX = this.leftArrowModel.getXCood();
                 var currentY = this.leftArrowModel.getYCood();
 

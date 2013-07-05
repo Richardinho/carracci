@@ -26,7 +26,7 @@ define([
 
         getXCood : function () {
 
-            return this.model.children['xCood'].value;
+            return parseInt(this.model.children['xCood'].value, 10);
 
         },
 
@@ -42,7 +42,7 @@ define([
 
         getYCood : function () {
 
-            return this.model.children['yCood'].value;
+            return parseInt(this.model.children['yCood'].value, 10);
 
         },
         fire : function (event, context, orientation) {

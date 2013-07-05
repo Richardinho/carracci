@@ -119,6 +119,7 @@ define(["core/BaseType", "jquery"],function (BaseType, $) {
 
         },
 
+        /* editor commands */
         handleEditorCommand : function (commandArray) {
 
             var command = commandArray[0];
@@ -131,6 +132,12 @@ define(["core/BaseType", "jquery"],function (BaseType, $) {
                 break;
             case "max" :
                 this.model.setMax();
+                break;
+
+            case "clear" :
+                console.log("clear console");
+                commandArray = [];
+                this.model.clear();
                 break;
             case "height" :
                 if(!commandArray[1]) {

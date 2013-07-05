@@ -17,6 +17,8 @@ define(["core/BaseType",
 
         initialize : function () {
 
+            this.currentDiagram = null;
+
             this.model = new Node({
                 diagrams : {}
             });
@@ -31,7 +33,7 @@ define(["core/BaseType",
             });
 
             this.model.on("receiveRequest", function (typeController) {
-                console.log("receive request")
+
                 if(this.requestedNode) {
                     //  create mediator
 
@@ -46,7 +48,7 @@ define(["core/BaseType",
                         });
 
                     } else {
-                        console.log("box vertical mediator creation")
+
                         new BoxVerticalNodeMediator({
                             nodeMediator : this.requestedNode.nodeMediator,
                             nodeOrientation : this.requestedNode.nodeOrientation,
@@ -65,12 +67,23 @@ define(["core/BaseType",
         },
 
         createDiagram : function (diagramName, node) {
+            /*
+                only one diagram can exist at a time
+                for the moment anyway!
+            */
+            if(this.currentDiagram) {
+                throw {
+                    name : "AttemptToCreateNewDiagramError",
+                    message : "You already have an existing diagram"
+                }
+            }
 
             if(node) {
-                this.model.children['diagrams'].createChild(diagramName, node);
+
+                this.currentDiagram = this.model.children['diagrams'].createChild(diagramName, node);
             }
             else {
-                this.model.children['diagrams'].createChild(diagramName, {
+                this.currentDiagram = this.model.children['diagrams'].createChild(diagramName, {
                     types : {},
                     connectors : {}
                 });
@@ -87,7 +100,7 @@ define(["core/BaseType",
             };
 
             var context = this.model;
-            debugger;
+
             for(var i = 1; i <= contextPath.length; i += 2) {
                 var artifact = map[contextPath[i - 1]];
                 context = context.children[artifact].children[contextPath[i]];
@@ -204,7 +217,7 @@ define(["core/BaseType",
 
         createType : function (diagram, typeName) {
 
-           var typeModel = this.model.children.diagrams.children[diagram].children.types.createChild(typeName, {
+            return this.model.children.diagrams.children[diagram].children.types.createChild(typeName, {
 
                 properties : {
                     testProp : {
@@ -245,11 +258,6 @@ define(["core/BaseType",
 
             });
 
-            return new TypeModel({
-                diagramModel : this.model,
-                model : typeModel
-            });
-
         },
 
         getTypeName : function (diagram, type) {
@@ -258,6 +266,14 @@ define(["core/BaseType",
                         .children[diagram]
                         .children.types
                         .children[type].name;
+
+        },
+
+        getConnectors : function (diagramName) {
+            return this.model.children['diagrams']
+                            .children[diagramName]
+                            .children.connectors
+                            .children;
 
         },
 
