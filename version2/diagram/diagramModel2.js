@@ -4,14 +4,16 @@ define(["core/BaseType",
         "diagram/connectors/horizontalConnectorModel",
         "diagram/boxHorizontalNodeMediator",
         "diagram/boxVerticalNodeMediator",
-        "diagram/connectors/verticalConnectorModel"],
+        "diagram/connectors/verticalConnectorModel",
+        "utility/idGenerator"],
         function (  BaseType,
                     Node,
                     TypeModel,
                     HorizontalConnectorModel,
                     BoxHorizontalNodeMediator,
                     BoxVerticalNodeMediator,
-                    VerticalConnectorModel) {
+                    VerticalConnectorModel,
+                    idGenerator) {
 
     return BaseType.extend({
 
@@ -110,10 +112,12 @@ define(["core/BaseType",
         },
 
         createVerticalConnector : function (diagram) {
+
+            var id = idGenerator.nextId();
             var connectorModel = this.model.children['diagrams']
                 .children[diagram]
                 .children['connectors']
-                .createChild("blah",{
+                .createChild(id,{
                     orientation : "vertical",
                     nodes : {
 
@@ -121,6 +125,7 @@ define(["core/BaseType",
                             xCood : 300,
                             yCood : 100,
                             attached : false,
+                            attachedBox : "",
                             arrow : {
                                 style : "blackConnectArrow",
                                 direction : "top"
@@ -130,25 +135,27 @@ define(["core/BaseType",
                         secondTop : {
                             xCood : 300,
                             yCood : 200,
-                            attached : false
+                            attached : "",
+                            attachedBox : null,
                         },
 
                         secondBottom : {
                             xCood : 400,
                             yCood : 200,
-                            attached : false
+                            attached : false,
+                            attachedBox : "",
                         },
 
                         bottom : {
                             xCood : 400,
                             yCood : 300,
                             attached : false,
+                            attachedBox : "",
                             arrow : {
                                 style : "whiteArrow",
                                 direction : "bottom"
                             }
                         }
-
                     },
                     lineStyle : "solid"
 
@@ -165,11 +172,11 @@ define(["core/BaseType",
                 Once created, should the user
                 be able to interact with it via the editor?
             */
-
+            var id = idGenerator.nextId();
             var connectorModel = this.model.children['diagrams']
                 .children[diagram]
                 .children['connectors']
-                .createChild("blah",{
+                .createChild( id,{
                     orientation : "horizontal",
                     nodes : {
 
@@ -177,6 +184,7 @@ define(["core/BaseType",
                             xCood : 100,
                             yCood : 100,
                             attached : false,
+                            attachedBox : "",
                             arrow : {
                                 style : "blackConnectArrow",
                                 direction : "left"
@@ -186,19 +194,22 @@ define(["core/BaseType",
                         proximal : {
                             xCood : 200,
                             yCood : 100,
-                            attached : false
+                            attached : false,
+                            attachedBox : ""
                         },
 
                         distal : {
                             xCood : 200,
                             yCood : 300,
-                            attached : false
+                            attached : false,
+                            attachedBox : ""
                         },
 
                         right : {
                             xCood : 400,
                             yCood : 300,
                             attached : false,
+                            attachedBox : "",
                             arrow : {
                                 style : "whiteArrow",
                                 direction : "right"

@@ -14,7 +14,6 @@ define([
             this.nodeMediator = options.nodeMediator;
             this.typeController = options.typeController;
             this.nodeOrientation = options.nodeOrientation;
-            debugger;
             // it's very important that this method goes before the following ones.
             if(!options.dontMove) {
                this._moveNodeOnToBox();
@@ -27,7 +26,6 @@ define([
 
         destroy : function () {
             this.typeController.unAttachNodeMediator(this);
-
         },
 
         /*

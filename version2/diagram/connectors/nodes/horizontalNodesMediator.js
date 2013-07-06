@@ -41,12 +41,14 @@ define(["core/BaseType",
 
 
                 this.leftArrowModel.setAttached(false);
+                this.leftArrowModel.model.children['attachedBox'].set(null);
                 this.leftNodeTypeBoxMediator.destroy();
                 this.leftNodeTypeBoxMediator = null;
 
             } else {
 
                 this.rightArrowModel.setAttached(false);
+                this.rightArrowModel.model.children['attachedBox'].set(null)
                 this.rightNodeTypeBoxMediator.destroy();
                 this.rightNodeTypeBoxMediator = null;
             }
@@ -56,6 +58,9 @@ define(["core/BaseType",
         _attachTypeBoxToRightNode : function (boxNodeMediator) {
 
             this.rightArrowModel.setAttached(true);
+            var box = boxNodeMediator.typeController.model.model.name;
+            this.rightArrowModel.model.children['attachedBox'].set(box)
+
             this.rightNodeTypeBoxMediator = boxNodeMediator;
 
         },
@@ -63,6 +68,8 @@ define(["core/BaseType",
         _attachTypeBoxToLeftNode : function (boxNodeMediator) {
 
             this.leftArrowModel.setAttached(true);
+            var box = boxNodeMediator.typeController.model.model.name;
+            this.leftArrowModel.model.children['attachedBox'].set(box);
             this.leftNodeTypeBoxMediator = boxNodeMediator;
         },
 
@@ -147,12 +154,8 @@ define(["core/BaseType",
                 this.rightArrowModel.setYCood(y);
                 this.distalNodeModel.setYCood(y);
 
-
-
                 break;
             }
-
-
         },
 
         // make request to join a node to a type box
@@ -229,7 +232,6 @@ define(["core/BaseType",
                         this.leftNodeTypeBoxMediator.getBoxLeftLimit()
                     );
                 }
-
             }
 
             this.setRightArrowDirection();
@@ -239,9 +241,6 @@ define(["core/BaseType",
             this.leftArrowModel.setYCood(y);
 
             this.distalNodeModel.setXCood(x);
-
-
-
         },
 
         updateDistalNode : function (x, y) {
@@ -273,7 +272,6 @@ define(["core/BaseType",
                         this.rightNodeTypeBoxMediator.getBoxLeftLimit()
                     );
                 }
-
             }
 
             if(this._leftArrowAttached() ) {
@@ -294,7 +292,6 @@ define(["core/BaseType",
                         this.leftNodeTypeBoxMediator.getBoxLeftLimit()
                     );
                 }
-
             }
 
             this.setRightArrowDirection();
@@ -305,9 +302,6 @@ define(["core/BaseType",
             this.proximalNodeModel.setXCood(x);
 
             this.rightArrowModel.setYCood(y);
-
-
-
         },
 
         updateRightArrow : function (x, y) {

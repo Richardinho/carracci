@@ -112,6 +112,8 @@ define(['core/BaseType',
                 view : bottomArrowView
             });
 
+            return verticalArrowMediator;
+
         }
     }
 

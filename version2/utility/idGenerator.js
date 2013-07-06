@@ -2,10 +2,13 @@ define([], function () {
 
     var nextId = 1;
 
+    var prefix = "abc";
+
     return {
 
         nextId : function () {
-            return nextId++;
+            var id = nextId++;
+            return prefix + id;
         }
     };
 })

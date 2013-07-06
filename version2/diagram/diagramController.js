@@ -286,12 +286,10 @@ define(['core/BaseType'],function (BaseType) {
 
         load : function (diagram) {
             // check if a diagram is currently loaded.
-
             if(!this.diagramModel.currentDiagram) {
                 //  get json from server
                 var that = this;
                 $.getJSON('/version2/diagrams/test2.json', function(data) {
-
                     that.componentFactory.createDiagram(diagram, data);
 
                 });

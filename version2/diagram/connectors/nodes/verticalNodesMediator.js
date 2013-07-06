@@ -41,12 +41,14 @@ define(["core/BaseType",
 
 
                 this.topArrowModel.setAttached(false);
+                this.topArrowModel.model.children['attachedBox'].set(null);
                 this.topNodeTypeBoxMediator.destroy();
                 this.topNodeTypeBoxMediator = null;
 
             } else {
 
                 this.bottomArrowModel.setAttached(false);
+                this.bottomArrowModel.model.children['attachedBox'].set(null)
                 this.bottomNodeTypeBoxMediator.destroy();
                 this.bottomNodeTypeBoxMediator = null;
             }
@@ -56,6 +58,9 @@ define(["core/BaseType",
         _attachTypeBoxToBottomNode : function (boxNodeMediator) {
 
             this.bottomArrowModel.setAttached(true);
+            var box = boxNodeMediator.typeController.model.model.name;
+            this.bottomArrowModel.model.children['attachedBox'].set(box)
+
             this.bottomNodeTypeBoxMediator = boxNodeMediator;
 
         },
@@ -63,6 +68,8 @@ define(["core/BaseType",
         _attachTypeBoxToTopNode : function (boxNodeMediator) {
 
             this.topArrowModel.setAttached(true);
+            var box = boxNodeMediator.typeController.model.model.name;
+            this.topArrowModel.model.children['attachedBox'].set(box)
             this.topNodeTypeBoxMediator = boxNodeMediator;
         },
 

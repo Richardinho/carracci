@@ -4,7 +4,9 @@ define([
     'diagram/types/typeController',
     'diagram/types/typeModel',
     "diagram/connectors/horizontalConnectorModel",
-    "diagram/boxHorizontalNodeMediator"
+    "diagram/connectors/verticalConnectorModel",
+    "diagram/boxHorizontalNodeMediator",
+    "diagram/boxVerticalNodeMediator"
     ],
     function (
     BaseType,
@@ -12,7 +14,9 @@ define([
     TypeController,
     TypeModel,
     HorizontalConnectorModel,
-    BoxHorizontalNodeMediator
+    VerticalConnectorModel,
+    BoxHorizontalNodeMediator,
+    BoxVerticalNodeMediator
     )
     {
 
@@ -97,12 +101,6 @@ define([
 
                         // check left and right nodes to see if they need to be attached.
                         var leftNode = connectors[connector].children['nodes'].children['left'];
-
-                        if(leftNode.children['attached'].value) {
-
-                            console.log("attach left node", leftNode.children['attached'])
-                        }
-
                         var rightNode = connectors[connector].children['nodes'].children['right'];
 
                         if(rightNode.children['attached'].value) {
@@ -129,7 +127,35 @@ define([
 
                     } else {
 
-                       // this.verticalConnectorFactory.create(connectors[connector])
+                        var vcm =  new VerticalConnectorModel({
+                            model : connectors[connector]
+                        });
+
+                        var mediator = this.verticalConnectorFactory.create(vcm);
+
+                        var topNode = connectors[connector].children['nodes'].children['top'];
+                        var bottomNode = connectors[connector].children['nodes'].children['bottom'];
+
+                        if(topNode.children['attached'].value) {
+                            var box = topNode.children['attachedBox'].value
+
+                            new BoxVerticalNodeMediator({
+                                nodeMediator : mediator,
+                                nodeOrientation : "top",
+                                typeController : typeControllerMap[box],
+                                dontMove : true
+                            });
+                        }
+                        if(bottomNode.children['attached'].value) {
+                            var box = bottomNode.children['attachedBox'].value
+
+                            new BoxVerticalNodeMediator({
+                                nodeMediator : mediator,
+                                nodeOrientation : "bottom",
+                                typeController : typeControllerMap[box],
+                                dontMove : true
+                            });
+                        }
                     }
                 }
 
