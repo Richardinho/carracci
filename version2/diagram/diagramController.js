@@ -1,4 +1,4 @@
-define(['core/BaseType'],function (BaseType) {
+define(['core/BaseType', 'canvg'],function (BaseType, canvg) {
 
     /*
         this type has the role of supplying commands which are called by the editor.
@@ -260,20 +260,102 @@ define(['core/BaseType'],function (BaseType) {
             return "you have created " + artifact + " " + arguments[1];
         },
 
+        export : function () {
+
+            var format = arguments[0];
+
+            switch (format) {
+
+            case "jpeg":
+                console.log("jpeg")
+            break;
+            case "png":
+                console.log("png")
+
+                var canvas = document.createElement('canvas');
+                canvas.width = 1000;
+                canvas.height = 800;
+                var svg = $('<div>').append($('svg').clone()).html();
+
+                canvg(canvas,svg );
+
+                var dataURL = canvas.toDataURL()
+
+                window.open(dataURL,'mywindow')
+            break;
+
+            default :
+                throw {
+                    name : "FormatNotSupportedException",
+                    message : format + " is not supported"
+                }
+            }
+        },
+
         set : function () {
 
-            this.diagramModel.set(this.contextPath, arguments[0], arguments[1])
+            if(this.contextPath.length < 4) {
+
+                throw {
+
+                    name : "ContextPathError",
+                    message : "no value can be set at this context"
+                }
+            }
+
+            else if(this.contextPath.length === 4) {
+
+                if(arguments[0] === "flavor") {
+
+                    this.diagramModel.set(this.contextPath, arguments[0], arguments[1])
+                } else {
+                    throw {
+
+                        name : "ArgumentNotKnown",
+                        message : arguments[0] + " is not a valid property"
+                    }
+                }
+            }
+            else if(this.contextPath.length === 6) {
+                if(this.contextPath[4] === "property") {
+                    // at property context
+                    if(arguments[0] === "visibility") {
+                        this.diagramModel.set(this.contextPath, arguments[0], arguments[1])
+                    } else if(arguments[0] === "type")  {
+                        this.diagramModel.set(this.contextPath, arguments[0], arguments[1])
+                    } else {
+                        throw {
+                            name : "ArgumentNotKnown",
+                            message : arguments[0] + " is not a valid property"
+                        }
+                    }
+                } else if(this.contextPath[4] === "method") {
+
+                   if(arguments[0] === "visibility") {
+                        this.diagramModel.set(this.contextPath, arguments[0], arguments[1])
+                    } else if(arguments[0] === "returnType")  {
+                        this.diagramModel.set(this.contextPath, arguments[0], arguments[1])
+                    } else if(arguments[0] === "args") {
+                        this.diagramModel.set(this.contextPath, arguments[0], arguments[1])
+                    } else {
+                        throw {
+                            name : "ArgumentNotKnown",
+                            message : arguments[0] + " is not a valid property"
+                        }
+                    }
+                }
+
+            }
+
+
+
         },
         // don't like the name of this, but so we don't have clash with contextPath.
         // todo: have a mapping  to translate between functions in this type and functions called by editor.
         // perhaps an adapter type?
         con : function () {
 
-            return this._deferred({
-
-                message : this.contextPath
-
-            });
+            return this.contextPath.join(" ");
         },
 
         show : function () {

@@ -14,7 +14,14 @@ require.config({
 
         'jqueryMCustomScrollbar': ['jquery'],
 
-        'jqueryUICustom' : ['jquery']
+        'jqueryUICustom' : ['jquery'],
+
+        'canvg' : {
+
+            deps : ['rgbColor'],
+
+            exports : 'canvg'
+        }
 
     },
 
@@ -29,7 +36,9 @@ require.config({
         raphaelVML : "lib/raphael.2.1.0.vml",
         eve : "lib/eve.0.3.4",
         jqueryMCustomScrollbar : "lib/custom-scrollbar-plugin/js/minified/jquery.mCustomScrollbar.min",
-        jqueryUICustom : "lib/jquery-ui-1.10.3.custom/js/jquery-ui-1.10.3.custom.min"
+        jqueryUICustom : "lib/jquery-ui-1.10.3.custom/js/jquery-ui-1.10.3.custom.min",
+        canvg : "lib/canvg-1.2/canvg",
+        rgbColor : "lib/canvg-1.2/rgbcolor",
     }
 });
 
@@ -98,7 +107,7 @@ require(['jquery',
         var diagramCommands = new DiagramCommands();
 
         diagramCommands.addCommands(diagramController, [
-            'help', 'create', 'use', 'con', 'set', 'remove', 'show', 'load'
+            'help', 'create', 'use', 'con', 'set', 'remove', 'show', 'load', 'export'
         ]);
 
         new EditorController({

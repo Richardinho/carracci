@@ -322,6 +322,7 @@ define(["core/BaseType",
                 .children[type]
                 .children['methods']
                 .createChild(methodName, {
+                    name : methodName,
                     visibility : "public",
                     returnType : "void",
                     args : []
@@ -407,6 +408,10 @@ define(["core/BaseType",
                 .children['properties']
                 .children[propertyName]
                 .children['type'].value;
+        },
+
+        setPropertyName : function() {
+
         }
 
 

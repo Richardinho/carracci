@@ -55,8 +55,8 @@ define(['utility/svg', 'core/BaseType', 'underscore'], function(svg, BaseType, _
             this.typeBox.attr("fill" , this.backgroundColor);
             this.typeBox.attr("stroke", this.outlineColor);
 
-            if(this.model.getFlavor() === 'interface') {
-                this.flavorText = this.createFlavorText('interface');
+            if(this.model.getFlavor() === 'interface' || this.model.getFlavor() === 'abstract') {
+                this.flavorText = this.createFlavorText(this.model.getFlavor());
             }
             this.nameText = this.createNameText(name );
 
@@ -116,7 +116,7 @@ define(['utility/svg', 'core/BaseType', 'underscore'], function(svg, BaseType, _
 
             var yOffset = 0;
 
-            if( this.model.getFlavor() === 'interface' ) {
+            if( this.model.getFlavor() === 'interface' || this.model.getFlavor() === 'abstract' ) {
                 yOffset = this.lineHeight;
             }
 
@@ -282,7 +282,7 @@ define(['utility/svg', 'core/BaseType', 'underscore'], function(svg, BaseType, _
 
             this.moveNameText(x, y);
 
-            if(this.model.getFlavor() === 'interface') {
+            if(this.model.getFlavor() === 'interface' || this.model.getFlavor() === 'abstract') {
                 this.moveFlavorText(x, y);
             }
             this.moveMethods(x, y);
@@ -297,8 +297,8 @@ define(['utility/svg', 'core/BaseType', 'underscore'], function(svg, BaseType, _
             this.createProperties();
             this.createMethods();
 
-            if(this.model.getFlavor() === 'interface') {
-                this.flavorText = this.createFlavorText('interface');
+             if(this.model.getFlavor() === 'interface' || this.model.getFlavor() === 'abstract') {
+                this.flavorText = this.createFlavorText(this.model.getFlavor());
             }
 
             this.nameText = this.createNameText( this.model.getName() );
