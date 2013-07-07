@@ -1,10 +1,11 @@
 #carracci
 
-A web based gui tool for creating uml diagrams
+A browser based tool with command line facilities for creating and editing uml diagrams
 
 ###Features
 
- * Create UML Class diagrams
+ * Create UML Class, Abstract Class and interface diagrams
+ * edit through interactive graphics or via embedded command line interface
 
 ###Developers
 

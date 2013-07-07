@@ -29,7 +29,9 @@
     "devDependencies": {
         "grunt": "~0.4.1",
         "grunt-contrib-jshint": "~0.6.0",
-        "grunt-karma" : "~0.4.4"
+        "grunt-karma" : "~0.4.4",
+        "grunt-ftp-deploy" : "~0.0.9",
+        "grunt-contrib-requirejs" : "~0.4.1"
     },
 
     "author": "Richard Hunter",

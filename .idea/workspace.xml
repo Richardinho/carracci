@@ -2,10 +2,534 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bd4dd7db-33d3-4455-b213-bb1cec28b9b9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/version2/bootstrap.js" afterPath="$PROJECT_DIR$/version2/bootstrap.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/version2/diagram/diagramController.js" afterPath="$PROJECT_DIR$/version2/diagram/diagramController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/version2/diagram/diagramModel2.js" afterPath="$PROJECT_DIR$/version2/diagram/diagramModel2.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/version2/utility/typeBox.js" afterPath="$PROJECT_DIR$/version2/utility/typeBox.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.ftppass" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bootstrap.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/main.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/carracciScreenshot.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/css/classGui.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/css/classPopUp.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/css/deletePopUp.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/css/main.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/css/reset.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/css/toolbox.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/menu.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scrollbar.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scss/classGui.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scss/classPopUp.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scss/deletePopUp.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scss/elements.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scss/main.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scss/reset.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scss/toolbox.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/fooTest.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/integration/ClassBoxMVC/mvcClassBox.test.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/integration/ClassBoxMVC/mvcClassBox.test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/integration/ClassBoxMVC/requireConfig.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/integration/ClassGui/classGUI.test.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/integration/ClassGui/classGUI.test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/integration/ClassGui/requireConfig.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/integration/connector/connector.test.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/integration/connector/connector.test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/integration/connector/requireConfig.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/integration/menu/menu.test.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/integration/menu/menu.test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/integration/menu/requireConfig.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/arrow.Arrow.test.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/classFormatterTestSpecRunner.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/lib/jasmine-1.2.0/MIT.LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/lib/jasmine-1.2.0/jasmine-html.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/lib/jasmine-1.2.0/jasmine.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/lib/jasmine-1.2.0/jasmine.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/namespaceTestSpecRunner.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/node.DraggableElement.test.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/node.Element.test.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/node.HorizontalArrow.test.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/node.SvgElement.test.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/node.VerticalArrow.test.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/runners/class/view.ClassBox.test.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/runners/connectors/connector.AbstractConnector.test.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/runners/connectors/connector.HorizontalConnector.test.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/runners/core/core.Collection.test.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/runners/core/core.Model.test.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/runners/lines/lines.line.test.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/runners/utils/utils.methodBuilder.test.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/runners/utils/utils.propertyBuilder.test.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/spec/arrow.Arrow.test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/spec/class/view.ClassBox.test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/spec/classFormatterTest.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/spec/connectors/connector.AbstractConnector.test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/spec/connectors/connector.HorizontalConnector.test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/spec/core/core.Collection.test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/spec/core/core.Model.test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/spec/lines/lines.line.test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/spec/namespaceTest.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/spec/node.DraggableElement.test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/spec/node.Element.test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/spec/node.HorizontalArrowNode.test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/spec/node.SvgElement.test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/spec/node.VerticalArrowNode.test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/spec/svgUtilsTest.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/spec/utils.extend.test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/src/Player.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/src/Song.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/svgUtilsTestSpecRunner.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/utility.extend.test.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/jasmine-standalone-1.2.0/utils.extends.test.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/stubs/ArrowCoordinator.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/stubs/BoxCoordinator.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/stubs/DistalNodeCoordinator.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/stubs/IDGeneratorStub.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/stubs/ProximalNodeCoordinator.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/stubs/stubs.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/unit/BaseType/BaseType.test.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/unit/BaseType/BaseType.test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/unit/BaseType/requireConfig.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/unit/ClassBoxModel/ClassBoxModel.test.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/unit/ClassBoxModel/ClassBoxModel.test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/unit/ClassBoxModel/requireConfig.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/unit/ModelElement/ModelElement.test.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/unit/ModelElement/ModelElement.test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/unit/ModelElement/requireConfig.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/unit/command_line_editor/cle_context.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/unit/command_line_editor/command_line.test.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/unit/command_line_editor/command_line_editor.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/unit/command_line_editor/contextPath.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/unit/command_line_editor/requireConfig.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/unit/componentContainer/ComponentContainer.test.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/unit/componentContainer/ComponentContainer.test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/unit/componentContainer/requireConfig.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/unit/core/Collection/Collection.test.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/unit/core/Collection/Collection.test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/unit/core/Collection/requireConfig.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/unit/core/Model/Model.test.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/unit/core/Model/Model.test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/unit/core/Model/requireConfig.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/unit/nodeBoxCoordinator/NodeBoxCoordinator.test.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/unit/nodeBoxCoordinator/NodeBoxCoordinator.test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/unit/nodeBoxCoordinator/requireConfig.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/unit/templateLoader/requireConfig.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/unit/templateLoader/templateLoader.test.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/unit/templateLoader/templateLoader.test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/unit/utility/methodBuilder/methodBuilder.test.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/unit/utility/methodBuilder/methodBuilder.test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/unit/utility/methodBuilder/requireConfig.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/unit/utility/propertyBuilder/propertyBuilder.test.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/unit/utility/propertyBuilder/propertyBuilder.test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/js/unit/utility/propertyBuilder/requireConfig.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/lib/jasmine-1.2.0/MIT.LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/lib/jasmine-1.2.0/jasmine-html.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/lib/jasmine-1.2.0/jasmine.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/lib/jasmine-1.2.0/jasmine.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/webAPI/argAPI.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/webAPI/arrowNodeAPI.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/webAPI/classAPI.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/webAPI/classGuiAPI.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/webAPI/connectorAPI.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/webAPI/menuBar.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/webAPI/methodsGuiAPI.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/webAPI/nodeAPI.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/webAPI/propertiesGuiAPI.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/webAPI/toolsDropDown.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/webAPI/verticalConnectorAPI.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/toolbox.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/umlGraphicsProject.iml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/version2/bootstrap.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/version2/dfd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/version2/eventNodeRunner.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/version2/lib/eve.0.3.4.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/version2/testbootstrap.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/css/actualTemplate.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/css/umlClass.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/foo.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/butchers.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/carracci.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/horizontalConnector.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/ping.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/umlClassIcon.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/verticalConnector.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/VerticalNodeToRectangleLink.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/bootstrap.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/cavgsSpike/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/cavgsSpike/index2.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/classBox/controller/controller.ClassBox.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/classBox/factory/factory.ClassBox.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/classBox/model/model.ClassBox.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/classBox/view/view.ClassBox.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/commandLineEditor/commandLineController.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/commandLineEditor/commandLineEditorView.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/commandLineEditor/commands.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/commandLineEditor/editor.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/commandLineEditor/foo.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/commandLineEditor/foo.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/commandLineEditor/keyManager.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/commandLineEditor/keymap.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/commandLineEditor/projectJSON.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/componentContainer.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/connectors/DeletePopUpController.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/connectors/DeletePopUpView.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/connectors/deletePopUp.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/connectors/factory/ConnectorFactory.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/connectors/factory/horizontalConnector.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/connectors/factory/verticalConnector.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/connectors/horizontalConnectorMediator.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/connectors/lineContainer.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/connectors/verticalConnectorMediator.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/coordinators/ArrowCoordinator.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/coordinators/BoxCoordinator.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/coordinators/DistalNodeCoordinator.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/coordinators/ProximalNodeCoordinator.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/coordinators/baseCoordinator.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/coordinators/verticalConnectorsToBox/ArrowCoordinator.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/coordinators/verticalConnectorsToBox/boxCoordinator.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/coordinators/verticalConnectorsToBox/distalNodeCoordinator.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/coordinators/verticalConnectorsToBox/proximalNodeCoordinator.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/core/Collection.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/core/Model.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/core/ModelElement.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/global/controllers/controller.AttachedNodeToBox.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/global/controllers/verticalNodeToBox.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/globalController/controller.Global.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/gui/classBoxController.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/gui/view.classBox.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/lib/backbone.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/lib/canvg-1.2/MIT-LICENSE.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/lib/canvg-1.2/canvg.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/lib/canvg-1.2/rgbcolor.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/lib/eve.0.3.4.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/lib/jquery-1.8.0.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/lib/jscanvas.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/lib/jscanvastest.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/lib/jstween-1.1.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/lib/raphael.2.1.0.amd.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/lib/raphael.2.1.0.core.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/lib/raphael.2.1.0.svg.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/lib/raphael.2.1.0.vml.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/lib/underscore.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/lines/model/model.line.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/lines/view/view.line.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/menu/controller/menuElementController.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/menu/factory.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/menu/models/menuElementModel.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/menu/toolsMenuItems.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/menu/views/menuElementView.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/node/_runners/node.main.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/node/_runners/node.main2.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/node/_runners/nodeRunner.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/node/controller/controller.ArrowNode.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/node/controller/controller.KeyManager.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/node/controller/controller.draggableElement.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/node/model/model.ArrowNode.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/node/model/model.DistalNode.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/node/view/view.ArrowNode.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/node/view/view.element.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/nodeToRectangleLink.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/pointers/collection/collection.Pointer.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/pointers/model/model.Diamond.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/pointers/model/model.Implements.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/pointers/model/model.Pointer.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/pointers/view/view.Pointer.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/popUp/ClassPopUpController.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/popUp/ClassPopUpView.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/popUp/singleton.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/svgShapes/WhiteArrow.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/svgShapes/arrowShape.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/svgShapes/runners/arrowRunner.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/svgShapes/runners/arrowRunner.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/toolbox/toolboxController.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/toolbox/toolboxFactory.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/toolbox/toolboxModel.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/toolbox/toolboxView.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/utility/IDGenerator.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/utility/WebAPI.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/utility/applicationFactory.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/utility/extend.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/utility/methodBuilder.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/utility/propertyBuilder.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/utility/svg.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/utility/svgUtilities.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/utility/templateLoader.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/utility/typeFactory.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/templates/help.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/templates/tools.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/templates/umlClassBoxGUI.html" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/eve.0.3.4.js" afterPath="$PROJECT_DIR$/web/lib/eve.0.3.4.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/lib/require.js" afterPath="$PROJECT_DIR$/web/lib/require.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2.html" afterPath="$PROJECT_DIR$/web/index.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/core/BaseType.js" afterPath="$PROJECT_DIR$/web/core/BaseType.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/core/Model.js" afterPath="$PROJECT_DIR$/web/core/Model.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/diagram/boxHorizontalNodeMediator.js" afterPath="$PROJECT_DIR$/web/diagram/boxHorizontalNodeMediator.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/diagram/boxNodeMediator.js" afterPath="$PROJECT_DIR$/web/diagram/boxNodeMediator.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/diagram/boxVerticalNodeMediator.js" afterPath="$PROJECT_DIR$/web/diagram/boxVerticalNodeMediator.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/diagram/componentFactory.js" afterPath="$PROJECT_DIR$/web/diagram/componentFactory.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/diagram/connectors/horizontalConnectorFactory.js" afterPath="$PROJECT_DIR$/web/diagram/connectors/horizontalConnectorFactory.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/diagram/connectors/horizontalConnectorModel.js" afterPath="$PROJECT_DIR$/web/diagram/connectors/horizontalConnectorModel.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/diagram/connectors/lines/lineView.js" afterPath="$PROJECT_DIR$/web/diagram/connectors/lines/lineView.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/diagram/connectors/nodes/arrow.js" afterPath="$PROJECT_DIR$/web/diagram/connectors/nodes/arrow.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/diagram/connectors/nodes/arrowController.js" afterPath="$PROJECT_DIR$/web/diagram/connectors/nodes/arrowController.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/diagram/connectors/nodes/arrowView.js" afterPath="$PROJECT_DIR$/web/diagram/connectors/nodes/arrowView.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/diagram/connectors/nodes/horizontalNodesMediator.js" afterPath="$PROJECT_DIR$/web/diagram/connectors/nodes/horizontalNodesMediator.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/diagram/connectors/nodes/nodeModel.js" afterPath="$PROJECT_DIR$/web/diagram/connectors/nodes/nodeModel.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/diagram/connectors/nodes/verticalNodesMediator.js" afterPath="$PROJECT_DIR$/web/diagram/connectors/nodes/verticalNodesMediator.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/diagram/connectors/verticalConnectorFactory.js" afterPath="$PROJECT_DIR$/web/diagram/connectors/verticalConnectorFactory.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/diagram/connectors/verticalConnectorModel.js" afterPath="$PROJECT_DIR$/web/diagram/connectors/verticalConnectorModel.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/diagram/diagramCommands.js" afterPath="$PROJECT_DIR$/web/diagram/diagramCommands.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/diagram/diagramController.js" afterPath="$PROJECT_DIR$/web/diagram/diagramController.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/diagram/diagramModel2.js" afterPath="$PROJECT_DIR$/web/diagram/diagramModel2.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/diagram/types/typeController.js" afterPath="$PROJECT_DIR$/web/diagram/types/typeController.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/diagram/types/typeModel.js" afterPath="$PROJECT_DIR$/web/diagram/types/typeModel.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/diagram/types/typeView.js" afterPath="$PROJECT_DIR$/web/diagram/types/typeView.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/diagrams/test.json" afterPath="$PROJECT_DIR$/web/diagrams/test.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/diagrams/test2.json" afterPath="$PROJECT_DIR$/web/diagrams/test2.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/editor/editorController.js" afterPath="$PROJECT_DIR$/web/editor/editorController.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/editor/editorModel.js" afterPath="$PROJECT_DIR$/web/editor/editorModel.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/editor/editorView.js" afterPath="$PROJECT_DIR$/web/editor/editorView.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/help/deferredTest.html" afterPath="$PROJECT_DIR$/web/help/deferredTest.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/help/deferredTest.js" afterPath="$PROJECT_DIR$/web/help/deferredTest.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/help/testHelp.html" afterPath="$PROJECT_DIR$/web/help/testHelp.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/canvg-1.2/MIT-LICENSE.txt" afterPath="$PROJECT_DIR$/web/lib/canvg-1.2/MIT-LICENSE.txt" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/canvg-1.2/canvg.js" afterPath="$PROJECT_DIR$/web/lib/canvg-1.2/canvg.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/canvg-1.2/rgbcolor.js" afterPath="$PROJECT_DIR$/web/lib/canvg-1.2/rgbcolor.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/custom-scrollbar-plugin/COPYING.txt" afterPath="$PROJECT_DIR$/web/lib/custom-scrollbar-plugin/COPYING.txt" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/custom-scrollbar-plugin/ajax_example.html" afterPath="$PROJECT_DIR$/web/lib/custom-scrollbar-plugin/ajax_example.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/custom-scrollbar-plugin/auto_hide_scrollbar_demo.html" afterPath="$PROJECT_DIR$/web/lib/custom-scrollbar-plugin/auto_hide_scrollbar_demo.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/custom-scrollbar-plugin/auto_scrolling_example.html" afterPath="$PROJECT_DIR$/web/lib/custom-scrollbar-plugin/auto_scrolling_example.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/custom-scrollbar-plugin/callbacks_example.html" afterPath="$PROJECT_DIR$/web/lib/custom-scrollbar-plugin/callbacks_example.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/custom-scrollbar-plugin/complete_examples.html" afterPath="$PROJECT_DIR$/web/lib/custom-scrollbar-plugin/complete_examples.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/custom-scrollbar-plugin/demo_files/ajax_content.html" afterPath="$PROJECT_DIR$/web/lib/custom-scrollbar-plugin/demo_files/ajax_content.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/custom-scrollbar-plugin/demo_files/jquery.mCustomScrollbar.css" afterPath="$PROJECT_DIR$/web/lib/custom-scrollbar-plugin/demo_files/jquery.mCustomScrollbar.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/custom-scrollbar-plugin/demo_files/mcsImg1.jpg" afterPath="$PROJECT_DIR$/web/lib/custom-scrollbar-plugin/demo_files/mcsImg1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/custom-scrollbar-plugin/demo_files/mcsImg2.jpg" afterPath="$PROJECT_DIR$/web/lib/custom-scrollbar-plugin/demo_files/mcsImg2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/custom-scrollbar-plugin/demo_files/mcsThumb1.jpg" afterPath="$PROJECT_DIR$/web/lib/custom-scrollbar-plugin/demo_files/mcsThumb1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/custom-scrollbar-plugin/demo_files/mcsThumb2.jpg" afterPath="$PROJECT_DIR$/web/lib/custom-scrollbar-plugin/demo_files/mcsThumb2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/custom-scrollbar-plugin/demo_files/mcsThumb3.jpg" afterPath="$PROJECT_DIR$/web/lib/custom-scrollbar-plugin/demo_files/mcsThumb3.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/custom-scrollbar-plugin/demo_files/mcsThumb4.jpg" afterPath="$PROJECT_DIR$/web/lib/custom-scrollbar-plugin/demo_files/mcsThumb4.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/custom-scrollbar-plugin/demo_files/mcsThumb5.jpg" afterPath="$PROJECT_DIR$/web/lib/custom-scrollbar-plugin/demo_files/mcsThumb5.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/custom-scrollbar-plugin/demo_files/mcsThumb6.jpg" afterPath="$PROJECT_DIR$/web/lib/custom-scrollbar-plugin/demo_files/mcsThumb6.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/custom-scrollbar-plugin/demo_files/mcsThumb7.jpg" afterPath="$PROJECT_DIR$/web/lib/custom-scrollbar-plugin/demo_files/mcsThumb7.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/custom-scrollbar-plugin/demo_files/mcsThumb8.jpg" afterPath="$PROJECT_DIR$/web/lib/custom-scrollbar-plugin/demo_files/mcsThumb8.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/custom-scrollbar-plugin/demo_files/mcs_demo_bg.jpg" afterPath="$PROJECT_DIR$/web/lib/custom-scrollbar-plugin/demo_files/mcs_demo_bg.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/custom-scrollbar-plugin/disable_destroy_example.html" afterPath="$PROJECT_DIR$/web/lib/custom-scrollbar-plugin/disable_destroy_example.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/custom-scrollbar-plugin/fluid_scrollbar_example.html" afterPath="$PROJECT_DIR$/web/lib/custom-scrollbar-plugin/fluid_scrollbar_example.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/custom-scrollbar-plugin/full_page_demo.html" afterPath="$PROJECT_DIR$/web/lib/custom-scrollbar-plugin/full_page_demo.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/custom-scrollbar-plugin/grid_and_snap_while_scrolling_example.html" afterPath="$PROJECT_DIR$/web/lib/custom-scrollbar-plugin/grid_and_snap_while_scrolling_example.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/custom-scrollbar-plugin/iframe_example.html" afterPath="$PROJECT_DIR$/web/lib/custom-scrollbar-plugin/iframe_example.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/custom-scrollbar-plugin/infinite_scroll_example.html" afterPath="$PROJECT_DIR$/web/lib/custom-scrollbar-plugin/infinite_scroll_example.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/custom-scrollbar-plugin/init_hidden_example.html" afterPath="$PROJECT_DIR$/web/lib/custom-scrollbar-plugin/init_hidden_example.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js" afterPath="$PROJECT_DIR$/web/lib/custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/custom-scrollbar-plugin/jquery.mCustomScrollbar.css" afterPath="$PROJECT_DIR$/web/lib/custom-scrollbar-plugin/jquery.mCustomScrollbar.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/custom-scrollbar-plugin/jquery.mCustomScrollbar.js" afterPath="$PROJECT_DIR$/web/lib/custom-scrollbar-plugin/jquery.mCustomScrollbar.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/custom-scrollbar-plugin/jquery_ui_sortable_example.html" afterPath="$PROJECT_DIR$/web/lib/custom-scrollbar-plugin/jquery_ui_sortable_example.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/custom-scrollbar-plugin/js/minified/jquery-1.9.1.min.js" afterPath="$PROJECT_DIR$/web/lib/custom-scrollbar-plugin/js/minified/jquery-1.9.1.min.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/custom-scrollbar-plugin/js/minified/jquery.mCustomScrollbar.min.js" afterPath="$PROJECT_DIR$/web/lib/custom-scrollbar-plugin/js/minified/jquery.mCustomScrollbar.min.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/custom-scrollbar-plugin/js/minified/jquery.mCustomScrollbar.min.js.gz" afterPath="$PROJECT_DIR$/web/lib/custom-scrollbar-plugin/js/minified/jquery.mCustomScrollbar.min.js.gz" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/custom-scrollbar-plugin/js/minified/jquery.mousewheel.min.js" afterPath="$PROJECT_DIR$/web/lib/custom-scrollbar-plugin/js/minified/jquery.mousewheel.min.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/custom-scrollbar-plugin/js/uncompressed/jquery-1.9.1.js" afterPath="$PROJECT_DIR$/web/lib/custom-scrollbar-plugin/js/uncompressed/jquery-1.9.1.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/custom-scrollbar-plugin/js/uncompressed/jquery.mCustomScrollbar.js" afterPath="$PROJECT_DIR$/web/lib/custom-scrollbar-plugin/js/uncompressed/jquery.mCustomScrollbar.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/custom-scrollbar-plugin/js/uncompressed/jquery.mousewheel.js" afterPath="$PROJECT_DIR$/web/lib/custom-scrollbar-plugin/js/uncompressed/jquery.mousewheel.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/custom-scrollbar-plugin/keyboard_nav_example.html" afterPath="$PROJECT_DIR$/web/lib/custom-scrollbar-plugin/keyboard_nav_example.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/custom-scrollbar-plugin/loading_each_script_separately.html" afterPath="$PROJECT_DIR$/web/lib/custom-scrollbar-plugin/loading_each_script_separately.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/custom-scrollbar-plugin/mCSB_buttons.png" afterPath="$PROJECT_DIR$/web/lib/custom-scrollbar-plugin/mCSB_buttons.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/custom-scrollbar-plugin/max-height_example.html" afterPath="$PROJECT_DIR$/web/lib/custom-scrollbar-plugin/max-height_example.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/custom-scrollbar-plugin/max-width_example.html" afterPath="$PROJECT_DIR$/web/lib/custom-scrollbar-plugin/max-width_example.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/custom-scrollbar-plugin/multiple_scrollbars_example.html" afterPath="$PROJECT_DIR$/web/lib/custom-scrollbar-plugin/multiple_scrollbars_example.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/custom-scrollbar-plugin/nested_scrollbars_demo.html" afterPath="$PROJECT_DIR$/web/lib/custom-scrollbar-plugin/nested_scrollbars_demo.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/custom-scrollbar-plugin/nested_scrollbars_demo_alt.html" afterPath="$PROJECT_DIR$/web/lib/custom-scrollbar-plugin/nested_scrollbars_demo_alt.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/custom-scrollbar-plugin/nested_scrollbars_demo_alt_2.html" afterPath="$PROJECT_DIR$/web/lib/custom-scrollbar-plugin/nested_scrollbars_demo_alt_2.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/custom-scrollbar-plugin/readme.txt" afterPath="$PROJECT_DIR$/web/lib/custom-scrollbar-plugin/readme.txt" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/custom-scrollbar-plugin/scroll_buttons_and_snap_scrolling_examples.html" afterPath="$PROJECT_DIR$/web/lib/custom-scrollbar-plugin/scroll_buttons_and_snap_scrolling_examples.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/custom-scrollbar-plugin/scrollbar_themes_demo.html" afterPath="$PROJECT_DIR$/web/lib/custom-scrollbar-plugin/scrollbar_themes_demo.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/custom-scrollbar-plugin/simple_example.html" afterPath="$PROJECT_DIR$/web/lib/custom-scrollbar-plugin/simple_example.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/custom-scrollbar-plugin/simple_example_all_params.html" afterPath="$PROJECT_DIR$/web/lib/custom-scrollbar-plugin/simple_example_all_params.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/custom-scrollbar-plugin/source_files/mCSB_buttons.psd" afterPath="$PROJECT_DIR$/web/lib/custom-scrollbar-plugin/source_files/mCSB_buttons.psd" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/custom-scrollbar-plugin/textarea_example.html" afterPath="$PROJECT_DIR$/web/lib/custom-scrollbar-plugin/textarea_example.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-1.8.0.js" afterPath="$PROJECT_DIR$/web/lib/jquery-1.8.0.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/css/ui-lightness/images/animated-overlay.gif" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/css/ui-lightness/images/animated-overlay.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/css/ui-lightness/images/ui-bg_diagonals-thick_18_b81900_40x40.png" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/css/ui-lightness/images/ui-bg_diagonals-thick_18_b81900_40x40.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/css/ui-lightness/images/ui-bg_diagonals-thick_20_666666_40x40.png" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/css/ui-lightness/images/ui-bg_diagonals-thick_20_666666_40x40.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/css/ui-lightness/images/ui-bg_flat_10_000000_40x100.png" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/css/ui-lightness/images/ui-bg_flat_10_000000_40x100.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/css/ui-lightness/images/ui-bg_glass_100_f6f6f6_1x400.png" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/css/ui-lightness/images/ui-bg_glass_100_f6f6f6_1x400.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/css/ui-lightness/images/ui-bg_glass_100_fdf5ce_1x400.png" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/css/ui-lightness/images/ui-bg_glass_100_fdf5ce_1x400.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/css/ui-lightness/images/ui-bg_glass_65_ffffff_1x400.png" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/css/ui-lightness/images/ui-bg_glass_65_ffffff_1x400.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/css/ui-lightness/images/ui-bg_gloss-wave_35_f6a828_500x100.png" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/css/ui-lightness/images/ui-bg_gloss-wave_35_f6a828_500x100.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/css/ui-lightness/images/ui-bg_highlight-soft_100_eeeeee_1x100.png" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/css/ui-lightness/images/ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/css/ui-lightness/images/ui-bg_highlight-soft_75_ffe45c_1x100.png" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/css/ui-lightness/images/ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/css/ui-lightness/images/ui-icons_222222_256x240.png" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/css/ui-lightness/images/ui-icons_222222_256x240.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/css/ui-lightness/images/ui-icons_228ef1_256x240.png" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/css/ui-lightness/images/ui-icons_228ef1_256x240.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/css/ui-lightness/images/ui-icons_ef8c08_256x240.png" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/css/ui-lightness/images/ui-icons_ef8c08_256x240.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/css/ui-lightness/images/ui-icons_ffd27a_256x240.png" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/css/ui-lightness/images/ui-icons_ffd27a_256x240.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/css/ui-lightness/images/ui-icons_ffffff_256x240.png" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/css/ui-lightness/images/ui-icons_ffffff_256x240.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/css/ui-lightness/jquery-ui-1.10.3.custom.css" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/css/ui-lightness/jquery-ui-1.10.3.custom.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/css/ui-lightness/jquery-ui-1.10.3.custom.min.css" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/css/ui-lightness/jquery-ui-1.10.3.custom.min.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/AUTHORS.txt" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/AUTHORS.txt" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/Gruntfile.js" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/Gruntfile.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/MIT-LICENSE.txt" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/MIT-LICENSE.txt" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/README.md" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/README.md" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/demos/demos.css" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/demos/demos.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/demos/draggable/constrain-movement.html" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/demos/draggable/constrain-movement.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/demos/draggable/cursor-style.html" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/demos/draggable/cursor-style.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/demos/draggable/default.html" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/demos/draggable/default.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/demos/draggable/delay-start.html" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/demos/draggable/delay-start.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/demos/draggable/events.html" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/demos/draggable/events.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/demos/draggable/handle.html" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/demos/draggable/handle.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/demos/draggable/index.html" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/demos/draggable/index.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/demos/draggable/revert.html" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/demos/draggable/revert.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/demos/draggable/scroll.html" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/demos/draggable/scroll.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/demos/draggable/snap-to.html" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/demos/draggable/snap-to.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/demos/draggable/sortable.html" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/demos/draggable/sortable.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/demos/draggable/visual-feedback.html" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/demos/draggable/visual-feedback.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/demos/images/calendar.gif" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/demos/images/calendar.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/demos/images/demo-config-on-tile.gif" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/demos/images/demo-config-on-tile.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/demos/images/demo-config-on.gif" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/demos/images/demo-config-on.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/demos/images/demo-spindown-closed.gif" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/demos/images/demo-spindown-closed.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/demos/images/demo-spindown-open.gif" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/demos/images/demo-spindown-open.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/demos/images/icon-docs-info.gif" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/demos/images/icon-docs-info.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/demos/images/pbar-ani.gif" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/demos/images/pbar-ani.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/demos/resizable/animate.html" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/demos/resizable/animate.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/demos/resizable/aspect-ratio.html" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/demos/resizable/aspect-ratio.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/demos/resizable/constrain-area.html" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/demos/resizable/constrain-area.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/demos/resizable/default.html" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/demos/resizable/default.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/demos/resizable/delay-start.html" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/demos/resizable/delay-start.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/demos/resizable/helper.html" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/demos/resizable/helper.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/demos/resizable/index.html" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/demos/resizable/index.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/demos/resizable/max-min.html" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/demos/resizable/max-min.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/demos/resizable/snap-to-grid.html" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/demos/resizable/snap-to-grid.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/demos/resizable/synchronous-resize.html" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/demos/resizable/synchronous-resize.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/demos/resizable/textarea.html" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/demos/resizable/textarea.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/demos/resizable/visual-feedback.html" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/demos/resizable/visual-feedback.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/demos/widget/default.html" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/demos/widget/default.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/demos/widget/index.html" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/demos/widget/index.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/docs/draggable.html" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/docs/draggable.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/docs/jQuery.widget.html" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/docs/jQuery.widget.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/docs/mouse.html" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/docs/mouse.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/docs/resizable.html" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/docs/resizable.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/external/globalize.culture.de-DE.js" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/external/globalize.culture.de-DE.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/external/globalize.culture.ja-JP.js" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/external/globalize.culture.ja-JP.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/external/globalize.js" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/external/globalize.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/external/jquery.mousewheel.js" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/external/jquery.mousewheel.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/external/jshint.js" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/external/jshint.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/external/qunit.css" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/external/qunit.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/external/qunit.js" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/external/qunit.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/jquery-1.9.1.js" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/jquery-1.9.1.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/package.json" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/package.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/images/animated-overlay.gif" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/images/animated-overlay.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/images/ui-bg_flat_0_aaaaaa_40x100.png" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/images/ui-bg_flat_0_aaaaaa_40x100.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/images/ui-bg_flat_75_ffffff_40x100.png" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/images/ui-bg_flat_75_ffffff_40x100.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/images/ui-bg_glass_55_fbf9ee_1x400.png" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/images/ui-bg_glass_55_fbf9ee_1x400.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/images/ui-bg_glass_65_ffffff_1x400.png" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/images/ui-bg_glass_65_ffffff_1x400.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/images/ui-bg_glass_75_dadada_1x400.png" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/images/ui-bg_glass_75_dadada_1x400.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/images/ui-bg_glass_75_e6e6e6_1x400.png" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/images/ui-bg_glass_75_e6e6e6_1x400.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/images/ui-bg_glass_95_fef1ec_1x400.png" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/images/ui-bg_glass_95_fef1ec_1x400.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/images/ui-bg_highlight-soft_75_cccccc_1x100.png" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/images/ui-bg_highlight-soft_75_cccccc_1x100.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/images/ui-icons_222222_256x240.png" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/images/ui-icons_222222_256x240.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/images/ui-icons_2e83ff_256x240.png" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/images/ui-icons_2e83ff_256x240.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/images/ui-icons_454545_256x240.png" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/images/ui-icons_454545_256x240.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/images/ui-icons_888888_256x240.png" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/images/ui-icons_888888_256x240.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/images/ui-icons_cd0a0a_256x240.png" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/images/ui-icons_cd0a0a_256x240.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/jquery-ui.css" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/jquery-ui.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/jquery.ui.all.css" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/jquery.ui.all.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/jquery.ui.base.css" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/jquery.ui.base.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/jquery.ui.core.css" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/jquery.ui.core.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/jquery.ui.resizable.css" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/jquery.ui.resizable.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/jquery.ui.theme.css" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/jquery.ui.theme.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/minified/images/animated-overlay.gif" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/minified/images/animated-overlay.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/minified/images/ui-bg_flat_0_aaaaaa_40x100.png" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/minified/images/ui-bg_flat_0_aaaaaa_40x100.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/minified/images/ui-bg_flat_75_ffffff_40x100.png" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/minified/images/ui-bg_flat_75_ffffff_40x100.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/minified/images/ui-bg_glass_55_fbf9ee_1x400.png" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/minified/images/ui-bg_glass_55_fbf9ee_1x400.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/minified/images/ui-bg_glass_65_ffffff_1x400.png" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/minified/images/ui-bg_glass_65_ffffff_1x400.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/minified/images/ui-bg_glass_75_dadada_1x400.png" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/minified/images/ui-bg_glass_75_dadada_1x400.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/minified/images/ui-bg_glass_75_e6e6e6_1x400.png" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/minified/images/ui-bg_glass_75_e6e6e6_1x400.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/minified/images/ui-bg_glass_95_fef1ec_1x400.png" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/minified/images/ui-bg_glass_95_fef1ec_1x400.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/minified/images/ui-bg_highlight-soft_75_cccccc_1x100.png" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/minified/images/ui-bg_highlight-soft_75_cccccc_1x100.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/minified/images/ui-icons_222222_256x240.png" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/minified/images/ui-icons_222222_256x240.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/minified/images/ui-icons_2e83ff_256x240.png" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/minified/images/ui-icons_2e83ff_256x240.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/minified/images/ui-icons_454545_256x240.png" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/minified/images/ui-icons_454545_256x240.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/minified/images/ui-icons_888888_256x240.png" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/minified/images/ui-icons_888888_256x240.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/minified/images/ui-icons_cd0a0a_256x240.png" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/minified/images/ui-icons_cd0a0a_256x240.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/minified/jquery-ui.min.css" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/minified/jquery-ui.min.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/minified/jquery.ui.core.min.css" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/minified/jquery.ui.core.min.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/minified/jquery.ui.resizable.min.css" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/minified/jquery.ui.resizable.min.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/minified/jquery.ui.theme.min.css" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/base/minified/jquery.ui.theme.min.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/images/animated-overlay.gif" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/images/animated-overlay.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/images/ui-bg_diagonals-thick_18_b81900_40x40.png" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/images/ui-bg_diagonals-thick_18_b81900_40x40.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/images/ui-bg_diagonals-thick_20_666666_40x40.png" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/images/ui-bg_diagonals-thick_20_666666_40x40.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/images/ui-bg_flat_10_000000_40x100.png" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/images/ui-bg_flat_10_000000_40x100.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/images/ui-bg_glass_100_f6f6f6_1x400.png" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/images/ui-bg_glass_100_f6f6f6_1x400.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/images/ui-bg_glass_100_fdf5ce_1x400.png" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/images/ui-bg_glass_100_fdf5ce_1x400.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/images/ui-bg_glass_65_ffffff_1x400.png" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/images/ui-bg_glass_65_ffffff_1x400.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/images/ui-bg_gloss-wave_35_f6a828_500x100.png" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/images/ui-bg_gloss-wave_35_f6a828_500x100.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/images/ui-bg_highlight-soft_100_eeeeee_1x100.png" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/images/ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/images/ui-bg_highlight-soft_75_ffe45c_1x100.png" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/images/ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/images/ui-icons_222222_256x240.png" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/images/ui-icons_222222_256x240.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/images/ui-icons_228ef1_256x240.png" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/images/ui-icons_228ef1_256x240.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/images/ui-icons_ef8c08_256x240.png" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/images/ui-icons_ef8c08_256x240.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/images/ui-icons_ffd27a_256x240.png" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/images/ui-icons_ffd27a_256x240.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/images/ui-icons_ffffff_256x240.png" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/images/ui-icons_ffffff_256x240.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/jquery-ui.css" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/jquery-ui.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/jquery.ui.all.css" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/jquery.ui.all.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/jquery.ui.base.css" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/jquery.ui.base.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/jquery.ui.core.css" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/jquery.ui.core.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/jquery.ui.resizable.css" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/jquery.ui.resizable.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/jquery.ui.theme.css" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/jquery.ui.theme.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/minified/images/animated-overlay.gif" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/minified/images/animated-overlay.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/minified/images/ui-bg_diagonals-thick_18_b81900_40x40.png" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/minified/images/ui-bg_diagonals-thick_18_b81900_40x40.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/minified/images/ui-bg_diagonals-thick_20_666666_40x40.png" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/minified/images/ui-bg_diagonals-thick_20_666666_40x40.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/minified/images/ui-bg_flat_10_000000_40x100.png" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/minified/images/ui-bg_flat_10_000000_40x100.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/minified/images/ui-bg_glass_100_f6f6f6_1x400.png" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/minified/images/ui-bg_glass_100_f6f6f6_1x400.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/minified/images/ui-bg_glass_100_fdf5ce_1x400.png" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/minified/images/ui-bg_glass_100_fdf5ce_1x400.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/minified/images/ui-bg_glass_65_ffffff_1x400.png" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/minified/images/ui-bg_glass_65_ffffff_1x400.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/minified/images/ui-bg_gloss-wave_35_f6a828_500x100.png" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/minified/images/ui-bg_gloss-wave_35_f6a828_500x100.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/minified/images/ui-bg_highlight-soft_100_eeeeee_1x100.png" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/minified/images/ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/minified/images/ui-bg_highlight-soft_75_ffe45c_1x100.png" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/minified/images/ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/minified/images/ui-icons_222222_256x240.png" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/minified/images/ui-icons_222222_256x240.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/minified/images/ui-icons_228ef1_256x240.png" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/minified/images/ui-icons_228ef1_256x240.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/minified/images/ui-icons_ef8c08_256x240.png" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/minified/images/ui-icons_ef8c08_256x240.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/minified/images/ui-icons_ffd27a_256x240.png" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/minified/images/ui-icons_ffd27a_256x240.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/minified/images/ui-icons_ffffff_256x240.png" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/minified/images/ui-icons_ffffff_256x240.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/minified/jquery-ui.min.css" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/minified/jquery-ui.min.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/minified/jquery.ui.core.min.css" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/minified/jquery.ui.core.min.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/minified/jquery.ui.resizable.min.css" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/minified/jquery.ui.resizable.min.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/minified/jquery.ui.theme.min.css" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/minified/jquery.ui.theme.min.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/ui.core.jquery.json" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/ui.core.jquery.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/ui.draggable.jquery.json" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/ui.draggable.jquery.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/ui.mouse.jquery.json" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/ui.mouse.jquery.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/ui.resizable.jquery.json" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/ui.resizable.jquery.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/ui.widget.jquery.json" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/ui.widget.jquery.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/ui/jquery-ui.custom.js" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/ui/jquery-ui.custom.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/ui/jquery.ui.core.js" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/ui/jquery.ui.core.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/ui/jquery.ui.draggable.js" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/ui/jquery.ui.draggable.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/ui/jquery.ui.mouse.js" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/ui/jquery.ui.mouse.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/ui/jquery.ui.resizable.js" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/ui/jquery.ui.resizable.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/ui/jquery.ui.widget.js" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/ui/jquery.ui.widget.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/ui/minified/jquery-ui.custom.min.js" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/ui/minified/jquery-ui.custom.min.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/ui/minified/jquery.ui.core.min.js" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/ui/minified/jquery.ui.core.min.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/ui/minified/jquery.ui.draggable.min.js" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/ui/minified/jquery.ui.draggable.min.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/ui/minified/jquery.ui.mouse.min.js" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/ui/minified/jquery.ui.mouse.min.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/ui/minified/jquery.ui.resizable.min.js" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/ui/minified/jquery.ui.resizable.min.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/development-bundle/ui/minified/jquery.ui.widget.min.js" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/development-bundle/ui/minified/jquery.ui.widget.min.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/index.html" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/index.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/js/jquery-1.9.1.js" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/js/jquery-1.9.1.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/js/jquery-ui-1.10.3.custom.js" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/js/jquery-ui-1.10.3.custom.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jquery-ui-1.10.3.custom/js/jquery-ui-1.10.3.custom.min.js" afterPath="$PROJECT_DIR$/web/lib/jquery-ui-1.10.3.custom/js/jquery-ui-1.10.3.custom.min.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jscanvas.js" afterPath="$PROJECT_DIR$/web/lib/jscanvas.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/jscanvastest.html" afterPath="$PROJECT_DIR$/web/lib/jscanvastest.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/raphael.2.1.0.amd.js" afterPath="$PROJECT_DIR$/web/lib/raphael.2.1.0.amd.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/raphael.2.1.0.core.js" afterPath="$PROJECT_DIR$/web/lib/raphael.2.1.0.core.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/raphael.2.1.0.svg.js" afterPath="$PROJECT_DIR$/web/lib/raphael.2.1.0.svg.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/raphael.2.1.0.vml.js" afterPath="$PROJECT_DIR$/web/lib/raphael.2.1.0.vml.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/lib/underscore.js" afterPath="$PROJECT_DIR$/web/lib/underscore.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/utility/eventNode.js" afterPath="$PROJECT_DIR$/web/utility/eventNode.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/utility/functionKeysHandler.js" afterPath="$PROJECT_DIR$/web/utility/functionKeysHandler.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/utility/idGenerator.js" afterPath="$PROJECT_DIR$/web/utility/idGenerator.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/utility/keymap.js" afterPath="$PROJECT_DIR$/web/utility/keymap.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/utility/svg.js" afterPath="$PROJECT_DIR$/web/utility/svg.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/utility/svgUtilities.js" afterPath="$PROJECT_DIR$/web/utility/svgUtilities.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/version2/utility/typeBox.js" afterPath="$PROJECT_DIR$/web/utility/typeBox.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gruntfile.js" afterPath="$PROJECT_DIR$/Gruntfile.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
     </list>
     <ignored path="Glenmorangie.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -69,53 +593,35 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="componentFactory.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/version2/diagram/componentFactory.js">
+      <file leaf-file-name="Gruntfile.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Gruntfile.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="133" column="60" selection-start="4905" selection-end="4905" vertical-scroll-proportion="0.0">
+            <state line="7" column="15" selection-start="127" selection-end="127" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="diagramCommands.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web/diagram/diagramCommands.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2" column="4" selection-start="64" selection-end="64" vertical-scroll-proportion="0.03663004">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="diagramController.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/version2/diagram/diagramController.js">
+        <entry file="file://$PROJECT_DIR$/web/diagram/diagramController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="31" selection-start="31" selection-end="31" vertical-scroll-proportion="0.0">
+            <state line="93" column="45" selection-start="3423" selection-end="3423" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="toolsMenuItems.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/js/menu/toolsMenuItems.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="28" selection-start="294" selection-end="299" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bootstrap.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/version2/bootstrap.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="28" selection-start="338" selection-end="338" vertical-scroll-proportion="0.43956044">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bootstrap.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/js/bootstrap.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="102" column="8" selection-start="4521" selection-end="4557" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="typeView.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/version2/diagram/types/typeView.js">
+      <file leaf-file-name="Carracci.iml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Carracci.iml">
           <provider selected="true" editor-type-id="text-editor">
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
@@ -123,37 +629,55 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="typeBox.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/version2/utility/typeBox.js">
+      <file leaf-file-name=".ftppass" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.ftppass">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="117" column="13" selection-start="3177" selection-end="3177" vertical-scroll-proportion="0.0">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="verticalConnectorFactory.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/version2/diagram/connectors/verticalConnectorFactory.js">
+      <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="114" column="41" selection-start="3466" selection-end="3466" vertical-scroll-proportion="0.0">
+            <state line="14" column="5" selection-start="161" selection-end="161" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test2.json" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/version2/diagrams/test2.json">
+      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="175" column="28" selection-start="3903" selection-end="3903" vertical-scroll-proportion="0.0">
+            <state line="69" column="27" selection-start="1536" selection-end="1536" vertical-scroll-proportion="-28.5">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="diagramModel2.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/version2/diagram/diagramModel2.js">
+      <file leaf-file-name="bootstrap.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/bootstrap.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="303" column="64" selection-start="10019" selection-end="10019" vertical-scroll-proportion="-12.6">
+            <state line="40" column="48" selection-start="1267" selection-end="1267" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="package.json" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="karma.conf.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/karma.conf.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -173,22 +697,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/version2/editor/editorModel.js" />
-        <option value="$PROJECT_DIR$/version2/editor/test.json" />
-        <option value="$PROJECT_DIR$/version2/utility/eventNode.js" />
-        <option value="$PROJECT_DIR$/version2/diagram/connectors/nodes/nodeModel.js" />
-        <option value="$PROJECT_DIR$/version2/diagram/connectors/horizontalConnectorFactory.js" />
-        <option value="$PROJECT_DIR$/version2/utility/idGenerator.js" />
-        <option value="$PROJECT_DIR$/version2/diagram/boxNodeMediator.js" />
-        <option value="$PROJECT_DIR$/version2/diagram/connectors/nodes/horizontalNodesMediator.js" />
-        <option value="$PROJECT_DIR$/version2/diagram/connectors/nodes/verticalNodesMediator.js" />
-        <option value="$PROJECT_DIR$/version2/diagrams/test2.json" />
-        <option value="$PROJECT_DIR$/version2/diagram/componentFactory.js" />
-        <option value="$PROJECT_DIR$/version2/diagram/connectors/verticalConnectorFactory.js" />
         <option value="$PROJECT_DIR$/version2/utility/typeBox.js" />
         <option value="$PROJECT_DIR$/version2/diagram/diagramModel2.js" />
         <option value="$PROJECT_DIR$/version2/diagram/diagramController.js" />
         <option value="$PROJECT_DIR$/version2/bootstrap.js" />
+        <option value="$PROJECT_DIR$/.ftppass" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/requirejs/config.js" />
+        <option value="$PROJECT_DIR$/web/config.js" />
+        <option value="$PROJECT_DIR$/web/index.html" />
+        <option value="$PROJECT_DIR$/web/bootstrap.js" />
+        <option value="$PROJECT_DIR$/web/main.js" />
+        <option value="$PROJECT_DIR$/web/editor/editorView.js" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/Gruntfile.js" />
+        <option value="$PROJECT_DIR$/web/diagram/diagramController.js" />
+        <option value="$PROJECT_DIR$/web/diagram/diagramCommands.js" />
       </list>
     </option>
   </component>
@@ -274,238 +798,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carracci" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carracci" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="menu" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carracci" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carracci" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carracci" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carracci" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="commandLineEditor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carracci" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carracci" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="classBox" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carracci" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carracci" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="version2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carracci" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carracci" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="version2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="utility" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carracci" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carracci" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="version2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carracci" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carracci" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="version2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="canvg-1.2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carracci" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carracci" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="version2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="help" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carracci" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carracci" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="version2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="editor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carracci" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carracci" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="version2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="diagrams" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carracci" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carracci" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="version2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="diagram" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -520,73 +812,17 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="version2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="diagram" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="types" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carracci" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carracci" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="version2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="diagram" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="connectors" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carracci" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carracci" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="version2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="diagram" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="connectors" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="nodes" />
+              <option name="myItemId" value="build" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane">
         <subPane />
       </pane>
       <pane id="Favorites" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -742,7 +978,7 @@
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21016166" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.43879908" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -750,16 +986,16 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39935064" sideWeight="0.6700379" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29245284" sideWeight="0.7898383" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29245284" sideWeight="0.5612009" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="JsTestDriver Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -812,114 +1048,114 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/version2/diagram/connectors/horizontalConnectorModel.js">
+    <entry file="file://$PROJECT_DIR$/web/diagram/types/typeModel.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/version2/diagram/boxVerticalNodeMediator.js">
+    <entry file="file://$PROJECT_DIR$/web/diagram/connectors/nodes/arrow.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/version2/diagram/connectors/nodes/horizontalNodesMediator.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="23" selection-start="2311" selection-end="2311" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/version2/utility/idGenerator.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="15" selection-start="94" selection-end="101" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/version2/diagram/connectors/nodes/verticalNodesMediator.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="24" selection-start="1318" selection-end="1318" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/version2/diagram/boxNodeMediator.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="18" selection-start="539" selection-end="539" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/version2/diagram/connectors/verticalConnectorFactory.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="114" column="41" selection-start="3466" selection-end="3466" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/version2/diagram/componentFactory.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="133" column="60" selection-start="4905" selection-end="4905" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/version2/diagram/types/typeView.js">
+    <entry file="file://$PROJECT_DIR$/web/diagram/connectors/nodes/arrowView.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/version2/utility/typeBox.js">
+    <entry file="file://$PROJECT_DIR$/web/editor/editorView.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="117" column="13" selection-start="3177" selection-end="3177" vertical-scroll-proportion="0.0">
+        <state line="56" column="33" selection-start="1435" selection-end="1435" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/version2/diagrams/test2.json">
+    <entry file="file://$PROJECT_DIR$/build/bootstrap.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="175" column="28" selection-start="3903" selection-end="3903" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/version2/diagram/diagramModel2.js">
+    <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="303" column="64" selection-start="10019" selection-end="10019" vertical-scroll-proportion="-12.6">
+        <state line="7" column="75" selection-start="247" selection-end="247" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/menu/toolsMenuItems.js">
+    <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="28" selection-start="294" selection-end="299" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/version2/diagram/diagramController.js">
+    <entry file="file://$PROJECT_DIR$/karma.conf.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="31" selection-start="31" selection-end="31" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/bootstrap.js">
+    <entry file="file://$PROJECT_DIR$/Carracci.iml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="102" column="8" selection-start="4521" selection-end="4557" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/version2/bootstrap.js">
+    <entry file="file://$PROJECT_DIR$/.ftppass">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="28" selection-start="338" selection-end="338" vertical-scroll-proportion="0.43956044">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="5" selection-start="161" selection-end="161" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="69" column="27" selection-start="1536" selection-end="1536" vertical-scroll-proportion="-28.5">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gruntfile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="15" selection-start="127" selection-end="127" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/bootstrap.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="48" selection-start="1267" selection-end="1267" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/diagram/diagramController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="93" column="45" selection-start="3423" selection-end="3423" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/diagram/diagramCommands.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="4" selection-start="64" selection-end="64" vertical-scroll-proportion="0.03663004">
           <folding />
         </state>
       </provider>

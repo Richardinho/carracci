@@ -1,5 +1,0 @@
-                <% for(var i=0; i < oldCommands.length; i++) {   %>
-
-                    <div class="command"><%= oldCommands[i] %></div>
-
-                <% } %>

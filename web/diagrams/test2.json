@@ -1,0 +1,208 @@
+{
+  "types": {
+    "dan": {
+      "properties": {
+        "testProp": {
+          "name": "testProp",
+          "visibility": "private",
+          "type": "String"
+        },
+        "blahProp": {
+          "name": "blahProp",
+          "visibility": "private",
+          "type": "Collection"
+        }
+      },
+      "flavor": "interface",
+      "methods": {
+        "fooMethod": {
+          "name": "fooMethod",
+          "visibility": "public",
+          "returnType": "String",
+          "args": {
+            "0": {
+              "name": "arg1",
+              "type": "int"
+            },
+            "1": {
+              "name": "arg2",
+              "type": "char"
+            }
+          }
+        },
+        "barMethod": {
+          "name": "barMethod",
+          "visibility": "public",
+          "returnType": "void",
+          "args": {}
+        }
+      },
+      "xCood": 700,
+      "yCood": 400,
+      "width": 103,
+      "height": 124
+    },
+    "bar": {
+      "properties": {
+        "testProp": {
+          "name": "testProp",
+          "visibility": "private",
+          "type": "String"
+        },
+        "blahProp": {
+          "name": "blahProp",
+          "visibility": "private",
+          "type": "Collection"
+        }
+      },
+      "flavor": "interface",
+      "methods": {
+        "fooMethod": {
+          "name": "fooMethod",
+          "visibility": "public",
+          "returnType": "String",
+          "args": {
+            "0": {
+              "name": "arg1",
+              "type": "int"
+            },
+            "1": {
+              "name": "arg2",
+              "type": "char"
+            }
+          }
+        },
+        "barMethod": {
+          "name": "barMethod",
+          "visibility": "public",
+          "returnType": "void",
+          "args": {}
+        }
+      },
+      "xCood": 365,
+      "yCood": 303,
+      "width": 103,
+      "height": 124
+    },
+    "eco": {
+      "properties": {
+        "testProp": {
+          "name": "testProp",
+          "visibility": "private",
+          "type": "String"
+        },
+        "blahProp": {
+          "name": "blahProp",
+          "visibility": "private",
+          "type": "Collection"
+        }
+      },
+      "flavor": "interface",
+      "methods": {
+        "fooMethod": {
+          "name": "fooMethod",
+          "visibility": "public",
+          "returnType": "String",
+          "args": {
+            "0": {
+              "name": "arg1",
+              "type": "int"
+            },
+            "1": {
+              "name": "arg2",
+              "type": "char"
+            }
+          }
+        },
+        "barMethod": {
+          "name": "barMethod",
+          "visibility": "public",
+          "returnType": "void",
+          "args": {}
+        }
+      },
+      "xCood": 625,
+      "yCood": 69,
+      "width": 103,
+      "height": 124
+    }
+  },
+  "connectors": {
+    "abc1": {
+      "orientation": "horizontal",
+      "nodes": {
+        "left": {
+          "xCood": 468,
+          "yCood": 395,
+          "attached": true,
+          "attachedBox": "bar",
+          "arrow": {
+            "style": "blackConnectArrow",
+            "direction": "left"
+          }
+        },
+        "proximal": {
+          "xCood": 577,
+          "yCood": 395,
+          "attached": {},
+          "attachedBox": {}
+        },
+        "distal": {
+          "xCood": 577,
+          "yCood": 511,
+          "attached": {},
+          "attachedBox": {}
+        },
+        "right": {
+          "xCood": 700,
+          "yCood": 511,
+          "attached": true,
+          "attachedBox": "dan",
+          "arrow": {
+            "style": "whiteArrow",
+            "direction": "right"
+          }
+        }
+      },
+      "lineStyle": "solid"
+    },
+    "abc2": {
+      "orientation": "vertical",
+      "nodes": {
+        "top": {
+          "xCood": 675,
+          "yCood": 193,
+          "attached": true,
+          "attachedBox": "eco",
+          "arrow": {
+            "style": "blackConnectArrow",
+            "direction": "top"
+          }
+        },
+        "secondTop": {
+          "xCood": 675,
+          "yCood": 326,
+          "attached": {},
+          "attachedBox": {}
+        },
+        "secondBottom": {
+          "xCood": 751.5,
+          "yCood": 326,
+          "attached": {},
+          "attachedBox": {}
+        },
+        "bottom": {
+          "xCood": 751.5,
+          "yCood": 400,
+          "attached": true,
+          "attachedBox": "dan",
+          "arrow": {
+            "style": "whiteArrow",
+            "direction": "bottom"
+          }
+        }
+      },
+      "lineStyle": "solid"
+    }
+  }
+}
