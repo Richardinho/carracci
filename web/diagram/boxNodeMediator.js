@@ -22,6 +22,9 @@ define([
             this.typeController.addAttachedNodeMediator(this)
             this.nodeMediator.addBoxNodeMediator(this, this.nodeOrientation);
 
+            this.typeController.model.on("changeHeight", this.repositionNode, this);
+            this.typeController.model.on("changeWidth", this.repositionNode, this);
+
         },
 
         destroy : function () {
@@ -34,6 +37,14 @@ define([
         moveNode : function (diffX, diffY) {
 
             this.nodeMediator.updateUsingDifference(this.nodeOrientation, diffX, diffY);
+        },
+        /*
+            This is called whenever the box resizes
+        */
+        repositionNode : function () {
+          // put node in middle point of edge.
+            this._moveNodeOnToBox();
+
         },
 
         destroyFromType : function () {

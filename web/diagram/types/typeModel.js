@@ -16,6 +16,8 @@ define(["core/BaseType"],
 
             this.model.on("change", this.changeHandler, this);
             this.model.on("create", this.changeHandler, this);
+            this.model.on("deleteProperty", this.changeHandler, this);
+            this.model.on("deleteMethod", this.changeHandler, this);
         },
 
         on : function (event, handler, context) {
@@ -67,14 +69,25 @@ define(["core/BaseType"],
             and update accordingly
         */
         setWidth : function (width) {
+
+            var previousWidth = this.model.children['width'].value;
             this.model.children['width'].set(width, true);
-            this.diagramModel.fire("changeTypeWidth")
+            if(previousWidth > width) {
+
+                this.fire("changeWidth");
+            }
         },
 
         setHeight : function (height) {
 
+            var previousHeight = this.model.children['height'].value;
+
             this.model.children['height'].set(height, true);
-            this.diagramModel.fire("changeTypeHeight")
+
+            if(previousHeight > height) {
+
+                this.fire("changeHeight");
+            }
         },
 
         getHeight : function () {

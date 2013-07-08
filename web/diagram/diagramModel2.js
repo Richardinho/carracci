@@ -359,6 +359,10 @@ define(["core/BaseType",
                 .children[type]
                 .children['properties']
                 .deleteChild(propertyName);
+
+
+
+
         },
 
         setMethodVisibility : function (diagram, type, methodName, visibility) {

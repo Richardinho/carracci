@@ -47,15 +47,12 @@ define(['core/BaseType', 'canvg'],function (BaseType, canvg) {
                 break;
             case  "property" :
                 if(this.contextPath.length === 4) {
-                    /*if(this.context.properties[arguments[1]]) {
-                        delete this.context.properties[arguments[1]];
-                        this.diagramModel.fire("updatetype", this.context.id);
-                    } else {
-                        throw {
-                            name : "UnknownArtifactError",
-                            message : arguments[1] + " not known : context path is: " + this.contextPath
-                        }
-                    }*/
+                    this.diagramModel.deleteProperty(
+                        this.contextPath[1],
+                        this.contextPath[3],
+                        arguments[1]
+                    ).fire("deleteProperty");
+
                 } else {
                     throw {
                         name : "ContextPathError",
@@ -64,13 +61,23 @@ define(['core/BaseType', 'canvg'],function (BaseType, canvg) {
                 }
                 break;
              case "method" :
-                console.log("delete method")
+                if(this.contextPath.length === 4) {
+                    this.diagramModel.deleteMethod(
+                        this.contextPath[1],
+                        this.contextPath[3],
+                        arguments[1]
+                    ).fire("deleteMethod");
+
+                } else {
+                    throw {
+                        name : "ContextPathError",
+                        message : "context path is: " + this.contextPath
+                    }
+                }
                 break;
 
              case "connector" :
-                console.log("delete connector")
                 this.componentFactory.deleteConnector(arguments[1]);
-                //
                 break;
 
             }
