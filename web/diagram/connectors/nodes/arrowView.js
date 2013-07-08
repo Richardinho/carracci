@@ -26,6 +26,7 @@ define(["core/BaseType",
             this.model.onXCood("change", this.updateX, this);
             this.model.onYCood("change", this.updateY, this);
             this.model.on("switchArrowHead", this.switchArrowHead, this);
+            this.model.on("destroy", this.destroy, this);
 
             // if this an arrow node?
             if(this.model.isArrowNode() ) {
@@ -34,6 +35,13 @@ define(["core/BaseType",
                     model : this.model
                 })
             }
+        },
+
+        destroy : function () {
+            if(this.model.isArrowNode()) {
+                this.arrow.destroy();
+            }
+            this.node.remove();
         },
 
         switchArrowHead : function () {

@@ -24,9 +24,12 @@ define([
         this is a layer in front of the model. it delegates creation and setting of properties
         to the model, but it creates wrapper objects which make it easier for clients to interact
         with the model
+
+        It also handles the destruction of objects. It should probably be called the component manager
+        rather than factory.
     */
 
-    // should I keep track of these objects and destroy them later, or will they be automatically garbage collected?
+
     return BaseType.extend({
         // question: pass dependencies in through options or in define function?
         initialize : function (options) {
@@ -34,6 +37,9 @@ define([
             this.diagramModel = options.diagramModel;
             this.horizontalConnectorFactory = options.horizontalConnectorFactory;
             this.verticalConnectorFactory = options.verticalConnectorFactory;
+
+            this.typeControllerMap = {};
+            this.connectorMediators = {};
         },
 
         createType : function (diagram, typeName) {
@@ -49,16 +55,33 @@ define([
                 model : typeModel,
             });
 
-            new TypeController({
+            var typeController = new TypeController({
                 model : typeModel,
                 view : typeView
             });
+
+            this.typeControllerMap[typeName] = typeController;
+
+        },
+
+        deleteType : function (type) {
+
+            this.typeControllerMap[type].destroy();
+
+            var diagramName = this.diagramModel.currentDiagram.name;
+
+            delete this.diagramModel.model
+                    .children['diagrams']
+                    .children[diagramName]
+                    .children['types']
+                    .children[type];
+
         },
 
         createDiagram : function (diagramName, node) {
 
             this.diagramModel.createDiagram(diagramName, node);
-            var typeControllerMap = {}
+
             //  if  we are passing in already created json
             if(node) {
                 // parse diagram and create types and connectors.
@@ -84,7 +107,7 @@ define([
                         view : typeView
                     });
 
-                    typeControllerMap[typeModel.getName()] = tc;
+                    this.typeControllerMap[typeModel.getName()] = tc;
 
                 }
 
@@ -99,6 +122,8 @@ define([
                         });
                         var mediator = this.horizontalConnectorFactory.create(hcm);
 
+                        this.connectorMediators[hcm.model.name] = mediator;
+
                         // check left and right nodes to see if they need to be attached.
                         var leftNode = connectors[connector].children['nodes'].children['left'];
                         var rightNode = connectors[connector].children['nodes'].children['right'];
@@ -109,7 +134,7 @@ define([
                             new BoxHorizontalNodeMediator({
                                 nodeMediator : mediator,
                                 nodeOrientation : "right",
-                                typeController : typeControllerMap[box],
+                                typeController : this.typeControllerMap[box],
                                 dontMove : true
                             });
                         }
@@ -120,7 +145,7 @@ define([
                             new BoxHorizontalNodeMediator({
                                 nodeMediator : mediator,
                                 nodeOrientation : "left",
-                                typeController : typeControllerMap[box],
+                                typeController : this.typeControllerMap[box],
                                 dontMove : true
                             });
                         }
@@ -133,6 +158,8 @@ define([
 
                         var mediator = this.verticalConnectorFactory.create(vcm);
 
+                        this.connectorMediators[vcm.model.name] = mediator;
+
                         var topNode = connectors[connector].children['nodes'].children['top'];
                         var bottomNode = connectors[connector].children['nodes'].children['bottom'];
 
@@ -142,7 +169,7 @@ define([
                             new BoxVerticalNodeMediator({
                                 nodeMediator : mediator,
                                 nodeOrientation : "top",
-                                typeController : typeControllerMap[box],
+                                typeController : this.typeControllerMap[box],
                                 dontMove : true
                             });
                         }
@@ -152,7 +179,7 @@ define([
                             new BoxVerticalNodeMediator({
                                 nodeMediator : mediator,
                                 nodeOrientation : "bottom",
-                                typeController : typeControllerMap[box],
+                                typeController : this.typeControllerMap[box],
                                 dontMove : true
                             });
                         }
@@ -171,13 +198,28 @@ define([
         },
 
         createHorizontalConnector : function (diagram) {
+
             var horizontalConnectorModel = this.diagramModel.createHorizontalConnector(diagram);
-            this.horizontalConnectorFactory.create(horizontalConnectorModel);
+            var connectorMediator = this.horizontalConnectorFactory.create(horizontalConnectorModel);
+            this.connectorMediators[horizontalConnectorModel.model.name] = connectorMediator;
         },
 
         createVerticalConnector : function (diagram) {
             var verticalConnectorModel = this.diagramModel.createVerticalConnector(diagram);
-            this.verticalConnectorFactory.create(verticalConnectorModel)
+            var connectorMediator = this.verticalConnectorFactory.create(verticalConnectorModel);
+            this.connectorMediators[verticalConnectorModel.model.name] = connectorMediator;
+        },
+
+        deleteConnector : function (connectorId) {
+
+            this.connectorMediators[connectorId].destroy();
+            var diagramName = this.diagramModel.currentDiagram.name;
+
+            delete this.diagramModel.model
+                    .children['diagrams']
+                    .children[diagramName]
+                    .children['connectors']
+                    .children[connectorId];
         }
 
     });

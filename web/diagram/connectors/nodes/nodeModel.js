@@ -24,10 +24,14 @@ define([
 
         },
 
+        destroy : function () {
+
+            this.model.fire("destroy");
+        },
+
         getXCood : function () {
 
             return parseInt(this.model.children['xCood'].value, 10);
-
         },
 
         setXCood : function (x) {

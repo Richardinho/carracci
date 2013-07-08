@@ -39,7 +39,6 @@ define(["core/BaseType",
 
             if(orientation === "left") {
 
-
                 this.leftArrowModel.setAttached(false);
                 this.leftArrowModel.model.children['attachedBox'].set(null);
                 this.leftNodeTypeBoxMediator.destroy();
@@ -53,6 +52,25 @@ define(["core/BaseType",
                 this.rightNodeTypeBoxMediator = null;
             }
 
+        },
+
+        destroy : function () {
+
+            this.detachAll();
+            this.leftArrowModel.destroy();
+            this.proximalNodeModel.destroy();
+            this.distalNodeModel.destroy();
+            this.rightArrowModel.destroy();
+        },
+
+        detachAll : function () {
+
+            if(this.leftNodeTypeBoxMediator) {
+                this.removeBoxNodeMediator("left");
+            }
+            if(this.rightNodeTypeBoxMediator) {
+                this.removeBoxNodeMediator("right");
+            }
         },
 
         _attachTypeBoxToRightNode : function (boxNodeMediator) {

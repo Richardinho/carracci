@@ -22,6 +22,12 @@ define(["core/BaseType",
 
             }, this);
 
+            this.modelA.on("destroy", this.destroy, this);
+        },
+
+        destroy : function () {
+
+            this.line.remove();
         },
 
         updateLine : function () {

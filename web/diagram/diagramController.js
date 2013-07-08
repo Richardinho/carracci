@@ -41,31 +41,8 @@ define(['core/BaseType', 'canvg'],function (BaseType, canvg) {
                 }
                 break;
             case  "type" :
-                if(this.contextPath.length === 2) {
-                   /* if(this.context.types[arguments[1]]) {
 
-                        this.diagramModel.deleteType(
-                            this.contextPath[1],
-                            arguments[1],
-                            this.context.types[arguments[1]].id
-                        );
-                        this.diagramModel.fire("deletetype", id);
-
-                    } else {
-                        throw {
-                            name : "UnknownArtifactError",
-                            message : arguments[1] + " not known : context path is: " + this.contextPath
-                        }
-                    }*/
-                } else {
-                    throw {
-                        name : "ContextPathError",
-                        message : "context path is: " + this.contextPath
-                    }
-                }
-                break;
-
-
+                this.componentFactory.deleteType(arguments[1]);
 
                 break;
             case  "property" :
@@ -92,6 +69,8 @@ define(['core/BaseType', 'canvg'],function (BaseType, canvg) {
 
              case "connector" :
                 console.log("delete connector")
+                this.componentFactory.deleteConnector(arguments[1]);
+                //
                 break;
 
             }

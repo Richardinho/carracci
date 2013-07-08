@@ -55,6 +55,24 @@ define(["core/BaseType",
 
         },
 
+        destroy : function () {
+            this.detachAll();
+            this.topArrowModel.destroy();
+            this.secondTopNodeModel.destroy();
+            this.secondBottomNodeModel.destroy();
+            this.bottomArrowModel.destroy();
+        },
+
+        detachAll : function () {
+
+            if(this.topNodeTypeBoxMediator) {
+                this.removeBoxNodeMediator("top");
+            }
+            if(this.bottomNodeTypeBoxMediator) {
+                this.removeBoxNodeMediator("bottom");
+            }
+        },
+
         _attachTypeBoxToBottomNode : function (boxNodeMediator) {
 
             this.bottomArrowModel.setAttached(true);

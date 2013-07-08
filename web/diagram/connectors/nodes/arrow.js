@@ -49,6 +49,10 @@ define(["core/BaseType",
             this._createElement();
         },
 
+        destroy : function () {
+            this.element.remove();
+        },
+
         _createElement : function () {
 
             var style = this._getStyle();

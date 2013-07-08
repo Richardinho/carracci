@@ -40,6 +40,18 @@ define(["core/BaseType",
             });
         },
 
+        destroy : function () {
+
+            this.removeAttachedMediators();
+
+            this.view.destroy();
+
+            // detach all connectors
+            // delete model.
+            // delete view
+
+        },
+
         /*
             requests for model state, delegating to model
         */
@@ -94,8 +106,15 @@ define(["core/BaseType",
             this.attachedNodesMediators.push(mediator);
         },
 
-        unAttachNodeMediator : function (mediator) {
+        removeAttachedMediators : function () {
+            var length = this.attachedNodesMediators.length;
+            for(var i = 0; i < length; i++) {
+                this.attachedNodesMediators[0].destroyFromType();
+            }
 
+        },
+
+        unAttachNodeMediator : function (mediator) {
             _.each(this.attachedNodesMediators, function (item, index) {
 
                 if(item === mediator) {

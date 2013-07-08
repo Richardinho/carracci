@@ -34,6 +34,10 @@ define([
         moveNode : function (diffX, diffY) {
 
             this.nodeMediator.updateUsingDifference(this.nodeOrientation, diffX, diffY);
+        },
+
+        destroyFromType : function () {
+            this.nodeMediator.removeBoxNodeMediator(this.nodeOrientation)
         }
 
     });

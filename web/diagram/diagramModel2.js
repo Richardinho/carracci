@@ -135,8 +135,8 @@ define(["core/BaseType",
                         secondTop : {
                             xCood : 300,
                             yCood : 200,
-                            attached : "",
-                            attachedBox : null,
+                            attached : false,
+                            attachedBox : "",
                         },
 
                         secondBottom : {
