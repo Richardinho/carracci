@@ -83,6 +83,12 @@ define(['core/BaseType', 'canvg'],function (BaseType, canvg) {
                 this.componentFactory.deleteConnector(arguments[1]);
                 break;
 
+             default :
+                throw {
+                    name : "ArtifactTypeDoesNotExistException",
+                    message : "No such artifact type as " + artifact
+                }
+
             }
         },
 

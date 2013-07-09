@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bd4dd7db-33d3-4455-b213-bb1cec28b9b9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/diagram/diagramModel2.js" afterPath="$PROJECT_DIR$/web/diagram/diagramModel2.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/utility/typeBox.js" afterPath="$PROJECT_DIR$/web/utility/typeBox.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/diagram/diagramController.js" afterPath="$PROJECT_DIR$/web/diagram/diagramController.js" />
     </list>
     <ignored path="Glenmorangie.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -67,10 +66,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="diagramController.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="diagramController.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/diagram/diagramController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="418" column="16" selection-start="14146" selection-end="14146" vertical-scroll-proportion="0.0">
+            <state line="88" column="68" selection-start="3012" selection-end="3012" vertical-scroll-proportion="0.8974359">
               <folding />
             </state>
           </provider>
@@ -139,10 +138,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="typeBox.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="typeBox.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/utility/typeBox.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="98" column="46" selection-start="2690" selection-end="2690" vertical-scroll-proportion="1.1964736">
+            <state line="98" column="46" selection-start="2690" selection-end="2690" vertical-scroll-proportion="-38.0">
               <folding />
             </state>
           </provider>
@@ -184,9 +183,9 @@
         <option value="$PROJECT_DIR$/web/diagram/componentFactory.js" />
         <option value="$PROJECT_DIR$/web/help/remove.html" />
         <option value="$PROJECT_DIR$/web/diagrams/commandPattern.json" />
-        <option value="$PROJECT_DIR$/web/diagram/diagramController.js" />
         <option value="$PROJECT_DIR$/web/diagram/diagramModel2.js" />
         <option value="$PROJECT_DIR$/web/utility/typeBox.js" />
+        <option value="$PROJECT_DIR$/web/diagram/diagramController.js" />
       </list>
     </option>
   </component>
@@ -617,9 +616,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/diagram/diagramController.js">
+    <entry file="file://$PROJECT_DIR$/web/utility/typeBox.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="418" column="16" selection-start="14146" selection-end="14146" vertical-scroll-proportion="0.0">
+        <state line="98" column="46" selection-start="2690" selection-end="2690" vertical-scroll-proportion="-38.0">
           <folding />
         </state>
       </provider>
@@ -631,9 +630,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/utility/typeBox.js">
+    <entry file="file://$PROJECT_DIR$/web/diagram/diagramController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="98" column="46" selection-start="2690" selection-end="2690" vertical-scroll-proportion="1.1964736">
+        <state line="88" column="68" selection-start="3012" selection-end="3012" vertical-scroll-proportion="0.8974359">
           <folding />
         </state>
       </provider>
