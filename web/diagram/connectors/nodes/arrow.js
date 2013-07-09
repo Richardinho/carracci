@@ -41,6 +41,7 @@ define(["core/BaseType",
                 // do nothing
             }
 
+
         },
 
         changeArrowHead : function () {

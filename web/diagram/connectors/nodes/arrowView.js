@@ -60,6 +60,7 @@ define(["core/BaseType",
             if(this.arrow) {
                 this.arrow.move();
             }
+            this.node.toFront();
 
         },
 
@@ -70,6 +71,7 @@ define(["core/BaseType",
             if(this.arrow) {
                 this.arrow.move();
             }
+            this.node.toFront()
 
         }
 
