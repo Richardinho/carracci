@@ -35,6 +35,7 @@ define(["core/BaseType",
                     model : this.model
                 })
             }
+            this.node.toFront();
         },
 
         destroy : function () {
@@ -47,6 +48,7 @@ define(["core/BaseType",
         switchArrowHead : function () {
 
             this.arrow.changeArrowHead();
+            this.node.toFront();
         },
 
         getSvgNode : function () {

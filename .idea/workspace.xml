@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bd4dd7db-33d3-4455-b213-bb1cec28b9b9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/diagram/diagramController.js" afterPath="$PROJECT_DIR$/web/diagram/diagramController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/diagram/diagramModel2.js" afterPath="$PROJECT_DIR$/web/diagram/diagramModel2.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/help/remove.html" afterPath="$PROJECT_DIR$/web/help/remove.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/diagram/connectors/nodes/arrow.js" afterPath="$PROJECT_DIR$/web/diagram/connectors/nodes/arrow.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/diagram/connectors/nodes/arrowView.js" afterPath="$PROJECT_DIR$/web/diagram/connectors/nodes/arrowView.js" />
     </list>
     <ignored path="Glenmorangie.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -68,10 +67,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="diagramController.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="diagramController.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/diagram/diagramController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="17" selection-start="876" selection-end="876" vertical-scroll-proportion="-9.0314865">
+            <state line="515" column="27" selection-start="17770" selection-end="17770" vertical-scroll-proportion="-12.56">
               <folding />
             </state>
           </provider>
@@ -86,10 +85,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="arrowView.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="arrowView.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/diagram/connectors/nodes/arrowView.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="56" selection-start="550" selection-end="550" vertical-scroll-proportion="0.0">
+            <state line="22" column="56" selection-start="550" selection-end="550" vertical-scroll-proportion="0.24908425">
               <folding />
             </state>
           </provider>
@@ -98,14 +97,14 @@
       <file leaf-file-name="arrow.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/diagram/connectors/nodes/arrow.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="21" selection-start="1172" selection-end="1172" vertical-scroll-proportion="0.0">
+            <state line="36" column="58" selection-start="1034" selection-end="1034" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test2.json" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/diagrams/test2.json">
+      <file leaf-file-name="nodeModel.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/diagram/connectors/nodes/nodeModel.js">
           <provider selected="true" editor-type-id="text-editor">
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
@@ -183,11 +182,11 @@
         <option value="$PROJECT_DIR$/web/diagram/componentFactory.js" />
         <option value="$PROJECT_DIR$/web/diagrams/commandPattern.json" />
         <option value="$PROJECT_DIR$/web/utility/typeBox.js" />
-        <option value="$PROJECT_DIR$/web/diagram/connectors/nodes/arrow.js" />
-        <option value="$PROJECT_DIR$/web/diagram/connectors/nodes/arrowView.js" />
         <option value="$PROJECT_DIR$/web/diagram/diagramModel2.js" />
         <option value="$PROJECT_DIR$/web/help/remove.html" />
         <option value="$PROJECT_DIR$/web/diagram/diagramController.js" />
+        <option value="$PROJECT_DIR$/web/diagram/connectors/nodes/arrow.js" />
+        <option value="$PROJECT_DIR$/web/diagram/connectors/nodes/arrowView.js" />
       </list>
     </option>
   </component>
@@ -593,11 +592,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/web/diagram/types/typeView.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="17" selection-start="749" selection-end="749" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/diagram/types/typeController.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="32" column="0" selection-start="861" selection-end="861" vertical-scroll-proportion="0.0" />
@@ -651,20 +645,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/diagram/connectors/nodes/arrow.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="21" selection-start="1172" selection-end="1172" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/diagram/connectors/nodes/arrowView.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="56" selection-start="550" selection-end="550" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/diagram/componentFactory.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="82" column="17" selection-start="2369" selection-end="2369" vertical-scroll-proportion="0.0" />
@@ -677,6 +657,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/web/diagram/diagramController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="515" column="27" selection-start="17770" selection-end="17770" vertical-scroll-proportion="-12.56">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/diagram/connectors/nodes/nodeModel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/web/diagram/diagramModel2.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="406" column="21" selection-start="12998" selection-end="12998" vertical-scroll-proportion="0.0">
@@ -684,9 +678,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/diagram/diagramController.js">
+    <entry file="file://$PROJECT_DIR$/web/diagram/connectors/nodes/arrow.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="17" selection-start="876" selection-end="876" vertical-scroll-proportion="-9.0314865">
+        <state line="36" column="58" selection-start="1034" selection-end="1034" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/diagram/connectors/nodes/arrowView.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="56" selection-start="550" selection-end="550" vertical-scroll-proportion="0.24908425">
           <folding />
         </state>
       </provider>
