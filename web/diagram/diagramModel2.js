@@ -239,41 +239,20 @@ define(["core/BaseType",
 
                 properties : {
                     testProp : {
-                        name : "testProp",
+                        name : "foofofofo",
                         visibility : "private",
                         type : "String"
-                    },
-
-                    blahProp : {
-                        name : "blahProp",
-                        visibility : "private",
-                        type : "Collection"
                     }
+
                 },
                 flavor : "interface",
                 methods : {
-                    fooMethod : {
-                        name : "fooMethod",
-                        visibility : "public",
-                        returnType : "String",
-                        args : [
-                            {name : "arg1", type : "int" },
-                            {name : "arg2", type : "char" }
-                        ]
-                    },
-                    barMethod : {
-                        name : "barMethod",
-                        visibility : "public",
-                        returnType : "void",
-                        args : []
-                    }
 
                 },
                 xCood : 700,
                 yCood : 400,
                 width : 10,
                 height : 10
-
             });
 
         },
@@ -344,7 +323,6 @@ define(["core/BaseType",
                         .children[type]
                         .children.properties
                         .children[propertyName];
-
 
         },
 
@@ -499,33 +477,6 @@ define(["core/BaseType",
                 .children['properties']
                 .children[propertyName]
                 .children['type'].value;
-        },
-
-        setPropertyName : function() {
-
         }
-
-
-        /*
-
-
-        deleteType : function (diagram, type, id) {
-
-            delete this.diagrams[diagram].types[type];
-            delete this.typeCache[id]
-        },
-
-        setPropertyVisibility : function (diagram, type, propertyName, value) {
-            this.diagrams[diagram].types[type].properties[propertyName].visibility = value;
-        },
-
-        setPropertyName : function (diagram, type, propertyName, value) {
-            this.diagrams[diagram].types[type].properties[propertyName].name = value;
-        },
-
-*/
-
-
-
     });
 });
