@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="bd4dd7db-33d3-4455-b213-bb1cec28b9b9" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/diagram/diagramModel2.js" afterPath="$PROJECT_DIR$/web/diagram/diagramModel2.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/utility/typeBox.js" afterPath="$PROJECT_DIR$/web/utility/typeBox.js" />
     </list>
     <ignored path="Glenmorangie.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -138,19 +139,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="typeBox.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="typeBox.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/utility/typeBox.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="182" column="89" selection-start="5167" selection-end="5167" vertical-scroll-proportion="0.0">
+            <state line="98" column="46" selection-start="2690" selection-end="2690" vertical-scroll-proportion="1.1964736">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="diagramModel2.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="diagramModel2.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/diagram/diagramModel2.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="325" column="19" selection-start="10705" selection-end="10705" vertical-scroll-proportion="1.7509158">
+            <state line="241" column="40" selection-start="8057" selection-end="8057" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -175,7 +176,6 @@
         <option value="$PROJECT_DIR$/web/diagram/types/typeView.js" />
         <option value="$PROJECT_DIR$/web/diagram/types/typeController.js" />
         <option value="$PROJECT_DIR$/web/diagram/boxNodeMediator.js" />
-        <option value="$PROJECT_DIR$/web/utility/typeBox.js" />
         <option value="$PROJECT_DIR$/web/diagram/types/typeModel.js" />
         <option value="$PROJECT_DIR$/web/help/testHelp.html" />
         <option value="$PROJECT_DIR$/web/help/create.html" />
@@ -186,6 +186,7 @@
         <option value="$PROJECT_DIR$/web/diagrams/commandPattern.json" />
         <option value="$PROJECT_DIR$/web/diagram/diagramController.js" />
         <option value="$PROJECT_DIR$/web/diagram/diagramModel2.js" />
+        <option value="$PROJECT_DIR$/web/utility/typeBox.js" />
       </list>
     </option>
   </component>
@@ -255,6 +256,42 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="carracci" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="carracci" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="utility" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="carracci" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="carracci" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="diagram" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -566,13 +603,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/utility/typeBox.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="182" column="89" selection-start="5167" selection-end="5167" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/diagrams/test2.json">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -596,7 +626,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/diagram/diagramModel2.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="325" column="19" selection-start="10705" selection-end="10705" vertical-scroll-proportion="1.7509158">
+        <state line="241" column="40" selection-start="8057" selection-end="8057" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/utility/typeBox.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="98" column="46" selection-start="2690" selection-end="2690" vertical-scroll-proportion="1.1964736">
           <folding />
         </state>
       </provider>

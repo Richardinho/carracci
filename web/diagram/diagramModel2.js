@@ -239,7 +239,7 @@ define(["core/BaseType",
 
                 properties : {
                     testProp : {
-                        name : "foofofofo",
+                        name : "testProp",
                         visibility : "private",
                         type : "String"
                     }

@@ -93,8 +93,11 @@ define(['utility/svg', 'core/BaseType', 'underscore'], function(svg, BaseType, _
 
             var width = 0;
 
-            var textArray = this.svgMethodTextArray.concat(this.svgPropertyTextArray);
+            var textArray = this.svgMethodTextArray.concat(this.svgPropertyTextArray, this.nameText);
 
+            if(this.model.getFlavor() === 'interface' || this.model.getFlavor() === 'abstract') {
+                textArray.push(this.flavorText);
+            }
             _.each(textArray, function (text) {
                 var tempWidth = text.getBBox().width;
                 width = tempWidth > width ? tempWidth : width;
