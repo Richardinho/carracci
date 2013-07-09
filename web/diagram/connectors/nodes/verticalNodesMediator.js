@@ -121,27 +121,11 @@ define(["core/BaseType",
                 y = this.topArrowModel.getYCood() + dy;
 
 
-                //this.leftArrowModel.children['xCood'].set(x);
                 var secondTopNodeYCood = this.secondTopNodeModel.getYCood();
-                // if second type node is below type box bottom edge
-                if( secondTopNodeYCood > this.topNodeTypeBoxMediator.getBoxBottomLimit()) {
-                    //set top node to bottom edge
-                    this.topArrowModel.setYCood(
-                        this.topNodeTypeBoxMediator.getBoxBottomLimit()
-                    );
-                }
 
-                // if second top node is above the top edge of the type box
-                else if( secondTopNodeYCood < this.topNodeTypeBoxMediator.getBoxTopLimit()) {
-                    // set the top node to be at the top edge of the type box
-                    this.topArrowModel.setYCood(
-                        this.topNodeTypeBoxMediator.getBoxTopLimit()
-                    );
-                } else {
-
-                    this.topArrowModel.setYCood(y);
-
-                }
+                this.topArrowModel.setYCood(
+                    this.topNodeTypeBoxMediator.calculateNodeYCood(secondTopNodeYCood)
+                );
                 this._setTopArrowDirection();
                 this.topArrowModel.setXCood(x);
                 this.secondTopNodeModel.setXCood(x);
@@ -157,23 +141,10 @@ define(["core/BaseType",
                 // get y cood of second bottom node to compare against
                 var secondBottomNodeYCood = this.secondBottomNodeModel.getYCood();
 
+                this.bottomArrowModel.setYCood(
+                    this.bottomNodeTypeBoxMediator.calculateNodeYCood(secondBottomNodeYCood)
+                );
 
-                // if the second bottom node has gone beyond the bottom edge of the type box
-                // we want to move the bottom node onto the bottom edge of the type box.
-                if( secondBottomNodeYCood > this.bottomNodeTypeBoxMediator.getBoxBottomLimit()) {
-                    this.bottomArrowModel.setYCood(
-                        this.bottomNodeTypeBoxMediator.getBoxBottomLimit()
-                    );
-                }
-                // otherwise we want to move the bottom node onto the top edge of the type box.
-                else if( secondBottomNodeYCood < this.bottomNodeTypeBoxMediator.getBoxTopLimit()) {
-                    this.bottomArrowModel.setYCood(
-                        this.bottomNodeTypeBoxMediator.getBoxTopLimit()
-                    );
-                } else {
-
-                    this.bottomArrowModel.setYCood(y);
-                }
                 this._setBottomArrowDirection();
                 this.bottomArrowModel.setXCood(x);
                 this.secondBottomNodeModel.setXCood(x);
@@ -182,8 +153,6 @@ define(["core/BaseType",
 
                 break;
             }
-
-
 
         },
 
@@ -217,19 +186,9 @@ define(["core/BaseType",
 
             if(this._bottomArrowAttached()) {
 
-
-                if( y > this.bottomNodeTypeBoxMediator.getBoxBottomLimit()) {
-
-                    this.bottomArrowModel.setYCood(
-                        this.bottomNodeTypeBoxMediator.getBoxBottomLimit()
-                    );
-                }
-                if( y < this.bottomNodeTypeBoxMediator.getBoxTopLimit()) {
-
-                    this.bottomArrowModel.setYCood(
-                        this.bottomNodeTypeBoxMediator.getBoxTopLimit()
-                    );
-                }
+                this.bottomArrowModel.setYCood(
+                    this.bottomNodeTypeBoxMediator.calculateNodeYCood(y)
+                );
             }
 
             if(this._topArrowAttached() ) {
@@ -244,18 +203,9 @@ define(["core/BaseType",
                 y = coods.y;
 
 
-                if( y > this.topNodeTypeBoxMediator.getBoxBottomLimit()) {
-
-                    this.topArrowModel.setYCood(
-                        this.topNodeTypeBoxMediator.getBoxBottomLimit()
-                    );
-                }
-                if( y < this.topNodeTypeBoxMediator.getBoxTopLimit()) {
-
-                    this.topArrowModel.setYCood(
-                        this.topNodeTypeBoxMediator.getBoxTopLimit()
-                    );
-                }
+                this.topArrowModel.setYCood(
+                    this.topNodeTypeBoxMediator.calculateNodeYCood(y)
+                );
 
             }
 
@@ -284,18 +234,9 @@ define(["core/BaseType",
                 y = coods.y;
 
 
-                if( y > this.bottomNodeTypeBoxMediator.getBoxBottomLimit()) {
-
-                    this.bottomArrowModel.setYCood(
-                        this.bottomNodeTypeBoxMediator.getBoxBottomLimit()
-                    );
-                }
-                if( y < this.bottomNodeTypeBoxMediator.getBoxTopLimit()) {
-
-                    this.bottomArrowModel.setYCood(
-                        this.bottomNodeTypeBoxMediator.getBoxTopLimit()
-                    );
-                }
+                this.bottomArrowModel.setYCood(
+                    this.bottomNodeTypeBoxMediator.calculateNodeYCood(y)
+                );
             }
 
             if(this._topArrowAttached() ) {
@@ -304,18 +245,10 @@ define(["core/BaseType",
                     move right arrow node onto right or left edge of box
                     if distal node extends too far in either direction.
                 */
-                if( y > this.topNodeTypeBoxMediator.getBoxBottomLimit()) {
 
-                    this.topArrowModel.setYCood(
-                        this.topNodeTypeBoxMediator.getBoxBottomLimit()
-                    );
-                }
-                if( y < this.topNodeTypeBoxMediator.getBoxTopLimit()) {
-
-                    this.topArrowModel.setYCood(
-                        this.topNodeTypeBoxMediator.getBoxTopLimit()
-                    );
-                }
+                this.topArrowModel.setYCood(
+                    this.topNodeTypeBoxMediator.calculateNodeYCood(y)
+                );
 
             }
 

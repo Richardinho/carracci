@@ -42,6 +42,18 @@ define([
 
         },
 
+        calculateNodeYCood : function (relativeY) {
+
+            if( relativeY < this.getBoxTopLimit()) {
+
+                return this.getBoxTopLimit()
+            } else {
+
+                return this.getBoxBottomLimit()
+
+            }
+        },
+
         getSecondTopNodeCoods : function (x, y, currentX, currentY) {
 
             var leftX = this.typeController.getLeftXLimit();
@@ -115,7 +127,10 @@ define([
         // inherited methods
         _moveNodeOnToBox : function () {
 
-            var y = this.typeController.getTopYLimit();
+            var relativeY = this.nodeMediator.secondTopNodeModel.getYCood();
+
+            var y = this.calculateNodeYCood(relativeY);
+
             var rightLimit = this.typeController.getRightXLimit();
             var leftLimit = this.typeController.getLeftXLimit();
 
