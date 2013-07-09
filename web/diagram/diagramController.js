@@ -24,21 +24,9 @@ define(['core/BaseType', 'canvg'],function (BaseType, canvg) {
             switch(artifact) {
 
             case  "diagram" :
-                if(this.contextPath.length === 0) {
-                   /* if(this.context[arguments[1]]) {
-                        delete this.context[arguments[1]];
-                    } else {
-                        throw {
-                            name : "UnknownArtifactError",
-                            message : arguments[1] + " not known : context path is: " + this.contextPath
-                        }
-                    }*/
-                } else {
-                    throw {
-                        name : "ContextPathError",
-                        message : "context path is: " + this.contextPath
-                    }
-                }
+
+                this.componentFactory.deleteDiagram(arguments[1]);
+                this.contextPath = [];
                 break;
             case  "type" :
 
@@ -75,6 +63,21 @@ define(['core/BaseType', 'canvg'],function (BaseType, canvg) {
                     }
                 }
                 break;
+            case "arg" :
+                if(this.contextPath.length === 6 && this.contextPath[4] === "method") {
+                    this.diagramModel.deleteArg(
+                        this.contextPath[1],
+                        this.contextPath[3],
+                        this.contextPath[5],
+                        arguments[1]).fire("deleteArgs");
+
+                } else {
+                    throw {
+                        name : "ContextPathError",
+                        message : "context path is: " + this.contextPath
+                    }
+                }
+                break;
 
              case "connector" :
                 this.componentFactory.deleteConnector(arguments[1]);
@@ -98,8 +101,15 @@ define(['core/BaseType', 'canvg'],function (BaseType, canvg) {
                             message : "context path is: " + this.contextPath
                         }
                     }
-                    this.contextPath.push("diagram");
-                    this.contextPath.push(arguments[1]);
+                    if(this.diagramModel.checkDiagramExists(arguments[1])) {
+                        this.contextPath.push("diagram");
+                        this.contextPath.push(arguments[1]);
+                    }  else {
+                        throw {
+                            name : "ArtifactDoesNotExistException",
+                            message : "This artifact does not exist"
+                        }
+                    }
                 } else {
                     if(this.contextPath.length > 2) {
                         this.contextPath = this.contextPath.slice(0,2);
@@ -119,8 +129,20 @@ define(['core/BaseType', 'canvg'],function (BaseType, canvg) {
                             message : "context path is: " + this.contextPath
                         }
                     }
-                    this.contextPath.push("type");
-                    this.contextPath.push(arguments[1])
+                    if(this.diagramModel.checkTypeExists(
+                        this.contextPath[1],
+                        arguments[1]
+                    )){
+
+                        this.contextPath.push("type");
+                        this.contextPath.push(arguments[1])
+
+                    }  else {
+                        throw {
+                            name : "ArtifactDoesNotExistException",
+                            message : "This artifact does not exist"
+                        }
+                    }
                 } else {
                     this.contextPath = this.contextPath.slice(0,4);
                 }
@@ -133,10 +155,21 @@ define(['core/BaseType', 'canvg'],function (BaseType, canvg) {
                             message : "context path is: " + this.contextPath
                         }
                     }
+                    if( this.diagramModel.checkPropertyExists(
+                        this.contextPath[1],
+                        this.contextPath[3],
+                        arguments[1]
+                    )) {
 
-                    this.contextPath.push("property");
-                    this.contextPath.push(arguments[1])
+                        this.contextPath.push("property");
+                        this.contextPath.push(arguments[1]);
 
+                    } else {
+                        throw {
+                            name : "ArtifactDoesNotExistException",
+                            message : "This artifact does not exist"
+                        }
+                    }
                 }
                 break;
             case "method" :
@@ -147,9 +180,20 @@ define(['core/BaseType', 'canvg'],function (BaseType, canvg) {
                             message : "context path is: " + this.contextPath
                         }
                     }
+                    if( this.diagramModel.checkMethodExists(
+                                            this.contextPath[1],
+                                            this.contextPath[3],
+                                            arguments[1]
+                                        )) {
 
-                    this.contextPath.push("method");
-                    this.contextPath.push(arguments[1])
+                        this.contextPath.push("method");
+                        this.contextPath.push(arguments[1])
+                    } else {
+                        throw {
+                            name : "ArtifactDoesNotExistException",
+                            message : "This artifact does not exist"
+                        }
+                    }
                 }
                 break;
             default :
@@ -177,14 +221,13 @@ define(['core/BaseType', 'canvg'],function (BaseType, canvg) {
                     this.componentFactory.createVerticalConnector(this.contextPath[1]);
                 }
 
-
                 break;
 
             case "diagram" :
 
                 if(this.contextPath.length !== 0) {
                     throw {
-                        name : "ContextPathError",
+                        name : "ContextPathException",
                         message : "context path is: " + this.contextPath
                     }
                 }
@@ -197,7 +240,7 @@ define(['core/BaseType', 'canvg'],function (BaseType, canvg) {
 
                 if(this.contextPath.length !== 2) {
                     throw {
-                        name : "ContextPathError",
+                        name : "ContextPathException",
                         message : "context path is: " + this.contextPath
                     }
                 }
@@ -209,7 +252,7 @@ define(['core/BaseType', 'canvg'],function (BaseType, canvg) {
 
                 if(this.contextPath.length !== 4) {
                     throw {
-                        name : "ContextPathError",
+                        name : "ContextPathException",
                         message : "context path is: " + this.contextPath
                     }
                 }
@@ -220,13 +263,33 @@ define(['core/BaseType', 'canvg'],function (BaseType, canvg) {
             case "method" :
 
                 if(this.contextPath.length !== 4) {
+
                     throw {
-                        name : "ContextPathError",
+                        name : "ContextPathException",
                         message : "context path is: " + this.contextPath
                     }
                 }
 
                 this.componentFactory.createMethod(this.contextPath[1], this.contextPath[3], arguments[1]);
+
+                break;
+
+            case "arg" :
+
+                if(this.contextPath.length !== 6 && this.contextPath[4] !== "method") {
+                    throw {
+                        name : "ContextPathException",
+                        message : "context path is: " + this.contextPath
+                    }
+                }
+                // should we go through the componentFactory for this?
+                this.diagramModel.createArg(
+                    this.contextPath[1],
+                    this.contextPath[3],
+                    this.contextPath[5],
+                    arguments[1],
+                    arguments[2]
+                );
 
                 break;
 
@@ -250,7 +313,6 @@ define(['core/BaseType', 'canvg'],function (BaseType, canvg) {
                 console.log("jpeg")
             break;
             case "png":
-                console.log("png")
 
                 var canvas = document.createElement('canvas');
                 canvas.width = 1000;
@@ -278,7 +340,7 @@ define(['core/BaseType', 'canvg'],function (BaseType, canvg) {
 
                 throw {
 
-                    name : "ContextPathError",
+                    name : "ContextPathException",
                     message : "no value can be set at this context"
                 }
             }
@@ -287,8 +349,10 @@ define(['core/BaseType', 'canvg'],function (BaseType, canvg) {
 
                 if(arguments[0] === "flavor") {
 
-                    this.diagramModel.set(this.contextPath, arguments[0], arguments[1])
+                    this.diagramModel.set(this.contextPath, arguments[0], arguments[1]);
+
                 } else {
+
                     throw {
 
                         name : "ArgumentNotKnown",
@@ -297,6 +361,7 @@ define(['core/BaseType', 'canvg'],function (BaseType, canvg) {
                 }
             }
             else if(this.contextPath.length === 6) {
+
                 if(this.contextPath[4] === "property") {
                     // at property context
                     if(arguments[0] === "visibility") {
@@ -309,26 +374,26 @@ define(['core/BaseType', 'canvg'],function (BaseType, canvg) {
                             message : arguments[0] + " is not a valid property"
                         }
                     }
+
                 } else if(this.contextPath[4] === "method") {
 
-                   if(arguments[0] === "visibility") {
-                        this.diagramModel.set(this.contextPath, arguments[0], arguments[1])
-                    } else if(arguments[0] === "returnType")  {
-                        this.diagramModel.set(this.contextPath, arguments[0], arguments[1])
-                    } else if(arguments[0] === "args") {
-                        this.diagramModel.set(this.contextPath, arguments[0], arguments[1])
+                    if(arguments[0] === "visibility") {
+
+                        this.diagramModel.set(this.contextPath, arguments[0], arguments[1]);
+
+                    } else if( arguments[0] === "returnType" )  {
+
+                        this.diagramModel.set( this.contextPath, arguments[0], arguments[1] );
+
                     } else {
+
                         throw {
                             name : "ArgumentNotKnown",
                             message : arguments[0] + " is not a valid property"
                         }
                     }
                 }
-
             }
-
-
-
         },
         // don't like the name of this, but so we don't have clash with contextPath.
         // todo: have a mapping  to translate between functions in this type and functions called by editor.
@@ -359,7 +424,7 @@ define(['core/BaseType', 'canvg'],function (BaseType, canvg) {
             } else {
 
                 throw {
-                    name : "AttemptToCreateNewDiagramError",
+                    name : "CoexistingDiagramException ",
                     message : "You already have an existing diagram. Delete this " +
                                 "first before creating a new diagram"
                 }
@@ -370,10 +435,11 @@ define(['core/BaseType', 'canvg'],function (BaseType, canvg) {
         help : function () {
 
             var deferred = $.Deferred();
+            var url = arguments[0]
 
             $.when($.ajax({
 
-                url: "/help/testHelp.html",
+                url: "/help/" + url + ".html",
                 dataType: "html"
 
             })).then(function (data) {

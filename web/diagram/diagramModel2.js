@@ -75,8 +75,8 @@ define(["core/BaseType",
             */
             if(this.currentDiagram) {
                 throw {
-                    name : "AttemptToCreateNewDiagramError",
-                    message : "You already have an existing diagram"
+                    name : "CoexistingDiagramException",
+                    message : "You already have already created a diagram"
                 }
             }
 
@@ -90,6 +90,13 @@ define(["core/BaseType",
                     connectors : {}
                 });
             }
+        },
+
+        deleteDiagram : function (diagramName) {
+            debugger;
+            this.model.children['diagrams'].deleteChild(diagramName);
+
+            this.currentDiagram = null;
         },
         set : function (contextPath, name, value) {
 
@@ -271,6 +278,33 @@ define(["core/BaseType",
 
         },
 
+        createArg : function (diagram, type, method, name, value) {
+            this.model.children.diagrams
+                        .children[diagram]
+                        .children.types
+                        .children[type]
+                         .children.methods
+                         .children[method]
+                         .children['args']
+                         .createChild(name, {
+                            name : name,
+                            type : value
+                         });
+
+        },
+
+        deleteArg : function (diagram, type, method, name) {
+
+            return this.model.children.diagrams
+                        .children[diagram]
+                        .children.types
+                        .children[type]
+                         .children.methods
+                         .children[method]
+                         .children['args']
+                         .deleteChild(name);
+        },
+
         getTypeName : function (diagram, type) {
 
             return this.model.children.diagrams
@@ -329,6 +363,62 @@ define(["core/BaseType",
                 });
         },
 
+        checkPropertyExists : function (diagram , type, propertyName) {
+            if( this.model
+                .children['diagrams']
+                .children[diagram]
+                .children['types']
+                .children[type]
+                .children['properties']
+                .children[propertyName] !== undefined ) {
+
+                return true;
+            } else {
+                return false;
+            }
+        },
+
+        checkMethodExists : function (diagram , type, methodName) {
+            if( this.model
+                .children['diagrams']
+                .children[diagram]
+                .children['types']
+                .children[type]
+                .children['methods']
+                .children[methodName] !== undefined ) {
+
+                return true;
+            } else {
+                return false;
+            }
+        },
+
+        checkTypeExists : function (diagram, type) {
+
+            if( this.model
+                .children['diagrams']
+                .children[diagram]
+                .children['types']
+                .children[type] !== undefined ) {
+
+                return true;
+            } else {
+                return false;
+            }
+        },
+
+        checkDiagramExists : function (diagram) {
+
+            if(this.model
+                .children['diagrams']
+                .children[diagram] !== undefined
+            ) {
+                return true;
+            } else {
+                return false;
+            }
+        },
+
         getMethod : function (diagram, type, methodName) {
             return this.model.children.diagrams
                         .children[diagram]
@@ -359,9 +449,6 @@ define(["core/BaseType",
                 .children[type]
                 .children['properties']
                 .deleteChild(propertyName);
-
-
-
 
         },
 

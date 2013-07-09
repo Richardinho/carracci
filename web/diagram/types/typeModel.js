@@ -18,6 +18,7 @@ define(["core/BaseType"],
             this.model.on("create", this.changeHandler, this);
             this.model.on("deleteProperty", this.changeHandler, this);
             this.model.on("deleteMethod", this.changeHandler, this);
+            this.model.on("deleteArgs", this.changeHandler, this);
         },
 
         on : function (event, handler, context) {

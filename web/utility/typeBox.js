@@ -334,11 +334,7 @@ define(['utility/svg', 'core/BaseType', 'underscore'], function(svg, BaseType, _
                 var result = "",
                     args;
 
-                if(method.args.length > 0) {
-                    args = formatArgs(method.args)
-                } else {
-                    args = "";
-                }
+                args = formatArgs(method.args)
 
                 result += this._convertVisibility(method.visibility);
                 result += method.name;

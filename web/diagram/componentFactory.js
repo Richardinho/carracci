@@ -6,7 +6,8 @@ define([
     "diagram/connectors/horizontalConnectorModel",
     "diagram/connectors/verticalConnectorModel",
     "diagram/boxHorizontalNodeMediator",
-    "diagram/boxVerticalNodeMediator"
+    "diagram/boxVerticalNodeMediator",
+    "underscore"
     ],
     function (
     BaseType,
@@ -16,7 +17,8 @@ define([
     HorizontalConnectorModel,
     VerticalConnectorModel,
     BoxHorizontalNodeMediator,
-    BoxVerticalNodeMediator
+    BoxVerticalNodeMediator,
+    _
     )
     {
 
@@ -76,6 +78,18 @@ define([
                     .children['types']
                     .children[type];
 
+        },
+
+        deleteDiagram : function (diagramName) {
+
+            _.each(this.typeControllerMap, function (typeController, key) {
+                this.deleteType(key);
+            },this);
+            _.each(this.connectorMediators, function (mediator, key) {
+                this.deleteConnector(key);
+            },this);
+
+            this.diagramModel.deleteDiagram(diagramName);
         },
 
         createDiagram : function (diagramName, node) {
