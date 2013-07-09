@@ -415,8 +415,9 @@ define(['core/BaseType', 'canvg'],function (BaseType, canvg) {
             // check if a diagram is currently loaded.
             if(!this.diagramModel.currentDiagram) {
                 //  get json from server
+
                 var that = this;
-                $.getJSON('/diagrams/test2.json', function(data) {
+                $.getJSON('/diagrams/' + diagram +'.json', function(data) {
                     that.componentFactory.createDiagram(diagram, data);
 
                 });
