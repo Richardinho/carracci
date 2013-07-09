@@ -371,6 +371,24 @@ define(["core/BaseType",
             }
         },
 
+        checkArgExists : function (diagram , type, method, arg) {
+             if( this.model
+                .children['diagrams']
+                .children[diagram]
+                .children['types']
+                .children[type]
+                .children['methods']
+                .children[method]
+                .children['args']
+                .children[arg] !== undefined ) {
+
+                return true;
+            } else {
+                return false;
+            }
+
+        },
+
         checkTypeExists : function (diagram, type) {
 
             if( this.model
@@ -380,6 +398,20 @@ define(["core/BaseType",
                 .children[type] !== undefined ) {
 
                 return true;
+            } else {
+                return false;
+            }
+        },
+
+        checkConnectorExists : function (diagram, connectorId) {
+            if( this.model
+                .children['diagrams']
+                .children[diagram]
+                .children['connectors']
+                .children[connectorId] !== undefined) {
+
+                return true;
+
             } else {
                 return false;
             }

@@ -24,22 +24,65 @@ define(['core/BaseType', 'canvg'],function (BaseType, canvg) {
             switch(artifact) {
 
             case  "diagram" :
+                if(this.diagramModel.checkDiagramExists(
+                    arguments[1]
+                )) {
 
-                this.componentFactory.deleteDiagram(arguments[1]);
-                this.contextPath = [];
+                    this.componentFactory.deleteDiagram(arguments[1]);
+                    this.contextPath = [];
+                } else {
+                    throw {
+                        name : "ArtifactDoesNotExistException",
+                        message : "This artifact does not exist"
+                    }
+                }
                 break;
             case  "type" :
+                if(this.contextPath.length === 2) {
 
-                this.componentFactory.deleteType(arguments[1]);
+                    if(this.diagramModel.checkTypeExists(
+                        this.contextPath[1],
+                        arguments[1]
+                    )) {
+
+                        this.componentFactory.deleteType(arguments[1]);
+
+                    } else {
+                        throw {
+                            name : "ArtifactDoesNotExistException",
+                            message : "This artifact does not exist"
+                        }
+                    }
+                } else {
+                    throw {
+                        name : "ContextPathError",
+                        message : "context path is: " + this.contextPath
+                    }
+                }
 
                 break;
             case  "property" :
                 if(this.contextPath.length === 4) {
-                    this.diagramModel.deleteProperty(
-                        this.contextPath[1],
-                        this.contextPath[3],
-                        arguments[1]
-                    ).fire("deleteProperty");
+
+
+                    if( this.diagramModel.checkPropertyExists(
+                            this.contextPath[1],
+                            this.contextPath[3],
+                            arguments[1]
+                    )) {
+
+                        this.diagramModel.deleteProperty(
+                            this.contextPath[1],
+                            this.contextPath[3],
+                            arguments[1]
+                        ).fire("deleteProperty");
+                    } else {
+
+                        throw {
+                            name : "ArtifactDoesNotExistException",
+                            message : "This artifact does not exist"
+                        }
+                    }
 
                 } else {
                     throw {
@@ -48,13 +91,26 @@ define(['core/BaseType', 'canvg'],function (BaseType, canvg) {
                     }
                 }
                 break;
-             case "method" :
+            case "method" :
                 if(this.contextPath.length === 4) {
-                    this.diagramModel.deleteMethod(
-                        this.contextPath[1],
-                        this.contextPath[3],
-                        arguments[1]
-                    ).fire("deleteMethod");
+
+                    if( this.diagramModel.checkMethodExists(
+                            this.contextPath[1],
+                            this.contextPath[3],
+                            arguments[1]
+                    )) {
+                        this.diagramModel.deleteMethod(
+                            this.contextPath[1],
+                            this.contextPath[3],
+                            arguments[1]
+                        ).fire("deleteMethod");
+                    } else {
+
+                        throw {
+                            name : "ArtifactDoesNotExistException",
+                            message : "This artifact does not exist"
+                        }
+                    }
 
                 } else {
                     throw {
@@ -65,11 +121,25 @@ define(['core/BaseType', 'canvg'],function (BaseType, canvg) {
                 break;
             case "arg" :
                 if(this.contextPath.length === 6 && this.contextPath[4] === "method") {
-                    this.diagramModel.deleteArg(
-                        this.contextPath[1],
-                        this.contextPath[3],
-                        this.contextPath[5],
-                        arguments[1]).fire("deleteArgs");
+                    if(this.diagramModel.checkArgExists(
+                            this.contextPath[1],
+                            this.contextPath[3],
+                            this.contextPath[5],
+                            arguments[1]
+                    )) {
+
+                        this.diagramModel.deleteArg(
+                            this.contextPath[1],
+                            this.contextPath[3],
+                            this.contextPath[5],
+                            arguments[1]).fire("deleteArgs");
+                    } else {
+
+                        throw {
+                            name : "ArtifactDoesNotExistException",
+                            message : "This artifact does not exist"
+                        }
+                    }
 
                 } else {
                     throw {
@@ -80,7 +150,25 @@ define(['core/BaseType', 'canvg'],function (BaseType, canvg) {
                 break;
 
              case "connector" :
-                this.componentFactory.deleteConnector(arguments[1]);
+                if( this.contextPath.length >=2 ) {
+                    if(this.diagramModel.checkConnectorExists(
+                            this.contextPath[1],
+                            arguments[1]
+                    )) {
+
+                        this.componentFactory.deleteConnector(arguments[1]);
+                    } else {
+                        throw {
+                            name : "ArtifactDoesNotExistException",
+                            message : "This artifact does not exist"
+                        }
+                    }
+                } else {
+                    throw {
+                        name : "ContextPathError",
+                        message : "context path is: " + this.contextPath
+                    }
+                }
                 break;
 
              default :

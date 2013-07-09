@@ -3,28 +3,69 @@
 
     <h4>Remove</h4>
 
-    <p>general command for removing or deleting artifacts.</p>
+    <p>general command for removing artifacts.</p>
 
     <h3>syntax</h3>
 
-    <p>remove</p>
+    <code>remove ARTIFACT_TYPE ARTIFACT_NAME</code>
 
-    <p></p>
-
+    <p>
+        This is a general command for removing artifacts both from the model and from the display. The various forms
+        of the command corresponding to the artifacts for which it is used are listed below, with an explanation
+        of these use cases further down.
+    </p>
     <ul>
-        <li>remove diagram DIAGRAM_NAME</li>
 
+        <li>remove diagram DIAGRAM_NAME</li>
+        <li>remove type TYPE_NAME</li>
+        <li>remove method METHOD_NAME</li>
+        <li>remove property PROPERTY_NAME</li>
+        <li>remove arg ARG_NAME</li>
+        <li>remove connector CONNECTOR_ID</li>
     </ul>
 
+    <h3>removing a diagram</h3>
+
     <p>
+        This form of the command can be called regardless of the state
+        of the context path. The diagram specified must refer to an existing diagram artifact. The context
+        path will also be reset as a result of calling the command in this form.
     </p>
 
-    <h3>connectors</h3>
+    <h3>removing a type</h3>
     <p>
+        The context path must be at 'diagram' level. Also, the type specified must refer to
+        an existing type artifact. An appropriate error message will be displayed if either of these conditions
+        is not met.
     </p>
 
-    <h3>Examples</h3>
+    <h3>removing a method</h3>
     <p>
+        The context path must be at 'type' level. Also, the method specified must refer to
+        an existing method artifact. An appropriate error message will be displayed if either of these conditions
+        is not met.
+    </p>
+
+    <h3>removing a property</h3>
+    <p>
+        The context path must be at 'type' level. Also, the property specified must refer to
+        an existing property artifact. An appropriate error message will be displayed if either of these conditions
+        is not met.
+    </p>
+
+    <h3>removing an argument</h3>
+    <p>
+        The context path must be at 'method' level. Also, the argument specified must refer to
+        an existing argument artifact. An appropriate error message will be displayed if either of these conditions
+        is not met.
+    </p>
+
+    <h3>removing a connector</h3>
+    <p>
+        This context path must be at least at diagram level. It can be called at levels below this. The second argument
+        specifies the artifact id for the connector. This id can be found by running the 'show' command and
+        inspecting the json produced from that. An error message will be displayed if there is no corresponding
+        connector artifact for this id.
     </p>
 
 </div>
