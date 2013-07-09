@@ -24,6 +24,23 @@ define([
             return this.typeController.getLeftXLimit();
         },
 
+        /*
+            works out whether the right hand node should be on the right
+            edge of the box or the left edge
+        */
+        calculateNodeXCood : function (relativeX) {
+
+                if( relativeX > this.getBoxRightLimit()) {
+
+                    return this.getBoxRightLimit()
+                } else {
+
+                    return this.getBoxLeftLimit()
+
+                }
+
+        },
+
         getDistalNodeCoods : function (x, y, currentX, currentY) {
             var topY = this.typeController.getTopYLimit();
             var bottomY = this.typeController.getBottomYLimit();
@@ -90,7 +107,11 @@ define([
 
         // inherited methods
         _moveNodeOnToBox : function () {
-            var x = this.typeController.getLeftXLimit();
+
+            var relativeX = this.nodeMediator.proximalNodeModel.getXCood();
+
+            var x = this.calculateNodeXCood(relativeX);
+
             var topY = this.typeController.getTopYLimit();
             var bottomY = this.typeController.getBottomYLimit();
 

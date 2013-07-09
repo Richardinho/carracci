@@ -120,26 +120,11 @@ define(["core/BaseType",
                 x = this.leftArrowModel.getXCood() + dx;
                 y = this.leftArrowModel.getYCood() + dy;
 
-
-                //this.leftArrowModel.children['xCood'].set(x);
                 var proximalNodeXCood = this.proximalNodeModel.getXCood();
 
-                if( proximalNodeXCood > this.leftNodeTypeBoxMediator.getBoxRightLimit()) {
-
-                    this.leftArrowModel.setXCood(
-                        this.leftNodeTypeBoxMediator.getBoxRightLimit()
-                    );
-                }
-                else if( proximalNodeXCood < this.leftNodeTypeBoxMediator.getBoxLeftLimit()) {
-
-                    this.leftArrowModel.setXCood(
-                        this.leftNodeTypeBoxMediator.getBoxLeftLimit()
-                    );
-                } else {
-
-                    this.leftArrowModel.setXCood(x);
-
-                }
+                this.leftArrowModel.setXCood(
+                    this.leftNodeTypeBoxMediator.calculateNodeXCood(proximalNodeXCood)
+                );
                 this._setLeftArrowDirection();
                 this.leftArrowModel.setYCood(y);
                 this.proximalNodeModel.setYCood(y);
@@ -152,21 +137,10 @@ define(["core/BaseType",
 
                 var distalNodeXCood = this.distalNodeModel.getXCood();
 
-                if( distalNodeXCood > this.rightNodeTypeBoxMediator.getBoxRightLimit()) {
+                this.rightArrowModel.setXCood(
+                    this.rightNodeTypeBoxMediator.calculateNodeXCood(distalNodeXCood)
+                )
 
-                    this.rightArrowModel.setXCood(
-                        this.rightNodeTypeBoxMediator.getBoxRightLimit()
-                    );
-                }
-                else if( distalNodeXCood < this.rightNodeTypeBoxMediator.getBoxLeftLimit()) {
-
-                    this.rightArrowModel.setXCood(
-                        this.rightNodeTypeBoxMediator.getBoxLeftLimit()
-                    );
-                } else {
-
-                    this.rightArrowModel.setXCood(x);
-                }
                 this.setRightArrowDirection();
 
                 this.rightArrowModel.setYCood(y);
@@ -206,21 +180,13 @@ define(["core/BaseType",
             if(this._rightArrowAttached()) {
 
                 /*
-                    move right arrow node onto right or left edge of box
-                    if distal node extends too far in either direction.
+                    align right node according to the position of the proximal node
+                    in relation to the type box.
                 */
-                if( x > this.rightNodeTypeBoxMediator.getBoxRightLimit()) {
 
-                    this.rightArrowModel.setXCood(
-                        this.rightNodeTypeBoxMediator.getBoxRightLimit()
-                    );
-                }
-                if( x < this.rightNodeTypeBoxMediator.getBoxLeftLimit()) {
-
-                    this.rightArrowModel.setXCood(
-                        this.rightNodeTypeBoxMediator.getBoxLeftLimit()
-                    );
-                }
+                this.rightArrowModel.setXCood(
+                    this.rightNodeTypeBoxMediator.calculateNodeXCood(x)
+                )
             }
 
             if(this._leftArrowAttached() ) {
@@ -234,22 +200,10 @@ define(["core/BaseType",
                 x = coods.x;
                 y = coods.y;
 
-                /*
-                    move right arrow node onto right or left edge of box
-                    if distal node extends too far in either direction.
-                */
-                if( x > this.leftNodeTypeBoxMediator.getBoxRightLimit()) {
 
-                    this.leftArrowModel.setXCood(
-                        this.leftNodeTypeBoxMediator.getBoxRightLimit()
-                    );
-                }
-                if( x < this.leftNodeTypeBoxMediator.getBoxLeftLimit()) {
-
-                    this.leftArrowModel.setXCood(
-                        this.leftNodeTypeBoxMediator.getBoxLeftLimit()
-                    );
-                }
+                this.leftArrowModel.setXCood(
+                    this.leftNodeTypeBoxMediator.calculateNodeXCood(x)
+                );
             }
 
             this.setRightArrowDirection();
@@ -257,7 +211,6 @@ define(["core/BaseType",
             this.proximalNodeModel.setXCood(x);
             this.proximalNodeModel.setYCood(y);
             this.leftArrowModel.setYCood(y);
-
             this.distalNodeModel.setXCood(x);
         },
 
@@ -275,21 +228,13 @@ define(["core/BaseType",
 
 
                 /*
-                    move right arrow node onto right or left edge of box
-                    if distal node extends too far in either direction.
+                    align right node according to the position of the distal node
+                    in relation to the type box.
                 */
-                if( x > this.rightNodeTypeBoxMediator.getBoxRightLimit()) {
 
-                    this.rightArrowModel.setXCood(
-                        this.rightNodeTypeBoxMediator.getBoxRightLimit()
-                    );
-                }
-                if( x < this.rightNodeTypeBoxMediator.getBoxLeftLimit()) {
-
-                    this.rightArrowModel.setXCood(
-                        this.rightNodeTypeBoxMediator.getBoxLeftLimit()
-                    );
-                }
+                this.rightArrowModel.setXCood(
+                    this.rightNodeTypeBoxMediator.calculateNodeXCood(x)
+                )
             }
 
             if(this._leftArrowAttached() ) {
@@ -298,18 +243,10 @@ define(["core/BaseType",
                     move right arrow node onto right or left edge of box
                     if distal node extends too far in either direction.
                 */
-                if( x > this.leftNodeTypeBoxMediator.getBoxRightLimit()) {
 
-                    this.leftArrowModel.setXCood(
-                        this.leftNodeTypeBoxMediator.getBoxRightLimit()
-                    );
-                }
-                if( x < this.leftNodeTypeBoxMediator.getBoxLeftLimit()) {
-
-                    this.leftArrowModel.setXCood(
-                        this.leftNodeTypeBoxMediator.getBoxLeftLimit()
-                    );
-                }
+                this.leftArrowModel.setXCood(
+                    this.leftNodeTypeBoxMediator.calculateNodeXCood(x)
+                );
             }
 
             this.setRightArrowDirection();
