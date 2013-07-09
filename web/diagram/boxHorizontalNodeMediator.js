@@ -30,14 +30,14 @@ define([
         */
         calculateNodeXCood : function (relativeX) {
 
-                if( relativeX > this.getBoxRightLimit()) {
+            if( relativeX > this.getBoxRightLimit()) {
 
-                    return this.getBoxRightLimit()
-                } else {
+                return this.getBoxRightLimit()
+            } else {
 
-                    return this.getBoxLeftLimit()
+                return this.getBoxLeftLimit()
 
-                }
+            }
 
         },
 
@@ -116,7 +116,7 @@ define([
             var bottomY = this.typeController.getBottomYLimit();
 
             var y = (topY + bottomY) /2;
-            this.nodeMediator.update(this.nodeOrientation, x, y);
+            this.nodeMediator.update(this.nodeOrientation, x, y, true);
         }
 
     });

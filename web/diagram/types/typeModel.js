@@ -73,7 +73,8 @@ define(["core/BaseType"],
 
             var previousWidth = this.model.children['width'].value;
             this.model.children['width'].set(width, true);
-            if(previousWidth > width) {
+
+            if(previousWidth !== width) {
 
                 this.fire("changeWidth");
             }
@@ -85,7 +86,7 @@ define(["core/BaseType"],
 
             this.model.children['height'].set(height, true);
 
-            if(previousHeight > height) {
+            if(previousHeight !== height) {
 
                 this.fire("changeHeight");
             }

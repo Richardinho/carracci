@@ -92,11 +92,12 @@ define(["core/BaseType",
         },
 
         /*  update a node model using coordinates */
-        update : function (node, x, y) {
+        update : function (node, x, y, overRideConstraints) {
+
             switch(node) {
 
             case "top" :
-                this.updateTopArrow(x, y);
+                this.updateTopArrow(x, y, overRideConstraints);
                 break;
             case "secondTop" :
                 this.updateSecondTopNode(x, y);
@@ -105,7 +106,7 @@ define(["core/BaseType",
                 this.updateSecondBottomNode(x,y);
                 break;
             case "bottom" :
-                this.updateBottomArrow(x,y);
+                this.updateBottomArrow(x,y, overRideConstraints);
                 break;
             }
         },
@@ -162,17 +163,20 @@ define(["core/BaseType",
         },
 
         // update from node controller
-        updateTopArrow : function (x, y) {
+        updateTopArrow : function (x, y, overRideConstraints) {
 
             if(this._topArrowAttached()) {
                 var currentX = this.topArrowModel.getXCood();
                 var currentY = this.topArrowModel.getYCood();
 
+                if(!overRideConstraints) {
+                    var coods = this.topNodeTypeBoxMediator
+                        .getTopNodeCoods(x, y, currentX, currentY);
 
-                var coods = this.topNodeTypeBoxMediator.getTopNodeCoods(x, y, currentX, currentY);
 
-                x = coods.x;
-                y = coods.y;
+                    x = coods.x;
+                    y = coods.y;
+                }
 
             }
             this.topArrowModel.setXCood(x);
@@ -265,22 +269,27 @@ define(["core/BaseType",
 
         },
 
-        updateBottomArrow : function (x, y) {
-
+        updateBottomArrow : function (x, y, overRideConstraints) {
             if(this._bottomArrowAttached()) {
 
                 /*
                     if we're currently attached to a type box, check against
                     the mediator if the proposed coods are acceptable
                 */
+                if(!overRideConstraints) {
+                    var currentX = this.bottomArrowModel.getXCood();
+                    var currentY = this.bottomArrowModel.getYCood();
 
-                var currentX = this.bottomArrowModel.getXCood();
-                var currentY = this.bottomArrowModel.getYCood();
+                    var coods = this.bottomNodeTypeBoxMediator
+                        .getBottomNodeCoods(x, y, currentX, currentY);
 
-                var coods = this.bottomNodeTypeBoxMediator.getBottomNodeCoods(x, y, currentX, currentY);
 
-                x = coods.x;
-                y = coods.y;
+
+                    x = coods.x;
+                    y = coods.y;
+                }
+
+
             }
 
 

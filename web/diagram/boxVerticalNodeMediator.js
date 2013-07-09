@@ -130,12 +130,13 @@ define([
             var relativeY = this.nodeMediator.secondTopNodeModel.getYCood();
 
             var y = this.calculateNodeYCood(relativeY);
+            console.log("_moveNodeOnToBox y ", y)
 
             var rightLimit = this.typeController.getRightXLimit();
             var leftLimit = this.typeController.getLeftXLimit();
 
             var x = (rightLimit + leftLimit) /2;
-            this.nodeMediator.update(this.nodeOrientation, x, y);
+            this.nodeMediator.update(this.nodeOrientation, x, y, true);
         }
 
     });
