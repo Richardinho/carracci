@@ -1,38 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bd4dd7db-33d3-4455-b213-bb1cec28b9b9" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/editor/readme.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/diagram/diagramCommands.js" afterPath="$PROJECT_DIR$/web/editor/commandProcessor.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/utility/keymap.js" afterPath="$PROJECT_DIR$/web/editor/keymap.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/bootstrap.js" afterPath="$PROJECT_DIR$/web/bootstrap.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/core/Model.js" afterPath="$PROJECT_DIR$/web/core/Model.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/diagram/boxNodeMediator.js" afterPath="$PROJECT_DIR$/web/diagram/boxNodeMediator.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/diagram/componentFactory.js" afterPath="$PROJECT_DIR$/web/diagram/componentFactory.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/diagram/connectors/horizontalConnectorFactory.js" afterPath="$PROJECT_DIR$/web/diagram/connectors/horizontalConnectorFactory.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/diagram/connectors/horizontalConnectorModel.js" afterPath="$PROJECT_DIR$/web/diagram/connectors/horizontalConnectorModel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/diagram/connectors/lines/lineView.js" afterPath="$PROJECT_DIR$/web/diagram/connectors/lines/lineView.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/diagram/connectors/nodes/arrow.js" afterPath="$PROJECT_DIR$/web/diagram/connectors/nodes/arrow.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/diagram/connectors/nodes/arrowController.js" afterPath="$PROJECT_DIR$/web/diagram/connectors/nodes/arrowController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/diagram/connectors/nodes/arrowView.js" afterPath="$PROJECT_DIR$/web/diagram/connectors/nodes/arrowView.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/diagram/connectors/nodes/horizontalNodesMediator.js" afterPath="$PROJECT_DIR$/web/diagram/connectors/nodes/horizontalNodesMediator.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/diagram/connectors/nodes/nodeModel.js" afterPath="$PROJECT_DIR$/web/diagram/connectors/nodes/nodeModel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/diagram/connectors/nodes/verticalNodesMediator.js" afterPath="$PROJECT_DIR$/web/diagram/connectors/nodes/verticalNodesMediator.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/diagram/connectors/verticalConnectorFactory.js" afterPath="$PROJECT_DIR$/web/diagram/connectors/verticalConnectorFactory.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/diagram/connectors/verticalConnectorModel.js" afterPath="$PROJECT_DIR$/web/diagram/connectors/verticalConnectorModel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/diagram/diagramController.js" afterPath="$PROJECT_DIR$/web/diagram/diagramController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/diagram/diagramModel2.js" afterPath="$PROJECT_DIR$/web/diagram/diagramModel2.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/diagram/types/typeController.js" afterPath="$PROJECT_DIR$/web/diagram/types/typeController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/diagram/types/typeModel.js" afterPath="$PROJECT_DIR$/web/diagram/types/typeModel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/diagram/types/typeView.js" afterPath="$PROJECT_DIR$/web/diagram/types/typeView.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/editor/editor.js" afterPath="$PROJECT_DIR$/web/editor/editor.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/editor/editorController.js" afterPath="$PROJECT_DIR$/web/editor/editorController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/editor/editorModel.js" afterPath="$PROJECT_DIR$/web/editor/editorModel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/editor/editorView.js" afterPath="$PROJECT_DIR$/web/editor/editorView.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/main.js" afterPath="$PROJECT_DIR$/web/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/utility/typeBox.js" afterPath="$PROJECT_DIR$/web/utility/typeBox.js" />
-    </list>
+    <list default="true" id="bd4dd7db-33d3-4455-b213-bb1cec28b9b9" name="Default" comment="" />
     <ignored path="Glenmorangie.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -170,7 +139,7 @@
       <file leaf-file-name="bootstrap.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/bootstrap.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="64" column="28" selection-start="2154" selection-end="2154" vertical-scroll-proportion="0.91511935">
+            <state line="64" column="19" selection-start="2154" selection-end="2154" vertical-scroll-proportion="0.7069597">
               <folding />
             </state>
           </provider>
@@ -254,11 +223,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane">
-        <subPane />
-      </pane>
-      <pane id="Scope" />
-      <pane id="Favorites" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -479,6 +443,11 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane">
+        <subPane />
+      </pane>
+      <pane id="Scope" />
+      <pane id="Favorites" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -487,8 +456,8 @@
     <property name="MemberChooser.sorted" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="GoToClass.includeJavaFiles" value="false" />
     <property name="MemberChooser.copyJavadoc" value="false" />
+    <property name="GoToClass.includeJavaFiles" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -630,31 +599,31 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="24" width="1215" height="936" extended-state="6" />
+    <frame x="64" y="-4" width="1217" height="965" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.07505774" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32996207" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39935064" sideWeight="0.6700379" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2572899" sideWeight="0.92494226" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="JsTestDriver Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.07505774" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -707,112 +676,82 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/web/diagram/connectors/lines/lineView.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="9" selection-start="9" selection-end="9" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="9" selection-start="9" selection-end="9" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/diagram/connectors/nodes/arrow.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="9" selection-start="9" selection-end="9" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="9" selection-start="9" selection-end="9" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/diagram/connectors/nodes/arrowController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="9" selection-start="9" selection-end="9" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="9" selection-start="9" selection-end="9" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/diagram/connectors/nodes/arrowView.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="9" selection-start="9" selection-end="9" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="9" selection-start="9" selection-end="9" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/diagram/connectors/nodes/horizontalNodesMediator.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="9" selection-start="9" selection-end="9" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="9" selection-start="9" selection-end="9" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/diagram/connectors/nodes/nodeModel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="9" selection-start="18" selection-end="18" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="1" column="9" selection-start="18" selection-end="18" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/diagram/connectors/nodes/verticalNodesMediator.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="9" selection-start="9" selection-end="9" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="9" selection-start="9" selection-end="9" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/diagram/types/typeController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="9" selection-start="9" selection-end="9" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="9" selection-start="9" selection-end="9" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/diagram/types/typeModel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="9" selection-start="9" selection-end="9" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="9" selection-start="9" selection-end="9" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/diagram/types/typeView.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="9" selection-start="9" selection-end="9" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="9" selection-start="9" selection-end="9" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/utility/typeBox.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="48" selection-start="347" selection-end="347" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/editor/keymap.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="15" column="48" selection-start="347" selection-end="347" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/editor/readme.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="10" selection-start="673" selection-end="673" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="24" column="10" selection-start="673" selection-end="673" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/editor/editor.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="25" selection-start="903" selection-end="903" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="41" column="25" selection-start="903" selection-end="903" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/editor/keymap.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/bootstrap.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="28" selection-start="2154" selection-end="2154" vertical-scroll-proportion="0.91511935">
+        <state line="64" column="19" selection-start="2154" selection-end="2154" vertical-scroll-proportion="0.7069597">
           <folding />
         </state>
       </provider>
