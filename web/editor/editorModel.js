@@ -13,7 +13,7 @@ define(["core/Model", "jquery"],function (Model, $) {
         initialize : function (options) {
 
             Model.prototype.initialize.call(this, options);
-            this.diagramController= options.diagramController;
+            //this.diagramController= options.diagramController;
         },
 
         update : function (oldCommand, message) {

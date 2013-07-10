@@ -12,7 +12,8 @@ define([ 'jquery',
          'diagram/connectors/horizontalConnectorFactory',
          'diagram/connectors/verticalConnectorFactory',
          'diagram/diagramCommands',
-         'diagram/componentFactory'],
+         'diagram/componentFactory',
+         'editor/editor'],
 
          function ( $,
                     EditorView,
@@ -27,7 +28,8 @@ define([ 'jquery',
                     horizontalConnectorFactory,
                     verticalConnectorFactory,
                     DiagramCommands,
-                    ComponentFactory) {
+                    ComponentFactory,
+                    EditorModule) {
 
     return {
 
@@ -48,33 +50,33 @@ define([ 'jquery',
                     componentFactory : componentFactory
                 });
 
-                var editorModel = new EditorModel({
-                    diagramController : diagramController
-                });
 
-                editorModel.setAttributes({
+                var editor = new EditorModule({
 
-                    oldCommands : [ "Type 'help' to display help page" ],
-                    currentCommand : ""
-                });
-
-                var editorView = new EditorView({
-                    el : $('#editor-placeholder'),
-                    model : editorModel
-                });
-
-                var diagramCommands = new DiagramCommands();
-
-                diagramCommands.addCommands(diagramController, [
-                    'help', 'create', 'use', 'con', 'set', 'remove', 'show', 'load', 'export'
-                ]);
-
-                new EditorController({
+                    placeholder : $('#editor-placeholder'),
                     keymap : keymap,
-                    model : editorModel,
-                    view : editorView,
-                    commands : diagramCommands
+                    commandObject : diagramController,
+                    commands : [
+                        'help',
+                        'create',
+                        'use',
+                        'con',
+                        'set',
+                        'remove',
+                        'show',
+                        'load',
+                        'export'
+                    ],
+                    preferences : {
+
+                        width : 300,
+                        height : 500,
+                        backgroundColor : "red",
+                        style : "default" // might specify a particular css prefix
+                    }
+
                 });
+
             });
         }
     };

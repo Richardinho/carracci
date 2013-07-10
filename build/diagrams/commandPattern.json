@@ -1,0 +1,276 @@
+ {
+  "types": {
+    "Command": {
+      "properties": {},
+      "flavor": "interface",
+      "methods": {
+        "execute": {
+          "name": "execute",
+          "visibility": "public",
+          "returnType": "void",
+          "args": {}
+        }
+      },
+      "xCood": 739,
+      "yCood": 95,
+      "width": 81,
+      "height": 79
+    },
+    "ConcreteCommand": {
+      "properties": {},
+      "flavor": "class",
+      "methods": {
+        "execute": {
+          "name": "execute",
+          "visibility": "public",
+          "returnType": "void",
+          "args": {}
+        }
+      },
+      "xCood": 708,
+      "yCood": 449,
+      "width": 81,
+      "height": 64
+    },
+    "Invoker": {
+      "properties": {},
+      "flavor": "interface",
+      "methods": {
+        "foo": {
+          "name": "foo",
+          "visibility": "public",
+          "returnType": "void",
+          "args": {}
+        }
+      },
+      "xCood": 465,
+      "yCood": 141,
+      "width": 59,
+      "height": 79
+    },
+    "Receiver": {
+      "properties": {},
+      "flavor": "interface",
+      "methods": {
+        "action": {
+          "name": "action",
+          "visibility": "public",
+          "returnType": "void",
+          "args": {}
+        }
+      },
+      "xCood": 494,
+      "yCood": 278,
+      "width": 72,
+      "height": 79
+    },
+    "Client": {
+      "properties": {},
+      "flavor": "interface",
+      "methods": {
+        "bar": {
+          "name": "bar",
+          "visibility": "public",
+          "returnType": "void",
+          "args": {}
+        }
+      },
+      "xCood": 326,
+      "yCood": 291,
+      "width": 59,
+      "height": 79
+    }
+  },
+  "connectors": {
+    "abc1": {
+      "orientation": "vertical",
+      "nodes": {
+        "top": {
+          "xCood": 782,
+          "yCood": 174,
+          "attached": true,
+          "attachedBox": "Command",
+          "arrow": {
+            "style": "whiteArrow",
+            "direction": "top"
+          }
+        },
+        "secondTop": {
+          "xCood": 782,
+          "yCood": 309,
+          "attached": {},
+          "attachedBox": {}
+        },
+        "secondBottom": {
+          "xCood": 748,
+          "yCood": 309,
+          "attached": {},
+          "attachedBox": {}
+        },
+        "bottom": {
+          "xCood": 748,
+          "yCood": 449,
+          "attached": true,
+          "attachedBox": "ConcreteCommand",
+          "arrow": {
+            "style": "whiteDiamond",
+            "direction": "bottom"
+          }
+        }
+      },
+      "lineStyle": "dashed"
+    },
+    "abc2": {
+      "orientation": "horizontal",
+      "nodes": {
+        "left": {
+          "xCood": 524,
+          "yCood": 181,
+          "attached": true,
+          "attachedBox": "Invoker",
+          "arrow": {
+            "style": "blackDiamond",
+            "direction": "left"
+          }
+        },
+        "proximal": {
+          "xCood": 620,
+          "yCood": 181,
+          "attached": {},
+          "attachedBox": {}
+        },
+        "distal": {
+          "xCood": 620,
+          "yCood": 128,
+          "attached": {},
+          "attachedBox": {}
+        },
+        "right": {
+          "xCood": 739,
+          "yCood": 128,
+          "attached": true,
+          "attachedBox": "Command",
+          "arrow": {
+            "style": "blackConnectArrow",
+            "direction": "right"
+          }
+        }
+      },
+      "lineStyle": "solid"
+    },
+    "abc3": {
+      "orientation": "horizontal",
+      "nodes": {
+        "left": {
+          "xCood": 566,
+          "yCood": 311,
+          "attached": true,
+          "attachedBox": "Receiver",
+          "arrow": {
+            "style": "blackConnectArrow",
+            "direction": "left"
+          }
+        },
+        "proximal": {
+          "xCood": 667,
+          "yCood": 311,
+          "attached": {},
+          "attachedBox": {}
+        },
+        "distal": {
+          "xCood": 667,
+          "yCood": 468,
+          "attached": {},
+          "attachedBox": {}
+        },
+        "right": {
+          "xCood": 708,
+          "yCood": 468,
+          "attached": true,
+          "attachedBox": "ConcreteCommand",
+          "arrow": {
+            "style": "blackConnectArrow",
+            "direction": "right"
+          }
+        }
+      },
+      "lineStyle": "solid"
+    },
+    "abc4": {
+      "orientation": "horizontal",
+      "nodes": {
+        "left": {
+          "xCood": 385,
+          "yCood": 330,
+          "attached": true,
+          "attachedBox": "Client",
+          "arrow": {
+            "style": "whiteDiamond",
+            "direction": "left"
+          }
+        },
+        "proximal": {
+          "xCood": 424,
+          "yCood": 330,
+          "attached": {},
+          "attachedBox": {}
+        },
+        "distal": {
+          "xCood": 424,
+          "yCood": 331,
+          "attached": {},
+          "attachedBox": {}
+        },
+        "right": {
+          "xCood": 494,
+          "yCood": 331,
+          "attached": true,
+          "attachedBox": "Receiver",
+          "arrow": {
+            "style": "blackConnectArrow",
+            "direction": "right"
+          }
+        }
+      },
+      "lineStyle": "solid"
+    },
+    "abc5": {
+      "orientation": "horizontal",
+      "nodes": {
+        "left": {
+          "xCood": 326,
+          "yCood": 325,
+          "attached": true,
+          "attachedBox": "Client",
+          "arrow": {
+            "style": "whiteDiamond",
+            "direction": "right"
+          }
+        },
+        "proximal": {
+          "xCood": 241,
+          "yCood": 325,
+          "attached": {},
+          "attachedBox": {}
+        },
+        "distal": {
+          "xCood": 241,
+          "yCood": 495,
+          "attached": {},
+          "attachedBox": {}
+        },
+        "right": {
+          "xCood": 708,
+          "yCood": 495,
+          "attached": true,
+          "attachedBox": "ConcreteCommand",
+          "arrow": {
+            "style": "blackConnectArrow",
+            "direction": "right"
+          }
+        }
+      },
+      "lineStyle": "dashed"
+    }
+  }
+}
