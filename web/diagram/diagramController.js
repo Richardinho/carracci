@@ -303,16 +303,42 @@ define(['core/BaseType', 'canvg'],function (BaseType, canvg) {
 
             var artifact = arguments[0];
 
+
+
             switch (artifact) {
 
             case "connector" :
-                if(arguments[1] === "horizontal") {
 
-                    this.componentFactory.createHorizontalConnector(this.contextPath[1]);
 
-                } else if (arguments[1] === "vertical") {
+                if (
+                    this.contextPath[1] &&
+                    this.diagramModel.checkDiagramExists(this.contextPath[1])
+                ) {
 
-                    this.componentFactory.createVerticalConnector(this.contextPath[1]);
+                    if(arguments[1] === "horizontal") {
+
+                        this.componentFactory.createHorizontalConnector(this.contextPath[1]);
+
+                    } else if (arguments[1] === "vertical") {
+
+                        this.componentFactory.createVerticalConnector(this.contextPath[1]);
+
+                    } else {
+
+                        throw {
+
+                            name : "IncorrectArgumentException",
+                            message : "argument must be either horizontal or vertical"
+                        }
+                    }
+
+                } else {
+
+                    throw {
+                        name : "ContextPathError",
+                        message : "diagram does not exist or context path is not set"
+                    }
+
                 }
 
                 break;
@@ -320,13 +346,24 @@ define(['core/BaseType', 'canvg'],function (BaseType, canvg) {
             case "diagram" :
 
                 if(this.contextPath.length !== 0) {
+
                     throw {
                         name : "ContextPathException",
                         message : "context path is: " + this.contextPath
                     }
                 }
 
-                this.componentFactory.createDiagram(arguments[1]);
+                if( arguments[1] && arguments[1] !== "") {
+
+                    this.componentFactory.createDiagram(arguments[1]);
+
+                } else {
+
+                    throw {
+                        name : "IncorrectArgumentException",
+                        message : "You must supply a diagram name"
+                    }
+                }
 
                 break;
 
@@ -339,8 +376,17 @@ define(['core/BaseType', 'canvg'],function (BaseType, canvg) {
                     }
                 }
 
-                this.componentFactory.createType(this.contextPath[1], arguments[1]);
+                if( arguments[1] && arguments[1] !== "") {
 
+                    this.componentFactory.createType(this.contextPath[1], arguments[1]);
+
+                } else {
+
+                    throw {
+                        name : "IncorrectArgumentException",
+                        message : "You must supply a type name"
+                    }
+                }
                 break;
             case "property":
 
@@ -350,8 +396,20 @@ define(['core/BaseType', 'canvg'],function (BaseType, canvg) {
                         message : "context path is: " + this.contextPath
                     }
                 }
+                if( arguments[1] && arguments[1] !== "") {
 
-                this.componentFactory.createProperty(this.contextPath[1],this.contextPath[3], arguments[1]);
+                    this.componentFactory
+                        .createProperty(
+                            this.contextPath[1],
+                            this.contextPath[3],
+                            arguments[1]);
+
+                } else {
+                    throw {
+                        name : "IncorrectArgumentException",
+                        message : "You must supply a property name"
+                    }
+                }
 
                 break;
             case "method" :
@@ -363,8 +421,19 @@ define(['core/BaseType', 'canvg'],function (BaseType, canvg) {
                         message : "context path is: " + this.contextPath
                     }
                 }
+                if( arguments[1] && arguments[1] !== "") {
 
-                this.componentFactory.createMethod(this.contextPath[1], this.contextPath[3], arguments[1]);
+                    this.componentFactory
+                        .createMethod(
+                            this.contextPath[1],
+                            this.contextPath[3],
+                            arguments[1]);
+                } else {
+                    throw {
+                        name : "IncorrectArgumentException",
+                        message : "You must supply a method name"
+                    }
+                }
 
                 break;
 
@@ -376,14 +445,24 @@ define(['core/BaseType', 'canvg'],function (BaseType, canvg) {
                         message : "context path is: " + this.contextPath
                     }
                 }
-                // should we go through the componentFactory for this?
-                this.diagramModel.createArg(
-                    this.contextPath[1],
-                    this.contextPath[3],
-                    this.contextPath[5],
-                    arguments[1],
-                    arguments[2]
-                );
+
+                if(arguments[1] && arguments[2]) {
+
+                    // should we go through the componentFactory for this?
+                    this.diagramModel.createArg(
+                        this.contextPath[1],
+                        this.contextPath[3],
+                        this.contextPath[5],
+                        arguments[1],
+                        arguments[2]
+                    );
+
+                } else {
+                    throw {
+                        name : "IncorrectArgumentException",
+                        message : "You must supply an argument name and value"
+                    }
+                }
 
                 break;
 
