@@ -1,4 +1,4 @@
-define(["core/BaseType",
+define(["BaseType",
         "underscore",
         "diagram/connectors/nodes/nodeModel"],
 

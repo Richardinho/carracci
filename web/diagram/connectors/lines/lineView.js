@@ -1,4 +1,4 @@
-define(["core/BaseType",
+define(["BaseType",
         "utility/svgUtilities" ],function (
             BaseType,
             svgUtils

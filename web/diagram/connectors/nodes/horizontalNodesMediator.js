@@ -1,4 +1,4 @@
-define(["core/BaseType",
+define(["BaseType",
         "diagram/connectors/nodes/nodeModel"
          ],function (
             BaseType,

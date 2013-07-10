@@ -1,9 +1,5 @@
 
 define([ 'jquery',
-         'editor/editorView',
-         'editor/editorModel',
-         'editor/editorController',
-         'utility/keymap',
          'diagram/diagramController',
          'diagram/diagramModel2',
          'diagram/types/typeView',
@@ -11,15 +7,10 @@ define([ 'jquery',
          'utility/idGenerator',
          'diagram/connectors/horizontalConnectorFactory',
          'diagram/connectors/verticalConnectorFactory',
-         'diagram/diagramCommands',
          'diagram/componentFactory',
          'editor/editor'],
 
          function ( $,
-                    EditorView,
-                    EditorModel,
-                    EditorController,
-                    keymap,
                     DiagramController,
                     DiagramModel,
                     TypeView,
@@ -27,7 +18,6 @@ define([ 'jquery',
                     idGenerator,
                     horizontalConnectorFactory,
                     verticalConnectorFactory,
-                    DiagramCommands,
                     ComponentFactory,
                     EditorModule) {
 
@@ -50,11 +40,9 @@ define([ 'jquery',
                     componentFactory : componentFactory
                 });
 
-
                 var editor = new EditorModule({
 
                     placeholder : $('#editor-placeholder'),
-                    keymap : keymap,
                     commandObject : diagramController,
                     commands : [
                         'help',
@@ -74,9 +62,7 @@ define([ 'jquery',
                         backgroundColor : "red",
                         style : "default" // might specify a particular css prefix
                     }
-
                 });
-
             });
         }
     };

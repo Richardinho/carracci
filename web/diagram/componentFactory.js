@@ -1,5 +1,5 @@
 define([
-    'core/BaseType',
+    'BaseType',
     'diagram/types/typeView',
     'diagram/types/typeController',
     'diagram/types/typeModel',

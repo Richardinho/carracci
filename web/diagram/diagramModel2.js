@@ -1,4 +1,4 @@
-define(["core/BaseType",
+define(["BaseType",
         "utility/eventNode",
         "diagram/types/typeModel",
         "diagram/connectors/horizontalConnectorModel",

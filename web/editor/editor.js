@@ -1,10 +1,11 @@
 define(
     [
-    'core/BaseType',
+    'BaseType',
     'editor/editorView',
     'editor/editorModel',
     'editor/editorController',
-    'diagram/diagramCommands',
+    'editor/commandProcessor',
+    'editor/keymap'
         ],
 
     function (
@@ -12,7 +13,8 @@ define(
         View,
         Model,
         Controller,
-        Commands
+        CommandProcessor,
+        keymap
         ) {
 
     return BaseType.extend({
@@ -32,15 +34,15 @@ define(
                 model : model
             });
 
-            var commands = new Commands();
+            var commandProcessor = new CommandProcessor();
 
-            commands.addCommands( options.commandObject, options.commands );
+            commandProcessor.addCommands( options.commandObject, options.commands );
 
             new Controller({
-                keymap : options.keymap,
+                keymap : keymap,
                 model : model,
                 view : view,
-                commands : commands
+                commandProcessor : commandProcessor
             });
         }
     });

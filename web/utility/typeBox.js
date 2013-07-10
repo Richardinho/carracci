@@ -1,4 +1,4 @@
-define(['utility/svg', 'core/BaseType', 'underscore'], function(svg, BaseType, _ ) {
+define(['utility/svg', 'BaseType', 'underscore'], function(svg, BaseType, _ ) {
 
     /* this should simply read the model and render the typebox accordingly */
     return BaseType.extend({

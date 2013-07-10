@@ -1,4 +1,4 @@
-define(["core/BaseType", 'utility/typeBox'],function (BaseType, TypeBox) {
+define(["BaseType", 'utility/typeBox'],function (BaseType, TypeBox) {
 
     return BaseType.extend({
     /* this should watch the model. on specific events it should call methods which delegate to the

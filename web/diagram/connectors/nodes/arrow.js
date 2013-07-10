@@ -1,4 +1,4 @@
-define(["core/BaseType",
+define(["BaseType",
         "jquery",
         "utility/svgUtilities"],
         function (

@@ -1,4 +1,4 @@
-define(["core/Model", "jquery"],function (Model, $) {
+define(["Model", "jquery"],function (Model, $) {
 
     return Model.extend({
 

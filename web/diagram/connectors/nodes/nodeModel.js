@@ -1,5 +1,5 @@
 define([
-        "core/BaseType"
+        "BaseType"
         ],
 
         function (

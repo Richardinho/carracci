@@ -1,4 +1,4 @@
-define(['core/BaseType',
+define(['BaseType',
         'diagram/connectors/nodes/arrowView',
         'diagram/connectors/nodes/arrowController',
         'diagram/connectors/nodes/horizontalNodesMediator',

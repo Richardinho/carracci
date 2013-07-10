@@ -1,4 +1,4 @@
-define(["core/BaseType", "jquery"],function (BaseType, $) {
+define(["BaseType", "jquery"],function (BaseType, $) {
 
     return BaseType.extend({
 
@@ -7,7 +7,7 @@ define(["core/BaseType", "jquery"],function (BaseType, $) {
             this.keymap = options.keymap;
             this.model = options.model;
             this.view = options.view;
-            this.commands = options.commands;
+            this.commands = options.commandProcessor;
 
             var that = this;
 

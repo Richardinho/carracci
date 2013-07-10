@@ -27,6 +27,8 @@ require.config({
     /* points to lib folder within version2 */
         jquery : "lib/jquery-1.8.0",
         underscore : "lib/underscore",
+        BaseType : "core/BaseType",
+        Model : "core/Model",
         raphael : "lib/raphael.2.1.0.amd",
         raphaelCore : "lib/raphael.2.1.0.core",
         svg : "utility/svg",

@@ -1,4 +1,4 @@
-define(['core/BaseType', 'canvg'],function (BaseType, canvg) {
+define(['BaseType', 'canvg'],function (BaseType, canvg) {
 
     /*
         this type has the role of supplying commands which are called by the editor.

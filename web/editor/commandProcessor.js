@@ -1,6 +1,5 @@
-define(["core/BaseType","jquery"],function (BaseType, $) {
+define(["BaseType","jquery"],function (BaseType, $) {
 
-    // todo: this should be in the editor folder
     return BaseType.extend({
 
         initialize: function () {
