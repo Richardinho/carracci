@@ -24,6 +24,7 @@ module.exports = function(grunt) {
                 src: 'build',
                 dest: '/carracci',
                 exclusions: [
+                    'build/richardUtils'
                 ]
             }
         },
