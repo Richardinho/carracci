@@ -28,6 +28,7 @@ require.config({
         jquery : "lib/jquery-1.8.0",
         underscore : "lib/underscore",
         BaseType : "core/BaseType",
+        eventNode : "core/eventNode",
         Model : "core/Model",
         raphael : "lib/raphael.2.1.0.amd",
         raphaelCore : "lib/raphael.2.1.0.core",

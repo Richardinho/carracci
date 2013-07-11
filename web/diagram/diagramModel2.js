@@ -1,5 +1,5 @@
 define(["BaseType",
-        "utility/eventNode",
+        "eventNode",
         "diagram/types/typeModel",
         "diagram/connectors/horizontalConnectorModel",
         "diagram/boxHorizontalNodeMediator",
