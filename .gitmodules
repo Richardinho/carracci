@@ -1,0 +1,3 @@
+[submodule "web/richardUtils"]
+	path = web/richardUtils
+	url = https://github.com/Richardinho/richardUtils.git
