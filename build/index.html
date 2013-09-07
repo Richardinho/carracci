@@ -48,6 +48,17 @@
         }
 
     </style>
+
+    <script type="text/javascript">
+
+        window.onerror=function(event){
+
+            console.log("first argument is the string: ", arguments[0]);
+            console.log("second argument is the file: ", arguments[1]);
+            console.log("third argument is the line number where the error occurred: ", arguments[2]);
+        }
+
+    </script>
 </head>
 <body>
 

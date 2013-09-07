@@ -1,7 +1,151 @@
 {
-    "hello" : "world",
-    "bar" : {
-
-        "blah" : "lalal"
+  "types": {
+    "Bar": {
+      "properties": {
+        "testProp": {
+          "name": "testProp",
+          "visibility": "private",
+          "type": "String"
+        }
+      },
+      "flavor": "interface",
+      "methods": {
+        "doSomething": {
+          "name": "doSomething",
+          "visibility": "public",
+          "returnType": "void",
+          "args": {
+            "name": {
+              "name": "name",
+              "type": "String"
+            }
+          }
+        }
+      },
+      "xCood": 651,
+      "yCood": 118,
+      "width": 162,
+      "height": 94
+    },
+    "Foo": {
+      "properties": {
+        "testProp": {
+          "name": "testProp",
+          "visibility": "private",
+          "type": "String"
+        },
+        "anotherProp": {
+          "name": "anotherProp",
+          "visibility": "private",
+          "type": "Object"
+        }
+      },
+      "flavor": "class",
+      "methods": {
+        "getTestProp": {
+          "name": "getTestProp",
+          "visibility": "public",
+          "returnType": "String",
+          "args": {}
+        }
+      },
+      "xCood": 96,
+      "yCood": 302,
+      "width": 109,
+      "height": 94
+    },
+    "Blah": {
+      "properties": {
+        "testProp": {
+          "name": "testProp",
+          "visibility": "private",
+          "type": "String"
+        }
+      },
+      "flavor": "interface",
+      "methods": {},
+      "xCood": 519,
+      "yCood": 436,
+      "width": 82,
+      "height": 79
     }
+    },
+  "connectors": {
+    "abc1": {
+      "orientation": "horizontal",
+      "nodes": {
+        "left": {
+          "xCood": 205,
+          "yCood": 349,
+          "attached": true,
+          "attachedBox": "Foo",
+          "arrow": {
+            "style": "blackConnectArrow",
+            "direction": "left"
+          }
+        },
+        "proximal": {
+          "xCood": 393,
+          "yCood": 349,
+          "attached": {},
+          "attachedBox": {}
+        },
+        "distal": {
+          "xCood": 393,
+          "yCood": 178,
+          "attached": {},
+          "attachedBox": {}
+        },
+        "right": {
+          "xCood": 651,
+          "yCood": 178,
+          "attached": true,
+          "attachedBox": "Bar",
+          "arrow": {
+            "style": "whiteArrow",
+            "direction": "right"
+          }
+        }
+      },
+      "lineStyle": "solid"
+    },
+    "abc2": {
+      "orientation": "vertical",
+      "nodes": {
+        "top": {
+          "xCood": 732,
+          "yCood": 212,
+          "attached": true,
+          "attachedBox": "Bar",
+          "arrow": {
+            "style": "blackConnectArrow",
+            "direction": "top"
+          }
+        },
+        "secondTop": {
+          "xCood": 732,
+          "yCood": 327,
+          "attached": {},
+          "attachedBox": {}
+        },
+        "secondBottom": {
+          "xCood": 559,
+          "yCood": 327,
+          "attached": {},
+          "attachedBox": {}
+        },
+        "bottom": {
+          "xCood": 559,
+          "yCood": 436,
+          "attached": true,
+          "attachedBox": "Blah",
+          "arrow": {
+            "style": "whiteArrow",
+            "direction": "bottom"
+          }
+        }
+      },
+      "lineStyle": "solid"
+    }
+  }
 }
