@@ -584,16 +584,29 @@ define(['BaseType', 'canvg'],function (BaseType, canvg) {
             return "<pre>" + json + "</pre>"
         },
 
+        /*
+            loads diagram by name. Throws an error if there is no such diagram currently loaded.
+        */
         load : function (diagram) {
             // check if a diagram is currently loaded.
+
             if(!this.diagramModel.currentDiagram) {
                 //  get json from server
-
+                var def = $.Deferred();
                 var that = this;
-                $.getJSON('/diagrams/' + diagram +'.json', function(data) {
+
+                $.when($.getJSON('/diagrams/' + diagram +'.json', function(data) {
+
                     that.componentFactory.createDiagram(diagram, data);
 
-                });
+                })).fail(function () {
+                    // todo: this works, but semantically it is not too hot!
+                    def.resolve({
+
+                        message : "no such diagram"
+                    })
+                })
+                return def;
 
             } else {
 
@@ -609,7 +622,10 @@ define(['BaseType', 'canvg'],function (BaseType, canvg) {
         help : function () {
 
             var deferred = $.Deferred();
-            var url = arguments[0]
+            var arg = arguments[0];
+
+            var url = "main";
+
 
             $.when($.ajax({
 
