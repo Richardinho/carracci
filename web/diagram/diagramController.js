@@ -16,7 +16,7 @@ define(['BaseType', 'canvg'],function (BaseType, canvg) {
             this.contextPath = [];
             this.componentFactory = options.componentFactory;
         },
-
+        // remove, use, create, export, set, con, show, load, help
         remove : function () {
 
             var artifact = arguments[0];
@@ -483,7 +483,7 @@ define(['BaseType', 'canvg'],function (BaseType, canvg) {
             switch (format) {
 
             case "jpeg":
-                console.log("jpeg")
+                console.log("jpeg not yet supported")
             break;
             case "png":
 
