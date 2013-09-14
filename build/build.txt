@@ -115,6 +115,10 @@ lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/minified/jque
 ----------------
 lib/jquery-ui-1.10.3.custom/development-bundle/themes/ui-lightness/minified/jquery.ui.theme.min.css
 
+reset.css
+----------------
+reset.css
+
 richardUtils/node_modules/grunt/node_modules/js-yaml/node_modules/argparse/node_modules/underscore.string/test/test_underscore/vendor/qunit.css
 ----------------
 richardUtils/node_modules/grunt/node_modules/js-yaml/node_modules/argparse/node_modules/underscore.string/test/test_underscore/vendor/qunit.css
