@@ -25,7 +25,7 @@ define(
 
             model.setAttributes({
 
-                oldCommands : [ "Type 'help' to display help page" ],
+                oldCommands : [ "For best results, use 'Chrome' browser. Type 'help' to display help page" ],
                 currentCommand : ""
             });
 
