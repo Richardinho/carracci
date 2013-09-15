@@ -41,6 +41,7 @@ define([
         },
 
         render : function () {
+
             this.$el.html(this.template({
 
                 oldCommands : this.model.get("oldCommands"),
@@ -54,7 +55,6 @@ define([
             var objDiv = document.getElementById('container');
             objDiv.scrollTop = objDiv.scrollHeight;
 
-            console.log(objDiv.scrollHeight)
 
 
         },

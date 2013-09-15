@@ -598,6 +598,9 @@ define(['BaseType', 'canvg'],function (BaseType, canvg) {
                 $.when($.getJSON('/diagrams/' + diagram +'.json', function(data) {
 
                     that.componentFactory.createDiagram(diagram, data);
+                    def.resolve({
+                        message : "created diagram " + diagram
+                    })
 
                 })).fail(function () {
                     // todo: this works, but semantically it is not too hot!
