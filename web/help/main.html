@@ -3,6 +3,17 @@
 <article class="help">
     <h2 class="title">Carracci manual</h2>
 
+
+    <section>
+        <h1 class="chapter-heading contents">Contents</h1>
+        <ul>
+            <li>Introduction</li>
+            <li>Super quick tutorial</li>
+            <li>Tutorial</li>
+            <li>Commands</li>
+        </ul>
+    </section>
+
     <section>
         <h1 class="chapter-heading">introduction</h1>
         <div>
@@ -14,6 +25,112 @@
         </div>
 
     </section>
+
+    <section>
+        <h1 class="chapter-heading">Super quick tutorial</h1>
+        <div>
+<p>
+            In the next chaper you will find a tutorial which goes into a fair amount of depth
+            as to how Carracci works. However, read this chapter if you simply want to get
+            up and running quickly
+        </p>
+        <pre>
+            min //minimize terminal
+        </pre>
+        <pre>
+            max // maximize terminal
+        </pre>
+        <pre>
+            create diagram foo
+        </pre>
+        <pre>
+            use diagram foo
+        </pre>
+        <pre>
+            create type Bar
+        </pre>
+        <pre>
+            use type Bar
+        </pre>
+        <pre>
+            set flavor abstract
+        </pre>
+        <pre>
+            remove property testProp
+        </pre>
+        <pre>
+            create property myProperty
+        </pre>
+        <pre>
+            use property myProperty
+        </pre>
+        <pre>
+            set visibility public
+        </pre>
+        <pre>
+            set type String
+        </pre>
+        <pre>
+            use type
+        </pre>
+        <pre>
+            create method doThis
+        </pre>
+        <pre>
+            use method doThis
+        </pre>
+        <pre>
+            set visibility protected
+        </pre>
+        <pre>
+            create arg myArg Integer
+        </pre>
+        <pre>
+            remove arg myArg
+        </pre>
+        <pre>
+            use diagram
+        </pre>
+        <pre>
+            create connector vertical
+        </pre>
+        <pre>
+            create connector horizontal
+        </pre>
+        <p>
+            Move boxes by clicking and dragging. Move connectors by clicking on the ends or corners
+            of them ('nodes') and dragging.
+        </p>
+
+        <h2>Connecting connectors to boxes</h2>
+
+        <p>
+            Hold down shift key and click first on an arrow node, then on the box to which you
+            wish to attach it.
+        </p>
+        <h2>Disconnect connector from box</h2>
+        <p>
+            Hold down shift and click on an arrow node. arrow node will no longer
+            be connected, although it will remain in position beside the box
+            until you move it manually
+        </p>
+        <h2>Change line style</h2>
+        <p>
+            Toggle line style between dashed and solid by holding down control
+            whilst clicking on a connector node
+        </p>
+        <h2>Change arrow type</h2>
+        <p>Ctrl + shift and click on arrow node to change through the different available types</p>
+
+        <h2>Export a diagram to PNG format</h2>
+        <pre>
+            export png
+        </pre>
+
+
+        </div>
+
+</section>
 
     <section>
         <h1 class="chapter-heading">tutorial</h1>
@@ -247,7 +364,25 @@
             <h2>
                 Working with connectors
             </h2>
+            <p>                                                                         <h2>Connecting connectors to boxes</h2>
+
             <p>
+                Hold down shift key and click first on an arrow node, then on the box to which you
+                wish to attach it.
+            </p>
+            <h2>Disconnect connector from box</h2>
+            <p>
+                Hold down shift and click on an arrow node. arrow node will no longer
+                be connected, although it will remain in position beside the box
+                until you move it manually
+            </p>
+            <h2>Change line style</h2>
+            <p>
+                Toggle line style between dashed and solid by holding down control
+                whilst clicking on a connector node
+            </p>
+            <h2>Change arrow type</h2>
+            <p>Ctrl + shift and click on arrow node to change through the different available types</p>
                 Now that we have a box and have edited it to our satisfaction, the next thing that
                 we would want to do is to show the relationships between boxes using connector arrows.
                 This is not an UML tutorial, so I wont discuss the rules concerning connector arrows in UML, suffice
