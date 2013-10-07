@@ -17,6 +17,9 @@ define(['BaseType', 'canvg'],function (BaseType, canvg) {
             this.componentFactory = options.componentFactory;
         },
         // remove, use, create, export, set, con, show, load, help
+
+        // for editing
+
         remove : function () {
 
             var artifact = arguments[0];
@@ -302,8 +305,6 @@ define(['BaseType', 'canvg'],function (BaseType, canvg) {
         create : function () {
 
             var artifact = arguments[0];
-
-
 
             switch (artifact) {
 

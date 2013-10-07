@@ -116,6 +116,10 @@ define(["BaseType", "jquery"],function (BaseType, $) {
             } else if(response.message) {
 
                 message = response.message;
+
+            } else if(response.edit) {
+
+                // open up editor mode
             }
             oldCommand = commandArray.join(" ");
             this.model.update(oldCommand, message);

@@ -93,7 +93,7 @@ define(["BaseType",
         },
 
         deleteDiagram : function (diagramName) {
-            debugger;
+
             this.model.children['diagrams'].deleteChild(diagramName);
 
             this.currentDiagram = null;
