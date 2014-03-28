@@ -132,6 +132,35 @@
             position : absolute;
         }
 
+        .triangle  {
+            position : absolute;
+            top : 400px;
+            left : 300px;
+            width : 100px;
+            height : 100px;
+            background-color : pink;
+        }
+
+        .triangle:before {
+            content : "";
+            border-left : inset 50px transparent;
+            border-right : inset 50px transparent;
+            border-bottom : solid 50px blue;
+            position : relative;
+
+        }
+
+        .triangle:after {
+            content : "";
+            border-left : inset 47px transparent;
+            border-right : inset 47px transparent;
+            border-bottom : solid 47px yellow;
+            position : relative;
+            left : -97px;
+            top: 2px;
+
+        }
+
     </style>
 </head>
 <body>
