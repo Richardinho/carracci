@@ -508,6 +508,12 @@ define(['BaseType', 'canvg'],function (BaseType, canvg) {
             }
         },
 
+        foo : function () {
+
+            console.log("this is foo");
+
+        },
+
         set : function () {
 
             if(this.contextPath.length < 4) {
@@ -580,7 +586,7 @@ define(['BaseType', 'canvg'],function (BaseType, canvg) {
         show : function () {
 
             var json =  this.diagramModel.toJSON();
-            // todo would be better to return an object here including the message and configuratoin paramers
+            // todo: would be better to return an object here including the message and configuration parameters
             // and let the editor format it as it likes.
             return "<pre>" + json + "</pre>"
         },
@@ -593,34 +599,33 @@ define(['BaseType', 'canvg'],function (BaseType, canvg) {
 
             if(!this.diagramModel.currentDiagram) {
                 //  get json from server
-                var def = $.Deferred();
                 var that = this;
 
-                $.when($.getJSON('/diagrams/' + diagram +'.json', function(data) {
+                var promise = Promise.resolve($.getJSON('/diagrams/' + diagram +'.json'));
+
+                return promise.then(function (data) {
 
                     that.componentFactory.createDiagram(diagram, data);
-                    def.resolve({
-                        message : "created diagram " + diagram
-                    })
 
-                })).fail(function () {
-                    // todo: this works, but semantically it is not too hot!
-                    def.resolve({
+                    return "diagram was created, yeah!";
 
-                        message : "no such diagram"
-                    })
-                })
-                return def;
+                }, function (err) {
+
+                    return "diagram not found apple";
+
+                });
+
 
             } else {
-
-                throw {
-                    name : "CoexistingDiagramException ",
-                    message : "You already have an existing diagram. Delete this " +
-                                "first before creating a new diagram"
-                }
+                console.log("reject");
+                return Promise.reject('You already have a loaded diagram');
             }
 
+        },
+
+        foo : function () {
+
+            console.log("diagram controller this is foo");
         },
 
         help : function () {

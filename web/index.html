@@ -2,6 +2,7 @@
 <html>
 <head>
     <link rel="stylesheet" href="./reset.css" />
+    <link rel="stylesheet" href="./rasmus/css/main.css"/>
     <style>
 
         #container {
@@ -19,6 +20,7 @@
             color : #f9c8ab;;
             overflow: auto;
             border : solid 1px rgba(0, 0, 0, 0.6);
+            z-index : 1;
         }
 
         .old-commands {
@@ -128,11 +130,97 @@
             clear : both;
         }
 
+        /* new editor */
+
+        *, *:before, *:after {
+        -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+        }
+
+
+        .container {
+
+            width      : 300px;
+            position   : absolute;
+            left       : 100px;
+            top        : 200px;
+            background : #eee;
+            opacity    : 0.9;
+            padding    : 10px;
+            border-radius : 5px;
+            border     : solid 1px #333;
+            z-index : 1;
+        }
+
+
+        .editor {
+
+        height     : 200px;
+        overflow-y : scroll;
+        outline : none;
+        background: -webkit-linear-gradient(white 0 , black 60px);
+        padding : 0 6px;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+
+        }
+
+        .editor::-webkit-scrollbar{
+
+        width:10px;
+        height : 30px;
+        }
+
+        .editor::-webkit-scrollbar-thumb {
+
+        border-radius:10px;
+        background-color: #333;
+        height : 30px;
+        }
+
+        .commandline {
+
+        border : none;
+        width : 100%;
+        border-top : solid 1px #333;
+        padding : 5px;
+        padding-top : 6px;
+        margin : 0;
+        background : #eee;
+
+        }
+
+        .commandline:focus {
+        outline : none;
+        }
+
+        .superman {
+
+        position : absolute;
+        left : 100px;
+        top : 50px;
+        z-index : -1;
+        }
+
+
     </style>
 </head>
 <body>
 
     <div id="editor-placeholder"></div>
+
+    <div class="container" data-role="rasmus-container">
+
+        <section class="display">
+
+            <div class="editor" data-role="rasmus-display" ></div>
+
+            <input data-role="rasmus-command-line"
+                   autofocus="true"
+                   placeholder="type commands here"
+                   class="commandline"
+                   type="text" />
+        </section>
+    </div>
 
     <script type="text/template" id="command-line-editor-template">
         <div id="command-editor">

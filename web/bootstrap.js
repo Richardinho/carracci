@@ -8,7 +8,9 @@ define([ 'jquery',
          'diagram/connectors/horizontalConnectorFactory',
          'diagram/connectors/verticalConnectorFactory',
          'diagram/componentFactory',
-         'editor/editor'],
+         'editor/editor',
+         'rasmus/rasmusManager'
+         ],
 
          function ( $,
                     DiagramController,
@@ -19,7 +21,9 @@ define([ 'jquery',
                     horizontalConnectorFactory,
                     verticalConnectorFactory,
                     ComponentFactory,
-                    EditorModule) {
+                    EditorModule,
+                    RasmusManager
+                    ) {
 
     return {
 
@@ -27,19 +31,31 @@ define([ 'jquery',
 
             $(document).ready(function () {
 
-                var diagramModel = new DiagramModel();
+                if($('[data-role=rasmus-container]').length) {
 
-                var componentFactory = new ComponentFactory({
-                    diagramModel : diagramModel,
-                    horizontalConnectorFactory : horizontalConnectorFactory,
-                    verticalConnectorFactory : verticalConnectorFactory
-                })
+                    var diagramModel = new DiagramModel();
 
-                var diagramController = new DiagramController({
-                    diagramModel : diagramModel,
-                    componentFactory : componentFactory
-                });
+                    var componentFactory = new ComponentFactory({
+                        diagramModel : diagramModel,
+                        horizontalConnectorFactory : horizontalConnectorFactory,
+                        verticalConnectorFactory : verticalConnectorFactory
+                    })
 
+                    var diagramController = new DiagramController({
+                        diagramModel : diagramModel,
+                        componentFactory : componentFactory
+                    });
+
+                    var rasmus = new RasmusManager({
+
+                        diagramController : diagramController
+                    });
+
+                }
+
+
+
+                /*
                 var editor = new EditorModule({
 
                     placeholder : $('#editor-placeholder'),
@@ -62,7 +78,8 @@ define([ 'jquery',
                         backgroundColor : "red",
                         style : "default" // might specify a particular css prefix
                     }
-                });
+
+                }); */
             });
         }
     };

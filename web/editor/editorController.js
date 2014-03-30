@@ -17,7 +17,6 @@ define(["BaseType", "jquery"],function (BaseType, $) {
                 // return key
                 if(event.keyCode === 13) {
 
-
                     that.enterCommand();
                 }
 
