@@ -8,7 +8,6 @@ define([ 'jquery',
          'diagram/connectors/horizontalConnectorFactory',
          'diagram/connectors/verticalConnectorFactory',
          'diagram/componentFactory',
-         'editor/editor',
          'rasmus/rasmusManager'
          ],
 
@@ -21,7 +20,6 @@ define([ 'jquery',
                     horizontalConnectorFactory,
                     verticalConnectorFactory,
                     ComponentFactory,
-                    EditorModule,
                     RasmusManager
                     ) {
 
