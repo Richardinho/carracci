@@ -52,7 +52,8 @@ require.config({
         "maxhelp"                  : "rasmus/app/scripts/processes/builtin/helpfiles/maxhelp.htm",
         "editorTemplate"           : "rasmus/app/scripts/templates/editorTemplate.htm",
         "commandsTemplate"         : "rasmus/app/scripts/templates/commandsTemplate.htm",
-        "displayTemplate"          : "rasmus/app/scripts/templates/displayTemplate.htm"
+        "displayTemplate"          : "rasmus/app/scripts/templates/displayTemplate.htm",
+        "defaultHelp"              : "defaulthelp"
     }
 });
 

@@ -33,11 +33,9 @@ define(['BaseType', 'canvg'],function (BaseType, canvg) {
 
                     this.componentFactory.deleteDiagram(arguments[1]);
                     this.contextPath = [];
+                    return Promise.resolve("diagram has been deleted");
                 } else {
-                    throw {
-                        name : "ArtifactDoesNotExistException",
-                        message : "This artifact does not exist"
-                    }
+                    return Promise.reject("this diagram does not exist" + arguments[1]);
                 }
                 break;
             case  "type" :
@@ -49,18 +47,13 @@ define(['BaseType', 'canvg'],function (BaseType, canvg) {
                     )) {
 
                         this.componentFactory.deleteType(arguments[1]);
+                        return Promise.resolve("type deleted");
 
                     } else {
-                        throw {
-                            name : "ArtifactDoesNotExistException",
-                            message : "This artifact does not exist"
-                        }
+                        return Promise.reject("This type does not exist");
                     }
                 } else {
-                    throw {
-                        name : "ContextPathError",
-                        message : "context path is: " + this.contextPath
-                    }
+                    return Promise.reject("Context path is in incorrect state for this action");
                 }
 
                 break;
@@ -79,19 +72,15 @@ define(['BaseType', 'canvg'],function (BaseType, canvg) {
                             this.contextPath[3],
                             arguments[1]
                         ).fire("deleteProperty");
+
+                        return Promise.resolve("deleted property");
                     } else {
 
-                        throw {
-                            name : "ArtifactDoesNotExistException",
-                            message : "This artifact does not exist"
-                        }
+                       return Promise.reject("this property does not exist");
                     }
 
                 } else {
-                    throw {
-                        name : "ContextPathError",
-                        message : "context path is: " + this.contextPath
-                    }
+                    return Promise.reject("Context path is in incorrect state for this action");
                 }
                 break;
             case "method" :
@@ -107,19 +96,15 @@ define(['BaseType', 'canvg'],function (BaseType, canvg) {
                             this.contextPath[3],
                             arguments[1]
                         ).fire("deleteMethod");
+                        return Promise.resolve("deleted method");
                     } else {
 
-                        throw {
-                            name : "ArtifactDoesNotExistException",
-                            message : "This artifact does not exist"
-                        }
+                        return Promise.reject("this method does not exist");
                     }
 
                 } else {
-                    throw {
-                        name : "ContextPathError",
-                        message : "context path is: " + this.contextPath
-                    }
+                    return Promise.reject("Context path is in incorrect state for this action");
+
                 }
                 break;
             case "arg" :
@@ -136,19 +121,15 @@ define(['BaseType', 'canvg'],function (BaseType, canvg) {
                             this.contextPath[3],
                             this.contextPath[5],
                             arguments[1]).fire("deleteArgs");
+
+                            return Promise.resolve("deleted argument");
                     } else {
 
-                        throw {
-                            name : "ArtifactDoesNotExistException",
-                            message : "This artifact does not exist"
-                        }
+                        return Promise.reject("this argument does not exist");
                     }
 
                 } else {
-                    throw {
-                        name : "ContextPathError",
-                        message : "context path is: " + this.contextPath
-                    }
+                    return Promise.reject("Context path is in incorrect state for this action");
                 }
                 break;
 
@@ -160,27 +141,23 @@ define(['BaseType', 'canvg'],function (BaseType, canvg) {
                     )) {
 
                         this.componentFactory.deleteConnector(arguments[1]);
+
+                        return Promise.resolve("this connector has been deleted");
                     } else {
-                        throw {
-                            name : "ArtifactDoesNotExistException",
-                            message : "This artifact does not exist"
-                        }
+                        return Promise.reject("this connector does not exist");
                     }
                 } else {
-                    throw {
-                        name : "ContextPathError",
-                        message : "context path is: " + this.contextPath
-                    }
+                    return Promise.reject("You must be using a diagram to delete a connector");
                 }
                 break;
 
              default :
-                throw {
-                    name : "ArtifactTypeDoesNotExistException",
-                    message : "No such artifact type as " + artifact
-                }
+
+                return Promise.reject("no such artifact type");
 
             }
+
+            return Promise.resolve("should not get here");
         },
 
         /* manages the contextPath, extending it or reducing it as needed */
@@ -191,41 +168,39 @@ define(['BaseType', 'canvg'],function (BaseType, canvg) {
             switch (artifact) {
 
             case "diagram" :
+
                 if(arguments.length === 2) {
                     if(this.contextPath.length !== 0) {
-                        throw {
-                            name : "ContextPathError",
-                            message : "context path is: " + this.contextPath
-                        }
+
+                        return Promise.reject("Cannot navigate to diagram context from this point in context tree");
                     }
                     if(this.diagramModel.checkDiagramExists(arguments[1])) {
                         this.contextPath.push("diagram");
                         this.contextPath.push(arguments[1]);
                     }  else {
-                        throw {
-                            name : "ArtifactDoesNotExistException",
-                            message : "This artifact does not exist"
-                        }
+
+                        return Promise.reject("diagram does not exist");
                     }
+                    return Promise.resolve("context path has been updated: " +  this.contextPath);
+
                 } else {
+                    // we want to got towards the root of the context tree
                     if(this.contextPath.length > 2) {
                         this.contextPath = this.contextPath.slice(0,2);
+                        return Promise.resolve("context path updated " +  this.contextPath);
                     } else {
-                       throw {
-                            name : "ContextPathError",
-                            message : "context path is: " + this.contextPath
-                        }
+                        return Promise.reject("You must supply an artifact type and the name of it");
                     }
                 }
                 break;
             case "type" :
                 if(arguments.length === 2) {
+
                     if(this.contextPath.length !== 2) {
-                        throw {
-                            name : "ContextPathError",
-                            message : "context path is: " + this.contextPath
-                        }
+
+                        return Promise.reject("Context path is in incorrect state for this action");
                     }
+
                     if(this.diagramModel.checkTypeExists(
                         this.contextPath[1],
                         arguments[1]
@@ -234,23 +209,27 @@ define(['BaseType', 'canvg'],function (BaseType, canvg) {
                         this.contextPath.push("type");
                         this.contextPath.push(arguments[1])
 
+                        return Promise.resolve("context path has been updated: " + this.contextPath);
+
                     }  else {
-                        throw {
-                            name : "ArtifactDoesNotExistException",
-                            message : "This artifact does not exist"
-                        }
+
+                        return Promise.reject("this artifact does not exist" + arguments[1]);
+
                     }
-                } else {
+                } else if(this.contextPath.length > 4) {
+
                     this.contextPath = this.contextPath.slice(0,4);
+                    return Promise.resolve("context path has been updated: " + this.contextPath);
+                } else {
+
+                     return Promise.reject("Context path is in incorrect state for this action");
                 }
                 break;
             case "property":
+
                 if(arguments.length === 2) {
                     if(this.contextPath.length !== 4) {
-                        throw {
-                            name : "ContextPathError",
-                            message : "context path is: " + this.contextPath
-                        }
+                        return Promise.reject("Context path is in incorrect state for this action");
                     }
                     if( this.diagramModel.checkPropertyExists(
                         this.contextPath[1],
@@ -260,22 +239,20 @@ define(['BaseType', 'canvg'],function (BaseType, canvg) {
 
                         this.contextPath.push("property");
                         this.contextPath.push(arguments[1]);
+                        return Promise.resolve("context path has been updated: " + this.contextPath);
 
                     } else {
-                        throw {
-                            name : "ArtifactDoesNotExistException",
-                            message : "This artifact does not exist"
-                        }
+                        return Promise.reject("This property does not exist");
                     }
+                } else {
+
+                    return Promise.reject("You must supply type 'property' and a property name");
                 }
                 break;
             case "method" :
                 if(arguments.length === 2) {
                     if(this.contextPath.length !== 4) {
-                        throw {
-                            name : "ContextPathError",
-                            message : "context path is: " + this.contextPath
-                        }
+                        return Promise.reject("Context path is in incorrect state for this action");
                     }
                     if( this.diagramModel.checkMethodExists(
                                             this.contextPath[1],
@@ -284,13 +261,14 @@ define(['BaseType', 'canvg'],function (BaseType, canvg) {
                                         )) {
 
                         this.contextPath.push("method");
-                        this.contextPath.push(arguments[1])
+                        this.contextPath.push(arguments[1]);
+                        return Promise.resolve("context path has been updated: " + this.contextPath);
                     } else {
-                        throw {
-                            name : "ArtifactDoesNotExistException",
-                            message : "This artifact does not exist"
-                        }
+                        return Promise.reject("This method does not exist");
                     }
+                } else {
+
+                    return Promise.reject("You must supply type 'method' and a method name");
                 }
                 break;
             default :
@@ -300,6 +278,8 @@ define(['BaseType', 'canvg'],function (BaseType, canvg) {
                 }
             }
 
+
+
         },
 
         create : function () {
@@ -307,6 +287,7 @@ define(['BaseType', 'canvg'],function (BaseType, canvg) {
             var artifact = arguments[0];
 
             switch (artifact) {
+
 
             case "connector" :
 
@@ -319,26 +300,21 @@ define(['BaseType', 'canvg'],function (BaseType, canvg) {
                     if(arguments[1] === "horizontal") {
 
                         this.componentFactory.createHorizontalConnector(this.contextPath[1]);
+                        return Promise.resolve("connector created");
 
                     } else if (arguments[1] === "vertical") {
 
                         this.componentFactory.createVerticalConnector(this.contextPath[1]);
+                        return Promise.resolve("connector created");
 
                     } else {
 
-                        throw {
-
-                            name : "IncorrectArgumentException",
-                            message : "argument must be either horizontal or vertical"
-                        }
+                        return Promise.reject("2nd argument must be 'horizontal' or 'vertical'");
                     }
 
                 } else {
 
-                    throw {
-                        name : "ContextPathError",
-                        message : "diagram does not exist or context path is not set"
-                    }
+                    return Promise.reject("A diagram must exist in order to create a connector");
 
                 }
 
@@ -371,31 +347,26 @@ define(['BaseType', 'canvg'],function (BaseType, canvg) {
             case "type" :
 
                 if(this.contextPath.length !== 2) {
-                    throw {
-                        name : "ContextPathException",
-                        message : "context path is: " + this.contextPath
-                    }
+
+                    return Promise.reject("Context path is in incorrect state for this action");
+
                 }
 
                 if( arguments[1] && arguments[1] !== "") {
 
                     this.componentFactory.createType(this.contextPath[1], arguments[1]);
 
+                    return Promise.resolve("type created");
+
                 } else {
 
-                    throw {
-                        name : "IncorrectArgumentException",
-                        message : "You must supply a type name"
-                    }
+                    return Promise.reject("You must provide a type name");
                 }
                 break;
             case "property":
 
                 if(this.contextPath.length !== 4) {
-                    throw {
-                        name : "ContextPathException",
-                        message : "context path is: " + this.contextPath
-                    }
+                    return Promise.reject("Context path is in incorrect state for this action");
                 }
                 if( arguments[1] && arguments[1] !== "") {
 
@@ -405,11 +376,10 @@ define(['BaseType', 'canvg'],function (BaseType, canvg) {
                             this.contextPath[3],
                             arguments[1]);
 
+                    return Promise.resolve("property created");
+
                 } else {
-                    throw {
-                        name : "IncorrectArgumentException",
-                        message : "You must supply a property name"
-                    }
+                    return Promise.reject("You must provide a property name");
                 }
 
                 break;
@@ -417,10 +387,7 @@ define(['BaseType', 'canvg'],function (BaseType, canvg) {
 
                 if(this.contextPath.length !== 4) {
 
-                    throw {
-                        name : "ContextPathException",
-                        message : "context path is: " + this.contextPath
-                    }
+                    return Promise.reject("Context path is in incorrect state for this action");
                 }
                 if( arguments[1] && arguments[1] !== "") {
 
@@ -429,11 +396,12 @@ define(['BaseType', 'canvg'],function (BaseType, canvg) {
                             this.contextPath[1],
                             this.contextPath[3],
                             arguments[1]);
+
+                    return Promise.resolve("property created");
+
                 } else {
-                    throw {
-                        name : "IncorrectArgumentException",
-                        message : "You must supply a method name"
-                    }
+
+                    return Promise.reject("You must provide a method name");
                 }
 
                 break;
@@ -441,10 +409,7 @@ define(['BaseType', 'canvg'],function (BaseType, canvg) {
             case "arg" :
 
                 if(this.contextPath.length !== 6 && this.contextPath[4] !== "method") {
-                    throw {
-                        name : "ContextPathException",
-                        message : "context path is: " + this.contextPath
-                    }
+                    return Promise.reject("Context path is in incorrect state for this action");
                 }
 
                 if(arguments[1] && arguments[2]) {
@@ -458,23 +423,19 @@ define(['BaseType', 'canvg'],function (BaseType, canvg) {
                         arguments[2]
                     );
 
+                    return Promise.resolve("created arg");
+
                 } else {
-                    throw {
-                        name : "IncorrectArgumentException",
-                        message : "You must supply an argument name and value"
-                    }
+
+                    return Promise.reject("You must supply an argument name and value");
                 }
 
                 break;
 
             default :
-                throw {
-                    name : "UnknownArtifactError",
-                    message : artifact + " not known"
-                }
+                return Promise.reject("unknown type");
             }
 
-            return "you have created " + artifact + " " + arguments[1];
         },
 
         export : function () {
@@ -501,43 +462,29 @@ define(['BaseType', 'canvg'],function (BaseType, canvg) {
             break;
 
             default :
-                throw {
-                    name : "FormatNotSupportedException",
-                    message : format + " is not supported"
-                }
+
+                return Promise.reject(format + " is not supported");
             }
-        },
-
-        foo : function () {
-
-            console.log("this is foo");
-
+            return Promise.resolve("exported to " + format);
         },
 
         set : function () {
 
             if(this.contextPath.length < 4) {
 
-                throw {
-
-                    name : "ContextPathException",
-                    message : "no value can be set at this context"
-                }
+                return Promise.reject("no value can be set at this context");
             }
 
             else if(this.contextPath.length === 4) {
 
                 if(arguments[0] === "flavor") {
-
+                     // todo: need to check that second argument is one of 'interface' or 'abstract'
                     this.diagramModel.set(this.contextPath, arguments[0], arguments[1]);
+                    return Promise.resolve("You have set the flavor to : " + arguments[1]);
 
                 } else {
 
-                    throw {
-
-                        name : "ArgumentNotKnown",
-                        message : arguments[0] + " is not a valid property"
-                    }
+                    return Promise.reject(arguments[0] + " is not a valid property");
                 }
             }
             else if(this.contextPath.length === 6) {
@@ -546,13 +493,13 @@ define(['BaseType', 'canvg'],function (BaseType, canvg) {
                     // at property context
                     if(arguments[0] === "visibility") {
                         this.diagramModel.set(this.contextPath, arguments[0], arguments[1])
+                        return Promise.resolve("you have set visibility");
                     } else if(arguments[0] === "type")  {
                         this.diagramModel.set(this.contextPath, arguments[0], arguments[1])
+                        return Promise.resolve("you have set type");
                     } else {
-                        throw {
-                            name : "ArgumentNotKnown",
-                            message : arguments[0] + " is not a valid property"
-                        }
+
+                        return Promise.reject(arguments[0] + " is not a valid property");
                     }
 
                 } else if(this.contextPath[4] === "method") {
@@ -560,24 +507,21 @@ define(['BaseType', 'canvg'],function (BaseType, canvg) {
                     if(arguments[0] === "visibility") {
 
                         this.diagramModel.set(this.contextPath, arguments[0], arguments[1]);
+                        return Promise.resolve("you have set visibility");
 
                     } else if( arguments[0] === "returnType" )  {
 
                         this.diagramModel.set( this.contextPath, arguments[0], arguments[1] );
+                        return Promise.resolve("you have set return type");
 
                     } else {
 
-                        throw {
-                            name : "ArgumentNotKnown",
-                            message : arguments[0] + " is not a valid property"
-                        }
+                        return Promise.reject(arguments[0] + " is not a valid property");
                     }
                 }
             }
         },
-        // don't like the name of this, but so we don't have clash with contextPath.
-        // todo: have a mapping  to translate between functions in this type and functions called by editor.
-        // perhaps an adapter type?
+
         con : function () {
 
             return this.contextPath.join(" ");
@@ -585,10 +529,7 @@ define(['BaseType', 'canvg'],function (BaseType, canvg) {
 
         show : function () {
 
-            var json =  this.diagramModel.toJSON();
-            // todo: would be better to return an object here including the message and configuration parameters
-            // and let the editor format it as it likes.
-            return "<pre>" + json + "</pre>"
+            return "<pre>" + this.diagramModel.toJSON() + "</pre>"
         },
 
         /*
@@ -607,49 +548,20 @@ define(['BaseType', 'canvg'],function (BaseType, canvg) {
 
                     that.componentFactory.createDiagram(diagram, data);
 
-                    return "diagram was created, yeah!";
+                    return "diagram was created";
 
                 }, function (err) {
 
-                    return "diagram not found apple";
+                    return "diagram not found";
 
                 });
 
 
             } else {
-                console.log("reject");
+
                 return Promise.reject('You already have a loaded diagram');
             }
 
-        },
-
-        foo : function () {
-
-            console.log("diagram controller this is foo");
-        },
-
-        help : function () {
-
-            var deferred = $.Deferred();
-            var arg = arguments[0];
-
-            var url = "main";
-
-
-            $.when($.ajax({
-
-                url: "/help/" + url + ".html",
-                dataType: "html"
-
-            })).then(function (data) {
-
-                deferred.resolve({
-
-                    message : data
-                });
-            });
-
-            return deferred;
         }
 
 
