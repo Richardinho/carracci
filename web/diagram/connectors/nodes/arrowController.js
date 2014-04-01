@@ -41,8 +41,8 @@ define(["BaseType",
                         }
                     }
 
-                    else if(event.ctrlKey && event.shiftKey) {
-
+                    else if(event.altKey && event.shiftKey) {
+                        console.log("switch arrow head");
                         that.model.switchArrowHead();
                     }
                 });

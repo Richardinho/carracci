@@ -52,32 +52,6 @@ define([ 'jquery',
                 }
 
 
-
-                /*
-                var editor = new EditorModule({
-
-                    placeholder : $('#editor-placeholder'),
-                    commandObject : diagramController,
-                    commands : [
-                        'help',
-                        'create',
-                        'use',
-                        'con',
-                        'set',
-                        'remove',
-                        'show',
-                        'load',
-                        'export'
-                    ],
-                    preferences : {
-
-                        width : 300,
-                        height : 500,
-                        backgroundColor : "red",
-                        style : "default" // might specify a particular css prefix
-                    }
-
-                }); */
             });
         }
     };

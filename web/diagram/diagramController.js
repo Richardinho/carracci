@@ -324,22 +324,17 @@ define(['BaseType', 'canvg'],function (BaseType, canvg) {
 
                 if(this.contextPath.length !== 0) {
 
-                    throw {
-                        name : "ContextPathException",
-                        message : "context path is: " + this.contextPath
-                    }
+                    return Promise.reject("Context path is in incorrect state for this action");
                 }
 
                 if( arguments[1] && arguments[1] !== "") {
 
                     this.componentFactory.createDiagram(arguments[1]);
+                    return Promise.resolve("diagram created");
 
                 } else {
 
-                    throw {
-                        name : "IncorrectArgumentException",
-                        message : "You must supply a diagram name"
-                    }
+                    return Promise.reject("you must supply a diagram name");
                 }
 
                 break;

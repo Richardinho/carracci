@@ -1,0 +1,338 @@
+{
+      "types": {
+        "Node": {
+          "properties": {
+            "baseUri": {
+              "name": "baseUri",
+              "visibility": "private",
+              "type": "DOMString"
+            },
+            "childNodes": {
+              "name": "childNodes",
+              "visibility": "private",
+              "type": "NodeList"
+            },
+            "firstChild": {
+              "name": "firstChild",
+              "visibility": "private",
+              "type": "Node"
+            },
+            "lastChild": {
+              "name": "lastChild",
+              "visibility": "private",
+              "type": "Node"
+            },
+            "nextSibling": {
+              "name": "nextSibling",
+              "visibility": "private",
+              "type": "Node"
+            },
+            "nodeName": {
+              "name": "nodeName",
+              "visibility": "private",
+              "type": "DOMString"
+            },
+            "nodeType": {
+              "name": "nodeType",
+              "visibility": "private",
+              "type": "short"
+            },
+            "nodeValue": {
+              "name": "nodeValue",
+              "visibility": "private",
+              "type": "DOMString"
+            },
+            "ownerDocument": {
+              "name": "ownerDocument",
+              "visibility": "private",
+              "type": "Document"
+            },
+            "parentNode": {
+              "name": "parentNode",
+              "visibility": "private",
+              "type": "Node"
+            },
+            "parentElement": {
+              "name": "parentElement",
+              "visibility": "private",
+              "type": "Element"
+            },
+            "previousSibling": {
+              "name": "previousSibling",
+              "visibility": "private",
+              "type": "Node"
+            },
+            "textContent": {
+              "name": "textContent",
+              "visibility": "private",
+              "type": "DOMString"
+            }
+          },
+          "flavor": "interface",
+          "methods": {
+            "appendChild": {
+              "name": "appendChild",
+              "visibility": "public",
+              "returnType": "Node",
+              "args": {
+                "child": {
+                  "name": "child",
+                  "type": "Node"
+                }
+              }
+            },
+            "cloneNode": {
+              "name": "cloneNode",
+              "visibility": "public",
+              "returnType": "Node",
+              "args": {
+                "deep": {
+                  "name": "deep",
+                  "type": "boolean"
+                }
+              }
+            },
+            "compareDocumentPosition": {
+              "name": "compareDocumentPosition",
+              "visibility": "public",
+              "returnType": "bitmask",
+              "args": {
+                "otherNode": {
+                  "name": "otherNode",
+                  "type": "Node"
+                }
+              }
+            },
+            "contains": {
+              "name": "contains",
+              "visibility": "public",
+              "returnType": "boolean",
+              "args": {
+                "otherNode": {
+                  "name": "otherNode",
+                  "type": "Node"
+                }
+              }
+            },
+            "hasChildNodes": {
+              "name": "hasChildNodes",
+              "visibility": "public",
+              "returnType": "boolean",
+              "args": {}
+            },
+            "insertBefore": {
+              "name": "insertBefore",
+              "visibility": "public",
+              "returnType": "Node",
+              "args": {
+                "newChild": {
+                  "name": "newChild",
+                  "type": "Node"
+                },
+                "refChild": {
+                  "name": "refChild",
+                  "type": "Node"
+                }
+              }
+            },
+            "isDefaultNamespace": {
+              "name": "isDefaultNamespace",
+              "visibility": "public",
+              "returnType": "boolean",
+              "args": {
+                "namespaceURI": {
+                  "name": "namespaceURI",
+                  "type": "DOMString"
+                }
+              }
+            },
+            "isEqualNode": {
+              "name": "isEqualNode",
+              "visibility": "public",
+              "returnType": "boolean",
+              "args": {
+                "node": {
+                  "name": "node",
+                  "type": "Node"
+                }
+              }
+            },
+            "lookupPrefix": {
+              "name": "lookupPrefix",
+              "visibility": "public",
+              "returnType": "DOMString",
+              "args": {
+                "namespaceURI": {
+                  "name": "namespaceURI",
+                  "type": "DOMString"
+                }
+              }
+            },
+            "lookupNamespaceURI": {
+              "name": "lookupNamespaceURI",
+              "visibility": "public",
+              "returnType": "DOMString",
+              "args": {
+                "prefix": {
+                  "name": "prefix",
+                  "type": "DOMString"
+                }
+              }
+            },
+            "normalize": {
+              "name": "normalize",
+              "visibility": "public",
+              "returnType": "void",
+              "args": {}
+            },
+            "removeChild": {
+              "name": "removeChild",
+              "visibility": "public",
+              "returnType": "Node",
+              "args": {
+                "oldChild": {
+                  "name": "oldChild",
+                  "type": "Node"
+                }
+              }
+            },
+            "replaceChild": {
+              "name": "replaceChild",
+              "visibility": "public",
+              "returnType": "Node",
+              "args": {
+                "newChild": {
+                  "name": "newChild",
+                  "type": "Node"
+                },
+                "oldChild": {
+                  "name": "oldChild",
+                  "type": "Node"
+                }
+              }
+            }
+          },
+          "xCood": 487,
+          "yCood": 236,
+          "width": 282,
+          "height": 454
+        },
+        "DOMString": {
+          "properties": {},
+          "flavor": "interface",
+          "methods": {},
+          "xCood": 896,
+          "yCood": 418,
+          "width": 74,
+          "height": 64
+        },
+        "NodeList": {
+          "properties": {},
+          "flavor": "interface",
+          "methods": {},
+          "xCood": 900,
+          "yCood": 314,
+          "width": 74,
+          "height": 64
+        },
+        "EventTarget": {
+          "properties": {},
+          "flavor": "interface",
+          "methods": {
+            "addEventListener": {
+              "name": "addEventListener",
+              "visibility": "public",
+              "returnType": "void",
+              "args": {
+                "type": {
+                  "name": "type",
+                  "type": "DOMString"
+                },
+                "listener": {
+                  "name": "listener",
+                  "type": "EventListener"
+                },
+                "useCapture": {
+                  "name": "useCapture",
+                  "type": "boolean"
+                }
+              }
+            },
+            "removeEventListener": {
+              "name": "removeEventListener",
+              "visibility": "public",
+              "returnType": "void",
+              "args": {
+                "type": {
+                  "name": "type",
+                  "type": "DOMString"
+                },
+                "listener": {
+                  "name": "listener",
+                  "type": "EventListener"
+                },
+                "useCapture": {
+                  "name": "useCapture",
+                  "type": "boolean"
+                }
+              }
+            },
+            "dispatchEvent": {
+              "name": "dispatchEvent",
+              "visibility": "public",
+              "returnType": "boolean",
+              "args": {
+                "event": {
+                  "name": "event",
+                  "type": "Event"
+                }
+              }
+            }
+          },
+          "xCood": 482,
+          "yCood": 49,
+          "width": 416,
+          "height": 109
+        }
+      },
+      "connectors": {
+        "abc1": {
+          "orientation": "vertical",
+          "nodes": {
+            "top": {
+              "xCood": 702,
+              "yCood": 236,
+              "attached": true,
+              "attachedBox": "Node",
+              "arrow": {
+                "style": "none",
+                "direction": "bottom"
+              }
+            },
+            "secondTop": {
+              "xCood": 702,
+              "yCood": 200,
+              "attached": {},
+              "attachedBox": {}
+            },
+            "secondBottom": {
+              "xCood": 702,
+              "yCood": 200,
+              "attached": {},
+              "attachedBox": {}
+            },
+            "bottom": {
+              "xCood": 702,
+              "yCood": 158,
+              "attached": true,
+              "attachedBox": "EventTarget",
+              "arrow": {
+                "style": "whiteArrow",
+                "direction": "top"
+              }
+            }
+          },
+          "lineStyle": "solid"
+        }
+      }
+    }
