@@ -33,7 +33,7 @@ define(["BaseType",
                 || this.orientation === "bottom") {
 
                 this.svgNode.click(function (event) {
-                    if(!event.ctrlKey && event.shiftKey) {
+                    if(!event.altKey && event.shiftKey) {
                         if(!that._isAttached()) {
                             that.mediator.fireAttachRequest(that.orientation);
                         } else {
@@ -49,7 +49,7 @@ define(["BaseType",
             }
 
             this.svgNode.click(function (event) {
-                if(event.ctrlKey && !event.shiftKey) {
+                if(event.altKey && !event.shiftKey) {
 
                     that.mediator.changeLineStyle();
                 }
