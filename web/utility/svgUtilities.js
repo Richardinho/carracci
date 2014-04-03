@@ -4,6 +4,19 @@ define(['utility/svg'], function(svg) {
 
     return {
 
+        //  constants
+        //  namespace
+        NS : "http://www.w3.org/2000/svg",
+
+        //  path constants
+        MOVE_TO   : "M",
+
+        SEPARATOR : ",",
+
+        LINETO    : "L",
+
+        SPACE     : " ",
+
         buildPath : function (pointsArray, closePath) {
             var path = "M" + pointsArray[0].x + " " + pointsArray[0].y + "L";
 

@@ -1,27 +1,29 @@
 
-define([ 'jquery',
-         'diagram/diagramController',
-         'diagram/diagramModel2',
-         'diagram/types/typeView',
-         'diagram/types/typeController',
-         'utility/idGenerator',
-         'diagram/connectors/horizontalConnectorFactory',
-         'diagram/connectors/verticalConnectorFactory',
-         'diagram/componentFactory',
-         'rasmus/rasmusManager'
-         ],
+define([
+    'jquery',
+     'diagram/diagramController',
+     'diagram/diagramModel2',
+     'diagram/types/typeView',
+     'diagram/types/typeController',
+     'utility/idGenerator',
+     'diagram/connectors/horizontalConnectorFactory',
+     'diagram/connectors/verticalConnectorFactory',
+     'diagram/componentFactory',
+     'rasmus/rasmusManager'
+     ],
 
-         function ( $,
-                    DiagramController,
-                    DiagramModel,
-                    TypeView,
-                    TypeController,
-                    idGenerator,
-                    horizontalConnectorFactory,
-                    verticalConnectorFactory,
-                    ComponentFactory,
-                    RasmusManager
-                    ) {
+     function (
+        $,
+        DiagramController,
+        DiagramModel,
+        TypeView,
+        TypeController,
+        idGenerator,
+        horizontalConnectorFactory,
+        verticalConnectorFactory,
+        ComponentFactory,
+        RasmusManager
+        ) {
 
     return {
 
@@ -50,6 +52,7 @@ define([ 'jquery',
                     });
 
                 }
+
 
 
             });

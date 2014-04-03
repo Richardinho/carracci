@@ -7,7 +7,10 @@ define([
     "diagram/connectors/verticalConnectorModel",
     "diagram/boxHorizontalNodeMediator",
     "diagram/boxVerticalNodeMediator",
-    "underscore"
+    "underscore",
+    "diagram/banner/bannerView",
+    "diagram/banner/bannerController",
+    "diagram/banner/bannerModel"
     ],
     function (
     BaseType,
@@ -18,7 +21,10 @@ define([
     VerticalConnectorModel,
     BoxHorizontalNodeMediator,
     BoxVerticalNodeMediator,
-    _
+    _,
+    BannerView,
+    BannerController,
+    BannerModel
     )
     {
 
@@ -42,6 +48,38 @@ define([
 
             this.typeControllerMap = {};
             this.connectorMediators = {};
+            this.banner = {}
+        },
+
+        //  banner should be a 'singleton'
+        createBanner : function (diagram, bannerJSON) {
+
+            var rawBannerModel = this.diagramModel.createBanner( diagram , bannerJSON);
+
+            // for meantime just use bannerJSON for 'model' in view
+            /*var bannerModel = new BannerModel({
+                model : rawBannerModel
+            });*/
+
+            var bannerView = new BannerView({
+
+                model : bannerJSON
+            });
+
+            var bannerController = new BannerController();
+
+            this.banner['view'] = bannerView;
+            this.banner['controller'] = bannerController;
+
+        },
+        //todo : rename redrawBanner
+        removeBanner : function (diagram, bannerJSON) {
+
+            var rawBannerModel = this.diagramModel.createBanner( diagram , bannerJSON);
+
+            this.banner['view'].model = bannerJSON;
+            this.banner['view'].render();
+
         },
 
         createType : function (diagram, typeName) {
@@ -124,6 +162,17 @@ define([
                     this.typeControllerMap[typeModel.getName()] = tc;
 
                 }
+
+                //todo: create banner from json
+
+                var banner =  this.diagramModel.model.children['diagrams']
+                                             .children[diagramName]
+                                             .children.banner;
+
+                var bannerJSON = this.diagramModel.model.children['diagrams'].children[diagramName].children.banner.children.banner.unwrap();
+
+                this.createBanner(diagramName, bannerJSON);
+
 
                 var connectors = this.diagramModel.getConnectors(diagramName);
 

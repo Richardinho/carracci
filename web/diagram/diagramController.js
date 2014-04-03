@@ -20,6 +20,19 @@ define(['BaseType', 'canvg'],function (BaseType, canvg) {
 
         // for editing
 
+        createBanner : function(bannerModel) {
+            this.removeBanner();
+            this.componentFactory.createBanner(this.contextPath[1], bannerModel);
+
+        },
+
+        removeBanner : function (bannerModel) {
+
+            this.componentFactory.removeBanner(this.contextPath[1], bannerModel);
+
+        },
+
+
         remove : function () {
 
             var artifact = arguments[0];
@@ -525,6 +538,12 @@ define(['BaseType', 'canvg'],function (BaseType, canvg) {
         show : function () {
 
             return "<pre>" + this.diagramModel.toJSON() + "</pre>"
+        },
+
+        bannerExists : function () {
+
+            return this.diagramModel.bannerExists();
+
         },
 
         /*

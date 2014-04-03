@@ -87,7 +87,8 @@ define(["BaseType",
             else {
                 this.currentDiagram = this.model.children['diagrams'].createChild(diagramName, {
                     types : {},
-                    connectors : {}
+                    connectors : {},
+                    banner : {}
                 });
             }
         },
@@ -229,6 +230,37 @@ define(["BaseType",
                 });
             return new HorizontalConnectorModel({
                 model : connectorModel
+            });
+
+        },
+
+        bannerExists : function () {
+
+            if(this.currentDiagram) {
+
+                return !!this.model.children.diagrams.children[this.currentDiagram.name].children.banner.children['banner'];
+
+            } else {
+
+                return false;
+            }
+
+        },
+
+        createBanner : function (diagram, banner) {
+
+            return this.model.children.diagrams.children[diagram].children.banner.createChild('banner', {
+
+                title : banner.title,
+                description : banner.description,
+                creator : banner.creator,
+                width   : banner.width,
+                fontSize : "12",
+                created : banner.created,
+                width : 300,
+                fontFamily : "arial",
+                paddingHorizontal : 12
+
             });
 
         },

@@ -63,6 +63,22 @@
       "height": 49
     }
     },
+    "banner": {
+        "banner": {
+          "title": {
+            "fontSize": 20,
+            "text": "foo",
+            "fontFamily": "arial"
+          },
+          "description": "babab baba bab",
+          "creator": "rich",
+          "width": 300,
+          "fontSize": "12",
+          "created": "jdj",
+          "fontFamily": "arial",
+          "paddingHorizontal": 12
+        }
+      },
     "connectors": {
     "abc1": {
       "orientation": "horizontal",

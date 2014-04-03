@@ -158,10 +158,7 @@
         overflow-y : scroll;
         overflow-x : hidden;
         outline : none;
-        background: -webkit-linear-gradient(white 0 , black 60px);
         padding : 0 6px;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
 
         }
 
@@ -202,7 +199,19 @@
         z-index : -1;
         }
 
+    .foo {
 
+        background : red;
+        }
+
+
+    </style>
+
+    <style>
+        text {
+
+            alignment-baseline : ideographic;
+        }
     </style>
 </head>
 <body>
@@ -212,6 +221,8 @@
     <div class="container" data-role="rasmus-container">
 
         <section class="display">
+
+            <div data-role="editor-instruction" class='editor__instruction'></div>
 
             <div class="editor" data-role="rasmus-display" ></div>
 
