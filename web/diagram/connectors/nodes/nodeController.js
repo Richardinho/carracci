@@ -23,6 +23,12 @@ define(["BaseType",
 
             this.startX = null;
             this.startY = null;
+            var that = this;
+
+            this.svgNode.dblclick(function () {
+
+                that.model.model.fire("foobar");
+            });
 
             this.svgNode.drag(this._onMove, this._onStart, this._onEnd);
 
@@ -49,6 +55,7 @@ define(["BaseType",
             }
 
             this.svgNode.click(function (event) {
+
                 if(event.altKey && !event.shiftKey) {
 
                     that.mediator.changeLineStyle();

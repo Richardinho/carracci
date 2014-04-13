@@ -1,6 +1,6 @@
 define(["BaseType",
         "utility/svg",
-         "diagram/connectors/nodes/arrow",
+         "diagram/connectors/nodes/svgArrow",
          "diagram/connectors/nodes/nodeModel"],function (
             BaseType,
             svg,
@@ -23,8 +23,9 @@ define(["BaseType",
             this.node.attr({ fill : "green", opacity : 0, stroke : 0 });
 
 
-            this.model.onXCood("change", this.updateX, this);
-            this.model.onYCood("change", this.updateY, this);
+            this.model.on("change:xCood", this.updateX, this);
+            this.model.on("change:yCood", this.updateY, this);
+
             this.model.on("switchArrowHead", this.switchArrowHead, this);
             this.model.on("destroy", this.destroy, this);
 
