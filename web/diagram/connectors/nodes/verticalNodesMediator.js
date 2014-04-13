@@ -1,12 +1,13 @@
-define(["BaseType",
+define([
+        "diagram/connectors/nodes/abstractNodeMediator",
         "diagram/connectors/nodes/nodeModel"
          ],function (
-            BaseType,
+            AbstractNodeMediator,
             NodeModel
         ) {
 
 
-    return BaseType.extend({
+    return AbstractNodeMediator.extend({
 
         initialize : function (options) {
 
@@ -14,7 +15,8 @@ define(["BaseType",
             this.secondTopNodeModel = options.secondTopNodeModel;
             this.secondBottomNodeModel= options.secondBottomNodeModel;
             this.bottomArrowModel = options.bottomArrowModel;
-            this.connectorModel = options.connectorModel;
+
+            AbstractNodeMediator.prototype.initialize.call(this, options);
 
         },
 
@@ -31,9 +33,7 @@ define(["BaseType",
             }
         },
 
-        changeLineStyle : function () {
-            this.connectorModel.alternateLineStyle();
-        },
+
         // called from node controller
         removeBoxNodeMediator : function (orientation) {
 
@@ -53,14 +53,6 @@ define(["BaseType",
                 this.bottomNodeTypeBoxMediator = null;
             }
 
-        },
-
-        destroy : function () {
-            this.detachAll();
-            this.topArrowModel.destroy();
-            this.secondTopNodeModel.destroy();
-            this.secondBottomNodeModel.destroy();
-            this.bottomArrowModel.destroy();
         },
 
         detachAll : function () {

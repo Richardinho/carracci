@@ -23,12 +23,12 @@ define(["BaseType",
 
             this.startX = null;
             this.startY = null;
-            var that = this;
 
             this.svgNode.dblclick(function () {
 
-                that.model.model.fire("foobar");
-            });
+                this.model.fire("node-selected");
+
+            }, this);
 
             this.svgNode.drag(this._onMove, this._onStart, this._onEnd);
 
@@ -48,7 +48,6 @@ define(["BaseType",
                     }
 
                     else if(event.altKey && event.shiftKey) {
-                        console.log("switch arrow head");
                         that.model.switchArrowHead();
                     }
                 });

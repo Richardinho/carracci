@@ -19,9 +19,9 @@ define(["BaseType"],
                 fontFamily : "arial"
             },
 
-            description : "",
+            description : "lalal",
 
-            creator : "",
+            author : "",
 
             fontSize : "12",
 
@@ -31,39 +31,24 @@ define(["BaseType"],
 
             fontFamily : "arial",
 
-            paddingHorizontal : 12
+            paddingHorizontal : 12,
+
+            xCood : 0,
+
+            yCood : 0
 
         },
 
         build : function () {
 
-            if(!this.editMode) {
+            this.diagramController.createBanner(this.banner);
 
-                this.diagramController.createBanner(this.banner);
-            } else {
-
-                this.diagramController.removeBanner(this.banner);
-            }
         },
 
         initialize : function (options) {
 
             this.diagramController = options.diagramController;
 
-            if(options.editMode) {
-                this.editMode = true;
-
-                this.banner = this._createFromExisting();
-
-            } else {
-                this.editMode = false;
-            }
-        },
-
-        _createFromExisting : function () {
-
-
-            return this.diagramController.diagramModel.model.children.diagrams.children[this.diagramController.contextPath[1]].children.banner.children['banner'].unwrap();
         },
 
         setDescription : function (description){
@@ -81,7 +66,7 @@ define(["BaseType"],
 
 
         setAuthor : function (author){
-            this.banner.creator = author;
+            this.banner.author = author;
         },
 
 

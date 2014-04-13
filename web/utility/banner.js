@@ -15,11 +15,58 @@ define([
             /* this should simply read the model and render the typebox accordingly */
             return BaseType.extend({
 
-                redraw : function (banner) {
+                initialize : function (options) {
+
+                    var author            = options.author,
+                        fontFamily        = options.fontFamily,
+                        description       = options.description,
+                        paddingHorizontal = options.paddingHorizontal,
+                        titleFontSize     = options.titleFontSize,
+                        titleFontFamily   = options.titleFontFamily,
+                        width             = options.width,
+                        titleText         = options.titleText,
+                        fontSize          = 12,
+                        xCood             = options.xCood,
+                        yCood             = options.yCood;
+
+
+                    var NS= SVGUtils.NS;
+                    // give canvas an id so we can find the raw element. Must be a better way of doing this!
+                    paper.canvas.id = "foo"
+
+                    this.svg = document.getElementById('foo');
+
+                    this.group = document.createElementNS(NS, "g");
+
+                    this.svg.appendChild(this.group);
+
+                    this._createBanner(author, fontFamily, description, paddingHorizontal, titleFontSize, titleFontFamily, width, titleText, fontSize, this.group, this.svg);
+
+                    this.height = this.group.getBBox().height;
+
+                    this.group.setAttribute('transform', "translate(" + xCood + " ," + yCood + ")");
+
+                },
+
+                show : function () {
+
+                    this.group.setAttribute('visibility', 'visible');
+                },
+
+                hide : function () {
+                    this.group.setAttribute('visibility', 'hidden');
+
+                },
+
+                destroy : function () {
+
+
+                    this.svg.removeChild(this.group);
+                },
+
+                redraw : function (author, fontFamily, description, paddingHorizontal, titleFontSize, titleFontFamily, width, titleText, fontSize) {
 
                     // empty out contents of group
-
-                    this.banner = banner;
 
                     while( this.group.firstChild ) {
 
@@ -28,58 +75,55 @@ define([
                     }
 
                     // recreate contents of group
-
-                    this._createBanner(this.banner, this.group, this.svg);
+                    this._createBanner(author, fontFamily, description, paddingHorizontal, titleFontSize, titleFontFamily, width, titleText, fontSize, this.group, this.svg);
                     // resize invisible rectangle
 
-                    var svgRect = this.group.getBBox();
+                    this.height = this.group.getBBox().height;
 
-                    this.invisibleRect.attr({
 
-                        width : svgRect.width,
-                        height : svgRect.height
-
-                    });
 
                 },
 
-                _createBanner : function (banner, group, svg) {
+                _createBanner : function (author, fontFamily, description, paddingHorizontal, titleFontSize, titleFontFamily, width, titleText, fontSize, group, svg, xCood, yCood) {
 
                     var NS= SVGUtils.NS;
 
-                    createBanner(banner, group, svg);
+                    this.banner = createBanner(author, description, paddingHorizontal, titleFontSize, titleFontFamily, width, titleText, group, svg, xCood, yCood);
 
-                    function createBanner(banner, group, svg) {
+                    function createBanner(author, description, paddingHorizontal, titleFontSize, titleFontFamily, width, titleText, group, svg, xCood, yCood) {
 
-                        var background = createBackground(banner);
-                        var title = createTitle(banner);
-                        var description = createDescription(banner, svg);
-                        var created = createCreated(banner);
+                        var background = createBackground(width);
+                        var title = createTitle(titleFontSize, titleFontFamily, width, titleText);
+
+                        var description = SVGUtils.createTextBody(description, width, paddingHorizontal, fontFamily, fontSize,  svg);
+                        var author = createAuthor(author, fontFamily, paddingHorizontal);
 
                         group.appendChild(background);
                         group.appendChild(title);
                         group.appendChild(description);
-                        group.appendChild(created);
+                        group.appendChild(author);
 
                         var titleHeight = title.getBBox().height;
                         var descriptionHeight = description.getBBox().height;
-                        var createdHeight = created.getBBox().height;
+                        var authorHeight = author.getBBox().height;
 
                         description.setAttribute('y', titleHeight);
-                        created.setAttribute('y', titleHeight + descriptionHeight + banner.title.fontSize);
-                        background.setAttribute('height', titleHeight + descriptionHeight + banner.title.fontSize + createdHeight);
+                        author.setAttribute('y', titleHeight + descriptionHeight + titleFontSize);
+                        background.setAttribute('height', titleHeight + descriptionHeight + titleFontSize + authorHeight);
+
+                        return background;
 
                     }
 
-                    function createTitle(banner) {
+                    function createTitle(titleFontSize, titleFontFamily, width, titleText) {
 
-                        var svgTextNode = createSVGTextNode(banner.title.fontSize, banner.title.fontFamily);
+                        var svgTextNode = SVGUtils.createSVGTextNode(titleFontSize, titleFontFamily);
 
-                        svgTextNode.setAttribute("y", banner.title.fontSize);
+                        svgTextNode.setAttribute("y", titleFontSize);
                         svgTextNode.setAttribute("text-anchor", "middle");
-                        svgTextNode.setAttribute("x", banner.width / 2);
+                        svgTextNode.setAttribute("x", width / 2);
 
-                        var text = document.createTextNode(banner.title.text);
+                        var text = document.createTextNode(titleText);
 
                         svgTextNode.appendChild(text);
 
@@ -90,7 +134,8 @@ define([
                     function createDescription(banner, svg) {
 
                         var linesArray = segmentText(banner, svg);
-                        var svgTextNode = createSVGTextNode(banner.fontSize, banner.fontFamily);
+                        var svgTextNode = SVGUtils.createSVGTextNode(banner.fontSize, banner.fontFamily);
+
                         svgTextNode.setAttribute('y', banner.title.fontSize);
                         linesArray.forEach(function(text, index) {
 
@@ -109,25 +154,24 @@ define([
 
                     }
 
-                    function createCreated(banner) {
+                    function createAuthor(author, fontFamily, paddingHorizontal) {
 
-                        var created = banner.created;
-                        var svgTextNode = createSVGTextNode(10, banner.fontFamily);
-                        svgTextNode.setAttribute("x", banner.paddingHorizontal);
+                        var svgTextNode = SVGUtils.createSVGTextNode(10, fontFamily);
+                        svgTextNode.setAttribute("x", paddingHorizontal);
                         svgTextNode.setAttribute("y", 120);
 
-                        var text = document.createTextNode("created: " + created);
+                        var text = document.createTextNode("author: " + author);
                         svgTextNode.appendChild(text);
 
                         return svgTextNode;
 
                     }
 
-                    function createBackground(banner) {
+                    function createBackground(width) {
 
                         var rect = document.createElementNS(NS, "rect");
                         rect.setAttribute("fill", "white");
-                        rect.setAttribute("width", banner.width);
+                        rect.setAttribute("width", width);
                         rect.setAttribute("x", 0);
                         rect.setAttribute("y", 0);
                         rect.setAttribute("stroke", 'black');
@@ -137,131 +181,26 @@ define([
 
                     }
 
-                    // create a text node
-                    function createSVGTextNode(fontSize, fontFamily) {
-
-                        var textEl = document.createElementNS(NS, "text");
-
-                        textEl.setAttribute("font-family", fontFamily);
-                        textEl.setAttribute("font-size", fontSize);
-                        //textEl.setAttribute("x", 100);
-                       // textEl.setAttribute("y", 0);
-
-                        return textEl;
-
-                    }
-
-                    function segmentText(banner, svg) {
-
-                        var textArray = banner.description.split(/\s/);
-                        var maxWidth = banner.width - (banner.paddingHorizontal * 2);
-                        var tempArray = [];
-
-                        var textNode = createSVGTextNode(banner.fontSize, banner.fontFamily);
-                        var tSpan = document.createElementNS(NS, "tspan");
-
-                        svg.appendChild(textNode);
-                        textNode.appendChild(tSpan);
-
-                        var t;
-                        var resultArray = [];
-
-
-                        for(var i = 0; i < textArray.length; i++) {
-
-                            var word = textArray[i];
-
-                            tempArray.push(word);
-
-                            if(t) {
-
-                                tSpan.removeChild(t);
-                            }
-                            var string = tempArray.join(" ");
-                            t = document.createTextNode(string);
-
-                            tSpan.appendChild(t);
-
-                            var width = tSpan.getBBox().width;
-
-                            if(width > maxWidth) {
-
-                                tempArray.pop();
-                                resultArray.push(tempArray.join(" "));
-                                tempArray = [word];
-
-                            }
-
-                        }
-                        tSpan.removeChild(t);
-                        resultArray.push(tempArray.join(" "));
-
-                        return resultArray;
-
-                    }
-
-
-
                 },
 
-                initialize : function (options) {
+                setCoods : function (x, y) {
 
-                    this.banner = options.model;
-                    var banner = this.banner;
 
-                    var NS= SVGUtils.NS;
-                    // give canvas an id so we can find the raw element. Must be a better way of doing this!
-                    paper.canvas.id = "foo"
+                    this.group.setAttribute('transform', "translate(" + x + " ," + y + ")");
+                },
 
-                    var svg = document.getElementById('foo');
-                    this.svg = svg;
-                    var group = document.createElementNS(NS, "g");
-                    this.group = group;
+                setSelected : function () {
 
-                    svg.appendChild(group);
 
-                    this._createBanner(banner, group, svg);
+                    this.banner.setAttribute("fill", "green");
+                },
 
-                    var svgRect = group.getBBox();
+                setDeselected : function () {
 
-                    this.invisibleRect = paper.rect(0, 0, svgRect.width, svgRect.height);
 
-                    dragger(group, this.invisibleRect);
-
-                    function dragger(draggable, c) {
-
-                        c.attr({ fill : "red", opacity : 0 });
-                        c.drag(onMove, onStart, onEnd);
-                        c.attr('cursor', 'move');
-
-                        var startX, startY;
-
-                        function onMove (dx, dy) {
-                            var x = startX + dx;
-                            var y = startY + dy;
-
-                            c.attr({
-
-                                x : x,
-                                y : y
-
-                            });
-
-                            draggable.setAttribute('transform', "translate(" + x + " ," + y + ")");
-
-                        }
-
-                        function onStart () {
-                            startX = parseInt(c.attr("x"));
-                            startY = parseInt(c.attr("y"));
-                        }
-                        function onEnd () {
-                            startX = null;
-                            startY = null;
-                        }
-
-                    }
+                    this.banner.setAttribute("fill", "white");
                 }
+
 
 
             });

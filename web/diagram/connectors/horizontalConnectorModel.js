@@ -10,12 +10,20 @@ define(["BaseType"],
         initialize : function (options) {
 
             this.model = options.model;
+
             this.lineStyles = [
                 'dashed',
                 'solid'
             ];
 
             this.currentLineStyleIndex = 0;
+
+        },
+
+        // just delegate right through to underlying model.
+        on : function (a, b, c) {
+
+            this.model.on(a, b, c);
 
         },
 

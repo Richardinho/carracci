@@ -1,21 +1,24 @@
-define(["BaseType",
+define([
+        "utility/nodeWrapper",
         "eventNode",
         "diagram/types/typeModel",
         "diagram/connectors/horizontalConnectorModel",
         "diagram/boxHorizontalNodeMediator",
         "diagram/boxVerticalNodeMediator",
         "diagram/connectors/verticalConnectorModel",
-        "utility/idGenerator"],
-        function (  BaseType,
+        "utility/idGenerator"
+        ],
+        function (  NodeWrapper,
                     Node,
                     TypeModel,
                     HorizontalConnectorModel,
                     BoxHorizontalNodeMediator,
                     BoxVerticalNodeMediator,
                     VerticalConnectorModel,
-                    idGenerator) {
+                    idGenerator
+                    ) {
 
-    return BaseType.extend({
+    return NodeWrapper.extend({
 
         initialize : function () {
 
@@ -25,6 +28,8 @@ define(["BaseType",
                 diagrams : {}
             });
 
+
+
             // nodeOrientation is simply a string 'left', 'right' etc.
             this.model.on("attachRequest", function (nodeMediator, nodeOrientation) {
 
@@ -33,6 +38,12 @@ define(["BaseType",
                     nodeOrientation : nodeOrientation
                 }
             });
+
+            this.model.on("create", function () {
+
+                console.log("something was created", arguments);
+            });
+
 
             this.model.on("receiveRequest", function (typeController) {
 
@@ -63,9 +74,14 @@ define(["BaseType",
             });
         },
 
-        toJSON : function () {
+        rewriteIds : function (json) {
 
-            return JSON.stringify(this.model.unwrap(),null, 2);
+
+            var connectorsQuantity = Object.keys(json.connectors).length;
+            var notesQuantity = Object.keys(json.notes).length;
+
+            idGenerator.reset(connectorsQuantity + notesQuantity);
+
         },
 
         createDiagram : function (diagramName, node) {
@@ -82,14 +98,19 @@ define(["BaseType",
 
             if(node) {
 
-                this.currentDiagram = this.model.children['diagrams'].createChild(diagramName, node);
+
+                this.rewriteIds(node);
+
+                this.currentDiagram = this.model.children['diagrams'].createChild(diagramName, node, "diagram");
+
             }
+
             else {
                 this.currentDiagram = this.model.children['diagrams'].createChild(diagramName, {
                     types : {},
                     connectors : {},
-                    banner : {}
-                });
+                    notes : {}
+                }, "diagram");
             }
         },
 
@@ -99,6 +120,13 @@ define(["BaseType",
 
             this.currentDiagram = null;
         },
+
+        toJSON : function () {
+
+            return JSON.stringify(this.model.unwrap(),null, 2);
+        },
+
+
         set : function (contextPath, name, value) {
 
             var map = {
@@ -110,7 +138,8 @@ define(["BaseType",
             };
 
             var context = this.model;
-
+            // navigates to the end of the context path
+            // by iterating through pairs of artifactname, artifactvalue
             for(var i = 1; i <= contextPath.length; i += 2) {
                 var artifact = map[contextPath[i - 1]];
                 context = context.children[artifact].children[contextPath[i]];
@@ -121,7 +150,8 @@ define(["BaseType",
 
         createVerticalConnector : function (diagram) {
 
-            var id = idGenerator.nextId();
+            var id = idGenerator.nextId(); //todo id system needs a lot of work : at present there are duplicate ids when you load an existing diagram
+
             var connectorModel = this.model.children['diagrams']
                 .children[diagram]
                 .children['connectors']
@@ -130,7 +160,7 @@ define(["BaseType",
                     nodes : {
 
                         top : {
-                            xCood : 300,
+                            xCood : 300, //todo: need to not have these hard coded
                             yCood : 100,
                             attached : false,
                             attachedBox : "",
@@ -236,39 +266,63 @@ define(["BaseType",
 
         bannerExists : function () {
 
-            if(this.currentDiagram) {
 
-                return !!this.model.children.diagrams.children[this.currentDiagram.name].children.banner.children['banner'];
-
-            } else {
-
-                return false;
-            }
+            return this.currentDiagram && !!this.model.children.diagrams.children[this.currentDiagram.name].children['banner'];
 
         },
 
         createBanner : function (diagram, banner) {
 
-            return this.model.children.diagrams.children[diagram].children.banner.createChild('banner', {
+            return this.model.children.diagrams.children[diagram].createChild('banner', {
 
                 title : banner.title,
                 description : banner.description,
-                creator : banner.creator,
+                author : banner.author,
                 width   : banner.width,
                 fontSize : "12",
                 created : banner.created,
                 width : 300,
                 fontFamily : "arial",
-                paddingHorizontal : 12
+                paddingHorizontal : 12,
+                xCood : banner.xCood,
+                yCood : banner.yCood
 
             });
 
         },
 
-        createType : function (diagram, typeName) {
+        createNote : function (diagram) {
 
-            return this.model.children.diagrams.children[diagram].children.types.createChild(typeName, {
+            var id = idGenerator.nextId();
 
+            return this.model
+                .children.diagrams.children[diagram]
+                .children['notes'].createChild(id, {
+
+                    text : "",
+
+                    fontSize : "12",
+
+                    width : 300,
+
+                    fontFamily : "arial",
+
+                    paddingHorizontal : 12,
+
+                    xCood : "0",
+
+                    yCood : "0"
+
+                });
+
+        },
+
+        createType : function (diagram) {
+
+            var id = idGenerator.nextId();
+
+            return this.model.children.diagrams.children[diagram].children.types.createChild(id, {
+                name : "default name",
                 properties : {
                     testProp : {
                         name : "testProp",
@@ -279,12 +333,40 @@ define(["BaseType",
                 },
                 flavor : "interface",
                 methods : {
+                    "doIt": {
+                      "name": "doIt",
+                      "visibility": "public",
+                      "returnType": "void",
+                      "args": {
 
+                        "foo" : {
+                            name : "foo",
+                            type : "String"
+                        },
+                        "bar" : {
+                            name : "bar",
+                            type : "Integer"
+                        }
+
+                      }
+                    },
+                    "undoit": {
+                      "name": "undoit",
+                      "visibility": "public",
+                      "returnType": "void",
+                      "args": {
+                          "bar" : {
+                              name : "bar",
+                              type : "Integer"
+                          }
+                      }
+                    }
                 },
                 xCood : 700,
                 yCood : 400,
                 width : 10,
-                height : 10
+                height : 10,
+                notes : {}
             });
 
         },
@@ -373,104 +455,6 @@ define(["BaseType",
                 });
         },
 
-        checkPropertyExists : function (diagram , type, propertyName) {
-            if( this.model
-                .children['diagrams']
-                .children[diagram]
-                .children['types']
-                .children[type]
-                .children['properties']
-                .children[propertyName] !== undefined ) {
-
-                return true;
-            } else {
-                return false;
-            }
-        },
-
-        checkMethodExists : function (diagram , type, methodName) {
-            if( this.model
-                .children['diagrams']
-                .children[diagram]
-                .children['types']
-                .children[type]
-                .children['methods']
-                .children[methodName] !== undefined ) {
-
-                return true;
-            } else {
-                return false;
-            }
-        },
-
-        checkArgExists : function (diagram , type, method, arg) {
-             if( this.model
-                .children['diagrams']
-                .children[diagram]
-                .children['types']
-                .children[type]
-                .children['methods']
-                .children[method]
-                .children['args']
-                .children[arg] !== undefined ) {
-
-                return true;
-            } else {
-                return false;
-            }
-
-        },
-
-        checkTypeExists : function (diagram, type) {
-
-            if( this.model
-                .children['diagrams']
-                .children[diagram]
-                .children['types']
-                .children[type] !== undefined ) {
-
-                return true;
-            } else {
-                return false;
-            }
-        },
-
-        checkConnectorExists : function (diagram, connectorId) {
-            if( this.model
-                .children['diagrams']
-                .children[diagram]
-                .children['connectors']
-                .children[connectorId] !== undefined) {
-
-                return true;
-
-            } else {
-                return false;
-            }
-        },
-
-        checkDiagramExists : function (diagram) {
-
-            if(this.model
-                .children['diagrams']
-                .children[diagram] !== undefined
-            ) {
-                return true;
-            } else {
-                return false;
-            }
-        },
-
-        getMethod : function (diagram, type, methodName) {
-            return this.model.children.diagrams
-                        .children[diagram]
-                        .children.types
-                        .children[type]
-                        .children.methods
-                        .children[methodName];
-
-        },
-
         /* deletes specified method and returns it */
         deleteMethod : function (diagram, type, methodName) {
 
@@ -482,6 +466,79 @@ define(["BaseType",
                 .deleteChild(methodName);
 
         },
+
+        checkPropertyExists : function (diagram , type, propertyName) {
+
+            return !! (this.model
+                .children['diagrams']
+                .children[diagram]
+                .children['types']
+                .children[type]
+                .children['properties']
+                .children[propertyName]);
+        },
+
+        checkMethodExists : function (diagram , type, methodName) {
+
+            return !!this.model
+                .children['diagrams']
+                .children[diagram]
+                .children['types']
+                .children[type]
+                .children['methods']
+                .children[methodName]
+        },
+
+        checkArgExists : function (diagram , type, method, arg) {
+             return !! this.model
+                .children['diagrams']
+                .children[diagram]
+                .children['types']
+                .children[type]
+                .children['methods']
+                .children[method]
+                .children['args']
+                .children[arg];
+
+        },
+
+        checkTypeExists : function (diagram, type) {
+
+            return !! this.model
+                .children['diagrams']
+                .children[diagram]
+                .children['types']
+                .children[type]
+        },
+
+        checkConnectorExists : function (diagram, connectorId) {
+
+            return !! this.model
+                .children['diagrams']
+                .children[diagram]
+                .children['connectors']
+                .children[connectorId];
+        },
+
+        checkDiagramExists : function (diagram) {
+
+            return !! this.model
+                .children['diagrams']
+                .children[diagram];
+
+        },
+
+        getMethod : function (diagram, type, methodName) {
+
+            return this.model.children.diagrams
+                        .children[diagram]
+                        .children.types
+                        .children[type]
+                        .children.methods
+                        .children[methodName];
+
+        },
+
 
         deleteProperty : function (diagram, type, propertyName) {
 

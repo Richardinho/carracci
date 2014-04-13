@@ -1,4 +1,27 @@
-define(['BaseType', 'canvg'],function (BaseType, canvg) {
+define([
+    'BaseType',
+    'canvg',
+    'modalEditor/controller',
+    'jquery',
+    'menu/controller',
+    'diagram/banner/editor',
+    'diagram/types/editor',
+    'diagram/show/view',
+    'diagram/widgetManager',
+    'events/eventsBus'
+
+    ],function (
+        BaseType,
+        canvg,
+        ModalEditor,
+        $,
+        MainMenu,
+        BannerEditor,
+        TypeEditor,
+        Show,
+        WidgetManager,
+        eventsBus
+        ) {
 
     /*
         this type has the role of supplying commands which are called by the editor.
@@ -15,14 +38,86 @@ define(['BaseType', 'canvg'],function (BaseType, canvg) {
 
             this.contextPath = [];
             this.componentFactory = options.componentFactory;
+            this.selected = [];
+
+            this.mainMenu = new MainMenu({
+
+                diagramController : this
+            });
+
+
+            this.widgetManager = new WidgetManager({
+
+                diagramController : this
+            });
+
+            eventsBus.on("dblclick:type", this.showTypeEditor, this);
+            eventsBus.on("dblclick:note", this.showNoteEditor, this);
+
+        },
+
+        showTypeEditor : function (typeModel) {
+
+            this.widgetManager.showTypeEditor(typeModel);
+
+        },
+
+        showNoteEditor : function (noteModel) {
+
+            this.widgetManager.showNoteEditor(noteModel);
+
         },
         // remove, use, create, export, set, con, show, load, help
 
         // for editing
 
         createBanner : function(bannerModel) {
-            this.removeBanner();
+
             this.componentFactory.createBanner(this.contextPath[1], bannerModel);
+
+        },
+
+        command : function (commandObj) {
+
+            var command = commandObj.command,
+                args = commandObj.args,
+                diagramName = this.contextPath[1];
+
+            if(command === "create" && args[0] === "type") {
+                this.componentFactory.createType(diagramName);
+            }
+
+            if(command === "create" && args[0] === "diagram") {
+
+                var diagramName = window.prompt("what is the name of your diagram?");
+
+                this.componentFactory.createDiagram(diagramName);
+
+                this.use('diagram', diagramName);
+            }
+
+            if (command === "create" && args[0] === "banner") {
+
+                //this.bannerEditor.open();
+
+                this.componentFactory.createBanner(diagramName);
+
+            }
+
+            if (command === "create" && args[0] === "connector") {
+
+                if(args[1] === "horizontal") {
+
+                    console.log("create horizontal conenctor");
+                    this.componentFactory.createHorizontalConnector(diagramName);
+                }
+                else {
+
+                    console.log("create vertical conncetor");
+                    this.componentFactory.createVerticalConnector(diagramName);
+                }
+
+            }
 
         },
 
@@ -32,146 +127,17 @@ define(['BaseType', 'canvg'],function (BaseType, canvg) {
 
         },
 
+        createNote : function (typeModel) {
 
-        remove : function () {
-
-            var artifact = arguments[0];
-
-            switch(artifact) {
-
-            case  "diagram" :
-                if(this.diagramModel.checkDiagramExists(
-                    arguments[1]
-                )) {
-
-                    this.componentFactory.deleteDiagram(arguments[1]);
-                    this.contextPath = [];
-                    return Promise.resolve("diagram has been deleted");
-                } else {
-                    return Promise.reject("this diagram does not exist" + arguments[1]);
-                }
-                break;
-            case  "type" :
-                if(this.contextPath.length === 2) {
-
-                    if(this.diagramModel.checkTypeExists(
-                        this.contextPath[1],
-                        arguments[1]
-                    )) {
-
-                        this.componentFactory.deleteType(arguments[1]);
-                        return Promise.resolve("type deleted");
-
-                    } else {
-                        return Promise.reject("This type does not exist");
-                    }
-                } else {
-                    return Promise.reject("Context path is in incorrect state for this action");
-                }
-
-                break;
-            case  "property" :
-                if(this.contextPath.length === 4) {
-
-
-                    if( this.diagramModel.checkPropertyExists(
-                            this.contextPath[1],
-                            this.contextPath[3],
-                            arguments[1]
-                    )) {
-
-                        this.diagramModel.deleteProperty(
-                            this.contextPath[1],
-                            this.contextPath[3],
-                            arguments[1]
-                        ).fire("deleteProperty");
-
-                        return Promise.resolve("deleted property");
-                    } else {
-
-                       return Promise.reject("this property does not exist");
-                    }
-
-                } else {
-                    return Promise.reject("Context path is in incorrect state for this action");
-                }
-                break;
-            case "method" :
-                if(this.contextPath.length === 4) {
-
-                    if( this.diagramModel.checkMethodExists(
-                            this.contextPath[1],
-                            this.contextPath[3],
-                            arguments[1]
-                    )) {
-                        this.diagramModel.deleteMethod(
-                            this.contextPath[1],
-                            this.contextPath[3],
-                            arguments[1]
-                        ).fire("deleteMethod");
-                        return Promise.resolve("deleted method");
-                    } else {
-
-                        return Promise.reject("this method does not exist");
-                    }
-
-                } else {
-                    return Promise.reject("Context path is in incorrect state for this action");
-
-                }
-                break;
-            case "arg" :
-                if(this.contextPath.length === 6 && this.contextPath[4] === "method") {
-                    if(this.diagramModel.checkArgExists(
-                            this.contextPath[1],
-                            this.contextPath[3],
-                            this.contextPath[5],
-                            arguments[1]
-                    )) {
-
-                        this.diagramModel.deleteArg(
-                            this.contextPath[1],
-                            this.contextPath[3],
-                            this.contextPath[5],
-                            arguments[1]).fire("deleteArgs");
-
-                            return Promise.resolve("deleted argument");
-                    } else {
-
-                        return Promise.reject("this argument does not exist");
-                    }
-
-                } else {
-                    return Promise.reject("Context path is in incorrect state for this action");
-                }
-                break;
-
-             case "connector" :
-                if( this.contextPath.length >=2 ) {
-                    if(this.diagramModel.checkConnectorExists(
-                            this.contextPath[1],
-                            arguments[1]
-                    )) {
-
-                        this.componentFactory.deleteConnector(arguments[1]);
-
-                        return Promise.resolve("this connector has been deleted");
-                    } else {
-                        return Promise.reject("this connector does not exist");
-                    }
-                } else {
-                    return Promise.reject("You must be using a diagram to delete a connector");
-                }
-                break;
-
-             default :
-
-                return Promise.reject("no such artifact type");
-
-            }
-
-            return Promise.resolve("should not get here");
+            this.componentFactory.createNote(this.contextPath[1], typeModel);
         },
+
+        deleteNote : function (name) {
+
+            this.componentFactory.deleteNote(name);
+
+        },
+
 
         /* manages the contextPath, extending it or reducing it as needed */
         use : function () {
@@ -290,161 +256,13 @@ define(['BaseType', 'canvg'],function (BaseType, canvg) {
                     message : artifact + " not known"
                 }
             }
-
-
-
         },
 
-        create : function () {
+        diagramExists : function() {
 
-            var artifact = arguments[0];
-
-            switch (artifact) {
-
-
-            case "connector" :
-
-
-                if (
-                    this.contextPath[1] &&
-                    this.diagramModel.checkDiagramExists(this.contextPath[1])
-                ) {
-
-                    if(arguments[1] === "horizontal") {
-
-                        this.componentFactory.createHorizontalConnector(this.contextPath[1]);
-                        return Promise.resolve("connector created");
-
-                    } else if (arguments[1] === "vertical") {
-
-                        this.componentFactory.createVerticalConnector(this.contextPath[1]);
-                        return Promise.resolve("connector created");
-
-                    } else {
-
-                        return Promise.reject("2nd argument must be 'horizontal' or 'vertical'");
-                    }
-
-                } else {
-
-                    return Promise.reject("A diagram must exist in order to create a connector");
-
-                }
-
-                break;
-
-            case "diagram" :
-
-                if(this.contextPath.length !== 0) {
-
-                    return Promise.reject("Context path is in incorrect state for this action");
-                }
-
-                if( arguments[1] && arguments[1] !== "") {
-
-                    this.componentFactory.createDiagram(arguments[1]);
-                    return Promise.resolve("diagram created");
-
-                } else {
-
-                    return Promise.reject("you must supply a diagram name");
-                }
-
-                break;
-
-            case "type" :
-
-                if(this.contextPath.length !== 2) {
-
-                    return Promise.reject("Context path is in incorrect state for this action");
-
-                }
-
-                if( arguments[1] && arguments[1] !== "") {
-
-                    this.componentFactory.createType(this.contextPath[1], arguments[1]);
-
-                    return Promise.resolve("type created");
-
-                } else {
-
-                    return Promise.reject("You must provide a type name");
-                }
-                break;
-            case "property":
-
-                if(this.contextPath.length !== 4) {
-                    return Promise.reject("Context path is in incorrect state for this action");
-                }
-                if( arguments[1] && arguments[1] !== "") {
-
-                    this.componentFactory
-                        .createProperty(
-                            this.contextPath[1],
-                            this.contextPath[3],
-                            arguments[1]);
-
-                    return Promise.resolve("property created");
-
-                } else {
-                    return Promise.reject("You must provide a property name");
-                }
-
-                break;
-            case "method" :
-
-                if(this.contextPath.length !== 4) {
-
-                    return Promise.reject("Context path is in incorrect state for this action");
-                }
-                if( arguments[1] && arguments[1] !== "") {
-
-                    this.componentFactory
-                        .createMethod(
-                            this.contextPath[1],
-                            this.contextPath[3],
-                            arguments[1]);
-
-                    return Promise.resolve("property created");
-
-                } else {
-
-                    return Promise.reject("You must provide a method name");
-                }
-
-                break;
-
-            case "arg" :
-
-                if(this.contextPath.length !== 6 && this.contextPath[4] !== "method") {
-                    return Promise.reject("Context path is in incorrect state for this action");
-                }
-
-                if(arguments[1] && arguments[2]) {
-
-                    // should we go through the componentFactory for this?
-                    this.diagramModel.createArg(
-                        this.contextPath[1],
-                        this.contextPath[3],
-                        this.contextPath[5],
-                        arguments[1],
-                        arguments[2]
-                    );
-
-                    return Promise.resolve("created arg");
-
-                } else {
-
-                    return Promise.reject("You must supply an argument name and value");
-                }
-
-                break;
-
-            default :
-                return Promise.reject("unknown type");
-            }
-
+            return  this.contextPath[1] && this.diagramModel.checkDiagramExists(this.contextPath[1]);
         },
+
 
         export : function () {
 
@@ -476,74 +294,24 @@ define(['BaseType', 'canvg'],function (BaseType, canvg) {
             return Promise.resolve("exported to " + format);
         },
 
-        set : function () {
-
-            if(this.contextPath.length < 4) {
-
-                return Promise.reject("no value can be set at this context");
-            }
-
-            else if(this.contextPath.length === 4) {
-
-                if(arguments[0] === "flavor") {
-                     // todo: need to check that second argument is one of 'interface' or 'abstract'
-                    this.diagramModel.set(this.contextPath, arguments[0], arguments[1]);
-                    return Promise.resolve("You have set the flavor to : " + arguments[1]);
-
-                } else {
-
-                    return Promise.reject(arguments[0] + " is not a valid property");
-                }
-            }
-            else if(this.contextPath.length === 6) {
-
-                if(this.contextPath[4] === "property") {
-                    // at property context
-                    if(arguments[0] === "visibility") {
-                        this.diagramModel.set(this.contextPath, arguments[0], arguments[1])
-                        return Promise.resolve("you have set visibility");
-                    } else if(arguments[0] === "type")  {
-                        this.diagramModel.set(this.contextPath, arguments[0], arguments[1])
-                        return Promise.resolve("you have set type");
-                    } else {
-
-                        return Promise.reject(arguments[0] + " is not a valid property");
-                    }
-
-                } else if(this.contextPath[4] === "method") {
-
-                    if(arguments[0] === "visibility") {
-
-                        this.diagramModel.set(this.contextPath, arguments[0], arguments[1]);
-                        return Promise.resolve("you have set visibility");
-
-                    } else if( arguments[0] === "returnType" )  {
-
-                        this.diagramModel.set( this.contextPath, arguments[0], arguments[1] );
-                        return Promise.resolve("you have set return type");
-
-                    } else {
-
-                        return Promise.reject(arguments[0] + " is not a valid property");
-                    }
-                }
-            }
-        },
-
         con : function () {
 
             return this.contextPath.join(" ");
         },
 
         show : function () {
-
+            //todo shouldn't do presentation here
             return "<pre>" + this.diagramModel.toJSON() + "</pre>"
         },
 
         bannerExists : function () {
 
             return this.diagramModel.bannerExists();
+        },
 
+        typeExists : function(type) {
+
+            return this.diagramModel.checkTypeExists(this.contextPath[1],type);
         },
 
         /*
@@ -562,6 +330,8 @@ define(['BaseType', 'canvg'],function (BaseType, canvg) {
 
                     that.componentFactory.createDiagram(diagram, data);
 
+                    that.use('diagram', diagram);
+
                     return "diagram was created";
 
                 }, function (err) {
@@ -570,15 +340,10 @@ define(['BaseType', 'canvg'],function (BaseType, canvg) {
 
                 });
 
-
             } else {
 
                 return Promise.reject('You already have a loaded diagram');
             }
-
         }
-
-
-
     });
 });

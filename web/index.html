@@ -3,6 +3,7 @@
 <head>
     <link rel="stylesheet" href="./reset.css" />
     <link rel="stylesheet" href="./rasmus/css/main.css"/>
+    <link rel="stylesheet" href="./css/diagramMain.css"/>
     <style>
 
         #container {
@@ -216,36 +217,17 @@
 </head>
 <body>
 
+    <div id="type-editor"></div>
+    <div id="args-editor"></div>
+    <div id="modalEditor"></div>
+    <div class="overlay" id="overlay"></div>
+
+    <div id="menu"></div>
+
+    <div id="banner-editor"></div>
+    <div id="show"></div>
 
 
-    <div class="container" data-role="rasmus-container">
-
-        <section class="display">
-
-            <div data-role="editor-instruction" class='editor__instruction'></div>
-
-            <div class="editor" data-role="rasmus-display" ></div>
-
-            <input data-role="rasmus-command-line"
-                   autofocus="true"
-                   placeholder="type commands here"
-                   class="commandline"
-                   type="text" />
-        </section>
-    </div>
-
-    <script type="text/template" id="command-line-editor-template">
-        <div id="command-editor">
-            <div class="old-commands">
-                <% for(var i=0; i < oldCommands.length; i++) {   %>
-
-                    <div class="command"><%= oldCommands[i] %></div>
-
-                <% } %>
-            </div>
-            <div class="current-command"><%= currentCommand %></div>
-        </div>
-    </script>
 
 
     <script data-main="main" src="lib/require.js"></script>

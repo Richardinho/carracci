@@ -19,12 +19,20 @@ require.config({
             deps : ['rgbColor'],
 
             exports : 'canvg'
+        },
+
+        'backbone' : {
+
+            deps : ['jquery', 'underscore'],
+
+            exports : 'Backbone'
         }
 
     },
 
     paths : {
     /* points to lib folder within version2 */
+        backbone : "lib/backbone",
         jquery : "lib/jquery-1.8.0",
         underscore : "lib/underscore",
         BaseType : "richardUtils/src/BaseType",

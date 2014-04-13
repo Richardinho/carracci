@@ -22,82 +22,94 @@ define([
 
                 initialize : function (options) {
 
-                    this.questionIndex = 0;
-
                     this.diagramController = options.diagramController;
                 },
 
 
-                setTitle : function (title) {
-                    this.bannerJSONHelper.setTitle(title);
-                },
+                start : function (parentProcess, input) {
 
-                setDescription : function (description) {
-                    this.bannerJSONHelper.setDescription(description);
-                },
+                    if(!this.diagramController.diagramExists()) {
 
-                setAuthor : function (author) {
-                    this.bannerJSONHelper.setAuthor(author);
-                },
+                        parentProcess.output("no diagram has been created");
+                        return Promise.resolve();
+                    }
 
-                setDate: function (date) {
-                    this.bannerJSONHelper.setDate(date);
-                },
+                    if(this.bannerExists()){
+                        parentProcess.output("banner already exists");
+                        return Promise.resolve();
+                    }
 
-                handleInput : function () {
 
+                    var jsonHelper;
+
+                    parentProcess.output("creating banner oh year");
+
+                    var jsonHelper = new JSONHelper({
+                        diagramController : this.diagramController
+                    });
+
+                    var author = {
+
+                        challenge : "what is the name of the author?",
+
+                        handleInput : function (input) {
+
+                            jsonHelper.setAuthor(input);
+                            jsonHelper.build();
+                            parentProcess.output("building banner");
+                            parentProcess.yield();
+
+                            return Promise.resolve();
+
+                        }
+
+                    };
+
+                    var description = {
+
+                        next : author,
+
+                        challenge : "what text do you wish to display?",
+
+                        handleInput : function(text) {
+
+
+                            jsonHelper.setDescription(text);
+                            parentProcess.output(this.next.challenge);
+                            parentProcess.setCurrentProcess(this.next);
+
+                            return Promise.resolve();
+
+                        }
+
+
+                    };
+
+                    var title = {
+
+                        next : description,
+
+                        challenge : "what is the title for your banner?",
+
+                        handleInput : function (input) {
+
+                            parentProcess.output("title is: " + input);
+                            jsonHelper.setTitle(input);
+                            parentProcess.output(this.next.challenge);
+                            parentProcess.setCurrentProcess(this.next);
+
+                            return Promise.resolve();
+
+
+                        }
+
+
+                    }
+                    parentProcess.output(title.challenge);
+                    parentProcess.setCurrentProcess(title);
 
                     return Promise.resolve();
 
-                },
-
-                start : function (parentProcess, input) {
-
-
-
-                    if(!this.bannerExists()) {
-                        //create mode
-                        this.editorMode = false;
-                        var bannerJSONHelper = new JSONHelper({
-                            editMode : false,
-                            diagramController :  this.diagramController
-                        });
-
-                        parentProcess.output("in create mode");
-                        parentProcess.setCurrentProcess(new CreateBannerProcess({
-
-                            parentProcess : parentProcess,
-                            jsonHelper : bannerJSONHelper,
-
-
-                        }));
-
-                    } else {
-
-                        //editor mode
-                        var bannerJSONHelper = new JSONHelper({
-                            editMode  : true,
-                            diagramController :  this.diagramController
-
-                        });
-
-
-                        parentProcess.output("select another property to edit or cancel to exit process.");
-                        parentProcess.output("title");
-                        parentProcess.output("description");
-                        parentProcess.output("creator");
-                        parentProcess.output("or 'cancel' to exit process");
-
-                        this.editorBannerProcess = new EditBannerProcess({
-                            parentProcess : parentProcess,
-                            jsonHelper    : bannerJSONHelper,
-                            bannerProcess : this
-                        });
-
-                        parentProcess.setCurrentProcess(this.editorBannerProcess);
-                    }
-
-                    return Promise.resolve("everything is a ok");
                 },
 
                 bannerExists : function () {

@@ -21,66 +21,49 @@ define([
 
                     this.svg = document.getElementById('foo');
 
-                    var x = 0;
-                    var y = 0;
-
-                    this.x = x;
-                    this.y = y;
-                    this.width = options.width;
-                    this.height = 100;
-
                     var path = SVGUtils.buildPath([
-                        SVGUtils.buildCoods(x,y),
-                        SVGUtils.buildCoods(x + 20, y - 20),
-                        SVGUtils.buildCoods(x + this.width, y - 20),
-                        SVGUtils.buildCoods(x + this.width, y + this.height),
-                        SVGUtils.buildCoods(x, y + this.height)
+                        SVGUtils.buildCoods(options.x1, options.y1),
+                        SVGUtils.buildCoods(options.x2, options.y2)
 
-                    ], true);
+                    ], false);
 
-                    var path2 = SVGUtils.buildPath([
-                        SVGUtils.buildCoods(x,y),
-                        SVGUtils.buildCoods(x + 20, y),
-                        SVGUtils.buildCoods(x + 20, y -20)
-                    ]);
+                    this.foo = this.createPathEl(path);
 
-                   var foo = this.createPathEl(path, 'yellow');
-                   var bar = this.createPathEl(path2, 'red');
-
-                   var group = this.createGroup();
-                   this.group = group;
-                   this.svg.appendChild(group);
-
-                   group.appendChild(foo);
-                   group.appendChild(bar);
-
-                   //this.invisibleRect = paper.rect(x, y - 20, this.width, this.height);
-
-                   //dragger(group, this.invisibleRect);
-
-
-
-
+                    this.svg.insertBefore(this.foo, this.svg.firstChild);
 
                 },
 
-                setCoods : function (x, y) {
+                destroy : function () {
+                    console.log("notepath destroy");
+                    this.svg.removeChild(this.foo);
 
-
-                    this.group.setAttribute('transform', "translate(" + x + " ," + y + ")");
                 },
 
-                createGroup : function () {
+                update : function (x1, y1, x2, y2) {
 
-                    return document.createElementNS(SVGUtils.NS, 'g');
+                    var pathString = this._createPathString(x1, y1, x2, y2);
+
+                    this.foo.setAttribute("d", pathString);
                 },
 
-                createPathEl : function (path, color) {
+                createPathEl : function (path) {
 
                     var el = document.createElementNS(SVGUtils.NS, 'path');
                     el.setAttribute('d', path);
-                    el.setAttribute('fill', color);
+                    el.setAttribute('stroke', 'black');
+                    el.setAttribute('stroke-width', '1');
+                    el.setAttribute("stroke-dasharray", "1,1");
                     return el;
+
+                },
+
+                _createPathString : function (x1, y1, x2, y2) {
+
+                    return SVGUtils.buildPath([
+                        SVGUtils.buildCoods(x1, y1),
+                        SVGUtils.buildCoods(x2, y2)
+
+                    ], false);
 
                 }
 

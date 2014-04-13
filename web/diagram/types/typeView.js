@@ -11,6 +11,8 @@ define(["BaseType", 'utility/typeBox'],function (BaseType, TypeBox) {
             this.model.on("move", this.move, this);
             this.model.on("update", this.update, this);
             this.model.on("delete", this.destroy, this);
+            this.model.on("reset", this.refireReset, this);
+
 
             this.box = new TypeBox({
 
@@ -21,6 +23,11 @@ define(["BaseType", 'utility/typeBox'],function (BaseType, TypeBox) {
                 height : 50
 
             });
+        },
+
+        refireReset : function () {
+
+            this.model.fire('update');
         },
 
         destroy : function () {

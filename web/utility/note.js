@@ -15,252 +15,138 @@ define([
             /* this should simply read the model and render the typebox accordingly */
             return BaseType.extend({
 
-                redraw : function (banner) {
 
-                    // empty out contents of group
-
-                    this.banner = banner;
-
-                    while( this.group.firstChild ) {
-
-                        this.group.removeChild( this.group.firstChild );
-
-                    }
-
-                    // recreate contents of group
-
-                    this._createBanner(this.banner, this.group, this.svg);
-                    // resize invisible rectangle
-
-                    var svgRect = this.group.getBBox();
-
-                    this.invisibleRect.attr({
-
-                        width : svgRect.width,
-                        height : svgRect.height
-
-                    });
-
-                },
-
-                _createBanner : function (banner, group, svg) {
-
-                    var NS= SVGUtils.NS;
-
-                    createBanner(banner, group, svg);
-
-                    function createBanner(banner, group, svg) {
-
-                        var background = createBackground(banner);
-                        var title = createTitle(banner);
-                        var description = createDescription(banner, svg);
-                        var created = createCreated(banner);
-
-                        group.appendChild(background);
-                        group.appendChild(title);
-                        group.appendChild(description);
-                        group.appendChild(created);
-
-                        var titleHeight = title.getBBox().height;
-                        var descriptionHeight = description.getBBox().height;
-                        var createdHeight = created.getBBox().height;
-
-                        description.setAttribute('y', titleHeight);
-                        created.setAttribute('y', titleHeight + descriptionHeight + banner.title.fontSize);
-                        background.setAttribute('height', titleHeight + descriptionHeight + banner.title.fontSize + createdHeight);
-
-                    }
-
-                    function createTitle(banner) {
-
-                        var svgTextNode = createSVGTextNode(banner.title.fontSize, banner.title.fontFamily);
-
-                        svgTextNode.setAttribute("y", banner.title.fontSize);
-                        svgTextNode.setAttribute("text-anchor", "middle");
-                        svgTextNode.setAttribute("x", banner.width / 2);
-
-                        var text = document.createTextNode(banner.title.text);
-
-                        svgTextNode.appendChild(text);
-
-                        return svgTextNode;
-
-                    }
-
-                    function createDescription(banner, svg) {
-
-                        var linesArray = segmentText(banner, svg);
-                        var svgTextNode = createSVGTextNode(banner.fontSize, banner.fontFamily);
-                        svgTextNode.setAttribute('y', banner.title.fontSize);
-                        linesArray.forEach(function(text, index) {
-
-                            var tSpan = document.createElementNS(NS, "tspan");
-                            var t = document.createTextNode(text);
-                            tSpan.appendChild(t);
-                            tSpan.setAttribute('dy', 20);
-                            tSpan.setAttribute('x', banner.paddingHorizontal);
-
-                            svgTextNode.appendChild(tSpan);
-
-                        });
-
-                        return svgTextNode;
-
-
-                    }
-
-                    function createCreated(banner) {
-
-                        var created = banner.created;
-                        var svgTextNode = createSVGTextNode(10, banner.fontFamily);
-                        svgTextNode.setAttribute("x", banner.paddingHorizontal);
-                        svgTextNode.setAttribute("y", 120);
-
-                        var text = document.createTextNode("created: " + created);
-                        svgTextNode.appendChild(text);
-
-                        return svgTextNode;
-
-                    }
-
-                    function createBackground(banner) {
-
-                        var rect = document.createElementNS(NS, "rect");
-                        rect.setAttribute("fill", "white");
-                        rect.setAttribute("width", banner.width);
-                        rect.setAttribute("x", 0);
-                        rect.setAttribute("y", 0);
-                        rect.setAttribute("stroke", 'black');
-                        rect.setAttribute("stroke-width", 1);
-
-                        return rect;
-
-                    }
-
-                    // create a text node
-                    function createSVGTextNode(fontSize, fontFamily) {
-
-                        var textEl = document.createElementNS(NS, "text");
-
-                        textEl.setAttribute("font-family", fontFamily);
-                        textEl.setAttribute("font-size", fontSize);
-                        //textEl.setAttribute("x", 100);
-                       // textEl.setAttribute("y", 0);
-
-                        return textEl;
-
-                    }
-
-                    function segmentText(banner, svg) {
-
-                        var textArray = banner.description.split(/\s/);
-                        var maxWidth = banner.width - (banner.paddingHorizontal * 2);
-                        var tempArray = [];
-
-                        var textNode = createSVGTextNode(banner.fontSize, banner.fontFamily);
-                        var tSpan = document.createElementNS(NS, "tspan");
-
-                        svg.appendChild(textNode);
-                        textNode.appendChild(tSpan);
-
-                        var t;
-                        var resultArray = [];
-
-
-                        for(var i = 0; i < textArray.length; i++) {
-
-                            var word = textArray[i];
-
-                            tempArray.push(word);
-
-                            if(t) {
-
-                                tSpan.removeChild(t);
-                            }
-                            var string = tempArray.join(" ");
-                            t = document.createTextNode(string);
-
-                            tSpan.appendChild(t);
-
-                            var width = tSpan.getBBox().width;
-
-                            if(width > maxWidth) {
-
-                                tempArray.pop();
-                                resultArray.push(tempArray.join(" "));
-                                tempArray = [word];
-
-                            }
-
-                        }
-                        tSpan.removeChild(t);
-                        resultArray.push(tempArray.join(" "));
-
-                        return resultArray;
-
-                    }
-
-
-
-                },
 
                 initialize : function (options) {
 
-                    this.banner = options.model;
-                    var banner = this.banner;
+                    this.svg = document.getElementById('foo');
 
-                    var NS= SVGUtils.NS;
-                    // give canvas an id so we can find the raw element. Must be a better way of doing this!
-                    paper.canvas.id = "foo"
+                    var x = 0;
+                    var y = 0;
 
-                    var svg = document.getElementById('foo');
-                    this.svg = svg;
-                    var group = document.createElementNS(NS, "g");
-                    this.group = group;
+                    this.x = x;
+                    this.y = y;
+                    this.width = options.width;
+                    this.height = options.height;
 
-                    svg.appendChild(group);
+                    var fold = 10;
+                    this.fold = fold;
 
-                    this._createBanner(banner, group, svg);
 
-                    var svgRect = group.getBBox();
+                    var path = this._buildMainPath(x, y, fold, this.width, this.height);
 
-                    this.invisibleRect = paper.rect(0, 0, svgRect.width, svgRect.height);
 
-                    dragger(group, this.invisibleRect);
 
-                    function dragger(draggable, c) {
+                    var path2 = SVGUtils.buildPath([
+                        SVGUtils.buildCoods(x,y + fold),
+                        SVGUtils.buildCoods(x + fold, y + fold),
+                        SVGUtils.buildCoods(x + fold, y )
+                    ]);
 
-                        c.attr({ fill : "red", opacity : 0 });
-                        c.drag(onMove, onStart, onEnd);
-                        c.attr('cursor', 'move');
+                   var foo = this.createPathEl(path, 'white');
+                   var bar = this.createPathEl(path2, 'white');
 
-                        var startX, startY;
+                   foo.setAttribute('stroke', "#666");
+                   foo.setAttribute('stroke-width', 1);
+                   bar.setAttribute('stroke', "#666");
+                   bar.setAttribute('stroke-width', 1);
 
-                        function onMove (dx, dy) {
-                            var x = startX + dx;
-                            var y = startY + dy;
 
-                            c.attr({
+                   this.foo = foo;
 
-                                x : x,
-                                y : y
+                   var group = this.createGroup();
+                   this.group = group;
+                   this.svg.appendChild(group);
 
-                            });
+                   this.text = SVGUtils.createTextBody(options.text, this.width, 12, "arial", 12,  this.svg);
 
-                            draggable.setAttribute('transform', "translate(" + x + " ," + y + ")");
+                   group.appendChild(foo);
+                   group.appendChild(bar);
 
-                        }
+                   group.appendChild(this.text);
 
-                        function onStart () {
-                            startX = parseInt(c.attr("x"));
-                            startY = parseInt(c.attr("y"));
-                        }
-                        function onEnd () {
-                            startX = null;
-                            startY = null;
-                        }
+                   //this.invisibleRect = paper.rect(x, y - 20, this.width, this.height);
 
-                    }
+                   //dragger(group, this.invisibleRect);
+
+                   this.height = this.resetHeight(x, y);
+
+
+
+                },
+
+                resetText : function (text) {
+
+                    console.log("reset text in note", text);
+                    this.group.removeChild(this.text);
+                    this.text = SVGUtils.createTextBody(text, this.width, 12, "arial", 12,  this.svg);
+                    this.group.appendChild(this.text);
+
+
+                },
+
+                destroy : function () {
+
+                    this.svg.removeChild(this.group);
+
+                },
+
+                setSelected : function () {
+                    this.foo.setAttribute("fill", "orange");
+
+                },
+
+                setDeselected : function () {
+                    this.foo.setAttribute("fill", "white");
+
+                },
+
+                resetBoxSize : function (x, y, width, height) {
+
+                    this.foo.setAttribute('d', this._buildMainPath(x, y, this.fold, width, height));
+
+                },
+
+                _buildMainPath : function (x, y, fold, width, height) {
+
+                    return SVGUtils.buildPath([
+                        SVGUtils.buildCoods(x,y + fold),
+                        SVGUtils.buildCoods(x + fold, y ),
+                        SVGUtils.buildCoods(x + width, y ),
+                        SVGUtils.buildCoods(x + width, y + height),
+                        SVGUtils.buildCoods(x, y + height)
+
+                    ], true);
+
+                },
+
+                resetHeight : function (x, y) {
+
+                    var height = this.text.getBBox().height + 50;
+                    this.resetBoxSize(x, y, this.width, height);
+                    return height;
+
+
+                },
+
+                setCoods : function (x, y) {
+
+
+                    this.group.setAttribute('transform', "translate(" + x + " ," + y + ")");
+                },
+
+                createGroup : function () {
+
+                    return document.createElementNS(SVGUtils.NS, 'g');
+                },
+
+                createPathEl : function (path, color) {
+
+                    var el = document.createElementNS(SVGUtils.NS, 'path');
+                    el.setAttribute('d', path);
+                    el.setAttribute('fill', color);
+                    return el;
+
                 }
 
 

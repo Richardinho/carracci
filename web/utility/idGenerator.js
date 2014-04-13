@@ -9,6 +9,10 @@ define([], function () {
         nextId : function () {
             var id = nextId++;
             return prefix + id;
+        },
+
+        reset : function (offset) {
+            nextId += offset;
         }
     };
 })

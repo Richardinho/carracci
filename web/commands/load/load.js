@@ -27,7 +27,7 @@ define([
                         parentProcess.output(data);
 
                     }).catch(function(data){
-
+                        console.log(arguments);
                         parentProcess.output(data);
 
                     });

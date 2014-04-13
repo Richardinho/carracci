@@ -1,9 +1,12 @@
-define(["BaseType",
-        "utility/svgUtilities" ],function (
-            BaseType,
-            svgUtils
+define([
+    "BaseType",
+    "utility/svgUtilities"
+    ],function (
+        BaseType,
+        svgUtils
         ) {
 
+    "use strict";
 
     return BaseType.extend({
 
@@ -16,24 +19,34 @@ define(["BaseType",
 
             this.line = svgUtils.createPath(this.buildPath(), "red");
 
-            this.connectorModel.model.on("change", function () {
+            // the idea is to update the model then everything else listens to changes on it.
+            this.connectorModel.on("change", this.updateLine, this);
+            this.connectorModel.on("change:lineStyle", this.updateLineStyle, this);
+            this.connectorModel.on("selected", this.selectLine, this);
 
-                this.updateLine();
-
-            }, this);
-
-            this.modelA.on("destroy", this.destroy, this);
+            this.connectorModel.on("delete", this.destroy, this);
         },
 
         destroy : function () {
-
+            console.log("lineView, destroy()");
             this.line.remove();
+        },
+
+        selectLine : function () {
+
+            this.line.attr("stroke", "orange");
+
         },
 
         updateLine : function () {
 
             svgUtils.resetPath(this.line, this.buildPath());
-            svgUtils.resetLine(this.line, this.connectorModel.getLineStyle());
+
+        },
+
+        updateLineStyle : function () {
+
+            svgUtils.resetLineStyle(this.line, this.connectorModel.getLineStyle());
         },
 
         buildPath : function () {

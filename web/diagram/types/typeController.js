@@ -1,11 +1,15 @@
-define(["BaseType",
+define([
+        "BaseType",
         'utility/typeBox',
-        'underscore'],
+        'underscore',
+        'events/eventsBus'
+         ],
 
-        function (
+         function (
             BaseType,
             TypeBox,
-             _
+            _,
+            events
         ) {
     /* this type gets the box from the view and attaches handlers to it to watch its' movement.
     in response to use input, it updates the model accordingly. The model fires out events
@@ -23,33 +27,39 @@ define(["BaseType",
             this.startY = null;
 
             this.model = options.model;
+            this.artifactType = "type";
 
             this.view = options.view;
             this.box = this.view.box.rect;
 
             this.box.drag(this._onMove, this._onStart, this._onEnd);
 
-            var that = this;
+            this.model.on("delete", this.destroy, this);
 
             /*
                 For when request is made to attach a node to this type box
              */
             this.box.click(function () {
                 //  fire on model, will bubble up to diagram
-                that.model.fireReceiveClickEvent(that);
-            });
+                this.model.fireReceiveClickEvent(this);
+
+            }, this);
+
+            this.box.dblclick($.proxy(function () {
+
+               events.trigger("dblclick:type", this.model);
+
+            }, this));
+        },
+
+        getName : function () {
+
+            return this.model.model.name;
         },
 
         destroy : function () {
 
             this.removeAttachedMediators();
-
-            this.view.destroy();
-
-            // detach all connectors
-            // delete model.
-            // delete view
-
         },
 
         /*
@@ -68,8 +78,8 @@ define(["BaseType",
         },
 
         getRightXLimit : function () {
-            return this.model.getXCood() + this.model.getWidth();
 
+            return this.model.getXCood() + this.model.getWidth();
         },
 
         _onMove : function (dx, dy) {
@@ -118,7 +128,9 @@ define(["BaseType",
             _.each(this.attachedNodesMediators, function (item, index) {
 
                 if(item === mediator) {
+
                     this.attachedNodesMediators.splice(index, 1);
+
                 }
             }, this);
         }

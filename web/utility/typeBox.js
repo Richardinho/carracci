@@ -82,6 +82,7 @@ define(['utility/svg', 'BaseType', 'underscore'], function(svg, BaseType, _ ) {
 
         },
 
+
         destroy : function () {
 
             this.removeContents();

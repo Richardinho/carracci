@@ -1,120 +1,124 @@
-define(['BaseType',
-        'diagram/connectors/nodes/arrowView',
-        'diagram/connectors/nodes/arrowController',
-        'diagram/connectors/nodes/horizontalNodesMediator',
-        'diagram/connectors/lines/lineView',
-        'diagram/connectors/nodes/nodeModel',
-        'diagram/connectors/nodes/verticalNodesMediator'],
+define([
+    'BaseType',
+    'diagram/connectors/nodes/nodeView',
+    'diagram/connectors/nodes/nodeController',
+    'diagram/connectors/nodes/horizontalNodesMediator',
+    'diagram/connectors/lines/lineView',
+    'diagram/connectors/nodes/nodeModel',
+    'diagram/connectors/nodes/verticalNodesMediator'
+    ],
         function (
-        BaseType,
-        ArrowView,
-        ArrowController,
-        HorizontalNodesMediator,
-        LineView,
-        NodeModel,
-        VerticalNodesMediator) {
+            BaseType,
+            NodeView,
+            NodeController,
+            HorizontalNodesMediator,
+            LineView,
+            NodeModel,
+            VerticalNodesMediator
+        ) {
+
+            "use strict";
 
 
+            return {
 
-    return {
-
-        create : function (verticalConnectorModel) {
-
-
-            var model = verticalConnectorModel;
-
-            var topArrowModel = new NodeModel({
-                model : model.getTopArrow()
-            });
-
-            var secondTopNodeModel = new NodeModel({
-                model : model.getSecondTopNode()
-            });
-
-            var secondBottomNodeModel = new NodeModel({
-                model : model.getSecondBottomNode()
-            });
-
-            var bottomArrowModel = new NodeModel({
-                model : model.getBottomArrow()
-            });
+                create : function (verticalConnectorModel) {
 
 
-            // create lines first so they appear below nodes. (crude, I know!)
-            new LineView({
-                modelA : topArrowModel,
-                modelB : secondTopNodeModel,
-                connectorModel : model
-            });
+                    var model = verticalConnectorModel;
 
-            new LineView({
-                modelA : secondTopNodeModel,
-                modelB : secondBottomNodeModel,
-                connectorModel : model
-            });
+                    var topArrowModel = new NodeModel({
+                        model : model.getTopArrow()
+                    });
 
-            new LineView({
-                modelA :secondBottomNodeModel,
-                modelB :bottomArrowModel,
-                connectorModel : model
-            });
+                    var secondTopNodeModel = new NodeModel({
+                        model : model.getSecondTopNode()
+                    });
 
-            // create node views.
-            var topArrowView = new ArrowView({
-                model : topArrowModel
-            });
+                    var secondBottomNodeModel = new NodeModel({
+                        model : model.getSecondBottomNode()
+                    });
 
-            var secondTopArrowView = new ArrowView({
-                model : secondTopNodeModel
-            });
+                    var bottomArrowModel = new NodeModel({
+                        model : model.getBottomArrow()
+                    });
 
-            var secondBottomArrowView = new ArrowView({
-                model : secondBottomNodeModel
-            });
 
-            var bottomArrowView = new ArrowView({
-                model : bottomArrowModel
-            })
+                    // create lines first so they appear below nodes. (crude, I know!)
+                    new LineView({
+                        modelA : topArrowModel,
+                        modelB : secondTopNodeModel,
+                        connectorModel : model
+                    });
 
-            var verticalArrowMediator = new VerticalNodesMediator({
-                topArrowModel : topArrowModel,
-                secondTopNodeModel : secondTopNodeModel,
-                secondBottomNodeModel : secondBottomNodeModel,
-                bottomArrowModel : bottomArrowModel,
-                connectorModel : model
-            });
+                    new LineView({
+                        modelA : secondTopNodeModel,
+                        modelB : secondBottomNodeModel,
+                        connectorModel : model
+                    });
 
-            new ArrowController({
-                orientation : "top",
-                model : topArrowModel,
-                mediator : verticalArrowMediator,
-                view : topArrowView
-            });
+                    new LineView({
+                        modelA :secondBottomNodeModel,
+                        modelB :bottomArrowModel,
+                        connectorModel : model
+                    });
 
-            new ArrowController({
-                orientation : "secondTop",
-                model : secondTopNodeModel,
-                mediator : verticalArrowMediator,
-                view : secondTopArrowView
-            });
+                    // create node views.
+                    var topArrowView = new NodeView({
+                        model : topArrowModel
+                    });
 
-            new ArrowController({
-                orientation : "secondBottom",
-                model : secondBottomNodeModel,
-                mediator : verticalArrowMediator,
-                view : secondBottomArrowView
-            });
+                    var secondTopNodeView = new NodeView({
+                        model : secondTopNodeModel
+                    });
 
-            new ArrowController({
-                orientation : "bottom",
-                model : bottomArrowModel,
-                mediator : verticalArrowMediator,
-                view : bottomArrowView
-            });
+                    var secondBottomNodeView = new NodeView({
+                        model : secondBottomNodeModel
+                    });
 
-            return verticalArrowMediator;
+                    var bottomArrowView = new NodeView({
+                        model : bottomArrowModel
+                    })
 
-        }
-    }
+                    var verticalArrowMediator = new VerticalNodesMediator({
+                        topArrowModel : topArrowModel,
+                        secondTopNodeModel : secondTopNodeModel,
+                        secondBottomNodeModel : secondBottomNodeModel,
+                        bottomArrowModel : bottomArrowModel,
+                        connectorModel : model
+                    });
 
-});
+                    new NodeController({
+                        orientation : "top",
+                        model : topArrowModel,
+                        mediator : verticalArrowMediator,
+                        view : topArrowView
+                    });
+
+                    new NodeController({
+                        orientation : "secondTop",
+                        model : secondTopNodeModel,
+                        mediator : verticalArrowMediator,
+                        view : secondTopNodeView
+                    });
+
+                    new NodeController({
+                        orientation : "secondBottom",
+                        model : secondBottomNodeModel,
+                        mediator : verticalArrowMediator,
+                        view : secondBottomNodeView
+                    });
+
+                    new NodeController({
+                        orientation : "bottom",
+                        model : bottomArrowModel,
+                        mediator : verticalArrowMediator,
+                        view : bottomArrowView
+                    });
+
+                    return verticalArrowMediator;
+
+                }
+            }
+
+        });

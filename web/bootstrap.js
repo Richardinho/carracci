@@ -31,28 +31,19 @@ define([
 
             $(document).ready(function () {
 
-                if($('[data-role=rasmus-container]').length) {
 
-                    var diagramModel = new DiagramModel();
+                var diagramModel = new DiagramModel();
 
-                    var componentFactory = new ComponentFactory({
-                        diagramModel : diagramModel,
-                        horizontalConnectorFactory : horizontalConnectorFactory,
-                        verticalConnectorFactory : verticalConnectorFactory
-                    })
+                var componentFactory = new ComponentFactory({
+                    diagramModel : diagramModel,
+                    horizontalConnectorFactory : horizontalConnectorFactory,
+                    verticalConnectorFactory : verticalConnectorFactory
+                })
 
-                    var diagramController = new DiagramController({
-                        diagramModel : diagramModel,
-                        componentFactory : componentFactory
-                    });
-
-                    var rasmus = new RasmusManager({
-
-                        diagramController : diagramController
-                    });
-
-                }
-
+                var diagramController = new DiagramController({
+                    diagramModel : diagramModel,
+                    componentFactory : componentFactory
+                });
 
 
             });

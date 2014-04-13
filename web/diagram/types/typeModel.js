@@ -1,58 +1,50 @@
-define(["BaseType"],
+define(["utility/nodeWrapper"],
 
         function (
-            BaseType
+            NodeWrapper
         ) {
     /* this type gets the box from the view and attaches handlers to it to watch its' movement.
     in response to use input, it updates the model accordingly. The model fires out events
     which our view will listen to*/
 
-    return BaseType.extend({
+    return NodeWrapper.extend({
 
         initialize : function (options) {
+
+            NodeWrapper.prototype.initialize.call(this, options);
+
             this.diagramModel = options.diagramModel;
-            this.model = options.model;
-            this.listeners = {};
 
-            this.model.on("change", this.changeHandler, this);
-            this.model.on("create", this.changeHandler, this);
-            this.model.on("deleteProperty", this.changeHandler, this);
-            this.model.on("deleteMethod", this.changeHandler, this);
-            this.model.on("deleteArgs", this.changeHandler, this);
-        },
-
-        on : function (event, handler, context) {
-
-            if (!this.listeners[event]) {
-                this.listeners[event] = [];
-            }
-            this.listeners[event].push([handler, context]);
+            this.on("change", this.changeHandler, this);
+          //  this.on("create", this.changeHandler, this);
+           // this.on("deleteProperty", this.changeHandler, this);
+          //  this.on("deleteMethod", this.changeHandler, this);
+          //  this.on("deleteArgs", this.changeHandler, this);
         },
 
         changeHandler : function () {
             this.fire("update");
         },
 
-        fire : function (event) {
-
-            var listeners = this.listeners[event];
-
-            if (listeners) {
-                //  get rest of arguments
-                var args =  Array.prototype.slice.call(arguments, 1);
-                for (var i = 0; i < listeners.length; i++) {
-                    listeners[i][0].apply(listeners[i][1], args);
-                }
-            }
-        },
-
         getName : function () {
             return this.model.name;
         },
 
+        toJSON : function () {
+
+            return this.model.unwrap();
+
+        },
+
+        save : function (json) {
+
+            this.model.reset(json);
+
+        },
+
         fireReceiveClickEvent : function (controller) {
 
-            this.model.fire("receiveRequest", controller)
+            this.fire("receiveRequest", controller)
         },
 
         setCoods : function (x, y) {
@@ -94,33 +86,39 @@ define(["BaseType"],
 
         getHeight : function () {
 
-            return this.model.children['height'].value;
+            return this.get("height");
         },
 
         getWidth : function () {
 
-            return this.model.children['width'].value;
+            return this.get('width');
         },
 
         getFlavor : function () {
 
-            return this.model.children['flavor'].value;
+            return this.get('flavor');
         },
 
         getXCood : function () {
 
-            return this.model.children['xCood'].value;
+            return this.get('xCood');
         },
 
         getYCood : function () {
 
-            return this.model.children['yCood'].value;
+            return this.get('yCood');
+        },
+
+        getTypeName : function () {
+
+            //return this.get('name');
+            return this.get('name');
+
         },
 
         getMethods : function () {
 
-            var meths = this.model.unwrap().methods;
-            return meths;
+            return this.model.unwrap().methods;
         },
 
         getProperties : function () {

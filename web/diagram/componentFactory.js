@@ -10,7 +10,12 @@ define([
     "underscore",
     "diagram/banner/bannerView",
     "diagram/banner/bannerController",
-    "diagram/banner/bannerModel"
+    "diagram/banner/bannerModel",
+    "diagram/note/noteView",
+    "diagram/note/noteModel",
+    "diagram/note/noteController",
+    "diagram/note/noteLineView",
+    'diagram/banner/editor'
     ],
     function (
     BaseType,
@@ -24,7 +29,12 @@ define([
     _,
     BannerView,
     BannerController,
-    BannerModel
+    BannerModel,
+    NoteView,
+    NoteModel,
+    NoteController,
+    NoteLineView,
+    BannerEditor
     )
     {
 
@@ -48,43 +58,112 @@ define([
 
             this.typeControllerMap = {};
             this.connectorMediators = {};
-            this.banner = {}
+            this.banner = {};
+        },
+
+        createNote : function (diagram, typeModel) {
+
+            var rawNoteModel = this.diagramModel.createNote( diagram  );
+            this.createNoteFromModel(rawNoteModel, typeModel);
+
+        },
+
+        deleteNote : function (name) {
+
+            var diagramName = this.diagramModel.currentDiagram.name;
+
+            this.diagramModel.model
+                .children['diagrams']
+                .children[diagramName]
+                .children['notes'].deleteChild(name);
+
+        },
+
+        createNoteFromModel : function (rawNoteModel, typeModel) {
+
+            var model = new NoteModel({
+                model : rawNoteModel
+            });
+
+
+            // this connects the note to a type
+            new NoteLineView({
+                model : model,
+                typeModel : typeModel
+            });
+
+            var view = new NoteView({
+
+                model : model
+            });
+
+            new NoteController({
+                model : model,
+                view : view
+            });
+
+
         },
 
         //  banner should be a 'singleton'
         createBanner : function (diagram, bannerJSON) {
 
-            var rawBannerModel = this.diagramModel.createBanner( diagram , bannerJSON);
+            if(this.bannerEditor) {
 
-            // for meantime just use bannerJSON for 'model' in view
-            /*var bannerModel = new BannerModel({
-                model : rawBannerModel
-            });*/
+                alert("banner already exists");
 
-            var bannerView = new BannerView({
+            } else {
 
-                model : bannerJSON
-            });
+                var rawBannerModel = this.diagramModel.createBanner( diagram , {
+                    title : { text : "default title" },
+                    description : "default descripiton",
+                    author : "default author",
+                    width  : "300",
+                    created : "richard",
+                    xCood : "0",
+                    yCood : "0"
+                });
 
-            var bannerController = new BannerController();
+                // for meantime just use bannerJSON for 'model' in view
+                var bannerModel = new BannerModel({
+                    model : rawBannerModel
+                });
 
-            this.banner['view'] = bannerView;
-            this.banner['controller'] = bannerController;
+                var bannerView = new BannerView({
+
+                    model : bannerModel
+                });
+
+                var bannerController = new BannerController({
+
+                    view : bannerView,
+                    model : bannerModel
+
+                });
+
+                this.bannerEditor = new BannerEditor({
+
+                    model : bannerModel
+                });
+
+                this.bannerEditor.open();
+
+            }
 
         },
-        //todo : rename redrawBanner
-        removeBanner : function (diagram, bannerJSON) {
 
-            var rawBannerModel = this.diagramModel.createBanner( diagram , bannerJSON);
+        deleteBanner : function () {
 
-            this.banner['view'].model = bannerJSON;
-            this.banner['view'].render();
+            this.diagramModel.model
+                .children['diagrams']
+                .children[this.diagramModel.currentDiagram.name]
+                .deleteChild('banner')
 
         },
 
-        createType : function (diagram, typeName) {
+        createType : function ( diagram ) {
 
-            var rawTypeModel = this.diagramModel.createType( diagram, typeName );
+            var rawTypeModel = this.diagramModel.createType( diagram );
 
             var typeModel = new TypeModel({
                 diagramModel : this.diagramModel.model,
@@ -100,23 +179,25 @@ define([
                 view : typeView
             });
 
-            this.typeControllerMap[typeName] = typeController;
+            //this.typeControllerMap[typeName] = typeController;
 
         },
 
         deleteType : function (type) {
 
-            this.typeControllerMap[type].destroy();
+            //this.typeControllerMap[type].destroy();
 
             var diagramName = this.diagramModel.currentDiagram.name;
 
-            delete this.diagramModel.model
+            this.diagramModel.model
                     .children['diagrams']
                     .children[diagramName]
                     .children['types']
-                    .children[type];
+                    .deleteChild(type);
 
         },
+
+
 
         deleteDiagram : function (diagramName) {
 
@@ -136,6 +217,7 @@ define([
 
             //  if  we are passing in already created json
             if(node) {
+
                 // parse diagram and create types and connectors.
                 var types = this.diagramModel.model
                                 .children['diagrams']
@@ -163,13 +245,27 @@ define([
 
                 }
 
+                var notes = this.diagramModel.model
+                                .children['diagrams']
+                                .children[diagramName]
+                                .children['notes']
+                                .children;
+
+                for(var note in notes) {
+
+
+                    this.createNoteFromModel(notes[note]);
+
+                }
+
                 //todo: create banner from json
 
                 var banner =  this.diagramModel.model.children['diagrams']
                                              .children[diagramName]
-                                             .children.banner;
+                                             .children['banner'];
 
-                var bannerJSON = this.diagramModel.model.children['diagrams'].children[diagramName].children.banner.children.banner.unwrap();
+
+                var bannerJSON = this.diagramModel.model.children['diagrams'].children[diagramName].children.banner.unwrap();
 
                 this.createBanner(diagramName, bannerJSON);
 
@@ -275,14 +371,12 @@ define([
 
         deleteConnector : function (connectorId) {
 
-            this.connectorMediators[connectorId].destroy();
             var diagramName = this.diagramModel.currentDiagram.name;
 
-            delete this.diagramModel.model
+            this.diagramModel.model
                     .children['diagrams']
                     .children[diagramName]
-                    .children['connectors']
-                    .children[connectorId];
+                    .children['connectors'].deleteChild(connectorId);
         }
 
     });

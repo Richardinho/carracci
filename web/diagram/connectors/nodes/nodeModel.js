@@ -1,123 +1,114 @@
 define([
-        "BaseType"
+        "utility/nodeWrapper"
         ],
 
         function (
-            BaseType
+            NodeWrapper
         ) {
 
+            /*
+              should be a wrapper around the 'event node' representing the diagram node.
+              should pass through event registration to event node and event firing.
+              Should provide setters and accessors for properties on event node
+            */
 
-    return BaseType.extend({
+            "use strict";
 
-        initialize : function (options) {
+            return NodeWrapper.extend({
 
-            this.model = options.model;
+                initialize : function (options) {
 
-            this.arrowHeadStyles = [
-                "whiteArrow",
-                "whiteDiamond",
-                "blackDiamond",
-                "blackConnectArrow",
-                "none"
-            ];
-            this.currentArrowHeadIndex = 0;
+                    this.model = options.model;
 
-        },
+                    //  register event handler on arrow node if it exists. convert into semantic event on the node model
+                    if(this.model.children['arrow']) {
 
-        destroy : function () {
+                        this.model.children['arrow'].on("change:style", function () {
 
-            this.model.fire("destroy");
-        },
+                            this.fire("switchArrowHead");
 
-        getXCood : function () {
+                        }, this);
 
-            return parseInt(this.model.children['xCood'].value, 10);
-        },
+                    }
+                    this.arrowModel = this.model.children['arrow']
 
-        setXCood : function (x) {
+                    this.arrowHeadStyles = [
+                        "whiteArrow",
+                        "whiteDiamond",
+                        "blackDiamond",
+                        "blackConnectArrow",
+                        "none"
+                    ];
+                    this.currentArrowHeadIndex = 0;
 
-            this.model.children['xCood'].set(x);
-        },
+                },
 
-        setYCood : function (y) {
+                getXCood : function () {
 
-            this.model.children['yCood'].set(y);
-        },
+                    return parseInt(this.model.children['xCood'].value, 10);
+                },
 
-        getYCood : function () {
+                setXCood : function (x) {
 
-            return parseInt(this.model.children['yCood'].value, 10);
+                    this.model.children['xCood'].set(x);
+                },
 
-        },
-        fire : function (event, context, orientation) {
+                setYCood : function (y) {
 
-            this.model.fire("attachRequest", context, orientation);
-        },
+                    this.model.children['yCood'].set(y);
+                },
 
-        onXCood : function (event, handler, context) {
+                getYCood : function () {
 
-            this.model.children['xCood'].on(event, handler, context);
-        },
+                    return parseInt(this.model.children['yCood'].value, 10);
 
-        onYCood : function (event, handler, context) {
-
-            this.model.children['yCood'].on(event, handler, context);
-        },
-
-        on : function (event, handler, context) {
-            this.model.on(event, handler, context);
-
-        },
-
-        getStyle : function () {
-
-            return this.model.children['arrow'].children['style'].value;
-        },
-
-        switchArrowHead : function () {
-
-            var arrowHead = this.arrowHeadStyles[this.currentArrowHeadIndex];
-
-            this.model.children['arrow'].children['style'].set(arrowHead, true);
-            this.model.fire("switchArrowHead");
-
-            this.currentArrowHeadIndex = (this.currentArrowHeadIndex + 1) % this.arrowHeadStyles.length;
-
-        },
-
-        getDirection : function () {
-            return this.model.children['arrow'].children['direction'].value;
-        },
-
-        setArrowDirection : function (direction){
-            this.model.children['arrow'].children['direction'].set(direction);
-        },
-
-        isAttached : function () {
-
-            return this.model.children['attached'].value;
-        },
-
-        setAttached : function (value) {
-            this.model.children['attached'].set(value);
-        },
-
-        isArrowNode : function () {
-
-            if(this.model.children['arrow']) {
-
-                return true;
-            } else {
-                return false;
-            }
-        },
-
-        broadcast : function (event) {
-
-            this.model.broadcast(event)
-        }
+                },
 
 
-    });
+                getStyle : function () {
 
-});
+                    return this.model.children['arrow'].children['style'].value;
+                },
+
+                switchArrowHead : function () {
+
+                    var arrowHead = this.arrowHeadStyles[this.currentArrowHeadIndex];
+
+                    this.model.children['arrow'].children['style'].set(arrowHead);
+
+                    //todo : possible to do this a bit more succinctly?
+                    this.currentArrowHeadIndex = (this.currentArrowHeadIndex + 1) % this.arrowHeadStyles.length;
+
+                },
+
+                getDirection : function () {
+
+                    return this.model.children['arrow'].children['direction'].value;
+                },
+
+                setArrowDirection : function (direction) {
+
+                    this.model.children['arrow'].children['direction'].set(direction);
+                },
+
+                isAttached : function () {
+
+                    return this.model.children['attached'].value;
+                },
+
+                setAttached : function (value) {
+
+                    this.model.children['attached'].set(value);
+                },
+
+                isArrowNode : function () {
+
+                    return !! this.model.children['arrow'];
+                }
+
+
+
+
+            });
+
+        });

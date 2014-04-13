@@ -22,6 +22,7 @@ define([
                 start : function (parentProcess, input) {
 
                     var args = parser.getArguments(input);
+
                     if(!args[0] || !args[1]) {
                         parentProcess.output("valid arguments not supplied");
                         return Promise.reject();
@@ -31,7 +32,7 @@ define([
 
                         parentProcess.output(data);
 
-                    }).catch(function(data){
+                    }, function(data) {
 
                         parentProcess.output(data);
 

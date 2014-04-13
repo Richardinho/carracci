@@ -1,0 +1,63 @@
+
+.overlay {
+
+    position   : fixed;
+    z-index    : 100;
+    display    : none;
+    background : $mask-color;
+    height     : 100%;
+    width      : 100%;
+}
+
+.editor__panel {
+
+    background : $form-background;
+    position : absolute;
+    z-index : 100;
+    padding : $padding-horizontal;
+    border-radius : 4px;
+    border : solid 1px $border-color;
+    font-family : arial;
+
+}
+
+.button {
+
+    border : none;
+    outline : none;
+    color : white;
+
+    background : $button-color;
+
+    &:hover {
+
+        background : $button-color--hover;
+    }
+
+    &:active {
+
+        background : $button-color--active;
+    }
+
+}
+
+.button--rounded {
+
+    @extend .button;
+
+    border-radius : 5px;
+
+}
+
+.button--save {
+
+    @extend .button;
+    padding : 3px 6px;
+
+}
+.button--cancel {
+    @extend .button;
+    padding : 3px 6px;
+
+
+}

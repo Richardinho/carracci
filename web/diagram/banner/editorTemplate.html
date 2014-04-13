@@ -1,0 +1,26 @@
+
+<div data-role="bannerEditor-panel" class="bannerEditor__panel">
+    <h2 class="bannerEditor--header">Input banner details below:</h2>
+    <label class="label">
+        <span class="label--caption">banner title</span>
+        <input name="title" value="<%= title %>" class="bannerEditor__text-input" type="text"/>
+    </label>
+
+    <label class="label">
+        <span class="label--caption">author</span>
+        <input name="author" value="<%= author %>" class="bannerEditor__text-input" type="text"/>
+    </label>
+
+    <label class="label">
+        <span class="label--caption">creation date</span>
+        <input name="created" value="<%= created %>" class="bannerEditor__text-input" type="text"/>
+    </label>
+
+    <label class="label--text-area">
+        <span>banner contents</span>
+        <textarea name="description" data-role="contents" rows="10" class="bannerEditor__textarea"><%= description %></textarea>
+    </label>
+    <button data-role="save">save</button>
+    <button data-role="cancel">cancel</button>
+    <button data-role="delete" class="bannerEditor__delete">delete</button>
+</div>

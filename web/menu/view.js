@@ -1,9 +1,11 @@
 define([
     "BaseType",
-    "menu/view"
+    "text!menu/template.html",
+    "text!menu/initialTemplate.html"
     ], function (
         BaseType,
-        View
+        template,
+        initialTemplate
         ) {
 
             "use strict";
@@ -12,10 +14,35 @@ define([
 
                 initialize : function (options) {
 
-                    this.diagramController = options.diagramController;
-
-                    this.view = new View();
+                    this.$el = options.el;
                 },
+
+
+
+                initialTemplate : _.template(initialTemplate),
+
+                template : _.template(template),
+
+                render : function (diagram) {
+
+                    this.$el.html(this._getTemplate(diagram));
+
+                    this.$el.show();
+
+                },
+
+                _getTemplate : function (diagram) {
+
+                    if(diagram) {
+
+                        return this.template();
+
+                    } else {
+
+                        return this.initialTemplate();
+                    }
+                }
+            });
 
 
         });

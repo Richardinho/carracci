@@ -1,37 +1,30 @@
 define(["BaseType"],
 
-        function (
-            BaseType
-        ) {
-    /* this type gets the box from the view and attaches handlers to it to watch its' movement.
-    in response to use input, it updates the model accordingly. The model fires out events
-    which our view will listen to*/
+    function (
+        BaseType
+    ) {
+
 
     return BaseType.extend({
 
 
-        banner : {
+        note : {
 
-            title : {
-
-                fontSize : 20,
-                text : "",
-                fontFamily : "arial"
-            },
-
-            description : "",
-
-            creator : "",
+            text : "",
 
             fontSize : "12",
-
-            created : "",
 
             width : 300,
 
             fontFamily : "arial",
 
-            paddingHorizontal : 12
+            paddingHorizontal : 12,
+
+            type : "",
+
+            xCood : "0",
+
+            yCood : "0"
 
         },
 
@@ -39,55 +32,27 @@ define(["BaseType"],
 
             if(!this.editMode) {
 
-                this.diagramController.createBanner(this.banner);
+                this.diagramController.createNote(this.note);
+
             } else {
 
-                this.diagramController.removeBanner(this.banner);
+                this.diagramController.editNote(this.note);
             }
         },
 
         initialize : function (options) {
-
+            this.editMode = options.editMode;
             this.diagramController = options.diagramController;
 
-            if(options.editMode) {
-                this.editMode = true;
-
-                this.banner = this._createFromExisting();
-
-            } else {
-                this.editMode = false;
-            }
         },
 
-        _createFromExisting : function () {
+        setType : function(type) {
 
-
-            return this.diagramController.diagramModel.model.children.diagrams.children[this.diagramController.contextPath[1]].children.banner.children['banner'].unwrap();
+            this.note.type = type;
         },
 
-        setDescription : function (description){
-
-            this.banner.description = description;
-
-        },
-
-
-        setTitle : function (title){
-
-            this.banner.title.text = title;
-
-        },
-
-
-        setAuthor : function (author){
-            this.banner.creator = author;
-        },
-
-
-        setDate : function (date){
-
-            this.banner.created = date;
+        setText : function (text) {
+            this.note.text = text;
         }
     });
 });

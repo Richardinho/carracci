@@ -25,6 +25,13 @@ define(["BaseType"],
 
         },
 
+        on : function (a, b, c) {
+
+            this.model.on(a, b, c);
+
+        },
+
+
         getTopArrow : function () {
 
             return this.model.children['nodes'].children['top'];

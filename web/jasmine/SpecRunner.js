@@ -9,7 +9,8 @@ require.config({
 		underscore : 'lib/underscore',
 		jasmine : 'jasmine/lib/jasmine-1.2.0/jasmine',
 		'jasmine-html' : 'jasmine/lib/jasmine-1.2.0/jasmine-html',
-		spec : 'spec/'
+		spec : 'spec/',
+		'eventNode' : 'richardUtils/src/eventNode'
 	},
 	shim : {
 		/*underscore : {
@@ -38,12 +39,10 @@ require.config({
 window.store = "TestStore";
 // override local storage store name - for testing
 
-//require(['underscore', 'jquery', 'jasmine-html'], function(_, $, jasmine) {
-require([], function() {
+require(['underscore', 'jquery', 'jasmine-html'], function(_, $, jasmine) {
 
-    alert("hello world");
 
-	/*var jasmineEnv = jasmine.getEnv();
+	var jasmineEnv = jasmine.getEnv();
 	jasmineEnv.updateInterval = 1000;
 
 	var htmlReporter = new jasmine.HtmlReporter();
@@ -57,12 +56,12 @@ require([], function() {
 	var specs = [];
 
 	//specs.push('path/to/whateverSpec');
-	specs.push('whateverSpec');
+	specs.push('/richardUtils/test/nodeEventSpec.js');
 
 	$(function() {
 		require(specs, function() {
 			jasmineEnv.execute();
 		});
-	});*/
+	});
 
 });

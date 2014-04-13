@@ -1,4 +1,16 @@
 {
+    "notes" : {
+        "abc1": {
+            "text": "jfkld;",
+            "fontSize": "12",
+            "width": 300,
+            "fontFamily": "arial",
+            "paddingHorizontal": 12,
+            "type": "ConcreteCommand",
+            "xCood" : "0",
+            "yCood" : "0"
+        }
+    },
     "types": {
     "AbstractCommand": {
       "properties": {},
@@ -20,7 +32,8 @@
       "xCood": 387,
       "yCood": 139,
       "width": 95,
-      "height": 79
+      "height": 79,
+      "notes" : {}
     },
     "Invoker": {
       "properties": {},
@@ -29,7 +42,8 @@
       "xCood": 319,
       "yCood": 311,
       "width": 44,
-      "height": 49
+      "height": 49,
+      "notes" : {}
     },
     "ConcreteCommand": {
       "properties": {},
@@ -51,7 +65,8 @@
       "xCood": 477,
       "yCood": 400,
       "width": 99,
-      "height": 79
+      "height": 79,
+      "notes" : {}
     },
     "CommandManager": {
       "properties": {},
@@ -60,24 +75,38 @@
       "xCood": 635,
       "yCood": 286,
       "width": 98,
-      "height": 49
+      "height": 49,
+      "notes" : {
+
+      "abc1": {
+        "text": "jdksl;fdjkls;",
+        "fontSize": "12",
+        "width": 300,
+        "fontFamily": "arial",
+        "paddingHorizontal": 12,
+        "type": "CommandManager"
+      }
+
+
+      }
     }
     },
     "banner": {
-        "banner": {
-          "title": {
-            "fontSize": 20,
-            "text": "foo",
-            "fontFamily": "arial"
-          },
-          "description": "babab baba bab",
-          "creator": "rich",
-          "width": 300,
-          "fontSize": "12",
-          "created": "jdj",
-          "fontFamily": "arial",
-          "paddingHorizontal": 12
-        }
+
+      "title": {
+        "fontSize": 20,
+        "text": "foo",
+        "fontFamily": "arial"
+      },
+      "description": "babab baba bab it's the end fo the world as we know it and I feel fine, this is a command Pattern blah ajldj djjdjddjd",
+      "author": "rich",
+      "width": 300,
+      "xCood": 100,
+      "yCood": 100,
+      "fontSize": "12",
+      "created": "jdj",
+      "fontFamily": "arial",
+      "paddingHorizontal": 12
       },
     "connectors": {
     "abc1": {
