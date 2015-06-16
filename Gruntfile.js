@@ -47,6 +47,11 @@ module.exports = function(grunt) {
             }
         },
 
+        clean: {
+            required: ["required"],
+            oldBuild: ["build"]
+        },
+
         "ftp-deploy" : {
             build: {
                 auth: {
@@ -102,8 +107,9 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-requirejs');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-contrib-clean');
 
-    grunt.task.registerTask("build", ['requirejs', 'copy']);
+    grunt.task.registerTask("build", ['clean:oldBuild', 'requirejs', 'copy', 'clean:required']);
 
 
 };
