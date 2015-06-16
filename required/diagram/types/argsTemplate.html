@@ -1,0 +1,26 @@
+
+        <div class="my__container">
+            <h2 class="argsEditor__header">Args</h2>
+            <button data-role="addArgRow" title="add a new row" class="argsEditor__button--add">add argument</button>
+            <table class="argsEditor__table">
+                <thead>
+                    <tr>
+                        <th>name</th>
+                        <th>type</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% _.each(args, function(arg) { %>
+
+                        <tr>
+                            <td><input value="<%= arg.name %>" type="text"  /></td>
+                            <td><input value="<%= arg.type %>" type="text"/></td>
+                            <td><input data-role="deleteArg" value="del" title="delete this row" tabindex="-1" type="button"/></td>
+                        </tr>
+
+                   <% }) %>
+                </tbody>
+            </table>
+            <button data-role="save" title="save edit" class="args-editor__button--save">save</button>
+            <button data-role="cancel" title="cancel edit" class="args-editor__button--cancel">cancel</button>
+       </div>

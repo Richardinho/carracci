@@ -40,6 +40,10 @@ define([
 
         },
 
+        /*
+
+
+         */
         getDistalNodeCoods : function (x, y, currentX, currentY) {
             var topY = this.typeController.getTopYLimit();
             var bottomY = this.typeController.getBottomYLimit();
@@ -57,7 +61,7 @@ define([
             };
         },
 
-
+        //  todo: this and the previous function do the same thing. Should resolve into one function.
         getProximalNodeCoods : function (x, y, currentX, currentY) {
             var topY = this.typeController.getTopYLimit();
             var bottomY = this.typeController.getBottomYLimit();

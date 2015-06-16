@@ -22,8 +22,8 @@
     "grunt": "~0.4.1",
     "grunt-contrib-jshint": "^0.11.2",
     "grunt-contrib-requirejs": "~0.4.1",
-    "grunt-ftp-deploy": "~0.0.9",
-    "grunt-karma": "~0.4.4"
+    "grunt-contrib-copy" : "~0.8.0"
+
   },
   "author": "Richard Hunter",
   "license": "MIT",

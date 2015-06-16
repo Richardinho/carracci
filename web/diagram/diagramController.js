@@ -90,7 +90,7 @@ define([
             }
 
             if(command === "create" && args[0] === "diagram") {
-
+                // todo: create my own prompt box
                 var diagramName = window.prompt("what is the name of your diagram?");
 
                 this.componentFactory.createDiagram(null,diagramName);
@@ -221,7 +221,7 @@ define([
 
 
             }, this)).catch(function (err) {
-
+                //  todo : display some more useful error to user.
                 console.log(err);
             });
 

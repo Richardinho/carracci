@@ -4,7 +4,7 @@ module.exports = function(grunt) {
     grunt.initConfig({
 
         pkg: grunt.file.readJSON('package.json'),
-
+/*
         "karma": {
 
             unit: {
@@ -12,13 +12,38 @@ module.exports = function(grunt) {
             }
 
 
-        },
+        },*/
 
         "jshint" : {
 
             src : ["web/diagram/**/*.js"],
             options: {
                 jshintrc: '.jshintrc'
+            }
+        },
+
+        copy: {
+            main : {
+                cwd: 'required',  // set working folder / root to copy
+                src: [
+                    'css/**/*.css',
+                    'diagrams/**/*',
+                    'lib/**/*',
+                    'bootstrap.js',
+                    'main.js',
+                    'reset.css'
+                ],           // copy all files and subfolders
+                dest: 'build',    // destination folder
+                expand: true           // required when using cwd
+            },
+            indexfile : {
+                src: 'web/index.html',
+                dest: 'build/index.html',
+                options: {
+                    process: function (content, srcpath) {
+                        return content.replace(/<!--underscore-placeholder-->/g,'<script src="lib/underscore.js"></script>');
+                    }
+                }
             }
         },
 
@@ -64,19 +89,21 @@ module.exports = function(grunt) {
                             ]
                         }
                     ],
-                    dir : "./build",
+                    fileExclusionRegExp: /^(.sass-cache|sass)$/,
+                    dir : "./required",
                     optimize: "uglify"
 
                 }
             }
         }
     });
-    grunt.loadNpmTasks('grunt-karma');
-    grunt.loadNpmTasks('grunt-ftp-deploy');
+    //grunt.loadNpmTasks('grunt-karma');
+    //grunt.loadNpmTasks('grunt-ftp-deploy');
     grunt.loadNpmTasks('grunt-contrib-requirejs');
     grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-contrib-copy');
 
-    grunt.task.registerTask("buildAndDeploy", ['requirejs', 'ftp-deploy']);
+    grunt.task.registerTask("build", ['requirejs', 'copy']);
 
 
 };
