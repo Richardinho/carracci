@@ -50,6 +50,6 @@ define(function () {
 
         };
 
-    }
+    };
 
 });

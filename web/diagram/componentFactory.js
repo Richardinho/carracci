@@ -3,8 +3,6 @@ define([
     'diagram/types/typeView',
     'diagram/types/typeController',
     'diagram/types/typeModel',
-    "diagram/connectors/horizontalConnectorModel",
-    "diagram/connectors/verticalConnectorModel",
     "diagram/boxHorizontalNodeMediator",
     "diagram/boxVerticalNodeMediator",
     "underscore",
@@ -16,8 +14,6 @@ define([
     "diagram/note/noteController",
     "diagram/note/noteLineView",
     'diagram/banner/editor',
-    "diagram/connectors/horizontalConnectorModel",
-    "diagram/connectors/verticalConnectorModel",
     "events/eventsBus"
     ],
     function (
@@ -25,8 +21,6 @@ define([
         TypeView,
         TypeController,
         TypeModel,
-        HorizontalConnectorModel,
-        VerticalConnectorModel,
         BoxHorizontalNodeMediator,
         BoxVerticalNodeMediator,
         _,
@@ -38,8 +32,6 @@ define([
         NoteController,
         NoteLineView,
         BannerEditor,
-        HorizontalConnectorModel,
-        VerticalConnectorModel,
         events
     )
     {
@@ -127,7 +119,7 @@ define([
                     model : bannerModel
                 });
 
-                var bannerController = new BannerController({
+                new BannerController({
 
                     view : bannerView,
                     model : bannerModel
@@ -188,7 +180,7 @@ define([
                     types : {},
                     connectors : {},
                     notes : {}
-                }
+                };
             } else {
 
                 this.diagramModel.currentDiagram = json;
@@ -217,16 +209,17 @@ define([
                 var connectors = this.diagramModel.currentDiagram.connectors;
 
                 for(var connector in connectors) {
-
+                    var boxid, mediator;
                     if(connectors[connector]['orientation'] === "horizontal") {
 
-                        var mediator = this.createHorizontalConnector(connectors[connector]);
+                        mediator = this.createHorizontalConnector(connectors[connector]);
 
                         var leftNode = connectors[connector]['nodes']['left'];
                         var rightNode = connectors[connector]['nodes']['right'];
 
+
                         if(rightNode['attached']) {
-                            var boxid = rightNode['attachedBox'];
+                            boxid = rightNode['attachedBox'];
                             new BoxHorizontalNodeMediator({
                                 nodeMediator : mediator,
                                 nodeOrientation : "right",
@@ -236,7 +229,7 @@ define([
                         }
 
                         if(leftNode['attached']) {
-                            var boxid = leftNode['attachedBox'];
+                            boxid = leftNode['attachedBox'];
 
                             new BoxHorizontalNodeMediator({
                                 nodeMediator : mediator,
@@ -248,13 +241,13 @@ define([
 
                     } else {
 
-                        var mediator = this.createVerticalConnector (connectors[connector]);
+                        mediator = this.createVerticalConnector (connectors[connector]);
 
                         var topNode = connectors[connector]['nodes']['top'];
                         var bottomNode = connectors[connector]['nodes']['bottom'];
 
                         if(topNode['attached']) {
-                            var boxid = topNode['attachedBox'];
+                            boxid = topNode['attachedBox'];
 
                             new BoxVerticalNodeMediator({
                                 nodeMediator : mediator,
@@ -265,7 +258,7 @@ define([
                         }
 
                         if(bottomNode['attached']) {
-                            var boxid = bottomNode['attachedBox'];
+                            boxid = bottomNode['attachedBox'];
 
                             new BoxVerticalNodeMediator({
                                 nodeMediator : mediator,

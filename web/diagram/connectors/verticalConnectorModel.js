@@ -43,7 +43,7 @@ define(["utility/nodeWrapper"],
 
         alternateLineStyle : function () {
 
-            this.setLineStyle(this.lineStyles[this.currentLineStyleIndex])
+            this.setLineStyle(this.lineStyles[this.currentLineStyleIndex]);
 
             this.currentLineStyleIndex = (this.currentLineStyleIndex + 1) % this.lineStyles.length;
         },

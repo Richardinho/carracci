@@ -26,7 +26,7 @@ define([
 
         show : function (stackingOrder, argsArray, left, top) {
 
-            this.$el.html(this.template({ args : argsArray }))
+            this.$el.html(this.template({ args : argsArray }));
             this.$el.css({ zIndex : stackingOrder });
             this.$el.css({ left : left, top : top });
             this.$el.show();

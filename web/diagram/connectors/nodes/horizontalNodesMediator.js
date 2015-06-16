@@ -81,7 +81,7 @@ define([
 
                 this.rightArrowModel.setAttached(true);
                 var box = boxNodeMediator.typeController.model.model.id;
-                this.rightArrowModel.model['attachedBox'] = box
+                this.rightArrowModel.model['attachedBox'] = box;
 
                 this.rightNodeTypeBoxMediator = boxNodeMediator;
 
@@ -147,7 +147,7 @@ define([
 
                         this.rightArrowModel.setXCood(
                             this.rightNodeTypeBoxMediator.calculateNodeXCood(distalNodeXCood)
-                        )
+                        );
 
                         this.setRightArrowDirection();
 
@@ -165,7 +165,7 @@ define([
             fireAttachRequest : function (orientation) {
 
 
-                eventsBus.trigger("attachRequest", this, orientation)
+                eventsBus.trigger("attachRequest", this, orientation);
 
 
             },
@@ -204,7 +204,7 @@ define([
 
                     this.rightArrowModel.setXCood(
                         this.rightNodeTypeBoxMediator.calculateNodeXCood(x)
-                    )
+                    );
                 }
 
                 if(this._leftArrowAttached() ) {
@@ -252,7 +252,7 @@ define([
 
                     this.rightArrowModel.setXCood(
                         this.rightNodeTypeBoxMediator.calculateNodeXCood(x)
-                    )
+                    );
                 }
 
                 if(this._leftArrowAttached() ) {
@@ -315,7 +315,7 @@ define([
                 } else {
                     this.rightArrowModel.setArrowDirection("right");
                 }
-                this.rightArrowModel.trigger("switchArrowHead")
+                this.rightArrowModel.trigger("switchArrowHead");
 
             },
 
@@ -330,7 +330,7 @@ define([
                     this.leftArrowModel.setArrowDirection("right");
 
                 }
-                this.leftArrowModel.trigger("switchArrowHead")
+                this.leftArrowModel.trigger("switchArrowHead");
 
             },
 

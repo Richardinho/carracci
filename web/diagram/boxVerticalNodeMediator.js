@@ -1,7 +1,6 @@
 define([
         "diagram/boxNodeMediator"
-         ]
-         ,function (
+         ],function (
             BoxNodeMediator
         ) {
 
@@ -23,7 +22,7 @@ define([
             return this.typeController.getBottomYLimit();
         },
 
-        getSecondBottomNodeCoods : function (x, y, currentX, currentY) {
+        getSecondBottomNodeCoods : function (x, y, currentX) {
 
             var leftX = this.typeController.getLeftXLimit();
             var rightX = this.typeController.getRightXLimit();
@@ -38,7 +37,7 @@ define([
 
                 x : x,
                 y : y
-            }
+            };
 
         },
 
@@ -46,15 +45,15 @@ define([
 
             if( relativeY < this.getBoxTopLimit()) {
 
-                return this.getBoxTopLimit()
+                return this.getBoxTopLimit();
             } else {
 
-                return this.getBoxBottomLimit()
+                return this.getBoxBottomLimit();
 
             }
         },
 
-        getSecondTopNodeCoods : function (x, y, currentX, currentY) {
+        getSecondTopNodeCoods : function (x, y, currentX) {
 
             var leftX = this.typeController.getLeftXLimit();
             var rightX = this.typeController.getRightXLimit();
@@ -69,7 +68,7 @@ define([
 
                 x : x,
                 y : y
-            }
+            };
         },
 
         /* methods called from nodes mediator to determine position of nodes */
@@ -87,7 +86,7 @@ define([
             return {
                 x : x,
                 y : currentY
-            }
+            };
         },
 
         getTopNodeCoods : function (x, y, currentX, currentY) {
@@ -102,7 +101,7 @@ define([
             return {
                 x : x,
                 y : currentY
-            }
+            };
         },
 
         //  private methods

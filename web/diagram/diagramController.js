@@ -169,7 +169,7 @@ define([
             switch (format) {
 
             case "jpeg":
-                console.log("jpeg not yet supported")
+                console.log("jpeg not yet supported");
             break;
             case "png":
 
@@ -180,9 +180,9 @@ define([
 
                 canvg(canvas,svg );
 
-                var dataURL = canvas.toDataURL()
+                var dataURL = canvas.toDataURL();
 
-                window.open(dataURL,'mywindow')
+                window.open(dataURL,'mywindow');
             break;
 
             default :
@@ -195,7 +195,7 @@ define([
 
         show : function () {
             //todo shouldn't do presentation here
-            return "<pre>" + this.diagramModel.toJSON() + "</pre>"
+            return "<pre>" + this.diagramModel.toJSON() + "</pre>";
         },
 
         bannerExists : function () {

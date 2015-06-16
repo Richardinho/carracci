@@ -10,7 +10,7 @@ define([
 
             return BaseType.extend({
 
-                initialize : function (options) {
+                initialize : function () {
 
                     this.$el = $('#json-viewer');
                 },

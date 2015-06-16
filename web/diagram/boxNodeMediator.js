@@ -1,7 +1,6 @@
 define([
         "BaseType"
-         ]
-         ,function (
+         ],function (
             BaseType
         ) {
 
@@ -20,7 +19,7 @@ define([
                this._moveNodeOnToBox();
             }
 
-            this.typeController.addAttachedNodeMediator(this)
+            this.typeController.addAttachedNodeMediator(this);
             this.nodeMediator.addBoxNodeMediator(this, this.nodeOrientation);
 
             this.typeController.model.on("changeHeight", this.repositionNode, this);
@@ -49,7 +48,7 @@ define([
         },
 
         destroyFromType : function () {
-            this.nodeMediator.removeBoxNodeMediator(this.nodeOrientation)
+            this.nodeMediator.removeBoxNodeMediator(this.nodeOrientation);
         }
 
     });

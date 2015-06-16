@@ -49,7 +49,7 @@ define(function () {
             },
             lineStyle : "solid"
         };
-    }
+    };
 
 
 });

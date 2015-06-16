@@ -1,11 +1,10 @@
 define(["BaseType",
         "utility/svg",
-         "diagram/connectors/nodes/svgArrow",
-         "diagram/connectors/nodes/nodeModel"],function (
+         "diagram/connectors/nodes/svgArrow"
+         ],function (
             BaseType,
             svg,
-            Arrow,
-            NodeModel
+            Arrow
         ) {
 
 
@@ -34,7 +33,7 @@ define(["BaseType",
 
                 this.arrow = new Arrow({
                     model : this.model
-                })
+                });
             }
             this.node.toFront();
         },
@@ -77,7 +76,7 @@ define(["BaseType",
             if(this.arrow) {
                 this.arrow.move();
             }
-            this.node.toFront()
+            this.node.toFront();
 
         }
 

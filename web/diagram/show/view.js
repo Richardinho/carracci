@@ -13,7 +13,7 @@ define([
 
             initialize : function (options) {
 
-                this.$el = options.el
+                this.$el = options.el;
                 console.log("show view");
                 this.show();
             },
@@ -26,7 +26,7 @@ define([
                 this.$el.css({ display : "none" });
             },
 
-            show : function (diagram) {
+            show : function () {
 
                 this.$el.html(this.template());
 

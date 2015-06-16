@@ -6,7 +6,7 @@ define(["BaseType", 'utility/typeBox'],function (BaseType, TypeBox) {
 
         initialize : function (options) {
 
-            this.model = options.model
+            this.model = options.model;
 
             this.model.on("update:position", this.move, this);
             this.model.on("update", this.update, this);

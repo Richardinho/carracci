@@ -42,7 +42,7 @@ define([
 
                 var args = value.split(/,/);
 
-                argsArray = _.reduce( args , function (memo, value, index) {
+                argsArray = _.reduce( args , function (memo, value) {
 
                     var arr = value.split(/:/);
                     memo.push({ name : arr[0], type : arr[1] });

@@ -75,7 +75,7 @@ define([
 
                         var rightArrowView = new ArrowView({
                             model : rightArrowModel
-                        })
+                        });
 
                         var horizontalArrowMediator = new HorizontalNodesMediator({
                             leftArrowModel : leftArrowModel,
@@ -116,6 +116,6 @@ define([
                         return  horizontalArrowMediator;
 
                     }
-                }
+                };
 
             });

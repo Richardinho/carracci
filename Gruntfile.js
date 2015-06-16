@@ -14,6 +14,14 @@ module.exports = function(grunt) {
 
         },
 
+        "jshint" : {
+
+            src : ["web/diagram/**/*.js"],
+            options: {
+                jshintrc: '.jshintrc'
+            }
+        },
+
         "ftp-deploy" : {
             build: {
                 auth: {
@@ -54,7 +62,7 @@ module.exports = function(grunt) {
                                 'canvg',
                                 'rgbColor'
                             ]
-                        },
+                        }
                     ],
                     dir : "./build",
                     optimize: "uglify"
@@ -66,7 +74,9 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-karma');
     grunt.loadNpmTasks('grunt-ftp-deploy');
     grunt.loadNpmTasks('grunt-contrib-requirejs');
+    grunt.loadNpmTasks('grunt-contrib-jshint');
 
-    grunt.task.registerTask("buildAndDeploy", ['requirejs', 'ftp-deploy'])
+    grunt.task.registerTask("buildAndDeploy", ['requirejs', 'ftp-deploy']);
+
 
 };

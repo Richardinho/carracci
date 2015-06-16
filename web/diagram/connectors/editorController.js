@@ -24,7 +24,7 @@ define([
             });
 
             this.view.$el.on("click", "[data-role=cancel]", $.proxy(this.close, this));
-            this.view.$el.on("click", "[data-role=delete]", $.proxy(this.del, this))
+            this.view.$el.on("click", "[data-role=delete]", $.proxy(this.del, this));
 
         },
 

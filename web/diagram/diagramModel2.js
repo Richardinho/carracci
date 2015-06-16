@@ -44,7 +44,7 @@ define([
                             this.requestedNode = {
                                 nodeMediator : nodeMediator,
                                 nodeOrientation : nodeOrientation
-                            }
+                            };
                         });
 
                         eventsBus.on("receiveRequest", function (typeController) {
@@ -88,7 +88,7 @@ define([
                     },
 
 
-                    createVerticalConnector : function (diagram) {
+                    createVerticalConnector : function () {
 
                         var id = idGenerator.nextId(); //todo id system needs a lot of work : at present there are duplicate ids when you load an existing diagram
 
@@ -98,7 +98,7 @@ define([
 
                     },
 
-                    createHorizontalConnector : function (diagram) {
+                    createHorizontalConnector : function () {
 
                         var id = idGenerator.nextId();
 

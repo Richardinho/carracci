@@ -12,6 +12,11 @@ define([
 
     "use strict";
 
+        /*
+
+        todo: Some explanation of what this does please!
+         */
+
 
     return BaseType.extend({
 
@@ -58,8 +63,7 @@ define([
 
         _dragger : function dragger(c) {
 
-           c.drag($.proxy(onMove, this), onStart, onEnd);
-           c.attr('cursor', 'move');
+
 
            var startX, startY;
 
@@ -86,6 +90,9 @@ define([
                startX = null;
                startY = null;
            }
+
+           c.drag($.proxy(onMove, this), onStart, onEnd);
+           c.attr('cursor', 'move');
 
        }
 

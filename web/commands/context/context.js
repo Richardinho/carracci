@@ -10,6 +10,7 @@ define([
 
             "use strict";
 
+
             return Process.extend({
 
                 initialize : function (options) {

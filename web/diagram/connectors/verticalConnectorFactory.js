@@ -78,7 +78,7 @@ define([
 
                     var bottomArrowView = new NodeView({
                         model : bottomArrowModel
-                    })
+                    });
 
                     var verticalArrowMediator = new VerticalNodesMediator({
                         topArrowModel : topArrowModel,
@@ -119,6 +119,6 @@ define([
                     return verticalArrowMediator;
 
                 }
-            }
+            };
 
         });

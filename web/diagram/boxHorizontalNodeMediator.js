@@ -1,7 +1,6 @@
 define([
         "diagram/boxNodeMediator"
-         ]
-         ,function (
+         ],function (
             BoxNodeMediator
         ) {
 
@@ -32,10 +31,10 @@ define([
 
             if( relativeX > this.getBoxRightLimit()) {
 
-                return this.getBoxRightLimit()
+                return this.getBoxRightLimit();
             } else {
 
-                return this.getBoxLeftLimit()
+                return this.getBoxLeftLimit();
 
             }
 
@@ -55,7 +54,7 @@ define([
 
                 x : x,
                 y : y
-            }
+            };
         },
 
 
@@ -73,7 +72,7 @@ define([
 
                 x : x,
                 y : y
-            }
+            };
         },
 
         /* methods called from nodes mediator to determine position of nodes */
@@ -101,7 +100,7 @@ define([
 
                 x : currentX,
                 y : y
-            }
+            };
 
         },
 

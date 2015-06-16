@@ -31,9 +31,9 @@ define([
             this.view.$el.on("click", "[data-role=add-method]", $.proxy(this.addMethod, this));
             this.view.$el.on("click", "[data-role=deleteprop]", $.proxy(this.deleteProp, this));
             this.view.$el.on("click", "[data-role=deletemethod]", $.proxy(this.deleteMethod, this));
-            this.view.$el.on("click", "[data-role=methodArgs]", $.proxy(this.argsClick, this))
-            this.view.$el.on("click", "[data-role=add-note]", $.proxy(this.addNote, this))
-            this.view.$el.on("click", "[data-role=delete]", $.proxy(this.del, this))
+            this.view.$el.on("click", "[data-role=methodArgs]", $.proxy(this.argsClick, this));
+            this.view.$el.on("click", "[data-role=add-note]", $.proxy(this.addNote, this));
+            this.view.$el.on("click", "[data-role=delete]", $.proxy(this.del, this));
 
         },
 
@@ -71,7 +71,7 @@ define([
 
             notes.forEach(function (note) {
 
-                eventsBus.trigger("destroy:" + note)
+                eventsBus.trigger("destroy:" + note);
 
             });
         },
@@ -83,7 +83,7 @@ define([
 
         addNote : function () {
 
-            var id = this.diagramController.createNote(this.model)
+            var id = this.diagramController.createNote(this.model);
             this.model.model.notes.push(id);
             this.close();
 
@@ -165,11 +165,11 @@ define([
 
                                             name : argArray[0],
                                             type : argArray[1]
-                                        }
+                                        };
                                     }
                                     return memo;
 
-                                }, {})
+                                }, {});
 
                                 console.log("editor", args);
 
@@ -200,7 +200,7 @@ define([
 
                 return !!input.value;
 
-            })
+            });
 
         }
     });

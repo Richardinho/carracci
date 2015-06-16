@@ -18,23 +18,24 @@ define(["BaseType",
         },
 
         move : function () {
-            var style = this._getStyle();
+            var style = this._getStyle(),
+                path;
 
             if(style === "whiteArrow") {
-                var path = this._buildPath("arrow", true);
+                path = this._buildPath("arrow", true);
                 svgUtils.resetPath(this.element, path);
             }
             else if(style === "blackDiamond") {
-                var path = this._buildPath("diamond", true);
+                path = this._buildPath("diamond", true);
                 svgUtils.resetPath(this.element, path);
             }
 
             else if(style === "blackConnectArrow") {
-                var path = this._buildPath("connectArrow", false);
+                path = this._buildPath("connectArrow", false);
                 svgUtils.resetPath(this.element, path);
             }
             else if(style === "whiteDiamond") {
-                var path = this._buildPath("diamond", true);
+                path = this._buildPath("diamond", true);
                 svgUtils.resetPath(this.element, path);
             }
             else {
@@ -56,22 +57,23 @@ define(["BaseType",
 
         _createElement : function () {
 
-            var style = this._getStyle();
+            var style = this._getStyle(),
+                path;
 
             if(style === "whiteArrow") {
-                var path = this._buildPath("arrow", true);
+                path = this._buildPath("arrow", true);
                 this.element = svgUtils.createPath(path, "white");
             }
             else if(style === "blackDiamond") {
-                var path = this._buildPath("diamond", true);
+                path = this._buildPath("diamond", true);
                 this.element = svgUtils.createPath(path, "black");
             }
             else if(style === "whiteDiamond") {
-                var path = this._buildPath("diamond", true);
+                path = this._buildPath("diamond", true);
                 this.element = svgUtils.createPath(path, "white");
             }
             else if(style === "blackConnectArrow") {
-                var path = this._buildPath("connectArrow", false);
+                path = this._buildPath("connectArrow", false);
                 this.element = svgUtils.createPath(path);
             }
             else {
@@ -115,8 +117,6 @@ define(["BaseType",
                         this._getPoint(x - 10, y + 10)
                     ];
 
-                break;
-
                 case "bottom" :
 
                     return [
@@ -124,8 +124,6 @@ define(["BaseType",
                         this._getPoint(x + 10, y - 10),
                         this._getPoint(x - 10, y - 10)
                     ];
-
-                break;
 
                 case "left" :
 
@@ -135,8 +133,6 @@ define(["BaseType",
                         this._getPoint(x + 10, y + 10)
                     ];
 
-                break;
-
                 case "right" :
 
                     return [
@@ -144,7 +140,6 @@ define(["BaseType",
                         this._getPoint(x - 10, y + 10),
                         this._getPoint(x - 10, y - 10)
                     ];
-                break;
                 }
 
             } else if (subStyle ==="connectArrow") {
@@ -158,8 +153,6 @@ define(["BaseType",
                         this._getPoint(x - 10, y + 10)
                     ];
 
-                break;
-
                 case "bottom" :
 
                     return [
@@ -167,8 +160,6 @@ define(["BaseType",
                         this._getPoint(x, y),
                         this._getPoint(x - 10, y - 10)
                     ];
-
-                break;
 
                 case "left" :
 
@@ -178,8 +169,6 @@ define(["BaseType",
                         this._getPoint(x + 10, y + 10)
                     ];
 
-                break;
-
                 case "right" :
 
                     return [
@@ -187,7 +176,6 @@ define(["BaseType",
                         this._getPoint(x, y),
                         this._getPoint(x - 10, y - 10)
                     ];
-                break;
                 }
 
             } else if (subStyle === "diamond") {
@@ -203,8 +191,6 @@ define(["BaseType",
                         this._getPoint(x - 10, y + 10)
                     ];
 
-                break;
-
                 case "bottom" :
 
                     return [
@@ -213,8 +199,6 @@ define(["BaseType",
                         this._getPoint(x, y - 20),
                         this._getPoint(x - 10, y - 10),
                     ];
-
-                break;
 
                 case "left" :
 
@@ -225,8 +209,6 @@ define(["BaseType",
                         this._getPoint(x + 10, y + 10)
                     ];
 
-                break;
-
                 case "right" :
 
                     return [
@@ -235,7 +217,6 @@ define(["BaseType",
                         this._getPoint(x - 20, y),
                         this._getPoint(x - 10, y - 10),
                     ];
-                break;
                 }
             }
         },

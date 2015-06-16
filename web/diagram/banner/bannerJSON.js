@@ -27,6 +27,6 @@ define(function() {
             yCood : "0"
 
          };
-     }
+     };
 
 });

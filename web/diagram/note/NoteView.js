@@ -52,7 +52,7 @@ define([
 
         },
 
-        update : function (text, width) {
+        update : function () {
 
             this.svgElement.update(this.model.getText(), this.model.get('width'));
             this.model.setHeight(this.svgElement.height);

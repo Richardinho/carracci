@@ -66,9 +66,6 @@ define([
 
         _dragger : function dragger(c) {
 
-           c.drag($.proxy(onMove, this), onStart, onEnd);
-           c.attr('cursor', 'move');
-
            var startX, startY;
 
            function onMove (dx, dy) {
@@ -94,6 +91,9 @@ define([
                startX = null;
                startY = null;
            }
+
+           c.drag($.proxy(onMove, this), onStart, onEnd);
+           c.attr('cursor', 'move');
 
        },
 

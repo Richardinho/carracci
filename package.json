@@ -1,44 +1,32 @@
 {
-    "name": "carracci",
-
-    "version": "0.0.0",
-
-    "description": "A browser based command line tool for creating and editing UML class diagrams.",
-
-    "main": "Gruntfile.js",
-
-    "directories": {
-        "test": "test"
-    },
-
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/Richardinho/carracci.git"
-    },
-
-    "keywords": [
-        "uml",
-        "commandline",
-        "svg"
-    ],
-
-    "devDependencies": {
-        "grunt": "~0.4.1",
-        "grunt-contrib-jshint": "~0.6.0",
-        "grunt-karma" : "~0.4.4",
-        "grunt-ftp-deploy" : "~0.0.9",
-        "grunt-contrib-requirejs" : "~0.4.1"
-    },
-
-    "author": "Richard Hunter",
-
-    "license": "MIT",
-
-    "gitHead": "8c3d4d5b70d87549821b16617790a449d5d3ee08",
-
-    "readmeFilename": "README.md"
+  "name": "carracci",
+  "version": "0.0.0",
+  "description": "A browser based command line tool for creating and editing UML class diagrams.",
+  "main": "Gruntfile.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Richardinho/carracci.git"
+  },
+  "keywords": [
+    "uml",
+    "commandline",
+    "svg"
+  ],
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-jshint": "^0.11.2",
+    "grunt-contrib-requirejs": "~0.4.1",
+    "grunt-ftp-deploy": "~0.0.9",
+    "grunt-karma": "~0.4.4"
+  },
+  "author": "Richard Hunter",
+  "license": "MIT",
+  "gitHead": "8c3d4d5b70d87549821b16617790a449d5d3ee08",
+  "readmeFilename": "README.md"
 }

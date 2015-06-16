@@ -41,7 +41,7 @@ define([
                 } else {
                     throw {
                         name : "IncorrectNodeMediatorAttachmentError"
-                    }
+                    };
                 }
             },
 
@@ -164,7 +164,7 @@ define([
 
             // make request to join a node to a type box
             fireAttachRequest : function (orientation) {
-                eventsBus.trigger("attachRequest", this, orientation)
+                eventsBus.trigger("attachRequest", this, orientation);
             },
 
             // update from node controller
@@ -313,7 +313,7 @@ define([
                 } else {
                     this.bottomArrowModel.setArrowDirection("bottom");
                 }
-                this.bottomArrowModel.trigger("switchArrowHead")
+                this.bottomArrowModel.trigger("switchArrowHead");
 
             },
 
@@ -327,7 +327,7 @@ define([
                 } else {
                     this.topArrowModel.setArrowDirection("bottom");
                 }
-                this.topArrowModel.trigger("switchArrowHead")
+                this.topArrowModel.trigger("switchArrowHead");
 
             },
 

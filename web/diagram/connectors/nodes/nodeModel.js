@@ -30,7 +30,7 @@ define([
                         }, this);
 
                     }
-                    this.arrowModel = this.model['arrow']
+                    this.arrowModel = this.model['arrow'];
 
                     this.arrowHeadStyles = [
                         "whiteArrow",

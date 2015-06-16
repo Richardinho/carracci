@@ -1,11 +1,9 @@
 define(["BaseType",
-        "underscore",
-        "diagram/connectors/nodes/nodeModel"],
+        "underscore"],
 
         function (
              BaseType,
-             _,
-             NodeModel) {
+             _) {
 
     return BaseType.extend({
 
@@ -26,17 +24,17 @@ define(["BaseType",
 
             this.svgNode.dblclick(function () {
 
-                this.mediator.dblclick()
+                this.mediator.dblclick();
 
             }, this);
 
             this.svgNode.drag(this._onMove, this._onStart, this._onEnd);
 
             var that = this;
-            if(this.orientation === "left"
-                || this.orientation === "right"
-                || this.orientation === "top"
-                || this.orientation === "bottom") {
+            if(this.orientation === "left" ||
+                this.orientation === "right" ||
+                this.orientation === "top" ||
+                this.orientation === "bottom") {
 
                 this.svgNode.click(function (event) {
                     if(!event.altKey && event.shiftKey) {

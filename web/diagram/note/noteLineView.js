@@ -1,14 +1,11 @@
 define([
     "BaseType",
-    "utility/notePath",
-    "events/eventsBus"
-
+    "utility/notePath"
     ],
 
         function (
             BaseType,
-            NotePath,
-            events
+            NotePath
         ) {
 
 
@@ -66,7 +63,7 @@ define([
 
         _calculateX2 : function () {
 
-            return this.model.getXCood() + (this.model.get('width') / 2)
+            return this.model.getXCood() + (this.model.get('width') / 2);
         },
         _calculateY2 : function () {
 
