@@ -1,13 +1,15 @@
-define(["BaseType"],
+define(["utility/nodeWrapper"],
 
         function (
-            BaseType
+            NodeWrapper
         ) {
 
 
-    return BaseType.extend({
+    return NodeWrapper.extend({
 
         initialize : function (options) {
+
+            NodeWrapper.prototype.initialize.call(this, options);
 
             this.model = options.model;
             this.lineStyles = [
@@ -19,37 +21,24 @@ define(["BaseType"],
 
         },
 
-        fire : function (event, handler, context) {
-
-            this.model.fire(event, handler, context);
-
-        },
-
-        on : function (a, b, c) {
-
-            this.model.on(a, b, c);
-
-        },
-
-
         getTopArrow : function () {
 
-            return this.model.children['nodes'].children['top'];
+            return this.model['nodes']['top'];
         },
 
         getSecondTopNode : function () {
 
-            return this.model.children['nodes'].children['secondTop'];
+            return this.model['nodes']['secondTop'];
         },
 
         getSecondBottomNode : function () {
 
-            return this.model.children['nodes'].children['secondBottom'];
+            return this.model['nodes']['secondBottom'];
         },
 
         getBottomArrow : function () {
 
-            return this.model.children['nodes'].children['bottom'];
+            return this.model['nodes']['bottom'];
         },
 
         alternateLineStyle : function () {
@@ -60,11 +49,11 @@ define(["BaseType"],
         },
 
         setLineStyle : function (style) {
-            this.model.children['lineStyle'].set(style);
+            this.model['lineStyle'] = style;
         },
 
         getLineStyle : function () {
-            return this.model.children['lineStyle'].value;
+            return this.model['lineStyle'];
         }
 
 

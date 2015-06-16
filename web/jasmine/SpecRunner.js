@@ -10,7 +10,7 @@ require.config({
 		jasmine : 'jasmine/lib/jasmine-1.2.0/jasmine',
 		'jasmine-html' : 'jasmine/lib/jasmine-1.2.0/jasmine-html',
 		spec : 'spec/',
-		'eventNode' : 'richardUtils/src/eventNode'
+		'eventEnhancedObject' : 'richardUtils/src/enhancedObject'
 	},
 	shim : {
 		/*underscore : {

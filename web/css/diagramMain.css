@@ -64,10 +64,14 @@
   font-size: 16px;
   padding-left: 24px; }
 
+#banner-editor {
+  position: absolute;
+  left: 400px;
+  top: 300px; }
+
 .bannerEditor__panel {
   width: 500px;
   background: #dddddd;
-  z-index: 100;
   padding: 12px;
   border-radius: 4px;
   border: solid 1px cadetblue;
@@ -98,9 +102,6 @@
   display: block;
   width: 100%; }
 
-button {
-  float: left; }
-
 .bannerEditor__delete {
   float: right; }
 
@@ -130,6 +131,9 @@ button {
   position: absolute;
   right: 12px; }
 
+.modalEditor__width {
+  width: 50px; }
+
 .typeEditor__header {
   display: table;
   width: 100%; }
@@ -144,9 +148,10 @@ button {
     margin-right: 12px; }
 
 #type-editor {
+  display: flex;
   position: absolute;
-  left: 400px;
-  top: 300px; }
+  width: 100%;
+  height: 100%; }
 
 .typeEditor__panel {
   width: 500px;
@@ -154,7 +159,8 @@ button {
   padding: 12px;
   border-radius: 4px;
   border: solid 1px cadetblue;
-  display: table; }
+  display: table;
+  margin: auto; }
 
 .typeEditor__add {
   float: right; }
@@ -174,9 +180,7 @@ button {
   .editor__table td, .typeEditor_table td {
     border: solid 1px cadetblue; }
     .editor__table td:first-child, .typeEditor_table td:first-child {
-      width: 40px; }
-      .editor__table td:first-child input, .typeEditor_table td:first-child input {
-        text-align: right; }
+      width: 80px; }
     .editor__table td input, .typeEditor_table td input {
       outline: none;
       border: none;
@@ -257,3 +261,35 @@ td [type=button] {
 
 .argsEditor__button--add {
   margin: 6px 0; }
+
+#connector-editor {
+  position: absolute;
+  left: 400px;
+  top: 200px; }
+
+.connector-editor__panel {
+  width: 200px;
+  background: #dddddd;
+  padding: 12px;
+  border-radius: 4px;
+  border: solid 1px cadetblue;
+  display: table; }
+
+#json-viewer {
+  position: absolute;
+  left: 400px;
+  top: 100px; }
+
+.jsonViewer__panel {
+  width: 500px;
+  background: #dddddd;
+  padding: 12px;
+  border-radius: 4px;
+  border: solid 1px cadetblue;
+  margin: 200px auto;
+  display: table; }
+
+.jsonViewer__panel--interior {
+  background: white;
+  border: solid 1px #666;
+  padding: 6px; }

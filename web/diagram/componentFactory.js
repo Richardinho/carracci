@@ -15,26 +15,32 @@ define([
     "diagram/note/noteModel",
     "diagram/note/noteController",
     "diagram/note/noteLineView",
-    'diagram/banner/editor'
+    'diagram/banner/editor',
+    "diagram/connectors/horizontalConnectorModel",
+    "diagram/connectors/verticalConnectorModel",
+    "events/eventsBus"
     ],
     function (
-    BaseType,
-    TypeView,
-    TypeController,
-    TypeModel,
-    HorizontalConnectorModel,
-    VerticalConnectorModel,
-    BoxHorizontalNodeMediator,
-    BoxVerticalNodeMediator,
-    _,
-    BannerView,
-    BannerController,
-    BannerModel,
-    NoteView,
-    NoteModel,
-    NoteController,
-    NoteLineView,
-    BannerEditor
+        BaseType,
+        TypeView,
+        TypeController,
+        TypeModel,
+        HorizontalConnectorModel,
+        VerticalConnectorModel,
+        BoxHorizontalNodeMediator,
+        BoxVerticalNodeMediator,
+        _,
+        BannerView,
+        BannerController,
+        BannerModel,
+        NoteView,
+        NoteModel,
+        NoteController,
+        NoteLineView,
+        BannerEditor,
+        HorizontalConnectorModel,
+        VerticalConnectorModel,
+        events
     )
     {
 
@@ -61,21 +67,11 @@ define([
             this.banner = {};
         },
 
-        createNote : function (diagram, typeModel) {
+        createNote : function (typeModel) {
 
-            var rawNoteModel = this.diagramModel.createNote( diagram  );
+            var rawNoteModel = this.diagramModel.createNote(typeModel.model.id);
             this.createNoteFromModel(rawNoteModel, typeModel);
-
-        },
-
-        deleteNote : function (name) {
-
-            var diagramName = this.diagramModel.currentDiagram.name;
-
-            this.diagramModel.model
-                .children['diagrams']
-                .children[diagramName]
-                .children['notes'].deleteChild(name);
+            return rawNoteModel.id;
 
         },
 
@@ -102,27 +98,24 @@ define([
                 view : view
             });
 
-
         },
 
+
+
         //  banner should be a 'singleton'
-        createBanner : function (diagram, bannerJSON) {
+        createBanner : function (rawBannerModel) {
+
+            if(!rawBannerModel) {
+
+                rawBannerModel = this.diagramModel.createBanner();
+
+            }
 
             if(this.bannerEditor) {
 
                 alert("banner already exists");
 
             } else {
-
-                var rawBannerModel = this.diagramModel.createBanner( diagram , {
-                    title : { text : "default title" },
-                    description : "default descripiton",
-                    author : "default author",
-                    width  : "300",
-                    created : "richard",
-                    xCood : "0",
-                    yCood : "0"
-                });
 
                 // for meantime just use bannerJSON for 'model' in view
                 var bannerModel = new BannerModel({
@@ -141,34 +134,25 @@ define([
 
                 });
 
-                this.bannerEditor = new BannerEditor({
+                return bannerModel;
 
-                    model : bannerModel
-                });
+            }
+        },
 
-                this.bannerEditor.open();
+        createType : function (json) {
+
+
+
+            if(!json) {
+
+                json = this.diagramModel.createType();
 
             }
 
-        },
-
-        deleteBanner : function () {
-
-            this.diagramModel.model
-                .children['diagrams']
-                .children[this.diagramModel.currentDiagram.name]
-                .deleteChild('banner')
-
-        },
-
-        createType : function ( diagram ) {
-
-            var rawTypeModel = this.diagramModel.createType( diagram );
-
             var typeModel = new TypeModel({
-                diagramModel : this.diagramModel.model,
-                model : rawTypeModel
+                model : json
             });
+
 
             var typeView = new TypeView({
                 model : typeModel,
@@ -179,25 +163,9 @@ define([
                 view : typeView
             });
 
-            //this.typeControllerMap[typeName] = typeController;
+            this.typeControllerMap[json.id] = typeController;
 
         },
-
-        deleteType : function (type) {
-
-            //this.typeControllerMap[type].destroy();
-
-            var diagramName = this.diagramModel.currentDiagram.name;
-
-            this.diagramModel.model
-                    .children['diagrams']
-                    .children[diagramName]
-                    .children['types']
-                    .deleteChild(type);
-
-        },
-
-
 
         deleteDiagram : function (diagramName) {
 
@@ -211,45 +179,108 @@ define([
             this.diagramModel.deleteDiagram(diagramName);
         },
 
-        createDiagram : function (diagramName, node) {
+        createDiagram : function (json, name) {
 
-            this.diagramModel.createDiagram(diagramName, node);
+            if(!json) {
 
-            //  if  we are passing in already created json
-            if(node) {
+                this.diagramModel.currentDiagram =  {
+                    name: name,
+                    types : {},
+                    connectors : {},
+                    notes : {}
+                }
+            } else {
 
+                this.diagramModel.currentDiagram = json;
                 // parse diagram and create types and connectors.
-                var types = this.diagramModel.model
-                                .children['diagrams']
-                                .children[diagramName]
-                                .children['types']
-                                .children;
+                var types = this.diagramModel.currentDiagram.types;
 
                 for(var type in types) {
 
-                    var typeModel = new TypeModel({
-                        diagramModel : this.diagramModel.model,
-                        model : types[type]
-                    });
-
-                    var typeView = new TypeView({
-                        model : typeModel,
-                    });
-
-                    var tc = new TypeController({
-                        model : typeModel,
-                        view : typeView
-                    });
-
-                    this.typeControllerMap[typeModel.getName()] = tc;
+                    this.createType(types[type]);
 
                 }
+                var notes = this.diagramModel.currentDiagram.notes;
 
-                var notes = this.diagramModel.model
-                                .children['diagrams']
-                                .children[diagramName]
-                                .children['notes']
-                                .children;
+                for(var note in notes) {
+                    var typeModel = this.typeControllerMap[notes[note].typeId].model;
+
+                    this.createNoteFromModel(notes[note], typeModel);
+                }
+
+                events.trigger("createnotes");
+
+                var banner =  this.diagramModel.currentDiagram.banner;
+
+                this.createBanner(banner);
+
+                var connectors = this.diagramModel.currentDiagram.connectors;
+
+                for(var connector in connectors) {
+
+                    if(connectors[connector]['orientation'] === "horizontal") {
+
+                        var mediator = this.createHorizontalConnector(connectors[connector]);
+
+                        var leftNode = connectors[connector]['nodes']['left'];
+                        var rightNode = connectors[connector]['nodes']['right'];
+
+                        if(rightNode['attached']) {
+                            var boxid = rightNode['attachedBox'];
+                            new BoxHorizontalNodeMediator({
+                                nodeMediator : mediator,
+                                nodeOrientation : "right",
+                                typeController : this.typeControllerMap[boxid],
+                                dontMove : true
+                            });
+                        }
+
+                        if(leftNode['attached']) {
+                            var boxid = leftNode['attachedBox'];
+
+                            new BoxHorizontalNodeMediator({
+                                nodeMediator : mediator,
+                                nodeOrientation : "left",
+                                typeController : this.typeControllerMap[boxid],
+                                dontMove : true
+                            });
+                        }
+
+                    } else {
+
+                        var mediator = this.createVerticalConnector (connectors[connector]);
+
+                        var topNode = connectors[connector]['nodes']['top'];
+                        var bottomNode = connectors[connector]['nodes']['bottom'];
+
+                        if(topNode['attached']) {
+                            var boxid = topNode['attachedBox'];
+
+                            new BoxVerticalNodeMediator({
+                                nodeMediator : mediator,
+                                nodeOrientation : "top",
+                                typeController : this.typeControllerMap[boxid],
+                                dontMove : true
+                            });
+                        }
+
+                        if(bottomNode['attached']) {
+                            var boxid = bottomNode['attachedBox'];
+
+                            new BoxVerticalNodeMediator({
+                                nodeMediator : mediator,
+                                nodeOrientation : "bottom",
+                                typeController : this.typeControllerMap[boxid],
+                                dontMove : true
+                            });
+                        }
+
+                    }
+
+
+                }
+                /*
+                var notes = this.diagramModel.model.notes;
 
                 for(var note in notes) {
 
@@ -344,40 +375,42 @@ define([
                         }
                     }
                 }
+                */
 
             }
         },
 
-        createProperty : function(diagram, type, propertyName) {
-            this.diagramModel.createProperty(diagram, type, propertyName);
-        },
+        createHorizontalConnector : function (json) {
+            if(!json) {
 
-        createMethod : function (diagram, type, methodName) {
-            this.diagramModel.createMethod(diagram, type, methodName);
-        },
+                json = this.diagramModel.createHorizontalConnector();
+            }
+            var horizontalConnectorModel =  new HorizontalConnectorModel({
+                model : json
+            });
 
-        createHorizontalConnector : function (diagram) {
-
-            var horizontalConnectorModel = this.diagramModel.createHorizontalConnector(diagram);
             var connectorMediator = this.horizontalConnectorFactory.create(horizontalConnectorModel);
             this.connectorMediators[horizontalConnectorModel.model.name] = connectorMediator;
+            console.log("connector mediator",connectorMediator);
+            return connectorMediator;
         },
 
-        createVerticalConnector : function (diagram) {
-            var verticalConnectorModel = this.diagramModel.createVerticalConnector(diagram);
+        createVerticalConnector : function (json) {
+
+            if(!json) {
+
+                json = this.diagramModel.createVerticalConnector();
+            }
+
+            var verticalConnectorModel =  new VerticalConnectorModel({
+                model : json
+            });
             var connectorMediator = this.verticalConnectorFactory.create(verticalConnectorModel);
             this.connectorMediators[verticalConnectorModel.model.name] = connectorMediator;
-        },
-
-        deleteConnector : function (connectorId) {
-
-            var diagramName = this.diagramModel.currentDiagram.name;
-
-            this.diagramModel.model
-                    .children['diagrams']
-                    .children[diagramName]
-                    .children['connectors'].deleteChild(connectorId);
+            return connectorMediator;
         }
+
+
 
     });
 

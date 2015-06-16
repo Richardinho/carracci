@@ -15,43 +15,51 @@ define([
 
         initialize : function (options) {
 
+            console.log("create new note view");
             this.model = options.model;
 
-            this.model.on("change", this.updateLocation, this);
-            this.model.on("change:text", this.updateText, this);
+            this.model.on("update:position", this.updateLocation, this);
+            this.model.on("save", this.update, this);
 
             this.svgElement = new Note({
 
                 width : this.model.getWidth(),
                 height : this.model.height,
-                text : this.model.getText()
+                text : this.model.getText(),
+                xCood : this.model.getXCood(),
+                yCood : this.model.getYCood()
 
             });
 
             this.model.setHeight(this.svgElement.height);
 
-            this.model.on("delete", this.destroy, this);
+            this.model.on("destroy", this.destroy, this);
 
         },
 
         destroy : function () {
+            this.model.off("update:position", this.updateLocation, this);
+            this.model.off("save", this.update, this);
+            this.model.off("destroy", this.destroy, this);
 
             this.svgElement.destroy();
 
         },
 
         updateLocation : function () {
-            console.log("update location of note");
+
             this.svgElement.setCoods(this.model.getXCood(), this.model.getYCood());
 
         },
 
-        updateText : function () {
+        update : function (text, width) {
 
+            this.svgElement.update(this.model.getText(), this.model.get('width'));
+            this.model.setHeight(this.svgElement.height);
 
-            console.log("update text");
-            this.svgElement.resetText(this.model.getText());
         }
+
+
 
     });
 });

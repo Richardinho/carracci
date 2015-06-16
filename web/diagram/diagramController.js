@@ -30,21 +30,20 @@ define([
         current place within the model.
      */
 
-    return BaseType.extend({
+     "use strict";
+
+     return BaseType.extend({
 
         initialize : function (options) {
 
             this.diagramModel = options.diagramModel;
 
-            this.contextPath = [];
             this.componentFactory = options.componentFactory;
-            this.selected = [];
 
             this.mainMenu = new MainMenu({
 
                 diagramController : this
             });
-
 
             this.widgetManager = new WidgetManager({
 
@@ -53,6 +52,8 @@ define([
 
             eventsBus.on("dblclick:type", this.showTypeEditor, this);
             eventsBus.on("dblclick:note", this.showNoteEditor, this);
+            eventsBus.on("dblclick:connector", this.showConnectorEditor, this);
+            eventsBus.on("dblclick:banner", this.showBannerEditor, this);
 
         },
 
@@ -67,40 +68,42 @@ define([
             this.widgetManager.showNoteEditor(noteModel);
 
         },
-        // remove, use, create, export, set, con, show, load, help
 
-        // for editing
+        showConnectorEditor : function (connectorModel) {
 
-        createBanner : function(bannerModel) {
+            this.widgetManager.showConnectorEditor(connectorModel);
+        },
 
-            this.componentFactory.createBanner(this.contextPath[1], bannerModel);
+        showBannerEditor : function (bannerModel) {
+
+            this.widgetManager.showBannerEditor(bannerModel);
 
         },
 
         command : function (commandObj) {
 
             var command = commandObj.command,
-                args = commandObj.args,
-                diagramName = this.contextPath[1];
+                args = commandObj.args;
 
             if(command === "create" && args[0] === "type") {
-                this.componentFactory.createType(diagramName);
+                this.componentFactory.createType();
             }
 
             if(command === "create" && args[0] === "diagram") {
 
                 var diagramName = window.prompt("what is the name of your diagram?");
 
-                this.componentFactory.createDiagram(diagramName);
+                this.componentFactory.createDiagram(null,diagramName);
 
-                this.use('diagram', diagramName);
+                this.mainMenu.componentModel.diagram = true;
+
             }
 
             if (command === "create" && args[0] === "banner") {
 
-                //this.bannerEditor.open();
+                var model = this.componentFactory.createBanner();
 
-                this.componentFactory.createBanner(diagramName);
+                this.widgetManager.showBannerEditor(model);
 
             }
 
@@ -108,161 +111,56 @@ define([
 
                 if(args[1] === "horizontal") {
 
-                    console.log("create horizontal conenctor");
-                    this.componentFactory.createHorizontalConnector(diagramName);
+                    this.componentFactory.createHorizontalConnector();
                 }
                 else {
 
-                    console.log("create vertical conncetor");
-                    this.componentFactory.createVerticalConnector(diagramName);
+                    this.componentFactory.createVerticalConnector();
                 }
+            }
+
+            if(command === "showjson") {
+
+                this.widgetManager.showJson(this.diagramModel.currentDiagram);
+
+            }
+
+            if (command === "delete" && args[0] === "diagram") {
+                this.mainMenu.componentModel.diagram = false;
+                eventsBus.trigger("destroy");
+                delete this.diagramModel.currentDiagram;
+
+            }
+
+            if(command === "load") {
+                this.mainMenu.componentModel.diagram = true;
+                this.load(args[0]);
 
             }
 
         },
 
-        removeBanner : function (bannerModel) {
-
-            this.componentFactory.removeBanner(this.contextPath[1], bannerModel);
-
-        },
 
         createNote : function (typeModel) {
 
-            this.componentFactory.createNote(this.contextPath[1], typeModel);
+            return this.componentFactory.createNote(typeModel);
         },
 
-        deleteNote : function (name) {
+        deleteNote : function (id) {
 
-            this.componentFactory.deleteNote(name);
+            this.diagramModel.deleteNote(id);
+        },
+
+        deleteType : function (id) {
+
+            this.diagramModel.deleteType(id);
 
         },
 
+        deleteConnector : function (connectorId) {
 
-        /* manages the contextPath, extending it or reducing it as needed */
-        use : function () {
-            //todo: test that each artifact actually exists.
-            var artifact = arguments[0];
-
-            switch (artifact) {
-
-            case "diagram" :
-
-                if(arguments.length === 2) {
-                    if(this.contextPath.length !== 0) {
-
-                        return Promise.reject("Cannot navigate to diagram context from this point in context tree");
-                    }
-                    if(this.diagramModel.checkDiagramExists(arguments[1])) {
-                        this.contextPath.push("diagram");
-                        this.contextPath.push(arguments[1]);
-                    }  else {
-
-                        return Promise.reject("diagram does not exist");
-                    }
-                    return Promise.resolve("context path has been updated: " +  this.contextPath);
-
-                } else {
-                    // we want to got towards the root of the context tree
-                    if(this.contextPath.length > 2) {
-                        this.contextPath = this.contextPath.slice(0,2);
-                        return Promise.resolve("context path updated " +  this.contextPath);
-                    } else {
-                        return Promise.reject("You must supply an artifact type and the name of it");
-                    }
-                }
-                break;
-            case "type" :
-                if(arguments.length === 2) {
-
-                    if(this.contextPath.length !== 2) {
-
-                        return Promise.reject("Context path is in incorrect state for this action");
-                    }
-
-                    if(this.diagramModel.checkTypeExists(
-                        this.contextPath[1],
-                        arguments[1]
-                    )){
-
-                        this.contextPath.push("type");
-                        this.contextPath.push(arguments[1])
-
-                        return Promise.resolve("context path has been updated: " + this.contextPath);
-
-                    }  else {
-
-                        return Promise.reject("this artifact does not exist" + arguments[1]);
-
-                    }
-                } else if(this.contextPath.length > 4) {
-
-                    this.contextPath = this.contextPath.slice(0,4);
-                    return Promise.resolve("context path has been updated: " + this.contextPath);
-                } else {
-
-                     return Promise.reject("Context path is in incorrect state for this action");
-                }
-                break;
-            case "property":
-
-                if(arguments.length === 2) {
-                    if(this.contextPath.length !== 4) {
-                        return Promise.reject("Context path is in incorrect state for this action");
-                    }
-                    if( this.diagramModel.checkPropertyExists(
-                        this.contextPath[1],
-                        this.contextPath[3],
-                        arguments[1]
-                    )) {
-
-                        this.contextPath.push("property");
-                        this.contextPath.push(arguments[1]);
-                        return Promise.resolve("context path has been updated: " + this.contextPath);
-
-                    } else {
-                        return Promise.reject("This property does not exist");
-                    }
-                } else {
-
-                    return Promise.reject("You must supply type 'property' and a property name");
-                }
-                break;
-            case "method" :
-                if(arguments.length === 2) {
-                    if(this.contextPath.length !== 4) {
-                        return Promise.reject("Context path is in incorrect state for this action");
-                    }
-                    if( this.diagramModel.checkMethodExists(
-                                            this.contextPath[1],
-                                            this.contextPath[3],
-                                            arguments[1]
-                                        )) {
-
-                        this.contextPath.push("method");
-                        this.contextPath.push(arguments[1]);
-                        return Promise.resolve("context path has been updated: " + this.contextPath);
-                    } else {
-                        return Promise.reject("This method does not exist");
-                    }
-                } else {
-
-                    return Promise.reject("You must supply type 'method' and a method name");
-                }
-                break;
-            default :
-                throw {
-                    name : "UnknownArtifactError",
-                    message : artifact + " not known"
-                }
-            }
+            this.diagramModel.deleteConnector(connectorId);
         },
-
-        diagramExists : function() {
-
-            return  this.contextPath[1] && this.diagramModel.checkDiagramExists(this.contextPath[1]);
-        },
-
 
         export : function () {
 
@@ -294,10 +192,6 @@ define([
             return Promise.resolve("exported to " + format);
         },
 
-        con : function () {
-
-            return this.contextPath.join(" ");
-        },
 
         show : function () {
             //todo shouldn't do presentation here
@@ -309,41 +203,28 @@ define([
             return this.diagramModel.bannerExists();
         },
 
-        typeExists : function(type) {
-
-            return this.diagramModel.checkTypeExists(this.contextPath[1],type);
-        },
 
         /*
             loads diagram by name. Throws an error if there is no such diagram currently loaded.
         */
-        load : function (diagram) {
-            // check if a diagram is currently loaded.
+        load : function (diagramname) {
 
-            if(!this.diagramModel.currentDiagram) {
-                //  get json from server
-                var that = this;
+            var promise = Promise.resolve($.ajax({
 
-                var promise = Promise.resolve($.getJSON('/diagrams/' + diagram +'.json'));
+                url : '/diagrams/' + diagramname +'.json',
+                dataType : 'json'
+            }));
 
-                return promise.then(function (data) {
+            promise.then($.proxy(function (data) {
 
-                    that.componentFactory.createDiagram(diagram, data);
+                this.componentFactory.createDiagram(data);
 
-                    that.use('diagram', diagram);
 
-                    return "diagram was created";
+            }, this)).catch(function (err) {
 
-                }, function (err) {
+                console.log(err);
+            });
 
-                    return "diagram not found";
-
-                });
-
-            } else {
-
-                return Promise.reject('You already have a loaded diagram');
-            }
         }
     });
 });

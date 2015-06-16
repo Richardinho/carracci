@@ -34,14 +34,16 @@ define([
             this.svgElement.hide();
             this.model.height = this.svgElement.height;
 
-            this.model.on("change", this.updateLocation, this);
+            this.model.on("update:position", this.updateLocation, this);
             this.model.on("selected", this.select, this);
             this.model.on("deselected", this.deselect, this);
             this.model.on("change", this.render, this);
 
-            this.model.on('delete', this.destroy, this);
+            this.model.on('destroy', this.destroy, this);
 
             this.model.on('showbanner', this.show, this);
+
+            this.show();
         },
 
         updateLocation : function () {
@@ -57,7 +59,7 @@ define([
         },
 
         destroy : function () {
-
+            this.model.off();
             this.svgElement.destroy();
 
         },

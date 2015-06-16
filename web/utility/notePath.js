@@ -29,21 +29,25 @@ define([
 
                     this.foo = this.createPathEl(path);
 
+                    this.timestamp = new Date();
+
                     this.svg.insertBefore(this.foo, this.svg.firstChild);
 
                 },
 
                 destroy : function () {
-                    console.log("notepath destroy");
+
                     this.svg.removeChild(this.foo);
 
                 },
 
                 update : function (x1, y1, x2, y2) {
-
+                    console.log(this.timestamp);
                     var pathString = this._createPathString(x1, y1, x2, y2);
-
+                    //console.log("path string", pathString);
+                   // console.log("this.foo", this.foo);
                     this.foo.setAttribute("d", pathString);
+                    // console.log("this.foo 2", this.foo);
                 },
 
                 createPathEl : function (path) {

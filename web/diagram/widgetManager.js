@@ -2,13 +2,19 @@ define([
     'BaseType',
     'diagram/types/editor',
     "diagram/types/argsController",
-    "modalEditor/controller"
+    "modalEditor/controller",
+    "diagram/connectors/editorController",
+    "diagram/banner/editor",
+    "diagram/json/jsonViewerController"
 
     ],function (
         BaseType,
         TypeEditor,
         ArgsController,
-        NotesController
+        NotesController,
+        ConnectorEditorController,
+        BannerEditorController,
+        JsonViewerController
         ) {
 
         "use strict";
@@ -31,6 +37,26 @@ define([
                 });
 
                 this.notesController = new NotesController({
+
+                    manager : this,
+                    diagramController : options.diagramController
+
+                });
+
+                this.connectorEditorController = new ConnectorEditorController({
+
+                    manager : this,
+                    diagramController : options.diagramController
+                });
+
+                this.bannerEditorController = new BannerEditorController({
+
+                    manager : this,
+                    diagramController : options.diagramController
+                });
+
+                this.jsonViewerController = new JsonViewerController({
+
                     manager : this
                 });
 
@@ -50,17 +76,40 @@ define([
                 return this.stackingOrderIndex * 2;
             },
 
+            showJson : function (diagram) {
+
+                this.stackingOrderIndex++;
+                this._showOverlay();
+                this.jsonViewerController.show(this.getWidgetIndex(), diagram);
+
+            },
+
             showTypeEditor : function (typeModel) {
 
                 this.stackingOrderIndex++;
                 this._showOverlay();
-                this.typeEditor.show(this.getWidgetIndex(),typeModel );
+                this.typeEditor.show(this.getWidgetIndex(), typeModel );
             },
 
             showArgsEditor : function (el, controller) {
                 this.stackingOrderIndex++;
                 this._showOverlay();
                 this.argsController.show(this.getWidgetIndex(), el, controller);
+
+            },
+
+            showConnectorEditor : function (connectorModel) {
+
+                this.stackingOrderIndex++;
+                this._showOverlay();
+                this.connectorEditorController.show(this.getWidgetIndex(), connectorModel);
+            },
+
+            showBannerEditor : function(bannerModel) {
+                console.log("widget manager", bannerModel);
+                this.stackingOrderIndex++;
+                this._showOverlay();
+                this.bannerEditorController.show(this.getWidgetIndex(), bannerModel);
 
             },
 

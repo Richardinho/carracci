@@ -17,8 +17,6 @@ define([
                     this.$el = options.el;
                 },
 
-
-
                 initialTemplate : _.template(initialTemplate),
 
                 template : _.template(template),
@@ -43,6 +41,4 @@ define([
                     }
                 }
             });
-
-
         });

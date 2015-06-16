@@ -15,52 +15,44 @@ define([
 
         initialize : function (options) {
 
-            this.model = options.model;
-
             this.view = new BannerEditorView({
-                el : $('#banner-editor'),
-                model : this.model
+                el : $('#banner-editor')
             });
 
+            this.manager = options.manager;
+
             this.view.$el.on("click", "[data-role=save]", $.proxy(this.save, this));
-            this.view.$el.on("click", "[data-role=cancel]", $.proxy(this.cancel, this));
+            this.view.$el.on("click", "[data-role=cancel]", $.proxy(this.close, this));
 
 
         },
 
         save : function () {
 
-            var result = {};
+            $('input, textarea', this.view.$el).each($.proxy(function (index, element) {
 
-            $('input, textarea', this.view.$el).each(function (index, element) {
+                this.model.model[element.name] = element.value;
+            }, this));
 
-                result[element.name] = element.value;
-            });
+            this.model.trigger("change");
 
-            this.model.save(result);
-
-            this.model.broadcast("showbanner");
-
-            this.view.hide();
+            this.close();
 
         },
 
-        cancel : function () {
+        show : function (stackingOrder, model) {
 
-            this.view.hide();
+            this.model = model;
+
+            this.view.show(stackingOrder, model);
 
         },
 
-        open : function () {
+        close : function () {
 
-            this.view.render();
-
+            this.manager.onCloseWidget();
+            this.view.hide();
         }
-
-
-
-
-
 
 
     });

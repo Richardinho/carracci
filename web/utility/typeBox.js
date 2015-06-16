@@ -58,6 +58,8 @@ define(['utility/svg', 'BaseType', 'underscore'], function(svg, BaseType, _ ) {
             if(this.model.getFlavor() === 'interface' || this.model.getFlavor() === 'abstract') {
                 this.flavorText = this.createFlavorText(this.model.getFlavor());
             }
+
+
             this.nameText = this.createNameText(name );
 
             this.createProperties();
@@ -351,6 +353,7 @@ define(['utility/svg', 'BaseType', 'underscore'], function(svg, BaseType, _ ) {
             function formatArgs(args) {
                 var result = ""
                 _.each(args, function(arg) {
+
                     result += arg.name + ":" + arg.type + ",";
                 });
                 return result.substring(0, result.length-1);

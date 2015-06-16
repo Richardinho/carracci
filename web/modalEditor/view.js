@@ -45,13 +45,16 @@ define([
             },
 
             render : function (stackingOrder) {
-                console.log("render mode view");
+
                 this.$el.html(this.template({
 
                     contents : this.model.getText()
                 }));
 
-                this._position();
+                var x = this.model.getXCood();
+                var y = this.model.getYCood();
+
+                this._position(x, y);
                 this.$el.css({ zIndex : stackingOrder });
                 this.$el.show();
 
@@ -67,11 +70,16 @@ define([
                  return this.$el.find('[data-role=contents]').val();
             },
 
-            _position : function (x, y, width, height) {
+            getWidthContents : function () {
+
+                return this.$el.find('[data-role=width]').val();
+            },
+
+            _position : function (x, y) {
 
                 $('[data-role=editor-panel]',this.$el).css({
-                    left : this.componentModel.left,
-                    top : this.componentModel.top
+                    left : x + 50,
+                    top : y + 50
                 });
             }
 

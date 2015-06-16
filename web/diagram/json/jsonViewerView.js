@@ -1,6 +1,6 @@
 define([
     "BaseType",
-    "text!diagram/banner/editorTemplate.html"
+    "text!diagram/json/jsonViewerTemplate.html"
     ], function (
         BaseType,
         template
@@ -12,15 +12,14 @@ define([
 
                 initialize : function (options) {
 
-                    this.$el = options.el;
-                    this.$el.hide();
+                    this.$el = $('#json-viewer');
                 },
 
                 template : _.template(template),
 
                 show : function (stackingOrder, model) {
 
-                    this.$el.html(this.template(model.model));
+                    this.$el.html(this.template({ diagram : model}));
 
                     this.$el.css({ zIndex : stackingOrder });
                     this.$el.show();

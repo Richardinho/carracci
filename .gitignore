@@ -3,3 +3,5 @@
 .ftppass
 build/
 web/.sass-cache/
+node_modules
+.sass-cache

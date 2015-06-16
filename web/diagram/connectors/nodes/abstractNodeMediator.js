@@ -1,9 +1,11 @@
 define([
     "BaseType",
-    "diagram/connectors/nodes/nodeModel"
+    "diagram/connectors/nodes/nodeModel",
+    "events/eventsBus"
     ], function (
         BaseType,
-        NodeModel
+        NodeModel,
+        events
     ) {
 
         "use strict";
@@ -18,28 +20,25 @@ define([
 
                 this.connectorModel = options.connectorModel;
 
-                this.connectorModel.on("node-selected", function() {
+                events.on("destroy", function () {
 
-                    if(this.selected) {
-
-                        this.connectorModel.fire("deselected", this);
-                        this.selected = false;
-
-                    } else {
-
-                        this.connectorModel.fire("selected", this);
-                        this.selected = true;
-
-                    }
+                    this.connectorModel.trigger("destroy");
 
                 }, this);
 
-                this.connectorModel.on("delete", this.detachAll, this);
+                this.connectorModel.on("destroy", this.destroy, this);
+
+            },
+
+            dblclick: function () {
+
+                events.trigger("dblclick:connector", this.connectorModel);
 
             },
 
             changeLineStyle : function () {
                 this.connectorModel.alternateLineStyle();
+                this.connectorModel.trigger("change:lineStyle");
             },
 
             getName : function () {

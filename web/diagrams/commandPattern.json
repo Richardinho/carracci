@@ -1,227 +1,204 @@
 {
-    "notes" : {
-        "abc1": {
-            "text": "jfkld;",
-            "fontSize": "12",
-            "width": 300,
-            "fontFamily": "arial",
-            "paddingHorizontal": 12,
-            "type": "ConcreteCommand",
-            "xCood" : "0",
-            "yCood" : "0"
-        }
-    },
+    "name": "commandpattern",
     "types": {
-    "AbstractCommand": {
-      "properties": {},
-      "flavor": "class",
-      "methods": {
-        "doIt": {
-          "name": "doIt",
-          "visibility": "public",
-          "returnType": "void",
-          "args": {}
+        "abc1": {
+            "name": "ConcreteCommand",
+            "id": "abc1",
+            "properties": {},
+            "flavor": "class",
+            "methods": {
+                "doIt": {
+                    "visibility": "public",
+                    "name": "doIt",
+                    "returnType": "void"
+                },
+                "undoit": {
+                    "visibility": "public",
+                    "name": "undoit",
+                    "returnType": "void"
+                }
+            },
+            "xCood": 930,
+            "yCood": 415,
+            "width": 99,
+            "height": 79,
+            "notes": []
         },
-        "undoIt": {
-          "name": "undoIt",
-          "visibility": "public",
-          "returnType": "void",
-          "args": {}
-        }
-      },
-      "xCood": 387,
-      "yCood": 139,
-      "width": 95,
-      "height": 79,
-      "notes" : {}
-    },
-    "Invoker": {
-      "properties": {},
-      "flavor": "class",
-      "methods": {},
-      "xCood": 319,
-      "yCood": 311,
-      "width": 44,
-      "height": 49,
-      "notes" : {}
-    },
-    "ConcreteCommand": {
-      "properties": {},
-      "flavor": "class",
-      "methods": {
-        "doIt": {
-          "name": "doIt",
-          "visibility": "public",
-          "returnType": "void",
-          "args": {}
+        "abc2": {
+            "name": "CommandManager",
+            "id": "abc2",
+            "properties": {},
+            "flavor": "class",
+            "methods": {},
+            "xCood": 643,
+            "yCood": 205,
+            "width": 98,
+            "height": 49,
+            "notes": []
         },
-        "undoit": {
-          "name": "undoit",
-          "visibility": "public",
-          "returnType": "void",
-          "args": {}
+        "abc3": {
+            "name": "AbstractCommand",
+            "id": "abc3",
+            "properties": {},
+            "flavor": "abstract",
+            "methods": {
+                "doIt": {
+                    "visibility": "public",
+                    "name": "doIt",
+                    "returnType": "void"
+                },
+                "undoit": {
+                    "visibility": "public",
+                    "name": "undoit",
+                    "returnType": "void"
+                }
+            },
+            "xCood": 931,
+            "yCood": 180,
+            "width": 95,
+            "height": 94,
+            "notes": []
+        },
+        "abc4": {
+            "name": "Invoker",
+            "id": "abc4",
+            "properties": {},
+            "flavor": "class",
+            "methods": {},
+            "xCood": 642,
+            "yCood": 379,
+            "width": 44,
+            "height": 49,
+            "notes": []
         }
-      },
-      "xCood": 477,
-      "yCood": 400,
-      "width": 99,
-      "height": 79,
-      "notes" : {}
     },
-    "CommandManager": {
-      "properties": {},
-      "flavor": "class",
-      "methods": {},
-      "xCood": 635,
-      "yCood": 286,
-      "width": 98,
-      "height": 49,
-      "notes" : {
-
-      "abc1": {
-        "text": "jdksl;fdjkls;",
-        "fontSize": "12",
+    "connectors": {
+        "abc5": {
+            "orientation": "horizontal",
+            "nodes": {
+                "left": {
+                    "xCood": 686,
+                    "yCood": 404,
+                    "attached": true,
+                    "attachedBox": "abc4",
+                    "arrow": {
+                        "style": "none",
+                        "direction": "left"
+                    }
+                },
+                "proximal": {
+                    "xCood": 806,
+                    "yCood": 404,
+                    "attached": false,
+                    "attachedBox": ""
+                },
+                "distal": {
+                    "xCood": 806,
+                    "yCood": 446,
+                    "attached": false,
+                    "attachedBox": ""
+                },
+                "right": {
+                    "xCood": 930,
+                    "yCood": 446,
+                    "attached": true,
+                    "attachedBox": "abc1",
+                    "arrow": {
+                        "style": "blackConnectArrow",
+                        "direction": "right"
+                    }
+                }
+            },
+            "lineStyle": "solid"
+        },
+        "abc6": {
+            "orientation": "vertical",
+            "nodes": {
+                "top": {
+                    "xCood": 969,
+                    "yCood": 274,
+                    "attached": true,
+                    "attachedBox": "abc3",
+                    "arrow": {
+                        "style": "whiteArrow",
+                        "direction": "top"
+                    }
+                },
+                "secondTop": {
+                    "xCood": 969,
+                    "yCood": 348,
+                    "attached": false,
+                    "attachedBox": ""
+                },
+                "secondBottom": {
+                    "xCood": 969,
+                    "yCood": 348,
+                    "attached": false,
+                    "attachedBox": ""
+                },
+                "bottom": {
+                    "xCood": 969,
+                    "yCood": 415,
+                    "attached": true,
+                    "attachedBox": "abc1",
+                    "arrow": {
+                        "style": "none",
+                        "direction": "bottom"
+                    }
+                }
+            },
+            "lineStyle": "solid"
+        },
+        "abc7": {
+            "orientation": "horizontal",
+            "nodes": {
+                "left": {
+                    "xCood": 931,
+                    "yCood": 229,
+                    "attached": true,
+                    "attachedBox": "abc3",
+                    "arrow": {
+                        "style": "blackConnectArrow",
+                        "direction": "right"
+                    }
+                },
+                "proximal": {
+                    "xCood": 836,
+                    "yCood": 229,
+                    "attached": false,
+                    "attachedBox": ""
+                },
+                "distal": {
+                    "xCood": 836,
+                    "yCood": 229,
+                    "attached": false,
+                    "attachedBox": ""
+                },
+                "right": {
+                    "xCood": 741,
+                    "yCood": 229,
+                    "attached": true,
+                    "attachedBox": "abc2",
+                    "arrow": {
+                        "style": "whiteDiamond",
+                        "direction": "left"
+                    }
+                }
+            },
+            "lineStyle": "solid"
+        }
+    },
+    "notes": {},
+    "banner": {
+        "title": "Command Pattern",
+        "description": "The Command Pattern is a behavioural design pattern in which an object is used to represent and encapsulate all the information needed to call a method at a later time. This information includes the method name, the object that owns the method and values for the method parameters.",
+        "author": "Richard",
         "width": 300,
+        "fontSize": "12",
+        "created": "default",
         "fontFamily": "arial",
         "paddingHorizontal": 12,
-        "type": "CommandManager"
-      }
-
-
-      }
+        "xCood": 273,
+        "yCood": 143
     }
-    },
-    "banner": {
-
-      "title": {
-        "fontSize": 20,
-        "text": "foo",
-        "fontFamily": "arial"
-      },
-      "description": "babab baba bab it's the end fo the world as we know it and I feel fine, this is a command Pattern blah ajldj djjdjddjd",
-      "author": "rich",
-      "width": 300,
-      "xCood": 100,
-      "yCood": 100,
-      "fontSize": "12",
-      "created": "jdj",
-      "fontFamily": "arial",
-      "paddingHorizontal": 12
-      },
-    "connectors": {
-    "abc1": {
-      "orientation": "horizontal",
-      "nodes": {
-        "left": {
-          "xCood": 363,
-          "yCood": 329,
-          "attached": true,
-          "attachedBox": "Invoker",
-          "arrow": {
-            "style": "none",
-            "direction": "left"
-          }
-        },
-        "proximal": {
-          "xCood": 413,
-          "yCood": 329,
-          "attached": {},
-          "attachedBox": {}
-        },
-        "distal": {
-          "xCood": 413,
-          "yCood": 439.5,
-          "attached": {},
-          "attachedBox": {}
-        },
-        "right": {
-          "xCood": 477,
-          "yCood": 439.5,
-          "attached": true,
-          "attachedBox": "ConcreteCommand",
-          "arrow": {
-            "style": "blackConnectArrow",
-            "direction": "right"
-          }
-        }
-      },
-      "lineStyle": "solid"
-    },
-    "abc2": {
-      "orientation": "horizontal",
-      "nodes": {
-        "left": {
-          "xCood": 635,
-          "yCood": 316,
-          "attached": true,
-          "attachedBox": "CommandManager",
-          "arrow": {
-            "style": "whiteDiamond",
-            "direction": "right"
-          }
-        },
-        "proximal": {
-          "xCood": 567,
-          "yCood": 316,
-          "attached": {},
-          "attachedBox": {}
-        },
-        "distal": {
-          "xCood": 567,
-          "yCood": 184,
-          "attached": {},
-          "attachedBox": {}
-        },
-        "right": {
-          "xCood": 482,
-          "yCood": 184,
-          "attached": true,
-          "attachedBox": "AbstractCommand",
-          "arrow": {
-            "style": "blackConnectArrow",
-            "direction": "left"
-          }
-        }
-      },
-      "lineStyle": "solid"
-    },
-    "abc3": {
-      "orientation": "vertical",
-      "nodes": {
-        "top": {
-          "xCood": 441,
-          "yCood": 218,
-          "attached": true,
-          "attachedBox": "AbstractCommand",
-          "arrow": {
-            "style": "whiteArrow",
-            "direction": "top"
-          }
-        },
-        "secondTop": {
-          "xCood": 441,
-          "yCood": 323,
-          "attached": {},
-          "attachedBox": {}
-        },
-        "secondBottom": {
-          "xCood": 528,
-          "yCood": 323,
-          "attached": {},
-          "attachedBox": {}
-        },
-        "bottom": {
-          "xCood": 528,
-          "yCood": 400,
-          "attached": true,
-          "attachedBox": "ConcreteCommand",
-          "arrow": {
-            "style": "none",
-            "direction": "bottom"
-          }
-        }
-      },
-      "lineStyle": "solid"
-    }
-  }
 }

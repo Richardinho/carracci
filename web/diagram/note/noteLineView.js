@@ -1,12 +1,14 @@
 define([
     "BaseType",
-    "utility/notePath"
+    "utility/notePath",
+    "events/eventsBus"
 
     ],
 
         function (
             BaseType,
-            NotePath
+            NotePath,
+            events
         ) {
 
 
@@ -35,14 +37,19 @@ define([
                 y2 : y2
             });
 
-            this.model.on("change", this.update, this);
-            this.model.on("delete", this.destroy, this);
-            this.typeModel.on("move", this.update, this);
+            this.timestamp = new Date();
+
+          //  events.on("createnotes", this.update, this);
+            this.model.on("update:position", this.update, this);
+            this.model.on("destroy", this.destroy, this);
+            this.typeModel.on("update:position", this.update, this);
         },
 
         destroy : function () {
-
+            // it looks likd this does not get called the second time!
+            console.log("noteline view timestamp destroy()", this.timestamp);
             this.typeModel.off("move", this.update);
+            this.model.off("destroy", this.destroy, this);
             this.svgElement.destroy();
         },
 
@@ -59,7 +66,7 @@ define([
 
         _calculateX2 : function () {
 
-            return this.model.getXCood() + (this.width / 2)
+            return this.model.getXCood() + (this.model.get('width') / 2)
         },
         _calculateY2 : function () {
 
@@ -67,7 +74,7 @@ define([
         },
 
         update : function () {
-
+        console.log("noteline view timestamp update()", this.timestamp);
             this.svgElement.update(this._calculateX1(), this._calculateY1(), this._calculateX2(), this._calculateY2());
         }
 

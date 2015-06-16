@@ -1,13 +1,17 @@
-define(["BaseType"],
+define([
+    "utility/nodeWrapper"
+    ],
 
-        function (
-            BaseType
-        ) {
+    function (
+        NodeWrapper
+    ) {
 
 
-    return BaseType.extend({
+    return NodeWrapper.extend({
 
         initialize : function (options) {
+
+            NodeWrapper.prototype.initialize.call(this, options);
 
             this.model = options.model;
 
@@ -20,37 +24,24 @@ define(["BaseType"],
 
         },
 
-        // just delegate right through to underlying model.
-        on : function (a, b, c) {
-
-            this.model.on(a, b, c);
-
-        },
-
-
-        fire : function (event, handler, context) {
-
-            this.model.fire(event, handler, context);
-        },
-
         getLeftArrow : function () {
 
-            return this.model.children['nodes'].children['left'];
+            return this.model['nodes']['left'];
         },
 
         getProximalNode : function () {
 
-            return this.model.children['nodes'].children['proximal'];
+            return this.model['nodes']['proximal'];
         },
 
         getDistalNode : function () {
 
-            return this.model.children['nodes'].children['distal'];
+            return this.model['nodes']['distal'];
         },
 
         getRightArrow : function () {
 
-            return this.model.children['nodes'].children['right'];
+            return this.model['nodes']['right'];
         },
 
         alternateLineStyle : function () {
@@ -61,11 +52,11 @@ define(["BaseType"],
         },
 
         setLineStyle : function (style) {
-            this.model.children['lineStyle'].set(style);
+            this.model['lineStyle'] = style;
         },
 
         getLineStyle : function () {
-            return this.model.children['lineStyle'].value;
+            return this.model['lineStyle'];
         }
 
 

@@ -47,8 +47,8 @@ define([
 
             del : function () {
 
-                this.diagramController.deleteNote(this.model.getName());
-
+                this.diagramController.deleteNote(this.model.id);
+                this.model.trigger("destroy");
                 this.close();
 
             },
@@ -57,10 +57,17 @@ define([
 
                 var contents = this._getContents();
 
-                this.model.setText(contents);
+                var width = this._getWidth();
+
+                this.model.save(contents, width);
 
                 this.close();
 
+            },
+
+            _getWidth : function () {
+
+                return this.view.getWidthContents();
             },
 
             _getContents : function () {

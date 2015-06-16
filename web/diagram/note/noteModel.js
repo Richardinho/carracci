@@ -1,9 +1,12 @@
-define(["utility/nodeWrapper" ],
+define([
+    "utility/nodeWrapper"
+    ],
 
-        function (
-            NodeWrapper
-        ) {
+    function (
+        NodeWrapper
+    ) {
 
+    "use strict";
 
     return NodeWrapper.extend({
 
@@ -30,56 +33,71 @@ define(["utility/nodeWrapper" ],
 
         getWidth : function () {
 
-            return this.model.children['width'].value;
+            return this.get('width');
         },
 
         setText : function (text) {
 
-            this.model.children['text'].set(text)
+            this.set('text', text);
+        },
+
+        save : function (text, width) {
+
+            this.setText(text);
+            this.setWidth(width);
+            this.trigger("save");
+            this.trigger("update:position");
+        },
+
+        setWidth : function(width) {
+
+            isNaN(parseInt(width, 10)) ? this.set('width', 200) :  this.set('width', width);
+
         },
 
         getText : function () {
 
-            return this.model.children['text'].value;
+            return this.get('text');
         },
 
         getType : function () {
 
-            return this.model.children['type'].value;
+            return this.get('type');
         },
 
         setCoods : function (x, y) {
 
             this.setXCood(x);
             this.setYCood(y);
+            this.trigger("update:position");
         },
 
         setXCood : function (x) {
 
-            console.log(this.model.children);
-            this.model.children['xCood'].set(x);
+            this.set('xCood', x);
         },
 
         setYCood : function (y) {
 
-            this.model.children['yCood'].set(y);
+            this.set('yCood', y);
         },
 
         getXCood : function () {
 
-            return parseInt(this.model.children['xCood'].value, 10);
+            return parseInt(this.get('xCood'), 10);
         },
 
 
         getYCood : function () {
 
-            return parseInt(this.model.children['yCood'].value, 10);
+            return parseInt(this.get('yCood'), 10);
 
         },
 
         setHeight : function (height) {
 
             this.height = height;
+            this.trigger("change:dimensions");
 
         },
 

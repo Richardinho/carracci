@@ -1,0 +1,26 @@
+#json-viewer {
+
+    position : absolute;
+    left : 400px;
+    top : 100px;
+}
+
+
+.jsonViewer__panel {
+
+    width : 500px;
+    background : $form-background;
+    padding : 12px;
+    border-radius : 4px;
+    border : solid 1px $border-color;
+    margin : 200px auto;
+    display : table;
+}
+
+.jsonViewer__panel--interior {
+
+    background : white;
+    border : solid 1px #666;
+    padding : 6px;
+
+}

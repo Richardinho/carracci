@@ -23,98 +23,101 @@ define(["utility/nodeWrapper"],
             this.setAuthor(result.author);
             this.setDescription(result.description);
 
-            console.log(result.author);
+            this.trigger("showbanner");
 
         },
 
         getXCood : function () {
 
-            return parseInt(this.model.children['xCood'].value, 10);
+            return parseInt(this.get('xCood'), 10);
         },
 
         setCoods : function (x, y) {
 
             this.setXCood(x);
             this.setYCood(y);
+            this.trigger("update:position");
         },
 
         setXCood : function (x) {
 
-            this.model.children['xCood'].set(x);
+            this.set('xCood', x);
         },
 
         setYCood : function (y) {
 
-            this.model.children['yCood'].set(y);
+            this.set('yCood', y);
         },
 
         getYCood : function () {
 
-            return parseInt(this.model.children['yCood'].value, 10);
-
+            return parseInt(this.get('yCood'), 10);
         },
 
         setDescription : function (description) {
 
-            this.model.children['description'].set(description);
+            this.set('description', description);
         },
 
         getAuthor : function () {
+
             return this.get("author");
         },
 
         setAuthor : function (author) {
 
-            this.model.children['author'].set(author);
+            this.set('author', author);
         },
 
         getFontFamily : function () {
+
             return "arial";
         },
 
         getDescription: function () {
+
             return this.get("description");
         },
 
         getPaddingHorizontal: function () {
+
             return 12;
         },
 
         getCreated : function () {
 
-            return this.model.children['created'].value;
+            return this.get('created');
         },
 
         setCreated : function (created) {
 
-            this.model.children['created'].set(created);
+            this.set("created", created);
         },
 
         getTitleFontSize: function () {
+
             return 12;
         },
 
         getTitleFontFamily: function () {
+
             return "arial";
         },
 
         getWidth: function () {
+
             return 300;
         },
 
         getTitleText: function () {
-            return this.model.children['title'].children['text'].value;
+
+            return this.get("title");
         },
 
         setTitle : function (title) {
 
-            this.model.children['title'].children['text'].set(title);
-
+            this.set("title", title);
         }
-
-
-
-
     });
 });
 

@@ -8,8 +8,7 @@ define([
      'utility/idGenerator',
      'diagram/connectors/horizontalConnectorFactory',
      'diagram/connectors/verticalConnectorFactory',
-     'diagram/componentFactory',
-     'rasmus/rasmusManager'
+     'diagram/componentFactory'
      ],
 
      function (
@@ -21,8 +20,7 @@ define([
         idGenerator,
         horizontalConnectorFactory,
         verticalConnectorFactory,
-        ComponentFactory,
-        RasmusManager
+        ComponentFactory
         ) {
 
     return {
@@ -30,7 +28,6 @@ define([
         start : function () {
 
             $(document).ready(function () {
-
 
                 var diagramModel = new DiagramModel();
 

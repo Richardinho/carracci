@@ -72,14 +72,22 @@ define([
                    this.height = this.resetHeight(x, y);
 
 
+                   this.setCoods(options.xCood, options.yCood);
+                },
+
+                update : function(text, width) {
+
+                    this.resetText(text, width);
+                    this.width = width;
+                    this.height = this.resetHeight(0, 0);
 
                 },
 
-                resetText : function (text) {
+                resetText : function (text, width) {
 
                     console.log("reset text in note", text);
                     this.group.removeChild(this.text);
-                    this.text = SVGUtils.createTextBody(text, this.width, 12, "arial", 12,  this.svg);
+                    this.text = SVGUtils.createTextBody(text, width, 12, "arial", 12,  this.svg);
                     this.group.appendChild(this.text);
 
 
@@ -128,6 +136,8 @@ define([
 
 
                 },
+
+
 
                 setCoods : function (x, y) {
 

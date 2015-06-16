@@ -34,14 +34,16 @@ define([
 
             this.box.drag(this._onMove, this._onStart, this._onEnd);
 
-            this.model.on("delete", this.destroy, this);
+            events.on("destroy", this.onGlobalDestroy, this);
+
+            this.model.on("destroy", this.destroy, this);
 
             /*
                 For when request is made to attach a node to this type box
              */
             this.box.click(function () {
                 //  fire on model, will bubble up to diagram
-                this.model.fireReceiveClickEvent(this);
+                events.trigger("receiveRequest", this);
 
             }, this);
 
@@ -50,6 +52,11 @@ define([
                events.trigger("dblclick:type", this.model);
 
             }, this));
+        },
+
+        onGlobalDestroy : function () {
+
+            this.model.trigger('destroy');
         },
 
         getName : function () {

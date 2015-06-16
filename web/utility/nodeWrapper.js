@@ -1,56 +1,63 @@
 define([
-    "BaseType"
+    "BaseType",
+    "backbone" ,
+    "events/eventsBus"
 
     ],
 
-        function (
-            BaseType
-        ) {
+    function (
+        BaseType,
+        Backbone,
+        eventsBus
+    ) {
 
+    "use strict";
 
     return BaseType.extend({
-
 
         initialize : function (options) {
 
             this.model = options.model;
 
-        },
+            this.events = {};
 
-        on : function (event, handler, context) {
+            _.extend(this.events, Backbone.Events);
 
-            this.model.on(event, handler, context);
-        },
-
-        off : function (event, handler) {
-
-           this.model.off(event, handler);
+            eventsBus.on("destroy:" + this.model.id, this.destroy, this);
 
         },
 
-        broadcast : function () {
+        destroy : function () {
 
-            this.model.broadcast.apply(this.model, arguments);
+            this.trigger("destroy");
         },
 
-        fire : function (event) {
+        on : function () {
 
-            this.model.fire.apply(this.model, arguments);
+            this.events.on.apply(this.events, arguments);
+        },
 
+        off : function () {
+
+           this.events.off.apply(this.events, arguments);
+
+        },
+
+        trigger : function () {
+
+            this.events.trigger.apply(this.events, arguments);
+
+        },
+
+        set : function (name, value) {
+
+            this.model[name] = value;
         },
 
         get : function(propertyName) {
 
-            return this.model.children[propertyName].value;
-        },
-
-        getName : function () {
-
-            return this.model.name;
+            return this.model[propertyName];
         }
-
-
-
     });
 });
 

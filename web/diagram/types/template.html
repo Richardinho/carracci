@@ -71,7 +71,7 @@
                 %>
 
                 <tr>
-                    <td><input name="visibility" type="text" value="<%= method.visibility %>"/></td>
+                    <td><input name="visibility" list="visibility" type="text" value="<%= method.visibility %>"/></td>
                     <td><input name="name" type="text" value="<%= method.name %>"/></td>
                     <td><input data-role="methodArgs" value="<%= args %>" type="text" /></td>
                     <td><input name="returnType" type="text" value="<%= method.returnType %>"/></td>
@@ -87,7 +87,6 @@
         <option value="private">
         <option value="protected">
         <option value="public">
-        <option value="&nbsp;">
     </datalist>
 
     <datalist id="flavor">

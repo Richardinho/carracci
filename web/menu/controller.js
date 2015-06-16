@@ -1,9 +1,11 @@
 define([
     "BaseType",
-    "menu/view"
+    "menu/view",
+    "events/eventsBus"
     ], function (
         BaseType,
-        View
+        View,
+        eventsBus
         ) {
 
             "use strict";
@@ -11,10 +13,8 @@ define([
             return BaseType.extend({
 
                 initialize : function (options) {
-
+                    console.log("initialize menu controller");
                     this.diagramController = options.diagramController;
-                    this.model = this.diagramController.diagramModel;
-
 
                     this.view = new View({
 
@@ -25,30 +25,22 @@ define([
 
                     this.view.$el.on("click", "[data-command]", $.proxy(this.handleClick, this));
 
-                    this.model.on("create", this.handleCreateDiagram, this);
+                    this.view.render(this.componentModel.diagram);
                 },
 
                 componentModel : {
 
                    left    : 0,
+
                    top     : 0,
+
                    diagram : false
-
-                },
-
-                handleCreateDiagram : function () {
-
-                    console.log("create diagram apple", arguments);
-
-                    this.componentModel.diagram = true;
-
-                    this.view.render(this.componentModel.diagram);
-
 
                 },
 
 
                 handleClick : function (event) {
+                    console.log("handle click on menu");
 
                     var dataCommand = $(event.currentTarget).data("command");
 
@@ -58,6 +50,8 @@ define([
                         command : args.shift(),
                         args : args
                     });
+
+                    this.view.render(this.componentModel.diagram);
                 }
 
             });

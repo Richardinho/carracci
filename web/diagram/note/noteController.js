@@ -30,16 +30,32 @@ define([
 
             }, this));
 
-            this.model.on("delete", this.destroy, this);
+            events.on("destroy", function () {
+
+                this.model.trigger("destroy");
+            }, this);
+
+            this.model.on("destroy", this.destroy, this);
+
+            this.model.on("change:dimensions", this.updateProxyEl, this);
         },
 
         _createProxyEl : function () {
 
-            var rect = paper.rect(this.model.x, this.model.y, this.model.getWidth(), this.model.height);
+            var rect = paper.rect(this.model.getXCood(), this.model.getYCood(), this.model.getWidth(), this.model.height);
             rect.attr({ fill : "red", opacity : 0 });
             this._dragger(rect);
             return rect;
 
+        },
+
+        updateProxyEl : function () {
+
+
+            this.proxyEl.attr({
+                width : this.model.getWidth(),
+                height : this.model.height
+            });
         },
 
         destroy : function () {

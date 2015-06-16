@@ -21,10 +21,11 @@ module.exports = function(grunt) {
                     port: 21,
                     authKey: 'key1'
                 },
-                src: 'build',
+                src: 'web',
                 dest: '/carracci',
                 exclusions: [
-                    'build/richardUtils'
+                    'web/richardUtils/node_modules',
+                    'web/rasmus'
                 ]
             }
         },

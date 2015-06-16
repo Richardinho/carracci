@@ -1,9 +1,11 @@
 define([
     "diagram/connectors/nodes/abstractNodeMediator",
-    "diagram/connectors/nodes/nodeModel"
+    "diagram/connectors/nodes/nodeModel",
+    "events/eventsBus"
     ], function (
         AbstractNodeMediator,
-        NodeModel
+        NodeModel,
+        eventsBus
     ) {
 
         "use strict";
@@ -20,6 +22,15 @@ define([
                 AbstractNodeMediator.prototype.initialize.call(this, options);
             },
 
+            destroy : function () {
+
+                this.detachAll();
+                this.leftArrowModel.trigger('destroy');
+                this.proximalNodeModel.trigger('destroy');
+                this.distalNodeModel.trigger('destroy');
+                this.rightArrowModel.trigger('destroy');
+            },
+
 
             addBoxNodeMediator : function (boxNodeMediator, orientation) {
 
@@ -34,20 +45,22 @@ define([
                 }
             },
 
+
+
             // called from node controller
             removeBoxNodeMediator : function (orientation) {
 
                 if(orientation === "left") {
 
                     this.leftArrowModel.setAttached(false);
-                    this.leftArrowModel.model.children['attachedBox'].set(null);
+                    this.leftArrowModel.model['attachedBox'] = null;
                     this.leftNodeTypeBoxMediator.destroy();
                     this.leftNodeTypeBoxMediator = null;
 
                 } else {
 
                     this.rightArrowModel.setAttached(false);
-                    this.rightArrowModel.model.children['attachedBox'].set(null)
+                    this.rightArrowModel.model['attachedBox'] = null;
                     this.rightNodeTypeBoxMediator.destroy();
                     this.rightNodeTypeBoxMediator = null;
                 }
@@ -67,8 +80,8 @@ define([
             _attachTypeBoxToRightNode : function (boxNodeMediator) {
 
                 this.rightArrowModel.setAttached(true);
-                var box = boxNodeMediator.typeController.model.model.name;
-                this.rightArrowModel.model.children['attachedBox'].set(box)
+                var box = boxNodeMediator.typeController.model.model.id;
+                this.rightArrowModel.model['attachedBox'] = box
 
                 this.rightNodeTypeBoxMediator = boxNodeMediator;
 
@@ -77,8 +90,8 @@ define([
             _attachTypeBoxToLeftNode : function (boxNodeMediator) {
 
                 this.leftArrowModel.setAttached(true);
-                var box = boxNodeMediator.typeController.model.model.name;
-                this.leftArrowModel.model.children['attachedBox'].set(box);
+                var box = boxNodeMediator.typeController.model.model.id;
+                this.leftArrowModel.model['attachedBox'] = box;
                 this.leftNodeTypeBoxMediator = boxNodeMediator;
             },
 
@@ -100,6 +113,8 @@ define([
                         this.updateRightArrow(x,y, overRideConstraints);
                         break;
                 }
+                this.connectorModel.trigger("change");
+
 
             },
 
@@ -143,11 +158,16 @@ define([
 
 
                 }
+                this.connectorModel.trigger("change");
             },
 
             // make request to join a node to a type box
             fireAttachRequest : function (orientation) {
-                this.connectorModel.fire("attachRequest", this, orientation)
+
+
+                eventsBus.trigger("attachRequest", this, orientation)
+
+
             },
 
             // update from node controller
@@ -295,7 +315,7 @@ define([
                 } else {
                     this.rightArrowModel.setArrowDirection("right");
                 }
-                this.rightArrowModel.broadcast("change")
+                this.rightArrowModel.trigger("switchArrowHead")
 
             },
 
@@ -310,7 +330,7 @@ define([
                     this.leftArrowModel.setArrowDirection("right");
 
                 }
-                this.leftArrowModel.broadcast("change")
+                this.leftArrowModel.trigger("switchArrowHead")
 
             },
 

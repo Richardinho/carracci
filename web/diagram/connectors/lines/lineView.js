@@ -21,14 +21,14 @@ define([
 
             // the idea is to update the model then everything else listens to changes on it.
             this.connectorModel.on("change", this.updateLine, this);
+
             this.connectorModel.on("change:lineStyle", this.updateLineStyle, this);
             this.connectorModel.on("selected", this.selectLine, this);
 
-            this.connectorModel.on("delete", this.destroy, this);
+            this.connectorModel.on("destroy", this.destroy, this);
         },
 
         destroy : function () {
-            console.log("lineView, destroy()");
             this.line.remove();
         },
 

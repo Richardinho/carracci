@@ -27,7 +27,7 @@ define(["BaseType",
             this.model.on("change:yCood", this.updateY, this);
 
             this.model.on("switchArrowHead", this.switchArrowHead, this);
-            this.model.on("delete", this.destroy, this);
+            this.model.on("destroy", this.destroy, this);
 
             // if this an arrow node?
             if(this.model.isArrowNode() ) {

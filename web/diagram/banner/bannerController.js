@@ -1,11 +1,13 @@
 define([
     "BaseType",
-    'utility/svg'
+    'utility/svg',
+    "events/eventsBus"
     ],
 
     function (
         BaseType,
-        paper
+        paper,
+        events
     ) {
 
     "use strict";
@@ -24,11 +26,14 @@ define([
 
             this.proxyEl.dblclick(function () {
 
-                this.model.setSelected(this);
+                events.trigger("dblclick:banner", this.model);
+
 
             }, this);
 
-            this.model.on("delete", this.destroy, this);
+            events.on("destroy", this.onGlobalDestroy, this);
+
+            this.model.on("destroy", this.destroy, this);
         },
 
         _createProxyEl : function () {
@@ -38,6 +43,11 @@ define([
             this._dragger(rect);
             return rect;
 
+        },
+
+        onGlobalDestroy : function () {
+
+            this.model.trigger('destroy');
         },
 
         destroy : function () {

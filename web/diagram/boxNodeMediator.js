@@ -14,6 +14,7 @@ define([
             this.nodeMediator = options.nodeMediator;
             this.typeController = options.typeController;
             this.nodeOrientation = options.nodeOrientation;
+
             // it's very important that this method goes before the following ones.
             if(!options.dontMove) {
                this._moveNodeOnToBox();

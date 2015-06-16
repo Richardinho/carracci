@@ -22,7 +22,7 @@ define([
                 el : options.el
             });
 
-            this.view.$el.on('click', '[data-role=cancel]', $.proxy(this.hide, this));
+            this.view.$el.on('click', '[data-role=cancel]', $.proxy(this.close, this));
             this.view.$el.on('click', '[data-role=addArgRow]', $.proxy(this.addRow, this));
             this.view.$el.on('click', '[data-role=deleteArg]', $.proxy(this.deleteArg, this));
             this.view.$el.on('click', '[data-role=save]', $.proxy(this.save, this));
@@ -31,18 +31,30 @@ define([
 
         show : function (stackingOrder, el) {
 
+            var left = $(el).position().left;
+            var top  = $(el).position().top;
+
             this.argInput = $(el);
             var value = this.argInput.val();
-            var args = value.split(/,/);
-            var argsArray = _.reduce(args, function (memo, value, index) {
+            var argsArray;
 
-                var arr = value.split(/:/);
-                memo.push({ name : arr[0], type : arr[1] });
-                return memo;
+            if(value) {
 
-            }, []);
+                var args = value.split(/,/);
 
-            this.view.show(stackingOrder, argsArray);
+                argsArray = _.reduce( args , function (memo, value, index) {
+
+                    var arr = value.split(/:/);
+                    memo.push({ name : arr[0], type : arr[1] });
+                    return memo;
+
+                }, []);
+
+            } else {
+
+                argsArray = [{ name : "", type : "" }];
+            }
+            this.view.show(stackingOrder, argsArray, left, top);
         },
 
         save : function () {

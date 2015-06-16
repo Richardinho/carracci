@@ -43,11 +43,6 @@ define([
 
                 template : _.template(template),
 
-                show : function () {
-
-                    this.render();
-                },
-
                 hide : function () {
 
                     this.$el.css({ display : "none" });
@@ -55,9 +50,9 @@ define([
 
                 render : function (zIndex ) {
 
-                    this.$el.html(this.template(this.model.toJSON()));
+                    this.$el.html(this.template(this.model.model));
 
-                    this.$el.css({ display : "block" , zIndex: zIndex });
+                    this.$el.css({ display : "flex" , zIndex: zIndex });
 
                 }
             });

@@ -26,7 +26,7 @@ define(["BaseType",
 
             this.svgNode.dblclick(function () {
 
-                this.model.fire("node-selected");
+                this.mediator.dblclick()
 
             }, this);
 

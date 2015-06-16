@@ -1,8 +1,13 @@
-define(["utility/nodeWrapper"],
+define([
+    "utility/nodeWrapper"
+    ],
 
-        function (
-            NodeWrapper
-        ) {
+    function (
+        NodeWrapper
+    ) {
+
+    "use strict";
+
     /* this type gets the box from the view and attaches handlers to it to watch its' movement.
     in response to use input, it updates the model accordingly. The model fires out events
     which our view will listen to*/
@@ -15,42 +20,22 @@ define(["utility/nodeWrapper"],
 
             this.diagramModel = options.diagramModel;
 
-            this.on("change", this.changeHandler, this);
-          //  this.on("create", this.changeHandler, this);
-           // this.on("deleteProperty", this.changeHandler, this);
-          //  this.on("deleteMethod", this.changeHandler, this);
-          //  this.on("deleteArgs", this.changeHandler, this);
-        },
-
-        changeHandler : function () {
-            this.fire("update");
         },
 
         getName : function () {
             return this.model.name;
         },
 
-        toJSON : function () {
+        save : function () {
 
-            return this.model.unwrap();
+            this.trigger("update");
 
-        },
-
-        save : function (json) {
-
-            this.model.reset(json);
-
-        },
-
-        fireReceiveClickEvent : function (controller) {
-
-            this.fire("receiveRequest", controller)
         },
 
         setCoods : function (x, y) {
-            this.model.children['xCood'].set(x);
-            this.model.children['yCood'].set(y);
-            this.fire("move");
+            this.set('xCood', x);
+            this.set('yCood', y);
+            this.trigger("update:position");
         },
 
         /*
@@ -63,24 +48,24 @@ define(["utility/nodeWrapper"],
         */
         setWidth : function (width) {
 
-            var previousWidth = this.model.children['width'].value;
-            this.model.children['width'].set(width, true);
+            var previousWidth = this.getWidth();
+            this.set('width', width);
 
             if(previousWidth !== width) {
 
-                this.fire("changeWidth");
+                this.trigger("changeWidth");
             }
         },
 
         setHeight : function (height) {
 
-            var previousHeight = this.model.children['height'].value;
+            var previousHeight = this.getHeight();
 
-            this.model.children['height'].set(height, true);
+            this.set('height', height);
 
             if(previousHeight !== height) {
 
-                this.fire("changeHeight");
+                this.trigger("changeHeight");
             }
         },
 
@@ -111,22 +96,19 @@ define(["utility/nodeWrapper"],
 
         getTypeName : function () {
 
-            //return this.get('name');
             return this.get('name');
 
         },
 
         getMethods : function () {
 
-            return this.model.unwrap().methods;
+            return this.model.methods;
         },
 
         getProperties : function () {
 
-            return this.model.unwrap().properties;
+            return this.model.properties;
         }
-
-
     });
 });
 
