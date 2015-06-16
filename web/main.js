@@ -47,7 +47,7 @@ require.config({
         jqueryUICustom : "lib/jquery-ui-1.10.3.custom/js/jquery-ui-1.10.3.custom.min",
         canvg : "lib/canvg-1.2/canvg",
         rgbColor : "lib/canvg-1.2/rgbcolor",
-        'editor/editorView'        : 'rasmus/app/scripts/editor/editorView'       ,
+        /*'editor/editorView'        : 'rasmus/app/scripts/editor/editorView'       ,
         'editor/editorModel'       : 'rasmus/app/scripts/editor/editorModel'      ,
         'editor/editorController'  : 'rasmus/app/scripts/editor/editorController' ,
         'editor/events'            : 'rasmus/app/scripts/editor/events'           ,
@@ -60,7 +60,7 @@ require.config({
         "maxhelp"                  : "rasmus/app/scripts/processes/builtin/helpfiles/maxhelp.htm",
         "editorTemplate"           : "rasmus/app/scripts/templates/editorTemplate.htm",
         "commandsTemplate"         : "rasmus/app/scripts/templates/commandsTemplate.htm",
-        "displayTemplate"          : "rasmus/app/scripts/templates/displayTemplate.htm",
+        "displayTemplate"          : "rasmus/app/scripts/templates/displayTemplate.htm",*/
         "defaultHelp"              : "defaulthelp"
     }
 });
