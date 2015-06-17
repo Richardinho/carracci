@@ -1,11 +1,35 @@
-define([
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: diagramModel.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: diagramModel.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>define([
         "BaseType",
-        "eventNode",
-        "diagram/types/typeModel",
-        "diagram/connectors/horizontalConnectorModel",
         "diagram/boxHorizontalNodeMediator",
         "diagram/boxVerticalNodeMediator",
-        "diagram/connectors/verticalConnectorModel",
         "utility/idGenerator",
         "events/eventsBus",
         "diagram/connectors/verticalConnectorBasicJson",
@@ -15,12 +39,8 @@ define([
         ],
         function (
             BaseType,
-            Node,
-            TypeModel,
-            HorizontalConnectorModel,
             BoxHorizontalNodeMediator,
             BoxVerticalNodeMediator,
-            VerticalConnectorModel,
             idGenerator,
             eventsBus,
             verticalConnectorBasicJson,
@@ -31,8 +51,16 @@ define([
 
                 "use strict";
 
-                return BaseType.extend({
-
+                return BaseType.extend(
+                /** @lends DiagramModel.prototype */
+                {
+                    /**
+                     * This is the model for DiagramModel.
+                     * sets up event handlers for requests to link up components e.g. nodes and type boxes
+                     *
+                     * @augments external:BaseType
+                     * @constructs
+                     */
                     initialize : function () {
 
                         this.currentDiagram = null;
@@ -46,7 +74,7 @@ define([
                                 nodeOrientation : nodeOrientation
                             };
                         });
-
+                        //  todo: make these event names more meaningful
                         eventsBus.on("receiveRequest", function (typeController) {
 
                             if(this.requestedNode) {
@@ -74,20 +102,12 @@ define([
                                 this.requestedNode = null;
                             }
                         });
-
                     },
 
-                    rewriteIds : function (json) {
-
-
-                        var connectorsQuantity = Object.keys(json.connectors).length;
-                        var notesQuantity = Object.keys(json.notes).length;
-
-                        idGenerator.reset(connectorsQuantity + notesQuantity);
-
-                    },
-
-
+                    /**
+                     * creates a vertical connector
+                     * @returns {Object} object literal with default configuration for vertical connector
+                     */
                     createVerticalConnector : function () {
 
                         var id = idGenerator.nextId(); //todo id system needs a lot of work : at present there are duplicate ids when you load an existing diagram
@@ -97,7 +117,10 @@ define([
                         return this.currentDiagram['connectors'][id];
 
                     },
-
+                    /**
+                     *  creates a horizontal connector
+                     *  @returns {Object} object literal with default configuration for horizontal connector
+                     */
                     createHorizontalConnector : function () {
 
                         var id = idGenerator.nextId();
@@ -105,23 +128,31 @@ define([
                         this.currentDiagram['connectors'][id] = horizontalConnectorBasicJson();
 
                         return this.currentDiagram['connectors'][id];
-
                     },
 
+                    /**
+                     * deletes a type box from the diagram
+                     * @param {Number} id - id of type to be deleted
+                     */
                     deleteType : function (id) {
 
                         delete this.currentDiagram['types'][id];
                     },
 
-
+                    /**
+                     * creates a banner
+                     * @returns {Object}  object literal with default configuration for banner
+                     */
                     createBanner : function () {
 
                         this.currentDiagram['banner'] = bannerJSON();
 
                         return this.currentDiagram['banner'];
-
                     },
-
+                    /**
+                     * creates a note
+                     * @returns {Object} object literal with default configuration for note.
+                     */
                     createNote : function (typeId) {
 
                         var id = idGenerator.nextId();
@@ -151,13 +182,19 @@ define([
                         return this.currentDiagram['notes'][id];
 
                     },
-
+                    /**
+                     * deletes a note
+                     * @param {Number} id - id of note to be deleted
+                     */
                     deleteNote : function(id) {
 
                         delete this.currentDiagram['notes'][id];
-
                     },
 
+                    /**
+                     * creates a type
+                     * @returns {Object} object literal with default configuration for type.
+                     */
                     createType : function () {
 
                         var id = idGenerator.nextId();
@@ -167,12 +204,35 @@ define([
                         return this.currentDiagram['types'][id];
 
                     },
-
+                    /**
+                     * deletes a connector
+                     * @param {Number} id -id of connector to be deleted
+                     */
                     deleteConnector : function (id) {
 
                         delete this.currentDiagram['connectors'][id];
                     }
-
-
                 });
-            });
+            });</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="BannerController.html">BannerController</a></li><li><a href="BannerEditor.html">BannerEditor</a></li><li><a href="DiagramModel.html">DiagramModel</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.2</a> on Wed Jun 17 2015 09:35:48 GMT+0100 (BST)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

@@ -2,7 +2,7 @@
 define([
     'jquery',
      'diagram/diagramController',
-     'diagram/diagramModel2',
+     'diagram/diagramModel',
      'diagram/types/typeView',
      'diagram/types/typeController',
      'utility/idGenerator',

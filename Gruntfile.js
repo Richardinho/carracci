@@ -22,6 +22,15 @@ module.exports = function(grunt) {
             }
         },
 
+        jsdoc : {
+            dist : {
+                src: ['web/diagram/**/*.js'],
+                options: {
+                    destination: 'doc'
+                }
+            }
+        },
+
         copy: {
             main : {
                 cwd: 'required',  // set working folder / root to copy
@@ -108,6 +117,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-jsdoc');
 
     grunt.task.registerTask("build", ['clean:oldBuild', 'requirejs', 'copy', 'clean:required']);
 
