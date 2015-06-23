@@ -10,10 +10,18 @@ define([
 
             "use strict";
 
-            return BaseType.extend({
+            return BaseType.extend(/** @lends MenuController.prototype */{
 
+                /**
+                 *
+                 *   controller for menu. Handles clicks on menu items and delegates to
+                 *   DiagramController the carrying out of commands.
+                 *
+                 * @augments external:BaseType
+                 * @constructs
+                 */
                 initialize : function (options) {
-                    console.log("initialize menu controller");
+
                     this.diagramController = options.diagramController;
 
                     this.view = new View({
@@ -27,7 +35,7 @@ define([
 
                     this.view.render(this.componentModel.diagram);
                 },
-
+                //  todo: check what this does
                 componentModel : {
 
                    left    : 0,
@@ -38,23 +46,23 @@ define([
 
                 },
 
-
+                /**
+                 *  click handler when user clicks on a menu item. works out command to
+                 *  be carried out and sends this command to DiagramController to be executed
+                 *  then renders diagram view
+                 */
                 handleClick : function (event) {
-                    console.log("handle click on menu");
 
+                    //  works out command from data stored in DOM on element
                     var dataCommand = $(event.currentTarget).data("command");
-
                     var args = dataCommand.split(/\s/);
 
                     this.diagramController.command({
                         command : args.shift(),
                         args : args
                     });
-
+                    //  todo: should this be done here?
                     this.view.render(this.componentModel.diagram);
                 }
-
             });
-
-
         });

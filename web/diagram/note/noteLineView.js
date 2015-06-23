@@ -9,9 +9,13 @@ define([
         ) {
 
 
-    return BaseType.extend({
+    return BaseType.extend(/** @lends NoteLinkView.prototype */{
 
-
+        /**
+         *
+         * @augments external:BaseType
+         * @constructs
+         */
         initialize : function (options) {
 
             this.model = options.model;
@@ -44,7 +48,6 @@ define([
 
         destroy : function () {
             // it looks likd this does not get called the second time!
-            console.log("noteline view timestamp destroy()", this.timestamp);
             this.typeModel.off("move", this.update);
             this.model.off("destroy", this.destroy, this);
             this.svgElement.destroy();
@@ -71,7 +74,6 @@ define([
         },
 
         update : function () {
-        console.log("noteline view timestamp update()", this.timestamp);
             this.svgElement.update(this._calculateX1(), this._calculateY1(), this._calculateX2(), this._calculateY2());
         }
 

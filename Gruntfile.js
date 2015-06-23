@@ -24,7 +24,7 @@ module.exports = function(grunt) {
 
         jsdoc : {
             dist : {
-                src: ['web/diagram/**/*.js'],
+                src: ['web/diagram/**/*.js','web/modalEditor/**/*.js','web/menu/**/*.js'],
                 options: {
                     destination: 'doc'
                 }

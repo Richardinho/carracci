@@ -8,22 +8,20 @@ define([
 
     "use strict";
 
-    return NodeWrapper.extend({
+    return NodeWrapper.extend(/** @lends NoteModel.prototype */{
 
+        /**
+         *
+         * @augments external:NodeWrapper
+         * @constructs
+         */
         initialize : function (options) {
 
             NodeWrapper.prototype.initialize.call(this, options);
 
-            this.centerNode = {
-
-                x : 0,
-                y : 0
-            };
             this.x = 0;
             this.y = 0;
             this.height = 100;
-
-
         },
 
         getHeight : function () {
@@ -52,7 +50,6 @@ define([
         setWidth : function(width) {
 
             isNaN(parseInt(width, 10)) ? this.set('width', 200) :  this.set('width', width);
-
         },
 
         getText : function () {
@@ -91,30 +88,13 @@ define([
         getYCood : function () {
 
             return parseInt(this.get('yCood'), 10);
-
         },
 
         setHeight : function (height) {
 
             this.height = height;
             this.trigger("change:dimensions");
-
-        },
-
-
-
-        setCenterNode : function (x, y) {
-
-            this.centerNode = {
-
-                x : x,
-                y : y
-            };
         }
-
-
-
-
 
 
     });

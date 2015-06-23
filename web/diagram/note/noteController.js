@@ -13,8 +13,12 @@ define([
         ) {
 
 
-    return BaseType.extend({
-
+    return BaseType.extend(/** @lends NoteController.prototype */{
+        /**
+         *
+         * @augments external:BaseType
+         * @constructs
+         */
         initialize : function (options) {
 
             this.artifactType = "note";
@@ -51,7 +55,6 @@ define([
 
         updateProxyEl : function () {
 
-
             this.proxyEl.attr({
                 width : this.model.getWidth(),
                 height : this.model.height
@@ -61,7 +64,6 @@ define([
         destroy : function () {
 
             this.proxyEl.remove();
-
         },
 
         _dragger : function dragger(c) {
@@ -84,10 +86,12 @@ define([
            }
 
            function onStart () {
+
                startX = parseInt(c.attr("x"));
                startY = parseInt(c.attr("y"));
            }
            function onEnd () {
+
                startX = null;
                startY = null;
            }
@@ -101,13 +105,6 @@ define([
 
            return this.model.model.name;
        }
-
-
-
-
-
-
-
 
     });
 });

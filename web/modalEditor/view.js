@@ -10,8 +10,13 @@ define([
              template
         ) {
 
-        return BaseType.extend({
+        return BaseType.extend(/** @lends ModalEditorView.prototype */{
 
+            /**
+             *
+             * @augments external:BaseType
+             * @constructs
+             */
             initialize : function (options) {
 
                 this.$el = options.el
@@ -43,7 +48,13 @@ define([
                 this.componentModel.top = noteY + this.componentModel.yOffset;
 
             },
-
+            /**
+             * render modal box to screen
+             *
+             * @public
+             * @param {Number} stackingOrder - stacking order
+             *
+             */
             render : function (stackingOrder) {
 
                 this.$el.html(this.template({
@@ -59,12 +70,20 @@ define([
                 this.$el.show();
 
             },
-
+            /**
+             * hides box
+             *
+             * @public
+             */
             hide : function () {
 
                 this.$el.hide();
             },
-
+            /**
+             *
+             * @public
+             * @returns {String} contents of modal box
+             */
             getTextAreaContents : function () {
 
                  return this.$el.find('[data-role=contents]').val();

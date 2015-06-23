@@ -105,11 +105,13 @@ define([
 
                         var titleHeight = title.getBBox().height;
                         var descriptionHeight = description.getBBox().height;
-                        var authorHeight = author.getBBox().height;
-
+                        var authorPadding = 10;
                         description.setAttribute('y', titleHeight);
-                        author.setAttribute('y', titleHeight + descriptionHeight + titleFontSize);
-                        background.setAttribute('height', titleHeight + descriptionHeight + titleFontSize + authorHeight);
+
+                        author.setAttribute('y', titleHeight + descriptionHeight + titleFontSize + authorPadding);
+                        var authorHeight = author.getBBox().height;
+                        var extraPadding = 10;
+                        background.setAttribute('height', titleHeight + descriptionHeight + titleFontSize + authorHeight + extraPadding);
 
                         return background;
 
@@ -158,7 +160,6 @@ define([
 
                         var svgTextNode = SVGUtils.createSVGTextNode(10, fontFamily);
                         svgTextNode.setAttribute("x", paddingHorizontal);
-                        svgTextNode.setAttribute("y", 120);
 
                         var text = document.createTextNode("author: " + author);
                         svgTextNode.appendChild(text);

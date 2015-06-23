@@ -10,12 +10,16 @@ define([
         ) {
 
 
-    return BaseType.extend({
+    return BaseType.extend(/** @lends NoteView.prototype */{
 
-
+        /**
+         * The view for note components
+         *
+         * @augments external:BaseType
+         * @constructs
+         */
         initialize : function (options) {
 
-            console.log("create new note view");
             this.model = options.model;
 
             this.model.on("update:position", this.updateLocation, this);
@@ -43,24 +47,18 @@ define([
             this.model.off("destroy", this.destroy, this);
 
             this.svgElement.destroy();
-
         },
 
         updateLocation : function () {
 
             this.svgElement.setCoods(this.model.getXCood(), this.model.getYCood());
-
         },
 
         update : function () {
 
             this.svgElement.update(this.model.getText(), this.model.get('width'));
             this.model.setHeight(this.svgElement.height);
-
         }
-
-
-
     });
 });
 

@@ -12,10 +12,7 @@ define([
 
             "use strict";
 
-            /* this should simply read the model and render the typebox accordingly */
             return BaseType.extend({
-
-
 
                 initialize : function (options) {
 
@@ -42,12 +39,8 @@ define([
                 },
 
                 update : function (x1, y1, x2, y2) {
-                    console.log(this.timestamp);
                     var pathString = this._createPathString(x1, y1, x2, y2);
-                    //console.log("path string", pathString);
-                   // console.log("this.foo", this.foo);
                     this.foo.setAttribute("d", pathString);
-                    // console.log("this.foo 2", this.foo);
                 },
 
                 createPathEl : function (path) {

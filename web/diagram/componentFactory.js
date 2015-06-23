@@ -15,399 +15,308 @@ define([
     "diagram/note/noteModel",
     "diagram/note/noteController",
     "diagram/note/noteLineView",
-    'diagram/banner/editor',
     "events/eventsBus"
-    ],
-    function (
-        BaseType,
-        TypeView,
-        TypeController,
-        TypeModel,
-        HorizontalConnectorModel,
-        VerticalConnectorModel,
-        BoxHorizontalNodeMediator,
-        BoxVerticalNodeMediator,
-        _,
-        BannerView,
-        BannerController,
-        BannerModel,
-        NoteView,
-        NoteModel,
-        NoteController,
-        NoteLineView,
-        BannerEditor,
-        events
-    )
-    {
-
-    /*
-        this is a layer in front of the model. it delegates creation and setting of properties
-        to the model, but it creates wrapper objects which make it easier for clients to interact
-        with the model
-
-        It also handles the destruction of objects. It should probably be called the component manager
-        rather than factory.
-    */
+        ],
+        function (
+            BaseType,
+            TypeView,
+            TypeController,
+            TypeModel,
+            HorizontalConnectorModel,
+            VerticalConnectorModel,
+            BoxHorizontalNodeMediator,
+            BoxVerticalNodeMediator,
+            _,
+            BannerView,
+            BannerController,
+            BannerModel,
+            NoteView,
+            NoteModel,
+            NoteController,
+            NoteLineView,
+            events
+        ){
 
 
-    return BaseType.extend({
-        // question: pass dependencies in through options or in define function?
-        initialize : function (options) {
+            /*
+                this is a layer in front of the model. it delegates creation and setting of properties
+                to the model, but it creates wrapper objects which make it easier for clients to interact
+                with the model
 
-            this.diagramModel = options.diagramModel;
-            this.horizontalConnectorFactory = options.horizontalConnectorFactory;
-            this.verticalConnectorFactory = options.verticalConnectorFactory;
-
-            this.typeControllerMap = {};
-            this.connectorMediators = {};
-            this.banner = {};
-        },
-
-        createNote : function (typeModel) {
-
-            var rawNoteModel = this.diagramModel.createNote(typeModel.model.id);
-            this.createNoteFromModel(rawNoteModel, typeModel);
-            return rawNoteModel.id;
-
-        },
-
-        createNoteFromModel : function (rawNoteModel, typeModel) {
-
-            var model = new NoteModel({
-                model : rawNoteModel
-            });
-
-
-            // this connects the note to a type
-            new NoteLineView({
-                model : model,
-                typeModel : typeModel
-            });
-
-            var view = new NoteView({
-
-                model : model
-            });
-
-            new NoteController({
-                model : model,
-                view : view
-            });
-
-        },
+                It also handles the destruction of objects. It should probably be called the component manager
+                rather than factory.
+            */
 
 
 
-        //  banner should be a 'singleton'
-        createBanner : function (rawBannerModel) {
+        return BaseType.extend(
+            /** @lends ComponentFactory.prototype */{
 
-            if(!rawBannerModel) {
+            /**
+             *
+             * @augments external:BaseType
+             * @constructs
+             */
+            initialize : function (options) {
 
-                rawBannerModel = this.diagramModel.createBanner();
+                this.diagramModel = options.diagramModel;
+                this.horizontalConnectorFactory = options.horizontalConnectorFactory;
+                this.verticalConnectorFactory = options.verticalConnectorFactory;
 
-            }
+                this.typeControllerMap = {};
+                this.connectorMediators = {};
+                this.banner = {};
+            },
 
-            if(this.bannerEditor) {
+            /**
+             *   creates note.
+             *   @returns {Number} note model id
+             */
+            createNote : function (typeModel) {
+                //todo: unless there's a good reason not to, consider consolidating this method with the following.
+                // gets object literal with config details from diagramModel
+                var rawNoteModel = this.diagramModel.createNote(typeModel.model.id);
+                this.createNoteFromModel(rawNoteModel, typeModel);
+                return rawNoteModel.id;
+            },
 
-                alert("banner already exists");
+            /**
+             *   creates MVC for a note
+             */
+            createNoteFromModel : function (rawNoteModel, typeModel) {
 
-            } else {
-
-                // for meantime just use bannerJSON for 'model' in view
-                var bannerModel = new BannerModel({
-                    model : rawBannerModel
+                var model = new NoteModel({
+                    model : rawNoteModel
                 });
 
-                var bannerView = new BannerView({
-
-                    model : bannerModel
+                // this connects the note to a type
+                new NoteLineView({
+                    model : model,
+                    typeModel : typeModel
                 });
 
-                var bannerController = new BannerController({
+                var view = new NoteView({
 
-                    view : bannerView,
-                    model : bannerModel
-
+                    model : model
                 });
 
-                return bannerModel;
+                new NoteController({
+                    model : model,
+                    view : view
+                });
 
-            }
-        },
+            },
 
-        createType : function (json) {
+            /**
+             *  creates MVC for banner
+             *  @param {Object} rawBannerModel - object literal with default configuration for banner
+             *  @returns {BannerModel} banner model
+             */
+            createBanner : function (rawBannerModel) {
 
-
-
-            if(!json) {
-
-                json = this.diagramModel.createType();
-
-            }
-
-            var typeModel = new TypeModel({
-                model : json
-            });
-
-
-            var typeView = new TypeView({
-                model : typeModel,
-            });
-
-            var typeController = new TypeController({
-                model : typeModel,
-                view : typeView
-            });
-
-            this.typeControllerMap[json.id] = typeController;
-
-        },
-
-        deleteDiagram : function (diagramName) {
-
-            _.each(this.typeControllerMap, function (typeController, key) {
-                this.deleteType(key);
-            },this);
-            _.each(this.connectorMediators, function (mediator, key) {
-                this.deleteConnector(key);
-            },this);
-
-            this.diagramModel.deleteDiagram(diagramName);
-        },
-
-        createDiagram : function (json, name) {
-
-            if(!json) {
-
-                this.diagramModel.currentDiagram =  {
-                    name: name,
-                    types : {},
-                    connectors : {},
-                    notes : {}
+                if(!rawBannerModel) {
+                    rawBannerModel = this.diagramModel.createBanner();
                 }
-            } else {
-
-                this.diagramModel.currentDiagram = json;
-                // parse diagram and create types and connectors.
-                var types = this.diagramModel.currentDiagram.types;
-
-                for(var type in types) {
-
-                    this.createType(types[type]);
-
+                if(this.bannerEditor) {
+                    //  todo: something a bit crappy about this.
+                    alert("banner already exists");
+                } else {
+                    // for meantime just use bannerJSON for 'model' in view
+                    var bannerModel = new BannerModel({
+                        model : rawBannerModel
+                    });
+                    var bannerView = new BannerView({
+                        model : bannerModel
+                    });
+                    var bannerController = new BannerController({
+                        view : bannerView,
+                        model : bannerModel
+                    });
+                    return bannerModel;
                 }
-                var notes = this.diagramModel.currentDiagram.notes;
+            },
+            /**
+             *   creates MVC for type
+             */
+            createType : function (json) {
 
-                for(var note in notes) {
-                    var typeModel = this.typeControllerMap[notes[note].typeId].model;
+                if(!json) {
 
-                    this.createNoteFromModel(notes[note], typeModel);
+                    json = this.diagramModel.createType();
                 }
 
-                events.trigger("createnotes");
+                var typeModel = new TypeModel({
+                    model : json
+                });
 
-                var banner =  this.diagramModel.currentDiagram.banner;
+                var typeView = new TypeView({
+                    model : typeModel
+                });
 
-                this.createBanner(banner);
+                var typeController = new TypeController({
+                    model : typeModel,
+                    view : typeView
+                });
 
-                var connectors = this.diagramModel.currentDiagram.connectors;
+                this.typeControllerMap[json.id] = typeController;
 
-                for(var connector in connectors) {
+            },
 
-                    if(connectors[connector]['orientation'] === "horizontal") {
+            /**
+             *  Deletes diagram
+             */
+            deleteDiagram : function (diagramName) {
 
-                        var mediator = this.createHorizontalConnector(connectors[connector]);
+                _.each(this.typeControllerMap, function (typeController, key) {
+                    this.deleteType(key);
+                },this);
+                _.each(this.connectorMediators, function (mediator, key) {
+                    this.deleteConnector(key);
+                },this);
 
-                        var leftNode = connectors[connector]['nodes']['left'];
-                        var rightNode = connectors[connector]['nodes']['right'];
+                this.diagramModel.deleteDiagram(diagramName);
+            },
+            /**
+             *   creates diagram
+             */
+            createDiagram : function (json, name) {
 
-                        if(rightNode['attached']) {
-                            var boxid = rightNode['attachedBox'];
-                            new BoxHorizontalNodeMediator({
-                                nodeMediator : mediator,
-                                nodeOrientation : "right",
-                                typeController : this.typeControllerMap[boxid],
-                                dontMove : true
-                            });
-                        }
+                if(!json) {
 
-                        if(leftNode['attached']) {
-                            var boxid = leftNode['attachedBox'];
+                    this.diagramModel.currentDiagram =  {
+                        name: name,
+                        types : {},
+                        connectors : {},
+                        notes : {}
+                    }
+                } else {
 
-                            new BoxHorizontalNodeMediator({
-                                nodeMediator : mediator,
-                                nodeOrientation : "left",
-                                typeController : this.typeControllerMap[boxid],
-                                dontMove : true
-                            });
-                        }
+                    this.diagramModel.currentDiagram = json;
+                    // parse diagram and create types and connectors.
+                    var types = this.diagramModel.currentDiagram.types;
 
-                    } else {
+                    for(var type in types) {
 
-                        var mediator = this.createVerticalConnector (connectors[connector]);
-
-                        var topNode = connectors[connector]['nodes']['top'];
-                        var bottomNode = connectors[connector]['nodes']['bottom'];
-
-                        if(topNode['attached']) {
-                            var boxid = topNode['attachedBox'];
-
-                            new BoxVerticalNodeMediator({
-                                nodeMediator : mediator,
-                                nodeOrientation : "top",
-                                typeController : this.typeControllerMap[boxid],
-                                dontMove : true
-                            });
-                        }
-
-                        if(bottomNode['attached']) {
-                            var boxid = bottomNode['attachedBox'];
-
-                            new BoxVerticalNodeMediator({
-                                nodeMediator : mediator,
-                                nodeOrientation : "bottom",
-                                typeController : this.typeControllerMap[boxid],
-                                dontMove : true
-                            });
-                        }
+                        this.createType(types[type]);
 
                     }
+                    var notes = this.diagramModel.currentDiagram.notes;
 
+                    for(var note in notes) {
+                        var typeModel = this.typeControllerMap[notes[note].typeId].model;
 
-                }
-                /*
-                var notes = this.diagramModel.model.notes;
+                        this.createNoteFromModel(notes[note], typeModel);
+                    }
 
-                for(var note in notes) {
+                    events.trigger("createnotes");
 
+                    var banner =  this.diagramModel.currentDiagram.banner;
 
-                    this.createNoteFromModel(notes[note]);
+                    this.createBanner(banner);
 
-                }
+                    var connectors = this.diagramModel.currentDiagram.connectors;
 
-                //todo: create banner from json
+                    for(var connector in connectors) {
 
-                var banner =  this.diagramModel.model.children['diagrams']
-                                             .children[diagramName]
-                                             .children['banner'];
+                        if(connectors[connector]['orientation'] === "horizontal") {
 
+                            var mediator = this.createHorizontalConnector(connectors[connector]);
 
-                var bannerJSON = this.diagramModel.model.children['diagrams'].children[diagramName].children.banner.unwrap();
+                            var leftNode = connectors[connector]['nodes']['left'];
+                            var rightNode = connectors[connector]['nodes']['right'];
 
-                this.createBanner(diagramName, bannerJSON);
+                            if(rightNode['attached']) {
+                                var boxid = rightNode['attachedBox'];
+                                new BoxHorizontalNodeMediator({
+                                    nodeMediator : mediator,
+                                    nodeOrientation : "right",
+                                    typeController : this.typeControllerMap[boxid],
+                                    dontMove : true
+                                });
+                            }
 
+                            if(leftNode['attached']) {
+                                var boxid = leftNode['attachedBox'];
 
-                var connectors = this.diagramModel.getConnectors(diagramName);
+                                new BoxHorizontalNodeMediator({
+                                    nodeMediator : mediator,
+                                    nodeOrientation : "left",
+                                    typeController : this.typeControllerMap[boxid],
+                                    dontMove : true
+                                });
+                            }
 
-                for(var connector in connectors) {
+                        } else {
 
-                    if(connectors[connector].children['orientation'].value === "horizontal") {
+                            var mediator = this.createVerticalConnector (connectors[connector]);
 
-                        var hcm =  new HorizontalConnectorModel({
-                            model : connectors[connector]
-                        });
-                        var mediator = this.horizontalConnectorFactory.create(hcm);
+                            var topNode = connectors[connector]['nodes']['top'];
+                            var bottomNode = connectors[connector]['nodes']['bottom'];
 
-                        this.connectorMediators[hcm.model.name] = mediator;
+                            if(topNode['attached']) {
+                                var boxid = topNode['attachedBox'];
 
-                        // check left and right nodes to see if they need to be attached.
-                        var leftNode = connectors[connector].children['nodes'].children['left'];
-                        var rightNode = connectors[connector].children['nodes'].children['right'];
+                                new BoxVerticalNodeMediator({
+                                    nodeMediator : mediator,
+                                    nodeOrientation : "top",
+                                    typeController : this.typeControllerMap[boxid],
+                                    dontMove : true
+                                });
+                            }
 
-                        if(rightNode.children['attached'].value) {
-                            var box = rightNode.children['attachedBox'].value
+                            if(bottomNode['attached']) {
+                                var boxid = bottomNode['attachedBox'];
 
-                            new BoxHorizontalNodeMediator({
-                                nodeMediator : mediator,
-                                nodeOrientation : "right",
-                                typeController : this.typeControllerMap[box],
-                                dontMove : true
-                            });
-                        }
+                                new BoxVerticalNodeMediator({
+                                    nodeMediator : mediator,
+                                    nodeOrientation : "bottom",
+                                    typeController : this.typeControllerMap[boxid],
+                                    dontMove : true
+                                });
+                            }
 
-                        if(leftNode.children['attached'].value) {
-                            var box = leftNode.children['attachedBox'].value
-
-                            new BoxHorizontalNodeMediator({
-                                nodeMediator : mediator,
-                                nodeOrientation : "left",
-                                typeController : this.typeControllerMap[box],
-                                dontMove : true
-                            });
-                        }
-
-                    } else {
-
-                        var vcm =  new VerticalConnectorModel({
-                            model : connectors[connector]
-                        });
-
-                        var mediator = this.verticalConnectorFactory.create(vcm);
-
-                        this.connectorMediators[vcm.model.name] = mediator;
-
-                        var topNode = connectors[connector].children['nodes'].children['top'];
-                        var bottomNode = connectors[connector].children['nodes'].children['bottom'];
-
-                        if(topNode.children['attached'].value) {
-                            var box = topNode.children['attachedBox'].value
-
-                            new BoxVerticalNodeMediator({
-                                nodeMediator : mediator,
-                                nodeOrientation : "top",
-                                typeController : this.typeControllerMap[box],
-                                dontMove : true
-                            });
-                        }
-                        if(bottomNode.children['attached'].value) {
-                            var box = bottomNode.children['attachedBox'].value
-
-                            new BoxVerticalNodeMediator({
-                                nodeMediator : mediator,
-                                nodeOrientation : "bottom",
-                                typeController : this.typeControllerMap[box],
-                                dontMove : true
-                            });
                         }
                     }
                 }
-                */
+            },
+            /**
+             *  creates mediator for a horizontal connector
+             */
+            createHorizontalConnector : function (json) {
+                if(!json) {
 
+                    json = this.diagramModel.createHorizontalConnector();
+                }
+                var horizontalConnectorModel =  new HorizontalConnectorModel({
+                    model : json
+                });
+
+                var connectorMediator = this.horizontalConnectorFactory.create(horizontalConnectorModel);
+                this.connectorMediators[horizontalConnectorModel.model.name] = connectorMediator;
+
+                return connectorMediator;
+            },
+
+            /**
+             *  creates mediator for a vertical connector
+             */
+            createVerticalConnector : function (json) {
+
+                if(!json) {
+
+                    json = this.diagramModel.createVerticalConnector();
+                }
+
+                var verticalConnectorModel =  new VerticalConnectorModel({
+                    model : json
+                });
+                var connectorMediator = this.verticalConnectorFactory.create(verticalConnectorModel);
+                this.connectorMediators[verticalConnectorModel.model.name] = connectorMediator;
+                return connectorMediator;
             }
-        },
-
-        createHorizontalConnector : function (json) {
-            if(!json) {
-
-                json = this.diagramModel.createHorizontalConnector();
-            }
-            var horizontalConnectorModel =  new HorizontalConnectorModel({
-                model : json
-            });
-
-            var connectorMediator = this.horizontalConnectorFactory.create(horizontalConnectorModel);
-            this.connectorMediators[horizontalConnectorModel.model.name] = connectorMediator;
-            console.log("connector mediator",connectorMediator);
-            return connectorMediator;
-        },
-
-        createVerticalConnector : function (json) {
-
-            if(!json) {
-
-                json = this.diagramModel.createVerticalConnector();
-            }
-
-            var verticalConnectorModel =  new VerticalConnectorModel({
-                model : json
-            });
-            var connectorMediator = this.verticalConnectorFactory.create(verticalConnectorModel);
-            this.connectorMediators[verticalConnectorModel.model.name] = connectorMediator;
-            return connectorMediator;
-        }
 
 
+
+        });
 
     });
-
-});

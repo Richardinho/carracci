@@ -32,8 +32,13 @@ define([
 
      "use strict";
 
-     return BaseType.extend({
+     return BaseType.extend(/** @lends DiagramController.prototype */ {
 
+        /**
+        *
+        * @augments external:BaseType
+        * @constructs
+        */
         initialize : function (options) {
 
             this.diagramModel = options.diagramModel;
@@ -161,9 +166,8 @@ define([
 
             this.diagramModel.deleteConnector(connectorId);
         },
-
+        //  todo: this not hooked up yet.
         export : function () {
-
             var format = arguments[0];
 
             switch (format) {

@@ -20,8 +20,15 @@ define([
         "use strict";
 
 
-        return BaseType.extend({
+        return BaseType.extend(/** @lends WidgetManager.prototype */{
 
+            /**
+             *
+             *   manages gui components
+             *
+             * @augments external:BaseType
+             * @constructs
+             */
             initialize : function (options) {
 
                 this.stackingOrderIndex = 0;
@@ -106,7 +113,6 @@ define([
             },
 
             showBannerEditor : function(bannerModel) {
-                console.log("widget manager", bannerModel);
                 this.stackingOrderIndex++;
                 this._showOverlay();
                 this.bannerEditorController.show(this.getWidgetIndex(), bannerModel);
@@ -124,7 +130,9 @@ define([
                 this._showOverlay();
                 this.notesController.show(this.getWidgetIndex(), noteModel);
             },
-
+            /*
+              todo: this has a misleading name as it can also hide the overlay
+             */
             _showOverlay : function () {
 
                 if(this.getOverlayIndex()) {

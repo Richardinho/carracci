@@ -85,7 +85,6 @@ define([
 
                 resetText : function (text, width) {
 
-                    console.log("reset text in note", text);
                     this.group.removeChild(this.text);
                     this.text = SVGUtils.createTextBody(text, width, 12, "arial", 12,  this.svg);
                     this.group.appendChild(this.text);

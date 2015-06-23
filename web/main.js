@@ -13,8 +13,6 @@ require.config({
             exports : '_'
         },
 
-        'jqueryUICustom' : ['jquery'],
-
         'canvg' : {
 
             deps : ['rgbColor'],
@@ -44,7 +42,6 @@ require.config({
         raphaelSVG : "lib/raphael.2.1.0.svg",
         raphaelVML : "lib/raphael.2.1.0.vml",
         eve : "lib/eve.0.3.4",
-        jqueryUICustom : "lib/jquery-ui-1.10.3.custom/js/jquery-ui-1.10.3.custom.min",
         canvg : "lib/canvg-1.2/canvg",
         rgbColor : "lib/canvg-1.2/rgbcolor",
         "defaultHelp" : "defaulthelp"

@@ -12,8 +12,12 @@ define([
 
         "use strict";
 
-        return BaseType.extend({
-
+        return BaseType.extend(/** @lends ModalEditorController.prototype */{
+            /**
+             *
+             * @augments external:BaseType
+             * @constructs
+             */
             initialize : function (options) {
 
                 this.manager = options.manager;

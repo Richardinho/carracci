@@ -14,7 +14,6 @@ define([
             initialize : function (options) {
 
                 this.$el = options.el;
-                console.log("show view");
                 this.show();
             },
 
