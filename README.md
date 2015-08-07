@@ -13,6 +13,6 @@ A browser based tool with command line facilities for creating and editing uml d
 
 [Carracci website](http://carracci.richardhunter.co.uk)
 
-![carracci screenshot](./carracciScreenshot.png)
+![carracci screenshot](./screenshot.png)
 
 
