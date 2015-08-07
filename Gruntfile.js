@@ -119,7 +119,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-jsdoc');
 
-    grunt.task.registerTask("build", ['clean:oldBuild', 'requirejs', 'copy', 'clean:required']);
+    grunt.task.registerTask("build", ['clean:oldBuild', 'requirejs', 'copy:main', 'copy:indexfile', 'clean:required']);
 
 
 };
