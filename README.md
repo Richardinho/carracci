@@ -5,7 +5,6 @@ A browser based tool with command line facilities for creating and editing uml d
 ###Features
 
  * Create UML Class, Abstract Class and interface diagrams
- * edit through interactive graphics or via embedded command line interface
 
 ###Developers
 
