@@ -22,14 +22,15 @@
     "grunt": "~0.4.1",
     "grunt-contrib-jshint": "^0.11.2",
     "grunt-contrib-requirejs": "~0.4.1",
-    "grunt-contrib-copy" : "~0.8.0",
-    "grunt-contrib-clean" : "~0.6.0",
-    "grunt-jsdoc" : "~0.6.7"
-
-
+    "grunt-contrib-copy": "~0.8.0",
+    "grunt-contrib-clean": "~0.6.0",
+    "grunt-jsdoc": "~0.6.7"
   },
   "author": "Richard Hunter",
   "license": "MIT",
   "gitHead": "8c3d4d5b70d87549821b16617790a449d5d3ee08",
-  "readmeFilename": "README.md"
+  "readmeFilename": "README.md",
+  "dependencies": {
+    "express": "^4.13.3"
+  }
 }

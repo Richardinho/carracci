@@ -42,7 +42,7 @@ define([
                     componentFactory : componentFactory
                 });
 
-
+								diagramController.setDiagram('builderPattern');
             });
         }
     };

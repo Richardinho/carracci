@@ -1,8 +1,10 @@
 .idea/*
 *.iml
 .ftppass
-build/
 web/.sass-cache/
 node_modules
 .sass-cache
 docs
+*.swp
+carracci
+*.map

@@ -42,12 +42,12 @@ module.exports = function(grunt) {
                     'main.js',
                     'reset.css'
                 ],           // copy all files and subfolders
-                dest: 'build',    // destination folder
+                dest: 'carracci',    // destination folder
                 expand: true           // required when using cwd
             },
             indexfile : {
                 src: 'web/index.html',
-                dest: 'build/index.html',
+                dest: 'carracci/index.html',
                 options: {
                     process: function (content, srcpath) {
                         return content.replace(/<!--underscore-placeholder-->/g,'<script src="lib/underscore.js"></script>');
@@ -58,7 +58,7 @@ module.exports = function(grunt) {
 
         clean: {
             required: ["required"],
-            oldBuild: ["build"]
+            oldBuild: ["carracci"]
         },
 
         "ftp-deploy" : {

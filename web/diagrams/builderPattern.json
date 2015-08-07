@@ -13,9 +13,9 @@
                     "returnType": "void"
                 }
             },
-            "xCood": 757,
-            "yCood": 99,
-            "width": 85,
+            "xCood": 284,
+            "yCood": 172,
+            "width": 83.09375,
             "height": 79,
             "notes": []
         },
@@ -25,9 +25,9 @@
             "properties": {},
             "flavor": "interface",
             "methods": {},
-            "xCood": 836,
-            "yCood": 301,
-            "width": 74,
+            "xCood": 378,
+            "yCood": 389,
+            "width": 71.71875,
             "height": 64,
             "notes": []
         },
@@ -49,9 +49,9 @@
                     "returnType": "void"
                 }
             },
-            "xCood": 396,
-            "yCood": 215,
-            "width": 86,
+            "xCood": 78,
+            "yCood": 284,
+            "width": 84.203125,
             "height": 94,
             "notes": []
         },
@@ -72,9 +72,9 @@
                     "returnType": "Product"
                 }
             },
-            "xCood": 1000,
-            "yCood": 125,
-            "width": 105,
+            "xCood": 563,
+            "yCood": 220,
+            "width": 102,
             "height": 79,
             "notes": []
         }
@@ -84,8 +84,8 @@
             "orientation": "horizontal",
             "nodes": {
                 "left": {
-                    "xCood": 482,
-                    "yCood": 264,
+                    "xCood": 162,
+                    "yCood": 327,
                     "attached": true,
                     "attachedBox": "abc3",
                     "arrow": {
@@ -94,20 +94,20 @@
                     }
                 },
                 "proximal": {
-                    "xCood": 661,
-                    "yCood": 264,
+                    "xCood": 208,
+                    "yCood": 327,
                     "attached": false,
                     "attachedBox": ""
                 },
                 "distal": {
-                    "xCood": 661,
-                    "yCood": 139,
+                    "xCood": 208,
+                    "yCood": 195,
                     "attached": false,
                     "attachedBox": ""
                 },
                 "right": {
-                    "xCood": 757,
-                    "yCood": 139,
+                    "xCood": 284,
+                    "yCood": 195,
                     "attached": true,
                     "attachedBox": "abc1",
                     "arrow": {
@@ -122,8 +122,8 @@
             "orientation": "horizontal",
             "nodes": {
                 "left": {
-                    "xCood": 1000,
-                    "yCood": 179,
+                    "xCood": 563,
+                    "yCood": 274,
                     "attached": true,
                     "attachedBox": "abc4",
                     "arrow": {
@@ -132,20 +132,20 @@
                     }
                 },
                 "proximal": {
-                    "xCood": 929,
-                    "yCood": 179,
+                    "xCood": 465,
+                    "yCood": 274,
                     "attached": false,
                     "attachedBox": ""
                 },
                 "distal": {
-                    "xCood": 929,
-                    "yCood": 138,
+                    "xCood": 465,
+                    "yCood": 202,
                     "attached": false,
                     "attachedBox": ""
                 },
                 "right": {
-                    "xCood": 842,
-                    "yCood": 138,
+                    "xCood": 367.09375,
+                    "yCood": 202,
                     "attached": true,
                     "attachedBox": "abc1",
                     "arrow": {
@@ -160,8 +160,8 @@
             "orientation": "vertical",
             "nodes": {
                 "top": {
-                    "xCood": 887,
-                    "yCood": 301,
+                    "xCood": 411,
+                    "yCood": 389,
                     "attached": true,
                     "attachedBox": "abc2",
                     "arrow": {
@@ -170,20 +170,20 @@
                     }
                 },
                 "secondTop": {
-                    "xCood": 887,
-                    "yCood": 250,
+                    "xCood": 411,
+                    "yCood": 333,
                     "attached": false,
                     "attachedBox": ""
                 },
                 "secondBottom": {
-                    "xCood": 1052,
-                    "yCood": 250,
+                    "xCood": 615,
+                    "yCood": 333,
                     "attached": false,
                     "attachedBox": ""
                 },
                 "bottom": {
-                    "xCood": 1052,
-                    "yCood": 204,
+                    "xCood": 615,
+                    "yCood": 299,
                     "attached": true,
                     "attachedBox": "abc4",
                     "arrow": {
@@ -205,7 +205,11 @@
         "created": "today",
         "fontFamily": "arial",
         "paddingHorizontal": 12,
-        "xCood": 308,
-        "yCood": 17
+        "xCood": 171,
+        "yCood": 16
     }
 }
+
+
+
+

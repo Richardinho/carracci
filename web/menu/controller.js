@@ -63,6 +63,16 @@ define([
                     });
                     //  todo: should this be done here?
                     this.view.render(this.componentModel.diagram);
-                }
+                },
+								createDiagram : function(diagramName) {
+								    this.diagramController.command({
+                        command : 'load',
+                        args :[diagramName] 
+                    });
+                    //  todo: should this be done here?
+                    this.view.render(this.componentModel.diagram);
+									
+
+								}
             });
         });

@@ -49,6 +49,7 @@ define([
 
                 diagramController : this
             });
+						
 
             this.widgetManager = new WidgetManager({
 
@@ -67,6 +68,11 @@ define([
             this.widgetManager.showTypeEditor(typeModel);
 
         },
+
+				setDiagram : function(diagramName) {
+					this.mainMenu.createDiagram(diagramName);					
+				},
+
 
         showNoteEditor : function (noteModel) {
 
