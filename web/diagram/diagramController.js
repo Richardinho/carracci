@@ -148,6 +148,10 @@ define([
                 this.load(args[0]);
 
             }
+						if(command === 'export') {
+							this.export();
+						}
+
 
         },
 
@@ -174,7 +178,8 @@ define([
         },
         //  todo: this not hooked up yet.
         export : function () {
-            var format = arguments[0];
+            //var format = arguments[0];
+						var format = 'png';
 
             switch (format) {
 
