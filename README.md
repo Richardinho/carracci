@@ -1,6 +1,6 @@
 #carracci
 
-A browser based tool with command line facilities for creating and editing uml diagrams
+A browser based tool for creating and editing uml diagrams
 
 ###Features
 
