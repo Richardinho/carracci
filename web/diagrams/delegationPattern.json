@@ -7,8 +7,8 @@
             "properties": {},
             "flavor": "class",
             "methods": {},
-            "xCood": 540,
-            "yCood": 194,
+            "xCood": 474,
+            "yCood": 144,
             "width": 53.359375,
             "height": 49,
             "notes": []
@@ -19,8 +19,8 @@
             "properties": {},
             "flavor": "class",
             "methods": {},
-            "xCood": 766,
-            "yCood": 302,
+            "xCood": 476,
+            "yCood": 258,
             "width": 50.03125,
             "height": 49,
             "notes": []
@@ -31,8 +31,8 @@
             "orientation": "horizontal",
             "nodes": {
                 "left": {
-                    "xCood": 593.359375,
-                    "yCood": 214,
+                    "xCood": 527.359375,
+                    "yCood": 164,
                     "attached": true,
                     "attachedBox": "abc1",
                     "arrow": {
@@ -42,24 +42,24 @@
                 },
                 "proximal": {
                     "xCood": 643,
-                    "yCood": 214,
+                    "yCood": 164,
                     "attached": false,
                     "attachedBox": ""
                 },
                 "distal": {
                     "xCood": 643,
-                    "yCood": 326,
+                    "yCood": 282,
                     "attached": false,
                     "attachedBox": ""
                 },
                 "right": {
-                    "xCood": 766,
-                    "yCood": 326,
+                    "xCood": 526.03125,
+                    "yCood": 282,
                     "attached": true,
                     "attachedBox": "abc2",
                     "arrow": {
                         "style": "blackConnectArrow",
-                        "direction": "right"
+                        "direction": "left"
                     }
                 }
             },
@@ -76,7 +76,7 @@
         "created": "16th June 2015",
         "fontFamily": "arial",
         "paddingHorizontal": 12,
-        "xCood": 155,
-        "yCood": 125
+        "xCood": 84,
+        "yCood": 121
     }
 }
