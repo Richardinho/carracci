@@ -32,6 +32,15 @@ module.exports = function(grunt) {
         },
 
         copy: {
+
+            utils : {
+                cwd : 'node_modules',
+                src : [
+                    'richardUtils/src/BaseType.js'
+                ],
+                dest : 'web',
+                expand : true
+            },
             main : {
                 cwd: 'required',  // set working folder / root to copy
                 src: [

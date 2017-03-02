@@ -35,7 +35,6 @@ require.config({
         jquery : "lib/jquery-1.8.0",
         underscore : "lib/underscore",
         BaseType : "richardUtils/src/BaseType",
-        Model : "richardUtils/src/Model",
         raphael : "lib/raphael.2.1.0.amd",
         raphaelCore : "lib/raphael.2.1.0.core",
         svg : "utility/svg",

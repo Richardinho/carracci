@@ -4,6 +4,7 @@
 web/.sass-cache/
 node_modules
 .sass-cache
+lib
 docs
 *.swp
 carracci
