@@ -4,7 +4,7 @@ self.addEventListener('install', function(event) {
   event.waitUntil(
     caches.open(version).then(function(cache) {
       return cache.addAll([
-        '/carracci'
+        '/carracci/'
         '/carracci/main.js',
         '/carracci/css/diagramMain.css',
         '/carracci/diagrams/builderPattern.json',
