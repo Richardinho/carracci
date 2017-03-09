@@ -226,7 +226,7 @@ define([
 
             var promise = Promise.resolve($.ajax({
 
-                url : '/diagrams/' + diagramname +'.json',
+                url : 'diagrams/' + diagramname +'.json',
                 dataType : 'json'
             }));
 
