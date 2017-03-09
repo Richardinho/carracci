@@ -41,6 +41,16 @@ module.exports = function(grunt) {
                 dest : 'web',
                 expand : true
             },
+            serviceWorker : {
+                cwd : '.',
+                src : [
+                    'sw.js',
+                    'register-service-worker.js'
+                ],
+                dest : 'carracci',
+                expand : true
+
+            },
             main : {
                 cwd: 'required',  // set working folder / root to copy
                 src: [
@@ -59,7 +69,7 @@ module.exports = function(grunt) {
                 dest: 'carracci/index.html',
                 options: {
                     process: function (content, srcpath) {
-                        return content.replace(/<!--underscore-placeholder-->/g,'<script src="lib/underscore.js"></script>');
+                        return content.replace(/<!--underscore-placeholder-->/g,'<script src="lib/underscore.js"></script><script src="register-service-worker.js"></script>');
                     }
                 }
             }
@@ -128,7 +138,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-jsdoc');
 
-    grunt.task.registerTask("build", ['clean:oldBuild', 'requirejs', 'copy:main', 'copy:indexfile', 'clean:required']);
+    grunt.task.registerTask("build", ['clean:oldBuild', 'requirejs', 'copy:serviceWorker', 'copy:main', 'copy:indexfile', 'clean:required', 'copy:serviceWorker']);
 
 
 };
