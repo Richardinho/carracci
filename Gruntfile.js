@@ -33,6 +33,8 @@ module.exports = function(grunt) {
 
         copy: {
 
+
+
             utils : {
                 cwd : 'node_modules',
                 src : [
@@ -47,7 +49,7 @@ module.exports = function(grunt) {
                     'sw.js',
                     'register-service-worker.js'
                 ],
-                dest : 'carracci',
+                dest : 'docs',
                 expand : true
 
             },
@@ -61,12 +63,12 @@ module.exports = function(grunt) {
                     'main.js',
                     'reset.css'
                 ],           // copy all files and subfolders
-                dest: 'carracci',    // destination folder
+                dest: 'docs',    // destination folder
                 expand: true           // required when using cwd
             },
             indexfile : {
                 src: 'web/index.html',
-                dest: 'carracci/index.html',
+                dest: 'docs/index.html',
                 options: {
                     process: function (content, srcpath) {
                         return content.replace(/<!--underscore-placeholder-->/g,'<script src="lib/underscore.js"></script><script src="register-service-worker.js"></script>');

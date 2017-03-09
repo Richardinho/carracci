@@ -1,0 +1,204 @@
+{
+    "name": "commandpattern",
+    "types": {
+        "abc1": {
+            "name": "ConcreteCommand",
+            "id": "abc1",
+            "properties": {},
+            "flavor": "class",
+            "methods": {
+                "doIt": {
+                    "visibility": "public",
+                    "name": "doIt",
+                    "returnType": "void"
+                },
+                "undoit": {
+                    "visibility": "public",
+                    "name": "undoit",
+                    "returnType": "void"
+                }
+            },
+            "xCood": 595,
+            "yCood": 281,
+            "width": 96.71875,
+            "height": 79,
+            "notes": []
+        },
+        "abc2": {
+            "name": "CommandManager",
+            "id": "abc2",
+            "properties": {},
+            "flavor": "class",
+            "methods": {},
+            "xCood": 344,
+            "yCood": 85,
+            "width": 95.609375,
+            "height": 49,
+            "notes": []
+        },
+        "abc3": {
+            "name": "AbstractCommand",
+            "id": "abc3",
+            "properties": {},
+            "flavor": "abstract",
+            "methods": {
+                "doIt": {
+                    "visibility": "public",
+                    "name": "doIt",
+                    "returnType": "void"
+                },
+                "undoit": {
+                    "visibility": "public",
+                    "name": "undoit",
+                    "returnType": "void"
+                }
+            },
+            "xCood": 541,
+            "yCood": 60,
+            "width": 92.8125,
+            "height": 94,
+            "notes": []
+        },
+        "abc4": {
+            "name": "Invoker",
+            "id": "abc4",
+            "properties": {},
+            "flavor": "class",
+            "methods": {},
+            "xCood": 322,
+            "yCood": 286,
+            "width": 42.796875,
+            "height": 49,
+            "notes": []
+        }
+    },
+    "connectors": {
+        "abc5": {
+            "orientation": "horizontal",
+            "nodes": {
+                "left": {
+                    "xCood": 364.796875,
+                    "yCood": 312,
+                    "attached": true,
+                    "attachedBox": "abc4",
+                    "arrow": {
+                        "style": "none",
+                        "direction": "left"
+                    }
+                },
+                "proximal": {
+                    "xCood": 505,
+                    "yCood": 312,
+                    "attached": false,
+                    "attachedBox": ""
+                },
+                "distal": {
+                    "xCood": 505,
+                    "yCood": 312,
+                    "attached": false,
+                    "attachedBox": ""
+                },
+                "right": {
+                    "xCood": 595,
+                    "yCood": 312,
+                    "attached": true,
+                    "attachedBox": "abc1",
+                    "arrow": {
+                        "style": "blackConnectArrow",
+                        "direction": "right"
+                    }
+                }
+            },
+            "lineStyle": "solid"
+        },
+        "abc6": {
+            "orientation": "vertical",
+            "nodes": {
+                "top": {
+                    "xCood": 579,
+                    "yCood": 154,
+                    "attached": true,
+                    "attachedBox": "abc3",
+                    "arrow": {
+                        "style": "whiteArrow",
+                        "direction": "top"
+                    }
+                },
+                "secondTop": {
+                    "xCood": 579,
+                    "yCood": 233,
+                    "attached": false,
+                    "attachedBox": ""
+                },
+                "secondBottom": {
+                    "xCood": 649,
+                    "yCood": 233,
+                    "attached": false,
+                    "attachedBox": ""
+                },
+                "bottom": {
+                    "xCood": 649,
+                    "yCood": 281,
+                    "attached": true,
+                    "attachedBox": "abc1",
+                    "arrow": {
+                        "style": "none",
+                        "direction": "bottom"
+                    }
+                }
+            },
+            "lineStyle": "solid"
+        },
+        "abc7": {
+            "orientation": "horizontal",
+            "nodes": {
+                "left": {
+                    "xCood": 541,
+                    "yCood": 116,
+                    "attached": true,
+                    "attachedBox": "abc3",
+                    "arrow": {
+                        "style": "blackConnectArrow",
+                        "direction": "right"
+                    }
+                },
+                "proximal": {
+                    "xCood": 500,
+                    "yCood": 116,
+                    "attached": false,
+                    "attachedBox": ""
+                },
+                "distal": {
+                    "xCood": 500,
+                    "yCood": 101,
+                    "attached": false,
+                    "attachedBox": ""
+                },
+                "right": {
+                    "xCood": 439.609375,
+                    "yCood": 101,
+                    "attached": true,
+                    "attachedBox": "abc2",
+                    "arrow": {
+                        "style": "whiteDiamond",
+                        "direction": "left"
+                    }
+                }
+            },
+            "lineStyle": "solid"
+        }
+    },
+    "notes": {},
+    "banner": {
+        "title": "Command Pattern",
+        "description": "The Command Pattern is a behavioural design pattern in which an object is used to represent and encapsulate all the information needed to call a method at a later time. This information includes the method name, the object that owns the method and values for the method parameters.",
+        "author": "Richard",
+        "width": 300,
+        "fontSize": "12",
+        "created": "default",
+        "fontFamily": "arial",
+        "paddingHorizontal": 12,
+        "xCood": 30,
+        "yCood": 44
+    }
+}
