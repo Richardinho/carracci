@@ -2,7 +2,7 @@ self.addEventListener('install', function(event) {
   event.waitUntil(
     caches.open('carracci-v1').then(function(cache) {
       return cache.addAll([
-        /*'/carracci',
+        '/carracci',
         '/carracci/main.js',
         '/carracci/css/diagramMain.css',
         '/carracci/diagrams/builderPattern.json',
@@ -23,7 +23,7 @@ self.addEventListener('install', function(event) {
         '/carracci/lib/raphael.2.1.0.svg.js',
         '/carracci/lib/raphael.2.1.0.vml.js',
         '/carracci/lib/require.js',
-        '/carracci/lib/underscore.js'*/
+        '/carracci/lib/underscore.js'
       ]);
     })
   );
