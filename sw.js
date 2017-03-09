@@ -2,7 +2,6 @@ self.addEventListener('install', function(event) {
   event.waitUntil(
     caches.open('carracci-v1').then(function(cache) {
       return cache.addAll([
-        '/carracci/reset.css'
         /*'/carracci',
         '/carracci/main.js',
         '/carracci/css/diagramMain.css',
