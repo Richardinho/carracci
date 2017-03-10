@@ -1,4 +1,4 @@
-let version = 'carracci-v2';
+let version = 'carracci-v3';
 
 self.addEventListener('install', function(event) {
   event.waitUntil(
