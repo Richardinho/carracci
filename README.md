@@ -9,6 +9,6 @@ A browser based tool for creating and editing uml class diagrams. The app consis
 
 [demo website](http://carracci.richardhunter.co.uk)
 
-![screenshot](./screenshot.png =200x)
+![screenshot](./screenshot.png)
 
 
