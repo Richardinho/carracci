@@ -1,12 +1,12 @@
-#carracci
+# carracci
 
 A browser based tool for creating and editing uml diagrams
 
-###Features
+### Features
 
  * Create UML Class, Abstract Class and interface diagrams
 
-###Developers
+### Developers
 
  * Richard Hunter
 
