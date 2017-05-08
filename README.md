@@ -7,8 +7,8 @@ A browser based tool for creating and editing uml class diagrams. The app consis
 * SVG
 * Raphael
 
-[Carracci website](http://carracci.richardhunter.co.uk)
+[demo website](http://carracci.richardhunter.co.uk)
 
-![carracci screenshot](./screenshot.png)
+![screenshot](./screenshot.png)
 
 
