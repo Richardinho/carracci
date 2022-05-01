@@ -1,8 +1,6 @@
-define(['raphael', 'jquery'], function(Raphael, $) {
+define(["raphael", "jquery"], function (Raphael, $) {
+  var paper = Raphael(0, 0, 800, 500);
+  paper.canvas.id = "foo";
 
-    var paper = Raphael(0, 0, 800, 500);
-    paper.canvas.id = "foo"
-
-    return paper;
-
+  return paper;
 });

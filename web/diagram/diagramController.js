@@ -22,11 +22,11 @@ define([
   eventsBus
 ) {
   /*
-        this type has the role of supplying commands which are called by the editor.
-        It delegates to the diagram model for creating the model, and to the component factory
-        for creating wrapper objects. It also keeps track through the context path of the users
-        current place within the model.
-     */
+    this type has the role of supplying commands which are called by the editor.
+    It delegates to the diagram model for creating the model, and to the component factory
+    for creating wrapper objects. It also keeps track through the context path of the users
+    current place within the model.
+  */
 
   "use strict";
 
@@ -179,8 +179,9 @@ define([
       },
 
       /*
-            loads diagram by name. Throws an error if there is no such diagram currently loaded.
-        */
+        loads diagram by name. Throws an error if there is no such diagram currently loaded.
+      */
+
       load: function (diagramname) {
         var promise = Promise.resolve(
           $.ajax({

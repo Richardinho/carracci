@@ -1,63 +1,43 @@
-define([
-    "BaseType",
-    "backbone" ,
-    "events/eventsBus"
+define(["BaseType", "backbone", "events/eventsBus"], function (
+  BaseType,
+  Backbone,
+  eventsBus
+) {
+  "use strict";
 
-    ],
+  return BaseType.extend({
+    initialize: function (options) {
+      this.model = options.model;
 
-    function (
-        BaseType,
-        Backbone,
-        eventsBus
-    ) {
+      this.events = {};
 
-    "use strict";
+      _.extend(this.events, Backbone.Events);
 
-    return BaseType.extend({
+      eventsBus.on("destroy:" + this.model.id, this.destroy, this);
+    },
 
-        initialize : function (options) {
+    destroy: function () {
+      this.trigger("destroy");
+    },
 
-            this.model = options.model;
+    on: function () {
+      this.events.on.apply(this.events, arguments);
+    },
 
-            this.events = {};
+    off: function () {
+      this.events.off.apply(this.events, arguments);
+    },
 
-            _.extend(this.events, Backbone.Events);
+    trigger: function () {
+      this.events.trigger.apply(this.events, arguments);
+    },
 
-            eventsBus.on("destroy:" + this.model.id, this.destroy, this);
+    set: function (name, value) {
+      this.model[name] = value;
+    },
 
-        },
-
-        destroy : function () {
-
-            this.trigger("destroy");
-        },
-
-        on : function () {
-
-            this.events.on.apply(this.events, arguments);
-        },
-
-        off : function () {
-
-           this.events.off.apply(this.events, arguments);
-
-        },
-
-        trigger : function () {
-
-            this.events.trigger.apply(this.events, arguments);
-
-        },
-
-        set : function (name, value) {
-
-            this.model[name] = value;
-        },
-
-        get : function(propertyName) {
-
-            return this.model[propertyName];
-        }
-    });
+    get: function (propertyName) {
+      return this.model[propertyName];
+    },
+  });
 });
-

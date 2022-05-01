@@ -79,10 +79,12 @@ define([
 
         return this.currentDiagram["connectors"][id];
       },
+
       /**
        *  creates a horizontal connector
        *  @returns {Object} object literal with default configuration for horizontal connector
        */
+
       createHorizontalConnector: function () {
         var id = idGenerator.nextId();
 
@@ -95,6 +97,7 @@ define([
        * deletes a type box from the diagram
        * @param {Number} id - id of type to be deleted
        */
+
       deleteType: function (id) {
         delete this.currentDiagram["types"][id];
       },
@@ -137,10 +140,12 @@ define([
 
         return this.currentDiagram["notes"][id];
       },
+
       /**
        * deletes a note
        * @param {Number} id - id of note to be deleted
        */
+
       deleteNote: function (id) {
         delete this.currentDiagram["notes"][id];
       },
@@ -149,6 +154,7 @@ define([
        * creates a type
        * @returns {Object} object literal with default configuration for type.
        */
+
       createType: function () {
         var id = idGenerator.nextId();
 
@@ -156,10 +162,12 @@ define([
 
         return this.currentDiagram["types"][id];
       },
+
       /**
        * deletes a connector
        * @param {Number} id -id of connector to be deleted
        */
+
       deleteConnector: function (id) {
         delete this.currentDiagram["connectors"][id];
       },

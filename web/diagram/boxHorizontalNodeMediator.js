@@ -1,127 +1,97 @@
-define([
-        "diagram/boxNodeMediator"
-         ],function (
-            BoxNodeMediator
-        ) {
+define(["diagram/boxNodeMediator"], function (BoxNodeMediator) {
+  return BoxNodeMediator.extend({
+    initialize: function (options) {
+      BoxNodeMediator.prototype.initialize.call(this, options);
+    },
 
+    getBoxRightLimit: function () {
+      return this.typeController.getRightXLimit();
+    },
 
-    return BoxNodeMediator.extend({
+    getBoxLeftLimit: function () {
+      return this.typeController.getLeftXLimit();
+    },
 
-        initialize : function (options) {
+    /*
+      works out whether the right hand node should be on the right
+      edge of the box or the left edge
+    */
 
-            BoxNodeMediator.prototype.initialize.call(this, options);
+    calculateNodeXCood: function (relativeX) {
+      if (relativeX > this.getBoxRightLimit()) {
+        return this.getBoxRightLimit();
+      } else {
+        return this.getBoxLeftLimit();
+      }
+    },
 
-        },
+    getDistalNodeCoods: function (x, y, currentX, currentY) {
+      var topY = this.typeController.getTopYLimit();
+      var bottomY = this.typeController.getBottomYLimit();
 
-        getBoxRightLimit : function () {
+      if (y < topY || y > bottomY) {
+        y = currentY;
+      }
 
-            return this.typeController.getRightXLimit();
-        },
+      // note that the x cood is not under any constraint.
+      return {
+        x: x,
+        y: y,
+      };
+    },
 
-        getBoxLeftLimit : function () {
+    //  todo: this and the previous function do the same thing. Should resolve into one function.
+    getProximalNodeCoods: function (x, y, currentX, currentY) {
+      var topY = this.typeController.getTopYLimit();
+      var bottomY = this.typeController.getBottomYLimit();
 
-            return this.typeController.getLeftXLimit();
-        },
+      if (y < topY || y > bottomY) {
+        y = currentY;
+      }
 
-        /*
-            works out whether the right hand node should be on the right
-            edge of the box or the left edge
-        */
-        calculateNodeXCood : function (relativeX) {
+      // note that the x cood is not under any constraint.
+      return {
+        x: x,
+        y: y,
+      };
+    },
 
-            if( relativeX > this.getBoxRightLimit()) {
+    /* methods called from nodes mediator to determine position of nodes */
 
-                return this.getBoxRightLimit();
-            } else {
+    getRightNodeCoods: function (x, y, currentX, currentY) {
+      return this._getNodeCoods(x, y, currentX, currentY);
+    },
 
-                return this.getBoxLeftLimit();
+    getLeftNodeCoods: function (x, y, currentX, currentY) {
+      return this._getNodeCoods(x, y, currentX, currentY);
+    },
 
-            }
+    //  private methods
+    _getNodeCoods: function (x, y, currentX, currentY) {
+      var topY = this.typeController.getTopYLimit();
+      var bottomY = this.typeController.getBottomYLimit();
 
-        },
+      if (y < topY || y > bottomY) {
+        y = currentY;
+      }
 
-        /*
+      return {
+        x: currentX,
+        y: y,
+      };
+    },
 
+    // inherited methods
+    _moveNodeOnToBox: function () {
+      var relativeX = this.nodeMediator.proximalNodeModel.getXCood();
 
-         */
-        getDistalNodeCoods : function (x, y, currentX, currentY) {
-            var topY = this.typeController.getTopYLimit();
-            var bottomY = this.typeController.getBottomYLimit();
+      var x = this.calculateNodeXCood(relativeX);
 
-            if(y < topY || y > bottomY ) {
+      var topY = this.typeController.getTopYLimit();
+      var bottomY = this.typeController.getBottomYLimit();
 
-                y = currentY;
-            }
-
-            // note that the x cood is not under any constraint.
-            return {
-
-                x : x,
-                y : y
-            };
-        },
-
-        //  todo: this and the previous function do the same thing. Should resolve into one function.
-        getProximalNodeCoods : function (x, y, currentX, currentY) {
-            var topY = this.typeController.getTopYLimit();
-            var bottomY = this.typeController.getBottomYLimit();
-
-            if(y < topY || y > bottomY ) {
-
-                y = currentY;
-            }
-
-            // note that the x cood is not under any constraint.
-            return {
-
-                x : x,
-                y : y
-            };
-        },
-
-        /* methods called from nodes mediator to determine position of nodes */
-
-        getRightNodeCoods : function (x, y, currentX, currentY) {
-            return this._getNodeCoods(x, y, currentX, currentY);
-        },
-
-        getLeftNodeCoods : function (x, y, currentX, currentY) {
-            return this._getNodeCoods(x, y, currentX, currentY);
-        },
-
-        //  private methods
-        _getNodeCoods : function(x, y, currentX, currentY) {
-
-            var topY = this.typeController.getTopYLimit();
-            var bottomY = this.typeController.getBottomYLimit();
-
-            if(y < topY || y > bottomY ) {
-
-                y = currentY;
-            }
-
-            return {
-
-                x : currentX,
-                y : y
-            };
-
-        },
-
-        // inherited methods
-        _moveNodeOnToBox : function () {
-
-            var relativeX = this.nodeMediator.proximalNodeModel.getXCood();
-
-            var x = this.calculateNodeXCood(relativeX);
-
-            var topY = this.typeController.getTopYLimit();
-            var bottomY = this.typeController.getBottomYLimit();
-
-            var y = (topY + bottomY) /2;
-            this.nodeMediator.update(this.nodeOrientation, x, y, true);
-        }
-
-    });
-
+      var y = (topY + bottomY) / 2;
+      this.nodeMediator.update(this.nodeOrientation, x, y, true);
+    },
+  });
 });

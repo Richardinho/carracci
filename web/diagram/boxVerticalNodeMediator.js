@@ -1,113 +1,88 @@
-define([
-        "diagram/boxNodeMediator"
-         ],function (
-            BoxNodeMediator
-        ) {
+define(["diagram/boxNodeMediator"], function (BoxNodeMediator) {
+  return BoxNodeMediator.extend({
+    initialize: function (options) {
+      BoxNodeMediator.prototype.initialize.call(this, options);
+    },
 
+    getBoxTopLimit: function () {
+      return this.typeController.getTopYLimit();
+    },
 
-    return BoxNodeMediator.extend({
+    getBoxBottomLimit: function () {
+      return this.typeController.getBottomYLimit();
+    },
 
-        initialize : function (options) {
+    getSecondBottomNodeCoods: function (x, y, currentX) {
+      var leftX = this.typeController.getLeftXLimit();
+      var rightX = this.typeController.getRightXLimit();
 
-            BoxNodeMediator.prototype.initialize.call(this, options);
-        },
+      if (x < leftX || x > rightX) {
+        x = currentX;
+      }
 
-        getBoxTopLimit : function () {
+      // note that the x cood is not under any constraint.
+      return {
+        x: x,
+        y: y,
+      };
+    },
 
-            return this.typeController.getTopYLimit();
-        },
+    calculateNodeYCood: function (relativeY) {
+      if (relativeY < this.getBoxTopLimit()) {
+        return this.getBoxTopLimit();
+      } else {
+        return this.getBoxBottomLimit();
+      }
+    },
 
-        getBoxBottomLimit : function () {
+    getSecondTopNodeCoods: function (x, y, currentX) {
+      var leftX = this.typeController.getLeftXLimit();
+      var rightX = this.typeController.getRightXLimit();
 
-            return this.typeController.getBottomYLimit();
-        },
+      if (x < leftX || x > rightX) {
+        x = currentX;
+      }
 
-        getSecondBottomNodeCoods : function (x, y, currentX) {
+      // note that the x cood is not under any constraint.
+      return {
+        x: x,
+        y: y,
+      };
+    },
 
-            var leftX = this.typeController.getLeftXLimit();
-            var rightX = this.typeController.getRightXLimit();
+    /* methods called from nodes mediator to determine position of nodes */
 
-            if(x < leftX || x > rightX ) {
+    getBottomNodeCoods: function (x, y, currentX, currentY) {
+      var rightX = this.typeController.getRightXLimit();
+      var leftX = this.typeController.getLeftXLimit();
 
-                x = currentX;
-            }
+      if (x < leftX || x > rightX) {
+        x = currentX;
+      }
 
-            // note that the x cood is not under any constraint.
-            return {
+      return {
+        x: x,
+        y: currentY,
+      };
+    },
 
-                x : x,
-                y : y
-            };
+    getTopNodeCoods: function (x, y, currentX, currentY) {
+      var rightX = this.typeController.getRightXLimit();
+      var leftX = this.typeController.getLeftXLimit();
 
-        },
+      if (x < leftX || x > rightX) {
+        x = currentX;
+      }
 
-        calculateNodeYCood : function (relativeY) {
+      return {
+        x: x,
+        y: currentY,
+      };
+    },
 
-            if( relativeY < this.getBoxTopLimit()) {
-
-                return this.getBoxTopLimit();
-            } else {
-
-                return this.getBoxBottomLimit();
-
-            }
-        },
-
-        getSecondTopNodeCoods : function (x, y, currentX) {
-
-            var leftX = this.typeController.getLeftXLimit();
-            var rightX = this.typeController.getRightXLimit();
-
-            if(x < leftX || x > rightX ) {
-
-                x = currentX;
-            }
-
-            // note that the x cood is not under any constraint.
-            return {
-
-                x : x,
-                y : y
-            };
-        },
-
-        /* methods called from nodes mediator to determine position of nodes */
-
-        getBottomNodeCoods : function (x, y, currentX, currentY) {
-
-            var rightX = this.typeController.getRightXLimit();
-            var leftX = this.typeController.getLeftXLimit();
-
-            if(x < leftX || x > rightX ) {
-
-                x = currentX;
-            }
-
-            return {
-                x : x,
-                y : currentY
-            };
-        },
-
-        getTopNodeCoods : function (x, y, currentX, currentY) {
-            var rightX = this.typeController.getRightXLimit();
-            var leftX = this.typeController.getLeftXLimit();
-
-            if(x < leftX || x > rightX ) {
-
-                x = currentX;
-            }
-
-            return {
-                x : x,
-                y : currentY
-            };
-        },
-
-        //  private methods
-        _getNodeCoods : function(x, y, currentX, currentY) {
-
-/*            var topY = this.typeController.getTopYLimit();
+    //  private methods
+    _getNodeCoods: function (x, y, currentX, currentY) {
+      /*            var topY = this.typeController.getTopYLimit();
             var bottomY = this.typeController.getBottomYLimit();
 
             if(y < topY || y > bottomY ) {
@@ -120,23 +95,19 @@ define([
                 x : currentX,
                 y : y
             }*/
+    },
 
-        },
+    // inherited methods
+    _moveNodeOnToBox: function () {
+      var relativeY = this.nodeMediator.secondTopNodeModel.getYCood();
 
-        // inherited methods
-        _moveNodeOnToBox : function () {
+      var y = this.calculateNodeYCood(relativeY);
 
-            var relativeY = this.nodeMediator.secondTopNodeModel.getYCood();
+      var rightLimit = this.typeController.getRightXLimit();
+      var leftLimit = this.typeController.getLeftXLimit();
 
-            var y = this.calculateNodeYCood(relativeY);
-
-            var rightLimit = this.typeController.getRightXLimit();
-            var leftLimit = this.typeController.getLeftXLimit();
-
-            var x = (rightLimit + leftLimit) / 2;
-            this.nodeMediator.update(this.nodeOrientation, x, y, true);
-        }
-
-    });
-
+      var x = (rightLimit + leftLimit) / 2;
+      this.nodeMediator.update(this.nodeOrientation, x, y, true);
+    },
+  });
 });
