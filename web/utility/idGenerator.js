@@ -1,18 +1,16 @@
 define([], function () {
+  var nextId = 1;
 
-    var nextId = 1;
+  var prefix = "abc";
 
-    var prefix = "abc";
+  return {
+    nextId: function () {
+      var id = nextId++;
+      return prefix + id;
+    },
 
-    return {
-
-        nextId : function () {
-            var id = nextId++;
-            return prefix + id;
-        },
-
-        reset : function (offset) {
-            nextId += offset;
-        }
-    };
-})
+    reset: function (offset) {
+      nextId += offset;
+    },
+  };
+});

@@ -1,44 +1,31 @@
 define([
-    "BaseType",
-    "text!menu/template.html",
-    "text!menu/initialTemplate.html"
-    ], function (
-        BaseType,
-        template,
-        initialTemplate
-        ) {
+  "BaseType",
+  "text!menu/template.html",
+  "text!menu/initialTemplate.html",
+], function (BaseType, template, initialTemplate) {
+  "use strict";
 
-            "use strict";
+  return BaseType.extend({
+    initialize: function (options) {
+      this.$el = options.el;
+    },
 
-            return BaseType.extend({
+    initialTemplate: _.template(initialTemplate),
 
-                initialize : function (options) {
+    template: _.template(template),
 
-                    this.$el = options.el;
-                },
+    render: function (diagram) {
+      this.$el.html(this._getTemplate(diagram));
 
-                initialTemplate : _.template(initialTemplate),
+      this.$el.show();
+    },
 
-                template : _.template(template),
-
-                render : function (diagram) {
-
-                    this.$el.html(this._getTemplate(diagram));
-
-                    this.$el.show();
-
-                },
-
-                _getTemplate : function (diagram) {
-
-                    if(diagram) {
-
-                        return this.template();
-
-                    } else {
-
-                        return this.initialTemplate();
-                    }
-                }
-            });
-        });
+    _getTemplate: function (diagram) {
+      if (diagram) {
+        return this.template();
+      } else {
+        return this.initialTemplate();
+      }
+    },
+  });
+});
