@@ -1,55 +1,48 @@
-define(function () {
+define(function() {
+  return function() {
+    'use strict'
 
-    return function () {
+    return {
+      orientation: 'horizontal',
 
-        "use strict";
+      nodes: {
+        left: {
+          xCood: 100,
+          yCood: 100,
+          attached: false,
+          attachedBox: '',
+          arrow: {
+            style: 'blackConnectArrow',
+            direction: 'left',
+          },
+        },
 
-        return {
+        proximal: {
+          xCood: 200,
+          yCood: 100,
+          attached: false,
+          attachedBox: '',
+        },
 
-            orientation : "horizontal",
+        distal: {
+          xCood: 200,
+          yCood: 300,
+          attached: false,
+          attachedBox: '',
+        },
 
-            nodes : {
-
-                left : {
-                    xCood : 100,
-                    yCood : 100,
-                    attached : false,
-                    attachedBox : "",
-                    arrow : {
-                        style : "blackConnectArrow",
-                        direction : "left"
-                    }
-                },
-
-                proximal : {
-                    xCood : 200,
-                    yCood : 100,
-                    attached : false,
-                    attachedBox : ""
-                },
-
-                distal : {
-                    xCood : 200,
-                    yCood : 300,
-                    attached : false,
-                    attachedBox : ""
-                },
-
-                right : {
-                    xCood : 400,
-                    yCood : 300,
-                    attached : false,
-                    attachedBox : "",
-                    arrow : {
-                        style : "whiteArrow",
-                        direction : "right"
-                    }
-                }
-            },
-            lineStyle : "solid"
-
-        };
-
-    };
-
-});
+        right: {
+          xCood: 400,
+          yCood: 300,
+          attached: false,
+          attachedBox: '',
+          arrow: {
+            style: 'whiteArrow',
+            direction: 'right',
+          },
+        },
+      },
+      lineStyle: 'solid',
+    }
+  }
+})

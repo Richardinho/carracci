@@ -1,63 +1,43 @@
-define(["utility/nodeWrapper"],
+define(['utility/nodeWrapper'], function(NodeWrapper) {
+  return NodeWrapper.extend({
+    initialize: function(options) {
+      NodeWrapper.prototype.initialize.call(this, options)
 
-        function (
-            NodeWrapper
-        ) {
+      this.model = options.model
+      this.lineStyles = ['dashed', 'solid']
 
+      this.currentLineStyleIndex = 0
+    },
 
-    return NodeWrapper.extend({
+    getTopArrow: function() {
+      return this.model['nodes']['top']
+    },
 
-        initialize : function (options) {
+    getSecondTopNode: function() {
+      return this.model['nodes']['secondTop']
+    },
 
-            NodeWrapper.prototype.initialize.call(this, options);
+    getSecondBottomNode: function() {
+      return this.model['nodes']['secondBottom']
+    },
 
-            this.model = options.model;
-            this.lineStyles = [
-                'dashed',
-                'solid'
-            ];
+    getBottomArrow: function() {
+      return this.model['nodes']['bottom']
+    },
 
-            this.currentLineStyleIndex = 0;
+    alternateLineStyle: function() {
+      this.setLineStyle(this.lineStyles[this.currentLineStyleIndex])
 
-        },
+      this.currentLineStyleIndex =
+        (this.currentLineStyleIndex + 1) % this.lineStyles.length
+    },
 
-        getTopArrow : function () {
+    setLineStyle: function(style) {
+      this.model['lineStyle'] = style
+    },
 
-            return this.model['nodes']['top'];
-        },
-
-        getSecondTopNode : function () {
-
-            return this.model['nodes']['secondTop'];
-        },
-
-        getSecondBottomNode : function () {
-
-            return this.model['nodes']['secondBottom'];
-        },
-
-        getBottomArrow : function () {
-
-            return this.model['nodes']['bottom'];
-        },
-
-        alternateLineStyle : function () {
-
-            this.setLineStyle(this.lineStyles[this.currentLineStyleIndex]);
-
-            this.currentLineStyleIndex = (this.currentLineStyleIndex + 1) % this.lineStyles.length;
-        },
-
-        setLineStyle : function (style) {
-            this.model['lineStyle'] = style;
-        },
-
-        getLineStyle : function () {
-            return this.model['lineStyle'];
-        }
-
-
-
-    });
-});
-
+    getLineStyle: function() {
+      return this.model['lineStyle']
+    },
+  })
+})

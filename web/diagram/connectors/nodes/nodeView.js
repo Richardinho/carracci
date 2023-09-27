@@ -1,88 +1,70 @@
-define(["BaseType",
-        "utility/svg",
-         "diagram/connectors/nodes/svgArrow"
-         ],function (
-            BaseType,
-            svg,
-            Arrow
-        ) {
+define([
+  'BaseType',
+  'utility/svg',
+  'diagram/connectors/nodes/svgArrow',
+], function(BaseType, svg, Arrow) {
+  return BaseType.extend({
+    initialize: function(options) {
+      this.model = options.model
 
+      var cx = this.model.getXCood()
+      var cy = this.model.getYCood()
 
-    return BaseType.extend({
+      this.node = svg.circle(cx, cy, 10)
 
-        initialize : function (options) {
+      this.node.attr({ fill: 'green', opacity: 0, stroke: 0 })
 
-            this.model = options.model;
+      this.model.on('change:xCood', this.updateX, this)
+      this.model.on('change:yCood', this.updateY, this)
 
-            var cx = this.model.getXCood();
-            var cy = this.model.getYCood();
+      this.model.on('switchArrowHead', this.switchArrowHead, this)
+      this.model.on('destroy', this.destroy, this)
 
-            this.node = svg.circle(cx,cy, 10);
+      // if this an arrow node?
+      if (this.model.isArrowNode()) {
+        this.arrow = new Arrow({
+          model: this.model,
+        })
+      }
+      this.node.toFront()
+    },
 
-            this.node.attr({ fill : "green", opacity : 0, stroke : 0 });
+    destroy: function() {
+      console.log('node view destroy')
 
+      if (this.model.isArrowNode()) {
+        this.arrow.destroy()
+      }
+      this.node.remove()
+    },
 
-            this.model.on("change:xCood", this.updateX, this);
-            this.model.on("change:yCood", this.updateY, this);
+    switchArrowHead: function() {
+      this.arrow.changeArrowHead()
+      this.node.toFront()
+    },
 
-            this.model.on("switchArrowHead", this.switchArrowHead, this);
-            this.model.on("destroy", this.destroy, this);
+    getSvgNode: function() {
+      return this.node
+    },
 
-            // if this an arrow node?
-            if(this.model.isArrowNode() ) {
+    updateX: function() {
+      var cx = this.model.getXCood()
+      this.node.attr({ cx: cx })
 
-                this.arrow = new Arrow({
-                    model : this.model
-                });
-            }
-            this.node.toFront();
-        },
+      if (this.arrow) {
+        this.arrow.move()
+      }
+      this.node.toFront()
+    },
 
-        destroy : function () {
+    updateY: function() {
+      var cy = this.model.getYCood()
+      this.node.attr({ cy: cy })
 
-            console.log("node view destroy");
-
-            if(this.model.isArrowNode()) {
-                this.arrow.destroy();
-            }
-            this.node.remove();
-        },
-
-        switchArrowHead : function () {
-
-            this.arrow.changeArrowHead();
-            this.node.toFront();
-        },
-
-        getSvgNode : function () {
-            return this.node;
-        },
-
-        updateX : function () {
-            var cx = this.model.getXCood();
-            this.node.attr({ cx : cx });
-
-            if(this.arrow) {
-                this.arrow.move();
-            }
-            this.node.toFront();
-
-        },
-
-        updateY : function () {
-            var cy = this.model.getYCood();
-            this.node.attr({ cy : cy });
-
-            if(this.arrow) {
-                this.arrow.move();
-            }
-            this.node.toFront();
-
-        }
-
-
-
-
-
-    });
-});
+      if (this.arrow) {
+        this.arrow.move()
+      }
+      this.node.toFront()
+    },
+  })
+})

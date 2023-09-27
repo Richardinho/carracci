@@ -1,118 +1,90 @@
-define([
-        "utility/nodeWrapper"
-        ],
+define(['utility/nodeWrapper'], function(NodeWrapper) {
+  /*
+    should be a wrapper around the 'event node' representing the diagram node.
+    should pass through event registration to event node and event firing.
+    Should provide setters and accessors for properties on event node
+  */
 
-        function (
-            NodeWrapper
-        ) {
+  'use strict'
 
-            /*
-              should be a wrapper around the 'event node' representing the diagram node.
-              should pass through event registration to event node and event firing.
-              Should provide setters and accessors for properties on event node
-            */
+  return NodeWrapper.extend({
+    initialize: function(options) {
+      NodeWrapper.prototype.initialize.call(this, options)
 
-            "use strict";
+      //  register event handler on arrow node if it exists. convert into semantic event on the node model
+      if (this.model['arrow']) {
+        this.on(
+          'change:style',
+          function() {
+            this.trigger('switchArrowHead')
+          },
+          this
+        )
+      }
+      this.arrowModel = this.model['arrow']
 
-            return NodeWrapper.extend({
+      this.arrowHeadStyles = [
+        'whiteArrow',
+        'whiteDiamond',
+        'blackDiamond',
+        'blackConnectArrow',
+        'none',
+      ]
+      this.currentArrowHeadIndex = 0
+    },
 
-                initialize : function (options) {
+    getXCood: function() {
+      return parseInt(this.model['xCood'], 10)
+    },
 
-                    NodeWrapper.prototype.initialize.call(this, options);
+    setXCood: function(x) {
+      this.model['xCood'] = x
+      this.trigger('change:xCood')
+    },
 
-                    //  register event handler on arrow node if it exists. convert into semantic event on the node model
-                    if(this.model['arrow']) {
+    setYCood: function(y) {
+      this.model['yCood'] = y
+      this.trigger('change:yCood')
+    },
 
-                        this.on("change:style", function () {
+    getYCood: function() {
+      return parseInt(this.model['yCood'], 10)
+    },
 
-                            this.trigger("switchArrowHead");
+    getStyle: function() {
+      return this.model['arrow']['style']
+    },
 
-                        }, this);
+    switchArrowHead: function() {
+      var arrowHead = this.arrowHeadStyles[this.currentArrowHeadIndex]
 
-                    }
-                    this.arrowModel = this.model['arrow'];
+      this.model['arrow']['style'] = arrowHead
 
-                    this.arrowHeadStyles = [
-                        "whiteArrow",
-                        "whiteDiamond",
-                        "blackDiamond",
-                        "blackConnectArrow",
-                        "none"
-                    ];
-                    this.currentArrowHeadIndex = 0;
+      //todo : possible to do this a bit more succinctly?
+      this.currentArrowHeadIndex =
+        (this.currentArrowHeadIndex + 1) % this.arrowHeadStyles.length
 
-                },
+      this.trigger('switchArrowHead')
+    },
 
-                getXCood : function () {
+    getDirection: function() {
+      return this.model['arrow']['direction']
+    },
 
-                    return parseInt(this.model['xCood'], 10);
-                },
+    setArrowDirection: function(direction) {
+      this.model['arrow']['direction'] = direction
+    },
 
-                setXCood : function (x) {
+    isAttached: function() {
+      return !!this.model['attached']
+    },
 
-                    this.model['xCood'] = x;
-                    this.trigger("change:xCood");
-                },
+    setAttached: function(value) {
+      this.model['attached'] = value
+    },
 
-                setYCood : function (y) {
-
-                    this.model['yCood'] = y;
-                    this.trigger("change:yCood");
-                },
-
-                getYCood : function () {
-
-                    return parseInt(this.model['yCood'], 10);
-
-                },
-
-
-                getStyle : function () {
-
-                    return this.model['arrow']['style'];
-                },
-
-                switchArrowHead : function () {
-
-                    var arrowHead = this.arrowHeadStyles[this.currentArrowHeadIndex];
-
-                    this.model['arrow']['style'] = arrowHead;
-
-                    //todo : possible to do this a bit more succinctly?
-                    this.currentArrowHeadIndex = (this.currentArrowHeadIndex + 1) % this.arrowHeadStyles.length;
-
-                    this.trigger('switchArrowHead');
-
-                },
-
-                getDirection : function () {
-
-                    return this.model['arrow']['direction'];
-                },
-
-                setArrowDirection : function (direction) {
-
-                    this.model['arrow']['direction'] = direction;
-                },
-
-                isAttached : function () {
-
-                    return !! this.model['attached'];
-                },
-
-                setAttached : function (value) {
-
-                    this.model['attached'] = value;
-                },
-
-                isArrowNode : function () {
-
-                    return !! this.model['arrow'];
-                }
-
-
-
-
-            });
-
-        });
+    isArrowNode: function() {
+      return !!this.model['arrow']
+    },
+  })
+})
