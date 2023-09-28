@@ -1,5 +1,6 @@
-let version = 'carracci-v3';
+let version = 'carracci-v4'
 
+/*
 self.addEventListener('install', function(event) {
   event.waitUntil(
     caches.open(version).then(function(cache) {
@@ -25,35 +26,48 @@ self.addEventListener('install', function(event) {
         '/carracci/lib/raphael.2.1.0.svg.js',
         '/carracci/lib/raphael.2.1.0.vml.js',
         '/carracci/lib/require.js',
-        '/carracci/lib/underscore.js'
-      ]);
+        '/carracci/lib/underscore.js',
+      ])
     })
-  );
-});
+  )
+})
+*/
+
+/*
+ * serve from cache or fetch across network
+ * and store update in cache
+ */
 
 self.addEventListener('fetch', function(event) {
+  console.log('fetch from service worker')
   event.respondWith(
     caches.open(version).then(function(cache) {
-      return cache.match(event.request).then(function (response) {
-        return response || fetch(event.request).then(function(response) {
-          cache.put(event.request, response.clone());
-          return response;
-        });
-      });
+      return cache.match(event.request).then(function(response) {
+        return (
+          response ||
+          fetch(event.request).then(function(response) {
+            console.log('fetching', event.request, 'across network')
+            cache.put(event.request, response.clone())
+            return response
+          })
+        )
+      })
     })
-  );
-});
+  )
+})
 
 self.addEventListener('activate', function(event) {
   event.waitUntil(
     caches.keys().then(function(cacheNames) {
       return Promise.all(
-        cacheNames.filter(function(cacheName) {
-          return cacheName !== version
-        }).map(function(cacheName) {
-          return caches.delete(cacheName);
-        })
-      );
+        cacheNames
+          .filter(function(cacheName) {
+            return cacheName !== version
+          })
+          .map(function(cacheName) {
+            return caches.delete(cacheName)
+          })
+      )
     })
-  );
-});
+  )
+})
