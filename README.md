@@ -37,3 +37,15 @@ when updating packages, you need to run the following in order to copy over `Bas
 grunt copy:utils
 
 ```
+
+### building SCSS
+
+```
+sass web/sass/diagramMain.scss web/css/diagramMain.css
+```
+
+## Building
+
+```
+grunt build
+```

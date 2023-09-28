@@ -47,19 +47,6 @@ module.exports = function(grunt) {
       oldBuild: ['carracci'],
     },
 
-    'ftp-deploy': {
-      build: {
-        auth: {
-          host: 'ftp.richardhunter.co.uk',
-          port: 21,
-          authKey: 'key1',
-        },
-        src: 'web',
-        dest: '/carracci',
-        exclusions: ['web/richardUtils/node_modules', 'web/rasmus'],
-      },
-    },
-
     requirejs: {
       compile: {
         options: {
@@ -92,7 +79,6 @@ module.exports = function(grunt) {
       },
     },
   })
-  //grunt.loadNpmTasks('grunt-ftp-deploy');
   grunt.loadNpmTasks('grunt-contrib-requirejs')
   grunt.loadNpmTasks('grunt-contrib-jshint')
   grunt.loadNpmTasks('grunt-contrib-copy')

@@ -1,15 +1,15 @@
-@import "particles/colors";
-@import "particles/dimensions";
+@import 'particles/colors';
+@import 'particles/dimensions';
 
-@import "components/forms";
+@import 'components/forms';
 
-@import "modules/menu";
-@import "modules/bannerEditor";
-@import "modules/note";
-@import "modules/type";
-@import "modules/args";
-@import "modules/connectorEditor";
-@import "modules/jsonViewer";
+@import 'modules/menu';
+@import 'modules/bannerEditor';
+@import 'modules/note';
+@import 'modules/type';
+@import 'modules/args';
+@import 'modules/connectorEditor';
+@import 'modules/jsonViewer';
 svg#foo {
-	border : solid 1px #666;
+  border: solid 1px #666;
 }
