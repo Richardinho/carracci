@@ -1,15 +1,15 @@
 define([
-  "BaseType",
-  "canvg",
-  "modalEditor/controller",
-  "jquery",
-  "menu/controller",
-  "diagram/banner/editor",
-  "diagram/types/editor",
-  "diagram/show/view",
-  "diagram/widgetManager",
-  "events/eventsBus",
-], function (
+  'BaseType',
+  'canvg',
+  'modalEditor/controller',
+  'jquery',
+  'menu/controller',
+  'diagram/banner/editor',
+  'diagram/types/editor',
+  'diagram/show/view',
+  'diagram/widgetManager',
+  'events/eventsBus',
+], function(
   BaseType,
   canvg,
   ModalEditor,
@@ -28,179 +28,172 @@ define([
     current place within the model.
   */
 
-  "use strict";
+  'use strict'
 
-  return BaseType.extend(
-    /** @lends DiagramController.prototype */ {
-      /**
-       *
-       * @augments external:BaseType
-       * @constructs
-       */
-      initialize: function (options) {
-        this.diagramModel = options.diagramModel;
+  return BaseType.extend({
+    initialize: function(options) {
+      this.diagramModel = options.diagramModel
 
-        this.componentFactory = options.componentFactory;
+      this.componentFactory = options.componentFactory
 
-        this.mainMenu = new MainMenu({
-          diagramController: this,
-        });
+      this.mainMenu = new MainMenu({
+        diagramController: this,
+      })
 
-        this.widgetManager = new WidgetManager({
-          diagramController: this,
-        });
+      this.widgetManager = new WidgetManager({
+        diagramController: this,
+      })
 
-        eventsBus.on("dblclick:type", this.showTypeEditor, this);
-        eventsBus.on("dblclick:note", this.showNoteEditor, this);
-        eventsBus.on("dblclick:connector", this.showConnectorEditor, this);
-        eventsBus.on("dblclick:banner", this.showBannerEditor, this);
-      },
+      eventsBus.on('dblclick:type', this.showTypeEditor, this)
+      eventsBus.on('dblclick:note', this.showNoteEditor, this)
+      eventsBus.on('dblclick:connector', this.showConnectorEditor, this)
+      eventsBus.on('dblclick:banner', this.showBannerEditor, this)
+    },
 
-      showTypeEditor: function (typeModel) {
-        this.widgetManager.showTypeEditor(typeModel);
-      },
+    showTypeEditor: function(typeModel) {
+      this.widgetManager.showTypeEditor(typeModel)
+    },
 
-      setDiagram: function (diagramName) {
-        this.mainMenu.createDiagram(diagramName);
-      },
+    setDiagram: function(diagramName) {
+      this.mainMenu.createDiagram(diagramName)
+    },
 
-      showNoteEditor: function (noteModel) {
-        this.widgetManager.showNoteEditor(noteModel);
-      },
+    showNoteEditor: function(noteModel) {
+      this.widgetManager.showNoteEditor(noteModel)
+    },
 
-      showConnectorEditor: function (connectorModel) {
-        this.widgetManager.showConnectorEditor(connectorModel);
-      },
+    showConnectorEditor: function(connectorModel) {
+      this.widgetManager.showConnectorEditor(connectorModel)
+    },
 
-      showBannerEditor: function (bannerModel) {
-        this.widgetManager.showBannerEditor(bannerModel);
-      },
+    showBannerEditor: function(bannerModel) {
+      this.widgetManager.showBannerEditor(bannerModel)
+    },
 
-      command: function (commandObj) {
-        var command = commandObj.command,
-          args = commandObj.args;
+    command: function(commandObj) {
+      var command = commandObj.command,
+        args = commandObj.args
 
-        if (command === "create" && args[0] === "type") {
-          this.componentFactory.createType();
+      if (command === 'create' && args[0] === 'type') {
+        this.componentFactory.createType()
+      }
+
+      if (command === 'create' && args[0] === 'diagram') {
+        // todo: create my own prompt box
+        var diagramName = window.prompt('what is the name of your diagram?')
+
+        this.componentFactory.createDiagram(null, diagramName)
+
+        this.mainMenu.componentModel.diagram = true
+      }
+
+      if (command === 'create' && args[0] === 'banner') {
+        var model = this.componentFactory.createBanner()
+
+        this.widgetManager.showBannerEditor(model)
+      }
+
+      if (command === 'create' && args[0] === 'connector') {
+        if (args[1] === 'horizontal') {
+          this.componentFactory.createHorizontalConnector()
+        } else {
+          this.componentFactory.createVerticalConnector()
         }
+      }
 
-        if (command === "create" && args[0] === "diagram") {
-          // todo: create my own prompt box
-          var diagramName = window.prompt("what is the name of your diagram?");
+      if (command === 'showjson') {
+        this.widgetManager.showJson(this.diagramModel.currentDiagram)
+      }
 
-          this.componentFactory.createDiagram(null, diagramName);
+      if (command === 'delete' && args[0] === 'diagram') {
+        this.mainMenu.componentModel.diagram = false
+        eventsBus.trigger('destroy')
+        delete this.diagramModel.currentDiagram
+      }
 
-          this.mainMenu.componentModel.diagram = true;
-        }
+      if (command === 'load') {
+        this.mainMenu.componentModel.diagram = true
+        this.load(args[0])
+      }
+      if (command === 'export') {
+        this.export()
+      }
+    },
 
-        if (command === "create" && args[0] === "banner") {
-          var model = this.componentFactory.createBanner();
+    createNote: function(typeModel) {
+      return this.componentFactory.createNote(typeModel)
+    },
 
-          this.widgetManager.showBannerEditor(model);
-        }
+    deleteNote: function(id) {
+      this.diagramModel.deleteNote(id)
+    },
 
-        if (command === "create" && args[0] === "connector") {
-          if (args[1] === "horizontal") {
-            this.componentFactory.createHorizontalConnector();
-          } else {
-            this.componentFactory.createVerticalConnector();
-          }
-        }
+    deleteType: function(id) {
+      this.diagramModel.deleteType(id)
+    },
 
-        if (command === "showjson") {
-          this.widgetManager.showJson(this.diagramModel.currentDiagram);
-        }
+    deleteConnector: function(connectorId) {
+      this.diagramModel.deleteConnector(connectorId)
+    },
+    //  todo: this not hooked up yet.
+    export: function() {
+      //var format = arguments[0];
+      var format = 'png'
 
-        if (command === "delete" && args[0] === "diagram") {
-          this.mainMenu.componentModel.diagram = false;
-          eventsBus.trigger("destroy");
-          delete this.diagramModel.currentDiagram;
-        }
+      switch (format) {
+        case 'jpeg':
+          console.log('jpeg not yet supported')
+          break
+        case 'png':
+          var canvas = document.createElement('canvas')
+          canvas.width = 1000
+          canvas.height = 800
+          var svg = $('<div>').append($('svg').clone()).html()
 
-        if (command === "load") {
-          this.mainMenu.componentModel.diagram = true;
-          this.load(args[0]);
-        }
-        if (command === "export") {
-          this.export();
-        }
-      },
+          canvg(canvas, svg)
 
-      createNote: function (typeModel) {
-        return this.componentFactory.createNote(typeModel);
-      },
+          var dataURL = canvas.toDataURL()
 
-      deleteNote: function (id) {
-        this.diagramModel.deleteNote(id);
-      },
+          window.open(dataURL, 'mywindow')
+          break
 
-      deleteType: function (id) {
-        this.diagramModel.deleteType(id);
-      },
+        default:
+          return Promise.reject(format + ' is not supported')
+      }
+      return Promise.resolve('exported to ' + format)
+    },
 
-      deleteConnector: function (connectorId) {
-        this.diagramModel.deleteConnector(connectorId);
-      },
-      //  todo: this not hooked up yet.
-      export: function () {
-        //var format = arguments[0];
-        var format = "png";
+    show: function() {
+      //todo shouldn't do presentation here
+      return '<pre>' + this.diagramModel.toJSON() + '</pre>'
+    },
 
-        switch (format) {
-          case "jpeg":
-            console.log("jpeg not yet supported");
-            break;
-          case "png":
-            var canvas = document.createElement("canvas");
-            canvas.width = 1000;
-            canvas.height = 800;
-            var svg = $("<div>").append($("svg").clone()).html();
+    bannerExists: function() {
+      return this.diagramModel.bannerExists()
+    },
 
-            canvg(canvas, svg);
+    /*
+      loads diagram by name. Throws an error if there is no such diagram currently loaded.
+    */
 
-            var dataURL = canvas.toDataURL();
+    load: function(diagramname) {
+      var promise = Promise.resolve(
+        $.ajax({
+          url: 'diagrams/' + diagramname + '.json',
+          dataType: 'json',
+        })
+      )
 
-            window.open(dataURL, "mywindow");
-            break;
-
-          default:
-            return Promise.reject(format + " is not supported");
-        }
-        return Promise.resolve("exported to " + format);
-      },
-
-      show: function () {
-        //todo shouldn't do presentation here
-        return "<pre>" + this.diagramModel.toJSON() + "</pre>";
-      },
-
-      bannerExists: function () {
-        return this.diagramModel.bannerExists();
-      },
-
-      /*
-        loads diagram by name. Throws an error if there is no such diagram currently loaded.
-      */
-
-      load: function (diagramname) {
-        var promise = Promise.resolve(
-          $.ajax({
-            url: "diagrams/" + diagramname + ".json",
-            dataType: "json",
-          })
-        );
-
-        promise
-          .then(
-            $.proxy(function (data) {
-              this.componentFactory.createDiagram(data);
-            }, this)
-          )
-          .catch(function (err) {
-            //  todo : display some more useful error to user.
-            console.log(err);
-          });
-      },
-    }
-  );
-});
+      promise
+        .then(
+          $.proxy(function(data) {
+            this.componentFactory.createDiagram(data)
+          }, this)
+        )
+        .catch(function(err) {
+          //  todo : display some more useful error to user.
+          console.log(err)
+        })
+    },
+  })
+})

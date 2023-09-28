@@ -7,8 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "electron": "electron ."
+    "start": "node ./server.js"
   },
   "repository": {
     "type": "git",
@@ -20,13 +19,10 @@
     "svg"
   ],
   "devDependencies": {
-    "electron": "^18.2.0",
     "grunt": "~0.4.1",
     "grunt-contrib-clean": "~0.6.0",
     "grunt-contrib-copy": "~0.8.0",
-    "grunt-contrib-jshint": "^0.11.2",
-    "grunt-contrib-requirejs": "~0.4.1",
-    "grunt-jsdoc": "~0.6.7"
+    "grunt-contrib-requirejs": "~0.4.1"
   },
   "author": "Richard Hunter",
   "license": "MIT",

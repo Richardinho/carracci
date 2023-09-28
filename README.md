@@ -19,3 +19,21 @@ shift and alt at the same time and click on an arrow head to change the type of 
 [demo website](http://carracci.richardhunter.co.uk)
 
 ![screenshot](./screenshot.png)
+
+## Development
+
+to run server in development mode
+
+```
+npm start
+
+```
+
+navigate to localhost:3001 to view application
+
+when updating packages, you need to run the following in order to copy over `BaseType.js` to the web folder
+
+```
+grunt copy:utils
+
+```

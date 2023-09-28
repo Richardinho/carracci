@@ -1,14 +1,14 @@
 define([
-  "BaseType",
-  "diagram/boxHorizontalNodeMediator",
-  "diagram/boxVerticalNodeMediator",
-  "utility/idGenerator",
-  "events/eventsBus",
-  "diagram/connectors/verticalConnectorBasicJson",
-  "diagram/connectors/horizontalConnectorBasicJson",
-  "diagram/types/typeJSON",
-  "diagram/banner/bannerJSON",
-], function (
+  'BaseType',
+  'diagram/boxHorizontalNodeMediator',
+  'diagram/boxVerticalNodeMediator',
+  'utility/idGenerator',
+  'events/eventsBus',
+  'diagram/connectors/verticalConnectorBasicJson',
+  'diagram/connectors/horizontalConnectorBasicJson',
+  'diagram/types/typeJSON',
+  'diagram/banner/bannerJSON',
+], function(
   BaseType,
   BoxHorizontalNodeMediator,
   BoxVerticalNodeMediator,
@@ -19,158 +19,154 @@ define([
   typeJSON,
   bannerJSON
 ) {
-  "use strict";
+  'use strict'
 
-  return BaseType.extend(
-    /** @lends DiagramModel.prototype */
-    {
-      /**
-       * This is the model for DiagramModel.
-       * sets up event handlers for requests to link up components e.g. nodes and type boxes
-       *
-       * @augments external:BaseType
-       * @constructs
-       */
-      initialize: function () {
-        this.currentDiagram = null;
+  return BaseType.extend({
+    /*
+     * This is the model for DiagramModel.
+     * sets up event handlers for requests to link up components e.g. nodes and type boxes
+     */
 
-        // nodeOrientation is simply a string 'left', 'right' etc.
+    initialize: function() {
+      this.currentDiagram = null
 
-        eventsBus.on("attachRequest", function (nodeMediator, nodeOrientation) {
-          this.requestedNode = {
-            nodeMediator: nodeMediator,
-            nodeOrientation: nodeOrientation,
-          };
-        });
-        //  todo: make these event names more meaningful
-        eventsBus.on("receiveRequest", function (typeController) {
-          if (this.requestedNode) {
-            //  create mediator
+      // nodeOrientation is simply a string 'left', 'right' etc.
 
-            var orientation = this.requestedNode.nodeOrientation;
+      eventsBus.on('attachRequest', function(nodeMediator, nodeOrientation) {
+        this.requestedNode = {
+          nodeMediator: nodeMediator,
+          nodeOrientation: nodeOrientation,
+        }
+      })
+      //  todo: make these event names more meaningful
+      eventsBus.on('receiveRequest', function(typeController) {
+        if (this.requestedNode) {
+          //  create mediator
 
-            if (orientation === "left" || orientation === "right") {
-              new BoxHorizontalNodeMediator({
-                nodeMediator: this.requestedNode.nodeMediator,
-                nodeOrientation: this.requestedNode.nodeOrientation,
-                typeController: typeController,
-              });
-            } else {
-              new BoxVerticalNodeMediator({
-                nodeMediator: this.requestedNode.nodeMediator,
-                nodeOrientation: this.requestedNode.nodeOrientation,
-                typeController: typeController,
-              });
-            }
-            // null out requested node.
-            this.requestedNode = null;
+          var orientation = this.requestedNode.nodeOrientation
+
+          if (orientation === 'left' || orientation === 'right') {
+            new BoxHorizontalNodeMediator({
+              nodeMediator: this.requestedNode.nodeMediator,
+              nodeOrientation: this.requestedNode.nodeOrientation,
+              typeController: typeController,
+            })
+          } else {
+            new BoxVerticalNodeMediator({
+              nodeMediator: this.requestedNode.nodeMediator,
+              nodeOrientation: this.requestedNode.nodeOrientation,
+              typeController: typeController,
+            })
           }
-        });
-      },
+          // null out requested node.
+          this.requestedNode = null
+        }
+      })
+    },
 
-      /**
-       * creates a vertical connector
-       * @returns {Object} object literal with default configuration for vertical connector
-       */
-      createVerticalConnector: function () {
-        var id = idGenerator.nextId(); //todo id system needs a lot of work : at present there are duplicate ids when you load an existing diagram
+    /*
+     * creates a vertical connector
+     * @returns {Object} object literal with default configuration for vertical connector
+     */
 
-        this.currentDiagram["connectors"][id] = verticalConnectorBasicJson();
+    createVerticalConnector: function() {
+      var id = idGenerator.nextId() //todo id system needs a lot of work : at present there are duplicate ids when you load an existing diagram
 
-        return this.currentDiagram["connectors"][id];
-      },
+      this.currentDiagram['connectors'][id] = verticalConnectorBasicJson()
 
-      /**
-       *  creates a horizontal connector
-       *  @returns {Object} object literal with default configuration for horizontal connector
-       */
+      return this.currentDiagram['connectors'][id]
+    },
 
-      createHorizontalConnector: function () {
-        var id = idGenerator.nextId();
+    /*
+     *  creates a horizontal connector
+     *  @returns {Object} object literal with default configuration for horizontal connector
+     */
 
-        this.currentDiagram["connectors"][id] = horizontalConnectorBasicJson();
+    createHorizontalConnector: function() {
+      var id = idGenerator.nextId()
 
-        return this.currentDiagram["connectors"][id];
-      },
+      this.currentDiagram['connectors'][id] = horizontalConnectorBasicJson()
 
-      /**
-       * deletes a type box from the diagram
-       * @param {Number} id - id of type to be deleted
-       */
+      return this.currentDiagram['connectors'][id]
+    },
 
-      deleteType: function (id) {
-        delete this.currentDiagram["types"][id];
-      },
+    /*
+     * deletes a type box from the diagram
+     * @param {Number} id - id of type to be deleted
+     */
 
-      /**
-       * creates a banner
-       * @returns {Object}  object literal with default configuration for banner
-       */
-      createBanner: function () {
-        this.currentDiagram["banner"] = bannerJSON();
+    deleteType: function(id) {
+      delete this.currentDiagram['types'][id]
+    },
 
-        return this.currentDiagram["banner"];
-      },
-      /**
-       * creates a note
-       * @returns {Object} object literal with default configuration for note.
-       */
-      createNote: function (typeId) {
-        var id = idGenerator.nextId();
+    /**
+     * creates a banner
+     * @returns {Object}  object literal with default configuration for banner
+     */
+    createBanner: function() {
+      this.currentDiagram['banner'] = bannerJSON()
 
-        this.currentDiagram["notes"][id] = {
-          id: id,
+      return this.currentDiagram['banner']
+    },
+    /*
+     * creates a note
+     * @returns {Object} object literal with default configuration for note.
+     */
+    createNote: function(typeId) {
+      var id = idGenerator.nextId()
 
-          typeId: typeId,
+      this.currentDiagram['notes'][id] = {
+        id: id,
 
-          text: "",
+        typeId: typeId,
 
-          fontSize: "12",
+        text: '',
 
-          width: 300,
+        fontSize: '12',
 
-          fontFamily: "arial",
+        width: 300,
 
-          paddingHorizontal: 12,
+        fontFamily: 'arial',
 
-          xCood: "0",
+        paddingHorizontal: 12,
 
-          yCood: "0",
-        };
+        xCood: '0',
 
-        return this.currentDiagram["notes"][id];
-      },
+        yCood: '0',
+      }
 
-      /**
-       * deletes a note
-       * @param {Number} id - id of note to be deleted
-       */
+      return this.currentDiagram['notes'][id]
+    },
 
-      deleteNote: function (id) {
-        delete this.currentDiagram["notes"][id];
-      },
+    /*
+     * deletes a note
+     * @param {Number} id - id of note to be deleted
+     */
 
-      /**
-       * creates a type
-       * @returns {Object} object literal with default configuration for type.
-       */
+    deleteNote: function(id) {
+      delete this.currentDiagram['notes'][id]
+    },
 
-      createType: function () {
-        var id = idGenerator.nextId();
+    /*
+     * creates a type
+     * @returns {Object} object literal with default configuration for type.
+     */
 
-        this.currentDiagram["types"][id] = typeJSON(id);
+    createType: function() {
+      var id = idGenerator.nextId()
 
-        return this.currentDiagram["types"][id];
-      },
+      this.currentDiagram['types'][id] = typeJSON(id)
 
-      /**
-       * deletes a connector
-       * @param {Number} id -id of connector to be deleted
-       */
+      return this.currentDiagram['types'][id]
+    },
 
-      deleteConnector: function (id) {
-        delete this.currentDiagram["connectors"][id];
-      },
-    }
-  );
-});
+    /*
+     * deletes a connector
+     * @param {Number} id -id of connector to be deleted
+     */
+
+    deleteConnector: function(id) {
+      delete this.currentDiagram['connectors'][id]
+    },
+  })
+})
