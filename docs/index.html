@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <link rel="stylesheet" href="./reset.css" />
@@ -13,10 +13,15 @@
     <div id="json-viewer"></div>
     <div class="overlay" id="overlay"></div>
 
-    <div id="menu"></div>
-
     <div id="banner-editor"></div>
     <div id="show"></div>
+    <div id="container">
+      <div id="svg-container"></div>
+      <div id="side-bar">
+        <div id="menu"></div>
+      </div>
+      <div id="top-bar"></div>
+    </div>
     <!-- necessary to add underscore in separately from the main require file -->
     <script src="lib/underscore.js"></script><script src="register-service-worker.js"></script>
     <script data-main="main" src="lib/require.js"></script>
