@@ -124,9 +124,11 @@ define([
         }
       }
 
-      attachedConnectors.forEach(function (id) {
-        delete this.currentDiagram['connectors'][id]
-      })
+      attachedConnectors.forEach(
+        function(id) {
+          delete this.currentDiagram['connectors'][id]
+        }.bind(this)
+      )
     },
 
     /**

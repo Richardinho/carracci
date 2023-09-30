@@ -10,6 +10,34 @@
 @import 'modules/args';
 @import 'modules/connectorEditor';
 @import 'modules/jsonViewer';
+body {
+}
+
+#container {
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template-rows: 50px 1fr;
+  grid-template-columns: 1fr 400px;
+}
+
+#side-bar {
+  background: $side-bar-color;
+  grid-column-start: 2;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+
+#top-bar {
+  grid-row-start: 1;
+  grid-row-end: 2;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  background: $top-bar-color;
+}
+
+#svg-container {
+}
+
 svg#foo {
-  border: solid 1px #666;
 }

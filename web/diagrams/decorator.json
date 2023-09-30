@@ -1,311 +1,316 @@
 {
-    "name": "decorator",
-    "types": {
-        "abc1": {
-            "name": "Decorator",
-            "id": "abc1",
-            "properties": {},
-            "flavor": "abstract",
-            "methods": {
-                "operation": {
-                    "visibility": "public",
-                    "name": "operation",
-                    "returnType": "void"
-                }
-            },
-            "xCood": 444,
-            "yCood": 242,
-            "width": 85.328125,
-            "height": 79,
-            "notes": []
-        },
-        "abc2": {
-            "name": "Component",
-            "id": "abc2",
-            "properties": {},
-            "flavor": "interface",
-            "methods": {
-                "operation": {
-                    "visibility": "public",
-                    "name": "operation",
-                    "returnType": "void"
-                }
-            },
-            "xCood": 391,
-            "yCood": 94,
-            "width": 85.328125,
-            "height": 79,
-            "notes": []
-        },
-        "abc5": {
-            "name": "ConcreteComponent",
-            "id": "abc5",
-            "properties": {},
-            "flavor": "class",
-            "methods": {
-                "operation": {
-                    "visibility": "public",
-                    "name": "operation",
-                    "returnType": "void"
-                }
-            },
-            "xCood": 177,
-            "yCood": 236,
-            "width": 102.28125,
-            "height": 64,
-            "notes": []
-        },
-        "abc7": {
-            "name": "ConcreteDecoratorB",
-            "id": "abc7",
-            "properties": {},
-            "flavor": "class",
-            "methods": {
-                "operation": {
-                    "visibility": "public",
-                    "name": "operation",
-                    "returnType": "void"
-                },
-                "addedBehaviour": {
-                    "visibility": "public",
-                    "name": "addedBehaviour",
-                    "returnType": "void"
-                }
-            },
-            "xCood": 516,
-            "yCood": 389,
-            "width": 116.46875,
-            "height": 79,
-            "notes": []
-        },
-        "abc9": {
-            "name": "ConcreteDecoratorA",
-            "id": "abc9",
-            "properties": {
-                "addedState": {
-                    "visibility": "private",
-                    "name": "addedState",
-                    "type": "value"
-                }
-            },
-            "flavor": "class",
-            "methods": {
-                "operation": {
-                    "visibility": "public",
-                    "name": "operation",
-                    "returnType": "void"
-                }
-            },
-            "xCood": 294,
-            "yCood": 394,
-            "width": 101.15625,
-            "height": 79,
-            "notes": []
+  "name": "decorator",
+  "types": {
+    "abc1": {
+      "name": "Decorator",
+      "id": "abc1",
+      "properties": {},
+      "flavor": "abstract",
+      "methods": {
+        "operation": {
+          "visibility": "public",
+          "name": "operation",
+          "returnType": "void"
         }
+      },
+      "xCood": 444,
+      "yCood": 242,
+      "width": 85.328125,
+      "height": 79,
+      "notes": []
     },
-    "connectors": {
-        "abc3": {
-            "orientation": "vertical",
-            "nodes": {
-                "top": {
-                    "xCood": 499,
-                    "yCood": 242,
-                    "attached": true,
-                    "attachedBox": "abc1",
-                    "arrow": {
-                        "style": "none",
-                        "direction": "bottom"
-                    }
-                },
-                "secondTop": {
-                    "xCood": 499,
-                    "yCood": 209,
-                    "attached": false,
-                    "attachedBox": ""
-                },
-                "secondBottom": {
-                    "xCood": 452,
-                    "yCood": 209,
-                    "attached": false,
-                    "attachedBox": ""
-                },
-                "bottom": {
-                    "xCood": 452,
-                    "yCood": 173,
-                    "attached": true,
-                    "attachedBox": "abc2",
-                    "arrow": {
-                        "style": "whiteArrow",
-                        "direction": "top"
-                    }
-                }
-            },
-            "lineStyle": "dashed"
-        },
-        "abc4": {
-            "orientation": "horizontal",
-            "nodes": {
-                "left": {
-                    "xCood": 476.328125,
-                    "yCood": 134,
-                    "attached": true,
-                    "attachedBox": "abc2",
-                    "arrow": {
-                        "style": "blackConnectArrow",
-                        "direction": "left"
-                    }
-                },
-                "proximal": {
-                    "xCood": 602,
-                    "yCood": 134,
-                    "attached": false,
-                    "attachedBox": ""
-                },
-                "distal": {
-                    "xCood": 602,
-                    "yCood": 283,
-                    "attached": false,
-                    "attachedBox": ""
-                },
-                "right": {
-                    "xCood": 529.328125,
-                    "yCood": 283,
-                    "attached": true,
-                    "attachedBox": "abc1",
-                    "arrow": {
-                        "style": "whiteDiamond",
-                        "direction": "left"
-                    }
-                }
-            },
-            "lineStyle": "solid"
-        },
-        "abc6": {
-            "orientation": "vertical",
-            "nodes": {
-                "top": {
-                    "xCood": 409,
-                    "yCood": 173,
-                    "attached": true,
-                    "attachedBox": "abc2",
-                    "arrow": {
-                        "style": "whiteArrow",
-                        "direction": "top"
-                    }
-                },
-                "secondTop": {
-                    "xCood": 409,
-                    "yCood": 200,
-                    "attached": false,
-                    "attachedBox": ""
-                },
-                "secondBottom": {
-                    "xCood": 228.140625,
-                    "yCood": 200,
-                    "attached": false,
-                    "attachedBox": ""
-                },
-                "bottom": {
-                    "xCood": 228.140625,
-                    "yCood": 236,
-                    "attached": true,
-                    "attachedBox": "abc5",
-                    "arrow": {
-                        "style": "none",
-                        "direction": "bottom"
-                    }
-                }
-            },
-            "lineStyle": "dashed"
-        },
-        "abc8": {
-            "orientation": "vertical",
-            "nodes": {
-                "top": {
-                    "xCood": 574,
-                    "yCood": 389,
-                    "attached": true,
-                    "attachedBox": "abc7",
-                    "arrow": {
-                        "style": "none",
-                        "direction": "bottom"
-                    }
-                },
-                "secondTop": {
-                    "xCood": 574,
-                    "yCood": 357,
-                    "attached": false,
-                    "attachedBox": ""
-                },
-                "secondBottom": {
-                    "xCood": 506,
-                    "yCood": 357,
-                    "attached": false,
-                    "attachedBox": ""
-                },
-                "bottom": {
-                    "xCood": 506,
-                    "yCood": 321,
-                    "attached": true,
-                    "attachedBox": "abc1",
-                    "arrow": {
-                        "style": "whiteArrow",
-                        "direction": "top"
-                    }
-                }
-            },
-            "lineStyle": "solid"
-        },
-        "abc10": {
-            "orientation": "vertical",
-            "nodes": {
-                "top": {
-                    "xCood": 344.578125,
-                    "yCood": 394,
-                    "attached": true,
-                    "attachedBox": "abc9",
-                    "arrow": {
-                        "style": "none",
-                        "direction": "bottom"
-                    }
-                },
-                "secondTop": {
-                    "xCood": 344.578125,
-                    "yCood": 362,
-                    "attached": false,
-                    "attachedBox": ""
-                },
-                "secondBottom": {
-                    "xCood": 466,
-                    "yCood": 362,
-                    "attached": false,
-                    "attachedBox": ""
-                },
-                "bottom": {
-                    "xCood": 466,
-                    "yCood": 321,
-                    "attached": true,
-                    "attachedBox": "abc1",
-                    "arrow": {
-                        "style": "whiteArrow",
-                        "direction": "top"
-                    }
-                }
-            },
-            "lineStyle": "solid"
+    "abc2": {
+      "name": "Component",
+      "id": "abc2",
+      "properties": {},
+      "flavor": "interface",
+      "methods": {
+        "operation": {
+          "visibility": "public",
+          "name": "operation",
+          "returnType": "void"
         }
+      },
+      "xCood": 391,
+      "yCood": 94,
+      "width": 85.328125,
+      "height": 79,
+      "notes": []
     },
-    "notes": {},
-    "banner": {
-        "title": "Decorator pattern",
-        "description": "Attach additional responsibilities to an object dynamically. Decorators provide a flexible alternative to subclassing for extending functionality.",
-        "author": "Richard",
-        "width": 300,
-        "fontSize": "12",
-        "created": "default",
-        "fontFamily": "arial",
-        "paddingHorizontal": 12,
-        "xCood": 28,
-        "yCood": 17
+    "abc5": {
+      "name": "ConcreteComponent",
+      "id": "abc5",
+      "properties": {},
+      "flavor": "class",
+      "methods": {
+        "operation": {
+          "visibility": "public",
+          "name": "operation",
+          "returnType": "void"
+        }
+      },
+      "xCood": 177,
+      "yCood": 236,
+      "width": 102.28125,
+      "height": 64,
+      "notes": []
+    },
+    "abc7": {
+      "name": "ConcreteDecoratorB",
+      "id": "abc7",
+      "properties": {},
+      "flavor": "class",
+      "methods": {
+        "operation": {
+          "visibility": "public",
+          "name": "operation",
+          "returnType": "void"
+        },
+        "addedBehaviour": {
+          "visibility": "public",
+          "name": "addedBehaviour",
+          "returnType": "void"
+        }
+      },
+      "xCood": 516,
+      "yCood": 389,
+      "width": 116.46875,
+      "height": 79,
+      "notes": []
+    },
+    "abc9": {
+      "name": "ConcreteDecoratorA",
+      "id": "abc9",
+      "properties": {
+        "addedState": {
+          "visibility": "private",
+          "name": "addedState",
+          "type": "value"
+        }
+      },
+      "flavor": "class",
+      "methods": {
+        "operation": {
+          "visibility": "public",
+          "name": "operation",
+          "returnType": "void"
+        }
+      },
+      "xCood": 294,
+      "yCood": 394,
+      "width": 101.15625,
+      "height": 79,
+      "notes": []
     }
+  },
+  "connectors": {
+    "abc3": {
+      "id": "abc3",
+      "orientation": "vertical",
+      "nodes": {
+        "top": {
+          "xCood": 499,
+          "yCood": 242,
+          "attached": true,
+          "attachedBox": "abc1",
+          "arrow": {
+            "style": "none",
+            "direction": "bottom"
+          }
+        },
+        "secondTop": {
+          "xCood": 499,
+          "yCood": 209,
+          "attached": false,
+          "attachedBox": ""
+        },
+        "secondBottom": {
+          "xCood": 452,
+          "yCood": 209,
+          "attached": false,
+          "attachedBox": ""
+        },
+        "bottom": {
+          "xCood": 452,
+          "yCood": 173,
+          "attached": true,
+          "attachedBox": "abc2",
+          "arrow": {
+            "style": "whiteArrow",
+            "direction": "top"
+          }
+        }
+      },
+      "lineStyle": "dashed"
+    },
+    "abc4": {
+      "id": "abc4",
+      "orientation": "horizontal",
+      "nodes": {
+        "left": {
+          "xCood": 476.328125,
+          "yCood": 134,
+          "attached": true,
+          "attachedBox": "abc2",
+          "arrow": {
+            "style": "blackConnectArrow",
+            "direction": "left"
+          }
+        },
+        "proximal": {
+          "xCood": 602,
+          "yCood": 134,
+          "attached": false,
+          "attachedBox": ""
+        },
+        "distal": {
+          "xCood": 602,
+          "yCood": 283,
+          "attached": false,
+          "attachedBox": ""
+        },
+        "right": {
+          "xCood": 529.328125,
+          "yCood": 283,
+          "attached": true,
+          "attachedBox": "abc1",
+          "arrow": {
+            "style": "whiteDiamond",
+            "direction": "left"
+          }
+        }
+      },
+      "lineStyle": "solid"
+    },
+    "abc6": {
+      "id": "abc6",
+      "orientation": "vertical",
+      "nodes": {
+        "top": {
+          "xCood": 409,
+          "yCood": 173,
+          "attached": true,
+          "attachedBox": "abc2",
+          "arrow": {
+            "style": "whiteArrow",
+            "direction": "top"
+          }
+        },
+        "secondTop": {
+          "xCood": 409,
+          "yCood": 200,
+          "attached": false,
+          "attachedBox": ""
+        },
+        "secondBottom": {
+          "xCood": 228.140625,
+          "yCood": 200,
+          "attached": false,
+          "attachedBox": ""
+        },
+        "bottom": {
+          "xCood": 228.140625,
+          "yCood": 236,
+          "attached": true,
+          "attachedBox": "abc5",
+          "arrow": {
+            "style": "none",
+            "direction": "bottom"
+          }
+        }
+      },
+      "lineStyle": "dashed"
+    },
+    "abc8": {
+      "id": "abc8",
+      "orientation": "vertical",
+      "nodes": {
+        "top": {
+          "xCood": 574,
+          "yCood": 389,
+          "attached": true,
+          "attachedBox": "abc7",
+          "arrow": {
+            "style": "none",
+            "direction": "bottom"
+          }
+        },
+        "secondTop": {
+          "xCood": 574,
+          "yCood": 357,
+          "attached": false,
+          "attachedBox": ""
+        },
+        "secondBottom": {
+          "xCood": 506,
+          "yCood": 357,
+          "attached": false,
+          "attachedBox": ""
+        },
+        "bottom": {
+          "xCood": 506,
+          "yCood": 321,
+          "attached": true,
+          "attachedBox": "abc1",
+          "arrow": {
+            "style": "whiteArrow",
+            "direction": "top"
+          }
+        }
+      },
+      "lineStyle": "solid"
+    },
+    "abc10": {
+      "id": "abc10",
+      "orientation": "vertical",
+      "nodes": {
+        "top": {
+          "xCood": 344.578125,
+          "yCood": 394,
+          "attached": true,
+          "attachedBox": "abc9",
+          "arrow": {
+            "style": "none",
+            "direction": "bottom"
+          }
+        },
+        "secondTop": {
+          "xCood": 344.578125,
+          "yCood": 362,
+          "attached": false,
+          "attachedBox": ""
+        },
+        "secondBottom": {
+          "xCood": 466,
+          "yCood": 362,
+          "attached": false,
+          "attachedBox": ""
+        },
+        "bottom": {
+          "xCood": 466,
+          "yCood": 321,
+          "attached": true,
+          "attachedBox": "abc1",
+          "arrow": {
+            "style": "whiteArrow",
+            "direction": "top"
+          }
+        }
+      },
+      "lineStyle": "solid"
+    }
+  },
+  "notes": {},
+  "banner": {
+    "title": "Decorator pattern",
+    "description": "Attach additional responsibilities to an object dynamically. Decorators provide a flexible alternative to subclassing for extending functionality.",
+    "author": "Richard",
+    "width": 300,
+    "fontSize": "12",
+    "created": "default",
+    "fontFamily": "arial",
+    "paddingHorizontal": 12,
+    "xCood": 28,
+    "yCood": 17
+  }
 }

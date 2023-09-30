@@ -1,6 +1,13 @@
-define(["raphael", "jquery"], function (Raphael, $) {
-  var paper = Raphael(0, 0, 800, 500);
-  paper.canvas.id = "foo";
+define(['raphael', 'jquery'], function(Raphael, $) {
+  // work out width and height;
 
-  return paper;
-});
+  var svgContainer = document.getElementById('svg-container')
+
+  var width = svgContainer.offsetWidth
+  var height = svgContainer.offsetHeight
+
+  var paper = Raphael('svg-container', width, height)
+  paper.canvas.id = 'foo'
+
+  return paper
+})

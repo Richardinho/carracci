@@ -47,13 +47,8 @@
 }
 
 .menu {
-  width: 300px;
-  float: right;
-  background: #ddd;
   z-index: 200;
   padding: 12px;
-  border-radius: 4px;
-  border: solid 1px cadetBlue;
 }
 
 .menu__main-options li {
@@ -67,13 +62,11 @@
 }
 
 .sublist {
-  background: #ddd;
   font-size: 16px;
   padding-left: 12px;
 }
 
 .sublist2 {
-  background: #ddd;
   font-size: 16px;
   padding-left: 24px;
 }
@@ -362,8 +355,27 @@ td [type=button] {
   padding: 6px;
 }
 
-svg#foo {
-  border: solid 1px #666;
+#container {
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template-rows: 50px 1fr;
+  grid-template-columns: 1fr 400px;
+}
+
+#side-bar {
+  background: #ccc;
+  grid-column-start: 2;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+
+#top-bar {
+  grid-row-start: 1;
+  grid-row-end: 2;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  background: #333;
 }
 
 /*# sourceMappingURL=diagramMain.css.map */
