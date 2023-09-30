@@ -1,55 +1,37 @@
 define([
-    "BaseType",
-    "text!diagram/types/argsTemplate.html",
-    "text!diagram/types/argsRowTemplate.html"
-    ],
+  'BaseType',
+  'text!diagram/types/argsTemplate.html',
+  'text!diagram/types/argsRowTemplate.html',
+], function(BaseType, template, rowTemplate) {
+  'use strict'
 
-    function (
-        BaseType,
-        template,
-        rowTemplate
-    ) {
+  return BaseType.extend({
+    initialize: function(options) {
+      this.$el = options.el
+      this.$el.hide()
+    },
 
-    "use strict";
+    template: _.template(template),
 
+    show: function(stackingOrder, argsArray, left, top) {
+      this.$el.html(this.template({ args: argsArray }))
+      this.$el.css({ zIndex: stackingOrder })
+      this.$el.css({ left: left, top: top })
+      this.$el.show()
+    },
 
-    return BaseType.extend({
+    getRows: function() {
+      return this.$el.find('tbody tr')
+    },
 
-        initialize : function (options) {
+    rowTemplate: _.template(rowTemplate),
 
-            this.$el = options.el;
-            this.$el.hide();
+    hide: function() {
+      this.$el.hide()
+    },
 
-        },
-
-        template : _.template(template),
-
-        show : function (stackingOrder, argsArray, left, top) {
-
-            this.$el.html(this.template({ args : argsArray }));
-            this.$el.css({ zIndex : stackingOrder });
-            this.$el.css({ left : left, top : top });
-            this.$el.show();
-
-        },
-
-        getRows : function () {
-
-            return this.$el.find('tbody tr');
-        },
-
-        rowTemplate : _.template(rowTemplate),
-
-        hide : function () {
-
-            this.$el.hide();
-        },
-
-        addRowToTable : function () {
-
-            $('tbody', this.$el).append(this.rowTemplate());
-
-        }
-    });
-});
-
+    addRowToTable: function() {
+      $('tbody', this.$el).append(this.rowTemplate())
+    },
+  })
+})
