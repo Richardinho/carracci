@@ -1,4 +1,4 @@
-let version = 'carracci-v4'
+let version = 'carracci-v5'
 
 /*
 self.addEventListener('install', function(event) {
