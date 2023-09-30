@@ -1,215 +1,214 @@
 {
-    "name": "BuilderPattern",
-    "types": {
-        "abc1": {
-            "name": "Builder",
-            "id": "abc1",
-            "properties": {},
-            "flavor": "interface",
-            "methods": {
-                "buildPart": {
-                    "visibility": "public",
-                    "name": "buildPart",
-                    "returnType": "void"
-                }
-            },
-            "xCood": 284,
-            "yCood": 172,
-            "width": 83.09375,
-            "height": 79,
-            "notes": []
-        },
-        "abc2": {
-            "name": "Product",
-            "id": "abc2",
-            "properties": {},
-            "flavor": "interface",
-            "methods": {},
-            "xCood": 378,
-            "yCood": 389,
-            "width": 71.71875,
-            "height": 64,
-            "notes": []
-        },
-        "abc3": {
-            "name": "Director",
-            "id": "abc3",
-            "properties": {
-                "builder": {
-                    "visibility": "private",
-                    "name": "builder",
-                    "type": "Builder"
-                }
-            },
-            "flavor": "interface",
-            "methods": {
-                "construct": {
-                    "visibility": "public",
-                    "name": "construct",
-                    "returnType": "void"
-                }
-            },
-            "xCood": 78,
-            "yCood": 284,
-            "width": 84.203125,
-            "height": 94,
-            "notes": []
-        },
-        "abc4": {
-            "name": "ConcreteBuilder",
-            "id": "abc4",
-            "properties": {},
-            "flavor": "class",
-            "methods": {
-                "buildPart": {
-                    "visibility": "public",
-                    "name": "buildPart",
-                    "returnType": "void"
-                },
-                "getResult": {
-                    "visibility": "public",
-                    "name": "getResult",
-                    "returnType": "Product"
-                }
-            },
-            "xCood": 563,
-            "yCood": 220,
-            "width": 102,
-            "height": 79,
-            "notes": []
+  "name": "BuilderPattern",
+  "types": {
+    "abc1": {
+      "name": "Builder",
+      "id": "abc1",
+      "properties": {},
+      "flavor": "interface",
+      "methods": {
+        "buildPart": {
+          "visibility": "public",
+          "name": "buildPart",
+          "returnType": "void"
         }
+      },
+      "xCood": 284,
+      "yCood": 172,
+      "width": 83.09375,
+      "height": 79,
+      "notes": []
     },
-    "connectors": {
-        "abc5": {
-            "orientation": "horizontal",
-            "nodes": {
-                "left": {
-                    "xCood": 162,
-                    "yCood": 327,
-                    "attached": true,
-                    "attachedBox": "abc3",
-                    "arrow": {
-                        "style": "whiteDiamond",
-                        "direction": "left"
-                    }
-                },
-                "proximal": {
-                    "xCood": 208,
-                    "yCood": 327,
-                    "attached": false,
-                    "attachedBox": ""
-                },
-                "distal": {
-                    "xCood": 208,
-                    "yCood": 195,
-                    "attached": false,
-                    "attachedBox": ""
-                },
-                "right": {
-                    "xCood": 284,
-                    "yCood": 195,
-                    "attached": true,
-                    "attachedBox": "abc1",
-                    "arrow": {
-                        "style": "blackConnectArrow",
-                        "direction": "right"
-                    }
-                }
-            },
-            "lineStyle": "solid"
-        },
-        "abc6": {
-            "orientation": "horizontal",
-            "nodes": {
-                "left": {
-                    "xCood": 563,
-                    "yCood": 274,
-                    "attached": true,
-                    "attachedBox": "abc4",
-                    "arrow": {
-                        "style": "none",
-                        "direction": "right"
-                    }
-                },
-                "proximal": {
-                    "xCood": 465,
-                    "yCood": 274,
-                    "attached": false,
-                    "attachedBox": ""
-                },
-                "distal": {
-                    "xCood": 465,
-                    "yCood": 202,
-                    "attached": false,
-                    "attachedBox": ""
-                },
-                "right": {
-                    "xCood": 367.09375,
-                    "yCood": 202,
-                    "attached": true,
-                    "attachedBox": "abc1",
-                    "arrow": {
-                        "style": "whiteArrow",
-                        "direction": "left"
-                    }
-                }
-            },
-            "lineStyle": "solid"
-        },
-        "abc7": {
-            "orientation": "vertical",
-            "nodes": {
-                "top": {
-                    "xCood": 411,
-                    "yCood": 389,
-                    "attached": true,
-                    "attachedBox": "abc2",
-                    "arrow": {
-                        "style": "blackConnectArrow",
-                        "direction": "bottom"
-                    }
-                },
-                "secondTop": {
-                    "xCood": 411,
-                    "yCood": 333,
-                    "attached": false,
-                    "attachedBox": ""
-                },
-                "secondBottom": {
-                    "xCood": 615,
-                    "yCood": 333,
-                    "attached": false,
-                    "attachedBox": ""
-                },
-                "bottom": {
-                    "xCood": 615,
-                    "yCood": 299,
-                    "attached": true,
-                    "attachedBox": "abc4",
-                    "arrow": {
-                        "style": "none",
-                        "direction": "top"
-                    }
-                }
-            },
-            "lineStyle": "dashed"
+    "abc2": {
+      "name": "Product",
+      "id": "abc2",
+      "properties": {},
+      "flavor": "interface",
+      "methods": {},
+      "xCood": 378,
+      "yCood": 389,
+      "width": 71.71875,
+      "height": 64,
+      "notes": []
+    },
+    "abc3": {
+      "name": "Director",
+      "id": "abc3",
+      "properties": {
+        "builder": {
+          "visibility": "private",
+          "name": "builder",
+          "type": "Builder"
         }
+      },
+      "flavor": "interface",
+      "methods": {
+        "construct": {
+          "visibility": "public",
+          "name": "construct",
+          "returnType": "void"
+        }
+      },
+      "xCood": 78,
+      "yCood": 284,
+      "width": 84.203125,
+      "height": 94,
+      "notes": []
     },
-    "notes": {},
-    "banner": {
-        "title": "Builder Pattern",
-        "description": "The intent of the Builder design pattern is to separate the construction of a complex object from its representation. By doing so, the same construction process can create different representations.",
-        "author": "Richard",
-        "width": 300,
-        "fontSize": "12",
-        "created": "today",
-        "fontFamily": "arial",
-        "paddingHorizontal": 12,
-        "xCood": 171,
-        "yCood": 16
+    "abc4": {
+      "name": "ConcreteBuilder",
+      "id": "abc4",
+      "properties": {},
+      "flavor": "class",
+      "methods": {
+        "buildPart": {
+          "visibility": "public",
+          "name": "buildPart",
+          "returnType": "void"
+        },
+        "getResult": {
+          "visibility": "public",
+          "name": "getResult",
+          "returnType": "Product"
+        }
+      },
+      "xCood": 563,
+      "yCood": 220,
+      "width": 102,
+      "height": 79,
+      "notes": []
     }
+  },
+  "connectors": {
+    "abc5": {
+      "id": "abc5",
+      "orientation": "horizontal",
+      "nodes": {
+        "left": {
+          "xCood": 162,
+          "yCood": 327,
+          "attached": true,
+          "attachedBox": "abc3",
+          "arrow": {
+            "style": "whiteDiamond",
+            "direction": "left"
+          }
+        },
+        "proximal": {
+          "xCood": 208,
+          "yCood": 327,
+          "attached": false,
+          "attachedBox": ""
+        },
+        "distal": {
+          "xCood": 208,
+          "yCood": 195,
+          "attached": false,
+          "attachedBox": ""
+        },
+        "right": {
+          "xCood": 284,
+          "yCood": 195,
+          "attached": true,
+          "attachedBox": "abc1",
+          "arrow": {
+            "style": "blackConnectArrow",
+            "direction": "right"
+          }
+        }
+      },
+      "lineStyle": "solid"
+    },
+    "abc6": {
+      "id": "abc6",
+      "orientation": "horizontal",
+      "nodes": {
+        "left": {
+          "xCood": 563,
+          "yCood": 274,
+          "attached": true,
+          "attachedBox": "abc4",
+          "arrow": {
+            "style": "none",
+            "direction": "right"
+          }
+        },
+        "proximal": {
+          "xCood": 465,
+          "yCood": 274,
+          "attached": false,
+          "attachedBox": ""
+        },
+        "distal": {
+          "xCood": 465,
+          "yCood": 202,
+          "attached": false,
+          "attachedBox": ""
+        },
+        "right": {
+          "xCood": 367.09375,
+          "yCood": 202,
+          "attached": true,
+          "attachedBox": "abc1",
+          "arrow": {
+            "style": "whiteArrow",
+            "direction": "left"
+          }
+        }
+      },
+      "lineStyle": "solid"
+    },
+    "abc7": {
+      "id": "abc7",
+      "orientation": "vertical",
+      "nodes": {
+        "top": {
+          "xCood": 411,
+          "yCood": 389,
+          "attached": true,
+          "attachedBox": "abc2",
+          "arrow": {
+            "style": "blackConnectArrow",
+            "direction": "bottom"
+          }
+        },
+        "secondTop": {
+          "xCood": 411,
+          "yCood": 333,
+          "attached": false,
+          "attachedBox": ""
+        },
+        "secondBottom": {
+          "xCood": 615,
+          "yCood": 333,
+          "attached": false,
+          "attachedBox": ""
+        },
+        "bottom": {
+          "xCood": 615,
+          "yCood": 299,
+          "attached": true,
+          "attachedBox": "abc4",
+          "arrow": {
+            "style": "none",
+            "direction": "top"
+          }
+        }
+      },
+      "lineStyle": "dashed"
+    }
+  },
+  "notes": {},
+  "banner": {
+    "title": "Builder Pattern",
+    "description": "The intent of the Builder design pattern is to separate the construction of a complex object from its representation. By doing so, the same construction process can create different representations.",
+    "author": "Richard",
+    "width": 300,
+    "fontSize": "12",
+    "created": "today",
+    "fontFamily": "arial",
+    "paddingHorizontal": 12,
+    "xCood": 171,
+    "yCood": 16
+  }
 }
-
-
-
-

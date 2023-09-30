@@ -72,10 +72,10 @@ define([
     createVerticalConnector: function() {
       var id = idGenerator.nextId()
 
-      this.currentDiagram['connectors'][id] = Object.assign(
-        { id: id },
-        verticalConnectorBasicJson()
-      )
+      var connector = verticalConnectorBasicJson()
+      connector.id = id
+
+      this.currentDiagram['connectors'][id] = connector
 
       return this.currentDiagram['connectors'][id]
     },
@@ -88,9 +88,10 @@ define([
     createHorizontalConnector: function() {
       var id = idGenerator.nextId()
 
-      var model = Object.assign({ id }, horizontalConnectorBasicJson())
+      var connector = horizontalConnectorBasicJson()
+      connector.id = id
 
-      this.currentDiagram['connectors'][id] = model
+      this.currentDiagram['connectors'][id] = connector
 
       return this.currentDiagram['connectors'][id]
     },
@@ -123,7 +124,7 @@ define([
         }
       }
 
-      attachedConnectors.forEach((id) => {
+      attachedConnectors.forEach(function (id) {
         delete this.currentDiagram['connectors'][id]
       })
     },
