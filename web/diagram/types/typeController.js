@@ -1,146 +1,145 @@
-define([
-        "BaseType",
-        'utility/typeBox',
-        'underscore',
-        'events/eventsBus'
-         ],
-
-         function (
-            BaseType,
-            TypeBox,
-            _,
-            events
-        ) {
-    /* this type gets the box from the view and attaches handlers to it to watch its' movement.
+define(['BaseType', 'underscore', 'events/eventsBus'], function(
+  BaseType,
+  _,
+  events
+) {
+  /* this type gets the box from the view and attaches handlers to it to watch its movement.
     in response to use input, it updates the model accordingly. The model fires out events
     which our view will listen to*/
 
-    return BaseType.extend({
+  return BaseType.extend({
+    initialize: function(options) {
+      _.bindAll(this, '_onMove', '_onStart', '_onEnd')
 
-        initialize : function (options) {
+      //  BoxNodeMediator[]
+      this.attachedNodesMediators = []
 
-            _.bindAll( this, "_onMove", "_onStart", "_onEnd" );
+      this.startX = null
+      this.startY = null
 
-            this.attachedNodesMediators = [];
+      // TypeModel
+      this.model = options.model
 
-            this.startX = null;
-            this.startY = null;
+      this.artifactType = 'type'
 
-            this.model = options.model;
-            this.artifactType = "type";
+      //  TypeViewj
+      this.view = options.view
+      this.box = this.view.box.rect
 
-            this.view = options.view;
-            this.box = this.view.box.rect;
+      this.box.drag(this._onMove, this._onStart, this._onEnd)
 
-            this.box.drag(this._onMove, this._onStart, this._onEnd);
+      events.on('destroy', this.onGlobalDestroy, this)
 
-            events.on("destroy", this.onGlobalDestroy, this);
+      this.model.on('destroy', this.destroy, this)
 
-            this.model.on("destroy", this.destroy, this);
+      /*
+       *  For when request is made to attach a node to this type box
+       */
 
-            /*
-                For when request is made to attach a node to this type box
-             */
-            this.box.click(function () {
-                //  fire on model, will bubble up to diagram
-                events.trigger("receiveRequest", this);
+      this.box.click(function() {
+        //  fire on model, will bubble up to diagram
+        events.trigger('receiveRequest', this)
+      }, this)
 
-            }, this);
+      this.box.dblclick(
+        $.proxy(function() {
+          events.trigger('dblclick:type', this.model)
+        }, this)
+      )
+    },
 
-            this.box.dblclick($.proxy(function () {
+    onGlobalDestroy: function() {
+      this.model.trigger('destroy')
+    },
 
-               events.trigger("dblclick:type", this.model);
+    getName: function() {
+      return this.model.model.name
+    },
 
-            }, this));
-        },
+    destroy: function() {
+      console.log('typeController:destroy()')
 
-        onGlobalDestroy : function () {
+      while (this.attachedNodesMediators.length) {
+        var mediator = this.attachedNodesMediators[0]
 
-            this.model.trigger('destroy');
-        },
+        mediator.destroyConnector()
+      }
+    },
 
-        getName : function () {
+    /*
+     *  requests for model state, delegating to model
+     */
 
-            return this.model.model.name;
-        },
+    getTopYLimit: function() {
+      return this.model.getYCood()
+    },
 
-        destroy : function () {
+    getBottomYLimit: function() {
+      return this.model.getYCood() + this.model.getHeight()
+    },
 
-            this.removeAttachedMediators();
-        },
+    getLeftXLimit: function() {
+      return this.model.getXCood()
+    },
 
-        /*
-            requests for model state, delegating to model
-        */
-        getTopYLimit : function () {
-            return this.model.getYCood();
-        },
+    getRightXLimit: function() {
+      return this.model.getXCood() + this.model.getWidth()
+    },
 
-        getBottomYLimit : function () {
-            return this.model.getYCood() + this.model.getHeight();
-        },
+    _onMove: function(dx, dy) {
+      var x = this.startX + dx,
+        y = this.startY + dy,
+        oldX = this.model.getXCood(),
+        oldY = this.model.getYCood(),
+        diffX = x - oldX,
+        diffY = y - oldY
 
-        getLeftXLimit : function () {
-            return this.model.getXCood();
-        },
+      this.model.setCoods(x, y)
 
-        getRightXLimit : function () {
+      _.each(this.attachedNodesMediators, function(mediator) {
+        mediator.moveNode(diffX, diffY)
+      })
+    },
 
-            return this.model.getXCood() + this.model.getWidth();
-        },
+    _onStart: function() {
+      this.startX = parseInt(this.box.attr('x'), 10)
+      this.startY = parseInt(this.box.attr('y'), 10)
+    },
 
-        _onMove : function (dx, dy) {
+    _onEnd: function() {
+      this.startX = null
+      this.startY = null
+    },
 
-            var x = this.startX + dx,
-                y = this.startY + dy,
-                oldX = this.model.getXCood(),
-                oldY = this.model.getYCood(),
-                diffX = x - oldX,
-                diffY = y - oldY;
+    addAttachedNodeMediator: function(mediator) {
+      this.attachedNodesMediators.push(mediator)
+    },
 
-            this.model.setCoods(x, y);
+    removeAttachedMediators: function() {
+      var length = this.attachedNodesMediators.length
 
-            _.each(this.attachedNodesMediators, function (mediator) {
+      for (var i = 0; i < length; i++) {
+        // super hacky: somewhere else, this array is being changed
+        var mediator = this.attachedNodesMediators[0]
 
-                mediator.moveNode(diffX, diffY);
-
-            });
-
-        },
-
-        _onStart : function () {
-            this.startX = parseInt(this.box.attr("x"));
-            this.startY = parseInt(this.box.attr("y"));
-        },
-
-        _onEnd : function () {
-            this.startX = null;
-            this.startY = null;
-        },
-
-        addAttachedNodeMediator : function (mediator) {
-
-            this.attachedNodesMediators.push(mediator);
-        },
-
-        removeAttachedMediators : function () {
-            var length = this.attachedNodesMediators.length;
-            for(var i = 0; i < length; i++) {
-                this.attachedNodesMediators[0].destroyFromType();
-            }
-
-        },
-
-        unAttachNodeMediator : function (mediator) {
-            _.each(this.attachedNodesMediators, function (item, index) {
-
-                if(item === mediator) {
-
-                    this.attachedNodesMediators.splice(index, 1);
-
-                }
-            }, this);
+        if ('destroyFromType' in mediator) {
+          mediator.destroyFromType()
+        } else {
+          console.log('destroyFromType not on mediator')
         }
-    });
-});
+      }
+    },
 
+    unAttachNodeMediator: function(mediator) {
+      _.each(
+        this.attachedNodesMediators,
+        function(item, index) {
+          if (item === mediator) {
+            this.attachedNodesMediators.splice(index, 1)
+          }
+        },
+        this
+      )
+    },
+  })
+})

@@ -1,121 +1,111 @@
 define([
-    'BaseType',
-    'diagram/connectors/nodes/nodeView',
-    'diagram/connectors/nodes/nodeController',
-    'diagram/connectors/nodes/horizontalNodesMediator',
-    'diagram/connectors/lines/lineView',
-    'diagram/connectors/nodes/nodeModel'
-    ],
-        function (
-            BaseType,
-            ArrowView,
-            NodeController,
-            HorizontalNodesMediator,
-            LineView,
-            NodeModel
-            ) {
+  'diagram/connectors/nodes/nodeView',
+  'diagram/connectors/nodes/nodeController',
+  'diagram/connectors/nodes/horizontalNodesMediator',
+  'diagram/connectors/lines/lineView',
+  'diagram/connectors/nodes/nodeModel',
+], function(
+  ArrowView,
+  NodeController,
+  HorizontalNodesMediator,
+  LineView,
+  NodeModel
+) {
+  'use strict'
 
-                "use strict";
+  return {
+    create: function(horizontalConnectorModel) {
+      var model = horizontalConnectorModel
 
+      var leftArrowModel = new NodeModel({
+        model: model.getLeftArrow(),
+      })
 
-                return {
+      var proximalNodeModel = new NodeModel({
+        model: model.getProximalNode(),
+      })
 
-                    create : function (horizontalConnectorModel) {
+      var distalNodeModel = new NodeModel({
+        model: model.getDistalNode(),
+      })
 
-                        var model = horizontalConnectorModel;
+      var rightArrowModel = new NodeModel({
+        model: model.getRightArrow(),
+      })
 
-                        var leftArrowModel = new NodeModel({
-                            model : model.getLeftArrow()
-                        });
+      // create lines first so they appear below nodes. (crude, I know!)
+      new LineView({
+        modelA: leftArrowModel,
+        modelB: proximalNodeModel,
+        connectorModel: model,
+      })
 
-                        var proximalNodeModel = new NodeModel({
-                            model : model.getProximalNode()
-                        });
+      new LineView({
+        modelA: proximalNodeModel,
+        modelB: distalNodeModel,
+        connectorModel: model,
+      })
 
-                        var distalNodeModel = new NodeModel({
-                            model : model.getDistalNode()
-                        });
+      new LineView({
+        modelA: distalNodeModel,
+        modelB: rightArrowModel,
+        connectorModel: model,
+      })
 
-                        var rightArrowModel = new NodeModel({
-                            model : model.getRightArrow()
-                        });
+      // create node views.
+      var leftArrowView = new ArrowView({
+        model: leftArrowModel,
+      })
 
+      var proximalArrowView = new ArrowView({
+        model: proximalNodeModel,
+      })
 
-                        // create lines first so they appear below nodes. (crude, I know!)
-                        new LineView({
-                            modelA : leftArrowModel,
-                            modelB : proximalNodeModel,
-                            connectorModel : model
-                        });
+      var distalArrowView = new ArrowView({
+        model: distalNodeModel,
+      })
 
-                        new LineView({
-                            modelA : proximalNodeModel,
-                            modelB : distalNodeModel,
-                            connectorModel : model
-                        });
+      var rightArrowView = new ArrowView({
+        model: rightArrowModel,
+      })
 
-                        new LineView({
-                            modelA :distalNodeModel,
-                            modelB :rightArrowModel,
-                            connectorModel : model
-                        });
+      var horizontalArrowMediator = new HorizontalNodesMediator({
+        leftArrowModel: leftArrowModel,
+        proximalNodeModel: proximalNodeModel,
+        distalNodeModel: distalNodeModel,
+        rightArrowModel: rightArrowModel,
+        connectorModel: model,
+      })
 
-                        // create node views.
-                        var leftArrowView = new ArrowView({
-                            model : leftArrowModel
-                        });
+      new NodeController({
+        orientation: 'left',
+        model: leftArrowModel,
+        mediator: horizontalArrowMediator,
+        view: leftArrowView,
+      })
 
-                        var proximalArrowView = new ArrowView({
-                            model : proximalNodeModel
-                        });
+      new NodeController({
+        orientation: 'proximal',
+        model: proximalNodeModel,
+        mediator: horizontalArrowMediator,
+        view: proximalArrowView,
+      })
 
-                        var distalArrowView = new ArrowView({
-                            model : distalNodeModel
-                        });
+      new NodeController({
+        orientation: 'distal',
+        model: distalNodeModel,
+        mediator: horizontalArrowMediator,
+        view: distalArrowView,
+      })
 
-                        var rightArrowView = new ArrowView({
-                            model : rightArrowModel
-                        });
+      new NodeController({
+        orientation: 'right',
+        model: rightArrowModel,
+        mediator: horizontalArrowMediator,
+        view: rightArrowView,
+      })
 
-                        var horizontalArrowMediator = new HorizontalNodesMediator({
-                            leftArrowModel : leftArrowModel,
-                            proximalNodeModel : proximalNodeModel,
-                            distalNodeModel : distalNodeModel,
-                            rightArrowModel : rightArrowModel,
-                            connectorModel : model
-                        });
-
-                        new NodeController({
-                            orientation : "left",
-                            model : leftArrowModel,
-                            mediator : horizontalArrowMediator,
-                            view : leftArrowView
-                        });
-
-                        new NodeController({
-                            orientation : "proximal",
-                            model : proximalNodeModel,
-                            mediator : horizontalArrowMediator,
-                            view : proximalArrowView
-                        });
-
-                        new NodeController({
-                            orientation : "distal",
-                            model : distalNodeModel,
-                            mediator : horizontalArrowMediator,
-                            view : distalArrowView
-                        });
-
-                        new NodeController({
-                            orientation : "right",
-                            model : rightArrowModel,
-                            mediator : horizontalArrowMediator,
-                            view : rightArrowView
-                        });
-
-                        return  horizontalArrowMediator;
-
-                    }
-                };
-
-            });
+      return horizontalArrowMediator
+    },
+  }
+})

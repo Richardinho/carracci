@@ -1,52 +1,48 @@
 define([
-    "BaseType",
-    "diagram/connectors/nodes/nodeModel",
-    "events/eventsBus"
-    ], function (
-        BaseType,
-        NodeModel,
-        events
-    ) {
+  'BaseType',
+  'diagram/connectors/nodes/nodeModel',
+  'events/eventsBus',
+], function(BaseType, NodeModel, events) {
+  'use strict'
 
-        "use strict";
+  return BaseType.extend({
+    initialize: function(options) {
+      this.selected = false
 
-        return BaseType.extend({
+      this.artifactType = 'connector'
 
-            initialize : function (options) {
+      this.connectorModel = options.connectorModel
 
-                this.selected = false;
+      events.on(
+        'destroy',
+        function() {
+          this.connectorModel.trigger('destroy')
+        },
+        this
+      )
 
-                this.artifactType = "connector";
+      this.connectorModel.on('destroy', this.destroy, this)
+    },
 
-                this.connectorModel = options.connectorModel;
+    destroyConnector: function() {
+      this.connectorModel.trigger('destroy')
+    },
 
-                events.on("destroy", function () {
+    dblclick: function() {
+      events.trigger('dblclick:connector', this.connectorModel)
+    },
 
-                    this.connectorModel.trigger("destroy");
+    changeLineStyle: function() {
+      this.connectorModel.alternateLineStyle()
+      this.connectorModel.trigger('change:lineStyle')
+    },
 
-                }, this);
+    getName: function() {
+      return this.connectorModel.model.name
+    },
 
-                this.connectorModel.on("destroy", this.destroy, this);
-
-            },
-
-            dblclick: function () {
-
-                events.trigger("dblclick:connector", this.connectorModel);
-
-            },
-
-            changeLineStyle : function () {
-                this.connectorModel.alternateLineStyle();
-                this.connectorModel.trigger("change:lineStyle");
-            },
-
-            getName : function () {
-
-                return this.connectorModel.model.name;
-
-            }
-
-
-        });
-    });
+    getConnectorId: function() {
+      return this.connectorModel.model.id
+    },
+  })
+})

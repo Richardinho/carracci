@@ -1,59 +1,46 @@
 define([
-    "BaseType",
-    "text!diagram/types/template.html",
-    "text!diagram/types/rowTemplate.html",
-    "text!diagram/types/methodRowTemplate.html"
-    ], function (
-        BaseType,
-        template,
-        rowTemplate,
-        methodRowTemplate
-        ) {
+  'BaseType',
+  'text!diagram/types/template.html',
+  'text!diagram/types/rowTemplate.html',
+  'text!diagram/types/methodRowTemplate.html',
+], function(BaseType, template, rowTemplate, methodRowTemplate) {
+  'use strict'
 
-            "use strict";
+  return BaseType.extend({
+    initialize: function(options) {
+      this.$el = options.el
+      this.$el.hide()
+    },
 
-            return BaseType.extend({
+    getArgsEl: function() {
+      return this.$el.find('[data-role=argsContainer]')
+    },
 
-                initialize : function (options) {
+    rowTemplate: _.template(rowTemplate),
 
-                    this.$el = options.el;
-                    this.$el.hide();
+    methodRowTemplate: _.template(methodRowTemplate),
 
-                },
+    addRowToPropertyTable: function() {
+      $('[data-role=property-table] tbody', this.$el).append(this.rowTemplate())
+    },
 
-                getArgsEl : function () {
+    addRowToMethodTable: function() {
+      $('[data-role=method-table] tbody', this.$el).append(
+        this.methodRowTemplate()
+      )
+    },
 
-                    return this.$el.find('[data-role=argsContainer]');
-                },
+    template: _.template(template),
 
-                rowTemplate : _.template(rowTemplate),
+    hide: function() {
+      this.$el.css({ display: 'none' })
+    },
 
-                methodRowTemplate : _.template(methodRowTemplate),
+    render: function(zIndex) {
+      // shouldn't have a direct reference to model
+      this.$el.html(this.template(this.model.model))
 
-                addRowToPropertyTable : function () {
-
-                    $('[data-role=property-table] tbody',this.$el).append(this.rowTemplate());
-
-                },
-
-                addRowToMethodTable : function () {
-
-                    $('[data-role=method-table] tbody',this.$el).append(this.methodRowTemplate());
-                },
-
-                template : _.template(template),
-
-                hide : function () {
-
-                    this.$el.css({ display : "none" });
-                },
-
-                render : function (zIndex ) {
-
-                    this.$el.html(this.template(this.model.model));
-
-                    this.$el.css({ display : "flex" , zIndex: zIndex });
-
-                }
-            });
-        });
+      this.$el.css({ display: 'flex', zIndex: zIndex })
+    },
+  })
+})

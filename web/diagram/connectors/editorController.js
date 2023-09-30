@@ -18,8 +18,8 @@ define(['BaseType', 'diagram/connectors/editorView'], function(
     },
 
     /*
-      open up editor module
-    */
+     *  open up editor module
+     */
 
     show: function(stackIndex, connectorModel) {
       this.model = connectorModel
@@ -35,7 +35,7 @@ define(['BaseType', 'diagram/connectors/editorView'], function(
     },
 
     del: function() {
-      this.diagramController.deleteConnector(this.model.id)
+      this.diagramController.deleteConnector(this.model.model.id)
       this.model.trigger('destroy')
       this.close()
     },

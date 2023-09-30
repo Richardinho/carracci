@@ -50,10 +50,11 @@ define(['BaseType', 'diagram/types/editorView', 'events/eventsBus'], function(
     },
 
     /*
-      open up editor module
+     *  open up editor module
      */
-    show: function(stackIndex, model) {
-      this.model = model
+
+    show: function(stackIndex, typeModel) {
+      this.model = typeModel
       this.view.model = this.model
 
       this.view.render(stackIndex)
@@ -65,10 +66,11 @@ define(['BaseType', 'diagram/types/editorView', 'events/eventsBus'], function(
     },
 
     del: function() {
-      //  need to delete all related nodes here.
       this.deleteNotes()
-      this.diagramController.deleteType(this.model.id)
-      this.model.trigger('delete')
+      this.diagramController.deleteType(this.model.model.id)
+
+      this.model.trigger('destroy')
+
       this.close()
     },
 
@@ -141,8 +143,6 @@ define(['BaseType', 'diagram/types/editorView', 'events/eventsBus'], function(
             $('input[type=text]', row).each(function(index, input) {
               if (input.dataset.role === 'methodArgs') {
                 var argsArray = input.value.split(/,/)
-
-                console.log(argsArray)
 
                 if (argsArray[0].length > 0) {
                   var args = _.reduce(

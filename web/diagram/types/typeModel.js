@@ -1,114 +1,89 @@
-define([
-    "utility/nodeWrapper"
-    ],
+define(['utility/nodeWrapper'], function(NodeWrapper) {
+  'use strict'
 
-    function (
-        NodeWrapper
-    ) {
-
-    "use strict";
-
-    /* this type gets the box from the view and attaches handlers to it to watch its' movement.
+  /* this type gets the box from the view and attaches handlers to it to watch its' movement.
     in response to use input, it updates the model accordingly. The model fires out events
     which our view will listen to*/
 
-    return NodeWrapper.extend({
+  return NodeWrapper.extend({
+    initialize: function(options) {
+      NodeWrapper.prototype.initialize.call(this, options)
 
-        initialize : function (options) {
+      // used?
+      this.diagramModel = options.diagramModel
+    },
 
-            NodeWrapper.prototype.initialize.call(this, options);
+    getName: function() {
+      return this.model.name
+    },
 
-            this.diagramModel = options.diagramModel;
+    save: function() {
+      this.trigger('update')
+    },
 
-        },
+    setCoods: function(x, y) {
+      this.set('xCood', x)
+      this.set('yCood', y)
+      this.trigger('update:position')
+    },
 
-        getName : function () {
-            return this.model.name;
-        },
+    /*
+      setting width and height are special cases where the view rendering results in the
+      model being changed. This is because we can't know the width of the type box
+      until we've rendered it.
 
-        save : function () {
+      Trying to fire event on root model which mediators will be able to listen to
+      and update accordingly
+    */
+    setWidth: function(width) {
+      var previousWidth = this.getWidth()
+      this.set('width', width)
 
-            this.trigger("update");
+      if (previousWidth !== width) {
+        this.trigger('changeWidth')
+      }
+    },
 
-        },
+    setHeight: function(height) {
+      var previousHeight = this.getHeight()
 
-        setCoods : function (x, y) {
-            this.set('xCood', x);
-            this.set('yCood', y);
-            this.trigger("update:position");
-        },
+      this.set('height', height)
 
-        /*
-            setting width and height are special cases where the view rendering results in the
-            model being changed. This is because we can't know the width of the type box
-            until we've rendered it.
+      if (previousHeight !== height) {
+        this.trigger('changeHeight')
+      }
+    },
 
-            Trying to fire event on root model which mediators will be able to listen to
-            and update accordingly
-        */
-        setWidth : function (width) {
+    getHeight: function() {
+      return this.get('height')
+    },
 
-            var previousWidth = this.getWidth();
-            this.set('width', width);
+    getWidth: function() {
+      return this.get('width')
+    },
 
-            if(previousWidth !== width) {
+    getFlavor: function() {
+      return this.get('flavor')
+    },
 
-                this.trigger("changeWidth");
-            }
-        },
+    getXCood: function() {
+      return this.get('xCood')
+    },
 
-        setHeight : function (height) {
+    getYCood: function() {
+      return this.get('yCood')
+    },
 
-            var previousHeight = this.getHeight();
+    getTypeName: function() {
+      return this.get('name')
+    },
 
-            this.set('height', height);
+    getMethods: function() {
+      return this.model.methods
+    },
 
-            if(previousHeight !== height) {
-
-                this.trigger("changeHeight");
-            }
-        },
-
-        getHeight : function () {
-
-            return this.get("height");
-        },
-
-        getWidth : function () {
-
-            return this.get('width');
-        },
-
-        getFlavor : function () {
-
-            return this.get('flavor');
-        },
-
-        getXCood : function () {
-
-            return this.get('xCood');
-        },
-
-        getYCood : function () {
-
-            return this.get('yCood');
-        },
-
-        getTypeName : function () {
-
-            return this.get('name');
-
-        },
-
-        getMethods : function () {
-
-            return this.model.methods;
-        },
-
-        getProperties : function () {
-
-            return this.model.properties;
-        }
-    });
-});
-
+    getProperties: function() {
+      return this.model.properties
+    },
+  })
+})

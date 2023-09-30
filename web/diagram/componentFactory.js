@@ -271,6 +271,7 @@ define([
       if (!json) {
         json = this.diagramModel.createHorizontalConnector()
       }
+
       var horizontalConnectorModel = new HorizontalConnectorModel({
         model: json,
       })
@@ -278,6 +279,7 @@ define([
       var connectorMediator = this.horizontalConnectorFactory.create(
         horizontalConnectorModel
       )
+
       this.connectorMediators[horizontalConnectorModel.model.name] =
         connectorMediator
 
@@ -296,11 +298,14 @@ define([
       var verticalConnectorModel = new VerticalConnectorModel({
         model: json,
       })
+
       var connectorMediator = this.verticalConnectorFactory.create(
         verticalConnectorModel
       )
+
       this.connectorMediators[verticalConnectorModel.model.name] =
         connectorMediator
+
       return connectorMediator
     },
   })

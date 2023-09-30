@@ -70,9 +70,12 @@ define([
      */
 
     createVerticalConnector: function() {
-      var id = idGenerator.nextId() //todo id system needs a lot of work : at present there are duplicate ids when you load an existing diagram
+      var id = idGenerator.nextId()
 
-      this.currentDiagram['connectors'][id] = verticalConnectorBasicJson()
+      this.currentDiagram['connectors'][id] = Object.assign(
+        { id: id },
+        verticalConnectorBasicJson()
+      )
 
       return this.currentDiagram['connectors'][id]
     },
@@ -85,7 +88,9 @@ define([
     createHorizontalConnector: function() {
       var id = idGenerator.nextId()
 
-      this.currentDiagram['connectors'][id] = horizontalConnectorBasicJson()
+      var model = Object.assign({ id }, horizontalConnectorBasicJson())
+
+      this.currentDiagram['connectors'][id] = model
 
       return this.currentDiagram['connectors'][id]
     },
@@ -97,6 +102,30 @@ define([
 
     deleteType: function(id) {
       delete this.currentDiagram['types'][id]
+    },
+
+    deleteTypeAndConnectors: function(id) {
+      delete this.currentDiagram['types'][id]
+      var connectors = this.currentDiagram['connectors']
+      var attachedConnectors = []
+
+      for (var key in connectors) {
+        var connector = connectors[key]
+
+        // iterate through nodes
+        var nodes = connector.nodes
+
+        for (var key in nodes) {
+          var node = nodes[key]
+          if (id === node.attachedBox) {
+            attachedConnectors.push(connector.id)
+          }
+        }
+      }
+
+      attachedConnectors.forEach((id) => {
+        delete this.currentDiagram['connectors'][id]
+      })
     },
 
     /**

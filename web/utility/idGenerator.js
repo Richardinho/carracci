@@ -1,16 +1,7 @@
-define([], function () {
-  var nextId = 1;
-
-  var prefix = "abc";
-
+define([], function() {
   return {
-    nextId: function () {
-      var id = nextId++;
-      return prefix + id;
+    nextId: function() {
+      return Date.now().toString(36) + Math.random().toString(36).substr(2)
     },
-
-    reset: function (offset) {
-      nextId += offset;
-    },
-  };
-});
+  }
+})

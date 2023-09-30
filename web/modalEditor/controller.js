@@ -47,6 +47,7 @@ define(["BaseType", "underscore", "modalEditor/view"], function (
       },
 
       del: function () {
+        
         this.diagramController.deleteNote(this.model.id);
         this.model.trigger("destroy");
         this.close();

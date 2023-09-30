@@ -1,26 +1,11 @@
 define([
   'BaseType',
   'canvg',
-  'modalEditor/controller',
   'jquery',
   'menu/controller',
-  'diagram/banner/editor',
-  'diagram/types/editor',
-  'diagram/show/view',
   'diagram/widgetManager',
   'events/eventsBus',
-], function(
-  BaseType,
-  canvg,
-  ModalEditor,
-  $,
-  MainMenu,
-  BannerEditor,
-  TypeEditor,
-  Show,
-  WidgetManager,
-  eventsBus
-) {
+], function(BaseType, canvg, $, MainMenu, WidgetManager, eventsBus) {
   /*
     this type has the role of supplying commands which are called by the editor.
     It delegates to the diagram model for creating the model, and to the component factory
@@ -129,12 +114,13 @@ define([
     },
 
     deleteType: function(id) {
-      this.diagramModel.deleteType(id)
+      this.diagramModel.deleteTypeAndConnectors(id)
     },
 
     deleteConnector: function(connectorId) {
       this.diagramModel.deleteConnector(connectorId)
     },
+
     //  todo: this not hooked up yet.
     export: function() {
       //var format = arguments[0];

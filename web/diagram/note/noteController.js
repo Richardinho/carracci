@@ -1,111 +1,97 @@
-define([
-    "BaseType",
-    'utility/svg',
-    'jquery',
-    'events/eventsBus'
-    ],
+define(['BaseType', 'utility/svg', 'jquery', 'events/eventsBus'], function(
+  BaseType,
+  paper,
+  $,
+  events
+) {
+  return BaseType.extend(
+    /** @lends NoteController.prototype */ {
+      /**
+       *
+       * @augments external:BaseType
+       * @constructs
+       */
+      initialize: function(options) {
+        this.artifactType = 'note'
 
-        function (
-            BaseType,
-            paper,
-            $,
-            events
-        ) {
+        this.model = options.model
+        this.view = options.view
 
+        this.proxyEl = this._createProxyEl()
 
-    return BaseType.extend(/** @lends NoteController.prototype */{
-        /**
-         *
-         * @augments external:BaseType
-         * @constructs
-         */
-        initialize : function (options) {
+        this.proxyEl.dblclick(
+          $.proxy(function() {
+            events.trigger('dblclick:note', this.model)
+          }, this)
+        )
 
-            this.artifactType = "note";
+        events.on(
+          'destroy',
+          function() {
+            this.model.trigger('destroy')
+          },
+          this
+        )
 
-            this.model = options.model;
-            this.view = options.view;
+        this.model.on('destroy', this.destroy, this)
 
-            this.proxyEl = this._createProxyEl();
+        this.model.on('change:dimensions', this.updateProxyEl, this)
+      },
 
-            this.proxyEl.dblclick($.proxy(function () {
+      _createProxyEl: function() {
+        var rect = paper.rect(
+          this.model.getXCood(),
+          this.model.getYCood(),
+          this.model.getWidth(),
+          this.model.height
+        )
+        rect.attr({ fill: 'red', opacity: 0 })
+        this._dragger(rect)
+        return rect
+      },
 
-                events.trigger("dblclick:note", this.model);
+      updateProxyEl: function() {
+        this.proxyEl.attr({
+          width: this.model.getWidth(),
+          height: this.model.height,
+        })
+      },
 
-            }, this));
+      destroy: function() {
+        this.proxyEl.remove()
+      },
 
-            events.on("destroy", function () {
+      _dragger: function dragger(c) {
+        var startX, startY
 
-                this.model.trigger("destroy");
-            }, this);
+        function onMove(dx, dy) {
+          var x = startX + dx
+          var y = startY + dy
 
-            this.model.on("destroy", this.destroy, this);
+          c.attr({
+            x: x,
+            y: y,
+          })
 
-            this.model.on("change:dimensions", this.updateProxyEl, this);
-        },
+          this.model.setCoods(x, y)
+        }
 
-        _createProxyEl : function () {
+        function onStart() {
+          startX = parseInt(c.attr('x'))
+          startY = parseInt(c.attr('y'))
+        }
+        function onEnd() {
+          startX = null
+          startY = null
+        }
 
-            var rect = paper.rect(this.model.getXCood(), this.model.getYCood(), this.model.getWidth(), this.model.height);
-            rect.attr({ fill : "red", opacity : 0 });
-            this._dragger(rect);
-            return rect;
+        c.drag($.proxy(onMove, this), onStart, onEnd)
+        c.attr('cursor', 'move')
+      },
 
-        },
-
-        updateProxyEl : function () {
-
-            this.proxyEl.attr({
-                width : this.model.getWidth(),
-                height : this.model.height
-            });
-        },
-
-        destroy : function () {
-
-            this.proxyEl.remove();
-        },
-
-        _dragger : function dragger(c) {
-
-           var startX, startY;
-
-           function onMove (dx, dy) {
-               var x = startX + dx;
-               var y = startY + dy;
-
-               c.attr({
-
-                   x : x,
-                   y : y
-
-               });
-
-               this.model.setCoods(x, y);
-
-           }
-
-           function onStart () {
-
-               startX = parseInt(c.attr("x"));
-               startY = parseInt(c.attr("y"));
-           }
-           function onEnd () {
-
-               startX = null;
-               startY = null;
-           }
-
-           c.drag($.proxy(onMove, this), onStart, onEnd);
-           c.attr('cursor', 'move');
-
-       },
-
-       getName : function () {
-
-           return this.model.model.name;
-       }
-
-    });
-});
-
+      getName: function() {
+        return this.model.model.name
+      },
+    }
+  )
+})
