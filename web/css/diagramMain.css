@@ -252,6 +252,11 @@
   float: right;
 }
 
+.buttons {
+  display: flex;
+  gap: 4px;
+}
+
 * {
   box-sizing: border-box;
 }

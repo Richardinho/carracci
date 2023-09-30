@@ -1,15 +1,8 @@
--update libs using node
--use webpack
 -phase out raphael
 -web components for menu
-
--think about rxjs
 
 -create more diagrams
 
 -use service worker for offline working
 
 -remove jquery
--use redux
--unit tests
--separate web and electron versions
