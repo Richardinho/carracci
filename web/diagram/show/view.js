@@ -1,39 +1,23 @@
-define([
-    "BaseType",
-    "text!diagram/show/template.html"
+define(['BaseType', 'text!diagram/show/template.html'], function(
+  BaseType,
+  template
+) {
+  return BaseType.extend({
+    initialize: function(options) {
+      this.$el = options.el
+      this.show()
+    },
 
-    ],
+    template: _.template(template),
 
-    function (
-        BaseType,
-        template
-    ) {
+    hide: function() {
+      this.$el.css({ display: 'none' })
 
-        return BaseType.extend({
+      show: function() {
+        console.log('show')
+        this.$el.html(this.template())
 
-            initialize : function (options) {
-
-                this.$el = options.el;
-                this.show();
-            },
-
-            template : _.template(template),
-
-
-            hide : function () {
-
-                this.$el.css({ display : "none" });
-            },
-
-            show : function () {
-
-                this.$el.html(this.template());
-
-                this.$el.css({ display : "flex" });
-
-            }
-
-
-        });
-    });
-
+        this.$el.css({ display: 'flex' })
+      },
+    })
+})

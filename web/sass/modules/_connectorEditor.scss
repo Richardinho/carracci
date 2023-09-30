@@ -1,16 +1,14 @@
-#connector-editor{
-
-    position : absolute;
-    left : 400px;
-    top : 200px;
+#connector-editor {
+  position: absolute;
+  left: 400px;
+  top: 200px;
 }
 
 .connector-editor__panel {
-
-    width : 200px;
-    background : $form-background;
-    padding : $padding-horizontal;
-    border-radius : 4px;
-    border : solid 1px $border-color;
-    display : table;
+  width: 200px;
+  background: $form-background;
+  padding: $padding-horizontal;
+  border-radius: 4px;
+  border: solid 1px $border-color;
+  display: table;
 }

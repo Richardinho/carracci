@@ -1,9 +1,9 @@
-define(["BaseType", "underscore", "modalEditor/view"], function (
+define(['BaseType', 'underscore', 'modalEditor/view'], function(
   BaseType,
   _,
   View
 ) {
-  "use strict";
+  'use strict'
 
   return BaseType.extend(
     /** @lends ModalEditorController.prototype */ {
@@ -12,64 +12,59 @@ define(["BaseType", "underscore", "modalEditor/view"], function (
        * @augments external:BaseType
        * @constructs
        */
-      initialize: function (options) {
-        this.manager = options.manager;
-        this.diagramController = options.diagramController;
+      initialize: function(options) {
+        this.manager = options.manager
+        this.diagramController = options.diagramController
 
         this.view = new View({
-          el: $("#modalEditor"),
-        });
+          el: $('#modalEditor'),
+        })
 
         this.view.$el.on(
-          "click",
-          "[data-role=cancel]",
+          'click',
+          '[data-role=cancel]',
           $.proxy(this.close, this)
-        );
-        this.view.$el.on("click", "[data-role=save]", $.proxy(this.save, this));
-        this.view.$el.on(
-          "click",
-          "[data-role=delete]",
-          $.proxy(this.del, this)
-        );
+        )
+        this.view.$el.on('click', '[data-role=save]', $.proxy(this.save, this))
+        this.view.$el.on('click', '[data-role=delete]', $.proxy(this.del, this))
       },
 
-      show: function (widgetIndex, model) {
-        this.model = model;
-        this.view.model = this.model;
+      show: function(widgetIndex, model) {
+        this.model = model
+        this.view.model = this.model
         //this.json = this.model.toJSON();
 
-        this.view.render(widgetIndex);
+        this.view.render(widgetIndex)
       },
 
-      close: function () {
-        this.manager.onCloseWidget();
-        this.view.hide();
+      close: function() {
+        this.manager.onCloseWidget()
+        this.view.hide()
       },
 
-      del: function () {
-        
-        this.diagramController.deleteNote(this.model.id);
-        this.model.trigger("destroy");
-        this.close();
+      del: function() {
+        this.diagramController.deleteNote(this.model.id)
+        this.model.trigger('destroy')
+        this.close()
       },
 
-      save: function () {
-        var contents = this._getContents();
+      save: function() {
+        var contents = this._getContents()
 
-        var width = this._getWidth();
+        var width = this._getWidth()
 
-        this.model.save(contents, width);
+        this.model.save(contents, width)
 
-        this.close();
+        this.close()
       },
 
-      _getWidth: function () {
-        return this.view.getWidthContents();
+      _getWidth: function() {
+        return this.view.getWidthContents()
       },
 
-      _getContents: function () {
-        return this.view.getTextAreaContents();
+      _getContents: function() {
+        return this.view.getTextAreaContents()
       },
     }
-  );
-});
+  )
+})

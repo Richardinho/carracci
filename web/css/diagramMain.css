@@ -13,7 +13,7 @@
   z-index: 100;
   padding: 12px;
   border-radius: 4px;
-  border: solid 1px cadetBlue;
+  border: solid 1px #666;
   font-family: arial;
 }
 
@@ -57,10 +57,6 @@
   position: relative;
 }
 
-.menu__main-options li:hover {
-  color: green;
-}
-
 .sublist {
   font-size: 16px;
   padding-left: 12px;
@@ -82,7 +78,7 @@
   background: #ddd;
   padding: 12px;
   border-radius: 4px;
-  border: solid 1px cadetBlue;
+  border: solid 1px #666;
   margin: 200px auto;
   display: table;
 }
@@ -136,7 +132,7 @@
   z-index: 100;
   padding: 12px;
   border-radius: 4px;
-  border: solid 1px cadetBlue;
+  border: solid 1px #666;
 }
 
 .modalEditor__textarea {
@@ -182,7 +178,7 @@
   background: #ddd;
   padding: 12px;
   border-radius: 4px;
-  border: solid 1px cadetBlue;
+  border: solid 1px #666;
   display: table;
   margin: auto;
 }
@@ -206,18 +202,29 @@
 .editor__table, .typeEditor_table {
   width: 100%;
   border-collapse: collapse;
+  font-size: 12px;
+}
+.editor__table thead th, .typeEditor_table thead th {
+  background: grey;
+  border: solid 1px grey;
+  color: white;
+  padding: 2px;
 }
 .editor__table td, .typeEditor_table td {
-  border: solid 1px cadetBlue;
+  border: solid 1px #666;
 }
 .editor__table td:first-child, .typeEditor_table td:first-child {
   width: 80px;
 }
 .editor__table td input, .typeEditor_table td input {
   outline: none;
+  font-size: 12px;
+  line-height: 20px;
   border: none;
   width: 100%;
   height: 100%;
+  height: 20px;
+  font-size: 12px;
 }
 .editor__table td input[type=button], .typeEditor_table td input[type=button] {
   border: none;
@@ -225,10 +232,13 @@
   height: 17px;
   border-radius: 20px;
   font-weight: 700;
+  font-size: 11px;
+  line-height: 11px;
   color: white;
   background: #666;
 }
 .editor__table td input[type=button]:hover, .typeEditor_table td input[type=button]:hover {
+  /* TODO: have standard hover color for buttons */
   background: pink;
 }
 .editor__table td:last-child, .typeEditor_table td:last-child {
@@ -329,30 +339,41 @@ td [type=button] {
   background: #ddd;
   padding: 12px;
   border-radius: 4px;
-  border: solid 1px cadetBlue;
+  border: solid 1px #666;
   display: table;
 }
 
 #json-viewer {
-  position: absolute;
-  left: 400px;
-  top: 100px;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .jsonViewer__panel {
-  width: 500px;
   background: #ddd;
   padding: 12px;
   border-radius: 4px;
-  border: solid 1px cadetBlue;
+  border: solid 1px #666;
   margin: 200px auto;
-  display: table;
+  display: block;
 }
 
 .jsonViewer__panel--interior {
+  width: 60vw;
+  font-family: courier;
+  font-size: 12px;
+  color: #666;
+  height: 70vh;
+  overflow-y: scroll;
   background: white;
   border: solid 1px #666;
   padding: 6px;
+  margin-bottom: 10px;
+}
+
+body {
+  font-family: helvetica;
 }
 
 #container {
@@ -360,7 +381,7 @@ td [type=button] {
   width: 100vw;
   display: grid;
   grid-template-rows: 50px 1fr;
-  grid-template-columns: 1fr 400px;
+  grid-template-columns: 1fr 250px;
 }
 
 #side-bar {

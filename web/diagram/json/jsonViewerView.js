@@ -1,33 +1,25 @@
-define([
-    "BaseType",
-    "text!diagram/json/jsonViewerTemplate.html"
-    ], function (
-        BaseType,
-        template
-        ) {
+define(['BaseType', 'text!diagram/json/jsonViewerTemplate.html'], function(
+  BaseType,
+  template
+) {
+  'use strict'
 
-            "use strict";
+  return BaseType.extend({
+    initialize: function() {
+      this.$el = $('#json-viewer')
+    },
 
-            return BaseType.extend({
+    template: _.template(template),
 
-                initialize : function () {
+    show: function(stackingOrder, model) {
+      this.$el.html(this.template({ diagram: model }))
 
-                    this.$el = $('#json-viewer');
-                },
+      this.$el.css({ zIndex: stackingOrder })
+      this.$el.show()
+    },
 
-                template : _.template(template),
-
-                show : function (stackingOrder, model) {
-
-                    this.$el.html(this.template({ diagram : model}));
-
-                    this.$el.css({ zIndex : stackingOrder });
-                    this.$el.show();
-                },
-
-                hide : function () {
-
-                    this.$el.hide();
-                }
-            });
-        });
+    hide: function() {
+      this.$el.hide()
+    },
+  })
+})

@@ -1,26 +1,28 @@
 #json-viewer {
-
-    position : absolute;
-    left : 400px;
-    top : 100px;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
-
 .jsonViewer__panel {
-
-    width : 500px;
-    background : $form-background;
-    padding : 12px;
-    border-radius : 4px;
-    border : solid 1px $border-color;
-    margin : 200px auto;
-    display : table;
+  background: $form-background;
+  padding: 12px;
+  border-radius: 4px;
+  border: solid 1px $border-color;
+  margin: 200px auto;
+  display: block;
 }
 
 .jsonViewer__panel--interior {
-
-    background : white;
-    border : solid 1px #666;
-    padding : 6px;
-
+  width: 60vw;
+  font-family: courier;
+  font-size: 12px;
+  color: #666;
+  height: 70vh;
+  overflow-y: scroll;
+  background: white;
+  border: solid 1px #666;
+  padding: 6px;
+  margin-bottom: 10px;
 }
