@@ -3,6 +3,7 @@
 
 -create more diagrams
 
--use service worker for offline working
 
 -remove jquery
+
+-when window is resized, resize svg container
