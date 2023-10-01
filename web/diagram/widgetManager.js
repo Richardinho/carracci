@@ -6,7 +6,7 @@ define([
   'diagram/connectors/editorController',
   'diagram/banner/editor',
   'diagram/viewer/viewerController',
-  'text!/diagram/help.html',
+  'text!diagram/help.html',
 ], function(
   BaseType,
   TypeEditor,
