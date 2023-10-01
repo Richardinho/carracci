@@ -9,7 +9,8 @@
 @import 'modules/type';
 @import 'modules/args';
 @import 'modules/connectorEditor';
-@import 'modules/jsonViewer';
+@import 'modules/viewer';
+@import 'modules/help';
 body {
   font-family: helvetica;
 }
@@ -35,6 +36,42 @@ body {
   grid-column-start: 1;
   grid-column-end: 3;
   background: $top-bar-color;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.nav-bar--link {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  color: white;
+  cursor: pointer;
+}
+
+.nav-bar--link-icon {
+  display: flex;
+  background: transparent;
+  svg {
+    fill: currentColor;
+    margin: auto;
+  }
+  position: relative;
+  width: 30px;
+  height: 30px;
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    border-radius: 50%;
+    border: solid 1px white;
+  }
+}
+
+.nav-bar--link-text {
 }
 
 #svg-container {

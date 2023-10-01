@@ -29,10 +29,22 @@ define([
         diagramController: this,
       })
 
+      $(document.body).on(
+        'click',
+        '[data-command]',
+        $.proxy(this.handleCommand, this)
+      )
+
       eventsBus.on('dblclick:type', this.showTypeEditor, this)
       eventsBus.on('dblclick:note', this.showNoteEditor, this)
       eventsBus.on('dblclick:connector', this.showConnectorEditor, this)
       eventsBus.on('dblclick:banner', this.showBannerEditor, this)
+    },
+
+    handleCommand: function(event) {
+      var dataCommand = $(event.currentTarget).data('command')
+      var args = dataCommand.split(/\s/)
+      this.command(args)
     },
 
     showTypeEditor: function(typeModel) {
@@ -40,7 +52,7 @@ define([
     },
 
     setDiagram: function(diagramName) {
-      this.mainMenu.createDiagram(diagramName)
+      this.command(['load', diagramName])
     },
 
     showNoteEditor: function(noteModel) {
@@ -55,31 +67,30 @@ define([
       this.widgetManager.showBannerEditor(bannerModel)
     },
 
-    command: function(commandObj) {
-      var command = commandObj.command,
-        args = commandObj.args
+    command: function(args) {
+      var command = args[0]
 
-      if (command === 'create' && args[0] === 'type') {
+      if (command === 'create' && args[1] === 'type') {
         this.componentFactory.createType()
       }
 
-      if (command === 'create' && args[0] === 'diagram') {
+      if (command === 'create' && args[1] === 'diagram') {
         // todo: create my own prompt box
         var diagramName = window.prompt('what is the name of your diagram?')
 
         this.componentFactory.createDiagram(null, diagramName)
 
-        this.mainMenu.componentModel.diagram = true
+        this.mainMenu.update(true)
       }
 
-      if (command === 'create' && args[0] === 'banner') {
+      if (command === 'create' && args[1] === 'banner') {
         var model = this.componentFactory.createBanner()
 
         this.widgetManager.showBannerEditor(model)
       }
 
-      if (command === 'create' && args[0] === 'connector') {
-        if (args[1] === 'horizontal') {
+      if (command === 'create' && args[1] === 'connector') {
+        if (args[2] === 'horizontal') {
           this.componentFactory.createHorizontalConnector()
         } else {
           this.componentFactory.createVerticalConnector()
@@ -90,18 +101,22 @@ define([
         this.widgetManager.showJson(this.diagramModel.currentDiagram)
       }
 
-      if (command === 'delete' && args[0] === 'diagram') {
-        this.mainMenu.componentModel.diagram = false
+      if (command === 'delete' && args[1] === 'diagram') {
+        this.mainMenu.update(false)
         eventsBus.trigger('destroy')
         delete this.diagramModel.currentDiagram
       }
 
       if (command === 'load') {
-        this.mainMenu.componentModel.diagram = true
-        this.load(args[0])
+        this.mainMenu.update(true)
+        this.load(args[1])
       }
       if (command === 'export') {
         this.export()
+      }
+
+      if (command === 'help') {
+        this.widgetManager.showHelp()
       }
     },
 
@@ -147,11 +162,6 @@ define([
           return Promise.reject(format + ' is not supported')
       }
       return Promise.resolve('exported to ' + format)
-    },
-
-    show: function() {
-      //todo shouldn't do presentation here
-      return '<pre>' + this.diagramModel.toJSON() + '</pre>'
     },
 
     bannerExists: function() {

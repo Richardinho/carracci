@@ -1,4 +1,4 @@
-define(['BaseType', 'text!diagram/json/jsonViewerTemplate.html'], function(
+define(['BaseType', 'text!diagram/viewer/viewerTemplate.html'], function(
   BaseType,
   template
 ) {
@@ -6,13 +6,13 @@ define(['BaseType', 'text!diagram/json/jsonViewerTemplate.html'], function(
 
   return BaseType.extend({
     initialize: function() {
-      this.$el = $('#json-viewer')
+      this.$el = $('#viewer')
     },
 
     template: _.template(template),
 
-    show: function(stackingOrder, model) {
-      this.$el.html(this.template({ diagram: model }))
+    show: function(stackingOrder, html) {
+      this.$el.html(this.template({ innerHTML: html }))
 
       this.$el.css({ zIndex: stackingOrder })
       this.$el.show()

@@ -5,7 +5,8 @@ define([
   'modalEditor/controller',
   'diagram/connectors/editorController',
   'diagram/banner/editor',
-  'diagram/json/jsonViewerController',
+  'diagram/viewer/viewerController',
+  'text!/diagram/help.html',
 ], function(
   BaseType,
   TypeEditor,
@@ -13,7 +14,8 @@ define([
   NotesController,
   ConnectorEditorController,
   BannerEditorController,
-  JsonViewerController
+  ViewerController,
+  helpPage
 ) {
   'use strict'
 
@@ -49,7 +51,7 @@ define([
         diagramController: options.diagramController,
       })
 
-      this.jsonViewerController = new JsonViewerController({
+      this.viewerController = new ViewerController({
         manager: this,
       })
 
@@ -68,7 +70,22 @@ define([
     showJson: function(diagram) {
       this.stackingOrderIndex++
       this._showOverlay()
-      this.jsonViewerController.show(this.getWidgetIndex(), diagram)
+
+      var template = _.template('<pre><%= html %></pre>')
+
+      this.viewerController.show(
+        this.getWidgetIndex(),
+        template({ html: JSON.stringify(diagram, null, 2) })
+      )
+    },
+
+    showHelp: function() {
+      this.stackingOrderIndex++
+      this._showOverlay()
+
+      var template = _.template(helpPage)
+
+      this.viewerController.show(this.getWidgetIndex(), template())
     },
 
     showTypeEditor: function(typeModel) {

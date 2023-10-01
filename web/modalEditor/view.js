@@ -1,106 +1,81 @@
-define([
-    "BaseType",
-    'underscore',
-    'text!modalEditor/template.html'
-        ],
+define(['BaseType', 'underscore', 'text!modalEditor/template.html'], function(
+  BaseType,
+  _,
+  template
+) {
+  return BaseType.extend({
+    initialize: function(options) {
+      this.$el = options.el
+      this.hide()
+    },
 
-        function (
-            BaseType,
-             _,
-             template
-        ) {
+    componentModel: {
+      xOffset: 10,
+      yOffset: 10,
+      left: 0,
+      top: 0,
+    },
 
-        return BaseType.extend(/** @lends ModalEditorView.prototype */{
+    template: _.template(template),
 
-            /**
-             *
-             * @augments external:BaseType
-             * @constructs
-             */
-            initialize : function (options) {
+    reset: function(model) {
+      this.model = model
 
-                this.$el = options.el
-                this.hide();
+      var noteX = this.model.getXCood()
+      var noteY = this.model.getYCood()
+      var noteWidth = this.model.getWidth()
+      var noteHeight = this.model.getHeight()
 
-            },
+      this.componentModel.left = noteX + noteWidth + this.componentModel.xOffset
+      this.componentModel.top = noteY + this.componentModel.yOffset
+    },
+    /**
+     * render modal box to screen
+     *
+     * @public
+     * @param {Number} stackingOrder - stacking order
+     *
+     */
+    render: function(stackingOrder) {
+      this.$el.html(
+        this.template({
+          contents: this.model.getText(),
+        })
+      )
 
-            componentModel : {
+      var x = this.model.getXCood()
+      var y = this.model.getYCood()
 
-               xOffset : 10,
-               yOffset : 10,
-               left    : 0,
-               top     : 0
+      this._position(x, y)
+      this.$el.css({ zIndex: stackingOrder })
+      this.$el.show()
+    },
+    /**
+     * hides box
+     *
+     * @public
+     */
+    hide: function() {
+      this.$el.hide()
+    },
+    /**
+     *
+     * @public
+     * @returns {String} contents of modal box
+     */
+    getTextAreaContents: function() {
+      return this.$el.find('[data-role=contents]').val()
+    },
 
-            },
+    getWidthContents: function() {
+      return this.$el.find('[data-role=width]').val()
+    },
 
-            template : _.template(template),
-
-            reset : function (model) {
-
-                this.model = model;
-
-                var noteX = this.model.getXCood();
-                var noteY = this.model.getYCood();
-                var noteWidth =  this.model.getWidth();
-                var noteHeight = this.model.getHeight();
-
-                this.componentModel.left = noteX + noteWidth + this.componentModel.xOffset;
-                this.componentModel.top = noteY + this.componentModel.yOffset;
-
-            },
-            /**
-             * render modal box to screen
-             *
-             * @public
-             * @param {Number} stackingOrder - stacking order
-             *
-             */
-            render : function (stackingOrder) {
-
-                this.$el.html(this.template({
-
-                    contents : this.model.getText()
-                }));
-
-                var x = this.model.getXCood();
-                var y = this.model.getYCood();
-
-                this._position(x, y);
-                this.$el.css({ zIndex : stackingOrder });
-                this.$el.show();
-
-            },
-            /**
-             * hides box
-             *
-             * @public
-             */
-            hide : function () {
-
-                this.$el.hide();
-            },
-            /**
-             *
-             * @public
-             * @returns {String} contents of modal box
-             */
-            getTextAreaContents : function () {
-
-                 return this.$el.find('[data-role=contents]').val();
-            },
-
-            getWidthContents : function () {
-
-                return this.$el.find('[data-role=width]').val();
-            },
-
-            _position : function (x, y) {
-
-                $('[data-role=editor-panel]',this.$el).css({
-                    left : x + 50,
-                    top : y + 50
-                });
-            }
-        });
-    });
-
+    _position: function(x, y) {
+      $('[data-role=editor-panel]', this.$el).css({
+        left: x + 50,
+        top: y + 50,
+      })
+    },
+  })
+})
