@@ -7,6 +7,12 @@
   }
 }
 
+.typeEditor__select--standalone {
+  outline: none;
+  height: 22px;
+  font-size: 12px;
+}
+
 #type-editor {
   display: flex;
   position: absolute;
@@ -31,12 +37,6 @@
     font-size: 12px;
     outline: none;
     line-height: 16px;
-  }
-
-  select {
-    width: 100%;
-    border: none;
-    outline: none;
   }
 }
 
@@ -126,6 +126,12 @@
 
   margin-top: 12px;
   margin-bottom: 12px;
+
+  select {
+    width: 100%;
+    border: none;
+    outline: none;
+  }
 }
 
 .typeEditor__delete {

@@ -112,7 +112,7 @@ define(['BaseType', 'diagram/types/editorView', 'events/eventsBus'], function(
       var that = this
 
       var typeName = $('input[data-role=typeName]', this.view.$el).val()
-      var flavor = $('input[data-role=flavor]', this.view.$el).val()
+      var flavor = $('select[name=flavor]', this.view.$el).val()
 
       that.model.model.name = typeName
       that.model.model.flavor = flavor

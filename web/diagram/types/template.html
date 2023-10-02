@@ -15,14 +15,12 @@
 
   <label>
     Flavor:
-    <input
-      data-role="flavor"
-      list="flavor"
-      name="flavor"
-      value="<%= flavor %>"
-      class="text-input"
-      type="text"
-    />
+    <select class="typeEditor__select--standalone" name="flavor">
+      <option value="abstract">abstract</option>
+      <option value="interface">interface</option>
+      <option value="class">class</option>
+    </select>
+
   </label>
 
   <div class="typeEditor__property-header">
@@ -114,12 +112,6 @@
       <% }) %>
     </tbody>
   </table>
-
-  <datalist id="flavor">
-    <option value="abstract"></option>
-    <option value="interface"></option>
-    <option value="class"></option>
-  </datalist>
 
   <div class="buttons">
     <button class="button button--primary" data-role="save">save</button>

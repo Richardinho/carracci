@@ -168,6 +168,12 @@
   text-transform: capitalize;
 }
 
+.typeEditor__select--standalone {
+  outline: none;
+  height: 22px;
+  font-size: 12px;
+}
+
 #type-editor {
   display: flex;
   position: absolute;
@@ -191,11 +197,6 @@
   font-size: 12px;
   outline: none;
   line-height: 16px;
-}
-.typeEditor__panel select {
-  width: 100%;
-  border: none;
-  outline: none;
 }
 
 .typeEditor__add {
@@ -270,6 +271,11 @@
 .typeEditor_table {
   margin-top: 12px;
   margin-bottom: 12px;
+}
+.typeEditor_table select {
+  width: 100%;
+  border: none;
+  outline: none;
 }
 
 .typeEditor__delete {
