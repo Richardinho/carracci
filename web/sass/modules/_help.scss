@@ -1,15 +1,50 @@
 .help {
+  b {
+    font-family: courier;
+    color: black;
+  }
+
   padding: 0 8px;
 
-  h2 {
+  h1,
+  h2,
+  h3,
+  h4 {
     font-weight: bold;
-    font-size: 20px;
     line-height: 24px;
-    margin: 8px 0;
+    margin: 16px 0;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  h3 {
+    font-size: 16px;
+  }
+
+  hr {
+    border: none;
+    border-bottom: solid 1px #666;
+    margin: 16px 0;
   }
 
   p {
     font-size: 14px;
-    line-height: 16px;
+    line-height: 24px;
+    margin: 16px 0;
+  }
+
+  strong {
+    font-weight: bold;
+  }
+  li {
+    line-height: 24px;
+    list-style-type: disc;
+    list-style-position: inside;
   }
 }

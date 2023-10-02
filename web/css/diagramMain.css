@@ -373,15 +373,44 @@ td [type=button] {
 .help {
   padding: 0 8px;
 }
-.help h2 {
+.help b {
+  font-family: courier;
+  color: black;
+}
+.help h1,
+.help h2,
+.help h3,
+.help h4 {
   font-weight: bold;
-  font-size: 20px;
   line-height: 24px;
-  margin: 8px 0;
+  margin: 16px 0;
+}
+.help h1 {
+  font-size: 24px;
+}
+.help h2 {
+  font-size: 18px;
+}
+.help h3 {
+  font-size: 16px;
+}
+.help hr {
+  border: none;
+  border-bottom: solid 1px #666;
+  margin: 16px 0;
 }
 .help p {
   font-size: 14px;
-  line-height: 16px;
+  line-height: 24px;
+  margin: 16px 0;
+}
+.help strong {
+  font-weight: bold;
+}
+.help li {
+  line-height: 24px;
+  list-style-type: disc;
+  list-style-position: inside;
 }
 
 body {

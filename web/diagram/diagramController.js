@@ -18,7 +18,6 @@ define([
   return BaseType.extend({
     initialize: function(options) {
       this.diagramModel = options.diagramModel
-
       this.componentFactory = options.componentFactory
 
       this.mainMenu = new MainMenu({
@@ -45,26 +44,6 @@ define([
       var dataCommand = $(event.currentTarget).data('command')
       var args = dataCommand.split(/\s/)
       this.command(args)
-    },
-
-    showTypeEditor: function(typeModel) {
-      this.widgetManager.showTypeEditor(typeModel)
-    },
-
-    setDiagram: function(diagramName) {
-      this.command(['load', diagramName])
-    },
-
-    showNoteEditor: function(noteModel) {
-      this.widgetManager.showNoteEditor(noteModel)
-    },
-
-    showConnectorEditor: function(connectorModel) {
-      this.widgetManager.showConnectorEditor(connectorModel)
-    },
-
-    showBannerEditor: function(bannerModel) {
-      this.widgetManager.showBannerEditor(bannerModel)
     },
 
     command: function(args) {
@@ -136,7 +115,55 @@ define([
       this.diagramModel.deleteConnector(connectorId)
     },
 
+    bannerExists: function() {
+      return this.diagramModel.bannerExists()
+    },
+
+    showTypeEditor: function(typeModel) {
+      this.widgetManager.showTypeEditor(typeModel)
+    },
+
+    setDiagram: function(diagramName) {
+      this.command(['load', diagramName])
+    },
+
+    showNoteEditor: function(noteModel) {
+      this.widgetManager.showNoteEditor(noteModel)
+    },
+
+    showConnectorEditor: function(connectorModel) {
+      this.widgetManager.showConnectorEditor(connectorModel)
+    },
+
+    showBannerEditor: function(bannerModel) {
+      this.widgetManager.showBannerEditor(bannerModel)
+    },
+
+    /*
+      loads diagram by name. Throws an error if there is no such diagram currently loaded.
+    */
+
+    load: function(diagramname) {
+      var promise = Promise.resolve(
+        $.ajax({
+          url: 'diagrams/' + diagramname + '.json',
+          dataType: 'json',
+        })
+      )
+
+      promise
+        .then(
+          $.proxy(function(data) {
+            this.componentFactory.createDiagram(data)
+          }, this)
+        )
+        .catch(function(err) {
+          //  todo : display some more useful error to user.
+          console.log(err)
+        })
+    },
     //  todo: this not hooked up yet.
+    /*
     export: function() {
       //var format = arguments[0];
       var format = 'png'
@@ -163,33 +190,6 @@ define([
       }
       return Promise.resolve('exported to ' + format)
     },
-
-    bannerExists: function() {
-      return this.diagramModel.bannerExists()
-    },
-
-    /*
-      loads diagram by name. Throws an error if there is no such diagram currently loaded.
     */
-
-    load: function(diagramname) {
-      var promise = Promise.resolve(
-        $.ajax({
-          url: 'diagrams/' + diagramname + '.json',
-          dataType: 'json',
-        })
-      )
-
-      promise
-        .then(
-          $.proxy(function(data) {
-            this.componentFactory.createDiagram(data)
-          }, this)
-        )
-        .catch(function(err) {
-          //  todo : display some more useful error to user.
-          console.log(err)
-        })
-    },
   })
 })
