@@ -57,8 +57,6 @@ define(['BaseType', 'underscore', 'events/eventsBus'], function(
     },
 
     destroy: function() {
-      console.log('typeController:destroy()')
-
       while (this.attachedNodesMediators.length) {
         var mediator = this.attachedNodesMediators[0]
 

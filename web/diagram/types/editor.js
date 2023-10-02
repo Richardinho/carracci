@@ -126,6 +126,9 @@ define(['BaseType', 'diagram/types/editorView', 'events/eventsBus'], function(
 
             that.model.model.properties[name] = {}
 
+            var visibility = $('select', row).val()
+            that.model.model.properties[name]['visibility'] = visibility
+
             $('input[type=text]', row).each(function(index, input) {
               that.model.model.properties[name][input.name] = input.value
             })
@@ -139,6 +142,9 @@ define(['BaseType', 'diagram/types/editorView', 'events/eventsBus'], function(
             var name = $('input[name=name]', row).val()
 
             that.model.model.methods[name] = {}
+
+            var visibility = $('select', row).val()
+            that.model.model.methods[name]['visibility'] = visibility
 
             $('input[type=text]', row).each(function(index, input) {
               if (input.dataset.role === 'methodArgs') {
@@ -160,8 +166,6 @@ define(['BaseType', 'diagram/types/editorView', 'events/eventsBus'], function(
                     },
                     {}
                   )
-
-                  console.log('editor', args)
 
                   that.model.model.methods[name]['args'] = args
                 }

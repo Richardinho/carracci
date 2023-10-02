@@ -1,6 +1,6 @@
 <div data-role="typeEditor-panel" class="typeEditor__panel">
   <div class="typeEditor__header">
-    <h2 class="typeEditor--header">type:</h2>
+    <h2 class="typeEditor--header">type</h2>
   </div>
   <label>
     Name:
@@ -41,19 +41,20 @@
         <th>vis</th>
         <th>name</th>
         <th>type</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
-      <% _.each(properties, function(property) { %>
+      <% _.each(properties, function(property) {
+      console.log(property.visibility)%>
 
       <tr>
         <td>
-          <input
-            name="visibility"
-            list="visibility"
-            type="text"
-            value="<%= property.visibility %>"
-          />
+          <select name="visibility">
+            <% _.each(visibilityOptions, function(visibilityOption) { %>
+            <option <%  print(visibilityOption === property.visibility ? 'selected ' : '' )%>value="<%= visibilityOption %>"><%= visibilityOption %></option>
+            <% })%>
+          </select>
         </td>
         <td><input name="name" type="text" value="<%= property.name %>" /></td>
         <td><input name="type" type="text" value="<%= property.type %>" /></td>
@@ -80,6 +81,7 @@
         <th>name</th>
         <th>args</th>
         <th>returnType</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -89,12 +91,11 @@
 
       <tr>
         <td>
-          <input
-            name="visibility"
-            list="visibility"
-            type="text"
-            value="<%= method.visibility %>"
-          />
+          <select name="visibility">
+              <% _.each(visibilityOptions, function(visibilityOption) { %>
+              <option <%  print(visibilityOption === method.visibility ? 'selected ' : '' )%>value="<%= visibilityOption %>"><%= visibilityOption %></option>
+              <% })%>
+          </select>
         </td>
         <td><input name="name" type="text" value="<%= method.name %>" /></td>
         <td>
@@ -113,12 +114,6 @@
       <% }) %>
     </tbody>
   </table>
-
-  <datalist id="visibility">
-    <option value="private"></option>
-    <option value="protected"></option>
-    <option value="public"></option>
-  </datalist>
 
   <datalist id="flavor">
     <option value="abstract"></option>

@@ -18,8 +18,10 @@
 }
 
 .button, .button--rounded, .argsEditor__button--add, td [type=button] {
+  font-size: 12px;
   border: none;
   outline: none;
+  cursor: pointer;
 }
 .button.button--primary, .button--primary.button--rounded, .button--primary.argsEditor__button--add, td .button--primary[type=button] {
   color: #fff;
@@ -44,6 +46,12 @@
 
 .button--rounded, .argsEditor__button--add, td [type=button] {
   border-radius: 5px;
+}
+
+.buttons {
+  display: flex;
+  gap: 4px;
+  margin-top: 8px;
 }
 
 #menu {
@@ -153,19 +161,11 @@
   width: 50px;
 }
 
-.typeEditor__header {
-  display: table;
-  width: 100%;
-}
 .typeEditor__header h2 {
   font-weight: 700;
-  text-align: center;
   padding-bottom: 12px;
-  font-style: italic;
-  font-size: 20px;
+  font-size: 16px;
   text-transform: capitalize;
-  float: left;
-  margin-right: 12px;
 }
 
 #type-editor {
@@ -184,6 +184,19 @@
   display: table;
   margin: auto;
 }
+.typeEditor__panel label {
+  font-size: 12px;
+}
+.typeEditor__panel input {
+  font-size: 12px;
+  outline: none;
+  line-height: 16px;
+}
+.typeEditor__panel select {
+  width: 100%;
+  border: none;
+  outline: none;
+}
 
 .typeEditor__add {
   float: right;
@@ -194,9 +207,8 @@
   display: flex;
 }
 .typeEditor__property-header h2 {
-  font-style: italic;
+  font-size: 14px;
   font-weight: 700;
-  float: left;
 }
 .typeEditor__property-header .button, .typeEditor__property-header .button--rounded, .typeEditor__property-header .argsEditor__button--add, .typeEditor__property-header td [type=button], td .typeEditor__property-header [type=button] {
   margin-left: auto;
@@ -206,12 +218,18 @@
   width: 100%;
   border-collapse: collapse;
   font-size: 12px;
+  table-layout: fixed;
 }
 .editor__table thead th, .typeEditor_table thead th {
   background: grey;
   border: solid 1px grey;
   color: white;
   padding: 2px;
+}
+.editor__table thead th:last-child, .typeEditor_table thead th:last-child {
+  background: transparent;
+  border: none;
+  width: 50px;
 }
 .editor__table td, .typeEditor_table td {
   border: solid 1px #666;
@@ -220,8 +238,6 @@
   width: 80px;
 }
 .editor__table td input, .typeEditor_table td input {
-  outline: none;
-  font-size: 12px;
   line-height: 20px;
   border: none;
   width: 100%;
@@ -258,11 +274,6 @@
 
 .typeEditor__delete {
   float: right;
-}
-
-.buttons {
-  display: flex;
-  gap: 4px;
 }
 
 * {

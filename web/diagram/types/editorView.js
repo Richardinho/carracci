@@ -38,7 +38,10 @@ define([
 
     render: function(zIndex) {
       // shouldn't have a direct reference to model
-      this.$el.html(this.template(this.model.model))
+      const viewModel = _.extend(this.model.model, {
+        visibilityOptions: ['public', 'private', 'protected'],
+      })
+      this.$el.html(this.template(viewModel))
 
       this.$el.css({ display: 'flex', zIndex: zIndex })
     },
