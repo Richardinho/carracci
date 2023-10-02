@@ -17,34 +17,34 @@
   font-family: arial;
 }
 
-.button, .button--rounded, .argsEditor__button--add, td [type=button] {
+.button, .button--rounded {
   font-size: 12px;
   border: none;
   outline: none;
   cursor: pointer;
 }
-.button.button--primary, .button--primary.button--rounded, .button--primary.argsEditor__button--add, td .button--primary[type=button] {
+.button.button--primary, .button--primary.button--rounded {
   color: #fff;
   background: #777;
 }
-.button.button--primary:hover, .button--primary.button--rounded:hover, .button--primary.argsEditor__button--add:hover, td .button--primary[type=button]:hover {
+.button.button--primary:hover, .button--primary.button--rounded:hover {
   background: #999;
 }
-.button.button--primary:active, .button--primary.button--rounded:active, .button--primary.argsEditor__button--add:active, td .button--primary[type=button]:active {
+.button.button--primary:active, .button--primary.button--rounded:active {
   background: #bbb;
 }
-.button.button--secondary, .button--secondary.button--rounded, .button--secondary.argsEditor__button--add, td .button--secondary[type=button] {
+.button.button--secondary, .button--secondary.button--rounded {
   color: #777;
   background: #fff;
 }
-.button.button--secondary:hover, .button--secondary.button--rounded:hover, .button--secondary.argsEditor__button--add:hover, td .button--secondary[type=button]:hover {
+.button.button--secondary:hover, .button--secondary.button--rounded:hover {
   background: #ddd;
 }
-.button.button--secondary:active, .button--secondary.button--rounded:active, .button--secondary.argsEditor__button--add:active, td .button--secondary[type=button]:active {
+.button.button--secondary:active, .button--secondary.button--rounded:active {
   background: #bbb;
 }
 
-.button--rounded, .argsEditor__button--add, td [type=button] {
+.button--rounded {
   border-radius: 5px;
 }
 
@@ -52,6 +52,37 @@
   display: flex;
   gap: 4px;
   margin-top: 8px;
+}
+
+input {
+  outline: none;
+  line-height: 20px;
+  font-size: 12px;
+  height: 20px;
+}
+
+table {
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: 12px;
+}
+
+thead th {
+  background: grey;
+  border: solid 1px grey;
+  color: white;
+  padding: 2px;
+  font-size: 12px;
+}
+
+td {
+  border: solid 1px #666;
+  background: white;
+}
+td input {
+  border: none;
+  width: 100%;
+  height: 100%;
 }
 
 #menu {
@@ -193,11 +224,6 @@
 .typeEditor__panel label {
   font-size: 12px;
 }
-.typeEditor__panel input {
-  font-size: 12px;
-  outline: none;
-  line-height: 16px;
-}
 
 .typeEditor__add {
   float: right;
@@ -211,40 +237,17 @@
   font-size: 14px;
   font-weight: 700;
 }
-.typeEditor__property-header .button, .typeEditor__property-header .button--rounded, .typeEditor__property-header .argsEditor__button--add, .typeEditor__property-header td [type=button], td .typeEditor__property-header [type=button] {
+.typeEditor__property-header .button, .typeEditor__property-header .button--rounded {
   margin-left: auto;
 }
 
 .editor__table, .typeEditor_table {
   width: 100%;
-  border-collapse: collapse;
-  font-size: 12px;
-  table-layout: fixed;
-}
-.editor__table thead th, .typeEditor_table thead th {
-  background: grey;
-  border: solid 1px grey;
-  color: white;
-  padding: 2px;
 }
 .editor__table thead th:last-child, .typeEditor_table thead th:last-child {
   background: transparent;
   border: none;
   width: 50px;
-}
-.editor__table td, .typeEditor_table td {
-  border: solid 1px #666;
-}
-.editor__table td:first-child, .typeEditor_table td:first-child {
-  width: 80px;
-}
-.editor__table td input, .typeEditor_table td input {
-  line-height: 20px;
-  border: none;
-  width: 100%;
-  height: 100%;
-  height: 20px;
-  font-size: 12px;
 }
 .editor__table td input[type=button], .typeEditor_table td input[type=button] {
   border: none;
@@ -264,6 +267,7 @@
   background: #bbb;
 }
 .editor__table td:last-child, .typeEditor_table td:last-child {
+  background: transparent;
   border: none;
   text-align: center;
 }
@@ -276,10 +280,6 @@
   width: 100%;
   border: none;
   outline: none;
-}
-
-.typeEditor__delete {
-  float: right;
 }
 
 * {
@@ -298,48 +298,44 @@
 
 .argsEditor__table {
   width: 100%;
-  border-collapse: collapse;
 }
-
-td:not(:last-child) {
-  border: solid 1px black;
-  padding: 0;
-  margin: 0;
-  background: white;
-}
-
-td:not(:last-child) input {
+.argsEditor__table thead th:last-child {
+  background: transparent;
   border: none;
-  width: 100%;
-  margin: 0 0 0 0;
-  background: white;
-  padding: 0 2px;
-  outline: none;
+  width: 50px;
 }
-
-td:last-child {
+.argsEditor__table td input[type=button] {
+  border: none;
+  width: 30px;
+  height: 17px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 11px;
+  line-height: 11px;
+  color: #fff;
+  background: #777;
+}
+.argsEditor__table td input[type=button]:hover {
+  background: #999;
+}
+.argsEditor__table td input[type=button]:active {
+  background: #bbb;
+}
+.argsEditor__table td:last-child {
+  background: transparent;
   border: none;
   text-align: right;
 }
 
-td [type=button] {
-  margin: 0 6px;
-}
-
-.argsEditor__button--add {
-  float: right;
-}
-
 .argsEditor__header {
-  float: left;
-  font-style: italic;
-  font-weight: 700;
-  margin: 6px 0;
-  font-size: 14px;
+  display: flex;
+  align-items: flex-start;
 }
-
-.argsEditor__button--add {
-  margin: 6px 0;
+.argsEditor__header h2 {
+  font-weight: bold;
+  font-size: 14px;
+  margin-right: auto;
+  margin-bottom: 8px;
 }
 
 #connector-editor {

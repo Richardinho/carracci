@@ -61,3 +61,37 @@
   gap: 4px;
   margin-top: 8px;
 }
+
+input {
+  outline: none;
+  line-height: 20px;
+  font-size: 12px;
+  height: 20px;
+}
+
+table {
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: 12px;
+}
+
+thead {
+  th {
+    background: grey;
+    border: solid 1px grey;
+    color: white;
+    padding: 2px;
+    font-size: 12px;
+  }
+}
+
+td {
+  border: solid 1px $border-color;
+  background: white;
+
+  input {
+    border: none;
+    width: 100%;
+    height: 100%;
+  }
+}

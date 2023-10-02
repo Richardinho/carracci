@@ -16,52 +16,52 @@
 
 .argsEditor__table {
   width: 100%;
-  border-collapse: collapse;
-}
 
-tbody {
-}
+  thead {
+    th:last-child {
+      background: transparent;
+      border: none;
+      width: 50px;
+    }
+  }
 
-td:not(:last-child) {
-  border: solid 1px black;
-  padding: 0;
-  margin: 0;
-  background: white;
-}
+  td {
+    input[type='button'] {
+      border: none;
+      width: 30px;
+      height: 17px;
+      border-radius: 20px;
+      font-weight: 700;
+      font-size: 11px;
+      line-height: 11px;
+      color: $button-text-color;
+      background: $button-color;
 
-td:not(:last-child) input {
-  border: none;
-  width: 100%;
-  margin: 0 0 0 0;
-  background: white;
-  padding: 0 2px;
-  outline: none;
-}
+      &:hover {
+        background: $button-color--hover;
+      }
 
-td:last-child {
-  border: none;
-  text-align: right;
-}
+      &:active {
+        background: $button-color--active;
+      }
+    }
+  }
 
-td [type='button'] {
-  @extend .button--rounded;
-
-  margin: 0 6px;
-}
-
-.argsEditor__button--add {
-  float: right;
+  td:last-child {
+    background: transparent;
+    border: none;
+    text-align: right;
+  }
 }
 
 .argsEditor__header {
-  float: left;
-  font-style: italic;
-  font-weight: 700;
-  margin: 6px 0;
-  font-size: 14px;
-}
+  display: flex;
+  align-items: flex-start;
 
-.argsEditor__button--add {
-  @extend .button--rounded;
-  margin: 6px 0;
+  h2 {
+    font-weight: bold;
+    font-size: 14px;
+    margin-right: auto;
+    margin-bottom: 8px;
+  }
 }

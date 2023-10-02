@@ -32,12 +32,6 @@
   label {
     font-size: 12px;
   }
-
-  input {
-    font-size: 12px;
-    outline: none;
-    line-height: 16px;
-  }
 }
 
 .typeEditor__add {
@@ -59,18 +53,8 @@
 
 .editor__table {
   width: 100%;
-  border-collapse: collapse;
-  font-size: 12px;
-  table-layout: fixed;
 
   thead {
-    th {
-      background: grey;
-      border: solid 1px grey;
-      color: white;
-      padding: 2px;
-    }
-
     th:last-child {
       background: transparent;
       border: none;
@@ -79,21 +63,6 @@
   }
 
   td {
-    &:first-child {
-      width: 80px;
-    }
-
-    border: solid 1px $border-color;
-
-    input {
-      line-height: 20px;
-      border: none;
-      width: 100%;
-      height: 100%;
-      height: 20px;
-      font-size: 12px;
-    }
-
     input[type='button'] {
       border: none;
       width: 30px;
@@ -115,6 +84,7 @@
     }
 
     &:last-child {
+      background: transparent;
       border: none;
       text-align: center;
     }
@@ -132,8 +102,4 @@
     border: none;
     outline: none;
   }
-}
-
-.typeEditor__delete {
-  float: right;
 }
