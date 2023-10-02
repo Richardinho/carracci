@@ -1,99 +1,67 @@
-    * {
-        box-sizing: border-box;
-    }
+* {
+  box-sizing: border-box;
+}
 
-    .my__container {
+.my__container {
+  @extend .editor__panel;
 
-        @extend .editor__panel;
+  width: 240px;
+}
 
-        width : 240px;
+#args-editor {
+  position: absolute;
+  left: 400px;
+  top: 200px;
+}
 
+.argsEditor__table {
+  width: 100%;
+  border-collapse: collapse;
+}
 
-    }
+tbody {
+}
 
-    #args-editor {
+td:not(:last-child) {
+  border: solid 1px black;
+  padding: 0;
+  margin: 0;
+  background: white;
+}
 
-        position : absolute;
-        left : 400px;
-        top : 200px;
-    }
+td:not(:last-child) input {
+  border: none;
+  width: 100%;
+  margin: 0 0 0 0;
+  background: white;
+  padding: 0 2px;
+  outline: none;
+}
 
-    .argsEditor__table {
+td:last-child {
+  border: none;
+  text-align: right;
+}
 
-        width : 100%;
-        border-collapse : collapse;
+td [type='button'] {
+  @extend .button--rounded;
 
-    }
+  margin: 0 6px;
+}
 
-    tbody {
+.argsEditor__button--add {
+  float: right;
+}
 
+.argsEditor__header {
+  float: left;
+  font-style: italic;
+  font-weight: 700;
+  margin: 6px 0;
+  font-size: 14px;
+}
 
-    }
-
-    .args-editor__button--save  {
-
-        @extend .button--save;
-
-        margin : 6px 6px 6px 0;
-    }
-    .args-editor__button--cancel {
-
-        @extend .button--cancel;
-        margin : 6px 0;
-    }
-
-
-
-    td:not(:last-child) {
-
-        border  : solid 1px black;
-        padding : 0;
-        margin  : 0;
-        background : white;
-
-
-    }
-
-    td:not(:last-child) input {
-
-        border : none;
-        width  : 100%;
-        margin : 0 0 0 0;
-        background : white;
-        padding : 0 2px;
-        outline: none;
-    }
-
-    td:last-child {
-
-        border : none;
-        text-align : right;
-    }
-
-    td [type=button] {
-
-        @extend .button--rounded;
-
-        margin : 0 6px;
-    }
-
-    .argsEditor__button--add {
-
-        float : right;
-    }
-
-    .argsEditor__header {
-
-        float : left;
-        font-style : italic;
-        font-weight : 700;
-        margin : 6px 0;
-        font-size : 14px;
-    }
-
-    .argsEditor__button--add {
-
-        @extend .button--rounded;
-        margin : 6px 0;
-
-    }
+.argsEditor__button--add {
+  @extend .button--rounded;
+  margin: 6px 0;
+}

@@ -20,16 +20,30 @@
 .button {
   border: none;
   outline: none;
-  color: white;
+  &.button--primary {
+    color: $button-text-color;
+    background: $button-color;
 
-  background: $button-color;
+    &:hover {
+      background: $button-color--hover;
+    }
 
-  &:hover {
-    background: $button-color--hover;
+    &:active {
+      background: $button-color--active;
+    }
   }
 
-  &:active {
-    background: $button-color--active;
+  &.button--secondary {
+    color: $button-text-color-secondary;
+    background: $button-color-secondary;
+
+    &:hover {
+      background: $button-color-secondary-hover;
+    }
+
+    &:active {
+      background: $button-color-secondary-active;
+    }
   }
 }
 
@@ -37,13 +51,4 @@
   @extend .button;
 
   border-radius: 5px;
-}
-
-.button--save {
-  @extend .button;
-  padding: 3px 6px;
-}
-.button--cancel {
-  @extend .button;
-  padding: 3px 6px;
 }

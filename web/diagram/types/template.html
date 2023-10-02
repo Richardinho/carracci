@@ -27,7 +27,13 @@
 
   <div class="typeEditor__property-header">
     <h2>Properties</h2>
-    <button data-role="add-prop" class="typeEditor__add">add Property</button>
+    <button
+      class="button button--secondary"
+      data-role="add-prop"
+      class="typeEditor__add"
+    >
+      add Property
+    </button>
   </div>
   <table data-role="property-table" class="typeEditor_table">
     <thead>
@@ -35,7 +41,6 @@
         <th>vis</th>
         <th>name</th>
         <th>type</th>
-        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -60,7 +65,13 @@
   </table>
   <div class="typeEditor__property-header">
     <h2>Methods</h2>
-    <button data-role="add-method" class="typeEditor__add">add Method</button>
+    <button
+      class="button button--secondary"
+      data-role="add-method"
+      class="typeEditor__add"
+    >
+      add Method
+    </button>
   </div>
   <table data-role="method-table" class="typeEditor_table">
     <thead>
@@ -116,9 +127,17 @@
   </datalist>
 
   <div class="buttons">
-    <button class="button--save" data-role="save">save</button>
-    <button class="button--cancel" data-role="cancel">cancel</button>
-    <button class="button--note" data-role="add-note">add note</button>
-    <button data-role="delete" class="typeEditor__delete">delete</button>
+    <button class="button button--primary" data-role="save">save</button>
+    <button class="button button--secondary" data-role="cancel">cancel</button>
+    <button class="button button--secondary" data-role="add-note">
+      add note
+    </button>
+    <button
+      class="button button--secondary"
+      data-role="delete"
+      class="typeEditor__delete"
+    >
+      delete
+    </button>
   </div>
 </div>

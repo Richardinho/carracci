@@ -1,32 +1,27 @@
 define(function() {
+  'use strict'
 
-    "use strict";
+  return function() {
+    return {
+      title: 'default',
 
-    return function () {
+      description: 'default',
 
-        return {
+      author: 'default',
 
-            title : "default",
+      width: 300,
 
-            description : "default",
+      fontSize: '12',
 
-            author : "default",
+      created: 'default',
 
-            width   : 300,
+      fontFamily: 'arial',
 
-            fontSize : "12",
+      paddingHorizontal: 12,
 
-            created : "default",
+      xCood: '0',
 
-            fontFamily : "arial",
-
-            paddingHorizontal : 12,
-
-            xCood : "0",
-
-            yCood : "0"
-
-         };
-     };
-
-});
+      yCood: '0',
+    }
+  }
+})

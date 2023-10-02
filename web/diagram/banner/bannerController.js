@@ -1,109 +1,88 @@
-define([
-    "BaseType",
-    'utility/svg',
-    "events/eventsBus"
-    ],
+define(['BaseType', 'utility/svg', 'events/eventsBus'], function(
+  BaseType,
+  paper,
+  events
+) {
+  'use strict'
 
-    function (
-        BaseType,
-        paper,
-        events
-    ) {
-
-    "use strict";
-
-        /*
+  /*
 
         todo: Some explanation of what this does please!
          */
 
-
-    return BaseType.extend(
-        /** @lends BannerController.prototype */
+  return BaseType.extend(
+    /** @lends BannerController.prototype */
     {
+      /**
+       *
+       *
+       * @augments external:BaseType
+       * @constructs
+       */
+      initialize: function(options) {
+        this.artifactType = 'banner'
 
-        /**
-         *
-         *
-         * @augments external:BaseType
-         * @constructs
-         */
-        initialize : function (options) {
+        this.model = options.model
+        this.view = options.view
 
-            this.artifactType = "banner";
+        this.proxyEl = this._createProxyEl()
 
-            this.model = options.model;
-            this.view = options.view;
+        this.proxyEl.dblclick(function() {
+          events.trigger('dblclick:banner', this.model)
+        }, this)
 
-            this.proxyEl = this._createProxyEl();
+        events.on('destroy', this.onGlobalDestroy, this)
 
-            this.proxyEl.dblclick(function () {
+        this.model.on('destroy', this.destroy, this)
+      },
 
-                events.trigger("dblclick:banner", this.model);
+      _createProxyEl: function() {
+        var rect = paper.rect(
+          this.model.getXCood(),
+          this.model.getYCood(),
+          this.model.getWidth(),
+          this.model.height
+        )
+        rect.attr({ fill: 'red', opacity: 0 })
+        this._dragger(rect)
+        return rect
+      },
 
+      onGlobalDestroy: function() {
+        this.model.trigger('destroy')
+      },
 
-            }, this);
+      destroy: function() {
+        this.proxyEl.remove()
+      },
 
-            events.on("destroy", this.onGlobalDestroy, this);
+      _dragger: function dragger(c) {
+        var startX, startY
 
-            this.model.on("destroy", this.destroy, this);
-        },
+        function onMove(dx, dy) {
+          var x = startX + dx
+          var y = startY + dy
 
-        _createProxyEl : function () {
+          c.attr({
+            x: x,
+            y: y,
+          })
 
-            var rect = paper.rect(this.model.getXCood(), this.model.getYCood(), this.model.getWidth(), this.model.height);
-            rect.attr({ fill : "red", opacity : 0 });
-            this._dragger(rect);
-            return rect;
+          this.model.setCoods(x, y)
+        }
 
-        },
+        function onStart() {
+          startX = parseInt(c.attr('x'))
+          startY = parseInt(c.attr('y'))
+        }
+        function onEnd() {
+          startX = null
+          startY = null
+        }
 
-        onGlobalDestroy : function () {
-
-            this.model.trigger('destroy');
-        },
-
-        destroy : function () {
-
-           this.proxyEl.remove();
-
-        },
-
-        _dragger : function dragger(c) {
-
-
-
-           var startX, startY;
-
-           function onMove (dx, dy) {
-               var x = startX + dx;
-               var y = startY + dy;
-
-               c.attr({
-
-                   x : x,
-                   y : y
-
-               });
-
-               this.model.setCoods(x, y);
-
-           }
-
-           function onStart () {
-               startX = parseInt(c.attr("x"));
-               startY = parseInt(c.attr("y"));
-           }
-           function onEnd () {
-               startX = null;
-               startY = null;
-           }
-
-           c.drag($.proxy(onMove, this), onStart, onEnd);
-           c.attr('cursor', 'move');
-
-       }
-
-    });
-});
-
+        c.drag($.proxy(onMove, this), onStart, onEnd)
+        c.attr('cursor', 'move')
+      },
+    }
+  )
+})

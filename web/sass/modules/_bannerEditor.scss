@@ -1,66 +1,54 @@
 #banner-editor {
-
-    position : absolute;
-    left : 400px;
-    top : 300px;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
-
 
 .bannerEditor__panel {
-
-    width : 500px;
-    background : $form-background;
-    padding : 12px;
-    border-radius : 4px;
-    border : solid 1px $border-color;
-    margin : 200px auto;
-    display : table;
-}
-
-.bannerEditor__textarea {
-
-    outline : none;
-    resize  : none;
-    width : 100%;
-    padding : 6px;
-}
-
-.bannerEditor__text-input {
-
-    width : 100%;
-}
-
-.label {
-    float :left ;
-    width : 50%;
-}
-
-.label:nth-child(odd) {
-
-    padding-left : 2px;
-}
-
-
-.label:nth-child(even) {
-
-    padding-right : 2px;
-}
-
-.label--text-area {
-    float : left;
-    display : block;
-    width : 100%;
-}
-
-
-
-.bannerEditor__delete {
-    float : right;
+  width: 500px;
+  background: $form-background;
+  padding: 12px;
+  border-radius: 4px;
+  border: solid 1px $border-color;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
 }
 
 .bannerEditor--header {
+  padding: 6px 0;
+  font-weight: 700;
+  font-style: italic;
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
 
-    padding : 6px 0;
-    font-weight : 700;
-    font-style : italic;
+.bannerEditor__textarea {
+  outline: none;
+  resize: none;
+  width: 100%;
+  padding: 6px;
+}
+
+.bannerEditor__text-input {
+  width: 100%;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.label--text-area {
+  grid-row-start: 4;
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+.bannerEditor__buttons {
+  grid-row-start: 5;
+  grid-column-start: 1;
+  grid-column-end: 3;
 }

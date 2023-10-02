@@ -1,102 +1,80 @@
-define([
-    "utility/nodeWrapper"
-    ],
+define(['utility/nodeWrapper'], function(NodeWrapper) {
+  'use strict'
 
-    function (
-        NodeWrapper
-    ) {
+  return NodeWrapper.extend(
+    /** @lends NoteModel.prototype */ {
+      /**
+       *
+       * @augments external:NodeWrapper
+       * @constructs
+       */
+      initialize: function(options) {
+        NodeWrapper.prototype.initialize.call(this, options)
 
-    "use strict";
+        this.x = 0
+        this.y = 0
+        this.height = 100
+      },
 
-    return NodeWrapper.extend(/** @lends NoteModel.prototype */{
+      getHeight: function() {
+        return this.height
+      },
 
-        /**
-         *
-         * @augments external:NodeWrapper
-         * @constructs
-         */
-        initialize : function (options) {
+      getWidth: function() {
+        return this.get('width')
+      },
 
-            NodeWrapper.prototype.initialize.call(this, options);
+      setText: function(text) {
+        this.set('text', text)
+      },
 
-            this.x = 0;
-            this.y = 0;
-            this.height = 100;
-        },
+      save: function(text, width) {
+        this.setText(text)
+        this.setWidth(width)
+        this.trigger('save')
+        this.trigger('update:position')
+      },
 
-        getHeight : function () {
+      setWidth: function(width) {
+        isNaN(parseInt(width, 10))
+          ? this.set('width', 200)
+          : this.set('width', width)
+      },
 
-            return this.height;
-        },
+      getText: function() {
+        return this.get('text')
+      },
 
-        getWidth : function () {
+      getType: function() {
+        return this.get('type')
+      },
 
-            return this.get('width');
-        },
+      setCoods: function(x, y) {
+        this.setXCood(x)
+        this.setYCood(y)
+        this.trigger('update:position')
+      },
 
-        setText : function (text) {
+      setXCood: function(x) {
+        this.set('xCood', x)
+      },
 
-            this.set('text', text);
-        },
+      setYCood: function(y) {
+        this.set('yCood', y)
+      },
 
-        save : function (text, width) {
+      getXCood: function() {
+        return parseInt(this.get('xCood'), 10)
+      },
 
-            this.setText(text);
-            this.setWidth(width);
-            this.trigger("save");
-            this.trigger("update:position");
-        },
+      getYCood: function() {
+        return parseInt(this.get('yCood'), 10)
+      },
 
-        setWidth : function(width) {
-
-            isNaN(parseInt(width, 10)) ? this.set('width', 200) :  this.set('width', width);
-        },
-
-        getText : function () {
-
-            return this.get('text');
-        },
-
-        getType : function () {
-
-            return this.get('type');
-        },
-
-        setCoods : function (x, y) {
-
-            this.setXCood(x);
-            this.setYCood(y);
-            this.trigger("update:position");
-        },
-
-        setXCood : function (x) {
-
-            this.set('xCood', x);
-        },
-
-        setYCood : function (y) {
-
-            this.set('yCood', y);
-        },
-
-        getXCood : function () {
-
-            return parseInt(this.get('xCood'), 10);
-        },
-
-
-        getYCood : function () {
-
-            return parseInt(this.get('yCood'), 10);
-        },
-
-        setHeight : function (height) {
-
-            this.height = height;
-            this.trigger("change:dimensions");
-        }
-
-
-    });
-});
-
+      setHeight: function(height) {
+        this.height = height
+        this.trigger('change:dimensions')
+      },
+    }
+  )
+})

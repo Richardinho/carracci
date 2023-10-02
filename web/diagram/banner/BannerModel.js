@@ -1,93 +1,93 @@
-define(["utility/nodeWrapper"], function (NodeWrapper) {
+define(['utility/nodeWrapper'], function(NodeWrapper) {
   return NodeWrapper.extend({
-    initialize: function (options) {
-      NodeWrapper.prototype.initialize.call(this, options);
+    initialize: function(options) {
+      NodeWrapper.prototype.initialize.call(this, options)
 
-      this.height = 100;
+      this.height = 100
     },
 
-    save: function (result) {
-      this.setTitle(result.title);
-      this.setCreated(result.created);
-      this.setAuthor(result.author);
-      this.setDescription(result.description);
+    save: function(result) {
+      this.setTitle(result.title)
+      this.setCreated(result.created)
+      this.setAuthor(result.author)
+      this.setDescription(result.description)
 
-      this.trigger("showbanner");
+      this.trigger('showbanner')
     },
 
-    getXCood: function () {
-      return parseInt(this.get("xCood"), 10);
+    getXCood: function() {
+      return parseInt(this.get('xCood'), 10)
     },
 
-    setCoods: function (x, y) {
-      this.setXCood(x);
-      this.setYCood(y);
-      this.trigger("update:position");
+    setCoods: function(x, y) {
+      this.setXCood(x)
+      this.setYCood(y)
+      this.trigger('update:position')
     },
 
-    setXCood: function (x) {
-      this.set("xCood", x);
+    setXCood: function(x) {
+      this.set('xCood', x)
     },
 
-    setYCood: function (y) {
-      this.set("yCood", y);
+    setYCood: function(y) {
+      this.set('yCood', y)
     },
 
-    getYCood: function () {
-      return parseInt(this.get("yCood"), 10);
+    getYCood: function() {
+      return parseInt(this.get('yCood'), 10)
     },
 
-    setDescription: function (description) {
-      this.set("description", description);
+    setDescription: function(description) {
+      this.set('description', description)
     },
 
-    getAuthor: function () {
-      return this.get("author");
+    getAuthor: function() {
+      return this.get('author')
     },
 
-    setAuthor: function (author) {
-      this.set("author", author);
+    setAuthor: function(author) {
+      this.set('author', author)
     },
 
-    getFontFamily: function () {
-      return "arial";
+    getFontFamily: function() {
+      return 'arial'
     },
 
-    getDescription: function () {
-      return this.get("description");
+    getDescription: function() {
+      return this.get('description')
     },
 
-    getPaddingHorizontal: function () {
-      return 12;
+    getPaddingHorizontal: function() {
+      return 12
     },
 
-    getCreated: function () {
-      return this.get("created");
+    getCreated: function() {
+      return this.get('created')
     },
 
-    setCreated: function (created) {
-      this.set("created", created);
+    setCreated: function(created) {
+      this.set('created', created)
     },
 
-    getTitleFontSize: function () {
-      return 12;
+    getTitleFontSize: function() {
+      return 12
     },
 
     // should be in CSS
-    getTitleFontFamily: function () {
-      return "arial";
+    getTitleFontFamily: function() {
+      return 'arial'
     },
 
-    getWidth: function () {
-      return 300;
+    getWidth: function() {
+      return 300
     },
 
-    getTitleText: function () {
-      return this.get("title");
+    getTitleText: function() {
+      return this.get('title')
     },
 
-    setTitle: function (title) {
-      this.set("title", title);
+    setTitle: function(title) {
+      this.set('title', title)
     },
-  });
-});
+  })
+})

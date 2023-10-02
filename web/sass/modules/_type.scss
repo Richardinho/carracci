@@ -37,14 +37,15 @@
 
 .typeEditor__property-header {
   margin-top: 12px;
+  display: flex;
   h2 {
     font-style: italic;
     font-weight: 700;
     float: left;
   }
 
-  .typeEditor__add {
-    float: right;
+  .button {
+    margin-left: auto;
   }
 }
 
@@ -88,12 +89,15 @@
       font-weight: 700;
       font-size: 11px;
       line-height: 11px;
-      color: white;
-      background: #666;
+      color: $button-text-color;
+      background: $button-color;
 
       &:hover {
-        /* TODO: have standard hover color for buttons */
-        background: pink;
+        background: $button-color--hover;
+      }
+
+      &:active {
+        background: $button-color--active;
       }
     }
 

@@ -1,34 +1,26 @@
-define([
-    "BaseType",
-    "text!diagram/banner/editorTemplate.html"
-    ], function (
-        BaseType,
-        template
-        ) {
+define(['BaseType', 'text!diagram/banner/editorTemplate.html'], function(
+  BaseType,
+  template
+) {
+  'use strict'
 
-            "use strict";
+  return BaseType.extend({
+    initialize: function(options) {
+      this.$el = options.el
+      this.$el.hide()
+    },
 
-            return BaseType.extend({
+    template: _.template(template),
 
-                initialize : function (options) {
+    show: function(stackingOrder, model) {
+      this.$el.html(this.template(model.model))
 
-                    this.$el = options.el;
-                    this.$el.hide();
-                },
+      this.$el.css({ zIndex: stackingOrder })
+      this.$el.show()
+    },
 
-                template : _.template(template),
-
-                show : function (stackingOrder, model) {
-
-                    this.$el.html(this.template(model.model));
-
-                    this.$el.css({ zIndex : stackingOrder });
-                    this.$el.show();
-                },
-
-                hide : function () {
-
-                    this.$el.hide();
-                }
-            });
-        });
+    hide: function() {
+      this.$el.hide()
+    },
+  })
+})
