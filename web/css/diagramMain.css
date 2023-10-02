@@ -1,3 +1,14 @@
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
 .overlay {
   position: fixed;
   z-index: 100;
@@ -280,10 +291,6 @@ td input {
   width: 100%;
   border: none;
   outline: none;
-}
-
-* {
-  box-sizing: border-box;
 }
 
 .my__container {
