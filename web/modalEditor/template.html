@@ -1,17 +1,14 @@
 <div class="modalEditor">
   <div data-role="editor-panel" class="modalEditor__panel">
-    edit this text and click save to update note
+    <h2>edit this text and click save to update note</h2>
 
     <textarea data-role="contents" rows="10" class="modalEditor__textarea">
 <%=  contents %></textarea
     >
-    <label
-      >width:<input
-        class="modalEditor__width"
-        data-role="width"
-        type="text"
-        value=""
-    /></label>
+
+    <label>width</label>
+    <input class="modalEditor__width" data-role="width" type="text" value="" />
+
     <div class="buttons">
       <button class="button button--primary" data-role="save">save</button>
       <button class="button button--secondary" data-role="cancel">

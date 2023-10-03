@@ -1,9 +1,9 @@
 <div data-role="typeEditor-panel" class="typeEditor__panel">
-  <div class="typeEditor__header">
-    <h2 class="typeEditor--header">type</h2>
-  </div>
-  <label>
-    Name:
+  <h2 class="typeEditor__header">type</h2>
+  <div class="typeEditor__foo">
+    <label>
+      Name
+    </label>
     <input
       data-role="typeName"
       name="name"
@@ -11,17 +11,15 @@
       class="text-input"
       type="text"
     />
-  </label>
-
-  <label>
-    Flavor:
+    <label>
+      Flavor
+    </label>
     <select class="typeEditor__select--standalone" name="flavor">
       <option value="abstract">abstract</option>
       <option value="interface">interface</option>
       <option value="class">class</option>
     </select>
-
-  </label>
+  </div>
 
   <div class="typeEditor__property-header">
     <h2>Properties</h2>

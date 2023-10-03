@@ -69,6 +69,15 @@ input {
   height: 20px;
 }
 
+label {
+  font-size: 12px;
+  margin-right: 4px;
+  line-height: 16px;
+  &:after {
+    content: ':';
+  }
+}
+
 table {
   border-collapse: collapse;
   table-layout: fixed;

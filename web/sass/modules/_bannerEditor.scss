@@ -17,9 +17,10 @@
 }
 
 .bannerEditor--header {
-  padding: 6px 0;
   font-weight: 700;
-  font-style: italic;
+  padding-bottom: 12px;
+  font-size: 16px;
+  text-transform: capitalize;
   grid-column-start: 1;
   grid-column-end: 3;
 }
@@ -32,12 +33,6 @@
 }
 
 .bannerEditor__text-input {
-  width: 100%;
-}
-
-.label {
-  display: flex;
-  flex-direction: column;
   width: 100%;
 }
 

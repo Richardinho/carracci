@@ -1,46 +1,51 @@
 <div data-role="bannerEditor-panel" class="bannerEditor__panel">
   <h2 class="bannerEditor--header">Input banner details below:</h2>
-  <label class="label">
-    <span class="label--caption">banner title</span>
+  <div>
+    <label for="banner-title"> banner title </label>
     <input
+      id="banner-title"
       name="title"
       value="<%= title %>"
       class="bannerEditor__text-input"
       type="text"
     />
-  </label>
+  </div>
 
-  <label class="label">
-    <span class="label--caption">author</span>
+  <div>
+    <label for="banner-author"> author </label>
     <input
+      id="banner-author"
       name="author"
       value="<%= author %>"
       class="bannerEditor__text-input"
       type="text"
     />
-  </label>
+  </div>
 
-  <label class="label">
-    <span class="label--caption">creation date</span>
+  <div>
+    <label for="banner-date"> creation date </label>
     <input
+      id="banner-date"
       name="created"
       value="<%= created %>"
       class="bannerEditor__text-input"
       type="text"
     />
-  </label>
+  </div>
 
-  <label class="label--text-area">
-    <span>banner contents</span>
+  <div class="label--text-area">
+    <label for="banner-contents"> banner contents </label>
     <textarea
+      id="banner-contents"
       name="description"
       data-role="contents"
       rows="10"
       class="bannerEditor__textarea"
     >
-<%= description %></textarea
+        <%= description %></textarea
     >
-  </label>
+  </div>
+
   <div class="bannerEditor__buttons">
     <button class="button button--primary" data-role="save">save</button>
     <button class="button button--secondary" data-role="cancel">cancel</button>

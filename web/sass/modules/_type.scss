@@ -1,18 +1,3 @@
-.typeEditor__header {
-  h2 {
-    font-weight: 700;
-    padding-bottom: 12px;
-    font-size: 16px;
-    text-transform: capitalize;
-  }
-}
-
-.typeEditor__select--standalone {
-  outline: none;
-  height: 22px;
-  font-size: 12px;
-}
-
 #type-editor {
   display: flex;
   position: absolute;
@@ -26,21 +11,38 @@
   padding: $padding-horizontal;
   border-radius: 4px;
   border: solid 1px $border-color;
-  display: table;
+  display: grid;
   margin: auto;
 
-  label {
-    font-size: 12px;
-  }
+  grid-template-columns: 1fr 1fr;
 }
 
-.typeEditor__add {
-  float: right;
+.typeEditor__header {
+  font-weight: 700;
+  padding-bottom: 12px;
+  font-size: 16px;
+  text-transform: capitalize;
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+.typeEditor__foo {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+.typeEditor__select--standalone {
+  outline: none;
+  height: 22px;
+  font-size: 12px;
 }
 
 .typeEditor__property-header {
+  grid-column-start: 1;
+  grid-column-end: 3;
   margin-top: 12px;
   display: flex;
+
   h2 {
     font-size: 14px;
     font-weight: 700;
@@ -51,8 +53,12 @@
   }
 }
 
-.editor__table {
+.typeEditor_table {
   width: 100%;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  margin-top: 12px;
+  margin-bottom: 12px;
 
   thead {
     th:last-child {
@@ -89,13 +95,6 @@
       text-align: center;
     }
   }
-}
-
-.typeEditor_table {
-  @extend .editor__table;
-
-  margin-top: 12px;
-  margin-bottom: 12px;
 
   select {
     width: 100%;
