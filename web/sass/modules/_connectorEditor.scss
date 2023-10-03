@@ -5,6 +5,13 @@
 }
 
 .connector-editor__panel {
+  h2 {
+    font-size: 14px;
+    line-height: 18px;
+    margin-bottom: 12px;
+    font-weight: 700;
+  }
+
   width: 200px;
   background: $form-background;
   padding: $padding-horizontal;
@@ -12,4 +19,3 @@
   border: solid 1px $border-color;
   display: table;
 }
-

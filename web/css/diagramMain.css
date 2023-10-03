@@ -18,7 +18,8 @@ html {
   width: 100%;
 }
 
-.editor__panel, .my__container {
+.editor__panel,
+.my__container {
   background: #ddd;
   position: absolute;
   z-index: 100;
@@ -28,30 +29,37 @@ html {
   font-family: arial;
 }
 
-.button, .button--rounded {
+.button,
+.button--rounded {
   font-size: 12px;
   border: none;
   outline: none;
   cursor: pointer;
 }
-.button.button--primary, .button--primary.button--rounded {
+.button.button--primary,
+.button--primary.button--rounded {
   color: #fff;
   background: #777;
 }
-.button.button--primary:hover, .button--primary.button--rounded:hover {
+.button.button--primary:hover,
+.button--primary.button--rounded:hover {
   background: #999;
 }
-.button.button--primary:active, .button--primary.button--rounded:active {
+.button.button--primary:active,
+.button--primary.button--rounded:active {
   background: #bbb;
 }
-.button.button--secondary, .button--secondary.button--rounded {
+.button.button--secondary,
+.button--secondary.button--rounded {
   color: #777;
   background: #fff;
 }
-.button.button--secondary:hover, .button--secondary.button--rounded:hover {
+.button.button--secondary:hover,
+.button--secondary.button--rounded:hover {
   background: #ddd;
 }
-.button.button--secondary:active, .button--secondary.button--rounded:active {
+.button.button--secondary:active,
+.button--secondary.button--rounded:active {
   background: #bbb;
 }
 
@@ -248,19 +256,23 @@ td input {
   font-size: 14px;
   font-weight: 700;
 }
-.typeEditor__property-header .button, .typeEditor__property-header .button--rounded {
+.typeEditor__property-header .button,
+.typeEditor__property-header .button--rounded {
   margin-left: auto;
 }
 
-.editor__table, .typeEditor_table {
+.editor__table,
+.typeEditor_table {
   width: 100%;
 }
-.editor__table thead th:last-child, .typeEditor_table thead th:last-child {
+.editor__table thead th:last-child,
+.typeEditor_table thead th:last-child {
   background: transparent;
   border: none;
   width: 50px;
 }
-.editor__table td input[type=button], .typeEditor_table td input[type=button] {
+.editor__table td input[type='button'],
+.typeEditor_table td input[type='button'] {
   border: none;
   width: 30px;
   height: 17px;
@@ -271,13 +283,16 @@ td input {
   color: #fff;
   background: #777;
 }
-.editor__table td input[type=button]:hover, .typeEditor_table td input[type=button]:hover {
+.editor__table td input[type='button']:hover,
+.typeEditor_table td input[type='button']:hover {
   background: #999;
 }
-.editor__table td input[type=button]:active, .typeEditor_table td input[type=button]:active {
+.editor__table td input[type='button']:active,
+.typeEditor_table td input[type='button']:active {
   background: #bbb;
 }
-.editor__table td:last-child, .typeEditor_table td:last-child {
+.editor__table td:last-child,
+.typeEditor_table td:last-child {
   background: transparent;
   border: none;
   text-align: center;
@@ -311,7 +326,7 @@ td input {
   border: none;
   width: 50px;
 }
-.argsEditor__table td input[type=button] {
+.argsEditor__table td input[type='button'] {
   border: none;
   width: 30px;
   height: 17px;
@@ -322,10 +337,10 @@ td input {
   color: #fff;
   background: #777;
 }
-.argsEditor__table td input[type=button]:hover {
+.argsEditor__table td input[type='button']:hover {
   background: #999;
 }
-.argsEditor__table td input[type=button]:active {
+.argsEditor__table td input[type='button']:active {
   background: #bbb;
 }
 .argsEditor__table td:last-child {
@@ -358,6 +373,13 @@ td input {
   border-radius: 4px;
   border: solid 1px #666;
   display: table;
+}
+
+.connector-editor__panel h2 {
+  font-size: 14px;
+  line-height: 18px;
+  margin-bottom: 12px;
+  font-weight: 700;
 }
 
 #viewer {
@@ -480,7 +502,7 @@ body {
   margin: auto;
 }
 .nav-bar--link-icon:before {
-  content: "";
+  content: '';
   position: absolute;
   left: 0;
   top: 0;
