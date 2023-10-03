@@ -5,84 +5,71 @@ define(['BaseType', 'utility/svg', 'events/eventsBus'], function(
 ) {
   'use strict'
 
-  /*
+  return BaseType.extend({
+    initialize: function(options) {
+      this.artifactType = 'banner'
 
-        todo: Some explanation of what this does please!
-         */
+      this.model = options.model
+      this.view = options.view
 
-  return BaseType.extend(
-    /** @lends BannerController.prototype */
-    {
-      /**
-       *
-       *
-       * @augments external:BaseType
-       * @constructs
-       */
-      initialize: function(options) {
-        this.artifactType = 'banner'
+      this.proxyEl = this._createProxyEl()
 
-        this.model = options.model
-        this.view = options.view
+      this.proxyEl.dblclick(function() {
+        events.trigger('dblclick:banner', this.model)
+      }, this)
 
-        this.proxyEl = this._createProxyEl()
+      events.on('destroy', this.onGlobalDestroy, this)
 
-        this.proxyEl.dblclick(function() {
-          events.trigger('dblclick:banner', this.model)
-        }, this)
+      this.model.on('destroy', this.destroy, this)
+    },
 
-        events.on('destroy', this.onGlobalDestroy, this)
+    _createProxyEl: function() {
+      var rect = paper.rect(
+        this.model.getXCood(),
+        this.model.getYCood(),
+        this.model.getWidth(),
+        this.model.height
+      )
+      rect.attr({ fill: 'red', opacity: 0 })
+      this._dragger(rect)
+      return rect
+    },
 
-        this.model.on('destroy', this.destroy, this)
-      },
+    onGlobalDestroy: function() {
+      this.model.trigger('destroy')
+    },
 
-      _createProxyEl: function() {
-        var rect = paper.rect(
-          this.model.getXCood(),
-          this.model.getYCood(),
-          this.model.getWidth(),
-          this.model.height
-        )
-        rect.attr({ fill: 'red', opacity: 0 })
-        this._dragger(rect)
-        return rect
-      },
+    destroy: function() {
+      events.off('destroy', this.onGlobalDestroy, this)
+      this.proxyEl.remove()
+    },
 
-      onGlobalDestroy: function() {
-        this.model.trigger('destroy')
-      },
+    _dragger: function dragger(c) {
+      var startX, startY
 
-      destroy: function() {
-        this.proxyEl.remove()
-      },
+      function onMove(dx, dy) {
+        var x = startX + dx
+        var y = startY + dy
 
-      _dragger: function dragger(c) {
-        var startX, startY
+        c.attr({
+          x: x,
+          y: y,
+        })
 
-        function onMove(dx, dy) {
-          var x = startX + dx
-          var y = startY + dy
+        this.model.setCoods(x, y)
+      }
 
-          c.attr({
-            x: x,
-            y: y,
-          })
+      function onStart() {
+        startX = parseInt(c.attr('x'))
+        startY = parseInt(c.attr('y'))
+      }
+      function onEnd() {
+        startX = null
+        startY = null
+      }
 
-          this.model.setCoods(x, y)
-        }
-
-        function onStart() {
-          startX = parseInt(c.attr('x'))
-          startY = parseInt(c.attr('y'))
-        }
-        function onEnd() {
-          startX = null
-          startY = null
-        }
-
-        c.drag($.proxy(onMove, this), onStart, onEnd)
-        c.attr('cursor', 'move')
-      },
-    }
-  )
+      c.drag($.proxy(onMove, this), onStart, onEnd)
+      c.attr('cursor', 'move')
+    },
+  })
 })

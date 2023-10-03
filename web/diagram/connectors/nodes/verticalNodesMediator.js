@@ -37,7 +37,6 @@ define([
 
     // called from node controller
     removeBoxNodeMediator: function(orientation) {
-      console.log('removeBoxNodeMediator', orientation)
       if (orientation === 'top') {
         this.topArrowModel.setAttached(false)
         this.topArrowModel.model['attachedBox'] = null

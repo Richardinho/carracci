@@ -115,6 +115,10 @@ define([
       this.diagramModel.deleteConnector(connectorId)
     },
 
+    deleteBanner: function() {
+      this.diagramModel.deleteBanner()
+    },
+
     bannerExists: function() {
       return this.diagramModel.bannerExists()
     },

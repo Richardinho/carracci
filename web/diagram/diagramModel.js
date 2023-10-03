@@ -179,6 +179,10 @@ define([
       delete this.currentDiagram['notes'][id]
     },
 
+    deleteBanner: function() {
+      delete this.currentDiagram['banner']
+    },
+
     /*
      * creates a type
      * @returns {Object} object literal with default configuration for type.

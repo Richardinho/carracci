@@ -30,8 +30,6 @@ define([
     },
 
     destroy: function() {
-      console.log('node view destroy')
-
       if (this.model.isArrowNode()) {
         this.arrow.destroy()
       }

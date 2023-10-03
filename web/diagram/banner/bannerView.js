@@ -41,6 +41,7 @@ define(['BaseType', 'utility/banner'], function(BaseType, Banner) {
 
     destroy: function() {
       this.model.off()
+
       this.svgElement.destroy()
     },
 
